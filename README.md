@@ -24,7 +24,7 @@ Homepage content is driven by `data/site.json` and rendered by `site.js`.
 
 ## Edit The Homepage
 
-- Update `data/site.json` to change the hero copy, profile text, external buttons, project cards, order, or note.
+- Update `data/site.json` to change the hero copy, profile text, external buttons, writing links, project cards, order, or note.
 - Use `status: "live"` to show a project on the homepage.
 - Use `status: "draft"` or `status: "hidden"` to keep a project in the data file without showing it on the homepage.
 - Use the existing card themes: `copper`, `teal`, `olive`, `slate`.

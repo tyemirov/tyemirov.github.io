@@ -31,6 +31,7 @@ function renderSite(siteData) {
   renderSiteMeta(siteData.site);
   renderHero(siteData.hero);
   renderProfile(siteData.profile);
+  renderArticles(siteData.articles);
   renderProjects(siteData.projects);
   renderNote(siteData.note);
 }
@@ -155,13 +156,41 @@ function renderProjects(projects) {
   projectGrid.replaceChildren(...liveProjects.map(createProjectCard));
 }
 
+function renderArticles(articles) {
+  if (!articles || typeof articles !== "object") {
+    return;
+  }
+
+  const items = Array.isArray(articles.items)
+    ? articles.items
+        .filter((article) => !article.status || article.status === "live")
+        .sort(byOrder)
+    : [];
+
+  if (!items.length) {
+    return;
+  }
+
+  updateText(".writing-section .notes-label", articles.label);
+  updateText(".writing-section .section-title", articles.title);
+
+  const writingSection = document.querySelector(".writing-section");
+  const articleList = document.querySelector(".article-list");
+  if (!writingSection || !articleList) {
+    return;
+  }
+
+  articleList.replaceChildren(...items.map(createArticleCard));
+  writingSection.classList.remove("is-hidden");
+}
+
 function renderNote(note) {
   if (!note || typeof note !== "object") {
     return;
   }
 
-  updateText(".notes-label", note.label);
-  updateText(".notes-copy", note.body);
+  updateText(".notes-panel .notes-label", note.label);
+  updateText(".notes-panel .notes-copy", note.body);
 }
 
 function createHeroLink(link) {
@@ -194,6 +223,29 @@ function createProjectCard(project) {
   cta.textContent = project.cta || `Open ${card.href}`;
 
   card.append(kicker, title, summary, cta);
+  return card;
+}
+
+function createArticleCard(article) {
+  const card = document.createElement("a");
+  card.className = "article-card";
+  card.href = article.url || "#";
+  card.target = "_blank";
+  card.rel = "noopener noreferrer";
+
+  const meta = document.createElement("p");
+  meta.className = "article-meta";
+  meta.textContent = article.source || "Writing";
+
+  const title = document.createElement("h3");
+  title.className = "article-title";
+  title.textContent = article.title || "Untitled";
+
+  const cta = document.createElement("p");
+  cta.className = "article-cta";
+  cta.textContent = article.cta || "Read";
+
+  card.append(meta, title, cta);
   return card;
 }
 

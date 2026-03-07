@@ -90,6 +90,36 @@
       "status": "live"
     }
   ],
+  "articles": {
+    "label": "Writing",
+    "title": "Selected essays from Substack.",
+    "items": [
+      {
+        "title": "The Age of Meta-Manager",
+        "url": "https://open.substack.com/pub/vadymtyemirov1/p/the-age-of-the-meta-manager",
+        "source": "Substack",
+        "cta": "Read on Substack",
+        "order": 10,
+        "status": "live"
+      },
+      {
+        "title": "Becoming a Meta-Manager",
+        "url": "https://open.substack.com/pub/vadymtyemirov1/p/the-meta-manager-skill-stack",
+        "source": "Substack",
+        "cta": "Read on Substack",
+        "order": 20,
+        "status": "live"
+      },
+      {
+        "title": "The Seven Muscles of the Meta-Manager",
+        "url": "https://vadymtyemirov1.substack.com/p/the-seven-muscles-of-the-meta-manager",
+        "source": "Substack",
+        "cta": "Read on Substack",
+        "order": 30,
+        "status": "live"
+      }
+    ]
+  },
   "note": {
     "label": "On This Site",
     "body": "Each project gets its own path under this domain, so essays, tools, and experiments can stay distinct without feeling disconnected."
