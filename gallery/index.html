@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>
+    if (window.location.pathname === '/gallery') {
+      window.location.replace(`/gallery/${window.location.search}${window.location.hash}`);
+    }
+  </script>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0B0C0E" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+  <meta name="robots" content="index,follow" />
+  <title>Vadym Tyemirov · Virtual Gallery</title>
+  <meta name="description" content="A modern salon for digital works. Discover, collect, and enjoy limited edition exhibits by Vadym Tyemirov." />
+  <link rel="canonical" href="https://tyemirov.net/gallery/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vadym Tyemirov · Virtual Gallery" />
+  <meta property="og:description" content="A modern salon for digital works. Discover, collect, and enjoy limited edition exhibits by Vadym Tyemirov." />
+  <meta property="og:url" content="https://tyemirov.net/gallery/" />
+  <meta property="og:image" content="https://tyemirov.net/gallery/images/previews/third-act-01-preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vadym Tyemirov · Virtual Gallery" />
+  <meta name="twitter:description" content="A modern salon for digital works." />
+  <meta name="twitter:image" content="https://tyemirov.net/gallery/images/previews/third-act-01-preview.jpg" />
+  <script type="application/ld+json" id="structured-data">
+    {
+      "@context": "https://schema.org",
+      "@type": "ArtGallery",
+      "name": "Vadym Tyemirov · Virtual Gallery",
+      "url": "https://tyemirov.net/gallery/",
+      "description": "A modern salon for digital works. Discover, collect, and enjoy limited edition exhibits by Vadym Tyemirov."
+    }
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="gallery">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="gallery-header">
+    <div class="layout-container gallery-header__inner">
+      <a class="gallery-header__brand" href="#/" data-route="home" id="brand-name">Vadym Tyemirov · Virtual Gallery</a>
+      <nav class="gallery-nav" aria-label="Primary" id="nav-links">
+        <a class="gallery-nav__link" href="#/" data-route="home">Exhibits</a>
+        <a class="gallery-nav__link" href="#/about" data-route="about">About</a>
+        <a class="gallery-nav__link gallery-nav__link--basket" href="#/cart" data-route="cart">
+          Basket <span class="gallery-nav__badge" id="cart-count">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="gallery-main" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="layout-container hero__inner">
+        <p class="hero__eyebrow">A modern salon for digital works</p>
+        <h1 class="hero__title" id="hero-title">Virtual Gallery</h1>
+        <p class="hero__subtitle" id="hero-subtitle">Now Showing · Upcoming · Closed</p>
+      </div>
+    </section>
+
+    <section class="view view--loading" id="loading-state" role="status" aria-live="polite">
+      <div class="layout-container">
+        <p class="loading-indicator">Loading exhibitions…</p>
+      </div>
+    </section>
+
+    <section class="view is-hidden" id="home-view" aria-labelledby="hero-title">
+      <div class="layout-container">
+        <div id="exhibit-groups" class="exhibit-groups" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="view is-hidden" id="exhibit-view" aria-live="polite">
+      <div class="layout-container">
+        <div id="exhibit-detail" class="exhibit-detail"></div>
+      </div>
+    </section>
+
+    <section class="view is-hidden" id="about-view">
+      <div class="layout-container">
+        <article class="panel about">
+          <header class="panel__header">
+            <h2 class="panel__title">About the Gallery</h2>
+          </header>
+          <p>Tyemirov's Gallery curates digital pieces that balance painterly craft with technical precision. Every exhibit arrives in limited runs and is presented without distraction—museum-grade calm for the screen.</p>
+          <p>Each artwork is produced as a calibrated digital pigment print, delivered with archival metadata, edition authenticity notes, and rapid PayPal checkout. No accounts, no detours—just the work, ready to collect.</p>
+          <p>Questions about commissions or acquisitions? Write to <a href="mailto:collect@tyemirov.gallery" class="link">collect@tyemirov.gallery</a>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="view is-hidden" id="cart-view" aria-labelledby="cart-heading">
+      <div class="layout-container">
+        <header class="panel panel--transparent">
+          <h2 class="panel__title" id="cart-heading">Basket</h2>
+          <p class="panel__subtitle">Review your selection and complete checkout via PayPal.</p>
+        </header>
+        <div id="cart-empty"></div>
+        <div id="cart-populated" class="cart"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast-region" aria-live="assertive" aria-atomic="true">
+    <div id="cart-toast" class="toast is-hidden" role="status"></div>
+  </div>
+
+  <dialog id="lightbox" class="lightbox" aria-modal="true">
+    <button type="button" class="lightbox__close" data-lightbox-close aria-label="Close artwork"></button>
+    <img class="lightbox__image" src="" alt="" />
+    <p class="lightbox__caption" data-lightbox-caption></p>
+  </dialog>
+
+  <footer class="gallery-footer">
+    <div class="layout-container gallery-footer__inner">
+      <p class="gallery-footer__note">© <span id="footer-year"></span> Vadym Tyemirov · Virtual Gallery</p>
+      <p class="gallery-footer__note">Minimalist design · No login · Basket + PayPal</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

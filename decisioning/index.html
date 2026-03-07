@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script defer src="https://loopaware.mprlab.com/pixel.js?site_id=a7ea8b8a-ff37-4a99-81fa-09a5952f83a9&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script>
+    // Ensure relative asset URLs resolve correctly when users land on /decisioning (no trailing slash).
+    if (window.location.pathname === "/decisioning") {
+      window.location.replace(`/decisioning/${window.location.search}${window.location.hash}`);
+    }
+  </script>
+  <title>Decision Planes — Guided 2D + 3D Decision Coach</title>
+  <meta
+    name="description"
+    content="A guided 2D + 3D decision coach for confidence, stakes, expected value, uncertainty, and reversibility."
+  />
+  <link rel="canonical" href="https://tyemirov.net/decisioning/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Decision Planes — Guided 2D + 3D Decision Coach" />
+  <meta
+    property="og:description"
+    content="Turn binary decisions into structured policy outputs using confidence, stakes, EV, uncertainty, and reversibility."
+  />
+  <meta property="og:url" content="https://tyemirov.net/decisioning/" />
+  <meta property="og:image" content="https://tyemirov.net/decisioning/image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Decision Planes — Guided 2D + 3D Decision Coach" />
+  <meta
+    name="twitter:description"
+    content="Use 2D planes and a 3D space to convert uncertain choices into practical next-step policies."
+  />
+  <meta name="twitter:image" content="https://tyemirov.net/decisioning/image.png" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@3.6.7/mpr-ui.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@3.6.7/mpr-ui.js"></script>
+
+  <!-- D3 for 2D charts -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+
+  <!-- Import map for Three.js bare module specifiers (used by three/examples). -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <mpr-header
+    brand-label='Stop asking "Is this good or bad?"'
+    brand-href="https://open.substack.com/pub/vadymtyemirov1/p/stop-asking-is-this-good-or-bad"
+    settings="false"
+  ></mpr-header>
+
+  <header>
+    <div class="container">
+      <h1>Decision Planes — Step-by-Step Decision Guide</h1>
+      <p>
+        One path at a time. Finish each step to unlock the next.
+      </p>
+      <div class="button-row">
+        <button id="loadExampleButton" type="button">Load example</button>
+        <button id="resetButton" type="button">Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="step1Section" class="card wizard-step" data-step="1" data-open="true">
+      <p class="step-label">Step 1</p>
+      <h2>Choose your decision path</h2>
+      <p class="subtle">
+        Pick the frame that matches your situation. Other paths stay hidden.
+      </p>
+      <div class="case-grid" id="caseGrid"></div>
+      <button id="step1ContinueButton" class="step-cta" type="button" disabled>Continue to Step 2</button>
+    </section>
+
+    <section id="step2Section" class="card wizard-step" data-step="2" data-open="false">
+      <p class="step-label">Step 2</p>
+      <h2>Describe your decision</h2>
+      <p class="subtle">
+        One concrete sentence. Example: "Ship feature X this week".
+      </p>
+      <textarea id="problemTextArea" placeholder="Describe the decision you are considering..."></textarea>
+      <button id="step2ContinueButton" class="step-cta" type="button" disabled>Continue to Step 3</button>
+    </section>
+
+    <section id="step3Section" class="card wizard-step" data-step="3" data-open="false">
+      <p class="step-label">Step 3</p>
+      <h2>Score the active dimensions (0-10)</h2>
+      <p id="step3GuideText" class="subtle">
+        Keep neutral 50/50 defaults, or move sliders to encode your current beliefs.
+      </p>
+      <div class="scenario-toolbar">
+        <label class="scenario-toggle">
+          <input id="scenarioModeCheckbox" type="checkbox" />
+          Compare scenarios (Base / Upside / Downside)
+        </label>
+        <p class="subtle scenario-subtle" id="scenarioModeHint">
+          Use one score set by default, or enable scenarios to compare outcomes before committing.
+        </p>
+        <div class="scenario-tabs" id="scenarioTabs" hidden>
+          <button id="scenarioTab-base" class="scenario-tab" data-scenario-key="base" type="button">Base</button>
+          <button id="scenarioTab-upside" class="scenario-tab" data-scenario-key="upside" type="button">Upside</button>
+          <button id="scenarioTab-downside" class="scenario-tab" data-scenario-key="downside" type="button">Downside</button>
+        </div>
+      </div>
+      <div class="controls" id="controlsHost"></div>
+      <button id="step3ContinueButton" class="step-cta" type="button" disabled>Continue to Step 4</button>
+    </section>
+
+    <section id="step4Section" class="card wizard-step" data-step="4" data-open="false">
+      <p class="step-label">Step 4</p>
+      <h2>Visualize your selected path</h2>
+
+      <div id="twoDimensionSection" class="path-visual" hidden>
+        <h3 class="step-subtitle">2D plane</h3>
+        <div class="charts-grid">
+          <div class="chart-area" id="accuracyStakesArea">
+            <div class="chart-title">Confidence × Consequence if wrong</div>
+            <div class="chart-hint" id="accuracyStakesHint"></div>
+            <div id="accuracyStakesChart" class="svg-host"></div>
+          </div>
+
+          <div class="chart-area" id="expectedValueUncertaintyArea">
+            <div class="chart-title">Expected Value × Outcome uncertainty</div>
+            <div class="chart-hint" id="expectedValueUncertaintyHint"></div>
+            <div id="expectedValueUncertaintyChart" class="svg-host"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="threeDimensionSection" class="path-visual" hidden>
+        <h3 class="step-subtitle">3D space</h3>
+        <p class="subtle" id="threeDimensionHint"></p>
+        <div id="threeDimensionHost" class="three-host"></div>
+        <div class="legend-row">
+          <span class="badge">3D color field: greener = stronger bet, warmer = more caution</span>
+          <span class="badge">Axis ticks: 0, 2, 4, 6, 8, 10</span>
+          <span class="badge">Projections: XY = EV×Outcome uncertainty, XZ = EV×Reversibility, YZ = Outcome uncertainty×Reversibility</span>
+          <span class="badge"><span class="kbd">Rotate</span> left drag</span>
+          <span class="badge"><span class="kbd">Zoom</span> wheel / pinch</span>
+          <span class="badge"><span class="kbd">Pan</span> right drag</span>
+        </div>
+      </div>
+
+      <button id="step4ContinueButton" class="step-cta" type="button">Show policy recommendation</button>
+    </section>
+
+    <section id="step5Section" class="card wizard-step" data-step="5" data-open="false">
+      <p class="step-label">Step 5</p>
+      <h2>Policy output: what to do next</h2>
+      <p class="subtle">
+        You only see the recommendation for the selected path.
+      </p>
+      <div class="recommendation-grid" id="recommendationGrid">
+        <div class="recommendation-card" id="accuracyStakesRecommendationCard">
+          <p class="recommendation-title">Confidence × Consequence if wrong</p>
+          <p class="recommendation-subtitle" id="accuracyStakesQuadrantLabel"></p>
+          <p class="recommendation-action" id="accuracyStakesPolicyTitle"></p>
+          <ul class="recommendation-list" id="accuracyStakesPolicyList"></ul>
+        </div>
+
+        <div class="recommendation-card" id="expectedValueUncertaintyRecommendationCard">
+          <p class="recommendation-title">Expected Value × Outcome uncertainty</p>
+          <p class="recommendation-subtitle" id="expectedValueUncertaintyQuadrantLabel"></p>
+          <p class="recommendation-action" id="expectedValueUncertaintyPolicyTitle"></p>
+          <ul class="recommendation-list" id="expectedValueUncertaintyPolicyList"></ul>
+        </div>
+
+        <div class="recommendation-card" id="threeDimensionRecommendationCard">
+          <p class="recommendation-title">3D: EV × Outcome uncertainty × Reversibility</p>
+          <p class="recommendation-subtitle" id="threeDimensionQuadrantLabel"></p>
+          <p class="recommendation-action" id="threeDimensionPolicyTitle"></p>
+          <ul class="recommendation-list" id="threeDimensionPolicyList"></ul>
+        </div>
+      </div>
+
+      <div class="why-panel" id="recommendationWhySection">
+        <p class="why-title">Why this recommendation</p>
+        <p class="why-subtitle" id="recommendationWhySubtitle"></p>
+        <ul class="why-list" id="recommendationWhyList"></ul>
+      </div>
+
+      <div class="scenario-comparison" id="scenarioComparisonSection" hidden>
+        <p class="scenario-comparison-title">Scenario comparison</p>
+        <p class="scenario-comparison-subtitle">
+          Compare policy outcomes across Base, Upside, and Downside before final commitment.
+        </p>
+        <div class="scenario-comparison-grid" id="scenarioComparisonGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <mpr-footer
+    privacy-link-href="https://mprlab.com"
+    privacy-link-label="Marco Polo Research Lab"
+    toggle-label="Made by Marco Polo Research Lab"
+    links-collection='{
+      "style":"drop-up",
+      "text":"Made by Marco Polo Research Lab",
+      "links":[
+        {"label":"Marco Polo Research Lab","url":"https://mprlab.com"},
+        {"label":"Gravity Notes","url":"https://gravity.mprlab.com"},
+        {"label":"LoopAware","url":"https://loopaware.mprlab.com"},
+        {"label":"Allergy Wheel","url":"https://allergy.mprlab.com"},
+        {"label":"Social Threader","url":"https://threader.mprlab.com"},
+        {"label":"RSVP","url":"https://rsvp.mprlab.com"},
+        {"label":"Countdown Calendar","url":"https://countdown.mprlab.com"},
+        {"label":"LLM Crossword","url":"https://llm-crossword.mprlab.com"},
+        {"label":"Prompt Bubbles","url":"https://prompts.mprlab.com"},
+        {"label":"Wallpapers","url":"https://wallpapers.mprlab.com"}
+      ]
+    }'
+  ></mpr-footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
