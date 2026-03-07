@@ -1,0 +1,97 @@
+{
+  "site": {
+    "title": "Vadym Tyemirov",
+    "description": "Vadym Tyemirov's personal site: essays, research-backed tools, and standalone experiments published directly under tyemirov.net.",
+    "canonical": "https://tyemirov.net/"
+  },
+  "hero": {
+    "eyebrow": "Vadym Tyemirov",
+    "title": "Essays, tools, and experiments with their own URLs.",
+    "summary": "Vadym Tyemirov is a product-minded engineering leader who bridges the gap between cutting-edge Artificial Intelligence and scalable enterprise infrastructure.",
+    "detail": "With a career spanning Meta, BlackRock, Shopify, and Morgan Stanley, he focuses on turning complex technical challenges into revenue-generating products. This domain collects the resulting essays, tools, and experiments in one place.",
+    "links": [
+      {
+        "label": "Writing",
+        "href": "https://open.substack.com/pub/vadymtyemirov1",
+        "style": "primary",
+        "order": 10
+      },
+      {
+        "label": "Marco Polo Research Lab",
+        "href": "https://mprlab.com",
+        "style": "secondary",
+        "order": 20
+      }
+    ]
+  },
+  "profile": {
+    "ariaLabel": "Vadym Tyemirov profile",
+    "name": "Vadym Tyemirov",
+    "role": "Technical Founder & Engineering Leader",
+    "footnote": "Meta · BlackRock · Shopify · Morgan Stanley",
+    "alt": "Portrait of Vadym Tyemirov",
+    "sizes": "(max-width: 640px) 72vw, 360px",
+    "image": {
+      "webp": {
+        "srcset": "assets/profile/vadym-tyemirov-360.webp 360w, assets/profile/vadym-tyemirov-720.webp 720w",
+        "type": "image/webp"
+      },
+      "jpg": {
+        "src": "assets/profile/vadym-tyemirov-360.jpg",
+        "srcset": "assets/profile/vadym-tyemirov-360.jpg 360w, assets/profile/vadym-tyemirov-720.jpg 720w",
+        "width": 360,
+        "height": 540
+      }
+    }
+  },
+  "projects": [
+    {
+      "slug": "civilization",
+      "title": "Minimum Sustainable Modern Civilization",
+      "kicker": "Model",
+      "summary": "Estimate the population floor needed to sustain a modern market economy under staffing, dependency, resilience, autarky, and demographic constraints.",
+      "href": "civilization/",
+      "cta": "Open tyemirov.net/civilization/",
+      "theme": "copper",
+      "order": 10,
+      "status": "live"
+    },
+    {
+      "slug": "decisioning",
+      "title": "Decision Planes",
+      "kicker": "Decision Tool",
+      "summary": "Turn vague yes-or-no choices into explicit reasoning over confidence, stakes, expected value, uncertainty, and reversibility.",
+      "href": "decisioning/",
+      "cta": "Open tyemirov.net/decisioning/",
+      "theme": "teal",
+      "order": 20,
+      "status": "live"
+    },
+    {
+      "slug": "freedom",
+      "title": "The Vector of Liberty",
+      "kicker": "Jurisdiction Model",
+      "summary": "Compare states by the friction they impose on concrete actions through taxes, permits, delays, and penalties, weighted against the kind of life you actually want to live.",
+      "href": "freedom/",
+      "cta": "Open tyemirov.net/freedom/",
+      "theme": "olive",
+      "order": 30,
+      "status": "live"
+    },
+    {
+      "slug": "gallery",
+      "title": "Tyemirov Gallery",
+      "kicker": "Virtual Gallery",
+      "summary": "A quiet, salon-style gallery for limited digital editions, exhibit narratives, lightbox viewing, and direct collection flow.",
+      "href": "gallery/",
+      "cta": "Open tyemirov.net/gallery/",
+      "theme": "slate",
+      "order": 40,
+      "status": "live"
+    }
+  ],
+  "note": {
+    "label": "On This Site",
+    "body": "Each project gets its own path under this domain, so essays, tools, and experiments can stay distinct without feeling disconnected."
+  }
+}
