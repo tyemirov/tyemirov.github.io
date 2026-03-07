@@ -202,28 +202,61 @@ function createHeroLink(link) {
 }
 
 function createProjectCard(project) {
-  const card = document.createElement("a");
+  const card = document.createElement("article");
   const themeClass = project.theme ? ` project-card-${project.theme}` : "";
   card.className = `project-card${themeClass}`;
-  card.href = project.href || (project.slug ? `${project.slug}/` : "#");
 
   const kicker = document.createElement("p");
   kicker.className = "card-kicker";
   kicker.textContent = project.kicker || "";
 
   const title = document.createElement("h2");
-  title.textContent = project.title || project.slug || "Untitled";
+  const titleLink = document.createElement("a");
+  titleLink.className = "project-title-link";
+  titleLink.href = project.href || (project.slug ? `${project.slug}/` : "#");
+  titleLink.textContent = project.title || project.slug || "Untitled";
+  title.append(titleLink);
 
   const summary = document.createElement("p");
   summary.className = "card-body";
   summary.textContent = project.summary || "";
 
-  const cta = document.createElement("p");
-  cta.className = "card-cta";
-  cta.textContent = project.cta || `Open ${card.href}`;
+  card.append(kicker, title, summary);
 
-  card.append(kicker, title, summary, cta);
+  if (project.essay?.url) {
+    card.append(createProjectEssayLink(project.essay));
+  }
+
+  const actions = document.createElement("div");
+  actions.className = "project-actions";
+
+  const projectLink = document.createElement("a");
+  projectLink.className = "project-link";
+  projectLink.href = project.href || (project.slug ? `${project.slug}/` : "#");
+  projectLink.textContent = project.cta || `Open ${projectLink.href}`;
+  actions.append(projectLink);
+
+  card.append(actions);
   return card;
+}
+
+function createProjectEssayLink(essay) {
+  const link = document.createElement("a");
+  link.className = "project-essay-link";
+  link.href = essay.url || "#";
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+
+  const label = document.createElement("span");
+  label.className = "project-essay-label";
+  label.textContent = essay.label || "Companion essay";
+
+  const title = document.createElement("span");
+  title.className = "project-essay-title";
+  title.textContent = essay.title || essay.url || "Read the essay";
+
+  link.append(label, title);
+  return link;
 }
 
 function createArticleCard(article) {

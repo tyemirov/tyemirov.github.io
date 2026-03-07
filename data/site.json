@@ -52,6 +52,11 @@
       "summary": "Estimate the population floor needed to sustain a modern market economy under staffing, dependency, resilience, autarky, and demographic constraints.",
       "href": "civilization/",
       "cta": "Open tyemirov.net/civilization/",
+      "essay": {
+        "label": "Companion essay",
+        "title": "How Big Does a Modern Civilization Need to Be?",
+        "url": "https://open.substack.com/pub/vadymtyemirov/p/how-big-does-a-modern-civilization"
+      },
       "theme": "copper",
       "order": 10,
       "status": "live"
@@ -63,6 +68,11 @@
       "summary": "Turn vague yes-or-no choices into explicit reasoning over confidence, stakes, expected value, uncertainty, and reversibility.",
       "href": "decisioning/",
       "cta": "Open tyemirov.net/decisioning/",
+      "essay": {
+        "label": "Companion essay",
+        "title": "Stop asking \"Is this good or bad?\"",
+        "url": "https://open.substack.com/pub/vadymtyemirov1/p/stop-asking-is-this-good-or-bad"
+      },
       "theme": "teal",
       "order": 20,
       "status": "live"
@@ -74,6 +84,11 @@
       "summary": "Compare states by the friction they impose on concrete actions through taxes, permits, delays, and penalties, weighted against the kind of life you actually want to live.",
       "href": "freedom/",
       "cta": "Open tyemirov.net/freedom/",
+      "essay": {
+        "label": "Companion essay",
+        "title": "The Vector of Liberty",
+        "url": "https://open.substack.com/pub/vadymtyemirov/p/the-vector-of-liberty"
+      },
       "theme": "olive",
       "order": 30,
       "status": "live"
