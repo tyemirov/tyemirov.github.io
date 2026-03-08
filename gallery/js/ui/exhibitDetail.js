@@ -2,6 +2,7 @@
 import { STRINGS } from '../constants.js';
 import { assertElement, clearChildren, showElement } from '../utils/dom.js';
 import { formatCurrency } from '../utils/number.js';
+import { buildMuseumLabel } from '../utils/artwork.js';
 
 /**
  * @typedef {ReturnType<typeof import('../core/catalog.js').createExhibitViewModel>} ExhibitViewModel
@@ -22,15 +23,6 @@ function parseDimensions(dimensions) {
     return undefined;
   }
   return { width, height };
-}
-
-/**
- * @param {import('../types.d.js').Artwork} artwork
- * @returns {string}
- */
-function buildMuseumLabel(artwork) {
-  const profile = artwork.profile || 'sRGB';
-  return `${artwork.medium} · ${artwork.year} · ${artwork.dimensions} · ${profile}`;
 }
 
 /**
@@ -148,7 +140,7 @@ export function renderExhibitDetail(container, exhibit, options) {
         <p class="museum-label">${buildMuseumLabel(artwork)}</p>
         <div class="artwork-card__footer">
           <span class="exhibit-card__price">${formatCurrency(artwork.priceUsd, currency)}</span>
-          <button type="button" class="button" data-artwork-id="${artwork.id}">Add to Basket</button>
+          <button type="button" class="button" data-artwork-id="${artwork.id}">${STRINGS.addToBasketCta}</button>
         </div>
         ${buildSpecsMarkup(artwork)}
       </div>

@@ -60,12 +60,25 @@
 
   <main id="main-content" class="gallery-main" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="layout-container hero__inner">
+      <div class="hero__carousel is-hidden" id="hero-carousel" aria-live="polite" aria-hidden="true">
+        <div class="layout-container">
+          <div class="hero__carousel-frame" id="exhibit-carousel"></div>
+        </div>
+      </div>
+      <div class="layout-container hero__inner" id="hero-placeholder">
         <p class="hero__eyebrow">A modern salon for digital works</p>
         <h1 class="hero__title" id="hero-title">Virtual Gallery</h1>
         <p class="hero__subtitle" id="hero-subtitle">Now Showing · Upcoming · Closed</p>
       </div>
     </section>
+
+    <nav class="section-nav is-hidden" id="section-nav" aria-label="Exhibit navigation">
+      <div class="layout-container section-nav__inner">
+        <button type="button" class="section-nav__link" data-section-filter="now">Now Showing</button>
+        <button type="button" class="section-nav__link" data-section-filter="upcoming">Upcoming</button>
+        <button type="button" class="section-nav__link" data-section-filter="collection">Collection</button>
+      </div>
+    </nav>
 
     <section class="view view--loading" id="loading-state" role="status" aria-live="polite">
       <div class="layout-container">
@@ -76,6 +89,7 @@
     <section class="view is-hidden" id="home-view" aria-labelledby="hero-title">
       <div class="layout-container">
         <div id="exhibit-groups" class="exhibit-groups" aria-live="polite"></div>
+        <section class="collection-section" id="collection-section" aria-live="polite" tabindex="-1"></section>
       </div>
     </section>
 

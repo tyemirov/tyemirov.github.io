@@ -61,7 +61,7 @@ export function renderExhibitGroups(groups, options) {
           ${exhibit.blurb ? `<p class="exhibit-card__blurb">${exhibit.blurb}</p>` : ''}
           <div class="exhibit-card__footer">
             <span class="exhibit-card__price">${priceLabel}</span>
-            <button type="button" class="button secondary" data-exhibit-id="${exhibit.id}">Open Exhibit</button>
+            <button type="button" class="button secondary" data-exhibit-id="${exhibit.id}">${STRINGS.viewExhibitCta}</button>
           </div>
         </div>
       `;

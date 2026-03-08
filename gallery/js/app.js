@@ -3,11 +3,21 @@ import './types.d.js';
 import { PAYPAL_CONTAINER_ID, ROUTES, STRINGS } from './constants.js';
 import { fetchExhibitCatalog, fetchSiteConfig } from './core/gateway.js';
 import { cartManager } from './core/cart.js';
-import { createExhibitViewModel, findExhibitById, groupExhibits, normalizeCatalog } from './core/catalog.js';
+import {
+  createExhibitViewModel,
+  findExhibitById,
+  flattenCollectionArtworks,
+  groupExhibits,
+  normalizeCatalog,
+  partitionExhibits
+} from './core/catalog.js';
 import { subscribe as subscribeToRoute, navigate } from './core/router.js';
 import { renderExhibitGroups } from './ui/exhibitList.js';
 import { renderExhibitDetail } from './ui/exhibitDetail.js';
 import { renderCartView, renderEmptyCart } from './ui/cartView.js';
+import { renderExhibitCarousel } from './ui/carousel.js';
+import { renderCollectionSection } from './ui/collection.js';
+import { initSectionNav } from './ui/homeNav.js';
 import { initLightbox } from './ui/lightbox.js';
 import { wireNavigation, updateHeroBranding } from './ui/nav.js';
 import { createToast } from './ui/toast.js';
@@ -23,7 +33,12 @@ const elements = {
   exhibitView: /** @type {HTMLElement} */ (document.getElementById('exhibit-view')),
   aboutView: /** @type {HTMLElement} */ (document.getElementById('about-view')),
   cartView: /** @type {HTMLElement} */ (document.getElementById('cart-view')),
+  heroCarousel: /** @type {HTMLElement} */ (document.getElementById('hero-carousel')),
+  carouselMount: /** @type {HTMLElement} */ (document.getElementById('exhibit-carousel')),
+  heroPlaceholder: /** @type {HTMLElement} */ (document.getElementById('hero-placeholder')),
+  sectionNav: /** @type {HTMLElement} */ (document.getElementById('section-nav')),
   exhibitGroups: /** @type {HTMLElement} */ (document.getElementById('exhibit-groups')),
+  collectionSection: /** @type {HTMLElement} */ (document.getElementById('collection-section')),
   exhibitDetail: /** @type {HTMLElement} */ (document.getElementById('exhibit-detail')),
   cartEmpty: /** @type {HTMLElement} */ (document.getElementById('cart-empty')),
   cartPopulated: /** @type {HTMLElement} */ (document.getElementById('cart-populated')),
@@ -43,6 +58,8 @@ const state = {
   brand: STRINGS.galleryTitle,
   siteUrl: document.querySelector('link[rel="canonical"]')?.getAttribute('href') || window.location.href,
   activeExhibitId: /** @type {string | undefined} */ (undefined),
+  carouselIndex: 0,
+  homeAnchors: { now: -1, upcoming: -1 },
   paypalScriptLoaded: false
 };
 
@@ -61,6 +78,13 @@ if (loadingIndicator instanceof HTMLElement) {
 
 const lightbox = elements.lightbox ? initLightbox(elements.lightbox) : null;
 const navigationControls = elements.navLinks ? wireNavigation(elements.navLinks) : { setActiveRoute: () => undefined };
+let carouselApi = /** @type {{ goTo: (index: number) => void } | null} */ (null);
+const sectionNavControls = elements.sectionNav
+  ? initSectionNav(elements.sectionNav, {
+      onSelectStatus: handleSectionNavStatus,
+      onSelectCollection: handleSectionNavCollection
+    })
+  : { setState: () => undefined };
 const toast = createToast(elements.cartToast);
 
 showElement(elements.loading);
@@ -108,11 +132,24 @@ Promise.all([fetchSiteConfig(), fetchExhibitCatalog()])
   });
 
 function renderHome() {
-  if (!elements.homeView || !elements.exhibitGroups) {
+  if (!elements.homeView || !elements.exhibitGroups || !elements.collectionSection) {
     return;
   }
   showElement(elements.homeView);
+
   const groups = groupExhibits(state.exhibits, state.currency);
+  const partitions = partitionExhibits(state.exhibits, state.currency);
+  const activeSlides = partitions.active;
+  const navAvailability = {
+    hasNow: partitions.now.length > 0,
+    hasUpcoming: partitions.upcoming.length > 0
+  };
+
+  state.homeAnchors = {
+    now: activeSlides.findIndex((exhibit) => exhibit.status === 'now'),
+    upcoming: activeSlides.findIndex((exhibit) => exhibit.status === 'upcoming')
+  };
+
   renderExhibitGroups(groups, {
     container: elements.exhibitGroups,
     currency: state.currency,
@@ -120,6 +157,74 @@ function renderHome() {
       navigate(ROUTES.EXHIBIT, exhibitId);
     }
   });
+
+  const collectionArtworks = flattenCollectionArtworks(state.exhibits).sort((left, right) => {
+    const exhibitCompare = left.exhibitTitle.localeCompare(right.exhibitTitle);
+    if (exhibitCompare !== 0) {
+      return exhibitCompare;
+    }
+    return left.title.localeCompare(right.title);
+  });
+
+  renderCollectionSection(elements.collectionSection, collectionArtworks, {
+    currency: state.currency,
+    onAddToCart: (artwork) => {
+      cartManager.add(artwork, { exhibitId: artwork.exhibitId, exhibitTitle: artwork.exhibitTitle });
+      toast.show(`${STRINGS.toastAdded} · ${artwork.title}`);
+    },
+    onViewExhibit: (exhibitId) => {
+      navigate(ROUTES.EXHIBIT, exhibitId);
+    }
+  });
+
+  if (elements.sectionNav) {
+    showElement(elements.sectionNav);
+  }
+
+  if (activeSlides.length > 0 && elements.carouselMount && elements.heroCarousel && elements.heroPlaceholder) {
+    carouselApi = renderExhibitCarousel(elements.carouselMount, activeSlides, {
+      initialIndex: state.carouselIndex,
+      onOpenExhibit: (exhibitId) => {
+        navigate(ROUTES.EXHIBIT, exhibitId);
+      },
+      onSlideChange: (index, exhibit) => {
+        state.carouselIndex = index;
+        const activeStatus = exhibit?.status === 'upcoming' ? 'upcoming' : 'now';
+        sectionNavControls.setState({
+          active: activeStatus,
+          hasNow: navAvailability.hasNow,
+          hasUpcoming: navAvailability.hasUpcoming
+        });
+      }
+    });
+
+    if (carouselApi) {
+      showElement(elements.heroCarousel);
+      hideElement(elements.heroPlaceholder);
+    } else {
+      hideElement(elements.heroCarousel);
+      showElement(elements.heroPlaceholder);
+      sectionNavControls.setState({
+        active: 'collection',
+        hasNow: navAvailability.hasNow,
+        hasUpcoming: navAvailability.hasUpcoming
+      });
+    }
+  } else {
+    carouselApi = null;
+    state.carouselIndex = 0;
+    if (elements.heroCarousel) {
+      hideElement(elements.heroCarousel);
+    }
+    if (elements.heroPlaceholder) {
+      showElement(elements.heroPlaceholder);
+    }
+    sectionNavControls.setState({
+      active: 'collection',
+      hasNow: navAvailability.hasNow,
+      hasUpcoming: navAvailability.hasUpcoming
+    });
+  }
 }
 
 function renderHomeError() {
@@ -127,12 +232,28 @@ function renderHomeError() {
     return;
   }
   showElement(elements.homeView);
+  carouselApi = null;
+  state.carouselIndex = 0;
+  state.homeAnchors = { now: -1, upcoming: -1 };
+  if (elements.heroCarousel) {
+    hideElement(elements.heroCarousel);
+  }
+  if (elements.heroPlaceholder) {
+    showElement(elements.heroPlaceholder);
+  }
+  if (elements.sectionNav) {
+    showElement(elements.sectionNav);
+  }
+  sectionNavControls.setState({ active: 'collection', hasNow: false, hasUpcoming: false });
   elements.exhibitGroups.innerHTML = `
     <div class="alert" role="alert">
       <h2>${STRINGS.loadErrorTitle}</h2>
       <p>${STRINGS.loadErrorBody}</p>
     </div>
   `;
+  if (elements.collectionSection) {
+    elements.collectionSection.innerHTML = '';
+  }
 }
 
 function setupRouting() {
@@ -251,6 +372,32 @@ function renderCart() {
     onQuantityChange: (artworkId, quantity) => cartManager.setQuantity(artworkId, quantity),
     subtotal: cartManager.total()
   });
+}
+
+/**
+ * @param {'now' | 'upcoming'} status
+ */
+function handleSectionNavStatus(status) {
+  const targetIndex = state.homeAnchors[status];
+  if (carouselApi && targetIndex >= 0) {
+    carouselApi.goTo(targetIndex);
+  }
+
+  const targetSection = document.getElementById(`group-${status}`);
+  if (targetSection instanceof HTMLElement) {
+    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function handleSectionNavCollection() {
+  if (!elements.collectionSection) {
+    return;
+  }
+
+  elements.collectionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (typeof elements.collectionSection.focus === 'function') {
+    elements.collectionSection.focus({ preventScroll: true });
+  }
 }
 
 function ensurePayPalSdk(clientId = 'sb', currency = 'USD') {

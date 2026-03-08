@@ -94,6 +94,52 @@ export function groupExhibits(exhibits, currency, todayISO = getTodayISO()) {
 
 /**
  * @param {import('../types.d.js').Exhibit[]} exhibits
+ * @param {string} currency
+ * @param {string} [todayISO]
+ */
+export function partitionExhibits(exhibits, currency, todayISO = getTodayISO()) {
+  const viewModels = exhibits.map((exhibit) => createExhibitViewModel(exhibit, currency, todayISO));
+  const sortNow = (a, b) => b.start_date.localeCompare(a.start_date);
+  const sortUpcoming = (a, b) => a.start_date.localeCompare(b.start_date);
+  const sortClosed = (a, b) => b.end_date.localeCompare(a.end_date);
+
+  const now = viewModels.filter((exhibit) => exhibit.status === 'now').sort(sortNow);
+  const upcoming = viewModels.filter((exhibit) => exhibit.status === 'upcoming').sort(sortUpcoming);
+  const closed = viewModels.filter((exhibit) => exhibit.status === 'closed').sort(sortClosed);
+  const active = now.concat(upcoming);
+
+  return { all: viewModels, now, upcoming, closed, active };
+}
+
+/**
+ * @param {import('../types.d.js').Exhibit[]} exhibits
+ * @returns {import('../types.d.js').CollectionArtwork[]}
+ */
+export function flattenCollectionArtworks(exhibits) {
+  if (!Array.isArray(exhibits)) {
+    return [];
+  }
+
+  const collection = [];
+
+  exhibits.forEach((exhibit) => {
+    if (!exhibit || !Array.isArray(exhibit.artworks)) {
+      return;
+    }
+
+    exhibit.artworks.forEach((artwork) => {
+      if (!artwork || !artwork.id) {
+        return;
+      }
+      collection.push({ ...artwork, exhibitId: exhibit.id, exhibitTitle: exhibit.title });
+    });
+  });
+
+  return collection;
+}
+
+/**
+ * @param {import('../types.d.js').Exhibit[]} exhibits
  * @param {string} id
  * @returns {import('../types.d.js').Exhibit | undefined}
  */

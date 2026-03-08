@@ -61,3 +61,7 @@
  * @property {string} title
  * @property {(Exhibit & { status: string; statusLabel: string; dateRangeText: string; primaryArtwork?: Artwork | undefined })[]} items
  */
+
+/**
+ * @typedef {Artwork & { exhibitId: string; exhibitTitle: string }} CollectionArtwork
+ */
