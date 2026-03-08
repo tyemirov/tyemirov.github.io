@@ -34,6 +34,7 @@ function renderSite(siteData) {
   renderArticles(siteData.articles);
   renderProjects(siteData.projects);
   renderNote(siteData.note);
+  renderFooter();
 }
 
 function renderSiteMeta(site) {
@@ -193,10 +194,48 @@ function renderNote(note) {
   updateText(".notes-panel .notes-copy", note.body);
 }
 
+function renderFooter() {
+  const footer = document.querySelector("#site-footer");
+  if (!footer) {
+    return;
+  }
+
+  const footerProjects =
+    typeof globalThis.MPRUI?.getFooterSiteCatalog === "function"
+      ? globalThis.MPRUI.getFooterSiteCatalog()
+      : [];
+
+  footer.setAttribute("sticky", "false");
+  footer.setAttribute("size", "small");
+  footer.setAttribute("privacy-link-hidden", "true");
+  footer.setAttribute("inner-class", "site-footer__inner");
+  footer.setAttribute("wrapper-class", "site-footer__layout");
+  footer.removeAttribute("horizontal-links");
+
+  if (footerProjects.length > 0) {
+    footer.setAttribute(
+      "links-collection",
+      JSON.stringify({
+        style: "drop-up",
+        text: "Built by Marco Polo Research Lab",
+        links: footerProjects
+      })
+    );
+  } else {
+    footer.removeAttribute("links-collection");
+  }
+}
+
 function createHeroLink(link) {
   const anchor = document.createElement("a");
   anchor.className = link.style === "secondary" ? "button button-secondary" : "button";
   anchor.href = link.href || "#";
+  if (link.target) {
+    anchor.target = link.target;
+  }
+  if (link.target === "_blank") {
+    anchor.rel = "noopener noreferrer";
+  }
   anchor.textContent = link.label || "Open";
   return anchor;
 }

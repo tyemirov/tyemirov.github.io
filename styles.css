@@ -527,6 +527,34 @@ h1 {
   max-width: 48rem;
 }
 
+.site-footer {
+  display: block;
+  margin-top: 18px;
+  --mpr-color-surface-primary: rgba(255, 250, 242, 0.94);
+  --mpr-color-surface-elevated: rgba(255, 250, 242, 0.98);
+  --mpr-color-text-primary: var(--ink);
+  --mpr-color-text-muted: var(--muted);
+  --mpr-color-border: rgba(23, 20, 17, 0.12);
+  --mpr-color-accent: var(--copper);
+  --mpr-color-accent-alt: var(--teal);
+  --mpr-shadow-elevated: 0 -18px 44px rgba(59, 39, 19, 0.12);
+  --mpr-theme-toggle-knob-bg: var(--ink);
+  --mpr-theme-toggle-knob-active: #fff8f0;
+}
+
+.site-footer__inner {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+}
+
+.site-footer__layout {
+  align-items: center;
+}
+
+mpr-footer.site-footer footer.mpr-footer {
+  backdrop-filter: blur(14px);
+}
+
 @media (max-width: 880px) {
   .hero {
     padding-top: 24px;
@@ -541,6 +569,10 @@ h1 {
 
   .profile-card {
     justify-self: start;
+  }
+
+  .site-footer__inner {
+    width: 100%;
   }
 }
 
