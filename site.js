@@ -37,7 +37,6 @@ function renderSite(siteData) {
   renderProfile(siteData.profile);
   renderArticles(siteData.articles);
   renderProjects(allProjects);
-  renderNote(siteData.note);
   renderFooter();
 }
 
@@ -208,15 +207,6 @@ function renderArticles(articles) {
 
   articleList.replaceChildren(...items.map(createArticleCard));
   writingSection.classList.remove("is-hidden");
-}
-
-function renderNote(note) {
-  if (!note || typeof note !== "object") {
-    return;
-  }
-
-  updateText(".notes-panel .notes-label", note.label);
-  updateText(".notes-panel .notes-copy", note.body);
 }
 
 function renderFooter() {

@@ -146,9 +146,5 @@
     "label": "Writing",
     "title": "Selected essays from Substack.",
     "items": []
-  },
-  "note": {
-    "label": "On This Site",
-    "body": "Each project gets its own path under this domain, so essays, tools, and experiments can stay distinct without feeling disconnected."
   }
 }

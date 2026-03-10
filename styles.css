@@ -609,26 +609,6 @@ h1 {
   text-underline-offset: 0.14em;
 }
 
-.notes-panel {
-  display: grid;
-  gap: 10px;
-  margin-top: 22px;
-  padding: 18px 20px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: var(--surface-strong);
-  box-shadow: 0 12px 30px rgba(59, 39, 19, 0.08);
-}
-
-.notes-label {
-  color: var(--ink);
-}
-
-.notes-copy {
-  margin: 0;
-  max-width: 48rem;
-}
-
 .site-footer {
   display: block;
   margin-top: 18px;
