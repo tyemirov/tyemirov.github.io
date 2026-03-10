@@ -148,6 +148,15 @@
   "articles": {
     "label": "Writing",
     "title": "Selected essays from Substack.",
-    "items": []
+    "items": [
+      {
+        "title": "On UI and UX for Agentic Applications",
+        "url": "https://vadymtyemirov1.substack.com/p/on-ui-and-ux-for-agentic-applications",
+        "source": "AI",
+        "cta": "Read on Substack",
+        "order": 10,
+        "status": "live"
+      }
+    ]
   }
 }

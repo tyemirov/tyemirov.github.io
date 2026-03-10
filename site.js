@@ -372,9 +372,15 @@ function createArticleCard(article) {
   card.target = "_blank";
   card.rel = "noopener noreferrer";
 
-  const meta = document.createElement("p");
-  meta.className = "article-meta";
+  const meta = document.createElement("button");
+  meta.className = "article-meta-tag";
   meta.textContent = article.source || "Writing";
+  meta.title = `Filter by ${meta.textContent}`;
+  meta.onclick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.toggleProjectFilter(meta.textContent);
+  };
 
   const title = document.createElement("h3");
   title.className = "article-title";

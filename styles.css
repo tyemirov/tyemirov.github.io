@@ -338,12 +338,30 @@ h1 {
 }
 
 .article-meta,
+.article-meta-tag,
 .article-cta {
   margin: 0;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.article-meta-tag {
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  color: var(--copper);
+  width: fit-content;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.article-meta-tag:hover {
+  opacity: 0.8;
+  transform: translateX(4px);
 }
 
 .article-meta {
