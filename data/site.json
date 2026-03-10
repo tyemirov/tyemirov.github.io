@@ -129,6 +129,17 @@
           "url": "https://vadymtyemirov1.substack.com/p/the-seven-muscles-of-the-meta-manager"
         }
       ]
+    },
+    {
+      "slug": "agentic-ui",
+      "title": "On UI and UX for Agentic Applications",
+      "kicker": "AI",
+      "summary": "While natural language is an ideal entry point for intent, reliable agentic applications must evolve into structured frameworks that utilize interaction grammars and visible verification to establish trust.",
+      "href": "https://vadymtyemirov1.substack.com/p/on-ui-and-ux-for-agentic-applications",
+      "cta": "Read on Substack",
+      "theme": "violet",
+      "order": 70,
+      "status": "live"
     }
   ],
   "arts": {
@@ -148,15 +159,6 @@
   "articles": {
     "label": "Writings",
     "title": "Selected essays from Substack.",
-    "items": [
-      {
-        "title": "On UI and UX for Agentic Applications",
-        "url": "https://vadymtyemirov1.substack.com/p/on-ui-and-ux-for-agentic-applications",
-        "source": "AI",
-        "cta": "Read on Substack",
-        "order": 10,
-        "status": "live"
-      }
-    ]
+    "items": []
   }
 }

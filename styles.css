@@ -19,6 +19,8 @@
   --amber-soft: #fef3c7;
   --indigo: #4338ca;
   --indigo-soft: #e0e7ff;
+  --violet: #7c3aed;
+  --violet-soft: #ede9fe;
 }
 
 * {
@@ -508,6 +510,20 @@ h1 {
 .project-card-indigo .card-kicker,
 .project-card-indigo .card-cta {
   color: var(--indigo);
+}
+
+.project-card-violet {
+  --project-accent: var(--violet);
+  background: linear-gradient(160deg, rgba(250, 245, 255, 0.95), rgba(237, 233, 254, 0.96));
+}
+
+.project-card-violet::before {
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.22), rgba(237, 233, 254, 0.82));
+}
+
+.project-card-violet .card-kicker,
+.project-card-violet .card-cta {
+  color: var(--violet);
 }
 
 .project-card h2 {
