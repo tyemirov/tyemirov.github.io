@@ -29,154 +29,129 @@
   </head>
 <body>
   <div class="container">
-    <section class="hero">
-      <div class="card hero-main">
-        <div class="eyebrow">Decision Lens Prototype</div>
-        <h1>Classify the judgment, score the lenses, get a structured recommendation.</h1>
-        <p class="hero-copy">
-          This prototype treats decisions as four different workflows: observing an ongoing process, deciding on a threshold, checking whether a process is ripe for a decision, and evaluating the regime that followed a past decision. No backend, no persistence, just a decision aid.
-        </p>
-      </div>
-      <div class="card hero-side">
-        <div class="mini-stat">
-          <div class="mini-stat-label">Current mode</div>
-          <div class="mini-stat-value" id="current-mode-label">Observe a process</div>
-        </div>
-        <div class="mini-stat">
-          <div class="mini-stat-label">Selected domain</div>
-          <div class="mini-stat-value" id="current-domain-label">Relationship</div>
-        </div>
-        <div class="mini-stat">
-          <div class="mini-stat-label">Recommendation state</div>
-          <div class="mini-stat-value" id="current-state-label">Not computed yet</div>
-        </div>
-      </div>
-    </section>
+    <header class="hero">
+      <div class="eyebrow">Decision Lens Prototype</div>
+      <h1>Time Series or Threshold?</h1>
+      <p class="hero-copy">
+        Stop panicking over noise and start recognizing transitions. This framework helps you distinguish between ongoing processes and one-off commitment decisions.
+      </p>
+    </header>
 
     <div class="main-grid">
-      <aside class="card sidebar">
+      <aside class="sidebar">
         <div class="section-title">Workflow</div>
         <div class="step-list">
           <div class="step-item active" id="nav-step-mode">
-            <div class="step-item-title">1. Choose judgment type</div>
-            <div class="step-item-copy">Is this a process, a threshold, a transition to decision, or life after a decision?</div>
+            <div class="step-item-title">1. Judgment Type</div>
+            <div class="step-item-copy">Process or Threshold?</div>
           </div>
           <div class="step-item" id="nav-step-domain">
-            <div class="step-item-title">2. Pick domain</div>
-            <div class="step-item-copy">Use domain labels to make the prompts feel concrete.</div>
+            <div class="step-item-title">2. Domain</div>
+            <div class="step-item-copy">Contextualize prompts.</div>
           </div>
           <div class="step-item" id="nav-step-score">
-            <div class="step-item-title">3. Score the lenses</div>
-            <div class="step-item-copy">For each lens, estimate, confidence, and importance.</div>
+            <div class="step-item-title">3. Score Lenses</div>
+            <div class="step-item-copy">Estimate and confidence.</div>
           </div>
           <div class="step-item" id="nav-step-result">
-            <div class="step-item-title">4. Read the recommendation</div>
-            <div class="step-item-copy">You get a state, not fake certainty.</div>
+            <div class="step-item-title">4. Recommendation</div>
+            <div class="step-item-copy">Legible guidance.</div>
           </div>
         </div>
 
-        <div class="section-title">Snapshot</div>
+        <div class="section-title">Current State</div>
         <div class="summary-chip-grid">
           <div class="summary-chip">
-            <div class="summary-chip-label">Lenses</div>
-            <div class="summary-chip-value" id="sidebar-lens-count">6</div>
+            <div class="summary-chip-label">Mode</div>
+            <div class="summary-chip-value" id="current-mode-label">---</div>
           </div>
           <div class="summary-chip">
-            <div class="summary-chip-label">Average estimate</div>
-            <div class="summary-chip-value" id="sidebar-average-score">3.0 / 5</div>
+            <div class="summary-chip-label">Domain</div>
+            <div class="summary-chip-value" id="current-domain-label">---</div>
           </div>
           <div class="summary-chip">
-            <div class="summary-chip-label">Average confidence</div>
-            <div class="summary-chip-value" id="sidebar-average-confidence">3.0 / 5</div>
-          </div>
-          <div class="summary-chip">
-            <div class="summary-chip-label">Average importance</div>
-            <div class="summary-chip-value" id="sidebar-average-importance">3.0 / 5</div>
+            <div class="summary-chip-label">Avg. Confidence</div>
+            <div class="summary-chip-value" id="sidebar-average-confidence">0.0 / 5</div>
           </div>
         </div>
       </aside>
 
       <main class="content">
         <section class="card panel">
-          <h2>1. What kind of judgment is this?</h2>
+          <h2>1. Define the Ontology</h2>
           <p class="panel-copy">
-            Do not start with abstract scoring. First decide what sort of thing you are evaluating. The wrong mode produces the wrong judgment.
+            Is this an ongoing process to observe, or a specific outcome to accept or reject?
           </p>
           <div class="button-grid" id="mode-button-grid"></div>
         </section>
 
         <section class="card panel">
-          <h2>2. Which domain are you working in?</h2>
+          <h2>2. Set the Context</h2>
           <p class="panel-copy">
-            Domain choice does not change the engine. It changes the labels, examples, and the way the recommendation reads.
+            Select a domain to adapt labels and examples.
           </p>
           <div class="tag-row" id="domain-tag-row"></div>
-          <div class="tag-row" style="margin-top: 10px;">
-            <input id="subject-input" type="text" placeholder="Optional subject, e.g. courtship with Anna, Peter's math grades, front tooth implant" />
+          <div style="margin-top: 20px;">
+            <input id="subject-input" type="text" placeholder="Subject (e.g. 'Project Apollo', 'Health Checkup')" />
           </div>
         </section>
 
         <section class="card panel">
-          <h2>3. Score the relevant lenses</h2>
+          <h2>3. Analyze through Lenses</h2>
           <p class="panel-copy" id="lenses-intro-copy">
-            For each lens, provide your estimate, how confident you are in that estimate, and how important that lens is in this case.
+            Score each lens based on your current data and your confidence in that data.
           </p>
           <div class="criterion-grid" id="criterion-grid"></div>
           <div class="action-row">
-            <button class="action-button" id="compute-button">Compute recommendation</button>
-            <button class="secondary-button" id="reset-button">Reset scores</button>
-            <button class="text-button" id="example-button">Load example</button>
+            <button class="action-button" id="compute-button">Generate Report</button>
+            <button class="secondary-button" id="reset-button">Reset</button>
+            <button class="secondary-button" id="example-button">Load Example</button>
           </div>
         </section>
 
         <section class="card panel">
-          <h2>4. Recommendation</h2>
-          <p class="panel-copy">
-            The prototype returns a state, main drivers, uncertainty, and what would most improve clarity.
-          </p>
+          <h2>4. Synthesis & Recommendation</h2>
           <div class="result-layout">
             <div>
               <div class="result-state">
-                <div class="result-state-label">Current recommendation</div>
-                <div class="result-state-value warn" id="result-state-value">Not computed yet</div>
+                <div class="result-state-value warn" id="result-state-value">Pending...</div>
                 <p class="result-copy" id="result-state-copy">
-                  Choose a mode, score the lenses, and compute a recommendation.
+                  Complete steps 1-3 to generate your analysis.
                 </p>
               </div>
 
               <div class="insight-list">
                 <div class="insight-item">
-                  <div class="insight-title">Main drivers</div>
-                  <div class="insight-body" id="driver-insight">No result yet.</div>
+                  <div class="insight-title">Drivers</div>
+                  <div class="insight-body" id="driver-insight">---</div>
                 </div>
                 <div class="insight-item">
-                  <div class="insight-title">Uncertainty and next clarity move</div>
-                  <div class="insight-body" id="uncertainty-insight">No result yet.</div>
+                  <div class="insight-title">Uncertainty</div>
+                  <div class="insight-body" id="uncertainty-insight">---</div>
                 </div>
                 <div class="insight-item">
-                  <div class="insight-title">Suggested action</div>
-                  <div class="insight-body" id="action-insight">No result yet.</div>
+                  <div class="insight-title">Suggested Action</div>
+                  <div class="insight-body" id="action-insight">---</div>
                 </div>
               </div>
             </div>
 
             <div class="insight-item" style="height: fit-content;">
-              <div class="insight-title">Lens summary</div>
+              <div class="insight-title">Lens Summary</div>
               <div class="insight-body">
                 <table class="small-table">
                   <thead>
                     <tr>
                       <th>Lens</th>
-                      <th>Estimate</th>
-                      <th>Confidence</th>
-                      <th>Importance</th>
+                      <th>Est.</th>
+                      <th>Conf.</th>
                     </tr>
                   </thead>
                   <tbody id="result-table-body"></tbody>
                 </table>
-                <div class="footer-note" id="footer-note">
-                  The system is intentionally transparent. It shows the lenses rather than hiding everything behind a single mystical score.
-                </div>
+                <p id="footer-note" style="font-size: 11px; color: var(--muted); margin-top: 16px;">
+                  Analysis is weighted by importance and confidence.
+                </p>
               </div>
             </div>
           </div>
