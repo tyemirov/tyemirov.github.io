@@ -1,5 +1,8 @@
 const SITE_DATA_URL = "data/site.json";
 
+let currentFilter = null;
+let allProjects = [];
+
 document.addEventListener("DOMContentLoaded", () => {
   void hydrateHomePage();
 });
@@ -17,6 +20,7 @@ async function hydrateHomePage() {
     }
 
     const siteData = await response.json();
+    allProjects = siteData.projects || [];
     renderSite(siteData);
   } catch (error) {
     console.error("Unable to load site data, leaving static fallback in place.", error);
@@ -32,7 +36,7 @@ function renderSite(siteData) {
   renderHero(siteData.hero);
   renderProfile(siteData.profile);
   renderArticles(siteData.articles);
-  renderProjects(siteData.projects);
+  renderProjects(allProjects);
   renderNote(siteData.note);
   renderFooter();
 }
@@ -154,7 +158,28 @@ function renderProjects(projects) {
     return;
   }
 
-  projectGrid.replaceChildren(...liveProjects.map(createProjectCard));
+  const renderGrid = (filterTag = null) => {
+    const filtered = filterTag
+      ? liveProjects.filter((p) => p.kicker === filterTag)
+      : liveProjects;
+
+    projectGrid.replaceChildren(...filtered.map(createProjectCard));
+  };
+
+  window.toggleProjectFilter = (tag) => {
+    if (currentFilter === tag) {
+      currentFilter = null;
+    } else {
+      currentFilter = tag;
+    }
+    renderGrid(currentFilter);
+    
+    if (currentFilter) {
+      projectGrid.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  renderGrid(currentFilter);
 }
 
 function renderArticles(articles) {
@@ -243,11 +268,18 @@ function createHeroLink(link) {
 function createProjectCard(project) {
   const card = document.createElement("article");
   const themeClass = project.theme ? ` project-card-${project.theme}` : "";
-  card.className = `project-card${themeClass}`;
+  const activeClass = currentFilter === project.kicker ? " is-active" : "";
+  card.className = `project-card${themeClass}${activeClass}`;
 
-  const kicker = document.createElement("p");
-  kicker.className = "card-kicker";
+  const kicker = document.createElement("button");
+  kicker.className = "card-kicker-tag";
   kicker.textContent = project.kicker || "";
+  kicker.title = `Filter by ${project.kicker}`;
+  kicker.onclick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.toggleProjectFilter(project.kicker);
+  };
 
   const title = document.createElement("h2");
   const titleLink = document.createElement("a");
@@ -261,6 +293,22 @@ function createProjectCard(project) {
   summary.textContent = project.summary || "";
 
   card.append(kicker, title, summary);
+
+  if (Array.isArray(project.parts) && project.parts.length > 0) {
+    const partsList = document.createElement("ul");
+    partsList.className = "project-parts-list";
+    project.parts.forEach((part) => {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = part.url || "#";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = part.label || "Read more";
+      item.append(link);
+      partsList.append(item);
+    });
+    card.append(partsList);
+  }
 
   if (project.essay?.url) {
     card.append(createProjectEssayLink(project.essay));

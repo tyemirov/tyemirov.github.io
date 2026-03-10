@@ -17,6 +17,8 @@
   --slate-soft: #c9ddec;
   --amber: #d97706;
   --amber-soft: #fef3c7;
+  --indigo: #4338ca;
+  --indigo-soft: #e0e7ff;
 }
 
 * {
@@ -84,12 +86,46 @@ body::before {
 
 .eyebrow,
 .card-kicker,
+.card-kicker-tag,
 .notes-label {
   margin: 0;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.78rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+
+.card-kicker-tag {
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  color: var(--project-accent);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.card-kicker-tag:hover {
+  opacity: 0.8;
+  transform: translateX(4px);
+}
+
+.card-kicker-tag::after {
+  content: " ⊕";
+  font-size: 1rem;
+  vertical-align: middle;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.card-kicker-tag:hover::after {
+  opacity: 1;
+}
+
+.project-card.is-active .card-kicker-tag::after {
+  content: " ⊖";
+  opacity: 1;
 }
 
 .eyebrow {
@@ -434,6 +470,20 @@ h1 {
   color: var(--amber);
 }
 
+.project-card-indigo {
+  --project-accent: var(--indigo);
+  background: linear-gradient(160deg, rgba(245, 247, 255, 0.95), rgba(224, 231, 255, 0.96));
+}
+
+.project-card-indigo::before {
+  background: linear-gradient(180deg, rgba(67, 56, 202, 0.22), rgba(224, 231, 255, 0.82));
+}
+
+.project-card-indigo .card-kicker,
+.project-card-indigo .card-cta {
+  color: var(--indigo);
+}
+
 .project-card h2 {
   max-width: 12ch;
   margin: 0;
@@ -457,6 +507,42 @@ h1 {
   max-width: 32rem;
   margin: 0;
   font-size: 1rem;
+}
+
+.project-parts-list {
+  margin: 4px 0 16px;
+  padding: 0;
+  list-style: none;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+}
+
+.project-parts-list li {
+  position: relative;
+  padding: 6px 0 6px 18px;
+  border-bottom: 1px solid rgba(23, 20, 17, 0.06);
+}
+
+.project-parts-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--project-accent);
+  opacity: 0.7;
+}
+
+.project-parts-list li:last-child {
+  border-bottom: none;
+}
+
+.project-parts-list a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.project-parts-list a:hover {
+  color: var(--project-accent);
 }
 
 .project-essay-link {

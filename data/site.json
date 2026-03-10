@@ -49,7 +49,7 @@
     {
       "slug": "civilization",
       "title": "Minimum Sustainable Modern Civilization",
-      "kicker": "Model",
+      "kicker": "Modeling",
       "summary": "Estimate the population floor needed to sustain a modern market economy under staffing, dependency, resilience, autarky, and demographic constraints.",
       "href": "civilization/",
       "cta": "Open tyemirov.net/civilization/",
@@ -65,7 +65,7 @@
     {
       "slug": "decisioning",
       "title": "Decision Planes",
-      "kicker": "Decision Tool",
+      "kicker": "Decisioning",
       "summary": "Turn vague yes-or-no choices into explicit reasoning over confidence, stakes, expected value, uncertainty, and reversibility.",
       "href": "decisioning/",
       "cta": "Open tyemirov.net/decisioning/",
@@ -81,7 +81,7 @@
     {
       "slug": "freedom",
       "title": "The Vector of Liberty",
-      "kicker": "Jurisdiction Model",
+      "kicker": "Modeling",
       "summary": "Compare states by the friction they impose on concrete actions through taxes, permits, delays, and penalties, weighted against the kind of life you actually want to live.",
       "href": "freedom/",
       "cta": "Open tyemirov.net/freedom/",
@@ -97,7 +97,7 @@
     {
       "slug": "gallery",
       "title": "Tyemirov Gallery",
-      "kicker": "Virtual Gallery",
+      "kicker": "Arts",
       "summary": "A quiet, salon-style gallery for limited digital editions, exhibit narratives, lightbox viewing, and direct collection flow.",
       "href": "gallery/",
       "cta": "Open tyemirov.net/gallery/",
@@ -108,44 +108,44 @@
     {
       "slug": "timeseries",
       "title": "Timeline",
-      "kicker": "Decision Support",
+      "kicker": "Decisioning",
       "summary": "Analyze ongoing processes and event thresholds to determine if a system is stable, ready for a decision, or drifting into failure.",
       "href": "timeseries/",
       "cta": "Open tyemirov.net/timeseries/",
       "theme": "amber",
       "order": 50,
       "status": "live"
+    },
+    {
+      "slug": "meta-manager",
+      "title": "The Age of the Meta-Manager",
+      "kicker": "Writings",
+      "summary": "A framework for engineering leadership in the AI era: moving from managing people to managing the systems that manage the work.",
+      "href": "https://vadymtyemirov1.substack.com/p/the-age-of-the-meta-manager",
+      "cta": "Explore the Series",
+      "theme": "indigo",
+      "order": 60,
+      "status": "live",
+      "parts": [
+        {
+          "label": "Part 1: The Age of the Meta-Manager",
+          "url": "https://open.substack.com/pub/vadymtyemirov1/p/the-age-of-the-meta-manager"
+        },
+        {
+          "label": "Part 2: The Meta-Manager Skill Stack",
+          "url": "https://open.substack.com/pub/vadymtyemirov1/p/the-meta-manager-skill-stack"
+        },
+        {
+          "label": "Part 3: The Seven Muscles",
+          "url": "https://vadymtyemirov1.substack.com/p/the-seven-muscles-of-the-meta-manager"
+        }
+      ]
     }
   ],
   "articles": {
     "label": "Writing",
     "title": "Selected essays from Substack.",
-    "items": [
-      {
-        "title": "The Age of Meta-Manager",
-        "url": "https://open.substack.com/pub/vadymtyemirov1/p/the-age-of-the-meta-manager",
-        "source": "Substack",
-        "cta": "Read on Substack",
-        "order": 10,
-        "status": "live"
-      },
-      {
-        "title": "Becoming a Meta-Manager",
-        "url": "https://open.substack.com/pub/vadymtyemirov1/p/the-meta-manager-skill-stack",
-        "source": "Substack",
-        "cta": "Read on Substack",
-        "order": 20,
-        "status": "live"
-      },
-      {
-        "title": "The Seven Muscles of the Meta-Manager",
-        "url": "https://vadymtyemirov1.substack.com/p/the-seven-muscles-of-the-meta-manager",
-        "source": "Substack",
-        "cta": "Read on Substack",
-        "order": 30,
-        "status": "live"
-      }
-    ]
+    "items": []
   },
   "note": {
     "label": "On This Site",
