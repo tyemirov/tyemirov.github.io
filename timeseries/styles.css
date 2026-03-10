@@ -35,12 +35,6 @@ body {
   padding: 48px 0 80px;
 }
 
-.hero {
-  margin-bottom: 48px;
-  border-bottom: 1px solid var(--panel-border);
-  padding-bottom: 32px;
-}
-
 .eyebrow {
   display: inline-block;
   font-size: 14px;
