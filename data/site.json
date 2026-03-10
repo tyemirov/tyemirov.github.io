@@ -95,17 +95,6 @@
       "status": "live"
     },
     {
-      "slug": "gallery",
-      "title": "Tyemirov Gallery",
-      "kicker": "Arts",
-      "summary": "A quiet, salon-style gallery for limited digital editions, exhibit narratives, lightbox viewing, and direct collection flow.",
-      "href": "gallery/",
-      "cta": "Open tyemirov.net/gallery/",
-      "theme": "slate",
-      "order": 40,
-      "status": "live"
-    },
-    {
       "slug": "timeseries",
       "title": "Timeline",
       "kicker": "Decisioning",
@@ -142,6 +131,20 @@
       ]
     }
   ],
+  "arts": {
+    "label": "Arts",
+    "title": "Digital editions and virtual exhibits.",
+    "items": [
+      {
+        "title": "Tyemirov Gallery",
+        "url": "gallery/",
+        "source": "Gallery",
+        "cta": "Enter Gallery",
+        "order": 10,
+        "status": "live"
+      }
+    ]
+  },
   "articles": {
     "label": "Writing",
     "title": "Selected essays from Substack.",

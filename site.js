@@ -36,6 +36,7 @@ function renderSite(siteData) {
   renderHero(siteData.hero);
   renderProfile(siteData.profile);
   renderArticles(siteData.articles);
+  renderArts(siteData.arts);
   renderProjects(allProjects);
   renderFooter();
 }
@@ -207,6 +208,34 @@ function renderArticles(articles) {
 
   articleList.replaceChildren(...items.map(createArticleCard));
   writingSection.classList.remove("is-hidden");
+}
+
+function renderArts(arts) {
+  if (!arts || typeof arts !== "object") {
+    return;
+  }
+
+  const items = Array.isArray(arts.items)
+    ? arts.items
+        .filter((item) => !item.status || item.status === "live")
+        .sort(byOrder)
+    : [];
+
+  if (!items.length) {
+    return;
+  }
+
+  updateText(".arts-section .notes-label", arts.label);
+  updateText(".arts-section .section-title", arts.title);
+
+  const artsSection = document.querySelector(".arts-section");
+  const artsList = document.querySelector(".arts-list");
+  if (!artsSection || !artsList) {
+    return;
+  }
+
+  artsList.replaceChildren(...items.map(createArticleCard));
+  artsSection.classList.remove("is-hidden");
 }
 
 function renderFooter() {
