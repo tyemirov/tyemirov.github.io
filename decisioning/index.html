@@ -57,9 +57,9 @@
   </script>
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@3.6.7/mpr-ui.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@v3.6.7/mpr-ui.css" />
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@3.6.7/mpr-ui.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@v3.6.7/mpr-ui.js"></script>
 
   <!-- D3 for 2D charts -->
   <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
@@ -73,7 +73,23 @@
       }
     }
   </script>
-</head>
+    <style>
+      .site-footer {
+        display: block;
+        margin-top: 18px;
+      }
+      .site-footer__inner {
+        width: min(100%, 1200px);
+        margin: 0 auto;
+      }
+      .site-footer__layout {
+        align-items: center;
+      }
+      mpr-footer.site-footer footer.mpr-footer {
+        backdrop-filter: blur(14px);
+      }
+    </style>
+  </head>
 
 <body>
   <mpr-header
@@ -223,28 +239,33 @@
     </section>
   </main>
 
-  <mpr-footer
-    privacy-link-href="https://mprlab.com"
-    privacy-link-label="Marco Polo Research Lab"
-    toggle-label="Made by Marco Polo Research Lab"
-    links-collection='{
-      "style":"drop-up",
-      "text":"Made by Marco Polo Research Lab",
-      "links":[
-        {"label":"Marco Polo Research Lab","url":"https://mprlab.com"},
-        {"label":"Gravity Notes","url":"https://gravity.mprlab.com"},
-        {"label":"LoopAware","url":"https://loopaware.mprlab.com"},
-        {"label":"Allergy Wheel","url":"https://allergy.mprlab.com"},
-        {"label":"Social Threader","url":"https://threader.mprlab.com"},
-        {"label":"RSVP","url":"https://rsvp.mprlab.com"},
-        {"label":"Countdown Calendar","url":"https://countdown.mprlab.com"},
-        {"label":"LLM Crossword","url":"https://llm-crossword.mprlab.com"},
-        {"label":"Prompt Bubbles","url":"https://prompts.mprlab.com"},
-        {"label":"Wallpapers","url":"https://wallpapers.mprlab.com"}
-      ]
-    }'
-  ></mpr-footer>
+  <mpr-footer id="site-footer" class="site-footer"></mpr-footer>
 
+   <script>
+     document.addEventListener("DOMContentLoaded", () => {
+       const footer = document.querySelector("#site-footer");
+       if (!footer) return;
+       const initFooter = () => {
+         if (typeof globalThis.MPRUI?.getFooterSiteCatalog === "function") {
+           const links = globalThis.MPRUI.getFooterSiteCatalog();
+           if (links && links.length > 0) {
+             footer.setAttribute("links-collection", JSON.stringify({
+               style: "drop-up",
+               text: "Built by Marco Polo Research Lab",
+               links: links
+             }));
+           }
+         }
+         footer.setAttribute("sticky", "false");
+         footer.setAttribute("size", "small");
+         footer.setAttribute("privacy-link-hidden", "true");
+         footer.setAttribute("inner-class", "site-footer__inner");
+         footer.setAttribute("wrapper-class", "site-footer__layout");
+       };
+       if (globalThis.MPRUI) initFooter();
+       else window.addEventListener("mpr-ui-ready", initFooter, { once: true });
+     });
+   </script>
   <script type="module" src="app.js"></script>
 </body>
 </html>
