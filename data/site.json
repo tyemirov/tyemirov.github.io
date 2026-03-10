@@ -101,6 +101,11 @@
       "summary": "Analyze ongoing processes and event thresholds to determine if a system is stable, ready for a decision, or drifting into failure.",
       "href": "timeseries/",
       "cta": "Open tyemirov.net/timeseries/",
+      "essay": {
+        "label": "Companion essay",
+        "title": "Some Things Are Time Series, Some Things Are Thresholds",
+        "url": "https://open.substack.com/pub/vadymtyemirov1/p/some-things-are-time-series-some"
+      },
       "theme": "amber",
       "order": 50,
       "status": "live"
