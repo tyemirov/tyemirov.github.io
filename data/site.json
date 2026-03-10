@@ -104,6 +104,17 @@
       "theme": "slate",
       "order": 40,
       "status": "live"
+    },
+    {
+      "slug": "timeseries",
+      "title": "Timeline",
+      "kicker": "Decision Support",
+      "summary": "Analyze ongoing processes and event thresholds to determine if a system is stable, ready for a decision, or drifting into failure.",
+      "href": "timeseries/",
+      "cta": "Open tyemirov.net/timeseries/",
+      "theme": "amber",
+      "order": 50,
+      "status": "live"
     }
   ],
   "articles": {

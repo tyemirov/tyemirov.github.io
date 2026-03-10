@@ -15,6 +15,8 @@
   --olive-soft: #dde4be;
   --slate: #2e5875;
   --slate-soft: #c9ddec;
+  --amber: #d97706;
+  --amber-soft: #fef3c7;
 }
 
 * {
@@ -416,6 +418,20 @@ h1 {
 .project-card-slate .card-kicker,
 .project-card-slate .card-cta {
   color: var(--slate);
+}
+
+.project-card-amber {
+  --project-accent: var(--amber);
+  background: linear-gradient(160deg, rgba(255, 251, 235, 0.95), rgba(254, 243, 199, 0.96));
+}
+
+.project-card-amber::before {
+  background: linear-gradient(180deg, rgba(217, 119, 6, 0.22), rgba(254, 243, 199, 0.82));
+}
+
+.project-card-amber .card-kicker,
+.project-card-amber .card-cta {
+  color: var(--amber);
 }
 
 .project-card h2 {
