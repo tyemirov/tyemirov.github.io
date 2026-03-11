@@ -1,19 +1,40 @@
 :root {
-  --bg: #fdfcf9;
-  --bg-subtle: #f7f5f0;
-  --ink: #1a1a1a;
-  --muted: #666666;
-  --line: #e0e0e0;
-  --line-strong: #1a1a1a;
+  /* Earthy Green System */
+  --bg: #fbfbf8;
+  --bg-subtle: #f4f4ef;
+  --ink: #2a3321; /* Deep Earthy Green-Ink */
+  --muted: #5c6652;
+  --line: #d8dbd0;
+  --line-strong: #2a3321;
   
-  /* Project Accents - Muted & Sophisticated */
+  /* Project Accents - Derived from Earthy Green Palette */
   --copper: #8c4a2d;
-  --teal: #2d6a61;
+  --teal: #3d665e;
   --olive: #556b2f;
-  --slate: #4a5d6a;
-  --amber: #b45309;
+  --slate: #54667a;
+  --amber: #92400e;
   --indigo: #3730a3;
   --violet: #5b21b6;
+
+  /* Theme Switcher Variables (mpr-ui compatible) */
+  --mpr-color-accent: #4a5d23; /* Earthy Green */
+}
+
+/* Theme Variant Overrides */
+[data-theme="lab"] {
+  --bg: #fdfcf9;
+  --ink: #1a1a1a;
+  --muted: #666666;
+  --line-strong: #1a1a1a;
+}
+
+[data-theme="dark"] {
+  --bg: #0f172a; /* Deep Indigo Night */
+  --bg-subtle: #1e293b;
+  --ink: #f8fafc;
+  --muted: #94a3b8;
+  --line: #334155;
+  --line-strong: #f8fafc;
 }
 
 * {
@@ -38,10 +59,29 @@ body {
 a {
   color: var(--ink);
   text-decoration-color: var(--line);
+  transition: all 200ms ease;
 }
 
 a:hover {
   text-decoration-color: var(--ink);
+}
+
+/* Profile Photo Reveal */
+.profile-photo {
+  display: block;
+  filter: grayscale(1) contrast(1.05) brightness(0.95);
+  transition: filter 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 32px;
+}
+
+.profile-photo:hover {
+  filter: grayscale(0) contrast(1) brightness(1);
+}
+
+.profile-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Subtle texture overlay */
@@ -121,8 +161,6 @@ h1 {
 
 .profile-photo {
   display: block;
-  filter: grayscale(1) contrast(1.1);
-  mix-blend-mode: multiply;
   margin-bottom: 32px;
 }
 

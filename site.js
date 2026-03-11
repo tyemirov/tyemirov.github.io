@@ -35,7 +35,25 @@ function renderAll(data) {
   renderArticles(data.articles);
   renderArts(data.arts);
   renderProjects(data.projects);
+  renderThemeSwitcher();
   renderFooter();
+}
+
+function renderThemeSwitcher() {
+  const switcher = document.querySelector("#theme-switcher");
+  if (!switcher) return;
+
+  switcher.setAttribute("themes", JSON.stringify([
+    { label: "Earthy", value: "earthy", color: "#4a5d23" },
+    { label: "Lab", value: "lab", color: "#1a1a1a" },
+    { label: "Night", value: "dark", color: "#3730a3" }
+  ]));
+
+  switcher.addEventListener("theme-change", (e) => {
+    const theme = e.detail.value;
+    document.documentElement.setAttribute("data-theme", theme);
+    // Persist or apply specific variable overrides if needed
+  });
 }
 
 function renderSiteMeta(site) {
