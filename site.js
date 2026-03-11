@@ -35,19 +35,7 @@ function renderAll(data) {
   renderArticles(data.articles);
   renderArts(data.arts);
   renderProjects(data.projects);
-  renderThemeToggle();
   renderFooter();
-}
-
-function renderThemeToggle() {
-  const toggle = document.querySelector("#theme-toggle");
-  if (!toggle) return;
-
-  // mpr-theme-toggle usually works by emitting theme-change
-  toggle.addEventListener("theme-change", (e) => {
-    const isDark = e.detail.value === "dark";
-    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
-  });
 }
 
 function renderSiteMeta(site) {
@@ -250,6 +238,7 @@ function byOrder(a, b) { return (a.order || 999) - (b.order || 999); }
 function renderFooter() {
   const footer = document.querySelector("#site-footer");
   if (!footer) return;
+
   const initFooter = () => {
     if (typeof globalThis.MPRUI?.getFooterSiteCatalog === "function") {
       const links = globalThis.MPRUI.getFooterSiteCatalog();
@@ -265,7 +254,14 @@ function renderFooter() {
     footer.setAttribute("privacy-link-hidden", "true");
     footer.setAttribute("inner-class", "site-footer__inner");
     footer.setAttribute("wrapper-class", "site-footer__layout");
+    footer.setAttribute("theme-toggle", "true");
   };
+
+  footer.addEventListener("theme-change", (e) => {
+    const isDark = e.detail.value === "dark";
+    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+  });
+
   if (globalThis.MPRUI) initFooter();
   else window.addEventListener("mpr-ui-ready", initFooter, { once: true });
 }
