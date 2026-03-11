@@ -182,7 +182,7 @@ function createProjectCard(project) {
   const link = document.createElement("a");
   link.className = "project-link";
   link.href = project.href || "#";
-  link.textContent = project.cta || "Open";
+  link.textContent = project.cta || link.href;
   actions.append(link);
   card.append(actions);
 

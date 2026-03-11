@@ -52,7 +52,7 @@
       "kicker": "Modeling",
       "summary": "Estimate the population floor needed to sustain a modern market economy under staffing, dependency, resilience, autarky, and demographic constraints.",
       "href": "civilization/",
-      "cta": "Open tyemirov.net/civilization/",
+      "cta": "tyemirov.net/civilization/",
       "essay": {
         "label": "Companion essay",
         "title": "How Big Does a Modern Civilization Need to Be?",
@@ -68,7 +68,7 @@
       "kicker": "Decisioning",
       "summary": "Turn vague yes-or-no choices into explicit reasoning over confidence, stakes, expected value, uncertainty, and reversibility.",
       "href": "decisioning/",
-      "cta": "Open tyemirov.net/decisioning/",
+      "cta": "tyemirov.net/decisioning/",
       "essay": {
         "label": "Companion essay",
         "title": "Stop asking \"Is this good or bad?\"",
@@ -84,7 +84,7 @@
       "kicker": "Modeling",
       "summary": "Compare states by the friction they impose on concrete actions through taxes, permits, delays, and penalties, weighted against the kind of life you actually want to live.",
       "href": "freedom/",
-      "cta": "Open tyemirov.net/freedom/",
+      "cta": "tyemirov.net/freedom/",
       "essay": {
         "label": "Companion essay",
         "title": "The Vector of Liberty",
@@ -100,7 +100,7 @@
       "kicker": "Decisioning",
       "summary": "Analyze ongoing processes and event thresholds to determine if a system is stable, ready for a decision, or drifting into failure.",
       "href": "timeseries/",
-      "cta": "Open tyemirov.net/timeseries/",
+      "cta": "tyemirov.net/timeseries/",
       "essay": {
         "label": "Companion essay",
         "title": "Some Things Are Time Series, Some Things Are Thresholds",
