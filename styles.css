@@ -34,6 +34,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Neutral Link Reset */
+a {
+  color: var(--ink);
+  text-decoration-color: var(--line);
+}
+
+a:hover {
+  text-decoration-color: var(--ink);
+}
+
 /* Subtle texture overlay */
 body::before {
   content: "";
@@ -249,6 +259,16 @@ h1 {
   font-weight: 400;
   line-height: 0.95;
   margin: 0 0 24px;
+}
+
+.project-card h2 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.project-card h2 a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--ink);
 }
 
 .card-body {
