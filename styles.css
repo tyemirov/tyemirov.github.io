@@ -265,6 +265,7 @@ h1 {
   display: flex;
   flex-direction: column;
   transition: background 300ms ease;
+  height: 100%;
 }
 
 .project-card:hover {
@@ -313,6 +314,7 @@ h1 {
   color: var(--muted);
   line-height: 1.5;
   margin-bottom: 32px;
+  flex-grow: 1;
 }
 
 .project-parts-list {
