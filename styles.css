@@ -1,13 +1,13 @@
 :root {
-  /* Earthy Green System */
-  --bg: #fbfbf8;
-  --bg-subtle: #f4f4ef;
-  --ink: #2a3321; /* Deep Earthy Green-Ink */
-  --muted: #5c6652;
-  --line: #d8dbd0;
-  --line-strong: #2a3321;
+  /* Cohesive Earthy Green System */
+  --bg: #f9f9f2;
+  --bg-subtle: #f1f1e6;
+  --ink: #3a4a23; /* Clearly Earthy Green */
+  --muted: #6b7a54;
+  --line: #dce0cd;
+  --line-strong: #3a4a23;
   
-  /* Project Accents - Derived from Earthy Green Palette */
+  /* Project Accents */
   --copper: #8c4a2d;
   --teal: #3d665e;
   --olive: #556b2f;
@@ -16,25 +16,24 @@
   --indigo: #3730a3;
   --violet: #5b21b6;
 
-  /* Theme Switcher Variables (mpr-ui compatible) */
-  --mpr-color-accent: #4a5d23; /* Earthy Green */
+  --mpr-color-accent: var(--ink);
 }
 
-/* Theme Variant Overrides */
-[data-theme="lab"] {
-  --bg: #fdfcf9;
-  --ink: #1a1a1a;
-  --muted: #666666;
-  --line-strong: #1a1a1a;
-}
-
+/* Dark Mode Override (via toggle) */
 [data-theme="dark"] {
-  --bg: #0f172a; /* Deep Indigo Night */
+  --bg: #0f172a;
   --bg-subtle: #1e293b;
-  --ink: #f8fafc;
+  --ink: #f1f5f9;
   --muted: #94a3b8;
   --line: #334155;
-  --line-strong: #f8fafc;
+  --line-strong: #f1f5f9;
+  --copper: #fb923c;
+  --teal: #2dd4bf;
+  --olive: #a3e635;
+  --slate: #94a3b8;
+  --amber: #fbbf24;
+  --indigo: #818cf8;
+  --violet: #a78bfa;
 }
 
 * {
