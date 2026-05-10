@@ -1,0 +1,117 @@
+.music-header {
+  margin-bottom: 80px;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 40px;
+}
+
+.back-link {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.back-link:hover {
+  color: var(--ink);
+}
+
+.header-copy h1 {
+  font-size: clamp(3rem, 8vw, 5rem);
+  margin-bottom: 24px;
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+}
+
+.album-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 300ms ease;
+}
+
+.album-card:hover {
+  transform: translateY(-4px);
+}
+
+.album-cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--line);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.album-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.album-title {
+  font-family: "Instrument Serif", serif;
+  font-size: 2rem;
+  line-height: 1.1;
+  margin: 0 0 8px;
+}
+
+.album-translation {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.album-meta {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.album-description {
+  font-size: 0.95rem;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.album-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.listen-button {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: var(--ink);
+  padding: 8px 16px;
+  border: 1px solid var(--ink);
+  transition: all 200ms ease;
+}
+
+.listen-button:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+@media (max-width: 600px) {
+  .album-grid {
+    grid-template-columns: 1fr;
+  }
+}

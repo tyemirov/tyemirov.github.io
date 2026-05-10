@@ -213,13 +213,28 @@ h1 {
   color: var(--muted);
 }
 
+.is-hidden {
+  display: none !important;
+}
+
 /* Sections */
-.writing-section, .arts-section {
+.project-section, .essay-section, .music-section, .arts-section {
   margin-top: 100px;
 }
 
 .section-heading {
   margin-bottom: 40px;
+}
+
+.section-actions {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.section-blurb {
+  margin-bottom: 40px;
+  max-width: 65ch;
 }
 
 .notes-label {
@@ -244,22 +259,29 @@ h1 {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  border-top: 1px solid var(--line);
-}
-
-.article-list, .arts-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
 }
 
+.article-list, .essay-list, .arts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.music-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+}
+
 /* Project Cards - Rigid & Structured */
 .project-card {
   padding: 48px;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  background: var(--bg);
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -376,21 +398,6 @@ h1 {
   color: var(--project-accent);
 }
 
-/* Article Cards */
-.article-card {
-  background: var(--bg);
-  padding: 32px;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  transition: background 200ms ease;
-}
-
-.article-card:hover {
-  background: var(--bg-subtle);
-}
-
 .article-meta-tag {
   appearance: none;
   background: none;
@@ -403,6 +410,54 @@ h1 {
   cursor: pointer;
   margin-bottom: 16px;
   text-align: left;
+}
+
+/* Music Cards */
+.music-card {
+  padding: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: transform 300ms ease;
+}
+
+.music-card:hover {
+  transform: translateY(-4px);
+}
+
+.music-card-cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.music-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.music-card .article-title {
+  font-family: "Instrument Serif", serif;
+  font-size: 1.1rem;
+  margin: 0 0 4px;
+}
+
+.music-card .article-meta-tag {
+  margin-bottom: 8px;
+  font-size: 0.6rem;
+}
+
+.music-card .article-cta {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: auto;
 }
 
 .article-title {
