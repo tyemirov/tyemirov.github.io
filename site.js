@@ -1,7 +1,9 @@
 const SITE_DATA_URL = "data/site.json";
+const MUSIC_DATA_URL = "data/music.json";
 
 let currentFilter = null;
 let siteData = null;
+let musicData = null;
 
 document.addEventListener("DOMContentLoaded", () => {
   void hydrateHomePage();
@@ -9,32 +11,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function hydrateHomePage() {
   try {
-    const response = await fetch(SITE_DATA_URL, {
-      headers: {
-        Accept: "application/json"
-      }
-    });
+    const [siteRes, musicRes] = await Promise.all([
+      fetch(SITE_DATA_URL, { headers: { Accept: "application/json" } }),
+      fetch(MUSIC_DATA_URL, { headers: { Accept: "application/json" } })
+    ]);
 
-    if (!response.ok) {
-      throw new Error(`Failed to load ${SITE_DATA_URL}: ${response.status}`);
-    }
+    if (!siteRes.ok) throw new Error(`Failed to load ${SITE_DATA_URL}: ${siteRes.status}`);
+    if (!musicRes.ok) throw new Error(`Failed to load ${MUSIC_DATA_URL}: ${musicRes.status}`);
 
-    siteData = await response.json();
-    renderAll(siteData);
+    siteData = await siteRes.json();
+    musicData = await musicRes.json();
+    renderAll(siteData, musicData);
   } catch (error) {
     console.error("Unable to load site data, leaving static fallback in place.", error);
   }
 }
 
-function renderAll(data) {
+function renderAll(data, music) {
   if (!data || typeof data !== "object") return;
 
   renderSiteMeta(data.site);
   renderHero(data.hero);
   renderProfile(data.profile);
-  renderArticles(data.articles);
+  renderProjects(data.mprlab);
+  renderEssays(data.essays);
+  renderMusic(music);
   renderArts(data.arts);
-  renderProjects(data.projects);
   renderFooter();
 }
 
@@ -82,47 +84,62 @@ function renderProfile(profile) {
   }
 }
 
-function renderProjects(projects) {
-  const projectGrid = document.querySelector(".project-grid");
-  if (!projectGrid || !Array.isArray(projects)) return;
+function renderProjects(mprlab) {
+  const projectSection = document.querySelector(".project-section");
+  if (!projectSection || !mprlab) return;
 
-  const filtered = projects.filter(liveOnly).sort(byOrder).filter(p => !currentFilter || p.kicker === currentFilter);
-  projectGrid.replaceChildren(...filtered.map(createProjectCard));
+  updateText(".project-section .section-blurb .lead", mprlab.blurb);
+  projectSection.classList.remove("is-hidden");
 }
 
-function renderArticles(articles) {
-  const writingSection = document.querySelector(".writing-section");
-  const articleList = document.querySelector(".article-list");
-  if (!writingSection || !articleList || !articles) return;
+function renderEssays(essays) {
+  const essaySection = document.querySelector(".essay-section");
+  const essayList = document.querySelector(".essay-list");
+  if (!essaySection || !essayList || !essays) return;
 
-  const filtered = (articles.items || []).filter(liveOnly).sort(byOrder).filter(a => !currentFilter || a.source === currentFilter);
+  const filtered = (essays.items || []).filter(liveOnly).sort(byOrder).slice(0, 4);
   
-  updateText(".writing-section .notes-label", articles.label);
-  updateText(".writing-section .section-title", articles.title);
+  updateText(".essay-section .notes-label", essays.label);
+  updateText(".essay-section .section-title", essays.title);
   
-  articleList.replaceChildren(...filtered.map(createArticleCard));
-  writingSection.classList.toggle("is-hidden", filtered.length === 0 && !!currentFilter);
+  essayList.replaceChildren(...filtered.map(createArticleCard));
+  essaySection.classList.remove("is-hidden");
+}
+
+function renderMusic(music) {
+  const musicSection = document.querySelector(".music-section");
+  const musicList = document.querySelector(".music-list");
+  if (!musicSection || !musicList || !music) return;
+
+  const items = (music.items || []).filter(liveOnly).sort(byOrder).slice(0, 3);
+  
+  updateText(".music-section .notes-label", music.label);
+  updateText(".music-section .section-title", music.title);
+  
+  musicList.replaceChildren(...items.map(createMusicItem));
+  musicSection.classList.remove("is-hidden");
 }
 
 function renderArts(arts) {
   const artsSection = document.querySelector(".arts-section");
-  const artsList = document.querySelector(".arts-list");
-  if (!artsSection || !artsList || !arts) return;
+  if (!artsSection || !arts) return;
 
-  const filtered = (arts.items || []).filter(liveOnly).sort(byOrder).filter(a => !currentFilter || a.source === currentFilter);
+  const item = (arts.items || []).find(liveOnly);
+  if (item) {
+    updateText(".arts-section .section-blurb .lead", item.summary);
+  }
 
   updateText(".arts-section .notes-label", arts.label);
   updateText(".arts-section .section-title", arts.title);
 
-  artsList.replaceChildren(...filtered.map(createArticleCard));
-  artsSection.classList.toggle("is-hidden", filtered.length === 0 && !!currentFilter);
+  artsSection.classList.remove("is-hidden");
 }
 
 window.toggleProjectFilter = (tag) => {
   currentFilter = (currentFilter === tag) ? null : tag;
-  renderAll(siteData);
+  renderAll(siteData, musicData);
   if (currentFilter) {
-    document.querySelector(".project-grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.querySelector(".essay-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 };
 
@@ -175,8 +192,6 @@ function createProjectCard(project) {
     card.append(list);
   }
 
-  if (project.essay?.url) card.append(createProjectEssayLink(project.essay));
-
   const actions = document.createElement("div");
   actions.className = "project-actions";
   const link = document.createElement("a");
@@ -205,25 +220,64 @@ function createProjectEssayLink(essay) {
 }
 
 function createArticleCard(article) {
-  const card = document.createElement("a");
-  card.className = "article-card";
-  card.href = article.url;
-  card.target = "_blank";
+  const card = document.createElement("article");
+  card.className = "project-card";
 
-  const meta = document.createElement("button");
+  const kicker = document.createElement("p");
+  kicker.className = "card-kicker-tag";
+  kicker.textContent = article.kicker || article.source || "Essay";
+
+  const title = document.createElement("h2");
+  const titleLink = document.createElement("a");
+  titleLink.href = article.url;
+  titleLink.target = "_blank";
+  titleLink.textContent = article.title;
+  title.append(titleLink);
+
+  const summary = document.createElement("p");
+  summary.className = "card-body";
+  summary.textContent = article.summary || "";
+
+  const actions = document.createElement("div");
+  actions.className = "project-actions";
+  const link = document.createElement("a");
+  link.className = "project-link";
+  link.href = article.url;
+  link.target = "_blank";
+  link.textContent = article.cta || "Read on Substack";
+  actions.append(link);
+
+  card.append(kicker, title, summary, actions);
+  return card;
+}
+
+function createMusicItem(item) {
+  const card = document.createElement("a");
+  card.className = "article-card music-card";
+  card.href = `/music/${item.slug}`;
+
+  const cover = document.createElement("div");
+  cover.className = "music-card-cover";
+  const img = document.createElement("img");
+  img.src = item.coverImage || "/music/covers/placeholder.jpg";
+  img.alt = `${item.title} cover`;
+  img.loading = "lazy";
+  cover.append(img);
+
+  const meta = document.createElement("p");
   meta.className = "article-meta-tag";
-  meta.textContent = article.source || "Writings";
-  meta.onclick = (e) => { e.preventDefault(); e.stopPropagation(); window.toggleProjectFilter(article.source); };
+  meta.textContent = item.latest ? "Latest Release" : (item.releaseDate || "Music");
+  if (item.latest) meta.style.color = "var(--copper)";
 
   const title = document.createElement("h3");
   title.className = "article-title";
-  title.textContent = article.title;
+  title.textContent = item.title;
 
   const cta = document.createElement("p");
   cta.className = "article-cta";
-  cta.textContent = article.cta || "Read";
+  cta.textContent = "View Album";
 
-  card.append(meta, title, cta);
+  card.append(cover, meta, title, cta);
   return card;
 }
 
