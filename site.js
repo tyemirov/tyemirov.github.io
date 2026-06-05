@@ -37,7 +37,7 @@ function renderAll(data, music) {
   renderEssays(data.essays);
   renderMusic(music);
   renderArts(data.arts);
-  renderFooter();
+  renderFooter(data.contact);
 }
 
 function renderSiteMeta(site) {
@@ -289,18 +289,22 @@ function updateText(selector, value) {
 function liveOnly(item) { return !item.status || item.status === "live"; }
 function byOrder(a, b) { return (a.order || 999) - (b.order || 999); }
 
-function renderFooter() {
+function renderFooter(contact) {
   const footer = document.querySelector("#site-footer");
   if (!footer) return;
 
   const initFooter = () => {
     if (typeof globalThis.MPRUI?.getFooterSiteCatalog === "function") {
       const links = globalThis.MPRUI.getFooterSiteCatalog();
-      if (links?.length) {
+      const footerLinks = Array.isArray(links) ? [...links] : [];
+      if (contact?.href && contact?.label) {
+        footerLinks.push({ label: contact.label, url: contact.href });
+      }
+      if (footerLinks.length) {
         footer.setAttribute("links-collection", JSON.stringify({
           style: "drop-up",
           text: "Built by Marco Polo Research Lab",
-          links: links
+          links: footerLinks
         }));
       }
     }

@@ -4,6 +4,10 @@
     "description": "Vadym Tyemirov's personal site: tools, essays, music, and arts published directly under tyemirov.net.",
     "canonical": "https://tyemirov.net/"
   },
+  "contact": {
+    "label": "Contact",
+    "href": "mailto:hello@tyemirov.net"
+  },
   "hero": {
     "eyebrow": "Vadym Tyemirov",
     "title": "Tools, essays, music, and arts.",
@@ -34,6 +38,12 @@
         "target": "_blank",
         "style": "secondary",
         "order": 40
+      },
+      {
+        "label": "Contact",
+        "href": "mailto:hello@tyemirov.net",
+        "style": "secondary",
+        "order": 50
       }
     ]
   },
