@@ -1,0 +1,55 @@
+# Changelog
+
+## [v1.0.0] - 2026-08-29
+
+- Merge pull request #4 from tyemirov/bugfix/current-loopaware-site-id
+- fix: restore LoopAware tracking
+- fix site rendering issues by updating site.js and data/site.json
+- fix: update music.json to correct or add music data entries
+- Merge pull request #3 from tyemirov/feature/restructure-landing-page
+- Music album release years fixed
+- Merge pull request #2 from tyemirov/feature/restructure-landing-page
+- feat: restructure landing page into four pillars
+- design: align card action links horizontally using flex-grow
+- design: remove 'Open' from card CTA links to show only URLs
+- design: move theme toggle to footer and integrate into mpr-footer component
+- feat: add Musical Projects to Arts section
+- fix: use mpr-theme-toggle and refine earthy green palette
+- design: implement earthy green palette, photo color-reveal, and global theme switcher
+- design: eliminate default blue link colors for neutral editorial look
+- design: overhaul to structural editorial aesthetic for a more original and professional look
+- design: elevate homepage with grain texture, animated hero, and refined card aesthetics
+- docs: expand agent mandates for branding and logic consistency
+- docs: document mandatory global script and repository standards
+- feat: add LoopAware tracking pixel to all pages
+- design: align timeseries header with civilization template using mpr-header
+- design: add prominent companion article links to all project pages
+- feat: add companion essay to Timeline project
+- design: refactor timeseries prototype for better readability and alignment with article intent
+- feat: elevate Agentic UI article to project card with violet theme
+- feat: global filtering, rename Writings section, and add Agentic UI article
+- feat: add 'On UI and UX for Agentic Applications' and enable article filtering
+- chore: change Meta-Manager kicker to AI
+- feat: add dedicated Arts section and move Gallery into it
+- fix: ensure Morgan Stanley appears together using non-breaking spaces
+- feat: remove 'On This Site' panel and implement project filtering by kicker
+- feat: replace generic favicon with face-based icon across site
+- feat: add dynamic mpr-ui footer with drop-up menu to all project pages
+- feat: add dynamic Timeline project and refactor timeseries prototype
+- timeseries
+- chore: ignore local tools workspace
+- feat(home): make hero data-driven and add mpr footer
+- test(gallery): add jsdom coverage for home carousel and collection
+- feat(gallery): add hero carousel and collection home view
+- docs(gallery): align static app docs with implementation
+- Add shared favicon and manifest assets
+- Add crawl and social metadata for search indexing
+- Merge pull request #1 from tyemirov/consolidate-site-pages
+- Merge branch 'master' into consolidate-site-pages
+- Add companion essay links to project cards
+- Add a writing section for featured Substack essays
+- Make the homepage content data-driven
+- Consolidate tyemirov.net into a single GitHub Pages repo
+- Create CNAME
+- first commit
+
