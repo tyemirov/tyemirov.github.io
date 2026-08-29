@@ -19,7 +19,7 @@ Homepage content is driven by `data/site.json` and rendered by `site.js`.
 Every HTML page in this repository MUST include the LoopAware tracking script at the top of the `<head>` tag:
 
 ```html
-<script defer src="https://loopaware.mprlab.com/pixel.js?site_id=a7ea8b8a-ff37-4a99-81fa-09a5952f83a9&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script>
+<script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script>
 ```
 
 ## Add A New Page
@@ -29,7 +29,7 @@ Every HTML page in this repository MUST include the LoopAware tracking script at
 3. Include the **Mandatory Global Script** (LoopAware pixel) in the head.
 4. Keep page-specific assets in that same folder.
 5. Add a project entry to `data/site.json`.
-6. Push this repo. GitHub Pages will publish it under `https://tyemirov.net/my-new-page/`.
+6. Run `make release`, `make publish`, and `make deploy` to publish it under `https://tyemirov.net/my-new-page/`.
 
 ## Edit The Homepage
 
@@ -50,3 +50,4 @@ Every HTML page in this repository MUST include the LoopAware tracking script at
 
 - `CNAME` keeps the custom domain bound in-repo.
 - `.nojekyll` disables Jekyll processing so folders are served as plain static content.
+- `make deploy` is the repository-owned deployment command. Pages still serves `master` until the one-time operator cutover to `gh-pages`, so source pushes can update the live site before that migration.
