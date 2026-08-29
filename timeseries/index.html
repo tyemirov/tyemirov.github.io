@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decision Lens Prototype</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@v3.6.7/mpr-ui.css" />
+  <script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@v3.6.7/mpr-ui.js"></script>
+    <style>
+      .site-footer {
+        display: block;
+        margin-top: 18px;
+      }
+      .site-footer__inner {
+        width: min(100%, 1200px);
+        margin: 0 auto;
+      }
+      .site-footer__layout {
+        align-items: center;
+      }
+      mpr-footer.site-footer footer.mpr-footer {
+        backdrop-filter: blur(14px);
+      }
+    </style>
+  </head>
+<body>
+  <mpr-header
+    brand-label="Some Things Are Time Series, Some Things Are Thresholds"
+    brand-href="https://open.substack.com/pub/vadymtyemirov1/p/some-things-are-time-series-some"
+    settings="false"
+  ></mpr-header>
+
+  <div class="container">
+    <header class="app-header" style="margin-bottom: 32px; border-bottom: 1px solid var(--panel-border); padding-bottom: 24px;">
+      <h1 style="font-size: 32px; margin-bottom: 8px;">Decision Lens Prototype</h1>
+      <p class="hero-copy" style="font-size: 16px;">
+        Distinguish between ongoing processes and one-off commitment decisions.
+      </p>
+    </header>
+
+    <div class="main-grid">
+      <aside class="sidebar">
+        <div class="section-title">Workflow</div>
+        <div class="step-list">
+          <div class="step-item active" id="nav-step-mode">
+            <div class="step-item-title">1. Judgment Type</div>
+            <div class="step-item-copy">Process or Threshold?</div>
+          </div>
+          <div class="step-item" id="nav-step-domain">
+            <div class="step-item-title">2. Domain</div>
+            <div class="step-item-copy">Contextualize prompts.</div>
+          </div>
+          <div class="step-item" id="nav-step-score">
+            <div class="step-item-title">3. Score Lenses</div>
+            <div class="step-item-copy">Estimate and confidence.</div>
+          </div>
+          <div class="step-item" id="nav-step-result">
+            <div class="step-item-title">4. Recommendation</div>
+            <div class="step-item-copy">Legible guidance.</div>
+          </div>
+        </div>
+
+        <div class="section-title">Current State</div>
+        <div class="summary-chip-grid">
+          <div class="summary-chip">
+            <div class="summary-chip-label">Mode</div>
+            <div class="summary-chip-value" id="current-mode-label">---</div>
+          </div>
+          <div class="summary-chip">
+            <div class="summary-chip-label">Domain</div>
+            <div class="summary-chip-value" id="current-domain-label">---</div>
+          </div>
+          <div class="summary-chip">
+            <div class="summary-chip-label">Avg. Confidence</div>
+            <div class="summary-chip-value" id="sidebar-average-confidence">0.0 / 5</div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="card panel">
+          <h2>1. Define the Ontology</h2>
+          <p class="panel-copy">
+            Is this an ongoing process to observe, or a specific outcome to accept or reject?
+          </p>
+          <div class="button-grid" id="mode-button-grid"></div>
+        </section>
+
+        <section class="card panel">
+          <h2>2. Set the Context</h2>
+          <p class="panel-copy">
+            Select a domain to adapt labels and examples.
+          </p>
+          <div class="tag-row" id="domain-tag-row"></div>
+          <div style="margin-top: 20px;">
+            <input id="subject-input" type="text" placeholder="Subject (e.g. 'Project Apollo', 'Health Checkup')" />
+          </div>
+        </section>
+
+        <section class="card panel">
+          <h2>3. Analyze through Lenses</h2>
+          <p class="panel-copy" id="lenses-intro-copy">
+            Score each lens based on your current data and your confidence in that data.
+          </p>
+          <div class="criterion-grid" id="criterion-grid"></div>
+          <div class="action-row">
+            <button class="action-button" id="compute-button">Generate Report</button>
+            <button class="secondary-button" id="reset-button">Reset</button>
+            <button class="secondary-button" id="example-button">Load Example</button>
+          </div>
+        </section>
+
+        <section class="card panel">
+          <h2>4. Synthesis & Recommendation</h2>
+          <div class="result-layout">
+            <div>
+              <div class="result-state">
+                <div class="result-state-value warn" id="result-state-value">Pending...</div>
+                <p class="result-copy" id="result-state-copy">
+                  Complete steps 1-3 to generate your analysis.
+                </p>
+              </div>
+
+              <div class="insight-list">
+                <div class="insight-item">
+                  <div class="insight-title">Drivers</div>
+                  <div class="insight-body" id="driver-insight">---</div>
+                </div>
+                <div class="insight-item">
+                  <div class="insight-title">Uncertainty</div>
+                  <div class="insight-body" id="uncertainty-insight">---</div>
+                </div>
+                <div class="insight-item">
+                  <div class="insight-title">Suggested Action</div>
+                  <div class="insight-body" id="action-insight">---</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="insight-item" style="height: fit-content;">
+              <div class="insight-title">Lens Summary</div>
+              <div class="insight-body">
+                <table class="small-table">
+                  <thead>
+                    <tr>
+                      <th>Lens</th>
+                      <th>Est.</th>
+                      <th>Conf.</th>
+                    </tr>
+                  </thead>
+                  <tbody id="result-table-body"></tbody>
+                </table>
+                <p id="footer-note" style="font-size: 11px; color: var(--muted); margin-top: 16px;">
+                  Analysis is weighted by importance and confidence.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <mpr-footer id="site-footer" class="site-footer"></mpr-footer>
+
+   <script>
+     document.addEventListener("DOMContentLoaded", () => {
+       const footer = document.querySelector("#site-footer");
+       if (!footer) return;
+       const initFooter = () => {
+         if (typeof globalThis.MPRUI?.getFooterSiteCatalog === "function") {
+           const links = globalThis.MPRUI.getFooterSiteCatalog();
+           if (links && links.length > 0) {
+             footer.setAttribute("links-collection", JSON.stringify({
+               style: "drop-up",
+               text: "Built by Marco Polo Research Lab",
+               links: links
+             }));
+           }
+         }
+         footer.setAttribute("sticky", "false");
+         footer.setAttribute("size", "small");
+         footer.setAttribute("privacy-link-hidden", "true");
+         footer.setAttribute("inner-class", "site-footer__inner");
+         footer.setAttribute("wrapper-class", "site-footer__layout");
+       };
+       if (globalThis.MPRUI) initFooter();
+       else window.addEventListener("mpr-ui-ready", initFooter, { once: true });
+     });
+   </script>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

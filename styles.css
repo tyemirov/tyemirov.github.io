@@ -1,0 +1,510 @@
+:root {
+  /* Cohesive Earthy Green System */
+  --bg: #f9f9f2;
+  --bg-subtle: #f1f1e6;
+  --ink: #3a4a23; /* Clearly Earthy Green */
+  --muted: #6b7a54;
+  --line: #dce0cd;
+  --line-strong: #3a4a23;
+  
+  /* Project Accents */
+  --copper: #8c4a2d;
+  --teal: #3d665e;
+  --olive: #556b2f;
+  --slate: #54667a;
+  --amber: #92400e;
+  --indigo: #3730a3;
+  --violet: #5b21b6;
+
+  --mpr-color-accent: var(--ink);
+}
+
+/* Dark Mode Override (via toggle) */
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --bg-subtle: #1e293b;
+  --ink: #f1f5f9;
+  --muted: #94a3b8;
+  --line: #334155;
+  --line-strong: #f1f5f9;
+  --copper: #fb923c;
+  --teal: #2dd4bf;
+  --olive: #a3e635;
+  --slate: #94a3b8;
+  --amber: #fbbf24;
+  --indigo: #818cf8;
+  --violet: #a78bfa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  background-color: var(--bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Neutral Link Reset */
+a {
+  color: var(--ink);
+  text-decoration-color: var(--line);
+  transition: all 200ms ease;
+}
+
+a:hover {
+  text-decoration-color: var(--ink);
+}
+
+/* Profile Photo Reveal */
+.profile-photo {
+  display: block;
+  filter: grayscale(1) contrast(1.05) brightness(0.95);
+  transition: filter 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 32px;
+}
+
+.profile-photo:hover {
+  filter: grayscale(0) contrast(1) brightness(1);
+}
+
+.profile-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Subtle texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  z-index: 100;
+}
+
+.page-shell {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 60px 40px 120px;
+}
+
+/* Header / Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 80px;
+  align-items: end;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--line-strong);
+  margin-bottom: 60px;
+}
+
+.eyebrow {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: "Instrument Serif", serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 0.85;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  margin: 0 0 40px;
+}
+
+.lead {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  max-width: 32ch;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.lead-secondary {
+  font-size: 1rem;
+  max-width: 50ch;
+  margin-top: 24px;
+  color: var(--muted);
+}
+
+.hero-links {
+  display: flex;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+/* Profile Card */
+.profile-card {
+  border-left: 1px solid var(--line);
+  padding-left: 40px;
+}
+
+.profile-photo {
+  display: block;
+  margin-bottom: 32px;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.profile-name {
+  font-family: "Instrument Serif", serif;
+  font-size: 2.2rem;
+  margin: 0 0 8px;
+  line-height: 1;
+}
+
+.profile-role {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.profile-footnote {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* Buttons */
+.button {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: var(--ink);
+  padding: 12px 24px;
+  border: 1px solid var(--ink);
+  transition: all 200ms ease;
+}
+
+.button:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.button-secondary {
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+/* Sections */
+.project-section, .essay-section, .music-section, .arts-section {
+  margin-top: 100px;
+}
+
+.section-heading {
+  margin-bottom: 40px;
+}
+
+.section-actions {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.section-blurb {
+  margin-bottom: 40px;
+  max-width: 65ch;
+}
+
+.notes-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: "Instrument Serif", serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Grids */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.article-list, .essay-list, .arts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.music-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+/* Project Cards - Rigid & Structured */
+.project-card {
+  padding: 48px;
+  background: var(--bg);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: background 300ms ease;
+  height: 100%;
+}
+
+.project-card:hover {
+  background: var(--bg-subtle);
+}
+
+.card-kicker-tag {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--project-accent);
+  cursor: pointer;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.card-kicker-tag:hover {
+  text-decoration: underline;
+}
+
+.project-card h2 {
+  font-family: "Instrument Serif", serif;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 0.95;
+  margin: 0 0 24px;
+}
+
+.project-card h2 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.project-card h2 a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--ink);
+}
+
+.card-body {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+
+.project-parts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  border-top: 1px solid var(--line);
+}
+
+.project-parts-list li {
+  border-bottom: 1px solid var(--line);
+}
+
+.project-parts-list a {
+  display: block;
+  padding: 10px 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.project-parts-list a:hover {
+  color: var(--project-accent);
+}
+
+.project-essay-link {
+  margin-top: auto;
+  padding: 20px;
+  background: var(--bg-subtle);
+  text-decoration: none;
+  color: inherit;
+  display: grid;
+  gap: 4px;
+  border: 1px solid var(--line);
+}
+
+.project-essay-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.project-essay-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.project-actions {
+  margin-top: 32px;
+}
+
+.project-link {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--project-accent);
+}
+
+.article-meta-tag {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+/* Music Cards */
+.music-card {
+  padding: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: transform 300ms ease;
+}
+
+.music-card:hover {
+  transform: translateY(-4px);
+}
+
+.music-card-cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.music-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.music-card .article-title {
+  font-family: "Instrument Serif", serif;
+  font-size: 1.1rem;
+  margin: 0 0 4px;
+}
+
+.music-card .article-meta-tag {
+  margin-bottom: 8px;
+  font-size: 0.6rem;
+}
+
+.music-card .article-cta {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: auto;
+}
+
+.article-title {
+  font-family: "Instrument Serif", serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.article-cta {
+  margin-top: auto;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 120px;
+  border-top: 1px solid var(--line-strong);
+  padding-top: 40px;
+  --mpr-color-surface-primary: var(--bg);
+  --mpr-color-text-primary: var(--ink);
+  --mpr-color-border: var(--line);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .profile-card {
+    border-left: none;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+    padding-top: 40px;
+  }
+  .page-shell {
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 4rem; }
+  .project-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 2.5rem; }
+}

@@ -1,0 +1,176 @@
+{
+  "site": {
+    "title": "Vadym Tyemirov | Tools, Essays, Music, and Arts",
+    "description": "Vadym Tyemirov's personal site: tools, essays, music, and arts published directly under tyemirov.net.",
+    "canonical": "https://tyemirov.net/"
+  },
+  "contact": {
+    "label": "Contact",
+    "href": "mailto:hello@tyemirov.net"
+  },
+  "hero": {
+    "eyebrow": "Vadym Tyemirov",
+    "title": "Tools, essays, music, and arts.",
+    "summary": "Vadym Tyemirov is a product-minded engineering leader who bridges the gap between cutting-edge Artificial Intelligence and scalable enterprise infrastructure.",
+    "detail": "With a career spanning Meta, BlackRock, Shopify, and Morgan Stanley, he focuses on turning complex technical challenges into revenue-generating products. This domain collects the resulting essays, tools, and experiments in one place.",
+    "links": [
+      {
+        "label": "Writing",
+        "href": "https://vadymtyemirov1.substack.com/",
+        "style": "primary",
+        "order": 10
+      },
+      {
+        "label": "Music",
+        "href": "/music",
+        "style": "secondary",
+        "order": 20
+      },
+      {
+        "label": "Arts",
+        "href": "gallery/",
+        "style": "secondary",
+        "order": 30
+      },
+      {
+        "label": "MPR Lab",
+        "href": "https://mprlab.com",
+        "target": "_blank",
+        "style": "secondary",
+        "order": 40
+      },
+      {
+        "label": "Contact",
+        "href": "mailto:hello@tyemirov.net",
+        "style": "secondary",
+        "order": 50
+      }
+    ]
+  },
+  "profile": {
+    "ariaLabel": "Vadym Tyemirov profile",
+    "name": "Vadym Tyemirov",
+    "role": "Technical Founder & Engineering Leader",
+    "footnote": "Meta · BlackRock · Shopify · Morgan Stanley",
+    "alt": "Portrait of Vadym Tyemirov",
+    "sizes": "(max-width: 640px) 72vw, 360px",
+    "image": {
+      "webp": {
+        "srcset": "assets/profile/vadym-tyemirov-360.webp 360w, assets/profile/vadym-tyemirov-720.webp 720w",
+        "type": "image/webp"
+      },
+      "jpg": {
+        "src": "assets/profile/vadym-tyemirov-360.jpg",
+        "srcset": "assets/profile/vadym-tyemirov-360.jpg 360w, assets/profile/vadym-tyemirov-720.jpg 720w",
+        "width": 360,
+        "height": 540
+      }
+    }
+  },
+  "mprlab": {
+    "blurb": "Marco Polo Research Lab (MPR Lab) is an R&D studio dedicated to building products that bridge the gap between AI and infrastructure. We focus on turning complex technical challenges into revenue-generating systems."
+  },
+  "projects": [
+    {
+      "slug": "civilization",
+      "title": "Minimum Sustainable Modern Civilization",
+      "kicker": "MPR Lab",
+      "summary": "Estimate the population floor needed to sustain a modern market economy under staffing, dependency, resilience, autarky, and demographic constraints.",
+      "href": "civilization/",
+      "cta": "tyemirov.net/civilization/",
+      "theme": "copper",
+      "order": 10,
+      "status": "live"
+    },
+    {
+      "slug": "decisioning",
+      "title": "Decision Planes",
+      "kicker": "MPR Lab",
+      "summary": "Turn vague yes-or-no choices into explicit reasoning over confidence, stakes, expected value, uncertainty, and reversibility.",
+      "href": "decisioning/",
+      "cta": "tyemirov.net/decisioning/",
+      "theme": "teal",
+      "order": 20,
+      "status": "live"
+    },
+    {
+      "slug": "freedom",
+      "title": "The Vector of Liberty",
+      "kicker": "MPR Lab",
+      "summary": "Compare states by the friction they impose on concrete actions through taxes, permits, delays, and penalties, weighted against the kind of life you actually want to live.",
+      "href": "freedom/",
+      "cta": "tyemirov.net/freedom/",
+      "theme": "olive",
+      "order": 30,
+      "status": "live"
+    },
+    {
+      "slug": "timeseries",
+      "title": "Timeline",
+      "kicker": "MPR Lab",
+      "summary": "Analyze ongoing processes and event thresholds to determine if a system is stable, ready for a decision, or drifting into failure.",
+      "href": "timeseries/",
+      "cta": "tyemirov.net/timeseries/",
+      "theme": "amber",
+      "order": 50,
+      "status": "live"
+    }
+  ],
+  "arts": {
+    "label": "Arts",
+    "title": "My Gallery",
+    "items": [
+      {
+        "title": "Tyemirov Gallery",
+        "url": "gallery/",
+        "kicker": "Arts",
+        "summary": "Digital editions and virtual exhibits exploring the intersection of visual art and historical narrative.",
+        "cta": "Enter Gallery",
+        "order": 10,
+        "status": "live"
+      }
+    ]
+  },
+  "essays": {
+    "label": "Essays",
+    "title": "Current Popularity on Substack",
+    "items": [
+      {
+        "title": "The Human Act of Making Things Exist",
+        "url": "https://vadymtyemirov1.substack.com/p/the-human-act-of-making-things-exist",
+        "kicker": "Philosophy",
+        "summary": "AI, Authorship, and the indomitable Will behind the human act of creation.",
+        "cta": "Read on Substack",
+        "order": 10,
+        "status": "live"
+      },
+      {
+        "title": "The Age of the Meta-Manager",
+        "url": "https://vadymtyemirov1.substack.com/p/the-age-of-the-meta-manager",
+        "kicker": "Engineering",
+        "summary": "The shift from personal competence to systems orchestration as the primary scarcity in the age of AI.",
+        "cta": "Read Series",
+        "order": 20,
+        "status": "live"
+      },
+      {
+        "title": "The Wittgenstein Mirror",
+        "url": "https://vadymtyemirov1.substack.com/p/the-wittgenstein-mirror",
+        "kicker": "Philosophy",
+        "summary": "Beyond the hype of 'Superintelligence' and the fear of 'AI Slop'—using the digital mirror to expand human agency.",
+        "cta": "Read on Substack",
+        "order": 30,
+        "status": "live"
+      },
+      {
+        "title": "Codex Fast and the Price of Intelligence on a Clock",
+        "url": "https://vadymtyemirov1.substack.com/p/codex-fast-and-the-price-of-intelligence",
+        "kicker": "Economy",
+        "summary": "Examining how intelligence is priced when speed becomes the primary variable in model performance.",
+        "cta": "Read on Substack",
+        "order": 40,
+        "status": "live"
+      }
+    ]
+  }
+}

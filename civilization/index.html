@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#171411" />
+    <script>
+      if (window.location.pathname === "/civilization") {
+        window.location.replace(`/civilization/${window.location.search}${window.location.hash}`);
+      }
+    </script>
+    <title>Minimum Sustainable Modern Civilization - Market Economy Model</title>
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta
+      name="description"
+      content="Estimate the minimum population needed to sustain a modern civilization under staffing, resilience, autarky, dependency, and demographic assumptions."
+    />
+    <link rel="canonical" href="https://tyemirov.net/civilization/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Vadym Tyemirov" />
+    <meta property="og:title" content="Minimum Sustainable Modern Civilization - Market Economy Model" />
+    <meta
+      property="og:description"
+      content="Estimate the minimum population needed to sustain a modern civilization under staffing, resilience, autarky, dependency, and demographic assumptions."
+    />
+    <meta property="og:url" content="https://tyemirov.net/civilization/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Minimum Sustainable Modern Civilization - Market Economy Model" />
+    <meta
+      name="twitter:description"
+      content="Estimate the minimum population needed to sustain a modern civilization under staffing, resilience, autarky, dependency, and demographic assumptions."
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Minimum Sustainable Modern Civilization",
+        "url": "https://tyemirov.net/civilization/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "description": "Estimate the minimum population needed to sustain a modern civilization under staffing, resilience, autarky, dependency, and demographic assumptions.",
+        "creator": {
+          "@type": "Person",
+          "name": "Vadym Tyemirov",
+          "url": "https://tyemirov.net/"
+        }
+      }
+    </script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@v3.6.7/mpr-ui.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@v3.6.7/mpr-ui.js"></script>
+    <style>
+      .site-footer {
+        display: block;
+        margin-top: 18px;
+      }
+      .site-footer__inner {
+        width: min(100%, 1200px);
+        margin: 0 auto;
+      }
+      .site-footer__layout {
+        align-items: center;
+      }
+      mpr-footer.site-footer footer.mpr-footer {
+        backdrop-filter: blur(14px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <mpr-header
+      brand-label="How Big Does a Modern Civilization Need to Be?"
+      brand-href="https://open.substack.com/pub/vadymtyemirov/p/how-big-does-a-modern-civilization"
+      settings="false"
+    ></mpr-header>
+
+    <div class="container py-4 py-lg-5 app-container">
+      <div class="card app-shell p-3 p-lg-4">
+        <header class="app-header d-flex flex-wrap justify-content-between align-items-start gap-3">
+          <div>
+            <h1 class="h3 mb-1">Minimum Sustainable Modern Civilization</h1>
+            <div class="text-muted hint">
+              Market-economy feasibility model. Minimum population is the max of core staffing and expert pipeline,
+              with dependency and demographic checks.
+            </div>
+            <div class="mt-3">
+              <a href="https://open.substack.com/pub/vadymtyemirov/p/how-big-does-a-modern-civilization" target="_blank" class="btn btn-sm btn-outline-info d-inline-flex align-items-center gap-2" style="text-decoration: none;">
+                <span>Read Companion Article</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.66663 11.3333L11.3333 4.66663M11.3333 4.66663H4.66663M11.3333 4.66663V11.3333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </header>
+
+        <div class="divider"></div>
+
+        <div class="row g-4 align-items-start">
+          <div class="col-12 col-xl-5">
+            <section class="p-3 p-lg-2 control-panel">
+              <div class="d-flex justify-content-between align-items-center gap-2 flex-wrap">
+                <div>
+                  <div class="smallcaps text-muted">Model controls</div>
+                  <div class="hint text-muted">Use sliders to tune model assumptions quickly.</div>
+                </div>
+                <div class="d-flex align-items-center gap-2 panel-tools">
+                  <span class="badge badge-soft mono">Model v0.3</span>
+                  <button id="resetButton" class="btn btn-outline-light btn-sm">Reset defaults</button>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <details class="control-group" open>
+                <summary>Global model controls</summary>
+                <div class="hint text-muted mb-3">Scale, resilience, autarky, and workforce coverage.</div>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Scale</label>
+                    <select id="globalScale" class="form-select">
+                      <option value="town">Town</option>
+                      <option value="region" selected>Region</option>
+                      <option value="nation">Nation</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Resilience</label>
+                    <select id="globalResilience" class="form-select">
+                      <option value="fragile">Fragile</option>
+                      <option value="robust" selected>Robust</option>
+                      <option value="redundant">Redundant</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Autarky (imports)</label>
+                    <select id="globalAutarky" class="form-select">
+                      <option value="import-heavy">Import-heavy</option>
+                      <option value="import-light" selected>Import-light</option>
+                      <option value="import-free">Import-free</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Coverage factor</label>
+                    <input
+                      id="coverageFactor"
+                      type="number"
+                      class="form-control"
+                      min="3.0"
+                      max="8.0"
+                      step="0.1"
+                      value="5.0"
+                    />
+                    <div class="text-muted hint mt-1">Shifts, days off, training, sickness.</div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="control-group" open>
+                <summary>Demography and labor</summary>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Life expectancy (years)</label>
+                    <input
+                      id="lifeExpectancyYears"
+                      type="number"
+                      class="form-control"
+                      min="35"
+                      max="95"
+                      step="1"
+                      value="75"
+                    />
+                  </div>
+
+                  <div class="col-12 col-md-3">
+                    <label class="form-label">Work start age</label>
+                    <input
+                      id="workingAgeStart"
+                      type="number"
+                      class="form-control"
+                      min="12"
+                      max="30"
+                      step="1"
+                      value="18"
+                    />
+                  </div>
+
+                  <div class="col-12 col-md-3">
+                    <label class="form-label">Retirement age</label>
+                    <input
+                      id="retirementAge"
+                      type="number"
+                      class="form-control"
+                      min="40"
+                      max="80"
+                      step="1"
+                      value="65"
+                    />
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Workforce participation</label>
+                    <input
+                      id="workforceParticipation"
+                      type="number"
+                      class="form-control"
+                      min="0.40"
+                      max="0.95"
+                      step="0.01"
+                      value="0.75"
+                    />
+                    <div class="text-muted hint mt-1">Fraction of working-age population that works.</div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Core fraction of workers</label>
+                    <input
+                      id="coreFractionOfWorkers"
+                      type="number"
+                      class="form-control"
+                      min="0.10"
+                      max="0.70"
+                      step="0.01"
+                      value="0.35"
+                    />
+                    <div class="text-muted hint mt-1">Fraction of workers allocated to critical domains.</div>
+                  </div>
+
+                  <div class="col-12 col-md-4">
+                    <label class="form-label">Fertility rate (births per woman)</label>
+                    <input
+                      id="fertilityRate"
+                      type="number"
+                      class="form-control"
+                      min="0.8"
+                      max="4.5"
+                      step="0.01"
+                      value="2.10"
+                    />
+                  </div>
+
+                  <div class="col-12 col-md-4">
+                    <label class="form-label">Survival to working age</label>
+                    <input
+                      id="survivalToWorkingAge"
+                      type="number"
+                      class="form-control"
+                      min="0.80"
+                      max="0.995"
+                      step="0.001"
+                      value="0.98"
+                    />
+                  </div>
+
+                  <div class="col-12 col-md-4">
+                    <label class="form-label">Female share</label>
+                    <input
+                      id="femaleShare"
+                      type="number"
+                      class="form-control"
+                      min="0.45"
+                      max="0.55"
+                      step="0.001"
+                      value="0.50"
+                    />
+                  </div>
+
+                  <div class="col-12 col-md-4">
+                    <label class="form-label">Training completion age</label>
+                    <input
+                      id="trainingCompletionAge"
+                      type="number"
+                      class="form-control"
+                      min="18"
+                      max="32"
+                      step="1"
+                      value="25"
+                    />
+                  </div>
+
+                  <div class="col-12 col-md-4">
+                    <label class="form-label">Expert attrition rate (per year)</label>
+                    <input
+                      id="expertAttritionRate"
+                      type="number"
+                      class="form-control"
+                      min="0.000"
+                      max="0.060"
+                      step="0.001"
+                      value="0.020"
+                    />
+                  </div>
+
+                  <div class="col-12 col-md-4">
+                    <label class="form-label">Training overhead</label>
+                    <input
+                      id="trainingOverhead"
+                      type="number"
+                      class="form-control"
+                      min="0.00"
+                      max="0.60"
+                      step="0.01"
+                      value="0.12"
+                    />
+                    <div class="text-muted hint mt-1">Apprentices, instructors, pipeline slack.</div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="control-group">
+                <summary>Capital and markets</summary>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Capital productivity (index units per worker-year)</label>
+                    <input
+                      id="capitalProductivity"
+                      type="number"
+                      class="form-control"
+                      min="0.005"
+                      max="0.200"
+                      step="0.001"
+                      value="0.050"
+                    />
+                    <div class="text-muted hint mt-1">Higher means fewer workers to replace depreciating capital.</div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Extra market friction multiplier</label>
+                    <input
+                      id="extraMarketFriction"
+                      type="number"
+                      class="form-control"
+                      min="0.90"
+                      max="1.60"
+                      step="0.01"
+                      value="1.00"
+                    />
+                    <div class="text-muted hint mt-1">Procurement delays, fraud, regulatory drag.</div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="control-group" open>
+                <summary>Derived indicators</summary>
+                <div id="derivedIndicators" class="okbox mt-2">
+                  <div class="row g-2">
+                    <div class="col-12 col-md-6">
+                      <div class="text-muted hint">Working-age share</div>
+                      <div class="mono" id="derivedWorkingAgeShare">-</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="text-muted hint">Workers per capita</div>
+                      <div class="mono" id="derivedWorkersPerCapita">-</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="text-muted hint">Core workers per capita</div>
+                      <div class="mono" id="derivedCoreWorkersPerCapita">-</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="text-muted hint">New adults per year per 1M population</div>
+                      <div class="mono" id="derivedNewAdultsPerYearPerMillion">-</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="text-muted hint">Replacement factor (femaleShare * fertility * survival)</div>
+                      <div class="mono" id="derivedReplacementFactor">-</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="text-muted hint">Transaction friction (institutions + finance + extra)</div>
+                      <div class="mono" id="derivedTransactionFriction">-</div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+            </section>
+          </div>
+
+          <div class="col-12 col-xl-7">
+            <div class="card p-3 p-lg-4 h-100 results-panel">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="smallcaps text-muted">Results dashboard</div>
+                  <div class="hint text-muted">Switch between summary, visuals, and detailed tables.</div>
+                </div>
+                <div class="status-inline">
+                  <span class="status-label">Feasibility</span>
+                  <span id="statusBadge" class="status-value status-ok">OK</span>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <ul class="nav nav-pills results-nav mb-3" id="resultsTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="overview-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#overviewPanel"
+                    type="button"
+                    role="tab"
+                    aria-controls="overviewPanel"
+                    aria-selected="true"
+                  >
+                    Dashboard
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="visuals-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#visualsPanel"
+                    type="button"
+                    role="tab"
+                    aria-controls="visualsPanel"
+                    aria-selected="false"
+                  >
+                    Visuals
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="data-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#dataPanel"
+                    type="button"
+                    role="tab"
+                    aria-controls="dataPanel"
+                    aria-selected="false"
+                  >
+                    Domain data
+                  </button>
+                </li>
+              </ul>
+
+              <div class="tab-content" id="resultsTabContent">
+                <div class="tab-pane fade show active" id="overviewPanel" role="tabpanel" aria-labelledby="overview-tab" tabindex="0">
+                  <div class="row g-3 metric-grid">
+                    <div class="col-12 col-md-6">
+                      <div class="kpi-card">
+                        <div class="kpi mono" id="kpiFinalPopulation">-</div>
+                        <div class="kpi-sub">Minimum population (sustainable, if feasible)</div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="kpi-card kpi-card-alt">
+                        <div class="kpi mono" id="kpiCoreWorkforce">-</div>
+                        <div class="kpi-sub">Core workforce required (FTE)</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="row g-3">
+                    <div class="col-12 col-lg-4">
+                      <div class="okbox metric-box">
+                        <div class="smallcaps text-muted">Constraint: core staffing</div>
+                        <div class="mono fs-4" id="kpiPopulationStaffing">-</div>
+                        <div class="text-muted hint">Population so available core workers >= required core workers.</div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                      <div class="okbox metric-box">
+                        <div class="smallcaps text-muted">Constraint: expert pipeline</div>
+                        <div class="mono fs-4" id="kpiPopulationPipeline">-</div>
+                        <div class="text-muted hint">Population so yearly cohort can replenish scarce experts.</div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                      <div class="okbox metric-box">
+                        <div class="smallcaps text-muted">Binding constraint</div>
+                        <div class="mono fs-4" id="kpiBindingConstraint">-</div>
+                        <div class="text-muted hint">Which constraint forced the final minimum.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="smallcaps text-muted mb-2">Warnings and feasibility</div>
+                  <div id="warningsContainer" class="d-grid gap-2"></div>
+
+                  <div class="divider"></div>
+
+                  <div class="row g-3">
+                    <div class="col-12 col-lg-6">
+                      <div class="smallcaps text-muted mb-2">Top core workforce drivers</div>
+                      <div id="coreBottlenecks" class="d-grid gap-2"></div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                      <div class="smallcaps text-muted mb-2">Top expert pipeline drivers</div>
+                      <div id="pipelineBottlenecks" class="d-grid gap-2"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="visualsPanel" role="tabpanel" aria-labelledby="visuals-tab" tabindex="0">
+                  <div class="smallcaps text-muted mb-2">Visual analytics</div>
+                  <div class="hint text-muted mb-3">Dependency map, binding constraints, and workforce composition.</div>
+
+                  <div class="row g-3">
+                    <div class="col-12 col-lg-7">
+                      <div class="viz-card">
+                        <div class="viz-title mb-2">
+                          <div class="title">Dependency graph</div>
+                          <div class="sub mono">size = core FTE, border = pipeline pressure</div>
+                        </div>
+
+                        <div class="viz-legend mb-2">
+                          <span class="pill">
+                            <span class="legend-swatch" style="background: var(--node-active)"></span>
+                            enabled
+                          </span>
+                          <span class="pill">
+                            <span class="legend-swatch" style="background: var(--node-disabled)"></span>
+                            disabled
+                          </span>
+                          <span class="pill">
+                            <span class="legend-swatch" style="background: var(--node-infeasible)"></span>
+                            missing deps
+                          </span>
+                          <span class="pill">
+                            <span class="legend-swatch" style="background: rgba(255, 255, 255, 0.18)"></span>
+                            highlighted = top driver
+                          </span>
+                        </div>
+
+                        <div class="svg-wrap">
+                          <svg id="dependencyGraphSvg" width="100%" height="420"></svg>
+                        </div>
+
+                        <div class="text-muted hint mt-2">
+                          Drag nodes. Scroll to zoom. Links point from required input to dependent domain.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-lg-5">
+                      <div class="viz-card">
+                        <div class="viz-title mb-2">
+                          <div class="title">Why the minimum is what it is</div>
+                          <div class="sub mono">max(core staffing, expert pipeline)</div>
+                        </div>
+
+                        <div class="svg-wrap">
+                          <svg id="constraintsBarSvg" width="100%" height="420"></svg>
+                        </div>
+
+                        <div class="text-muted hint mt-2">
+                          If pipeline dominates, your expert scarcity and cohort size are the bottleneck.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="viz-card">
+                        <div class="viz-title mb-2">
+                          <div class="title">Core workforce composition by domain</div>
+                          <div class="sub mono">ops+maint + capital renewal + expert pool + training</div>
+                        </div>
+
+                        <div class="viz-legend mb-2">
+                          <span class="pill">
+                            <span class="legend-swatch" style="background: var(--seg-ops)"></span>
+                            ops+maint
+                          </span>
+                          <span class="pill">
+                            <span class="legend-swatch" style="background: var(--seg-cap)"></span>
+                            capital renewal
+                          </span>
+                          <span class="pill">
+                            <span class="legend-swatch" style="background: var(--seg-exp)"></span>
+                            expert pool
+                          </span>
+                          <span class="pill">
+                            <span class="legend-swatch" style="background: var(--seg-trn)"></span>
+                            training
+                          </span>
+                        </div>
+
+                        <div class="svg-wrap">
+                          <svg id="stackedWorkforceSvg" width="100%" height="420"></svg>
+                        </div>
+
+                        <div class="text-muted hint mt-2">Hover to see exact values. Chart shows top domains by core workforce.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="dataPanel" role="tabpanel" aria-labelledby="data-tab" tabindex="0">
+                  <div class="smallcaps text-muted mb-2">Domain breakdown</div>
+                  <div class="table-responsive">
+                    <table class="table table-sm align-middle">
+                      <thead>
+                        <tr>
+                          <th style="width: 16%">Domain</th>
+                          <th style="width: 11%">Ops+Maint</th>
+                          <th style="width: 11%">Capital renewal</th>
+                          <th style="width: 11%">Expert pool</th>
+                          <th style="width: 10%">Training</th>
+                          <th style="width: 11%">Core total</th>
+                          <th style="width: 12%">Pipeline pop</th>
+                          <th style="width: 8%">Share</th>
+                          <th style="width: 10%">Feasible</th>
+                        </tr>
+                      </thead>
+                      <tbody id="domainBreakdownBody"></tbody>
+                    </table>
+                  </div>
+                  <div class="text-muted hint">
+                    Pipeline pop is the population needed so yearly new adults can replace expert attrition+retirements
+                    for that domain, given scarcity and human-capital multipliers.
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="smallcaps text-muted">Domains</div>
+                  <div class="hint text-muted">
+                    Enable/disable domains and tune market capability. Missing dependencies make the configuration
+                    infeasible.
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="table-responsive">
+                    <table class="table table-sm align-middle">
+                      <thead>
+                        <tr>
+                          <th style="width: 16%">Domain</th>
+                          <th style="width: 8%">Enabled</th>
+                          <th style="width: 12%">Level</th>
+                          <th style="width: 12%">Resilience</th>
+                          <th style="width: 12%">Autarky</th>
+                          <th style="width: 12%">Expert scarcity</th>
+                          <th style="width: 28%">Dependencies</th>
+                        </tr>
+                      </thead>
+                      <tbody id="domainControlsBody"></tbody>
+                    </table>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="text-muted hint">
+                    Defaults represent a minimum modern market economy: institutions + finance enabled, medicine minimal,
+                    compute optional.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tooltip" class="tooltip" style="display: none"></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+
+    <script src="script.js"></script>
+
+    <mpr-footer id="site-footer" class="site-footer"></mpr-footer>
+
+   <script>
+     document.addEventListener("DOMContentLoaded", () => {
+       const footer = document.querySelector("#site-footer");
+       if (!footer) return;
+       const initFooter = () => {
+         if (typeof globalThis.MPRUI?.getFooterSiteCatalog === "function") {
+           const links = globalThis.MPRUI.getFooterSiteCatalog();
+           if (links && links.length > 0) {
+             footer.setAttribute("links-collection", JSON.stringify({
+               style: "drop-up",
+               text: "Built by Marco Polo Research Lab",
+               links: links
+             }));
+           }
+         }
+         footer.setAttribute("sticky", "false");
+         footer.setAttribute("size", "small");
+         footer.setAttribute("privacy-link-hidden", "true");
+         footer.setAttribute("inner-class", "site-footer__inner");
+         footer.setAttribute("wrapper-class", "site-footer__layout");
+       };
+       if (globalThis.MPRUI) initFooter();
+       else window.addEventListener("mpr-ui-ready", initFooter, { once: true });
+     });
+   </script>
+  </body>
+</html>

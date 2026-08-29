@@ -1,0 +1,82 @@
+{
+  "exhibits": [
+    {
+      "id": "the-third-act",
+      "title": "The Third Act",
+      "subtitle": "Ménage à trois",
+      "blurb": "Three voices in one frame: the Old Master, the Ghibli echo, and the Yellow Balloon leitmotif—an elegant conversation across time.",
+      "start_date": "2025-10-01",
+      "end_date": "2025-10-18",
+      "artworks": [
+        {
+          "id": "third-act-triptych-01",
+          "title": "Triptych No.1",
+          "priceUsd": 240.0,
+          "dimensions": "1536×1024 px",
+          "preview": "images/previews/third-act-01-preview.jpg",
+          "image": "images/full/third-act-01.png",
+          "medium": "Digital pigment print",
+          "year": "2025",
+          "profile": "sRGB",
+          "dominantHue": "#D4A23B",
+          "fileType": "PNG",
+          "editionSize": 25,
+          "editionNumber": 1,
+          "sku": "TTA-01",
+          "specNotes": "Calibrated on a 16-bit pipeline."
+        },
+        {
+          "id": "third-act-triptych-02",
+          "title": "Triptych No.2",
+          "priceUsd": 240.0,
+          "dimensions": "1536×1024 px",
+          "preview": "images/previews/third-act-02-preview.jpg",
+          "image": "images/full/third-act-02.png",
+          "medium": "Digital pigment print",
+          "year": "2025",
+          "profile": "sRGB",
+          "dominantHue": "#8C95E8",
+          "fileType": "PNG",
+          "editionSize": 25,
+          "editionNumber": 2,
+          "sku": "TTA-02",
+          "specNotes": "Rendered with spectral noise suppressed at 0.2%."
+        },
+        {
+          "id": "third-act-triptych-03",
+          "title": "Triptych No.3",
+          "priceUsd": 240.0,
+          "dimensions": "1536×1024 px",
+          "preview": "images/previews/third-act-03-preview.jpg",
+          "image": "images/full/third-act-03.png",
+          "medium": "Digital pigment print",
+          "year": "2025",
+          "profile": "Display P3",
+          "dominantHue": "#5C8D7C",
+          "fileType": "PNG",
+          "editionSize": 25,
+          "editionNumber": 3,
+          "sku": "TTA-03",
+          "specNotes": "Ink curves tuned for velvet rag stock."
+        },
+        {
+          "id": "third-act-triptych-04",
+          "title": "Triptych No.4",
+          "priceUsd": 240.0,
+          "dimensions": "1536×1024 px",
+          "preview": "images/previews/third-act-04-preview.jpg",
+          "image": "images/full/third-act-04.png",
+          "medium": "Digital pigment print",
+          "year": "2025",
+          "profile": "sRGB",
+          "dominantHue": "#E37F5A",
+          "fileType": "PNG",
+          "editionSize": 25,
+          "editionNumber": 4,
+          "sku": "TTA-04",
+          "specNotes": "Printed on archival baryta with UV seal."
+        }
+      ]
+    }
+  ]
+}

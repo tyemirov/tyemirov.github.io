@@ -1,0 +1,15 @@
+{
+  "brand": "Vadym Tyemirov \u00b7 Virtual Gallery",
+  "payment": {
+    "provider": "paypal",
+    "paypal_client_id": "AXfnbUp4fAokYeyXb0xe_DijwQU4xzU2OfU3q_kiPh_i0UEHwYW8yAs78up1-1GCd3iAqlOMglp3Jyq-",
+    "currency": "USD"
+  },
+  "siteUrl": "https://tyemirov.net/gallery",
+  "routes": [
+    "home",
+    "exhibit",
+    "about",
+    "cart"
+  ]
+}
