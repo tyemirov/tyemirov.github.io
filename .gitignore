@@ -1,3 +1,7 @@
 tools/
 .pages-dist/
 __pycache__/
+
+# BEGIN MPRLAB-GOVERNANCE
+/.mprlab/*-PLAN.md
+# END MPRLAB-GOVERNANCE
