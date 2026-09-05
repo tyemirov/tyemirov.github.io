@@ -5,8 +5,8 @@
     "canonical": "https://tyemirov.net/"
   },
   "contact": {
-    "label": "Contact",
-    "href": "mailto:hello@tyemirov.net"
+    "label": "vadym@tyemirov.net",
+    "href": "mailto:vadym@tyemirov.net"
   },
   "hero": {
     "eyebrow": "Vadym Tyemirov",
@@ -40,8 +40,8 @@
         "order": 40
       },
       {
-        "label": "Contact",
-        "href": "mailto:hello@tyemirov.net",
+        "label": "vadym@tyemirov.net",
+        "href": "mailto:vadym@tyemirov.net",
         "style": "secondary",
         "order": 50
       }
