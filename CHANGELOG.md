@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.0.1] - 2026-09-05
+
+- feat(music): add artist contact link to music page
+- Merge pull request #5 from tyemirov/automation/license/polyform-noncommercial
+- docs: correct license scope and rights
+- docs: identify licensed repository
+- chore: apply polyform-noncommercial license
+
 ## [v1.0.0] - 2026-08-29
 
 - Merge pull request #4 from tyemirov/bugfix/current-loopaware-site-id
