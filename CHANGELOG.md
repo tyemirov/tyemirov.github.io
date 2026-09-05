@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.0.2] - 2026-09-05
+
+- docs: add repository governance and workflow guides
+- docs: add MPR Lab governance guidance
+- chore: ignore MPRLAB plan files
+
 ## [v1.0.1] - 2026-09-05
 
 - feat(music): add artist contact link to music page
