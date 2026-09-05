@@ -1,4 +1,5 @@
 const MUSIC_DATA_URL = "../data/music.json";
+const SITE_DATA_URL = "../data/site.json";
 
 document.addEventListener("DOMContentLoaded", () => {
   void hydrateMusicPage();
@@ -6,17 +7,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function hydrateMusicPage() {
   try {
-    const response = await fetch(MUSIC_DATA_URL, {
-      headers: {
-        Accept: "application/json"
-      }
-    });
+    const [musicData, siteData] = await Promise.all(
+      [MUSIC_DATA_URL, SITE_DATA_URL].map(async (url) => {
+        const response = await fetch(url, {
+          headers: { Accept: "application/json" }
+        });
+        if (!response.ok) {
+          throw new Error(`Failed to load ${url}: ${response.status}`);
+        }
+        return response.json();
+      })
+    );
 
-    if (!response.ok) {
-      throw new Error(`Failed to load ${MUSIC_DATA_URL}: ${response.status}`);
-    }
-
-    const musicData = await response.json();
+    const contact = document.createElement("p");
+    contact.className = "lead";
+    const contactLink = document.createElement("a");
+    contactLink.href = siteData.contact.href;
+    contactLink.textContent = siteData.contact.label;
+    contact.append("Artist contact: ", contactLink);
+    document.querySelector(".header-copy").append(contact);
     renderAlbumGrid(musicData.items);
     renderFooter();
   } catch (error) {
