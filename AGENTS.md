@@ -40,3 +40,33 @@ Every HTML page created or modified in this repository MUST include the followin
 
 - The single source of truth for site content is `data/site.json`.
 - Articles/Essays that are part of a series should be elevated to a **Project Card** with a `parts` array in `site.json` to act as a hub.
+
+<!-- BEGIN MPRLAB-GOVERNANCE -->
+## MPR Lab Governance
+
+Root `AGENTS.md` is the agent entrypoint. Shared rules live under `.mprlab/`.
+
+Read `.mprlab/POLICY.md` for every task.
+Read the following files only when their condition applies.
+Read each selected guide in full before its first applicable action.
+
+- Before edits: `.mprlab/PLANNING.md`.
+- For technical prose: `.mprlab/AGENTS.DOCS.md` and `.mprlab/TERMINOLOGY.md`.
+- For issue work: the selected issue and its dependencies in `.mprlab/ISSUES.md`.
+- For tracker edits: `.mprlab/issues-md-format.md`.
+- For Git operations: `.mprlab/AGENTS.GIT.md`.
+- For Python changes: `.mprlab/AGENTS.PY.md`.
+- For browser changes: `.mprlab/AGENTS.FRONTEND.md`.
+
+File permission modes are outside agent scope.
+Never examine, validate, compare, require, change, or record a file permission mode.
+Never use a file permission mode in acceptance, security, credential, execution, publication, deployment, or failure analysis.
+The values `0600` and `7777` have no governance meaning.
+This rule does not change service authorization or operation authority.
+
+Always reference each issue by its ID, for example `B001` or `I027`.
+Never use an `ISSUES.md` file path, line number, or `path:line` syntax as an issue reference.
+
+Do not create `.mprlab/AGENTS.md`. Scoped guidance belongs in `.mprlab/AGENTS.*.md` files.
+If guidance conflicts, obey `.mprlab/POLICY.md` first, then root `AGENTS.md`, then the applicable scoped guide.
+<!-- END MPRLAB-GOVERNANCE -->
