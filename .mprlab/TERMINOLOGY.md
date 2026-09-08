@@ -95,6 +95,22 @@ Give each term one meaning. Use the same term for the same concept in all docume
 
 Add repository-specific technical nouns below this line.
 
+- `AAC-LC`: The audio codec profile selected for website music playback.
+- `asset ID`: The SHA-256 identity of one immutable media package.
+- `browser session`: An anonymous browser identity held in a cookie and server memory.
+- `CORS`: The browser protocol that controls access to responses from another origin.
+- `cookie`: A browser value that accompanies HTTP requests under specified scope rules.
+- `fMP4`: Fragmented MP4, the container format selected for audio segments.
+- `HLS`: HTTP Live Streaming, the protocol selected for website music playback.
+- `media index`: A private file that maps track IDs to validated media packages.
+- `media package`: One immutable set of audio segments, an initialization file, and an HLS playlist.
+- `media service`: The application that authorizes playback and sends audio segments.
+- `playback grant`: Temporary server authorization for one browser session and one media package.
+- `rendition`: An encoded audio representation with a specified codec and bitrate.
+- `segment`: One bounded audio part referenced by an HLS playlist.
+- `track ID`: A permanent identifier for one catalog recording.
+- `VOD`: Video on demand, the HLS playlist type used for completed audio recordings.
+
 ```text
 - `term`: Definition with one meaning.
 ```
