@@ -1,0 +1,7 @@
+.site-footer .site-footer__prefix {
+  display: none;
+}
+
+.site-footer .site-footer__inner {
+  box-sizing: border-box;
+}
