@@ -29,13 +29,15 @@ Every HTML page in this repository MUST include the LoopAware tracking script at
 3. Include the **Mandatory Global Script** (LoopAware pixel) in the head.
 4. Keep page-specific assets in that same folder.
 5. Add a project entry to `data/site.json`.
-6. Run `make release`, `make publish`, and `make deploy` to publish it under `https://tyemirov.net/my-new-page/`.
+6. Run the local validation described below.
+7. Use the operator publication procedure after deployment readiness passes.
 
 ## Edit The Homepage
 
 - Update `data/site.json` to change the hero copy, profile text, external buttons, writing links, project cards, order, or note.
-- Put project-specific companion essays on `projects[].essay`.
-- Keep standalone essays in `articles.items`.
+- Put project companion essays on `projects[].essay`.
+- Keep standalone essays in `essays.items`.
+- Keep music in `music.items` and art in `arts.items`.
 - Use `status: "live"` to show a project on the homepage.
 - Use `status: "draft"` or `status: "hidden"` to keep a project in the data file without showing it on the homepage.
 - Use the existing card themes: `copper`, `teal`, `olive`, `slate`, `amber`, `indigo`, `violet`.
@@ -46,8 +48,34 @@ Every HTML page in this repository MUST include the LoopAware tracking script at
 2. Keep only the assets needed to serve the page unless you intentionally want source or test files in this repo.
 3. Verify the page locally from this repo before deleting or archiving the old standalone repo.
 
-## Notes
+## Local Validation
 
-- `CNAME` keeps the custom domain bound in-repo.
-- `.nojekyll` disables Jekyll processing so folders are served as plain static content.
-- `make deploy` is the repository-owned deployment command. Pages still serves `master` until the one-time operator cutover to `gh-pages`, so source pushes can update the live site before that migration.
+Use Docker and a sibling `mprlab-gateway` checkout:
+
+```bash
+make music-ci-container
+make music-container-test
+```
+
+The first command runs `make ci` in Linux with managed headless browsers and muted audio.
+It uses committed Gateway source for isolated lifecycle plans and source checks.
+The second command builds the actual Pages and media images and verifies their public behavior.
+Both commands can run on a headless CI server.
+The [operations runbook](docs/private-hls-operations.md) gives native toolchain and media preparation commands.
+
+## Publication
+
+The application declares its resources in `.mprlab/deploy/resources.yml`.
+The website uses GitHub Pages on `gh-pages`, with `tyemirov.net` as its domain.
+Gateway adds `CNAME`, `.nojekyll`, and `/.mprlab-release.json` to the publication artifact.
+`Dockerfile.pages` exports the public site content.
+The media backend uses the computercat inventory group and `audio.tyemirov.net`.
+
+After production prerequisites pass, the operator runs:
+
+```bash
+make release && make publish && make deploy
+```
+
+These commands delegate to the sibling Gateway checkout.
+The [validation record](docs/private-hls-validation.md) identifies completed checks and remaining production prerequisites.
