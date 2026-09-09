@@ -1,0 +1,75 @@
+{
+  "network_locations": 1,
+  "observations": [
+    {
+      "url": "https://tyemirov.net/",
+      "observed_at": "2026-09-09T08:21:36.772575+00:00",
+      "status": 200,
+      "final_url": "https://tyemirov.net/",
+      "sha256": "0d1f247dabed2d84af7f6a7b3375b3d3a0746578cc60728f5296e84bd71f014e",
+      "bytes": 6851,
+      "cache_control": "max-age=600",
+      "age": "0"
+    },
+    {
+      "url": "https://tyemirov.net/music/",
+      "observed_at": "2026-09-09T08:21:36.919940+00:00",
+      "status": 200,
+      "final_url": "https://tyemirov.net/music/",
+      "sha256": "da4db5c0dc69564e6faa40e8ced5a07e3cb29fdab197c8ccf1a02f54e8e6c8cd",
+      "bytes": 1930,
+      "cache_control": "max-age=600",
+      "age": "0"
+    },
+    {
+      "url": "https://tyemirov.net/gallery/",
+      "observed_at": "2026-09-09T08:21:37.025400+00:00",
+      "status": 200,
+      "final_url": "https://tyemirov.net/gallery/",
+      "sha256": "3eeed2d299ba9e4a51af508f79a3cf4e5a92f0174b45553b5473b1f4260f3012",
+      "bytes": 9444,
+      "cache_control": "max-age=600",
+      "age": "0"
+    },
+    {
+      "url": "https://tyemirov.net/civilization/",
+      "observed_at": "2026-09-09T08:21:37.132383+00:00",
+      "status": 200,
+      "final_url": "https://tyemirov.net/civilization/",
+      "sha256": "78c17610d9056e990103b85126b9e91b73ef6851708c877f9e6519f5417312a1",
+      "bytes": 31619,
+      "cache_control": "max-age=600",
+      "age": "0"
+    },
+    {
+      "url": "https://tyemirov.net/.mprlab-release.json",
+      "observed_at": "2026-09-09T08:21:37.269462+00:00",
+      "status": 200,
+      "final_url": "https://tyemirov.net/.mprlab-release.json",
+      "sha256": "5ac10d1fa854c563e3cbe047af85fecd815ab600c90d3f4df60a006d08f48e8a",
+      "bytes": 172,
+      "cache_control": "max-age=600",
+      "age": "0"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.js",
+      "observed_at": "2026-09-09T08:21:37.374954+00:00",
+      "status": 200,
+      "final_url": "https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.js",
+      "sha256": "a74e0e5dce0071dfc4164fdc75cee26ceaaaa448dd55ee06c961e715cbe9b206",
+      "bytes": 606745,
+      "cache_control": "public, max-age=604800, s-maxage=43200",
+      "age": "36895"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.css",
+      "observed_at": "2026-09-09T08:21:37.421977+00:00",
+      "status": 200,
+      "final_url": "https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.css",
+      "sha256": "662b37032b21cac44549ad5376e7bce35bed65915bf4a4c9e86c596e266542c7",
+      "bytes": 29498,
+      "cache_control": "public, max-age=604800, s-maxage=43200",
+      "age": "29456"
+    }
+  ]
+}
