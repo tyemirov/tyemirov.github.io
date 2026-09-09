@@ -60,7 +60,7 @@ test("one canonical catalog supplies the built pages and playback allowlist", as
   expect(allowlist.tracks).toEqual(expected.items.flatMap((album) => album.tracks.map(({ id, playback }) => ({ id, playback }))));
   await page.goto("/music/");
   await expect(page.locator("mpr-header")).toHaveAttribute("brand-href", "/");
-  await expect(page.locator("mpr-footer")).toHaveAttribute("links-collection", /"style":"drop-up"/);
+  await expect(page.locator("mpr-footer")).toHaveAttribute("menu", /"placement":"top"/);
   await page.goto("/");
   await expect(page.locator(".hero-copy h1")).toHaveText(site.hero.title);
   await expect(page.locator(".music-list .music-card")).toHaveCount(3);
@@ -115,12 +115,11 @@ test("the built music pages preserve all five albums and 41 track titles", async
 test("the footer initializes when its library loads after the catalog", async ({ page, context }) => {
   await context.route(/loopaware\.mprlab\.com/, (route) => route.abort());
   await page.route(/\/mpr-ui@[^/]+\/mpr-ui\.js$/, async (route) => {
-    const response = await route.fetch();
     await page.waitForSelector(".album-card");
-    await route.fulfill({ response });
+    await route.fallback();
   });
   await page.goto("/music/");
-  await expect(page.locator("mpr-footer")).toHaveAttribute("links-collection", /"style":"drop-up"/);
+  await expect(page.locator("mpr-footer")).toHaveAttribute("menu", /"placement":"top"/);
 });
 
 test("album cards retain direct streaming links", async ({ page, context }) => {
