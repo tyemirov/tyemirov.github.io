@@ -1,4 +1,5 @@
 // @ts-check
+import { initializeSiteFooter } from "./assets/js/footer.js";
 import { validateMusic } from "./music/catalog.js";
 import { renderMusicIndex, renderAlbumDetails, renderMusicError, renderAlbumNotFound } from "./music/render.js";
 
@@ -23,7 +24,7 @@ async function loadSite() {
 export async function hydrateMusicPage(kind) {
   try {
     const data = await loadSite();
-    renderFooter(data.contact);
+    void initializeSiteFooter({ contact: data.contact, themeAttribute: "data-theme" });
     if (kind === "index") renderMusicIndex(data.music, data.contact);
     else {
       const slug = window.location.pathname.split("/").filter(Boolean).pop();
@@ -72,7 +73,7 @@ function renderAll(data) {
   renderHero(data.hero);
   renderProfile(data.profile);
   renderContent(data);
-  renderFooter(data.contact);
+  void initializeSiteFooter({ contact: data.contact, themeAttribute: "data-theme" });
 }
 
 function renderContent(data) {
@@ -362,37 +363,3 @@ function updateText(selector, value) {
 
 function liveOnly(item) { return !item.status || item.status === "live"; }
 function byOrder(a, b) { return (a.order || 999) - (b.order || 999); }
-
-function renderFooter(contact) {
-  const footer = document.querySelector("#site-footer");
-  if (!footer) return;
-
-  const initFooter = () => {
-    if (typeof globalThis.MPRUI?.getFooterSiteCatalog === "function") {
-      const links = globalThis.MPRUI.getFooterSiteCatalog();
-      const footerLinks = Array.isArray(links) ? [...links] : [];
-      if (contact?.href && contact?.label) {
-        footerLinks.push({ label: contact.label, url: contact.href });
-      }
-      if (footerLinks.length) {
-        footer.setAttribute("links-collection", JSON.stringify({
-          style: "drop-up",
-          text: "Built by Marco Polo Research Lab",
-          links: footerLinks
-        }));
-      }
-    }
-    footer.setAttribute("size", "small");
-    footer.setAttribute("privacy-link-hidden", "true");
-    footer.setAttribute("inner-class", "site-footer__inner");
-    footer.setAttribute("wrapper-class", "site-footer__layout");
-    footer.setAttribute("theme-toggle", "true");
-  };
-
-  footer.addEventListener("theme-change", (e) => {
-    const isDark = e.detail.value === "dark";
-    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
-  });
-
-  void customElements.whenDefined("mpr-footer").then(initFooter);
-}
