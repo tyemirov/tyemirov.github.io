@@ -1,0 +1,23 @@
+FROM node:26.5.1-bookworm-slim@sha256:9e6f9357d371591e32ab6f2d8a26d63bdd0d17c29eee3f4f3e7e454d9634bf73 AS build
+RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates && rm -rf /var/lib/apt/lists/*
+WORKDIR /source
+COPY package.json package-lock.json ./
+RUN npm ci --ignore-scripts
+COPY .gitignore apple-touch-icon.png favicon.* index.html robots.txt site.js site.webmanifest sitemap.xml styles.css ./
+COPY assets ./assets
+COPY civilization ./civilization
+COPY data ./data
+COPY decisioning ./decisioning
+COPY freedom ./freedom
+COPY gallery/assets ./gallery/assets
+COPY gallery/data ./gallery/data
+COPY gallery/images ./gallery/images
+COPY gallery/index.html ./gallery/index.html
+COPY gallery/js ./gallery/js
+COPY music ./music
+COPY timeseries ./timeseries
+COPY scripts/build-pages-artifact.sh ./scripts/
+COPY scripts/music/build.mjs scripts/music/validate-artifact.mjs ./scripts/music/
+RUN git init -q && git add . && PAGES_DIST_DIR=/public bash scripts/build-pages-artifact.sh
+FROM scratch
+COPY --from=build /public/ /
