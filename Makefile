@@ -1,39 +1,75 @@
-RELEASE_ARGS ?=
-PUBLISH_RELEASE_ARGS ?=
-RELEASE_ARTIFACT_TARGETS ?= pages-artifact
-override RELEASE_TOOL_DIR := $(abspath $(CURDIR)/scripts/release)
-override RELEASE_HELPER := $(RELEASE_TOOL_DIR)/release_helper.py
+.DEFAULT_GOAL := ci
 PAGES_DIST_DIR ?= $(CURDIR)/.pages-dist
-PAGES_URL ?= https://tyemirov.net/
-PAGES_BRANCH ?= gh-pages
-PAGES_VERSION ?=
-PAGES_DEPLOY_ARGS ?=
+ANSIBLE_PLAYBOOK ?= $(abspath ../mprlab-gateway/.venv/bin/ansible-playbook)
+ANSIBLE_INVENTORY_BIN ?= $(abspath ../mprlab-gateway/.venv/bin/ansible-inventory)
 
-.PHONY: ci pages-build release-contract-test loopaware-site-id-test release pages-artifact publish-release publish deploy pages-deploy
+.PHONY: lifecycle-contract-test
+lifecycle-contract-test:
+	@ANSIBLE_PLAYBOOK="$(ANSIBLE_PLAYBOOK)" ANSIBLE_INVENTORY_BIN="$(ANSIBLE_INVENTORY_BIN)" node --test tests/music/lifecycle.test.mjs
 
-ci: pages-build release-contract-test loopaware-site-id-test
+.PHONY: ci pages-build loopaware-site-id-test release publish deploy
+
+.PHONY: music-package-test music-api-test music-browser-test music-check music-artifact-test music-container-test music-ci-container
+
+music-package-test:
+	@node --test tests/music/package.test.mjs tests/music/activation.test.mjs
+
+.PHONY: music-load-test music-load music-load-container
+music-load-test:
+	@node --test tests/music/load.test.mjs
+
+music-load:
+	@node tests/music/load.mjs $(MUSIC_LOAD_ARGS)
+
+music-load-container:
+	@docker build -q -t music-ci:local -f tests/music/Dockerfile.ci .
+	@mkdir -p output/playwright/load
+	@docker run --rm --init --network none --mount "type=bind,src=$(CURDIR)/output/playwright/load,dst=/workspace/output/playwright" music-ci:local make music-load MUSIC_LOAD_ARGS="$(MUSIC_LOAD_ARGS)"
+
+.PHONY: music-host-test
+music-host-test:
+	@ANSIBLE_PLAYBOOK="$(ANSIBLE_PLAYBOOK)" node --test tests/music/host.test.mjs
+
+.PHONY: music-release-test
+music-release-test:
+	@node --test tests/music/release.test.mjs
+
+.PHONY: music-publication-test
+music-publication-test:
+	@node --test tests/music/publication.test.mjs
+
+.PHONY: music-deployment-test
+music-deployment-test:
+	@MUSIC_QUALIFICATION_PHASE=deployment node --test tests/music/publication.test.mjs
+
+music-artifact-test:
+	@node --test tests/music/artifact.test.mjs
+
+music-ci-container:
+	@docker build -q -t music-ci:local -f tests/music/Dockerfile.ci .
+	@mkdir -p output/playwright/linux
+	@git -C ../mprlab-gateway bundle create "$(CURDIR)/output/playwright/gateway.bundle" HEAD
+	@docker run --rm --init --shm-size=1g --mount "type=bind,src=$(CURDIR)/output/playwright/gateway.bundle,dst=/gateway.bundle,readonly" --mount "type=bind,src=$(CURDIR)/output/playwright/linux,dst=/workspace/output/playwright" music-ci:local
+
+music-container-test:
+	@node --test $(MUSIC_CONTAINER_ARGS) tests/music/container.test.mjs
+
+music-api-test:
+	@cd services/music-stream && go test -race ./...
+
+music-browser-test:
+	@npm run test:music -- $(MUSIC_BROWSER_ARGS)
+
+music-check:
+	@cd services/music-stream && go vet ./...
+
+ci: pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-load-test music-browser-test
 
 pages-build:
 	@PAGES_DIST_DIR="$(PAGES_DIST_DIR)" ./scripts/build-pages-artifact.sh
 
-release-contract-test:
-	@./tests/release_pages_contract_test.sh
-
 loopaware-site-id-test:
 	@./tests/loopaware_site_id_test.sh
 
-release:
-	@RELEASE_HELPER="$(RELEASE_HELPER)" RELEASE_ARTIFACT_TARGETS="$(RELEASE_ARTIFACT_TARGETS)" "$(RELEASE_TOOL_DIR)/prepare_release.sh" $(RELEASE_ARGS)
-
-pages-artifact: pages-build
-	@"$(RELEASE_TOOL_DIR)/prepare_pages_artifact.sh" --source "$(PAGES_DIST_DIR)" --domain tyemirov.net
-
-publish-release:
-	@RELEASE_HELPER="$(RELEASE_HELPER)" "$(RELEASE_TOOL_DIR)/publish_release.sh" $(PUBLISH_RELEASE_ARGS)
-
-publish: publish-release
-
-deploy: pages-deploy
-
-pages-deploy:
-	@"$(RELEASE_TOOL_DIR)/deploy_pages_artifact.sh" --branch "$(PAGES_BRANCH)" --url "$(PAGES_URL)" $(if $(PAGES_VERSION),--version "$(PAGES_VERSION)") $(PAGES_DEPLOY_ARGS)
+release publish deploy:
+	@application_root="$$(git rev-parse --show-toplevel)"; gateway_root="$$(dirname "$${application_root}")/mprlab-gateway"; $(MAKE) --no-print-directory -C "$${gateway_root}" "app-$@" MPRLAB_APP_ROOT="$${application_root}"
