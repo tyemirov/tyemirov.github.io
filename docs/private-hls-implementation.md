@@ -1,7 +1,9 @@
 # Private HLS music player: implementation handoff
 
 Date: 2026-09-08.
-Status: Proposed implementation contract. Application implementation and production acceptance remain pending.
+Status: Implementation in progress under F001. B001 is closed. Production qualification remains.
+
+Current evidence: [Implementation validation](private-hls-validation.md).
 Repository: `/Users/tyemirov/Development/tyemirov.github.io`.
 Website: `https://tyemirov.net`.
 Proposed media origin: `https://audio.tyemirov.net`.
@@ -13,9 +15,10 @@ The owner will operate the audio service and store the media on their infrastruc
 Every media request needs temporary server authorization.
 A copied playlist URL alone will not authorize playback in another browser.
 
-This document specifies application work for a future implementation task.
-The current request authorizes this plan, rather than application implementation or production operations.
-Use the existing primary checkout for the future task.
+This document specifies the application work for F001.
+The owner authorized implementation after review of this plan.
+Production execution remains with the operator.
+Use the existing primary checkout.
 Obey `AGENTS.md` and its applicable references before each type of work.
 Keep unrelated changes if the checkout changes after this inspection.
 
@@ -59,7 +62,7 @@ The primary checkout was clean on `master` at inspection.
 The inspected site revision was `fc1449e6a81f4cb304725749ab1fab08f41bdd0f`.
 These observations describe local source, rather than a verified production deployment.
 
-| Source | Current behavior | Required implementation consequence |
+| Source | Behavior at initial inspection | Required implementation consequence |
 | --- | --- | --- |
 | `data/site.json` | Owns homepage content and the Music link | Add the canonical `music` content here |
 | `data/music.json` | Contains five albums and 41 track names | Migrate the existing entries in one bounded change |
@@ -309,7 +312,8 @@ Validate these conditions before activation:
 12. Create the immutable package only after all checks pass.
 
 Use one media playlist for the single rendition.
-Native playback and hls.js must both accept this exact fixture before catalog conversion proceeds.
+Test each engine supported by the managed CI browsers with this exact fixture.
+Native playback remains available when the browser reports native HLS support.
 The initialization file and relative segment references follow the [HLS format contract](https://www.rfc-editor.org/rfc/rfc8216).
 If a browser requires different packaging, resolve that result in the format contract before implementation continues.
 
@@ -417,7 +421,7 @@ Set `Cache-Control: no-store` on API responses and errors.
 | --- | --- | --- | --- |
 | `POST /api/playback-grants` | JSON `trackId`, permitted Origin, optional existing cookie | `201`, grant body, Location, session cookie | `400`, `403`, `404`, `409`, `429`, `503` |
 | `GET /api/playback-grants/{grantId}` | Cookie belonging to the grant | `200`, current grant state | `401`, `404`, `410` |
-| `PUT /api/playback-grants/{grantId}/expiration` | Empty body, cookie, permitted Origin | `200`, renewed grant body | `401`, `403`, `404`, `410`, `429` |
+| `PUT /api/playback-grants/{grantId}/expiration` | JSON `expiresAt`, cookie, permitted Origin | `200`, renewed grant body | `400`, `401`, `403`, `404`, `410`, `429` |
 | `DELETE /api/playback-grants/{grantId}` | Cookie, permitted Origin | `204` | `401`, `403`, `404` |
 | `GET` or `HEAD /hls/{grantId}/{assetId}/{file}` | Valid cookie and active matching grant | `200` or valid range response | `401`, `404`, `410`, `416`, `429` |
 | `GET /healthz` | None | `200`, process liveness | `503` |
@@ -469,7 +473,12 @@ Make deletion idempotent for a known session's already deleted grant until its o
 Expire the deletion record with the same bounded cleanup process.
 
 For renewal, accept only a current grant and current browser session.
-Set the new expiration from the server clock and the same TTL formula.
+Send the requested expiration as an RFC 3339 UTC timestamp in `expiresAt`.
+Calculate it from the last server time, elapsed monotonic time, and the same TTL formula.
+Reject an expiration beyond the current server time plus that TTL.
+Reject an expiration before the current grant expiration or at or before the current server time.
+Replace the expiration with the accepted value.
+If a retry supplies the current expiration, return the same state without another rate-limit token.
 Return the same grant ID and playlist URL.
 This permits renewal without playlist replacement.
 An expired grant requires a new creation request.
@@ -630,7 +639,8 @@ Verify artwork sizing, long titles, Unicode text, and narrow screens.
 
 Update Media Session metadata when the browser supports that API.
 Connect available media actions to the same controller actions.
-Treat lock-screen controls as a device acceptance item.
+Physical lock-screen testing is not feasible because mobile devices are unavailable.
+Exclude this test from completion gates, with no pending acceptance action.
 Playback can stop during full-page navigation in this first release.
 Continuous playback across all site routes requires a separate navigation architecture decision.
 
@@ -714,17 +724,25 @@ Keep the expected failure result and the later passing result.
 1. Read current repository guidance and record the source revision.
 2. Add a generated tone fixture through the proposed packaging entry point.
 3. Add an HTTPS fixture site and real minimal media service.
-4. Prove credentialed API access and cookie delivery through native Safari HLS.
+4. Prove credentialed API access and cookie delivery through the managed browser engines.
 5. Prove the same package through hls.js in Chromium and Firefox.
 6. Prove that a copied URL without its cookie fails for every referenced file.
 7. Prove that renewal extends access without a source reload.
 8. Record the actual browser and operating-system versions.
 
-Use local HTTPS hostnames under one local test site with a trusted development certificate.
+Use two local HTTPS origins under one test site.
+For a generated localhost certificate, scope certificate acceptance to each test browser session.
+Keep global certificate trust unchanged.
 Keep production cookie flags in that environment.
-Use a physical iPhone or iPad for the native mobile gate.
-Playwright WebKit is supplementary evidence, rather than physical Safari acceptance.
-If the credentialed native path fails, resolve that boundary before catalog or player expansion.
+Use only Playwright-managed browsers in headless mode.
+Mute test audio before playback.
+Run the suite in the pinned Linux CI container.
+Keep installed desktop browsers outside the automated test workflow.
+The owner confirmed that physical mobile devices are unavailable.
+Physical mobile acceptance is not feasible and is excluded from the completion gates.
+Record that limitation explicitly.
+Playwright WebKit provides automated engine coverage.
+If a supported engine fails credentialed playback, resolve that boundary before catalog or player expansion.
 
 ### Milestone 1: Package and validate audio
 
@@ -760,7 +778,7 @@ If the credentialed native path fails, resolve that boundary before catalog or p
 2. Exercise grant renewal, expiry, pause/resume, rapid track changes, and multiple tabs.
 3. Exercise service restart, rejected cookies, slow responses, and rate limits.
 4. Verify artifact exclusion and request-log redaction.
-5. Complete keyboard, narrow-screen, and native-device acceptance.
+5. Complete keyboard, narrow-screen, and headless browser acceptance.
 6. Run the final repository `make ci` once after the last stack change.
 
 ### Milestone 5: Prepare production handoff
@@ -792,7 +810,7 @@ Each row requires observable evidence through the stated public boundary.
 | A11 | Expiration boundary | New requests fail at the configured server expiration |
 | A12 | Renewal | Same grant URL continues without playback reset |
 | A13 | Long pause | Resume obtains valid access and restores position |
-| A14 | Background phone playback | One complete representative song plays with the screen locked |
+| A14 | Background phone playback | Not feasible: the owner has no physical mobile devices. Excluded from completion gates |
 | A15 | Service restart | At most one replacement attempt keeps track and position |
 | A16 | Track disablement | Existing and new grants stop authorizing new media requests |
 | A17 | Forbidden Origin | API mutation fails, including preflight and null Origin cases |
@@ -808,8 +826,8 @@ Each row requires observable evidence through the stated public boundary.
 | A27 | Log inspection | Service and proxy output contain no Cookie or Set-Cookie values |
 | A28 | Accessibility | Keyboard controls, seek labels, focus, and announcements work |
 | A29 | Global site regression | Homepage sections, filters, contact, and footer remain usable |
-| A30 | Browser engines | Current desktop Safari, Chromium, Firefox, and physical mobile Safari pass applicable playback cases |
-| A31 | Audio quality | Full decode and owner listening review confirm correct recording and no segment-boundary defect |
+| A30 | Browser engines | Playwright-managed Chromium, Firefox, and WebKit pass applicable playback cases in silent headless CI |
+| A31 | Audio validation | Automated source and HLS decode, duration checks, and silent browser playback pass for owner-supplied recordings |
 | A32 | Index activation failure | Current index and playback remain valid after a rejected candidate |
 | A33 | Package replacement | Current grants keep their pinned package until expiration or track disablement |
 | A34 | Cookie race on first use | Parallel tabs recover from any overwritten initial session without repeated recovery loops |
@@ -821,17 +839,25 @@ Proposed focused Make targets:
 ```text
 make music-package-test
 make music-api-test
-make music-catalog-test
 make music-browser-test
 make music-artifact-test
+make music-container-test
 make music-load-test
+make music-load-container
+make music-ci-container
 make ci
 ```
 
-These targets are planned additions, rather than current commands.
+These targets are implemented.
+The browser target includes catalog checks.
+Representative host load qualification remains separate from the container smoke test.
+The load command provides a generated-audio baseline with 100 simulated listeners, shared sessions, and seek bursts.
+Its Linux report includes service CPU, memory, disk counters, request latency, and media throughput.
+The browser suite checks cold hls.js startup with 10 Mbps and 100 milliseconds of emulated latency.
 Include deterministic package, API, catalog, browser, and artifact checks in `make ci`.
-Keep load tests, physical devices, real recordings, and production acceptance as separate evidence.
-Run the existing `release-contract-test` and `loopaware-site-id-test` through the final CI composition.
+Keep load tests, real recordings, and production acceptance as separate evidence.
+Record physical mobile coverage as not feasible.
+Run `lifecycle-contract-test` and `loopaware-site-id-test` through the final CI composition.
 Run the documentation checker on changed technical documents.
 Run the Governor check after any selected manifest change.
 
@@ -882,9 +908,14 @@ Use explicit track disablement as the immediate application control for affected
 ## 14. Production integration prerequisite
 
 The local application policy requires a committed `.mprlab/deploy/resources.yml`.
-That file is absent at this inspection.
-The local Makefile also uses release helpers that differ from the current sibling gateway entry points.
-These are concrete repository integration gaps, rather than proof of a running service defect.
+B001 adds this declaration, the Pages artifact container, and canonical Gateway delegation in the Makefile.
+The implementation removes the obsolete release helpers and source-owned Pages metadata.
+Gateway adds the domain, Jekyll control, and release marker to the publication artifact.
+The service uses the computercat inventory group, a retained media volume, and private port 8092.
+The selected declaration passes real Gateway release, publication, and deployment plans with synthetic inventory.
+Public lifecycle commands also reject non-default source in isolated Git fixtures.
+These checks establish local contract acceptance.
+Isolated-host deployment and production qualification remain required.
 
 The sibling gateway currently owns `app-release`, `app-publish`, and `app-deploy`.
 Its application contract assigns routing and runtime resources to the selected application's declaration.
@@ -902,15 +933,24 @@ The media feature needs these application surfaces after that prerequisite is re
 | --- | --- |
 | Website | Existing domain on GitHub Pages, with `gh-pages` publication |
 | Media service | Immutable application image, one instance, exact placement group |
-| Private storage | Keeped media volume and validated active index selection |
+| Private storage | Retained `tyemirov-site-music-media` volume at `/media`, with validated `selected.json` and `allowlist.json` |
 | Media origin | Caddy route for `audio.tyemirov.net` to the application service |
-| Configuration | Catalog allowlist, media root, exact Origins, limits, trusted proxy boundary |
+| Configuration | Catalog allowlist, media root, exact Origins, limits, and `MUSIC_TRUSTED_PROXIES` from the private environment file |
 | Health | Process, readiness, public HTTPS, and real media authorization probes |
 | Operator data path | Private transfer and activation procedure for validated packages |
 
 Confirm the physical host, inventory group, capacity, hostname ownership, and storage mapping from actual operator state.
 Leave those values as open inputs until they are verified.
-Confirm whether Pages currently serves `master` or `gh-pages` before any source publication.
+The owner selected computercat for the backend on September 8, 2026.
+Gateway inventory maps group `computercat` to `computercat-host` at `192.168.1.158`.
+Read-only SSH inspection confirmed Docker 29.8.0 on Linux x86_64, 16 CPUs, and 50,435,923,968 bytes of memory.
+The configured runtime root is `/home/tyemirov/mprlab-runtime`.
+Its filesystem reported 872,152,140 KiB available during that inspection.
+These facts establish placement and available resources.
+The declared media volume and audience capacity still require host qualification.
+GitHub reports `gh-pages` with `/` as the Pages source on September 8, 2026.
+The configured custom domain is `tyemirov.net`, with HTTPS enforced.
+Verify this configuration again before production publication.
 Verify the actual public `/.mprlab-release.json` during production acceptance.
 
 Only the operator runs the production lifecycle.
@@ -922,7 +962,7 @@ make release && make publish && make deploy
 
 This command is not certified ready by this plan.
 Local tests establish product behavior, while an isolated host establishes deployment behavior.
-Live HTTP and physical browser checks establish production playback acceptance after the operator rollout.
+Live HTTP and headless browser checks establish production playback acceptance after the operator rollout.
 
 Use this application sequence within the approved lifecycle and media operation contract:
 
@@ -948,14 +988,14 @@ Coordinate website and backend catalog updates so a newly visible Play control a
 | Initial recordings | One owner-selected track, then validated catalog recordings | Before real media preparation |
 | Source location and track mapping | Owner-supplied private files mapped to permanent IDs | Before real media preparation |
 | Source gaps | Keep affected tracks external-only | Before public catalog activation |
-| Production host and inventory group | Existing suitable MPR server, one instance | Before deployment declaration |
+| Production host and inventory group | Owner selected computercat, inventory group `computercat`, one instance | Confirmed. Capacity and media mount qualification remain |
 | Audience and outbound capacity | Provisional 100 simultaneous listeners | Before host qualification |
 | Private media transfer | Existing operator SSH transport, to be verified | Before package activation runbook |
 | Session restart interruption | One bounded recovery attempt | Before service acceptance |
-| Native mobile test device | Physical current iPhone or iPad | Before native playback acceptance |
+| Physical mobile coverage | Not feasible because devices are unavailable | Excluded from completion gates by the owner |
 | Whole-site continuous playback | Playback remains within the current document | Before broader navigation work |
 | Maximum recording duration | Two hours | Before source validation contract acceptance |
-| Lifecycle integration gap | Separate application-owned prerequisite | Before production preparation |
+| Lifecycle integration gap | B001 provides source integration and isolated release, publication, deployment, retry, and cleanup evidence | Production qualification remains with the operator |
 
 Use synthetic fixtures while real recordings or production inputs remain unavailable.
 Record exact missing inputs without claiming real-catalog or production acceptance.
@@ -969,7 +1009,8 @@ The implementing agent must provide these outputs:
 2. Record the expected failing integration tests and their later passing results.
 3. Record the exact final `make ci` result and source revision.
 4. Record the generated Pages artifact and private-content exclusion result.
-5. Record browser versions, device models, and passed acceptance IDs.
+5. Record browser versions and passed acceptance IDs.
+   Record physical mobile coverage as not feasible.
 6. Record accepted media packages and their private report locations without exposing audio or credentials.
 7. Record deployment prerequisite status and remaining operator inputs.
 8. Separate local behavior, device behavior, release, publication, deployment, and live acceptance.
@@ -984,7 +1025,7 @@ Start with Milestone 0 and keep the integration-first evidence.
 Keep one canonical music catalog in data/site.json.
 Use synthetic audio until authorized source recordings are available.
 Complete the local application, artifact, and browser checks.
-Record unresolved device or source inputs with their exact acceptance limits.
+Record source inputs and the agreed physical mobile coverage limitation.
 Keep the identified lifecycle prerequisite in its own application-owned task.
 Prepare the operator handoff after the applicable readiness checks pass.
 Leave production execution to the operator.
