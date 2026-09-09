@@ -1,0 +1,22 @@
+{
+	admin off
+	auto_https disable_redirects
+}
+
+https://localhost {
+	tls internal
+	header Cache-Control no-store
+	handle /music/player-config.json {
+		header Content-Type application/json
+		respond `{"apiOrigin":"https://localhost:{$MUSIC_PORT}"}`
+	}
+	handle {
+		root * /srv
+		file_server
+	}
+}
+
+https://localhost:444 {
+	tls internal
+	reverse_proxy music:8092
+}
