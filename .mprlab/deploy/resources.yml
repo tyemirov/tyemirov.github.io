@@ -1,0 +1,101 @@
+---
+mprlab_resources:
+  owner: tyemirov-site
+  release:
+    scheme: semver
+  resources:
+    - kind: private_values
+      id: private
+      bindings:
+        trusted-proxies: MUSIC_TRUSTED_PROXIES
+    - kind: compose_project
+      id: music
+      images:
+        - id: service
+          repository: ghcr.io/tyemirov/personal-site-music
+          build:
+            context: services/music-stream
+            dockerfile: services/music-stream/Dockerfile
+            platforms:
+              - linux/amd64
+      volumes:
+        - id: media
+          name: tyemirov-site-music-media
+          retention: retain
+      services:
+        - id: stream
+          image: service
+          placement:
+            group: computercat
+            cardinality: one
+          command:
+            - --listen
+            - 0.0.0.0:8092
+            - --media-root
+            - /media
+            - --index
+            - /media/selected.json
+            - --allowlist
+            - /media/allowlist.json
+            - --public-origin
+            - https://audio.tyemirov.net
+            - --allowed-origins
+            - https://tyemirov.net,https://www.tyemirov.net
+          environment:
+            MUSIC_TRUSTED_PROXIES:
+              resource: private
+              output: trusted-proxies
+          mounts:
+            - volume: media
+              target: /media
+              read_only: true
+          ports:
+            - container_port: 8092
+              host_port: 8092
+              scope: private_lan
+          readiness:
+            protocol: http
+            port: 8092
+            path: /readyz
+            expected_status: 200
+    - kind: runtime_capability
+      id: music-http
+      name: tyemirov-site.music-http
+      version: 1
+      project: music
+      service: stream
+      endpoint:
+        scope: private_lan
+        scheme: http
+        port: 8092
+      health:
+        protocol: http
+        path: /readyz
+        expected_status: 200
+    - kind: caddy_route
+      id: music-route
+      hostname: audio.tyemirov.net
+      listener: https
+      handlers:
+        - id: music
+          path_prefix: /
+          upstream: tyemirov-site.music-http
+      tls:
+        mode: automatic
+    - kind: health_check
+      id: music-public
+      protocol: http
+      url: https://audio.tyemirov.net/readyz
+      expected_status: 200
+    - kind: github_pages
+      id: website
+      repository: tyemirov/tyemirov.github.io
+      branch: gh-pages
+      domain: tyemirov.net
+      url: https://tyemirov.net/
+      source:
+        kind: container
+        context: .
+        dockerfile: Dockerfile.pages
+      verification:
+        path: /.mprlab-release.json
