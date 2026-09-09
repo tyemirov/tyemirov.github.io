@@ -77,7 +77,7 @@ Format: `- [ ] [B042] (P1) {I007} Title`
 
 ## Improvements
 
-- [-] [I001] (P1) Prepare the current shared footer and theme contract
+- [x] [I001] (P1) Prepare the current shared footer and theme contract
   Goal:
   Use the current MPR UI contract on every public page before central I009 publication.
 
@@ -99,6 +99,14 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - Verify every footer at phone and desktop widths.
   - Verify contact links, delayed library initialization, theme changes, and current asset URLs.
   - Run final native Linux CI after the last source change.
+  Resolution:
+  - Converted all 14 footer entry points to one current initializer and shared stylesheet.
+  - Passed all 116 footer and theme checks across four browser projects.
+  - Final Linux CI passed with 234 browser checks and 18 engine-specific skips.
+  - Lifecycle, artifact, Go race, and media checks passed.
+  - Both actual Pages and media image checks passed.
+  - Recorded the B069 candidate digests and seven public HTTP observations.
+  - Preserved F001 and its existing production acceptance gates.
 
 ## Maintenance
 

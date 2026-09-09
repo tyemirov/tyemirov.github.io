@@ -39,6 +39,11 @@ The theme check failed because the current theme control was absent.
 Phone-width checks then found footer padding overflow on two supporting pages.
 The shared stylesheet correction passed the same checks.
 All 36 focused Chromium checks passed, including catalog behavior and delayed library initialization.
+Final Linux `make ci` passed with 234 browser checks and 18 engine-specific skips.
+All 116 new footer and theme checks passed across the four browser projects.
+The lifecycle, artifact, Go race, and media checks also passed.
+The complete local log is `/tmp/personal-i001-ci-final.log`.
+Both actual Pages and media image checks passed through `make music-container-test`.
 
 Run the focused checks through the existing target:
 
