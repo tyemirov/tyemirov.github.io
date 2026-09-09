@@ -55,8 +55,10 @@ Read each selected guide in full before its first applicable action.
 - For issue work: the selected issue and its dependencies in `.mprlab/ISSUES.md`.
 - For tracker edits: `.mprlab/issues-md-format.md`.
 - For Git operations: `.mprlab/AGENTS.GIT.md`.
-- For Python changes: `.mprlab/AGENTS.PY.md`.
+- For HTTP or gRPC API changes: `.mprlab/AGENTS.API.md`.
+- For Go changes: `.mprlab/AGENTS.GO.md`.
 - For browser changes: `.mprlab/AGENTS.FRONTEND.md`.
+- For container changes: `.mprlab/AGENTS.DOCKER.md`.
 
 File permission modes are outside agent scope.
 Never examine, validate, compare, require, change, or record a file permission mode.
