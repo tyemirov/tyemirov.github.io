@@ -4,16 +4,8 @@ import { installCapabilityScenario } from "./browser-capabilities.mjs";
 
 test.beforeEach(async ({ context }, testInfo) => {
   await installCapabilityScenario(context, testInfo);
+  await context.addCookies([{ name: "music-fixture", value: "player", domain: "localhost", path: "/" }]);
   await context.route(/loopaware\.mprlab\.com/, (route) => route.abort());
-  const facts = await (await context.request.get("/fixture-media.json")).json();
-  await context.route("**/data/site.json", async (route) => {
-    const site = await (await route.fetch()).json();
-    for (const album of site.music.items) for (const track of album.tracks) {
-      if (facts.tracks.includes(track.id)) track.playback = { kind: "hls", durationMs: facts.durationMs };
-    }
-    await route.fulfill({ json: site });
-  });
-  await context.route("**/music/player-config.json", (route) => route.fulfill({ json: { apiOrigin: "https://localhost:18444" } }));
 });
 
 test("the album player supports playback, pause, seeking, and the local queue", async ({ page }) => {
@@ -333,4 +325,96 @@ test("a media error while paused defers recovery until Play", async ({ page }) =
   await player.getByRole("button", { name: "Play", exact: true }).click();
   await expect.poll(() => audio.evaluate((element) => element.currentTime)).toBeGreaterThan(6);
   expect(reads).toBe(1);
+});
+
+test("reload releases only the departing document's grant across nine visits", async ({ page, context }) => {
+  expect((await context.request.post("/fixture-control/restart")).status()).toBe(204);
+  await context.unrouteAll({ behavior: "wait" });
+  const other = await context.newPage();
+  await other.goto("/music/soliloquies-vol-i/");
+  const otherGrantResponse = other.waitForResponse((response) => response.request().method() === "POST" && response.url().endsWith("/api/playback-grants"));
+  await other.locator(".track-play").first().click();
+  const otherGrant = await (await otherGrantResponse).json();
+  await expect.poll(() => other.locator("audio").evaluate((audio) => audio.currentTime)).toBeGreaterThan(0.2);
+  await other.locator("#music-player").getByRole("button", { name: "Pause", exact: true }).click();
+  await page.goto("/music/soliloquies-vol-i/");
+  const grantStatus = async (grant) => (await context.request.get(`https://localhost:18444/api/playback-grants/${grant.grantId}`, {
+    headers: { Origin: "https://localhost:18443" },
+  })).status();
+  for (let visit = 0; visit < 9; visit++) {
+    const response = page.waitForResponse((response) => response.request().method() === "POST" && response.url().endsWith("/api/playback-grants"));
+    await page.locator(".track-play").first().click();
+    const created = await response;
+    expect(created.status()).toBe(201);
+    const grant = await created.json();
+    await expect.poll(() => page.locator("audio").evaluate((audio) => audio.currentTime)).toBeGreaterThan(0.2);
+    await page.reload();
+    await expect.poll(() => grantStatus(grant)).toBe(410);
+    expect(await grantStatus(otherGrant)).toBe(200);
+  }
+  await other.locator("#music-player").getByRole("button", { name: "Play", exact: true }).click();
+  await expect.poll(() => other.locator("audio").evaluate((audio) => audio.currentTime)).toBeGreaterThan(1);
+  await other.close();
+});
+
+test("persisted page transitions preserve track controls and later disposal", async ({ page }) => {
+  await page.goto("/music/soliloquies-vol-i/");
+  await expect(page.locator(".track-play").first()).toBeEnabled();
+  await page.evaluate(() => {
+    window.dispatchEvent(new PageTransitionEvent("pagehide", { persisted: true }));
+    window.dispatchEvent(new PageTransitionEvent("pageshow", { persisted: true }));
+  });
+  await page.locator(".track-play").first().click();
+  await expect(page.locator("#music-player")).toBeVisible();
+  await expect.poll(() => page.locator("audio").evaluate((audio) => audio.currentTime)).toBeGreaterThan(0.2);
+  await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent("pagehide", { persisted: false })));
+  await expect(page.locator("#music-player")).toHaveCount(0);
+});
+
+for (const resource of ["index.m3u8", "init.mp4", "seg-00000.m4s"]) {
+  test(`HLS rate limits on ${resource} preserve the server cooldown`, async ({ page, context }, testInfo) => {
+    test.skip(testInfo.project.name !== "chromium-hls", "The hls.js request adapter owns HTTP error details.");
+    let limitedRequests = 0, grantReads = 0;
+    page.on("request", (request) => { if (request.method() === "GET" && request.url().includes("/api/playback-grants/")) grantReads++; });
+    await context.route(`**/hls/**/${resource}`, async (route) => {
+      limitedRequests++;
+      await route.fulfill({ status: 429, headers: { "Retry-After": "60", "Access-Control-Expose-Headers": "Retry-After",
+        "Access-Control-Allow-Origin": "https://localhost:18443", "Access-Control-Allow-Credentials": "true" },
+      json: { error: { code: "rate_limited", message: "Too many requests.", requestId: "AAAAAAAAAAAAAAAA" } } });
+    });
+    await page.goto("/music/soliloquies-vol-i/");
+    await page.clock.install();
+    await page.locator(".track-play").first().click();
+    const player = page.locator("#music-player"), retry = player.getByRole("button", { name: "Retry", exact: true });
+    await expect(player.getByRole("alert")).toContainText("Try again in");
+    await expect(retry).toBeDisabled();
+    await page.clock.fastForward(59000);
+    await expect(retry).toBeDisabled();
+    expect(limitedRequests).toBe(1);
+    expect(grantReads).toBe(0);
+    await page.clock.fastForward(1000);
+    await expect(retry).toBeEnabled();
+    await context.unroute(`**/hls/**/${resource}`);
+    await retry.click();
+    await expect.poll(() => player.locator("audio").evaluate((audio) => audio.currentTime)).toBeGreaterThan(0.2);
+  });
+}
+
+test.describe("browser history cache", () => {
+  test("a cached history return restores working playback controls", async ({ page, context }, testInfo) => {
+    test.skip(testInfo.project.name !== "chromium-hls", "Chromium qualifies an actual back-forward cache restore.");
+    await context.unrouteAll({ behavior: "wait" });
+    await page.goto("/music/soliloquies-vol-i/");
+    await expect(page.locator(".track-play").first()).toBeEnabled();
+    await page.evaluate(() => {
+      window.musicHistoryRestored = false;
+      window.addEventListener("pageshow", (event) => { window.musicHistoryRestored = event.persisted; });
+    });
+    await page.goto("/healthz");
+    await page.goBack({ waitUntil: "commit" });
+    await expect.poll(() => page.evaluate(() => window.musicHistoryRestored)).toBe(true);
+    await page.locator(".track-play").first().click();
+    await expect(page.locator("#music-player")).toBeVisible();
+    await expect.poll(() => page.locator("audio").evaluate((audio) => audio.currentTime)).toBeGreaterThan(0.2);
+  });
 });

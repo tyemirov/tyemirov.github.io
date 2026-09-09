@@ -14,7 +14,7 @@ export default defineConfig({
   use: { headless: true, baseURL: "https://localhost:18443", ignoreHTTPSErrors: true, trace: "retain-on-failure" },
   projects: [
     { name: "chromium", use: { browserName: "chromium" } },
-    { name: "chromium-hls", use: { browserName: "chromium" }, metadata: { forceHls: true } },
+    { name: "chromium-hls", use: { browserName: "chromium", channel: "chromium", launchOptions: { ignoreDefaultArgs: ["--disable-back-forward-cache"] } }, metadata: { forceHls: true } },
     { name: "firefox", use: { browserName: "firefox" } },
     { name: "webkit", use: { browserName: "webkit" } },
   ],

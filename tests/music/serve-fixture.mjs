@@ -40,6 +40,12 @@ try {
   await run("ffmpeg", ["-nostdin", "-v", "error", "-f", "lavfi", "-i", "sine=frequency=440:sample_rate=48000", "-t", "13", source]);
   const { trackId, ...record } = JSON.parse(await run(process.execPath, ["scripts/music/prepare.mjs", "--source", source, "--media-root", mediaRoot, "--track-id", "test-tone"]));
   const fixtureTracks = [trackId, "soliloquies-vol-i-01", "soliloquies-vol-i-02"];
+  // Serve player fixtures without request interception during document navigation.
+  const sitePath = join(siteRoot, "data/site.json");
+  const site = JSON.parse(await readFile(sitePath, "utf8"));
+  for (const album of site.music.items) for (const track of album.tracks) {
+    if (fixtureTracks.includes(track.id)) track.playback = { kind: "hls", durationMs: record.durationMs };
+  }
   const index = join(temporary, "index.json"), allowlist = join(temporary, "allowlist.json");
   await writeFile(index, JSON.stringify({ tracks: Object.fromEntries(fixtureTracks.map((id) => [id, record])) }));
   await writeFile(allowlist, JSON.stringify({ tracks: fixtureTracks.map((id) => ({ id, playback: { kind: "hls", durationMs: record.durationMs } })) }));
@@ -49,7 +55,8 @@ try {
   await run("go", ["build", "-o", binary, "./cmd/music-stream"], join(root, "services/music-stream"));
   const bundle = await build({ entryPoints: [join(root, "tests/music/fixture-entry.mjs")], bundle: true, format: "esm", write: false, logLevel: "silent" });
   async function startMedia() {
-  media = spawn(binary, ["--listen", "127.0.0.1:18444", "--media-root", mediaRoot, "--index", index, "--allowlist", allowlist, "--public-origin", "https://localhost:18444", "--allowed-origins", "https://localhost:18443", "--tls-cert", certificate, "--tls-key", key], { stdio: ["ignore", "ignore", "pipe"] });
+  // Permit rapid page visits while retaining the eight active-grant limit.
+  media = spawn(binary, ["--listen", "127.0.0.1:18444", "--media-root", mediaRoot, "--index", index, "--allowlist", allowlist, "--public-origin", "https://localhost:18444", "--allowed-origins", "https://localhost:18443", "--tls-cert", certificate, "--tls-key", key, "--session-grant-burst", "16"], { stdio: ["ignore", "ignore", "pipe"] });
   let mediaLog = "";
   media.stderr.on("data", (value) => { mediaLog = (mediaLog + value).slice(-20000); });
   const deadline = Date.now() + 10000;
@@ -66,7 +73,11 @@ try {
   await startMedia();
   const html = `<!doctype html><html lang="en"><head><script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script><meta charset="utf-8"><title>Private HLS acceptance fixture</title><link rel="icon" href="/favicon.png"></head><body><main><h1>Private HLS acceptance fixture</h1><p>Generated 13-second test tone.</p><button id="play">Play test tone</button><button id="renew" disabled>Renew access</button><audio controls preload="none"></audio><p role="status">Ready</p><p>Engine: <output id="engine"></output></p><output id="playlist"></output></main><script type="module" src="/fixture.js"></script></body></html>`;
   website = createServer({ cert: await readFile(certificate), key: await readFile(key) }, async (request, response) => {
-    response.setHeader("Cache-Control", "no-store");
+    response.setHeader("Cache-Control", "no-cache");
+    if (request.headers.cookie?.split("; ").includes("music-fixture=player")) {
+      if (request.url === "/data/site.json") { response.setHeader("Content-Type", "application/json"); response.end(JSON.stringify(site)); return; }
+      if (request.url === "/music/player-config.json") { response.setHeader("Content-Type", "application/json"); response.end(JSON.stringify({ apiOrigin: "https://localhost:18444" })); return; }
+    }
     if (request.method === "POST" && request.url === "/fixture-control/restart") {
       try {
         media.kill("SIGTERM"); await once(media, "close"); await startMedia();
