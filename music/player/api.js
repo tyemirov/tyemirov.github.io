@@ -14,6 +14,13 @@ export class PlaybackError extends Error {
   }
 }
 
+/** @param {string | null | undefined} retryAfter */
+export function rateLimitError(retryAfter) {
+  const delay = Number(retryAfter);
+  if (!Number.isSafeInteger(delay) || delay < 1) return new PlaybackError("invalid_response", 429);
+  return new PlaybackError("rate_limited", 429, delay);
+}
+
 function timestamp(value) {
   if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(value)) throw new PlaybackError("invalid_response");
   const time = Date.parse(value);
@@ -54,7 +61,7 @@ export function createPlaybackAPI(config) {
     let response;
     try {
       response = await fetch(origin + path, {
-        method, credentials: "include", redirect: "error",
+        method, credentials: "include", redirect: "error", keepalive: method === "DELETE",
         signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(15000)]) : AbortSignal.timeout(15000),
         headers: { Accept: "application/json", ...(body === undefined ? {} : { "Content-Type": "application/json" }) },
         ...(body === undefined ? {} : { body: JSON.stringify(body) }),
@@ -71,9 +78,8 @@ export function createPlaybackAPI(config) {
     try { value = await response.json(); } catch { throw new PlaybackError("invalid_response"); }
     if (!response.ok) {
       if (!value?.error || Object.keys(value).length !== 1 || Object.keys(value.error).sort().join(",") !== "code,message,requestId" || !ERROR_CODES.has(value.error.code) || typeof value.error.message !== "string" || typeof value.error.requestId !== "string") throw new PlaybackError("invalid_response");
-      const delay = Number(response.headers.get("Retry-After"));
-      if (response.status === 429 && (!Number.isSafeInteger(delay) || delay < 1)) throw new PlaybackError("invalid_response");
-      throw new PlaybackError(value.error.code, response.status, response.status === 429 ? delay : 0);
+      if (response.status === 429) throw rateLimitError(response.headers.get("Retry-After"));
+      throw new PlaybackError(value.error.code, response.status);
     }
     return value;
   }

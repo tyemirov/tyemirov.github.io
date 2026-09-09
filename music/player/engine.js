@@ -1,6 +1,6 @@
 // @ts-check
 import Hls from "hls.js";
-import { PlaybackError } from "./api.js";
+import { PlaybackError, rateLimitError } from "./api.js";
 
 const HLS_TYPE = "application/vnd.apple.mpegurl";
 
@@ -77,7 +77,12 @@ export function createPlaybackEngine(audio, onFailure) {
           fetchSetup(context, init) { return new Request(context.url, { ...init, credentials: "include" }); },
         });
         hls.on(Hls.Events.ERROR, (_event, data) => {
-          if (data.fatal) fail(new Error(`Music stream failed: ${data.details}.`));
+          if (!data.fatal) return;
+          if (data.response?.code === 429) {
+            const response = data.networkDetails;
+            const retryAfter = response instanceof XMLHttpRequest ? response.getResponseHeader("Retry-After") : response?.headers?.get("Retry-After");
+            fail(rateLimitError(retryAfter));
+          } else fail(new Error(`Music stream failed: ${data.details}.`));
         });
         hls.loadSource(url);
         hls.attachMedia(audio);

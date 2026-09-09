@@ -14,5 +14,12 @@ export async function initializePlayer(album) {
   const disposeView = mountPlayerView(controller, audio);
   const disposeMediaSession = connectMediaSession(controller);
   for (const button of document.querySelectorAll("button[data-play-track]")) button.disabled = false;
-  window.addEventListener("pagehide", () => { disposeMediaSession(); controller.dispose(); disposeView(); }, { once: true });
+  const pagehide = (event) => {
+    if (event.persisted) return;
+    window.removeEventListener("pagehide", pagehide);
+    disposeMediaSession();
+    controller.dispose();
+    disposeView();
+  };
+  window.addEventListener("pagehide", pagehide);
 }

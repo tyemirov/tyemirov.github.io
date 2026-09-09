@@ -227,5 +227,8 @@ export class PlayerController extends EventTarget {
     clearInterval(this.accessTimer);
     clearInterval(this.retryTimer);
     this.engine.destroy();
+    const grant = this.grant;
+    this.grant = null;
+    if (grant) void this.api.revoke(grant).catch((error) => console.warn("Document playback grant cleanup failed.", error.code));
   }
 }
