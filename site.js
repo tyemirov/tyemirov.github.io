@@ -1,44 +1,114 @@
-const SITE_DATA_URL = "data/site.json";
-const MUSIC_DATA_URL = "data/music.json";
+// @ts-check
+import { validateMusic } from "./music/catalog.js";
+import { renderMusicIndex, renderAlbumDetails, renderMusicError, renderAlbumNotFound } from "./music/render.js";
+
+const SITE_DATA_URL = "/data/site.json";
 
 let currentFilter = null;
 let siteData = null;
-let musicData = null;
 
 document.addEventListener("DOMContentLoaded", () => {
-  void hydrateHomePage();
+  if (document.querySelector(".hero")) void hydrateHomePage();
 });
 
-async function hydrateHomePage() {
+async function loadSite() {
+  const response = await fetch(SITE_DATA_URL, { headers: { Accept: "application/json" } });
+  if (!response.ok) throw new Error(`Failed to load the site catalog: ${response.status}`);
+  const data = await response.json();
+  validateMusic(data.music);
+  return data;
+}
+
+/** @param {"index" | "album"} kind */
+export async function hydrateMusicPage(kind) {
   try {
-    const [siteRes, musicRes] = await Promise.all([
-      fetch(SITE_DATA_URL, { headers: { Accept: "application/json" } }),
-      fetch(MUSIC_DATA_URL, { headers: { Accept: "application/json" } })
-    ]);
-
-    if (!siteRes.ok) throw new Error(`Failed to load ${SITE_DATA_URL}: ${siteRes.status}`);
-    if (!musicRes.ok) throw new Error(`Failed to load ${MUSIC_DATA_URL}: ${musicRes.status}`);
-
-    siteData = await siteRes.json();
-    musicData = await musicRes.json();
-    renderAll(siteData, musicData);
+    const data = await loadSite();
+    renderFooter(data.contact);
+    if (kind === "index") renderMusicIndex(data.music, data.contact);
+    else {
+      const slug = window.location.pathname.split("/").filter(Boolean).pop();
+      const album = data.music.items.find((item) => item.slug === slug && item.status === "live");
+      if (album) {
+        renderAlbumDetails(album);
+        if (album.tracks.some((track) => track.playback.kind === "hls")) {
+          try {
+            const { initializePlayer } = await import("./music/player/bootstrap.js");
+            await initializePlayer(album);
+          } catch (error) {
+            const notice = document.createElement("p");
+            notice.className = "music-error";
+            notice.setAttribute("role", "alert");
+            notice.textContent = error.code === "unsupported_browser"
+              ? "This browser cannot play these tracks. Use a streaming link."
+              : "Player is unavailable. Reload the page or use a streaming link.";
+            document.querySelector(".tracklist-section").prepend(notice);
+            console.error("Player startup failed.", error);
+          }
+        }
+      }
+      else renderAlbumNotFound();
+    }
   } catch (error) {
-    console.error("Unable to load site data, leaving static fallback in place.", error);
+    renderMusicError("Music is unavailable. Please reload the page.");
+    console.error("Music catalog failed.", error);
   }
 }
 
-function renderAll(data, music) {
+async function hydrateHomePage() {
+  try {
+    siteData = await loadSite();
+    renderAll(siteData);
+  } catch (error) {
+    renderMusicError("Music is unavailable. Please reload the page.");
+    document.querySelector(".music-section").classList.remove("is-hidden");
+    console.error("Site catalog failed.", error);
+  }
+}
+
+function renderAll(data) {
   if (!data || typeof data !== "object") return;
 
   renderSiteMeta(data.site);
   renderHero(data.hero);
   renderProfile(data.profile);
-  renderProjects(data.mprlab);
-  renderEssays(data.essays);
-  renderMusic(music);
-  renderArts(data.arts);
+  renderContent(data);
   renderFooter(data.contact);
 }
+
+function renderContent(data) {
+  renderFilters(data);
+  renderProjects(data.mprlab);
+  renderEssays(data.essays);
+  renderMusic(data.music);
+  renderArts(data.arts);
+}
+
+function renderFilters(data) {
+  let filters = document.querySelector(".site-filters");
+  if (!filters) {
+    filters = document.createElement("nav");
+    filters.className = "site-filters";
+    filters.setAttribute("aria-label", "Filter content");
+    document.querySelector("main").prepend(filters);
+  }
+  const sections = [data.mprlab, data.essays, data.music, data.arts];
+  const tags = [...new Set(sections.flatMap((section) => [section.label, ...(section.items || []).filter(liveOnly).map(itemTag).filter(Boolean)]))];
+  filters.replaceChildren(createFilterButton(null, "All"), ...tags.map((tag) => createFilterButton(tag, tag)));
+}
+
+function createFilterButton(tag, label) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "card-kicker-tag";
+  button.textContent = label;
+  button.dataset.filterTag = tag || "";
+  button.setAttribute("aria-pressed", String(currentFilter === tag));
+  button.addEventListener("click", () => window.toggleProjectFilter(tag));
+  return button;
+}
+
+function itemTag(item) { return item.kicker || item.source; }
+function matchesFilter(item, section) { return currentFilter === null || currentFilter === section.label || currentFilter === itemTag(item); }
 
 function renderSiteMeta(site) {
   if (!site) return;
@@ -89,7 +159,7 @@ function renderProjects(mprlab) {
   if (!projectSection || !mprlab) return;
 
   updateText(".project-section .section-blurb .lead", mprlab.blurb);
-  projectSection.classList.remove("is-hidden");
+  projectSection.classList.toggle("is-hidden", !matchesFilter(mprlab, mprlab));
 }
 
 function renderEssays(essays) {
@@ -97,13 +167,13 @@ function renderEssays(essays) {
   const essayList = document.querySelector(".essay-list");
   if (!essaySection || !essayList || !essays) return;
 
-  const filtered = (essays.items || []).filter(liveOnly).sort(byOrder).slice(0, 4);
+  const filtered = (essays.items || []).filter(liveOnly).filter((item) => matchesFilter(item, essays)).sort(byOrder).slice(0, 4);
   
   updateText(".essay-section .notes-label", essays.label);
   updateText(".essay-section .section-title", essays.title);
   
   essayList.replaceChildren(...filtered.map(createArticleCard));
-  essaySection.classList.remove("is-hidden");
+  essaySection.classList.toggle("is-hidden", filtered.length === 0);
 }
 
 function renderMusic(music) {
@@ -111,20 +181,20 @@ function renderMusic(music) {
   const musicList = document.querySelector(".music-list");
   if (!musicSection || !musicList || !music) return;
 
-  const items = (music.items || []).filter(liveOnly).sort(byOrder).slice(0, 3);
+  const items = (music.items || []).filter(liveOnly).filter((item) => matchesFilter(item, music)).sort(byOrder).slice(0, 3);
   
   updateText(".music-section .notes-label", music.label);
   updateText(".music-section .section-title", music.title);
   
   musicList.replaceChildren(...items.map(createMusicItem));
-  musicSection.classList.remove("is-hidden");
+  musicSection.classList.toggle("is-hidden", items.length === 0);
 }
 
 function renderArts(arts) {
   const artsSection = document.querySelector(".arts-section");
   if (!artsSection || !arts) return;
 
-  const item = (arts.items || []).find(liveOnly);
+  const item = (arts.items || []).filter(liveOnly).find((candidate) => matchesFilter(candidate, arts));
   if (item) {
     updateText(".arts-section .section-blurb .lead", item.summary);
   }
@@ -132,14 +202,20 @@ function renderArts(arts) {
   updateText(".arts-section .notes-label", arts.label);
   updateText(".arts-section .section-title", arts.title);
 
-  artsSection.classList.remove("is-hidden");
+  artsSection.classList.toggle("is-hidden", !item);
 }
 
 window.toggleProjectFilter = (tag) => {
+  const active = document.activeElement;
+  const focusTag = active instanceof HTMLElement ? active.dataset.filterTag : undefined;
+  const focusInCard = active?.closest(".essay-list") !== null;
   currentFilter = (currentFilter === tag) ? null : tag;
-  renderAll(siteData, musicData);
-  if (currentFilter) {
-    document.querySelector(".essay-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  renderContent(siteData);
+  if (focusTag !== undefined) {
+    const scope = focusInCard ? ".essay-list" : ".site-filters";
+    const button = [...document.querySelectorAll(`${scope} button`)].find((candidate) => candidate.dataset.filterTag === focusTag);
+    const focusTarget = button || document.querySelector('.site-filters button[data-filter-tag=""]');
+    focusTarget.focus({ preventScroll: true });
   }
 };
 
@@ -223,9 +299,7 @@ function createArticleCard(article) {
   const card = document.createElement("article");
   card.className = "project-card";
 
-  const kicker = document.createElement("p");
-  kicker.className = "card-kicker-tag";
-  kicker.textContent = article.kicker || article.source || "Essay";
+  const kicker = createFilterButton(itemTag(article), itemTag(article));
 
   const title = document.createElement("h2");
   const titleLink = document.createElement("a");
@@ -320,6 +394,5 @@ function renderFooter(contact) {
     document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
   });
 
-  if (globalThis.MPRUI) initFooter();
-  else window.addEventListener("mpr-ui-ready", initFooter, { once: true });
+  void customElements.whenDefined("mpr-footer").then(initFooter);
 }

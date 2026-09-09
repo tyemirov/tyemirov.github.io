@@ -1,0 +1,393 @@
+{
+  "label": "Music",
+  "title": "Albums, song cycles, and vocal settings.",
+  "items": [
+    {
+      "slug": "soliloquies-vol-i",
+      "title": "Soliloquies Vol. I",
+      "subtitle": "A cycle of intimate vocal works built around solitary speech, memory, and inward argument.",
+      "coverImage": "/music/covers/soliloquies-vol-i.jpg",
+      "releaseDate": "2026",
+      "status": "live",
+      "latest": true,
+      "shortDescription": "Solitary speech and memory through the lens of classical and modern poetry.",
+      "streamingLinks": {
+        "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
+        "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+Soliloquies+Vol.+I",
+        "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Soliloquies+Vol.+I"
+      },
+      "credits": "All tracks performed and produced by Vadym Tyemirov.",
+      "notes": "<p>A collection of vocal performances focusing on the 'soliloquy'—moments of profound internal dialogue and public speech. From the stoicism of Marcus Aurelius to the timeless words of Shakespeare and Milton.</p>",
+      "order": 10,
+      "tracks": [
+        {
+          "id": "soliloquies-vol-i-01",
+          "title": "Inferno — Canto I",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "soliloquies-vol-i-02",
+          "title": "To be, or not to be (Hamlet)",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "soliloquies-vol-i-03",
+          "title": "Meditations 2.1 (Marcus Aurelius)",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "soliloquies-vol-i-04",
+          "title": "Stopping by Woods on a Snowy Evening (Frost)",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "soliloquies-vol-i-05",
+          "title": "The Litany Against Fear (Dune)",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "soliloquies-vol-i-06",
+          "title": "Peace",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "soliloquies-vol-i-07",
+          "title": "Dies Irae",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "soliloquies-vol-i-08",
+          "title": "Paradise Lost, Book I (Satan)",
+          "playback": {
+            "kind": "external"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "songs-of-desire",
+      "title": "Songs of Desire",
+      "subtitle": "Longing, pursuit, and the unstable border between romantic address and self-invention.",
+      "coverImage": "/music/covers/songs-of-desire.jpg",
+      "releaseDate": "2026",
+      "status": "live",
+      "shortDescription": "A multi-track album about longing and self-invention.",
+      "streamingLinks": {
+        "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
+        "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+Songs+of+Desire",
+        "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Songs+of+Desire"
+      },
+      "credits": "Produced and composed by Vadym Tyemirov.",
+      "notes": "<p>Songs of Desire explores the themes of pursuit and the construction of identity through romantic and introspective lenses.</p>",
+      "order": 20,
+      "tracks": [
+        {
+          "id": "songs-of-desire-01",
+          "title": "WANT / WON’T (Hypnagogic Pop)",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "songs-of-desire-02",
+          "title": "Sans mesure / Sans respect",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "songs-of-desire-03",
+          "title": "Hungarian baby vs Albanian baby",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "songs-of-desire-04",
+          "title": "Friday Night Burn",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "songs-of-desire-05",
+          "title": "Moonshot",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "songs-of-desire-06",
+          "title": "Bridge of Ice to Venus",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "songs-of-desire-07",
+          "title": "Reincarnated as an Imp",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "songs-of-desire-08",
+          "title": "Two Doors",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "songs-of-desire-09",
+          "title": "Lullaby I",
+          "playback": {
+            "kind": "external"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "egyptian-nights",
+      "title": "Egyptian Nights",
+      "subtitle": "Nocturnal atmosphere, mythic ornament, and theatrical voice.",
+      "coverImage": "/music/covers/egyptian-nights.jpg",
+      "releaseDate": "2026",
+      "status": "live",
+      "shortDescription": "A song cycle shaped by nocturnal atmosphere and theatrical voice.",
+      "streamingLinks": {
+        "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
+        "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+Egyptian+Nights",
+        "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Egyptian+Nights"
+      },
+      "credits": "Written, produced, and performed by Vadym Tyemirov.",
+      "notes": "<p>A cinematic journey through urban nights and mythic archetypes. The album blends atmospheric soundscapes with grounded, often gritty, narratives.</p>",
+      "order": 30,
+      "tracks": [
+        {
+          "id": "egyptian-nights-01",
+          "title": "Exhale / Inhale (smoking in the wind)",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "egyptian-nights-02",
+          "title": "Brand New Tattoo",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "egyptian-nights-03",
+          "title": "Half a second",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "egyptian-nights-04",
+          "title": "I don't wanna rock",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "egyptian-nights-05",
+          "title": "$20 Tip",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "egyptian-nights-06",
+          "title": "Arguing in a restaurant",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "egyptian-nights-07",
+          "title": "Egyptian Nights",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "egyptian-nights-08",
+          "title": "The Sanitation of Cash (extra)",
+          "playback": {
+            "kind": "external"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "singing-pasternak",
+      "title": "Поющий Пастернак",
+      "displayTitle": "Поющий Пастернак",
+      "translation": "Singing Pasternak",
+      "subtitle": "Russian-language album of vocal settings inspired by the poetic world of Boris Pasternak.",
+      "coverImage": "/music/covers/singing-pasternak.jpg",
+      "releaseDate": "2026",
+      "status": "live",
+      "shortDescription": "Vocal settings of Boris Pasternak's poetry.",
+      "streamingLinks": {
+        "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
+        "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+Поющий+Пастернак",
+        "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Поющий+Пастернак"
+      },
+      "credits": "Vocal arrangements and performance by Vadym Tyemirov. Lyrics by Boris Pasternak.",
+      "notes": "<p>An exploration of Pasternak's lyrical intensity through modern vocal settings. The album preserves the literary heritage while adding a contemporary sonic layer.</p>",
+      "order": 40,
+      "tracks": [
+        {
+          "id": "singing-pasternak-01",
+          "title": "На пароходе (On the Steamboat)",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "singing-pasternak-02",
+          "title": "Вторая баллада (Second Ballad)",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "singing-pasternak-03",
+          "title": "Любить иных — тяжелый крест (To love others is a heavy cross)",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "singing-pasternak-04",
+          "title": "В низовьях (In the Lowlands)",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "singing-pasternak-05",
+          "title": "Зимняя ночь (Winter Night)",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "singing-pasternak-06",
+          "title": "Февраль (February)",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "singing-pasternak-07",
+          "title": "Быть или не быть (To be or not to be)",
+          "playback": {
+            "kind": "external"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "february-get-ink-and-weep",
+      "title": "Февраль. Достать чернил и плакать …",
+      "displayTitle": "Февраль. Достать чернил и плакать …",
+      "translation": "February. Get ink and weep...",
+      "subtitle": "Russian-language album centered on winter, language, melancholy, and poetic intensity.",
+      "coverImage": "/music/covers/february.jpg",
+      "releaseDate": "2026",
+      "status": "live",
+      "shortDescription": "Melancholy and winter through Russian poetry.",
+      "streamingLinks": {
+        "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
+        "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+Февраль.+Достать+чернил+и+плакать",
+        "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Февраль.+Достать+чернил+и+плакать"
+      },
+      "credits": "Performance and production by Vadym Tyemirov. Lyrics by Boris Pasternak.",
+      "notes": "<p>A focused cycle dedicated to a single, iconic poem by Boris Pasternak, exploring its various emotional and rhythmic dimensions.</p>",
+      "order": 50,
+      "tracks": [
+        {
+          "id": "february-get-ink-and-weep-01",
+          "title": "Февраль [1]",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "february-get-ink-and-weep-02",
+          "title": "Февраль [2]",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "february-get-ink-and-weep-03",
+          "title": "Февраль [3]",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "february-get-ink-and-weep-04",
+          "title": "Февраль [4]",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "february-get-ink-and-weep-05",
+          "title": "Февраль [5]",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "february-get-ink-and-weep-06",
+          "title": "Февраль [6]",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "february-get-ink-and-weep-07",
+          "title": "Февраль [7]",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "february-get-ink-and-weep-08",
+          "title": "Февраль [8]",
+          "playback": {
+            "kind": "external"
+          }
+        },
+        {
+          "id": "february-get-ink-and-weep-09",
+          "title": "Февраль [9]",
+          "playback": {
+            "kind": "external"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+---
+- name: Qualify the selected music volume through Gateway
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - "{{ application_manifest }}"
+  vars:
+    selected_project: "{{ mprlab_resources.resources | selectattr('id', 'equalto', 'music') | first }}"
+    mprlab_compose_registry_resource:
+      owner: "{{ mprlab_resources.owner }}"
+      id: "{{ selected_project.id }}"
+    mprlab_retained_volume: "{{ selected_project.volumes | first }}"
+    mprlab_compose_target_host: fixture
+    mprlab_compose_target_docker_cli: /usr/bin/docker
+    selected_route: "{{ mprlab_resources.resources | selectattr('id', 'equalto', 'music-route') | first }}"
+    selected_capability: "{{ mprlab_resources.resources | selectattr('kind', 'equalto', 'runtime_capability') | first }}"
+  tasks:
+    - name: Require the preflighted test volume identity
+      ansible.builtin.assert:
+        quiet: true
+        that:
+          - mprlab_retained_volume.name == expected_volume
+    - name: Reconcile the retained volume with the real Gateway task
+      ansible.builtin.include_tasks: "{{ gateway_root }}/deploy/ansible/playbooks/tasks/reconcile-selected-retained-volume.yml"
+    - name: Export the selected runtime contract for the test
+      ansible.builtin.copy:
+        dest: "{{ selected_contract }}"
+        content: "{{ {'owner': mprlab_resources.owner, 'volume': mprlab_retained_volume.name, 'service': selected_project.services | first} | to_json }}"
+    - name: Require the selected media route and capability relationship
+      ansible.builtin.assert:
+        quiet: true
+        that:
+          - selected_route.handlers | length == 1
+          - selected_route.handlers[0].upstream == selected_capability.name
+          - selected_capability.project == selected_project.id
+          - selected_capability.service == selected_project.services[0].id
+    - name: Render the selected route with the real Gateway Caddy template
+      ansible.builtin.template:
+        src: "{{ gateway_root }}/deploy/ansible/templates/active-caddy-routes.caddy.j2"
+        dest: "{{ selected_caddy_config }}"
+      vars:
+        mprlab_caddy_automatic_tls_issuer: internal
+        mprlab_caddy_candidate_listeners: []
+        mprlab_caddy_candidate_certificate_claims: []
+        mprlab_caddy_candidate_routes:
+          - owner: "{{ mprlab_resources.owner }}"
+            id: "{{ selected_route.id }}"
+            hostname: "{{ selected_route.hostname }}"
+            tls: "{{ selected_route.tls }}"
+            access: {}
+            handlers:
+              - id: "{{ selected_route.handlers[0].id }}"
+                path_prefix: "{{ selected_route.handlers[0].path_prefix }}"
+                upstream_host: 127.0.0.1
+                upstream_port: "{{ selected_capability.endpoint.port }}"

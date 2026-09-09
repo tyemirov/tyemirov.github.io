@@ -4,8 +4,6 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 output_dir="${PAGES_DIST_DIR:-${repo_root}/.pages-dist}"
 source_paths=(
-  .nojekyll
-  CNAME
   apple-touch-icon.png
   assets
   civilization
@@ -43,14 +41,13 @@ while IFS= read -r -d '' relative_path; do
   cp "${relative_path}" "${output_dir}/${relative_path}"
 done < <(git ls-files -z -- "${source_paths[@]}")
 
-for required_path in .nojekyll CNAME data/site.json index.html site.js styles.css gallery/index.html; do
+node "${repo_root}/scripts/music/build.mjs" "${output_dir}"
+
+for required_path in data/site.json index.html site.js styles.css gallery/index.html; do
   [[ -f "${output_dir}/${required_path}" ]] || {
     echo "error: missing Pages source file: ${required_path}" >&2
     exit 1
   }
 done
-[[ "$(tr -d '\r\n' <"${output_dir}/CNAME")" == "tyemirov.net" ]] || {
-  echo "error: CNAME must be tyemirov.net" >&2
-  exit 1
-}
+node "${repo_root}/scripts/music/validate-artifact.mjs" "${output_dir}"
 echo "Prepared ${output_dir}."

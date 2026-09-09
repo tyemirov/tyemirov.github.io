@@ -8,6 +8,73 @@ Format: `- [ ] [B042] (P1) {I007} Title`
 
 ## BugFixes
 
+- [x] [B001] (P1) Align application publication with the current Gateway contract
+  Goal:
+  Make the application lifecycle obey the current repository deployment policy before production music activation.
+
+  Requirements:
+  - Use the current application declaration and sibling Gateway contract.
+  - Keep the website on GitHub Pages with the `gh-pages` publication branch.
+  - Keep music service configuration in the selected application.
+  - Keep shared deployment machinery in Gateway.
+  - Leave production execution to the operator.
+
+  Deliverables:
+  - Resolve the absent application declaration and local release-helper drift documented in the implementation plan, section 14.
+  - Record actual Pages configuration and isolated-host deployment evidence.
+  - Provide the canonical operator handoff for F001.
+
+  Validation:
+  - Expected: the application has a validated production declaration and the canonical Gateway lifecycle entry points.
+  - Initial failure: the lifecycle integration test could not read the absent declaration.
+  - The declaration now selects computercat, private media storage, the media route, and the Pages artifact container.
+  - Real Gateway release, publication, and deployment plans pass with synthetic inventory and local Git origins.
+  - All three public lifecycle commands delegate to Gateway and reject non-default source in isolated Git fixtures.
+  - Gateway owns Pages domain and release metadata. The artifact container exports only public site content.
+  - The service consumes `MUSIC_TRUSTED_PROXIES` through the declared private-value binding and rejects invalid CIDRs.
+  - Final Linux CI passed after these changes, including all Gateway plans and 106 headless browser checks.
+  - Both actual container image checks passed.
+  - The container test verifies the declared AMD64 image and waits for the service readiness event before HTTP checks.
+  - The isolated-host test passed Gateway volume creation, private SSH transfer, AMD64 media validation, and protected HTTP.
+  - The test verified retained media after container replacement.
+  - The extended host test passed HTTPS through the selected route rendered with Gateway's actual Caddy template.
+  - Cookie authorization, CORS, byte ranges, grant removal, and client address limits passed through the proxy.
+  - The actual application release passed canonical CI and sealed both artifacts with the isolated Docker host.
+  - An exact release retry preserved the receipt and skipped CI and artifact assembly.
+  - The exported source bundles, artifact hashes, release tag, and CI receipt passed independent verification.
+  - The actual publication command pushed and verified the sealed image through a real isolated TLS registry.
+  - Local provider fixtures and Git repositories received the release metadata and immutable Pages artifact reference.
+  - An exact publication retry preserved the receipt and skipped artifact publication.
+  - Exported registry data and the publication-to-release identity passed independent checks.
+  - Actual Gateway foundation and application deployment commands passed on the isolated Linux host.
+  - Gateway verified all six declared resources and the Caddy handler.
+  - Exact retries kept the service container, desired resource generation, and Pages deployment identity.
+  - The Pages HTTPS fixture served the activated Git artifact and its exact release marker.
+  - Protected HTTPS media passed anonymous rejection, authorized access, byte ranges, and grant removal.
+  - The actual Gateway cleanup playbook and its exact retry passed with an explicit isolated-host profile.
+  - Production host, provider, DNS, TLS, and real-recording acceptance remain separate operator gates under F001.
+  - GitHub reports `gh-pages` as the current Pages source, with `tyemirov.net` and HTTPS enforced.
+  - The owner selected computercat. Gateway inventory maps group `computercat` to `computercat-host`, and read-only SSH checks reached its Docker runtime.
+  - Final Linux CI passed after the deployment fixture changes, with 106 browser checks, six intentional skips, and no failures.
+
+- [x] [B002] (P2) Restore the global site filter
+  Goal:
+  Apply the selected category to the public site sections.
+
+  Requirements:
+  - Keep content in `data/site.json`.
+  - Connect visible category controls to the shared filter action.
+  - Apply the selected category before section rendering.
+
+  Validation:
+  - Source review found that the existing filter action sets `currentFilter` and renders all sections without category selection.
+  - This behavior predates F001. The catalog migration only changed the argument passed to `renderAll`.
+  - Add browser coverage for category selection and clearing before the repair.
+  - The initial browser checks failed because the visible category controls were absent.
+  - Section and source filters now select content before the card limit, with keyboard focus preserved after selection and clearing.
+  - Narrow-screen checks found and corrected overflow from fixed grid widths and hero links.
+  - All eight filter checks passed in the final headless Linux CI run.
+
 ## Improvements
 
 ## Maintenance
@@ -191,5 +258,57 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - Confirm issue archive and active tracker references remain consistent.
 
 ## Features
+
+- [-] [F001] (P1) Add private HLS music playback to the personal website
+  Goal:
+  Play complete songs on the website through an owner-operated media service with temporary cookie authorization.
+
+  Status: The owner supplied the Music share. The SoundOn comparison and private package preparation are completed.
+  A36 requires operator production execution and public acceptance.
+
+  Requirements:
+  - Implement [the implementation plan](../docs/private-hls-implementation.md), including its acceptance matrix and operator boundaries.
+  - Use one canonical music catalog in `data/site.json`.
+  - Authorize playlists, initialization files, and segments before each media response.
+  - Keep original recordings and media packages outside public website artifacts.
+  - Use native HLS and hls.js through the same current media contract.
+  - Start with generated audio and integration-first evidence.
+  - Use Playwright-managed headless browsers with muted audio for automated tests.
+  - Keep desktop browsers outside the test workflow.
+  - Provide a Linux container that runs the full CI suite.
+  - Complete B001 before production readiness.
+
+  Deliverables:
+  - Provide the Go service, offline package commands, player, catalog migration, and accessible controls.
+  - Provide focused Make targets, browser coverage, package validation, and the operations runbook.
+  - Record local, publication, deployment, and live acceptance separately.
+  - Record physical mobile testing as not feasible, with no pending acceptance action.
+
+  Validation:
+  - Complete milestones 0 through 5 and record acceptance results A01 through A36 from the implementation plan.
+  - Preserve the expected failing integration results before production behavior changes.
+  - Run the final repository CI after the last stack change.
+  - Current evidence: [implementation validation](../docs/private-hls-validation.md) records the package, HTTP, and browser results.
+  - The earlier Safari check is historical evidence only, and remote automation is off.
+  - The current workflow excludes SafariDriver and physical devices.
+  - Chromium, Firefox, and automated WebKit passed catalog, playback, recovery, and authorization checks.
+  - `make music-ci-container` passed the full Linux CI suite with 106 browser checks and six intentional configuration-specific skips.
+  - The 15-minute generated-audio load run completed all 100 listeners with zero errors and p95 grant latency of 34 milliseconds.
+  - The Chromium hls.js check started playback in 459 milliseconds at 10 Mbps and 100 milliseconds of emulated latency.
+  - These local results do not establish computercat capacity or production network behavior.
+  - Repeated WebKit resume checks exposed an initial seek race. hls.js now owns its start position, and ten repeated checks passed.
+  - Browser tests use muted audio and preserve real media decoding and playback progression.
+  - The request log audit found an absent public track ID. The new HTTP integration case failed before the correction.
+  - Structured request logs now include known track identity and exclude cookie, grant, asset, and private-path values.
+  - Browser acceptance also verifies actual album navigation, footer contact, and the player's live-region attributes.
+  - Final Linux CI passed after the acceptance audit, including 14 Go integration cases and 106 browser checks.
+  - The offline activation command and pinned Linux container smoke test passed.
+  - The [operations runbook](../docs/private-hls-operations.md) describes current local commands and production prerequisites.
+  - The owner supplied the Music share. All 41 website tracks have local WAV candidates.
+  - SoundOn lists six releases with 50 tracks. Four missing Volume II WAV files were exported from Suno.
+  - All 50 mapped source WAV files pass full decode. All 41 website tracks use validated private HLS packages.
+  - All 82 real-recording browser checks passed: 41 tracks through native HLS and 41 through hls.js.
+  - A31 uses automated checks. The owner requires silent headless tests, with no manual listening gate.
+  - Physical mobile acceptance is not feasible and is excluded from completion gates by the owner.
 
 ## Planning

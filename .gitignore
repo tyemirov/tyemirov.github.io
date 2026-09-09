@@ -1,6 +1,10 @@
 tools/
 .pages-dist/
 __pycache__/
+node_modules/
+output/playwright/
+test-results/
+/.mprlab/deploy/.env
 
 # BEGIN MPRLAB-GOVERNANCE
 /.mprlab/*-PLAN.md
