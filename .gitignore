@@ -5,6 +5,7 @@ node_modules/
 output/playwright/
 test-results/
 /.mprlab/deploy/.env
+/.local/
 
 # BEGIN MPRLAB-GOVERNANCE
 /.mprlab/*-PLAN.md
