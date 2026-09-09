@@ -1,0 +1,62 @@
+services:
+  media-init:
+    build:
+      context: .
+      dockerfile: Dockerfile.pages
+      target: build
+    command: ["node", "local/prepare.mjs", "/public", "/input-media", "/site", "/media"]
+    volumes:
+      - type: bind
+        source: ${MUSIC_LOCAL_ROOT:?Start local services with make up}
+        target: /input-media
+        read_only: true
+        bind:
+          create_host_path: false
+      - media:/media
+      - site:/site
+
+  music:
+    build:
+      context: ./services/music-stream
+    command:
+      - --listen=0.0.0.0:8092
+      - --media-root=/media
+      - --index=/media/selected.json
+      - --allowlist=/media/allowlist.json
+      - --public-origin=https://localhost:${MUSIC_PORT:-8444}
+      - --allowed-origins=https://localhost:${UP_PORT:-8443}
+    volumes:
+      - media:/media:ro
+    depends_on:
+      media-init:
+        condition: service_completed_successfully
+
+  website:
+    image: ${COMPOSE_PROJECT_NAME}-website
+    build:
+      context: .
+      dockerfile: Dockerfile.pages
+      target: local
+    environment:
+      MUSIC_PORT: ${MUSIC_PORT:-8444}
+    ports:
+      - "127.0.0.1:${UP_PORT:-8443}:443"
+      - "127.0.0.1:${MUSIC_PORT:-8444}:444"
+    volumes:
+      - site:/srv:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      music:
+        condition: service_started
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-check-certificate -q -O /dev/null https://localhost:444/readyz && wget --no-check-certificate -q -O /dev/null https://localhost/index.html"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+
+volumes:
+  media:
+  site:
+  caddy-data:
+  caddy-config:
