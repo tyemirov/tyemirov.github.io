@@ -14,6 +14,10 @@ Published pages live directly in top-level folders so their URLs stay clean:
 The root site lives in `index.html` and `styles.css`.
 Homepage content is driven by `data/site.json` and rendered by `site.js`.
 
+All 14 shared footers use the current menu contract through `assets/js/footer.js`.
+The shared assets use literal `@latest` URLs.
+The [migration record](docs/mpr-ui-migration.md) contains candidate evidence and central I009 publication steps.
+
 ## Global Requirements
 
 Every HTML page in this repository MUST include the LoopAware tracking script at the top of the `<head>` tag:
