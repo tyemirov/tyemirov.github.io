@@ -95,6 +95,8 @@ Give each term one meaning. Use the same term for the same concept in all docume
 
 Add repository-specific technical nouns below this line.
 
+- `CDN`: A content delivery network that serves public library assets.
+- `migration`: A bounded change from an obsolete application contract to the current contract.
 - `AAC-LC`: The audio codec profile selected for website music playback.
 - `asset ID`: The SHA-256 identity of one immutable media package.
 - `browser session`: An anonymous browser identity held in a cookie and server memory.

@@ -77,6 +77,29 @@ Format: `- [ ] [B042] (P1) {I007} Title`
 
 ## Improvements
 
+- [-] [I001] (P1) Prepare the current shared footer and theme contract
+  Goal:
+  Use the current MPR UI contract on every public page before central I009 publication.
+
+  Requirements:
+  - Use literal `@latest` for each MPR UI asset.
+  - Use one footer initializer with the sectioned menu and shared theme configuration.
+  - Obtain project links from `MPRUI.getFooterSiteCatalog()`.
+  - Preserve the contact link, catalog content, tracking pixel, and supporting article links.
+  - Preserve the gallery and music application behavior.
+  - Keep automated music tests silent and headless.
+
+  Deliverables:
+  - Convert all 14 footer entry points and their current browser tests.
+  - Record the exact shared candidate, local validation, and public observations.
+  - Retain final-candidate qualification and operator publication in central I009.
+
+  Validation:
+  - Preserve failed real-page menu and theme tests before production changes.
+  - Verify every footer at phone and desktop widths.
+  - Verify contact links, delayed library initialization, theme changes, and current asset URLs.
+  - Run final native Linux CI after the last source change.
+
 ## Maintenance
 
 - [ ] [M400R] (P2) Backlog hygiene and archive
