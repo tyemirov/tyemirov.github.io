@@ -2,6 +2,28 @@
 PAGES_DIST_DIR ?= $(CURDIR)/.pages-dist
 ANSIBLE_PLAYBOOK ?= $(abspath ../mprlab-gateway/.venv/bin/ansible-playbook)
 ANSIBLE_INVENTORY_BIN ?= $(abspath ../mprlab-gateway/.venv/bin/ansible-inventory)
+UP_PORT ?= 8443
+MUSIC_PORT ?= 8444
+LOCAL_PROJECT ?= tyemirov-site-local
+MUSIC_LOCAL_ROOT ?= $(HOME)/.local/share/tyemirov-site/music
+LOCAL_COMPOSE = UP_PORT="$(UP_PORT)" MUSIC_PORT="$(MUSIC_PORT)" MUSIC_LOCAL_ROOT="$(MUSIC_LOCAL_ROOT)" docker compose -p "$(LOCAL_PROJECT)" -f compose.local.yml
+
+.PHONY: up down local-test local-prepare-test
+up:
+	@test -f "$(MUSIC_LOCAL_ROOT)/selected.json" || { echo 'Set MUSIC_LOCAL_ROOT to the private media directory containing selected.json, then run make up.' >&2; exit 1; }
+	@$(LOCAL_COMPOSE) up --build --force-recreate --detach --wait --wait-timeout 60
+	@echo "Local site: https://localhost:$(UP_PORT)"
+	@echo "Local audio: https://localhost:$(MUSIC_PORT)/readyz"
+	@echo 'Accept the local HTTPS certificate at both addresses on the first visit.'
+
+down:
+	@$(LOCAL_COMPOSE) down
+
+local-test:
+	@node --test tests/music/local-config.test.mjs tests/music/local.test.mjs
+
+local-prepare-test:
+	@node --test tests/music/local-prepare.test.mjs
 
 .PHONY: lifecycle-contract-test
 lifecycle-contract-test:
@@ -63,7 +85,7 @@ music-browser-test:
 music-check:
 	@cd services/music-stream && go vet ./...
 
-ci: pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-load-test music-browser-test
+ci: pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test local-prepare-test music-load-test music-browser-test
 
 pages-build:
 	@PAGES_DIST_DIR="$(PAGES_DIST_DIR)" ./scripts/build-pages-artifact.sh
