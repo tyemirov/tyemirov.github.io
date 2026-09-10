@@ -1,8 +1,8 @@
 // @ts-check
 import { spawn, execFileSync } from "node:child_process";
-import { createHash } from "node:crypto";
+import { createHash, randomBytes } from "node:crypto";
 import { once } from "node:events";
-import { access, mkdir, open, readFile, rm, writeFile } from "node:fs/promises";
+import { access, mkdir, mkdtemp, open, readFile, rename, rm, writeFile } from "node:fs/promises";
 import { request } from "node:https";
 import { createConnection, createServer } from "node:net";
 import { tmpdir } from "node:os";
@@ -14,15 +14,45 @@ const project = process.env.LOCAL_PROJECT;
 if (!project || !/^[a-z0-9][a-z0-9_-]*$/.test(project)) throw new Error("Supply a valid LOCAL_PROJECT through make.");
 const state = join(root, ".local/runtime", project);
 const site = join(state, "site");
+const apiRoot = join(state, "api");
+const galleryEnvironment = join(state, "gallery.env");
+const mailEnvironment = join(state, "mail.env");
+const paymentEnvironment = join(state, "payment.env");
+const paymentCertificates = join(state, "payment-certificate");
 const certificates = resolve(process.env.LOCAL_CERT_ROOT);
 const socketPath = join(tmpdir(), `site-${createHash("sha256").update(root + project).digest("hex").slice(0, 20)}.sock`);
 const composeArgs = ["compose", "-p", project, "-f", join(root, "compose.local.yml")];
-const environment = { ...process.env, LOCAL_SITE_ROOT: site };
-const origins = [process.env.UP_PORT, process.env.MUSIC_PORT].map((port) => {
-  if (!port || !/^\d+$/.test(port) || Number(port) < 1 || Number(port) > 65535) throw new Error("Supply valid UP_PORT and MUSIC_PORT through make.");
+const environment = { ...process.env, LOCAL_SITE_ROOT: site, LOCAL_GALLERY_ENV: galleryEnvironment, LOCAL_MAIL_ENV: mailEnvironment, LOCAL_PAYMENT_ENV: paymentEnvironment, LOCAL_PAYMENT_CERT_ROOT: paymentCertificates };
+const sharedConfig = JSON.parse(await readFile(join(root, 'config-ui.yaml'), 'utf8'));
+environment.GALLERY_GOOGLE_WEB_CLIENT_ID = sharedConfig.environments[0].auth.providers.google.clientId;
+const origins = [process.env.UP_PORT, process.env.API_PORT, process.env.PAYMENT_PORT].map((port) => {
+  if (!port || !/^\d+$/.test(port) || Number(port) < 1 || Number(port) > 65535) throw new Error("Supply valid UP_PORT, API_PORT, and PAYMENT_PORT through make.");
   return `https://localhost:${port}`;
 });
-if (origins[0] === origins[1]) throw new Error("UP_PORT and MUSIC_PORT must differ.");
+if (new Set(origins).size !== origins.length) throw new Error("UP_PORT, API_PORT, and PAYMENT_PORT must differ.");
+
+/** Create local service identities once and keep them across shutdown. */
+async function prepareLocalIdentities() {
+  for (const [path, variable] of [[galleryEnvironment, "GALLERY_TAUTH_SIGNING_KEY"], [mailEnvironment, "GALLERY_PINGUIN_API_KEY"], [paymentEnvironment, "GALLERY_PAYPAL_CLIENT_SECRET"]]) {
+    try {
+      await writeFile(path, `${variable}=${randomBytes(48).toString("base64url")}\n`, { flag: "wx" });
+    } catch (error) {
+      if (error.code !== "EEXIST") throw new Error(`Create the local environment ${path}.`, { cause: error });
+    }
+  }
+}
+
+/** Keep an isolated TLS identity for the private payment provider hostname. */
+async function preparePaymentCertificate() {
+  const present = await Promise.all(["certificate.pem", "key.pem"].map(name => access(join(paymentCertificates,name)).then(() => true).catch(error => { if (error.code === "ENOENT") return false; throw error; })));
+  if (present.every(Boolean)) return;
+  if (present.some(Boolean)) throw new Error("The local payment certificate and key must both be present.");
+  const temporary = await mkdtemp(join(state,"payment-certificate-"));
+  try {
+    execFileSync("openssl", ["req", "-x509", "-newkey", "rsa:2048", "-nodes", "-days", "3650", "-keyout", join(temporary,"key.pem"), "-out", join(temporary,"certificate.pem"), "-subj", "/CN=gallery-payment", "-addext", "subjectAltName=DNS:gallery-payment"], { stdio:"ignore" });
+    await rename(temporary,paymentCertificates);
+  } catch (error) { await rm(temporary,{recursive:true,force:true}); throw new Error("Create the local payment TLS identity.",{cause:error}); }
+}
 
 /** Run the local project's Compose command. */
 function compose(args, capture = false) {
@@ -67,7 +97,7 @@ async function checkPorts() {
   }
 }
 
-/** Own both gHTTP processes, their shared certificate, and graceful shutdown. */
+/** Own the gHTTP processes, their shared certificate, and graceful shutdown. */
 async function supervise() {
   const children = [];
   let shutdown;
@@ -119,7 +149,9 @@ async function supervise() {
     await once(server, "listening");
     for (const signal of ["SIGTERM", "SIGINT"]) process.once(signal, () => finish().catch(console.error));
     await start([process.env.UP_PORT, "--bind", "127.0.0.1", "--directory", site, "--no-md", "--https", "--https-persist", "--response-header", "/=Cache-Control:no-store"], origins[0] + "/");
-    await start([process.env.MUSIC_PORT, "--bind", "127.0.0.1", "--directory", site, "--no-md", "--tls-cert", join(certificates, "localhost.pem"), "--tls-key", join(certificates, "localhost.key"), "--proxy", `/=${process.env.LOCAL_MUSIC_BACKEND}`], origins[1] + "/readyz");
+    await start([process.env.API_PORT, "--bind", "127.0.0.1", "--directory", apiRoot, "--no-md", "--tls-cert", join(certificates, "localhost.pem"), "--tls-key", join(certificates, "localhost.key"), "--proxy", `/music=${process.env.LOCAL_MUSIC_BACKEND}`, "--proxy", `/gallery=${process.env.LOCAL_GALLERY_BACKEND}`, "--proxy", `/auth=${process.env.LOCAL_TAUTH_BACKEND}`], origins[1] + "/music/readyz");
+    await ready(origins[1] + "/gallery/readyz");
+    await start([process.env.PAYMENT_PORT, "--bind", "127.0.0.1", "--directory", site, "--no-md", "--tls-cert", join(certificates, "localhost.pem"), "--tls-key", join(certificates, "localhost.key"), "--proxy", `/=${process.env.LOCAL_PAYMENT_BACKEND}`], origins[2] + "/readyz");
     process.send({ ready: true });
     process.disconnect();
   } catch (error) {
@@ -133,6 +165,8 @@ async function supervise() {
 const command = process.argv[2];
 if (command === "supervise") {
   await supervise();
+} else if (command === "receipts") {
+  compose(["exec", "-T", "gallery-mail", "/gallery-mail-sink", "list", "--address=127.0.0.1:50051"]);
 } else if (command === "down") {
   await stop();
   compose(["down"]);
@@ -141,16 +175,27 @@ if (command === "supervise") {
   execFileSync(process.env.GHTTP, ["--help"], { stdio: "ignore" });
   await stop();
   await mkdir(site, { recursive: true });
+  await mkdir(apiRoot, { recursive: true });
   try {
     await checkPorts();
+    await prepareLocalIdentities();
+    await preparePaymentCertificate();
     compose(["up", "--build", "--force-recreate", "--detach", "--wait", "--wait-timeout", "60"]);
-    await writeFile(join(site, "music/player-config.json"), JSON.stringify({ apiOrigin: origins[1] }) + "\n");
+    await writeFile(join(site, "config-site.json"), JSON.stringify({ apiOrigin: origins[1] }) + "\n");
+    sharedConfig.environments[0].description='Local';
+    sharedConfig.environments[0].origins=[origins[0]];
+    sharedConfig.environments[0].auth.tauthUrl=origins[1];
+    sharedConfig.environments[0].auth.tenantId='tyemirov-gallery-development';
+    await writeFile(join(site,'config-ui.yaml'),JSON.stringify(sharedConfig,null,2)+'\n');
     const backend = compose(["port", "music", "8092"], true).trim();
+    const galleryBackend = compose(["port", "gallery", "8093"], true).trim();
+    const paymentBackend = compose(["port", "gallery-payment", "8094"], true).trim();
+    const tauthBackend = compose(["port", "tauth", "8080"], true).trim();
     console.log("Starting gHTTP with persistent local HTTPS certificates.");
     const log = await open(join(state, "ghttp.log"), "w");
     const worker = spawn(process.execPath, [import.meta.filename, "supervise"], {
       cwd: root, detached: true, stdio: ["ignore", log.fd, log.fd, "ipc"],
-      env: { ...environment, LOCAL_MUSIC_BACKEND: `http://${backend}` },
+      env: { ...environment, LOCAL_MUSIC_BACKEND: `http://${backend}`, LOCAL_GALLERY_BACKEND: `http://${galleryBackend}`, LOCAL_PAYMENT_BACKEND: `http://${paymentBackend}`, LOCAL_TAUTH_BACKEND: `http://${tauthBackend}` },
     });
     await log.close();
     await new Promise((resolve, reject) => {
@@ -159,12 +204,12 @@ if (command === "supervise") {
       worker.once("exit", (code) => reject(new Error(`Local supervisor exited (${code}).`)));
     });
     worker.unref();
-    console.log(`Local site: ${origins[0]}\nLocal audio: ${origins[1]}/readyz`);
+    console.log(`Local site: ${origins[0]}\nLocal audio: ${origins[1]}/music/readyz\nLocal gallery API: ${origins[1]}/gallery/readyz\nLocal payment provider: ${origins[2]}/readyz`);
   } catch (error) {
     await stop();
     compose(["down"]);
     throw new Error(`Local startup failed. See ${join(state, "ghttp.log")}.`, { cause: error });
   }
 } else {
-  throw new Error("Use make up or make down.");
+  throw new Error("Use make up, make down, or make local-receipts.");
 }
