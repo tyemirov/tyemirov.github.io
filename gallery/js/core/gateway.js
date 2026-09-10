@@ -1,49 +1,15 @@
 // @ts-check
 import { DATA_ENDPOINTS, REQUEST_TIMEOUT_MS } from '../constants.js';
-import { createLogger } from '../utils/logging.js';
+import { validatePublicCatalog } from '../../../assets/js/catalog.js';
 
-const logger = createLogger('gateway');
-
-/**
- * @param {string} url
- * @param {AbortSignal} signal
- */
-async function fetchJSON(url, signal) {
-  const response = await fetch(url, { signal, headers: { Accept: 'application/json' } });
-  if (!response.ok) {
-    throw new Error(`Failed to load ${url}: ${response.status}`);
-  }
-  return /** @type {Promise<unknown>} */ (response.json());
+/** @param {AbortSignal} [signal] @returns {Promise<{gallery: import('../types.d.js').GalleryCatalog, catalogDigest: string}>} */
+export async function fetchGallerySnapshot(signal) {
+  const response = await fetch(DATA_ENDPOINTS.site, { cache: 'no-cache', signal: AbortSignal.any([...(signal ? [signal] : []), AbortSignal.timeout(REQUEST_TIMEOUT_MS)]), headers: { Accept: 'application/json' } });
+  if (!response.ok) throw new Error(`Read gallery catalog: HTTP ${response.status}.`);
+  const bytes = await response.arrayBuffer();
+  const catalogDigest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(byte => byte.toString(16).padStart(2, '0')).join('');
+  const site = validatePublicCatalog(JSON.parse(new TextDecoder().decode(bytes)));
+  return { gallery: site.gallery, catalogDigest };
 }
 
-/**
- * @template T
- * @param {string} url
- * @returns {Promise<T>}
- */
-async function load(url) {
-  const controller = new AbortController();
-  const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-  try {
-    const payload = await fetchJSON(url, controller.signal);
-    return /** @type {T} */ (payload);
-  } finally {
-    window.clearTimeout(timeout);
-  }
-}
-
-/**
- * @returns {Promise<import('../types.d.js').SiteConfig>}
- */
-export function fetchSiteConfig() {
-  logger.info('Fetching site configuration');
-  return load(DATA_ENDPOINTS.site);
-}
-
-/**
- * @returns {Promise<import('../types.d.js').ExhibitCatalog>}
- */
-export function fetchExhibitCatalog() {
-  logger.info('Fetching exhibit catalog');
-  return load(DATA_ENDPOINTS.exhibits);
-}
+export async function fetchGallery(signal) { return (await fetchGallerySnapshot(signal)).gallery; }

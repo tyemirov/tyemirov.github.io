@@ -1,10 +1,16 @@
 # Gallery Operating Plan
 
+The proposed [website and API redesign](../docs/site-redesign.md) owns the new page paths, API routes, and shared content contracts.
+This operating plan retains the gallery product requirements.
+
 ## Status
 
 This document proposes the gallery workflow requested on September 9, 2026.
 It is a new design, not a recovered historical plan.
-The current gallery provides exhibit pages, artwork previews, a lightbox, and a basket.
+The current gallery stores four artworks once in the root catalog.
+Permanent collections and dated exhibits refer to these artworks.
+Public routes, phone layouts, and keyboard image navigation pass 48 browser checks.
+The migrated artworks have no active sale offers.
 Owner uploads, protected purchases, and automatic file delivery require the implementation phases below.
 
 ## Product Model

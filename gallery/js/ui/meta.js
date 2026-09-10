@@ -1,184 +1,27 @@
 // @ts-check
-import { STRINGS } from '../constants.js';
+import { routeHref } from '../core/router.js';
+import { ROUTES } from '../constants.js';
 
-const metaNodes = {
-  description: /** @type {HTMLMetaElement | null} */ (document.querySelector('meta[name="description"]')),
-  ogTitle: /** @type {HTMLMetaElement | null} */ (document.querySelector('meta[property="og:title"]')),
-  ogDescription: /** @type {HTMLMetaElement | null} */ (document.querySelector('meta[property="og:description"]')),
-  ogImage: /** @type {HTMLMetaElement | null} */ (document.querySelector('meta[property="og:image"]')),
-  ogUrl: /** @type {HTMLMetaElement | null} */ (document.querySelector('meta[property="og:url"]')),
-  twitterTitle: /** @type {HTMLMetaElement | null} */ (document.querySelector('meta[name="twitter:title"]')),
-  twitterDescription: /** @type {HTMLMetaElement | null} */ (document.querySelector('meta[name="twitter:description"]')),
-  twitterImage: /** @type {HTMLMetaElement | null} */ (document.querySelector('meta[name="twitter:image"]')),
-  canonical: /** @type {HTMLLinkElement | null} */ (document.querySelector('link[rel="canonical"]')),
-  structuredData: /** @type {HTMLScriptElement | null} */ (document.getElementById('structured-data'))
-};
-
-const defaults = {
-  title: document.title,
-  description: metaNodes.description?.getAttribute('content') || STRINGS.galleryDescription,
-  image: metaNodes.ogImage?.getAttribute('content') || '',
-  url: metaNodes.ogUrl?.getAttribute('content') || window.location.href,
-  canonical: metaNodes.canonical?.getAttribute('href') || window.location.href
-};
-
-/**
- * @param {HTMLMetaElement | HTMLLinkElement | null} element
- * @param {string} value
- */
-function setContent(element, value) {
-  if (!element) {
-    return;
-  }
-  if (element.tagName === 'LINK') {
-    element.setAttribute('href', value);
-  } else {
-    element.setAttribute('content', value);
-  }
+/** @param {import('../types.d.js').GalleryCatalog} catalog @param {import('../types.d.js').Artwork} artwork */
+export function artworkMetadata(catalog, artwork) {
+  const url = new URL(routeHref(ROUTES.ARTWORK, artwork.id), document.querySelector('link[rel=canonical]').href).href;
+  const record = { '@type': 'VisualArtwork', '@id': url, url, name: artwork.title, description: artwork.description, image: new URL(artwork.image.lightboxUrl, url).href, artMedium: artwork.medium, dateCreated: artwork.year };
+  if (artwork.offer) Object.assign(record, { offers: { '@type': 'Offer', price: (artwork.offer.priceCents / 100).toFixed(2), priceCurrency: artwork.offer.currency, availability: 'https://schema.org/InStock' } });
+  return record;
 }
 
-/**
- * @param {string} value
- */
-function setStructuredData(value) {
-  if (!metaNodes.structuredData) {
-    return;
-  }
-  metaNodes.structuredData.textContent = value;
-}
-
-/**
- * @param {string} path
- * @param {string} siteUrl
- * @returns {string}
- */
-function toAbsoluteUrl(path, siteUrl) {
-  if (!path) {
-    return siteUrl;
-  }
-  try {
-    const url = new URL(path, siteUrl);
-    return url.toString();
-  } catch (_error) {
-    return path;
-  }
-}
-
-/**
- * @param {import('../types.d.js').Artwork} artwork
- * @returns {string}
- */
-function buildMuseumLabel(artwork) {
-  const profile = artwork.profile || 'sRGB';
-  return `${artwork.medium} · ${artwork.year} · ${artwork.dimensions} · ${profile}`;
-}
-
-/**
- * @param {import('../types.d.js').Artwork} artwork
- * @param {string} canonicalUrl
- * @param {string} siteUrl
- * @param {string} currency
- * @returns {Record<string, unknown>}
- */
-function buildArtworkJsonLd(artwork, canonicalUrl, siteUrl, currency) {
-  const artworkUrl = `${canonicalUrl}#${artwork.id}`;
-  const imageUrl = toAbsoluteUrl(artwork.image || artwork.preview || '', siteUrl);
-  return {
-    '@type': 'VisualArtwork',
-    '@id': artworkUrl,
-    name: artwork.title,
-    artMedium: artwork.medium,
-    artform: 'Digital art',
-    artEdition: artwork.editionSize ? `Edition of ${artwork.editionSize}` : undefined,
-    artWorkSurface: 'Digital canvas',
-    productionYear: artwork.year,
-    description: buildMuseumLabel(artwork),
-    image: imageUrl,
-    url: artworkUrl,
-    offers: {
-      '@type': 'Offer',
-      price: artwork.priceUsd.toFixed(2),
-      priceCurrency: currency,
-      availability: 'https://schema.org/InStock'
-    }
-  };
-}
-
-/**
- * @param {import('../types.d.js').GroupedExhibit[0]['items'][0]} exhibit
- * @param {{
- *  siteUrl: string;
- *  currency: string;
- *  brand: string;
- * }} options
- */
-export function applyExhibitMetadata(exhibit, options) {
-  const { siteUrl, currency, brand } = options;
-  const canonicalUrl = `${siteUrl.replace(/\/?$/, '')}/#/exhibits/${encodeURIComponent(exhibit.id)}`;
-  const description = exhibit.blurb || `${brand} presents limited digital editions.`;
-  const primaryImage = exhibit.primaryArtwork?.image || exhibit.primaryArtwork?.preview || defaults.image;
-  const absoluteImage = toAbsoluteUrl(primaryImage, siteUrl);
-
-  document.title = `${exhibit.title} · ${brand}`;
-  setContent(metaNodes.description, description);
-  setContent(metaNodes.ogTitle, document.title);
-  setContent(metaNodes.twitterTitle, document.title);
-  setContent(metaNodes.ogDescription, description);
-  setContent(metaNodes.twitterDescription, description);
-  setContent(metaNodes.ogImage, absoluteImage);
-  setContent(metaNodes.twitterImage, absoluteImage);
-  setContent(metaNodes.ogUrl, canonicalUrl);
-  setContent(metaNodes.canonical, canonicalUrl);
-
-  const structuredGraph = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'ExhibitionEvent',
-        name: exhibit.title,
-        description,
-        startDate: exhibit.start_date,
-        endDate: exhibit.end_date,
-        image: absoluteImage,
-        url: canonicalUrl,
-        location: {
-          '@type': 'VirtualLocation',
-          url: canonicalUrl
-        },
-        workFeatured: Array.isArray(exhibit.artworks)
-          ? exhibit.artworks.map((artwork) => buildArtworkJsonLd(artwork, canonicalUrl, siteUrl, currency))
-          : []
-      }
-    ]
-  };
-
-  setStructuredData(JSON.stringify(structuredGraph, null, 2));
-}
-
-/**
- * @param {{ brand: string; siteUrl: string }} options
- */
-export function applyDefaultMetadata(options) {
-  const { brand, siteUrl } = options;
-  const normalisedSiteUrl = siteUrl.replace(/\/$/, '') || defaults.url;
-  const canonicalUrl = `${normalisedSiteUrl}/`;
-  document.title = brand;
-  setContent(metaNodes.description, defaults.description);
-  setContent(metaNodes.ogTitle, brand);
-  setContent(metaNodes.twitterTitle, brand);
-  setContent(metaNodes.ogDescription, defaults.description);
-  setContent(metaNodes.twitterDescription, defaults.description);
-  setContent(metaNodes.ogImage, defaults.image);
-  setContent(metaNodes.twitterImage, defaults.image);
-  setContent(metaNodes.ogUrl, canonicalUrl);
-  setContent(metaNodes.canonical, canonicalUrl);
-
-  const galleryStructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'ArtGallery',
-    name: brand,
-    url: canonicalUrl,
-    description: STRINGS.galleryDescription
-  };
-  setStructuredData(JSON.stringify(galleryStructuredData, null, 2));
+export function applyMetadata(catalog, route, presentation = null) {
+  const url = new URL(routeHref(route.route, route.id), document.querySelector('link[rel=canonical]').href).href;
+  const title = presentation ? `${presentation.title} · ${catalog.brand}` : catalog.brand;
+  const description = presentation ? (route.route === ROUTES.ARTWORK ? presentation.description : presentation.introduction) : catalog.description;
+  document.title = title;
+  for (const [selector, content] of [['meta[name="description"]', description], ['meta[property="og:title"]', title], ['meta[property="og:description"]', description], ['meta[property="og:url"]', url], ['meta[name="twitter:title"]', title], ['meta[name="twitter:description"]', description]]) document.querySelector(selector).setAttribute('content', content);
+  document.querySelector('link[rel="canonical"]').setAttribute('href', url);
+  const cover = presentation ? (route.route === ROUTES.ARTWORK ? presentation : catalog.artworks.find(artwork => artwork.id === presentation.coverArtworkId)) : catalog.artworks[0];
+  for (const selector of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) document.querySelector(selector).setAttribute('content', cover ? new URL(cover.image.lightboxUrl, url).href : '');
+  let record = { '@type': 'ArtGallery', name: catalog.brand, description, url };
+  if (presentation && route.route === ROUTES.ARTWORK) record = artworkMetadata(catalog, presentation);
+  if (presentation && route.route === ROUTES.EXHIBIT) record = { '@type': 'ExhibitionEvent', name: presentation.title, description, url, startDate: presentation.startDate, endDate: presentation.endDate, location: { '@type': 'VirtualLocation', url }, workFeatured: presentation.sections.flatMap(section => section.artworkIds).map(id => artworkMetadata(catalog, catalog.artworks.find(artwork => artwork.id === id))) };
+  if (presentation && route.route === ROUTES.COLLECTION) record = { '@type': 'ItemList', name: presentation.title, description, url, itemListElement: presentation.artworkIds.map((id, index) => ({ '@type': 'ListItem', position: index + 1, item: artworkMetadata(catalog, catalog.artworks.find(artwork => artwork.id === id)) })) };
+  document.querySelector('#structured-data').textContent = JSON.stringify({ '@context': 'https://schema.org', ...record });
 }
