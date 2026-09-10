@@ -2,11 +2,13 @@
 import { initializeSiteFooter } from "./assets/js/footer.js";
 import { validateMusic } from "./music/catalog.js";
 import { renderMusicIndex, renderAlbumDetails, renderMusicError, renderAlbumNotFound } from "./music/render.js";
+import { fetchExhibitCatalog } from "./gallery/js/core/gateway.js";
 
 const SITE_DATA_URL = "/data/site.json";
 
 let currentFilter = null;
 let siteData = null;
+let galleryExhibits = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   if (document.querySelector(".hero")) void hydrateHomePage();
@@ -59,10 +61,25 @@ async function hydrateHomePage() {
   try {
     siteData = await loadSite();
     renderAll(siteData);
+    void loadGalleryPreviews();
   } catch (error) {
     renderMusicError("Music is unavailable. Please reload the page.");
     document.querySelector(".music-section").classList.remove("is-hidden");
     console.error("Site catalog failed.", error);
+  }
+}
+
+async function loadGalleryPreviews() {
+  try {
+    const catalog = await fetchExhibitCatalog();
+    galleryExhibits = catalog.exhibits;
+    renderArts(siteData.arts);
+  } catch (error) {
+    const notice = document.createElement("p");
+    notice.setAttribute("role", "status");
+    notice.textContent = "Gallery previews are unavailable. Open the gallery to try again.";
+    document.querySelector(".arts-section .section-blurb").append(notice);
+    console.error("Gallery previews failed.", error);
   }
 }
 
@@ -104,7 +121,10 @@ function createFilterButton(tag, label) {
   button.textContent = label;
   button.dataset.filterTag = tag || "";
   button.setAttribute("aria-pressed", String(currentFilter === tag));
-  button.addEventListener("click", () => window.toggleProjectFilter(tag));
+  button.addEventListener("click", () => {
+    button.focus({ preventScroll: true });
+    window.toggleProjectFilter(tag);
+  });
   return button;
 }
 
@@ -199,6 +219,27 @@ function renderArts(arts) {
   if (item) {
     updateText(".arts-section .section-blurb .lead", item.summary);
   }
+
+  let previews = artsSection.querySelector(".arts-preview-list");
+  if (!previews) {
+    previews = document.createElement("div");
+    previews.className = "arts-preview-list";
+    artsSection.querySelector(".section-actions").before(previews);
+  }
+  previews.replaceChildren(...galleryExhibits.flatMap((exhibit) => exhibit.artworks.map((artwork) => {
+    const link = document.createElement("a");
+    link.className = "arts-preview";
+    link.href = `/gallery/#/exhibits/${encodeURIComponent(exhibit.id)}`;
+    link.setAttribute("aria-label", `${artwork.title} — ${exhibit.title}`);
+    const image = document.createElement("img");
+    image.src = `/gallery/${artwork.preview}`;
+    image.alt = artwork.title;
+    image.loading = "lazy";
+    const caption = document.createElement("span");
+    caption.textContent = artwork.title;
+    link.append(image, caption);
+    return link;
+  })));
 
   updateText(".arts-section .notes-label", arts.label);
   updateText(".arts-section .section-title", arts.title);
@@ -329,12 +370,12 @@ function createArticleCard(article) {
 function createMusicItem(item) {
   const card = document.createElement("a");
   card.className = "article-card music-card";
-  card.href = `/music/${item.slug}`;
+  card.href = `/music/${item.slug}/`;
 
   const cover = document.createElement("div");
   cover.className = "music-card-cover";
   const img = document.createElement("img");
-  img.src = item.coverImage || "/music/covers/placeholder.jpg";
+  img.src = item.coverImage;
   img.alt = `${item.title} cover`;
   img.loading = "lazy";
   cover.append(img);
