@@ -117,6 +117,19 @@ Add repository-specific technical nouns below this line.
 - `term`: Definition with one meaning.
 ```
 
+## Gallery Technical Nouns
+
+- `artwork`: One visual work with a permanent identifier.
+- `collection`: A permanent ordered group of artwork references.
+- `exhibit`: A dated presentation with ordered artwork references.
+- `Studio`: The proposed private interface for gallery content and orders.
+- `master`: The private original image revision supplied with a purchased offer.
+- `sale offer`: The price, license, availability, and file revision for one product.
+- `entitlement`: A stored authorization to receive a purchased file revision.
+- `webhook`: An HTTP event notification from an external provider.
+- `lightbox`: A dialog that presents an artwork image.
+- `mail sink`: A local service that records test email without external delivery.
+
 ## MPR Lab Technical Verbs
 
 - `archive`: Move completed history from the active issue tracker to durable storage.
