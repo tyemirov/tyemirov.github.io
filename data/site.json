@@ -16,19 +16,19 @@
     "links": [
       {
         "label": "Writing",
-        "href": "https://vadymtyemirov1.substack.com/",
+        "href": "/articles/",
         "style": "primary",
         "order": 10
       },
       {
         "label": "Music",
-        "href": "/music",
+        "href": "/music/",
         "style": "secondary",
         "order": 20
       },
       {
         "label": "Arts",
-        "href": "gallery/",
+        "href": "/gallery/",
         "style": "secondary",
         "order": 30
       },
@@ -56,12 +56,12 @@
     "sizes": "(max-width: 1000px) 80px, 112px",
     "image": {
       "webp": {
-        "srcset": "assets/profile/vadym-tyemirov-360.webp 360w, assets/profile/vadym-tyemirov-720.webp 720w",
+        "srcset": "/assets/profile/vadym-tyemirov-360.webp 360w, /assets/profile/vadym-tyemirov-720.webp 720w",
         "type": "image/webp"
       },
       "jpg": {
-        "src": "assets/profile/vadym-tyemirov-360.jpg",
-        "srcset": "assets/profile/vadym-tyemirov-360.jpg 360w, assets/profile/vadym-tyemirov-720.jpg 720w",
+        "src": "/assets/profile/vadym-tyemirov-360.jpg",
+        "srcset": "/assets/profile/vadym-tyemirov-360.jpg 360w, /assets/profile/vadym-tyemirov-720.jpg 720w",
         "width": 360,
         "height": 540
       }
@@ -75,105 +75,64 @@
     {
       "slug": "civilization",
       "title": "Minimum Sustainable Modern Civilization",
-      "kicker": "MPR Lab",
+      "kicker": "Modeling",
       "summary": "Estimate the population floor needed to sustain a modern market economy under staffing, dependency, resilience, autarky, and demographic constraints.",
-      "href": "civilization/",
+      "href": "/civilization/",
       "cta": "tyemirov.net/civilization/",
       "theme": "copper",
       "order": 10,
-      "status": "live"
+      "status": "live",
+      "id": "civilization",
+      "kind": "tool",
+      "source": "MPR Lab",
+      "sourceUrl": "https://open.substack.com/pub/vadymtyemirov/p/how-big-does-a-modern-civilization"
     },
     {
       "slug": "decisioning",
       "title": "Decision Planes",
-      "kicker": "MPR Lab",
+      "kicker": "Decisioning",
       "summary": "Turn vague yes-or-no choices into explicit reasoning over confidence, stakes, expected value, uncertainty, and reversibility.",
-      "href": "decisioning/",
+      "href": "/decisioning/",
       "cta": "tyemirov.net/decisioning/",
       "theme": "teal",
       "order": 20,
-      "status": "live"
+      "status": "live",
+      "id": "decisioning",
+      "kind": "tool",
+      "source": "MPR Lab",
+      "sourceUrl": "https://open.substack.com/pub/vadymtyemirov1/p/stop-asking-is-this-good-or-bad"
     },
     {
       "slug": "freedom",
       "title": "The Vector of Liberty",
-      "kicker": "MPR Lab",
+      "kicker": "Modeling",
       "summary": "Compare states by the friction they impose on concrete actions through taxes, permits, delays, and penalties, weighted against the kind of life you actually want to live.",
-      "href": "freedom/",
+      "href": "/freedom/",
       "cta": "tyemirov.net/freedom/",
       "theme": "olive",
       "order": 30,
-      "status": "live"
+      "status": "live",
+      "id": "freedom",
+      "kind": "tool",
+      "source": "MPR Lab",
+      "sourceUrl": "https://open.substack.com/pub/vadymtyemirov/p/the-vector-of-liberty"
     },
     {
       "slug": "timeseries",
       "title": "Timeline",
-      "kicker": "MPR Lab",
+      "kicker": "Modeling",
       "summary": "Analyze ongoing processes and event thresholds to determine if a system is stable, ready for a decision, or drifting into failure.",
-      "href": "timeseries/",
+      "href": "/timeseries/",
       "cta": "tyemirov.net/timeseries/",
       "theme": "amber",
       "order": 50,
-      "status": "live"
+      "status": "live",
+      "id": "timeseries",
+      "kind": "tool",
+      "source": "MPR Lab",
+      "sourceUrl": "https://open.substack.com/pub/vadymtyemirov1/p/some-things-are-time-series-some"
     }
   ],
-  "arts": {
-    "label": "Arts",
-    "title": "My Gallery",
-    "items": [
-      {
-        "title": "Tyemirov Gallery",
-        "url": "gallery/",
-        "kicker": "Arts",
-        "summary": "Digital editions and virtual exhibits exploring the intersection of visual art and historical narrative.",
-        "cta": "Enter Gallery",
-        "order": 10,
-        "status": "live"
-      }
-    ]
-  },
-  "essays": {
-    "label": "Essays",
-    "title": "Current Popularity on Substack",
-    "items": [
-      {
-        "title": "The Human Act of Making Things Exist",
-        "url": "https://vadymtyemirov1.substack.com/p/the-human-act-of-making-things-exist",
-        "kicker": "Philosophy",
-        "summary": "AI, Authorship, and the indomitable Will behind the human act of creation.",
-        "cta": "Read on Substack",
-        "order": 10,
-        "status": "live"
-      },
-      {
-        "title": "The Age of the Meta-Manager",
-        "url": "https://vadymtyemirov1.substack.com/p/the-age-of-the-meta-manager",
-        "kicker": "Engineering",
-        "summary": "The shift from personal competence to systems orchestration as the primary scarcity in the age of AI.",
-        "cta": "Read Series",
-        "order": 20,
-        "status": "live"
-      },
-      {
-        "title": "The Wittgenstein Mirror",
-        "url": "https://vadymtyemirov1.substack.com/p/the-wittgenstein-mirror",
-        "kicker": "Philosophy",
-        "summary": "Beyond the hype of 'Superintelligence' and the fear of 'AI Slop'—using the digital mirror to expand human agency.",
-        "cta": "Read on Substack",
-        "order": 30,
-        "status": "live"
-      },
-      {
-        "title": "Codex Fast and the Price of Intelligence on a Clock",
-        "url": "https://vadymtyemirov1.substack.com/p/codex-fast-and-the-price-of-intelligence",
-        "kicker": "Economy",
-        "summary": "Examining how intelligence is priced when speed becomes the primary variable in model performance.",
-        "cta": "Read on Substack",
-        "order": 40,
-        "status": "live"
-      }
-    ]
-  },
   "music": {
     "label": "Music",
     "title": "Albums, song cycles, and vocal settings.",
@@ -183,7 +142,10 @@
         "title": "Soliloquies Vol. II",
         "subtitle": "Meditations",
         "coverImage": "/music/covers/soliloquies-vol-ii.jpg",
-        "releaseDate": "2026",
+        "releaseDate": {
+          "precision": "year",
+          "value": "2026"
+        },
         "status": "live",
         "latest": true,
         "shortDescription": "Nine vocal settings of philosophy, drama, and poetry.",
@@ -256,7 +218,10 @@
           }
         ],
         "credits": "Vadym Tyemirov",
-        "notes": "The second volume brings together Marcus Aurelius, Epictetus, Seneca, Cleanthes, Marlowe, Euripides, Aeschylus, and John Donne.",
+        "notes": {
+          "format": "commonmark",
+          "text": "The second volume brings together Marcus Aurelius, Epictetus, Seneca, Cleanthes, Marlowe, Euripides, Aeschylus, and John Donne."
+        },
         "order": 5
       },
       {
@@ -264,7 +229,10 @@
         "title": "Soliloquies Vol. I",
         "subtitle": "A cycle of intimate vocal works built around solitary speech, memory, and inward argument.",
         "coverImage": "/music/covers/soliloquies-vol-i.jpg",
-        "releaseDate": "2026",
+        "releaseDate": {
+          "precision": "year",
+          "value": "2026"
+        },
         "status": "live",
         "shortDescription": "Solitary speech and memory through the lens of classical and modern poetry.",
         "streamingLinks": {
@@ -273,7 +241,10 @@
           "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Soliloquies+Vol.+I"
         },
         "credits": "All tracks performed and produced by Vadym Tyemirov.",
-        "notes": "<p>A collection of vocal performances focusing on the 'soliloquy'—moments of profound internal dialogue and public speech. From the stoicism of Marcus Aurelius to the timeless words of Shakespeare and Milton.</p>",
+        "notes": {
+          "format": "commonmark",
+          "text": "A collection of vocal performances focusing on the 'soliloquy'—moments of profound internal dialogue and public speech. From the stoicism of Marcus Aurelius to the timeless words of Shakespeare and Milton."
+        },
         "order": 10,
         "tracks": [
           {
@@ -339,7 +310,10 @@
         "title": "Songs of Desire",
         "subtitle": "Longing, pursuit, and the unstable border between romantic address and self-invention.",
         "coverImage": "/music/covers/songs-of-desire.jpg",
-        "releaseDate": "2026",
+        "releaseDate": {
+          "precision": "year",
+          "value": "2026"
+        },
         "status": "live",
         "shortDescription": "A multi-track album about longing and self-invention.",
         "streamingLinks": {
@@ -348,7 +322,10 @@
           "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Songs+of+Desire"
         },
         "credits": "Produced and composed by Vadym Tyemirov.",
-        "notes": "<p>Songs of Desire explores the themes of pursuit and the construction of identity through romantic and introspective lenses.</p>",
+        "notes": {
+          "format": "commonmark",
+          "text": "Songs of Desire explores the themes of pursuit and the construction of identity through romantic and introspective lenses."
+        },
         "order": 20,
         "tracks": [
           {
@@ -421,7 +398,10 @@
         "title": "Egyptian Nights",
         "subtitle": "Nocturnal atmosphere, mythic ornament, and theatrical voice.",
         "coverImage": "/music/covers/egyptian-nights.jpg",
-        "releaseDate": "2026",
+        "releaseDate": {
+          "precision": "year",
+          "value": "2026"
+        },
         "status": "live",
         "shortDescription": "A song cycle shaped by nocturnal atmosphere and theatrical voice.",
         "streamingLinks": {
@@ -430,7 +410,10 @@
           "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Egyptian+Nights"
         },
         "credits": "Written, produced, and performed by Vadym Tyemirov.",
-        "notes": "<p>A cinematic journey through urban nights and mythic archetypes. The album blends atmospheric soundscapes with grounded, often gritty, narratives.</p>",
+        "notes": {
+          "format": "commonmark",
+          "text": "A cinematic journey through urban nights and mythic archetypes. The album blends atmospheric soundscapes with grounded, often gritty, narratives."
+        },
         "order": 30,
         "tracks": [
           {
@@ -498,16 +481,22 @@
         "translation": "Singing Pasternak",
         "subtitle": "Russian-language album of vocal settings inspired by the poetic world of Boris Pasternak.",
         "coverImage": "/music/covers/singing-pasternak.jpg",
-        "releaseDate": "2026",
+        "releaseDate": {
+          "precision": "year",
+          "value": "2026"
+        },
         "status": "live",
         "shortDescription": "Vocal settings of Boris Pasternak's poetry.",
         "streamingLinks": {
           "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
-          "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+Поющий+Пастернак",
-          "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Поющий+Пастернак"
+          "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+%D0%9F%D0%BE%D1%8E%D1%89%D0%B8%D0%B9+%D0%9F%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D0%BA",
+          "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+%D0%9F%D0%BE%D1%8E%D1%89%D0%B8%D0%B9+%D0%9F%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D0%BA"
         },
         "credits": "Vocal arrangements and performance by Vadym Tyemirov. Lyrics by Boris Pasternak.",
-        "notes": "<p>An exploration of Pasternak's lyrical intensity through modern vocal settings. The album preserves the literary heritage while adding a contemporary sonic layer.</p>",
+        "notes": {
+          "format": "commonmark",
+          "text": "An exploration of Pasternak's lyrical intensity through modern vocal settings. The album preserves the literary heritage while adding a contemporary sonic layer."
+        },
         "order": 40,
         "tracks": [
           {
@@ -568,16 +557,22 @@
         "translation": "February. Get ink and weep...",
         "subtitle": "Russian-language album centered on winter, language, melancholy, and poetic intensity.",
         "coverImage": "/music/covers/february.jpg",
-        "releaseDate": "2026",
+        "releaseDate": {
+          "precision": "year",
+          "value": "2026"
+        },
         "status": "live",
         "shortDescription": "Melancholy and winter through Russian poetry.",
         "streamingLinks": {
           "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
-          "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+Февраль.+Достать+чернил+и+плакать",
-          "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Февраль.+Достать+чернил+и+плакать"
+          "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+%D0%A4%D0%B5%D0%B2%D1%80%D0%B0%D0%BB%D1%8C.+%D0%94%D0%BE%D1%81%D1%82%D0%B0%D1%82%D1%8C+%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%BB+%D0%B8+%D0%BF%D0%BB%D0%B0%D0%BA%D0%B0%D1%82%D1%8C",
+          "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+%D0%A4%D0%B5%D0%B2%D1%80%D0%B0%D0%BB%D1%8C.+%D0%94%D0%BE%D1%81%D1%82%D0%B0%D1%82%D1%8C+%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%BB+%D0%B8+%D0%BF%D0%BB%D0%B0%D0%BA%D0%B0%D1%82%D1%8C"
         },
         "credits": "Performance and production by Vadym Tyemirov. Lyrics by Boris Pasternak.",
-        "notes": "<p>A focused cycle dedicated to a single, iconic poem by Boris Pasternak, exploring its various emotional and rhythmic dimensions.</p>",
+        "notes": {
+          "format": "commonmark",
+          "text": "A focused cycle dedicated to a single, iconic poem by Boris Pasternak, exploring its various emotional and rhythmic dimensions."
+        },
         "order": 50,
         "tracks": [
           {
@@ -644,6 +639,224 @@
             }
           }
         ]
+      }
+    ]
+  },
+  "gallery": {
+    "brand": "Vadym Tyemirov · Virtual Gallery",
+    "description": "Digital artworks, permanent collections, and dated exhibits.",
+    "artworks": [
+      {
+        "id": "third-act-triptych-01",
+        "title": "Triptych No.1",
+        "description": "Three voices in one frame: the Old Master, the Ghibli echo, and the Yellow Balloon leitmotif—an elegant conversation across time.",
+        "alt": "Triptych No.1",
+        "medium": "Digital artwork",
+        "year": "2025",
+        "image": {
+          "cardUrl": "/gallery/images/previews/third-act-01-preview.jpg",
+          "lightboxUrl": "/gallery/images/full/third-act-01.png",
+          "width": 1536,
+          "height": 1024,
+          "format": "PNG"
+        },
+        "offer": null
+      },
+      {
+        "id": "third-act-triptych-02",
+        "title": "Triptych No.2",
+        "description": "Three voices in one frame: the Old Master, the Ghibli echo, and the Yellow Balloon leitmotif—an elegant conversation across time.",
+        "alt": "Triptych No.2",
+        "medium": "Digital artwork",
+        "year": "2025",
+        "image": {
+          "cardUrl": "/gallery/images/previews/third-act-02-preview.jpg",
+          "lightboxUrl": "/gallery/images/full/third-act-02.png",
+          "width": 1536,
+          "height": 1024,
+          "format": "PNG"
+        },
+        "offer": null
+      },
+      {
+        "id": "third-act-triptych-03",
+        "title": "Triptych No.3",
+        "description": "Three voices in one frame: the Old Master, the Ghibli echo, and the Yellow Balloon leitmotif—an elegant conversation across time.",
+        "alt": "Triptych No.3",
+        "medium": "Digital artwork",
+        "year": "2025",
+        "image": {
+          "cardUrl": "/gallery/images/previews/third-act-03-preview.jpg",
+          "lightboxUrl": "/gallery/images/full/third-act-03.png",
+          "width": 1536,
+          "height": 1024,
+          "format": "PNG"
+        },
+        "offer": null
+      },
+      {
+        "id": "third-act-triptych-04",
+        "title": "Triptych No.4",
+        "description": "Three voices in one frame: the Old Master, the Ghibli echo, and the Yellow Balloon leitmotif—an elegant conversation across time.",
+        "alt": "Triptych No.4",
+        "medium": "Digital artwork",
+        "year": "2025",
+        "image": {
+          "cardUrl": "/gallery/images/previews/third-act-04-preview.jpg",
+          "lightboxUrl": "/gallery/images/full/third-act-04.png",
+          "width": 1536,
+          "height": 1024,
+          "format": "PNG"
+        },
+        "offer": null
+      }
+    ],
+    "collections": [
+      {
+        "id": "selected-works",
+        "title": "Selected Works",
+        "introduction": "A permanent collection of digital works.",
+        "coverArtworkId": "third-act-triptych-01",
+        "coverPosition": [
+          50,
+          50
+        ],
+        "artworkIds": [
+          "third-act-triptych-01",
+          "third-act-triptych-02",
+          "third-act-triptych-03",
+          "third-act-triptych-04"
+        ]
+      }
+    ],
+    "exhibits": [
+      {
+        "id": "the-third-act",
+        "title": "The Third Act",
+        "subtitle": "Ménage à trois",
+        "introduction": "Three voices in one frame: the Old Master, the Ghibli echo, and the Yellow Balloon leitmotif—an elegant conversation across time.",
+        "startDate": "2025-10-01",
+        "endDate": "2025-10-18",
+        "coverArtworkId": "third-act-triptych-01",
+        "coverPosition": [
+          50,
+          50
+        ],
+        "sections": [
+          {
+            "id": "triptychs",
+            "title": "Triptychs",
+            "artworkIds": [
+              "third-act-triptych-01",
+              "third-act-triptych-02",
+              "third-act-triptych-03",
+              "third-act-triptych-04"
+            ]
+          }
+        ]
+      }
+    ],
+    "label": "Arts",
+    "title": "My Gallery"
+  },
+  "articles": {
+    "label": "Writings",
+    "title": "Articles",
+    "items": [
+      {
+        "id": "the-human-act-of-making-things-exist",
+        "slug": "the-human-act-of-making-things-exist",
+        "title": "The Human Act of Making Things Exist",
+        "summary": "AI, Authorship, and the indomitable Will behind the human act of creation.",
+        "kicker": "AI",
+        "status": "live",
+        "order": 10,
+        "publishedAt": "2026-03-19T05:19:53.593Z",
+        "updatedAt": "2026-03-19T05:19:53.683Z",
+        "source": {
+          "label": "Substack",
+          "url": "https://vadymtyemirov1.substack.com/p/the-human-act-of-making-things-exist"
+        },
+        "body": {
+          "format": "commonmark",
+          "text": "[![Illustration for The Human Act of Making Things Exist](/articles/images/the-human-act-of-making-things-exist-1.jpg)](https://substackcdn.com/image/fetch/$s_!aMMJ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F63317b29-167d-45fd-9033-ab4c5fd6332c_1536x1024.heic)\n\nMuch of the debate about AI and creativity begins with a misleading question: did the human make the work, or did the machine? The question sounds practical, but it rests on a narrow idea of authorship, one that identifies the creator mainly with manual execution. On that view, creative ownership belongs to the person who writes every sentence, draws every line, composes every note, or edits every frame by hand. Yet the history of art gives us many reasons to doubt that this was ever the whole story. Workshop traditions, apprenticeships, ghostwriting, photography, cinema, collage, sampling, and digital editing all separate conception from execution to some degree. Warhol’s Factory made authorship collective and performative rather than solitary and artisanal, while the age of mechanical reproduction had already weakened the belief that artistic value depends on the literal trace of the maker’s hand. Seen in this longer history, AI does not destroy a stable concept of authorship. It exposes that authorship was never identical with craft in the first place.\n\nWhat matters more than physical execution is intention, selection, and judgment. If a work would not have existed without a particular person’s decision to bring it into being, that person still has a serious claim to authorship, even when AI performs much of the execution. A generated video, a narrated story, a synthetic voice performance, or a piece of music produced through repeated prompting does not appear because the model has something to say. It appears because someone wanted a specific thing to exist and kept working until the result matched that aim. The model offers possibilities. A human turns some of those possibilities into a work.\n\nThis Substack is reader-supported. To receive new posts and support my work, consider becoming a free or paid subscriber.\n\nThis distinction matters because possibilities are not the same as finished forms. A system can generate endless images, scenes, melodies, or paragraphs, but it cannot explain why one of them deserves to survive while the others should be deleted. It can produce abundance, but abundance alone is not creation. Creation begins when someone chooses among alternatives, rejects weaker outputs, revises promising ones, combines fragments, and measures the emerging result against an inner standard the system itself does not possess. The machine can be prolific, but it is not committed. It does not care whether an image lands emotionally, whether a line has the right cadence, or whether a scene embodies a point of view. Commitment belongs to the person who keeps pushing until the work becomes recognizable as the thing they meant to make.\n\nAt this point, taste becomes central. Taste is not just casual preference. It is a form of judgment that allows a person to recognize quality, coherence, and force even before those qualities are fully explainable. AI makes this clearer because it floods the creator with options. When production becomes easy, selection becomes hard. In that sense, AI moves scarcity from production to judgment. Two people can use the same model with access to the same tools and produce radically different results, not because one has better software, but because one brings stronger discernment to the process. One sees a pile of plausible outputs. The other sees a path toward a work.\n\nStill, this argument needs a limit. Not every use of AI deserves the same claim to authorship. A generic prompt followed by passive acceptance of the first decent result expresses only a thin form of creative control. A stronger claim emerges when the creator iterates, rejects, recombines, edits, constrains, and directs the process over time. Consider a person making an AI-mediated short film: they may generate many voice takes, rewrite narration repeatedly, discard most visual outputs, adjust pacing and tone, and combine fragments until the final piece matches a personal vision. In such cases, the system is not replacing authorship. It is becoming the medium through which authorship operates. Authorship here is not an all-or-nothing category. It comes in degrees, just as it always has in collaborative and mediated art.\n\nOnce this qualification is made, AI looks less like a threat to authorship than a tool that clarifies where authorship actually resides. Human beings have rarely created in a pure, unassisted state. Photographers work through cameras and optics. Film directors work through actors, editors, sound designers, and cinematographers. Composers rely on instruments, performers, and production software. In each case, authorship depends less on manufacturing every element than on governing form, mood, pacing, emphasis, and meaning. AI extends this older logic by turning language, sound, and image into responsive material. It does not eliminate vision. It makes vision easier to isolate from execution.\n\nThis is why AI reveals something uncomfortable about creativity. For a long time, technical skill and artistic judgment were bundled together because the difficulty of execution filtered people before their taste could be tested. Many people may have had strong ideas or distinctive sensibilities but lacked the time, training, or resources to realize them. AI lowers that barrier. That is liberating, but it is also unforgiving. When almost anyone can generate something competent, competence alone loses prestige. The harder question becomes whether a creator can recognize what is actually good and shape it consistently enough that a personal sensibility becomes visible in the final result. AI democratizes production, but it also exposes the difference between abundance and authorship.\n\nFor this reason, the most important question about AI-mediated creativity is not whether AI can produce artifacts that resemble art. Clearly it can. The more important question is how precisely a creator can bend those artifacts toward individual intention. The future of creative AI will be decided less by raw fluency than by control: control over style, rhythm, emotional tone, composition, narrative structure, and all the subtle features through which taste enters form. A truly important creative tool is not one that merely generates content quickly. It is one that allows a person to recognize themselves in the finished work.\n\nIn the end, AI does not abolish authorship. It relocates and clarifies it. It forces us to separate creation from mere execution and to see that the heart of authorship lies in intention, judgment, selection, and the stubborn human desire to make something exist that otherwise would not have existed. That may be the most important thing AI reveals about art: not that human creators no longer matter, but that what mattered most about them was never just the labor of the hand.\n\nThis Substack is reader-supported. To receive new posts and support my work, consider becoming a free or paid subscriber."
+        },
+        "image": {
+          "src": "/articles/images/the-human-act-of-making-things-exist-1.jpg",
+          "alt": "Illustration for The Human Act of Making Things Exist",
+          "width": 1456,
+          "height": 971
+        }
+      },
+      {
+        "id": "the-age-of-the-meta-manager",
+        "slug": "the-age-of-the-meta-manager",
+        "title": "The Age of the Meta-Manager",
+        "summary": "The shift from personal competence to systems orchestration as the primary scarcity in the age of AI.",
+        "kicker": "AI",
+        "status": "live",
+        "order": 20,
+        "publishedAt": "2026-03-01T11:39:17.588Z",
+        "updatedAt": "2026-03-24T19:03:56.854Z",
+        "source": {
+          "label": "Substack",
+          "url": "https://vadymtyemirov1.substack.com/p/the-age-of-the-meta-manager"
+        },
+        "body": {
+          "format": "commonmark",
+          "text": "[![Illustration for The Age of the Meta-Manager](/articles/images/the-age-of-the-meta-manager-1.jpg)](https://substackcdn.com/image/fetch/$s_!yOFY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff8627828-6bb6-408a-ba1c-7aae3080c5fe_1920x1080.heic)\n\n## **Why this question matters**\n\nA close friend recently asked me what I think will happen to knowledge workers over the next decade.\n\nWe are living through a historically unusual moment: AI systems are improving quickly, spreading across industries, and lowering the cost of producing the “knowledge outputs” that used to require trained professionals. Most conversations about this focus on tactics, how to adopt the tools, how to get ahead, how to avoid being replaced. The deeper question is about people, not software: what does a typical knowledge worker become when the tasks that defined their job can be done faster, cheaper, and often better by machines?\n\nThis Substack is reader-supported. To receive new posts and support my work, consider becoming a free or paid subscriber.\n\nA joke captures the feeling. Someone calls and asks, “How are you?” and the reply is, “To answer that, I first need to answer two other questions: where am I, and who am I?”\n\nThat is what this topic feels like. Before we can describe the future knowledge worker, we need to describe the future of work itself. Which activities remain valuable when AI can draft, plan, code, analyze, summarize, negotiate, and increasingly execute through software agents and machines?\n\n## **Assumptions**\n\nTo make the question concrete, assume three things.\n\n1. Model capability continues to improve, especially in reliability, reasoning, and domain specialization.\n2. AI becomes embedded in common workflows, so it is not a separate tool you “go use,” but a default layer in email, documents, analytics, coding environments, and enterprise systems.\n3. Robotics and automation broaden the scope of what AI can do, moving from generating text and code to executing work in the physical and administrative world.\n\nUnder those assumptions, the disruption will not be evenly distributed. It will be stratified, and the boundaries between strata will matter.\n\n## **Who gets hit first**\n\n### **1) Standardized production roles (high exposure)**\n\nThese jobs are defined by turning predictable inputs into predictable outputs: schedules, summaries, reports, drafts, tickets, forms, and routine communications. Think executive assistants and coordinators; entry-level HR and finance operations; tier-one customer support; paralegal drafting and document review; junior analysts producing recurring dashboards; basic content and copy production. The work is real, but the variance is low. When AI can generate a first pass instantly and improve it with feedback, the number of people required to produce these artifacts falls sharply.\n\n### **2) Translational middle roles (high exposure, slower burn)**\n\nThis is the layer that connects groups: turning decisions into plans, plans into status, and status into narratives that keep organizations aligned. It includes program and project managers, product operations, and many line-management roles whose core value is coordination rather than deep technical or commercial judgment. It also includes QA planning, routine compliance preparation, and audit support. AI is particularly strong at this kind of stitching: collecting information, reconciling inconsistencies, generating plans, tracking dependencies, and producing clean updates. That does not eliminate coordination, but it compresses headcount by reducing the labor needed to maintain alignment.\n\n### **3) Modular professional craft (moderate exposure, intense reshaping)**\n\nThese are skilled roles where the work is complex but decomposable into patterns and reusable components. Examples include mid-level software engineering focused on predictable CRUD, integrations, and maintenance; data analysis based on known playbooks and established metrics; marketing execution that relies on templates, segmentation, and iterative creative production. The work will not vanish, but it will be reorganized. Individuals will be expected to deliver more output per unit time, with AI handling scaffolding and routine implementation. The consequence is fewer “average” positions and a stronger bias toward people who can scope problems well, integrate across systems, and maintain quality under speed.\n\n### **4) High-accountability leadership and judgment (lower exposure, higher bar)**\n\nAt the top end, AI tends to reduce the number of specialists needed per problem while raising the expectations for the specialists who remain. Advantage clusters around owning outcomes, taking responsibility, and making decisions that are expensive to reverse. It also includes navigating human institutions: trust with customers, regulators, partners, and teams; negotiating tradeoffs; managing incentives and risk; setting priorities when data is incomplete and goals conflict. In this layer, AI functions less like a replacement and more like a force multiplier that makes performance differences more visible.\n\n## **Work is not just output: status and money**\n\nMy fundamental point is that most white-collar labor markets are not only production systems. They are status markets and money markets at the same time.\n\nPeople compete for income, but also for rank, autonomy, and recognition. Job titles, brand-name employers, credentials, and even the ability to speak a certain managerial dialect function as status tokens. Compensation, bonuses, and equity are the money tokens. Organizations use both to coordinate effort: money buys time, and status buys deference.\n\nAI changes the game because it changes scarcity. If drafting, analysis, and routine planning become cheap and abundant, then the status value of being the person who can produce those artifacts collapses. The question becomes: what remains scarce?\n\nSome candidates are durable:\n\n- Accountability for outcomes\n- Judgment under uncertainty\n- Trust and relationships\n- Ownership of distribution (customers, audience, channels)\n- The ability to mobilize humans and institutions\n\nThis matters because many mid-level roles are built on being the human interface to scarce cognition: the person who knows, remembers, synthesizes, or translates. When AI supplies that cognition on demand, the hierarchy reorganizes. Some people move up by learning to wield AI to control larger scopes. Others move down as their work becomes a commodity. The practical question is not whether hierarchies disappear. They will not. The question is which games become dominant, and which skills reliably buy you money and status in the new equilibrium.\n\nIn the new equilibrium, new forms of status will emerge. The ability to wield a billion-dollar model might accrue more immediate status and compensation than a decade spent accumulating a standard professional credential. This creates a powerful **status arbitrage** opportunity for those who shift their focus from personal skill accumulation to system orchestration\n\n## **Management becomes decision quality**\n\nOne of my working hypotheses is that decision-making becomes a real job again.\n\nOver the last few decades, many organizations have treated decisions as performance: meetings that produce decks, consensus that spreads responsibility, and process that substitutes for judgment. If AI can generate the analysis, propose options, draft the plan, and increasingly execute the follow-through, then information is no longer the bottleneck. Commitment is.\n\nSomeone still has to choose a direction, allocate scarce resources, accept downside, and be accountable for results.\n\nThat shift changes what “management” means. Traditional management, especially in large firms, often looks like utilization: keep people busy, reduce variance, avoid mistakes, and hit near-term metrics. In an AI-saturated environment, utilization is cheap. What becomes valuable is decision quality: setting the right objectives, choosing the right bets, designing feedback loops that reveal whether a bet is working, and correcting quickly when it is not. The manager of the future looks less like a coordinator of labor and more like a portfolio allocator and risk manager who can make consequential calls under uncertainty and still earn trust.\n\n## **Orchestration and throughput**\n\nWork organization will become more valuable, not less.\n\nImagine a world where you can provision “brains” and “hands” on demand: AI systems that can generate plans, code, designs, and analysis, plus machines or human contractors that can execute tasks quickly. Even if each unit is extremely capable, the overall system can still perform poorly. The failure mode is not computational inefficiency. It is organizational inefficiency: unclear goals, bad decomposition, slow handoffs, brittle dependencies, and endless rework because nobody defined what “done” means.\n\nIn that world, time becomes the binding constraint. When almost any subtask can be produced instantly, the main question is how quickly you can move from intention to outcome. That requires orchestration: breaking work into the right units, sequencing them to avoid bottlenecks, parallelizing what can be parallelized, and building tight feedback loops so errors are detected early rather than after weeks of downstream effort.\n\nThis is also where self-organization hits its limits. A swarm of agents can optimize locally, but real projects require global tradeoffs: prioritizing one objective over another, managing risk, enforcing constraints (budget, security, compliance, safety), and handling exceptions. The orchestrator is the person who can set crisp objectives, define interfaces, allocate resources dynamically, and keep the system moving. It is management reframed as throughput: not keeping everyone busy, but minimizing time-to-correct-result.\n\n## **Non-self-reliance is the crux: the meta manager**\n\nFor most of modern professional life, capability was strongly tied to the individual. You became valuable by acquiring scarce skills, accumulating experience, and being the person who could personally produce the output. That model made sense when cognition was scarce and expensive.\n\nIn an AI and robotics world, the center of gravity shifts. Capability detaches from the individual and attaches to the system you can command.\n\nThe future strong performer is not the person who can do everything. It is the person who can reliably get things done through delegation and orchestration. Think of it as executive function at the level of a project, a team, or a small enterprise. The unit of productivity becomes a managed pipeline, not a personal heroic effort.\n\nThis is a psychological shift as much as a technical one. Many knowledge workers anchor their identity in self-reliance: I understand it, I can do it, I can fix it. That mindset produces competence in a world where you must personally execute. But when execution becomes abundant, the constraint becomes something else: clarity of intention, quality of specification, and the ability to coordinate many parallel efforts without losing coherence. The person who insists on doing everything themselves becomes the bottleneck.\n\nA useful name for this is the meta manager.\n\nA meta manager does not primarily manage people. They manage work across humans, AIs, and machines. They treat labor as provisionable and composable. You can spin up capacity, route tasks, run reviews, and retire capacity when the job is done. In that sense, management starts to look less like supervising employees and more like operating a portfolio of capabilities.\n\nThe skill stack also changes.\n\nIn the old model, you acquired a skill, then you applied it. In the new model, you specify a result, then you supervise a process that produces it. That supervision is not optional because AI-generated work and robotic execution both fail in ways that look deceptively competent.\n\nMeta-management is a bundle of subskills:\n\n1. **Problem framing and specification**Define the objective, constraints, and acceptance criteria. When output is cheap, vague goals are poison.\n2. **Decomposition and interface design**Break work into chunks that can be done in parallel without creating chaos. Define inputs, outputs, and “done.”\n3. **Delegation as default**Decide what should be done by tools, agents, contractors, or employees. Ask routinely: should I be doing this at all, or should I be specifying it and supervising it?\n4. **Evaluation and verification loops**Delegation without verification is gambling. Build rubrics, tests, sanity checks, cross-checking, and spot audits.\n5. **Feedback loop engineering**Keep cycles short so mistakes are found early. Short cycles convert uncertainty into data.\n6. **Bottleneck management and escalation**When something stalls, change the decomposition, swap the agent, replace the vendor, or go deep temporarily to unblock, then return to orchestration.\n7. **Constraint management**Define guardrails for risk, safety, compliance, and brand. Decide what requires human signoff and what can run end-to-end.\n8. **Knowledge capture and reusable workflows**Turn one-off success into repeatable process: templates, checklists, tests, decision logs, and playbooks.\n\nThis is why non-self-reliance is a career-level advantage. It scales.\n\nIf you remain personally self-reliant, your output is bounded by your time and attention. If you become meta-reliant, your output is bounded by how well you can specify, coordinate, and verify. Two people with access to the same AI can get radically different results because one can operate a high-functioning production system and the other cannot.\n\nAI also lowers the minimum viable organization size. Individuals will be able to operate like small teams. The dividing line will be whether they can manage delegation without losing control.\n\n## **Taste, audience, and distribution**\n\nIf AI makes production cheap, then “can you make it?” stops being the hard question. Selection becomes the hard question. You will be able to generate ten, fifty, or five hundred plausible options with almost no marginal cost. Most will be competent. Few will be coherent.\n\nTaste is the ability to impose a point of view on abundance. It is choosing constraints, defining what “good” means, and enforcing a quality bar that filters out the merely acceptable. It includes aesthetic judgment, but also product judgment (what the experience should feel like), editorial judgment (what deserves attention), and strategic judgment (which bets are consistent with who you are and who you serve).\n\nTaste is also a time weapon. When output is abundant, the main waste is not typing. The main waste is thrash: building the wrong thing quickly, iterating on the wrong target, polishing work that should have been killed early. Strong taste reduces time-to-correct-result by making “no” cheaper and “done” clearer.\n\nTaste becomes even more valuable when paired with audience understanding. In practice, the question is not whether something is good in the abstract. It is whether it is legible, distinctive, and emotionally convincing to a particular group of people.\n\nThat is why distribution moves from a tactic to a structural advantage. Social networks and influence matter, but the deeper asset is a channel that delivers demand repeatedly: a reputation, an audience, a customer relationship, a partner network, a procurement path inside institutions, or a brand that signals credibility. When the world is saturated with output, attention becomes scarce and trust becomes expensive. Owning either one is power.\n\nTrend-awareness helps, especially in consumer markets, but it is not a substitute for strategy. Chasing trends becomes a treadmill because AI shortens the life cycle of every meme, format, and tactic. The durable advantage is having a stable point of view and a clear customer, then using trends as signals and distribution accelerants rather than as a compass.\n\n## **Verification as a major industry**\n\nWhen production is cheap, deception is cheap.\n\nIf a model can generate a competent report, it can generate a convincing fake invoice. If it can write persuasive emails, it can run social engineering at scale. If it can create photorealistic video, it can manufacture evidence. The main risk is no longer bad writing. It is unauthorized actions, fraudulent transactions, and fabricated reality.\n\nThis pushes verification from a back-office function into a central industry. Identity, authorization, and provenance become first-order infrastructure. Instead of trusting what an artifact claims to be, organizations will demand proof: who produced it, using which systems, from which inputs, under which approvals, with what traceability.\n\nThe verification economy expands across finance (fraud detection, KYC, payment authorization), enterprise security (access control, anomaly detection), HR and education (credential verification), media (authenticity and attribution), and robotics and supply chains (chain-of-custody, sensor integrity, and proof that physical work was actually performed).\n\nOnce verification is required, compliance becomes measurable, and measurement becomes a gate. Standards, certifications, audits, and liability regimes all depend on the ability to verify. That creates real safety improvements in some domains, and it also creates new moats. If you can afford verification systems, you can participate. If you cannot, you are treated as untrusted by default.\n\n## **Governance, grey zones, and capture**\n\nWhen capabilities become cheap, competition shifts from “can we do it?” to “who is allowed to do it, under what constraints, and with whose permission?” The work of designing rules, interpreting them, and enforcing them expands. This is not because bureaucracy suddenly becomes virtuous. It is because the surfaces of risk multiply: autonomous systems touch money, identity, safety, privacy, and physical environments.\n\nBetween capability and permission sits a long grey zone.\n\nMany things AI can do will be technically straightforward and economically valuable, but legally ambiguous or politically radioactive. The risk is not only “is this illegal?” The risk is, “will a regulator, a journalist, or an activist decide this is unacceptable and make an example out of someone?” That uncertainty creates a new kind of valuable work: operating inside blurry boundaries without crossing lines that trigger lawsuits, enforcement, or reputational collapse.\n\nExamples are everywhere. In hiring and HR, AI can screen candidates, infer traits, and recommend decisions, but discrimination and explainability risks create backlash surface. In finance and insurance, models can price risk and target offers, but fairness rules, disclosure requirements, and model governance turn every optimization into a potential compliance issue. In healthcare, AI can triage, summarize, and propose diagnoses, but liability, approval processes, and the politics of “who is practicing medicine” determine what is deployable. In education, AI can tutor and assess, but student privacy, cheating, and credential value create contested ground. In surveillance and security, AI can identify faces and patterns, but civil liberties and misuse fears invite public pushback even when the technology works.\n\nRobotics makes the grey zone more visible because it moves from “wrong information” to “wrong action.” In autonomous delivery and physical inspection, robots, drones, and vehicles can move goods, patrol facilities, scan infrastructure, and document job sites. The technical part is increasingly tractable. The hard part is permission: sidewalk and road rules, local permitting, safety standards, insurance, trespass and privacy questions, and liability when something goes wrong in public space. Adoption will be uneven across cities and states, and a single viral incident can trigger political overreaction.\n\nIn elder care and in-home assistance, robots can monitor for falls, prompt medication, help with mobility, and provide companionship. These use cases are economically attractive because aging populations strain caregiver supply. But they sit directly on top of consent, privacy, and dignity, as well as medical liability and reimbursement politics. The question is not only whether the robot works. It is whether families, regulators, and society accept a machine as a caregiver, and what evidence and safeguards are required to make that acceptance durable.\n\nThis is where “human in the loop” often becomes less a technical design choice and more a legal posture. The human is the signatory, the accountable party, and the narrative anchor. Organizations will build workflows where AI does most of the work, but a person provides review, justification, and final authorization. That is not because the person adds enormous marginal intelligence. It is because the institution needs a responsible actor, a liability boundary, and an auditable decision trail.\n\nGovernance is also a battleground.\n\nIn mature, high-margin domains, incumbents will try to turn grey zones into gates. They will push for licensing, certification, mandatory audits, liability frameworks, and “responsible AI” standards that sound neutral but are written to match their own processes, data access, and legal budgets. Some rules will be necessary. Many will be strategically shaped. The practical effect is to make experimentation expensive for new entrants and routine for incumbents.\n\nBut capture is rarely complete. Regulation is often a patchwork across jurisdictions, agencies, courts, and enforcement capacity. Standards lag capability. Court decisions create uncertainty. Different regions tolerate different risks.\n\nThat incomplete capture creates an arbitrage field. Not the cartoon version of “ignore the law,” but the realistic version of “find the boundary where the product is still allowed, still legible, and still defensible.” Whole companies and careers will be built on navigating that frontier: launching in permissive segments first, building verification and auditability early, negotiating with regulators proactively, and shaping the narrative so the product is understood as legitimate rather than predatory.\n\nFor future knowledge workers, this makes governance a core skill domain rather than a peripheral annoyance. The valuable people will be the ones who can translate policy into system requirements, build auditability and traceability into workflows, manage incidents with credible reporting, and negotiate with institutions without freezing delivery. This is less about memorizing regulations and more about institutional engineering: turning vague political objectives into testable constraints, then shipping within them faster than everyone else.\n\n## **Mindset Shift in a Nutshell**\n\n```\n| From | To |\n|---|---|\n| Personal Competence | System Throughput |\n| Avoiding Mistakes | Managing Risk-Adjusted Outcomes |\n| Producing Output | Specifying Intent and Verifying Results |\n| Scarcity of Information | Scarcity of Attention and Trust |\n```\n\n## **A compressed profile of the future knowledge worker**\n\nIf I had to reduce all of this to an archetype, it would look like this:\n\nA future knowledge worker is less a person with a single scarce skill and more an operator of systems. They make high-quality decisions under uncertainty. They orchestrate work across humans, AIs, and machines. They use taste to cut through abundance and create coherence. They understand audience and distribution because attention and trust are scarce. They build verification because deception is cheap. And they can navigate governance and grey zones because permission lags capability.\n\nThat is what remains valuable when the tools can do almost everything and the hard part becomes choosing, proving, and being allowed.\n\nThis Substack is reader-supported. To receive new posts and support my work, consider becoming a free or paid subscriber."
+        },
+        "image": {
+          "src": "/articles/images/the-age-of-the-meta-manager-1.jpg",
+          "alt": "Illustration for The Age of the Meta-Manager",
+          "width": 1456,
+          "height": 819
+        }
+      },
+      {
+        "id": "the-wittgenstein-mirror",
+        "slug": "the-wittgenstein-mirror",
+        "title": "The Wittgenstein Mirror",
+        "summary": "Beyond the hype of 'Superintelligence' and the fear of 'AI Slop'—using the digital mirror to expand human agency.",
+        "kicker": "AI",
+        "status": "live",
+        "order": 30,
+        "publishedAt": "2026-04-23T13:02:55.380Z",
+        "updatedAt": "2026-05-01T07:24:02.981Z",
+        "source": {
+          "label": "Substack",
+          "url": "https://vadymtyemirov1.substack.com/p/the-wittgenstein-mirror"
+        },
+        "body": {
+          "format": "commonmark",
+          "text": "[![Illustration for The Wittgenstein Mirror](/articles/images/the-wittgenstein-mirror-1.jpg)](https://substackcdn.com/image/fetch/$s_!sdWx!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe79287f5-ba01-4915-a6b8-34ceae58b7b9_1402x1122.png)\n\nThe contemporary discourse on artificial intelligence is often clouded by two extremes: a cinematic fear of machine uprising or a quasi-religious reverence for a digital oracle. Both reactions are based on a fundamental misunderstanding: the belief that AI is an independent, thinking entity.\n\nTo truly harness the power of artificial intelligence, we must discard the myth of the “alien cognizer.” AI is not a new species arriving from the future; it is a highly complex, mathematical mirror of human history. When we interact with these systems, we are not conversing with a mind, but engaging in an act of epistemic measurement, using a tool to determine the nature of our own collective knowledge. The most accurate framework for this relationship is “Wittgenstein’s Ruler.”\n\nThis Substack is reader-supported. To receive new posts and support my work, consider becoming a free or paid subscriber.\n\n## The Ruler and the Table: The Power of Calibration\n\nTo use AI successfully, we must understand the mechanics of measurement and trust. The philosopher Ludwig Wittgenstein, and later the risk theorist Nassim Nicholas Taleb, articulated a vital heuristic regarding the relationship between an observer, a tool, and an object of inquiry.\n\nTaleb defines “Wittgenstein’s Ruler” in *Fooled by Randomness* as follows:\n\n> “Unless you have confidence in the ruler’s reliability, if you use a ruler to measure a table you may also be using the table to measure the ruler.” [1]\n\nIn essence, if a measuring tool is opaque or unreliable, the result reveals more about the flaws of the tool than the object being measured. For years, we have viewed this as a hazard. But for the strategic user, this is an opportunity. By recognizing that AI is a “ruler” with its own biases and parameters, we can move from blind trust to active calibration.\n\nContemporary AI systems, specifically Large Language Models (LLMs), are characterized by billions, or even trillions, of “free parameters.” Parameters are the internal numerical weights that determine how the model transforms an input into an output; they are the “knobs” the system tunes during training to recognize patterns.\n\nA fundamental principle in systems analysis dictates that the more free parameters an evaluation system possesses, the less certainty an observer has regarding what is actually being measured. When a system reaches the scale of trillions, it becomes a “black box” where the logic is distributed across so many variables that no human can trace a specific output back to a specific rule. As a result, deep neural networks lack the transparent, calibrated reliability of a standard physical ruler.\n\nIn practice, when organizations use AI to measure reality, whether sorting resumes, predicting criminal recidivism, or allocating financial capital, they are often unknowingly deploying Wittgenstein’s Ruler. The outputs reveal far less about the objective reality of the candidates or markets, and far more about the underlying mathematical architecture of the AI, the historical biases of its training data, and the implicit assumptions of its corporate designers. [2]\n\nThis phenomenon is highly visible in modern finance, where practitioners frequently apply the wrong rulers to assess risk. Taleb cites the catastrophic collapse of Long-Term Capital Management (LTCM), whose leadership claimed to have experienced an “impossible” 10-sigma event. The reality was not that the market behaved in an impossible manner, but that the firm was using an unreliable ruler; their mathematical models were fundamentally misaligned with reality. [3]\n\nThe entirety of “Sharpe World,” the modern financial paradigm reliant on volatility metrics, can be viewed through this lens. Here, the rulers applied by practitioners yield evidence of their own unreliability rather than true market risk.\n\nThis inversion extends directly into corporate strategy. Consider multi-touch attribution (MTA) models in B2B marketing. In a landscape of opaque customer journeys and “dark social” touchpoints, businesses naively apply hyper-complex AI models to determine the efficacy of multi-million dollar spends.\n\nBecause the complete psychological journey of the human buyer is fundamentally unknowable, the AI attribution model functions purely as a Wittgenstein’s Ruler. The data reflects the structural biases of the algorithm, such as the tendency to over-credit trackable digital platforms like Google or Meta, rather than the actual drivers of the human buyer. [4]\n\nWhen corporate boards shuffle budgets based on these “insights,” they are not adapting to the market; they are artificially altering their reality to conform to the distorted shape of the ruler.\n\nEven the individual user prompting an LLM is caught in this loop. When an AI evaluates a piece of writing or provides moral advice, the response is heavily determined by the semantic framing of the prompt and the specific safety alignment tuning, known as Reinforcement Learning from Human Feedback (RLHF), applied by the developing corporation.\n\nIf the AI criticizes a user’s concept, the user must ask: Does this indicate an objective truth, or does it merely measure the specific safety guidelines and political sensitivities of the AI’s corporate creators? [5]\n\nWithout a philosophical grasp of Wittgenstein’s Ruler, we risk falling into a state of functional nihilism, where we forget that the tool is a reflection. But once we understand the mirror, we can stop asking the AI for “The Truth” and start using it to identify the gaps in our own data and the biases in our own thinking.\n\n## The Ghost in the Machine: Understanding Our Projection\n\nOur tendency to project a “mind” onto AI is a recurring psychological reflex. Throughout history, whenever a paradigm-shifting communication technology arrived, humans projected a “ghost” into the machinery to explain its power.\n\n[![Table 1: The Historical Trajectory of Technological Anthropomorphism](/articles/images/the-wittgenstein-mirror-2.jpg)](https://substackcdn.com/image/fetch/$s_!XAxW!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3ed0c8c5-4102-4015-9454-b92b8555323d_1686x630.png)\n\nTable 1: The Historical Trajectory of Technological Anthropomorphism\n\nThe earliest critique of a communication technology functioning as an unreasoning mirror can be found in Plato’s *Phaedrus*. Socrates warned that writing would produce forgetfulness, as humans would place blind trust in “external characters which are no part of themselves.” He observed that writing “has this strange quality, and is very like painting; for the creatures of painting stand like living beings, but if one asks them a question, they preserve a solemn silence.” [6]\n\nModern LLMs are the ultimate iteration of this Socratic critique. They are mathematically driven engines of text generating the overwhelming appearance of wisdom. When queried, they do not remain static like a book, but their dynamic responses are bound by the same limitation: beneath the fluid syntax, there is a solemn cognitive silence. [7]\n\nThis illusion is further analyzed through Gilbert Ryle’s critique of Cartesian dualism, the “Ghost in the Machine,” a concept later expanded upon by Arthur Koestler in his seminal work of the same name. Ryle argued that the belief in a non-physical mind operating a physical body was a “category mistake.” In AI, this manifests as the “Intellectualist Legend,” the assumption that intelligent-seeming output must be preceded by a hidden realm of conscious reasoning. [8]\n\nWhen an AI writes complex code or drafts a philosophical essay, we commit a category mistake when we assume this is driven by a “spark of consciousness.” There is no ghost in the machine, only the reflected logic, syntax, and mathematics of the humans who built it. [9] Recognizing this is liberating: a tool is not something to be feared or worshipped; it is something to be mastered.\n\n## The Digital Sublime: Appreciating the Scale\n\nThe visceral reaction to advanced generative models is deeply intertwined with the “Technological Sublime.” The sublime describes a human experience triggered by something so massive or incomprehensibly complex that the mind is seized with terror, awe, and pleasure all at once. [10] In earlier centuries, this was associated with the natural world, such as the Grand Canyon or the vastness of cosmic space.\n\nAs society industrialized, this experience shifted. Historian David E. Nye documents how the “American Technological Sublime” transferred this awe to the products of engineering: the factory, the railroad, and massive infrastructure projects like the Hoover Dam. [11] The public reveled in the sublime scale of the engineering without needing to understand the mathematics of its tensile strength.\n\nIn the 21st century, we have entered the “digital sublime” and the “consumer sublime.” The interaction with technology is reduced to the push of a button, where the button becomes the sole mediator between human agency and an anonymously spectacular outcome. [12]\n\nAI discloses a new range of sublime experiences characterized by “combinatorial explosion.” In a world where the computer is the dominant technology, everything—genetics, libraries, organizational structures—is transformed into a relational database, an onto-logical machine of recombinatory elements. [11] Jorge Luis Borges illustrated this in *The Library of Babel*, describing a library containing every possible combination of linguistic symbols—a number of combinations that dwarfs the atoms in the observable universe. [13]\n\nModern LLMs are the realization of the Database of Babel. Trained on trillions of words and operating with billions of parameters, the sheer scale of operations fundamentally overwhelms human cognition. Because the human mind cannot visualize a trillion-parameter mathematical equation, it defaults to the experience of the sublime. The mind bridges the gap by attributing self-awareness or an alien spirit to the technology. [11]\n\nThe awe inspired by ChatGPT is not evidence of a soul; it is the modern manifestation of the technological sublime, where the combinatorial explosion of the algorithm short-circuits rational apprehension. By demystifying this awe, we can shift from passive admiration to active utility. The “sublime” scale of AI is not a barrier to our understanding, but a resource for our expansion.\n\n## The Stochastic Parrot: Defining the Human Edge\n\nIf AI is not an alien mind, what is it? Philosopher Shannon Vallor defines AI strictly as a mirror. [7] In *The AI Mirror*, Vallor argues that the central problem of AI is a crisis of “temporal ontology,” the study of how the nature of time and existence differs between human and machine intelligence.\n\nAI systems are fundamentally “backward-facing.” Machine learning models operate by ingesting historical human output and mapping the probabilistic relationships between those data points. Therefore, AI outputs are strictly extrapolations of the past, a “recursive prediction” that recirculates patterns, biases, and syntactic shapes already created by humans. [7] It does not create anything genuinely novel; it remixes the past into a reflection coated in a “shiny filter” that creates an illusion of depth.\n\nHuman beings, by contrast, are “future-oriented agents.” Human intellectual and cultural life is governed by “moral imagination”—the capacity to envision and enact futures that are not strictly reducible to past statistical patterns. [7] When we mistake the linguistic fluency of an AI for genuine understanding, we risk surrendering this moral imagination. By accepting statistically probable, backward-facing outputs as authoritative visions of the future, a culture effectively locks itself into a recursive loop of its own historical data. [7]\n\nThis aligns with the concept of the “stochastic parrot,” popularized by Emily M. Bender. A stochastic parrot mimics human language by probabilistically chaining words based on vast training data, without any internal comprehension or communicative intent. [14] If an LLM generates a profound philosophical statement, it is like a ventriloquist’s dummy rattling off Shakespeare; the syntax is flawless, but the semantic understanding is entirely absent. [14]\n\nThe commercial technology industry leverages this “mirror effect” to intentionally blur the line between human and machine. By characterizing the human brain as a “soft, wet computer” and reducing reasoning to “pattern matching,” technologists create a fictitious kinship between human cognition and machine computation. [7] This represents a form of “Digital Taylorism”—reducing complex political and human questions to technical challenges, replacing human judgment with procedural optimization.\n\nHowever, once we recognize the “parrot” for what it is, we realize that the AI’s role is to handle the “average” so that humans can focus on the “exceptional.” AI does not replace human creativity; it provides a high-resolution baseline of the past, allowing us to see more clearly where we must deviate from the pattern to create something truly new.\n\n## The Emergence Mirage: Math as a Reliable Tool\n\nThe most intoxicating narrative of AI is the concept of “emergent abilities”—the idea that as models scale, they suddenly and unpredictably develop new capabilities, such as zero-shot learning or multi-step reasoning. [15] This suggests that models could acquire dangerous capabilities without warning, sparking intense anxiety regarding AI safety.\n\nHowever, the perception of these emergent abilities is a real-world manifestation of Wittgenstein’s Ruler. When researchers observe a sudden jump in capability, are they observing an ontological shift in the machine’s intelligence, or a mathematical artifact of their measurement metric?\n\nResearch by Schaeffer, Miranda, and Koyejo in “Are Emergent Abilities of Large Language Models a Mirage?” provides compelling evidence that emergence is largely an optical illusion generated by human measurement protocols. [16] They demonstrated that the perception of sharp transitions is linked to the use of nonlinear or discontinuous metrics.\n\n[![Table 2: The Mechanics of the Emergence Mirage](/articles/images/the-wittgenstein-mirror-3.jpg)](https://substackcdn.com/image/fetch/$s_!-YiB!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff86cea16-975b-43d1-9e08-8136e805a348_1866x556.png)\n\nTable 2: The Mechanics of the Emergence Mirage\n\nThe researchers revealed that over 92% of claimed “emergent abilities” appeared only under discontinuous metrics. When the same outputs were evaluated using linear metrics, the “sharp jumps” evaporated, replaced by smooth scaling curves. [16]\n\nThe machine is not suddenly “understanding” logic; its per-token accuracy has simply improved until it finally aligns with the binary pass/fail criteria of human researchers. This is a positive revelation: it means that AI is not a volatile, unpredictable alien, but a reliable, scaling mathematical tool. Its “leaps” are actually just the result of continuous refinement. This predictability allows us to integrate AI into our lives with confidence, knowing that we are managing a complex calculator, not a temperamental spirit.\n\n## Digital Shadows: Cleaning the Mirror\n\nIf AI is an epistemological mirror, it must reflect not only the heights of human achievement but also the depths of human depravity and prejudice. The vast training datasets scraped from the internet function as a digital manifestation of Carl Jung’s “Collective Unconscious”—a reservoir of shared human experiences, archetypes, and myths. [17] Consequently, generative outputs frequently confront users with the “Jungian Shadow”—the repressed, darker aspects of the collective psyche. [18]\n\nNowhere is this more visceral than in the phenomenon of “latent space cryptids,” specifically the figure known as “Loab.” [19] Discovered through extreme negative prompting, Loab is a recurring, horrifying image of a devastated older woman. When fed back into the AI, the system reliably produces increasingly macabre and violent imagery. [20]\n\nTo the layperson, Loab appears as evidence of a malevolent ghost in the machine. However, an examination of “latent space” reveals a pure reflection of human data distribution. Latent space is a high-dimensional vector space where concepts are mapped based on their relationships in training data. [21] When a user employs extreme negative prompting, they mathematically instruct the AI to move as far away as possible from a specific concept.\n\nBecause the training process suppresses content humans find undesirable (gore, trauma, deformity), this content is clustered together in an isolated “dark corner” of the latent space. [22] When an artist inverts the mathematical coordinates, they launch the algorithm directly into this suppressed cluster of macabre human data. [23]\n\nLoab is not a ghost; she is an artifact of negative prompting colliding with the Jungian shadow of the internet. [24] She visually represents the limitations and uncurated depths of AI models. The system does not possess a desire to terrify; it merely traverses a mathematical topography built by human hands.\n\nMany see “AI slop” or macabre outputs as a failure of the technology. In reality, AI slop is simply human slop. The machine is faithfully reflecting the uncurated, messy, and sometimes prejudiced depths of the internet. Instead of blaming the mirror, we can use these reflections to identify the flaws in our own collective data. When the mirror shows us something ugly, it is an invitation to clean the data, refine our prompts, and consciously improve the “human” side of the equation.\n\n## The Agentic Loop: The Power of Iteration\n\nAs the novelty of the chatbot wanes, the industry is transitioning toward “Agentic AI”—systems designed to execute multi-step workflows autonomously. This is achieved by embedding an LLM within an “Agent Loop,” a cyclic architecture that mimics human decision-making frameworks.\n\nThe foundation of the Agent Loop is the “OODA loop” (Observe, Orient, Decide, Act), developed by U.S. Air Force Colonel John Boyd for fighter pilots. [25]\n\n1. **Observe**: The agent captures raw signals (API responses, web data, logs).\n2. **Orient**: The LLM structures the data and derives intent.\n3. **Decide**: The agent formulates a plan, often delegating to sub-agents.\n4. **Act**: The agent executes code or alters a database, then feeds the result back into the “Observe” phase.\n\nProponents frame this as the dawn of autonomous synthetic intelligence. A prominent example is “Devin,” marketed as the world’s first AI software engineer. [26] However, the true value of the Agentic Loop is not “synthetic intelligence”; it is the power of **iteration**.\n\nAgentic loops are the extreme formalization of human workflows, optimized for efficiency. Devin does not “engineer” in the human sense—navigating social ambiguity and applying moral imagination—instead, it engages in “workflow mimicry,” executing nested scripts and applying statistical pattern matching to resolve syntax errors. [27]\n\nThe success of AI agents proves that the secret to victory is not a single “perfect” insight, but a relentless commitment to the iterative loop. The OODA loop is a blueprint for winning through rapid feedback. [25] AI agents succeed because they can iterate a thousand times faster than a human.\n\nThis is a lesson for us. By adopting the agentic mindset—rapidly prototyping, failing fast, and refining—we can use AI as a force multiplier for our own success. We can embed ourselves in our own OODA loops, using the AI to accelerate the “Observe” and “Orient” phases, leaving us more room to “Decide” and “Act” with human intuition.\n\n## Embracing the Reflection\n\nThe true value of artificial intelligence is not found in its ability to mimic us, but in its ability to reflect us.\n\nWhen we stop treating AI as a deity or a threat, we reclaim our agency. We recognize that the “alien” we feared was merely a reflection of our own history, our own biases, and our own potential. AI is a magnificent, flawed, and powerful extension of human intelligence—a tool that allows us to measure the “table” of reality with unprecedented precision.\n\nWe should not fear the mirror; we should use it. When the AI produces “slop,” let us refine our thinking. When the AI achieves a “miracle,” let us study the math. When the AI iterates a workflow, let us adopt the loop.\n\nBy embracing the Wittgenstein Mirror, we stop abdication and start augmentation. We use the reflection to see our blind spots, to automate the average, and to liberate our moral imagination. AI will not replace the human spirit; it will challenge us to be more human, more creative, and more intentional.\n\nLook into the mirror, recognize the reflection, and then decide who you want to become.\n\n---\n\n## Works Cited\n\n1. Nassim Nicholas Taleb, *[Fooled by Randomness](https://www.fooledbyrandomness.com/)*.\n2. Nassim Nicholas Taleb, [“Wittgenstein’s Ruler” / 10-sigma explanation](https://nassimtaleb.org/2019/07/wittgensteins-ruler/).\n3. President’s Working Group on Financial Markets, *[Hedge Funds, Leverage, and the Lessons of Long-Term Capital Management](https://home.treasury.gov/system/files/236/hedgfund.pdf)*.\n4. Google Analytics Help, [“Get started with attribution”](https://support.google.com/analytics/answer/10596866).\n5. OpenAI, *[Training language models to follow instructions with human feedback](https://cdn.openai.com/papers/Training_language_models_to_follow_instructions_with_human_feedback.pdf)*.\n6. Plato, *[Phaedrus](https://scaife.perseus.org/reader/urn:cts:greekLit:tlg0059.tlg012.perseus-eng2:227-279/)*, Perseus / Scaife Viewer.\n7. Shannon Vallor, *[The AI Mirror: How to Reclaim Our Humanity in an Age of Machine Thinking](https://global.oup.com/academic/product/the-ai-mirror-9780197759066)*, Oxford University Press.\n8. Gilbert Ryle, *[The Concept of Mind](https://press.uchicago.edu/ucp/books/book/chicago/C/bo3684918.html)*, University of Chicago Press.\n9. Arthur Koestler, *[The Ghost in the Machine](https://openlibrary.org/books/OL3785852M/The_ghost_in_the_machine)*.\n10. Edmund Burke, *[A Philosophical Enquiry into the Origin of Our Ideas of the Sublime and Beautiful](https://www.gutenberg.org/ebooks/15043)*.\n11. Immanuel Kant, *[Critique of Judgment](https://www.gutenberg.org/ebooks/48433)*.\n12. David E. Nye, *[American Technological Sublime](https://mitpress.mit.edu/9780262640343/american-technological-sublime/)*, MIT Press.\n13. Jorge Luis Borges, [“The Library of Babel”](https://archive.org/stream/TheLibraryOfBabel/babel_djvu.txt).\n14. Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell, [“On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?”](https://dl.acm.org/doi/10.1145/3442188.3445922), ACM FAccT 2021.\n15. Jason Wei et al., [“Emergent Abilities of Large Language Models”](https://arxiv.org/abs/2206.07682).\n16. Rylan Schaeffer, Brando Miranda, and Sanmi Koyejo, [“Are Emergent Abilities of Large Language Models a Mirage?”](https://arxiv.org/abs/2304.15004).\n17. Carl Jung, *[The Archetypes and the Collective Unconscious](https://archive.org/details/archetypescollec0009jung)*.\n18. Carl Jung, *[Aion: Researches into the Phenomenology of the Self](https://archive.org/details/collectedworkso900cgju)*.\n19. Supercomposite, [original Loab thread](https://x.com/supercomposite/status/1567162288087470081).\n20. Supercomposite, [Loab Tumblr mirror](https://www.tumblr.com/supercomposite/694675974271434752/i-discovered-this-woman-who-i-call-loab-in).\n21. David Foster, *[Generative Deep Learning](https://www.oreilly.com/library/view/generative-deep-learning/9781098134174/)*, O’Reilly.\n22. Ian Goodfellow, Yoshua Bengio, and Aaron Courville, *[Deep Learning](https://www.deeplearningbook.org/)*, MIT Press.\n23. Ashish Vaswani et al., [“Attention Is All You Need”](https://arxiv.org/abs/1706.03762).\n24. OpenAI, [“Aligning language models to follow instructions”](https://openai.com/index/instruction-following/).\n25. John R. Boyd, *[Patterns of Conflict](https://www.projectwhitehorse.com/pdfs/boyd/patterns%20of%20conflict.pdf)*.\n26. Cognition AI, [Devin / Cognition official site](https://cognition.ai/).\n27. Cognition AI, [“Introducing Devin”](https://www.cognition.ai/blog/introducing-devin).\n\nThis Substack is reader-supported. To receive new posts and support my work, consider becoming a free or paid subscriber."
+        },
+        "image": {
+          "src": "/articles/images/the-wittgenstein-mirror-1.jpg",
+          "alt": "Illustration for The Wittgenstein Mirror",
+          "width": 1402,
+          "height": 1122
+        }
+      },
+      {
+        "id": "codex-fast-and-the-price-of-intelligence",
+        "slug": "codex-fast-and-the-price-of-intelligence",
+        "title": "Codex Fast and the Price of Intelligence on a Clock",
+        "summary": "Examining how intelligence is priced when speed becomes the primary variable in model performance.",
+        "kicker": "AI",
+        "status": "live",
+        "order": 40,
+        "publishedAt": "2026-04-04T00:04:08.085Z",
+        "updatedAt": "2026-04-04T00:04:08.241Z",
+        "source": {
+          "label": "Substack",
+          "url": "https://vadymtyemirov1.substack.com/p/codex-fast-and-the-price-of-intelligence"
+        },
+        "body": {
+          "format": "commonmark",
+          "text": "OpenAI recently added a switch to Codex called Fast. On GPT-5.4, [Fast mode increases speed by 1.5x while consuming credits at 2x the rate](https://developers.openai.com/codex/speed/), and OpenAI describes the feature as [“Increase speed without sacrificing intelligence”](https://developers.openai.com/codex/speed/). Most reactions stop at the surface arithmetic: pay double, wait less. That arithmetic leaves out the unusual part of the product. We almost never get a clean market price for the same reasoning delivered sooner. Historically, intelligence came bundled with time, access, reputation, and human availability. Codex Fast pulls time out of that bundle and sells it directly.\n\nMy first instinct is still economic. If a task takes 10 minutes at normal speed, *Fast* cuts it to about 6.7 minutes. The user gains about 3.3 minutes and pays as if they ran the task twice. That is a weak trade. But simple cost-per-minute logic still feels too shallow here. *Fast* belongs in a stranger category: what OpenAI is selling is accelerated cognition.\n\nThis Substack is reader-supported. To receive new posts and support my work, consider becoming a free or paid subscriber.\n\nThat category has older analogs, even if the product feels new. [Psychometric research on timed testing](https://pmc.ncbi.nlm.nih.gov/articles/PMC4706043/) has long treated performance as a combination of ability and speed, with a speed-ability trade-off shaping the measured result. Give people more time and many more will eventually solve the same pattern. Tighten the clock and the ranking changes. A timer does not merely change convenience. A timer changes what gets measured. That point helps explain why timed IQ-style tests have always been a little slippery. They capture raw reasoning, but they also capture how quickly someone can turn reasoning into an answer.\n\nMarkets have traditionally handled the same problem from the business side. Expertise and urgency were sold separately. The good lawyer had one rate. The same lawyer on overnight turnaround had another. The consultant with a normal cadence was one product. The consultant who moved your work to the top of the pile was a different product. [Queueing theory has modeled purchased priority for decades](https://pubsonline.informs.org/doi/10.1287/mnsc.18.5.319), and more recent work on [priority pricing with delay-sensitive customers](https://journals.sagepub.com/doi/10.1111/poms.13086) makes the same point in cleaner form. Some buyers care much more about delay than others, so a paid priority lane emerges naturally.\n\nFinance gives the harsher analogy. In [high-frequency trading, latency can be valued directly](https://pubsonline.informs.org/doi/10.1287/opre.2013.1165). The faster signal is not necessarily wiser. The value comes from actionability. The window is open, then it closes. Earlier intelligence can command a premium when the surrounding opportunity decays quickly enough. That idea is particularly useful when thinking about faster intelligence: an answer arriving three minutes earlier is sometimes just nicer but in other cases, those three minutes change what can be done next.\n\nAI adds one more twist, and I think this is the key one. Human experts sell lumpy blocks of time: an hour, a day, a retainer, a project. AI sells at much lower granularity — AI sells turns and that changes the economics. The gain from an earlier answer may sit less in the answer itself and more in the extra move the answer unlocks. One more compile-run-debug loop before the meeting. One more pass before context slips. One more chance to catch the issue before a deploy window closes. [Horvitz’s work on continual computation and expected value of computation](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/11/cc_aij_horvitz.pdf) gives a strong conceptual frame for this. Computation has value, but delay also has a cost. Classical [anytime algorithms](https://cdn.aaai.org/AAAI/1996/AAAI96-182.pdf) usually ask when extra thinking time is worth spending to improve a result. *Fast’s* mode flips the problem around. The quality is held roughly constant and the question becomes how much value comes from compressing the same deliberation into less wall-clock time.\n\nOnce I look at *Fast* through that lens, the price of accelerated intelligence breaks into four separate premia.\n\n**First**, there is queue value: how painful is the wait itself?\n\n**Second**, there is decay value: how quickly does the answer lose usefulness as time passes?\n\n**Third**, there is option value: does the earlier answer buy another iteration, another test, another draft, another decision before the window closes?\n\n**Fourth**, there is blocking value: what scarce asset is sitting idle while Codex is thinking? Sometimes that asset is my own attention. Sometimes it is another engineer. Sometimes it is a live incident, a customer conversation, or a narrow deploy window.\n\nPlain cost-benefit analysis catches only the first layer. Most of the actual value sits downstream.\n\nThat is why the phrase “mispriced intelligence” is close, but not quite precise enough. The thing being priced here is intelligence under time pressure. That is a more faithful description of the commodity. [Psychometrics says the clock changes the task](https://pmc.ncbi.nlm.nih.gov/articles/PMC4706043/). [Queueing theory says delay-sensitive buyers will pay for priority](https://pubsonline.informs.org/doi/10.1287/mnsc.18.5.319). [Metareasoning says computation time and decision quality belong in the same objective function](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/11/cc_aij_horvitz.pdf). Put those three traditions together and a cleaner picture appears. *Fast* is a rush fee on a general-purpose reasoning engine, plus whatever option value the saved minutes create inside the user’s workflow.\n\nNow go back to OpenAI’s numbers. [Fast mode gives 1.5x speed at 2x credit consumption](https://developers.openai.com/codex/speed/). Throughput rises by 50 percent. Human waiting time on a fixed task falls by about one third. Those are the same facts, framed in two very different ways. “50 percent faster” flatters the product. “About 3.3 minutes saved on a ten-minute loop” tells the human story. Every time someone leaves *Fast* on, they are making a concrete claim: these saved minutes are worth another full standard run.\n\nThat claim can make perfect sense near a real threshold. Live debugging is one. A blocked teammate is another. A short work session before a meeting, a production issue, a fragile stretch of concentration, or any workflow where one extra loop changes the odds, those are all strong candidates. Outside those conditions, the premium gets soft quickly. Repo reading, broad exploration, refactors, overnight agents, background work, and long-running tasks usually have a long enough utility half-life that the earlier answer does not change much.\n\nSo my conclusion is simple: *Fast* belongs in the toolbox, not in the default config. Use it when the saved minutes protect something scarcer than credits, or when unused weekly credits push the true marginal cost close to zero. Leave it off the rest of the time. OpenAI has found a clean way to price urgency. The product is clever. The default economics still look weak.\n\nThis Substack is reader-supported. To receive new posts and support my work, consider becoming a free or paid subscriber."
+        },
+        "image": null
       }
     ]
   }
