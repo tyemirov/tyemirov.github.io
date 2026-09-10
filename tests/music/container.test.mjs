@@ -19,6 +19,8 @@ test("the Pages container exports public content without Gateway metadata", { ti
     const site = JSON.parse(await readFile(join(directory, "data/site.json"), "utf8"));
     assert.equal(site.music.items.length, 6);
     assert.equal(site.music.items.flatMap((album) => album.tracks).length, 50);
+    assert.match(await readFile(join(directory, "gallery/order/index.html"), "utf8"), /Your gallery order/);
+    assert.deepEqual(JSON.parse(await readFile(join(directory, "config-site.json"), "utf8")), { apiOrigin: "https://api.tyemirov.net" });
   } finally { await rm(directory, { recursive: true, force: true }); }
 });
 
@@ -53,9 +55,9 @@ test("the pinned Linux images prepare audio and serve authorized media", { timeo
     }
     const port = success(run(["port", name, "8092/tcp"])).split(":").at(-1);
     const origin = `http://127.0.0.1:${port}`;
-    const ready = await fetch(origin + "/readyz", { signal: AbortSignal.timeout(5000) });
+    const ready = await fetch(origin + "/music/readyz", { signal: AbortSignal.timeout(5000) });
     assert.equal(ready.status, 200);
-    const response = await fetch(origin + "/api/playback-grants", { method: "POST", headers: { Origin: "https://example.test", "Content-Type": "application/json" }, body: JSON.stringify({ trackId }) });
+    const response = await fetch(origin + "/music/playback-grants", { method: "POST", headers: { Origin: "https://example.test", "Content-Type": "application/json" }, body: JSON.stringify({ trackId }) });
     assert.equal(response.status, 201);
     const grant = await response.json(), path = new URL(grant.playlistUrl).pathname;
     const cookie = response.headers.getSetCookie()[0].split(";")[0];

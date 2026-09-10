@@ -12,6 +12,8 @@ ENV ANSIBLE_PLAYBOOK=/opt/ansible/bin/ansible-playbook ANSIBLE_INVENTORY_BIN=/op
 WORKDIR /workspace
 COPY package.json package-lock.json ./
 RUN npm ci --ignore-scripts
+COPY services/gallery/go.mod services/gallery/go.sum ./services/gallery/
+RUN cd services/gallery && go mod download
 COPY . .
 RUN git init -q && git add .
 CMD ["bash", "tests/music/run-ci.sh"]

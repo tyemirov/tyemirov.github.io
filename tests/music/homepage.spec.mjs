@@ -29,11 +29,65 @@ for (const width of [1280, 769, 390]) {
       expect(new Set(rows).size).toBe(1);
     }
     expect((await page.locator(".hero").boundingBox()).height).toBeLessThan(width >= 769 ? 520 : 700);
-    const music = await page.locator(".music-section").boundingBox();
-    const arts = await page.locator(".arts-section").boundingBox();
-    expect(arts.y - music.y - music.height).toBeLessThanOrEqual(56);
+    await page.evaluate(() => document.fonts.ready);
+    const sectionGap = await page.evaluate(() => {
+      const music = document.querySelector(".music-section").getBoundingClientRect();
+      const arts = document.querySelector(".arts-section").getBoundingClientRect();
+      return arts.top - music.bottom;
+    });
+    expect(sectionGap).toBeLessThanOrEqual(56);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
     await page.screenshot({ path: `output/playwright/homepage-${width}-${test.info().project.name}.png`, fullPage: true });
+  });
+}
+
+for (const width of [390, 769, 1280]) {
+  test(`homepage portrait and navigation persist across reload and return at ${width}px`, async ({ page }) => {
+    const nextLinkKey = test.info().project.name === "webkit" && process.platform === "darwin" ? "Alt+Tab" : "Tab";
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto("/");
+    for (const visit of ["initial", "reload", "return"]) {
+      if (visit === "reload") await page.reload();
+      if (visit === "return") {
+        await page.locator('.hero-links').getByRole('link', { name: 'Music', exact: true }).click();
+        await expect(page.locator(".album-card")).toHaveCount(6);
+        await page.goBack({ waitUntil: "commit" });
+      }
+      await expect(page.locator(".hero-links a")).toHaveCount(5);
+      const portrait = page.locator(".profile-photo img");
+      await expect.poll(() => portrait.evaluate(image => image.naturalWidth)).toBeGreaterThan(0);
+      const metrics = await page.evaluate(() => {
+        const image = document.querySelector(".profile-photo img");
+        const { width, height } = image.getBoundingClientRect();
+        return {
+          portrait: { width, height, fit: getComputedStyle(image).objectFit },
+          rows: [...document.querySelectorAll(".hero-links a")].map(link => Math.round(link.getBoundingClientRect().top)),
+          height: document.documentElement.scrollHeight,
+          overflow: document.documentElement.scrollWidth > innerWidth,
+        };
+      });
+      expect(metrics.portrait.width).toBeLessThanOrEqual(width <= 1000 ? 80 : 112);
+      expect(metrics.portrait.height).toBe(metrics.portrait.width);
+      expect(metrics.portrait.fit).toBe("cover");
+      expect(metrics.overflow).toBe(false);
+      if (width >= 769) expect(new Set(metrics.rows).size).toBe(1);
+      const links = page.locator(".hero-links a");
+      await page.keyboard.press(nextLinkKey);
+      await links.first().focus();
+      for (let index = 0; index < 5; index++) {
+        await expect(links.nth(index)).toBeFocused();
+        const focus = await links.nth(index).evaluate(link => {
+          const style = getComputedStyle(link);
+          return { visible: link.matches(":focus-visible"), outline: style.outlineStyle, width: parseFloat(style.outlineWidth) };
+        });
+        expect(focus.visible).toBe(true);
+        expect(focus.outline).not.toBe("none");
+        expect(focus.width).toBeGreaterThan(0);
+        if (index < 4) await page.keyboard.press(nextLinkKey);
+      }
+      await test.info().attach(`${width}-${visit}-metrics`, { body: JSON.stringify(metrics), contentType: "application/json" });
+      await page.screenshot({ path: `output/playwright/homepage-${width}-${visit}-${test.info().project.name}.png`, fullPage: true });
+    }
   });
 }
 
@@ -43,7 +97,7 @@ test("homepage gallery previews open the existing exhibit and full artwork", asy
   await expect(previews).toHaveCount(4);
   await expect(previews.first().locator("img")).toBeVisible();
   await previews.first().click();
-  await expect(page).toHaveURL(/\/gallery\/#\/exhibits\/the-third-act$/);
+  await expect(page).toHaveURL(/\/gallery\/exhibits\/the-third-act\/$/);
   await expect(page.locator("#exhibit-view")).toBeVisible();
   await expect(page.locator("#home-view")).toBeHidden();
   await expect(page.locator("mpr-header")).toHaveAttribute("brand-href", "/");
@@ -61,7 +115,7 @@ test("homepage gallery previews open the existing exhibit and full artwork", asy
 });
 
 test("gallery direct routes show one view after reload", async ({ page }) => {
-  await page.goto("/gallery/#/exhibits/the-third-act");
+  await page.goto("/gallery/exhibits/the-third-act/");
   await expect(page.locator("#exhibit-view")).toBeVisible();
   await expect(page.locator("#home-view")).toBeHidden();
   await page.reload();

@@ -5,6 +5,7 @@ import { mkdir, readFile, writeFile, symlink, copyFile, cp } from "node:fs/promi
 import { join } from "node:path";
 import { createHash } from "node:crypto";
 import { writeFileSync } from "node:fs";
+import { assertReleaseArtifacts } from "./release-contract.mjs";
 
 const application = "/workspace", gateway = "/mprlab-gateway", evidence = "/evidence";
 const builder = "music-release-qualification";
@@ -53,7 +54,7 @@ try {
   const receipt = JSON.parse(before.toString());
   assert.equal(receipt.application.commit, applicationCommit);
   assert.equal(receipt.gateway.commit, gatewayCommit);
-  assert.equal(receipt.artifacts.length, 2);
+  assertReleaseArtifacts(receipt.artifacts);
   for (const artifact of receipt.artifacts) {
     const payload = await readFile(join(receiptPath, "..", artifact.path));
     assert.equal(`sha256:${createHash("sha256").update(payload).digest("hex")}`, artifact.sha256);

@@ -6,6 +6,7 @@ import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
 import { get } from "node:https";
+import { assertReleaseArtifacts, serviceImages } from "./release-contract.mjs";
 
 const application = "/selected-app", gateway = "/mprlab-gateway", evidence = "/evidence";
 function run(program, args, cwd = application, options = {}) {
@@ -34,6 +35,7 @@ const applicationCommit = run("git", ["rev-parse", "HEAD"]);
 const gatewayCommit = run("git", ["rev-parse", "HEAD"], gateway);
 const releaseBytes = await readFile("/input/release/receipt.json");
 const release = JSON.parse(releaseBytes.toString());
+assertReleaseArtifacts(release.artifacts);
 assert.equal(applicationCommit, release.application.commit);
 assert.equal(gatewayCommit, release.gateway.commit);
 const lifecycle = join(application, ".git/mprlab-lifecycle");
@@ -76,12 +78,18 @@ try {
   const before = await readFile(join(publicationRoot, "receipt.json"));
   const publication = JSON.parse(before.toString());
   assert.equal(publication.application.commit, applicationCommit);
-  const image = publication.published_artifacts.music[0].identity;
-  const sealedImage = release.artifacts.find((artifact) => artifact.kind === "container_image");
-  assert.equal(image, `${sealedImage.repository}@${sealedImage.image_digest}`);
-  const manifest = run("docker", ["buildx", "imagetools", "inspect", "--raw", image]);
-  assert.equal(`sha256:${createHash("sha256").update(manifest).digest("hex")}`, sealedImage.image_digest);
-  run("docker", ["image", "pull", image]);
+  /** @type {Record<string, string>} */
+  const images = {};
+  for (const { resourceID } of serviceImages) {
+    assert.equal(publication.published_artifacts[resourceID].length, 1);
+    const image = publication.published_artifacts[resourceID][0].identity;
+    const sealedImage = release.artifacts.find((artifact) => artifact.resource_id === resourceID);
+    assert.equal(image, `${sealedImage.repository}@${sealedImage.image_digest}`);
+    const manifest = run("docker", ["buildx", "imagetools", "inspect", "--raw", image]);
+    assert.equal(`sha256:${createHash("sha256").update(manifest).digest("hex")}`, sealedImage.image_digest);
+    run("docker", ["image", "pull", image]);
+    images[resourceID] = image;
+  }
   const pagesCommit = publication.published_artifacts.website[0].identity;
   const pagesReference = `refs/tags/mprlab-pages-website-${release.version}`;
   assert.equal(run("git", ["rev-parse", pagesReference], "/origins/application.git"), pagesCommit);
@@ -96,7 +104,7 @@ try {
   await cp(lifecycle, join(evidence, "lifecycle"), { recursive: true });
   await cp("/provider/state", join(evidence, "provider"), { recursive: true });
   run("git", ["bundle", "create", join(evidence, "published-origin.bundle"), "--all"], "/origins/application.git");
-  const result = { passed: true, applicationCommit, gatewayCommit, version: publication.version, image, pagesCommit, exactRetry: "unchanged publication receipt", registry: "real isolated TLS registry", github: "local provider and Git fixtures" };
+  const result = { passed: true, applicationCommit, gatewayCommit, version: publication.version, images, pagesCommit, exactRetry: "unchanged publication receipt", registry: "real isolated TLS registry", github: "local provider and Git fixtures" };
   await writeFile(join(evidence, "publication-results.json"), JSON.stringify(result, null, 2) + "\n");
   process.stdout.write(JSON.stringify(result) + "\n");
 } finally {

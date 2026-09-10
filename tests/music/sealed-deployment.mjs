@@ -5,10 +5,15 @@ import { mkdir, readFile, writeFile, copyFile, cp } from "node:fs/promises";
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { get, request } from "node:https";
+import { createHmac } from "node:crypto";
+import { assertReleaseArtifacts, serviceImages } from "./release-contract.mjs";
 
 const application = "/selected-app", gateway = "/mprlab-gateway", evidence = "/evidence";
 const runtime = "/tmp/music-deployment-qualification";
 const volume = "tyemirov-site-music-media";
+const galleryVolume = "tyemirov-site-gallery-data";
+const gallerySigningKey = "gallery-deployment-fixture-signing-key-never-production";
+const galleryOrigin = "https://api.tyemirov.net";
 const fixture = "music-publication-fixture";
 const inventory = `${gateway}/deploy/ansible/inventory/hosts.yml`;
 const caddyImage = "docker.io/temirov/caddy-ratelimit@sha256:b45d6bea1555119a0d2e7f44d1e8ead45c22e5e2af22f328f5a843ec9084f5c9";
@@ -25,6 +30,13 @@ await mkdir("/origins"); await mkdir("/provider/base", { recursive: true });
 await mkdir(evidence, { recursive: true });
 for (const name of ["pages-api.jsonl", "pages-http.jsonl"]) await writeFile(join(evidence, name), "");
 const published = JSON.parse(await readFile("/published/publication-results.json", "utf8"));
+assert.equal(published.passed, true);
+assert.deepEqual(Object.keys(published.images).sort(), serviceImages.map(image => image.resourceID).sort());
+const release = JSON.parse(await readFile("/input/release/receipt.json", "utf8"));
+assertReleaseArtifacts(release.artifacts);
+for (const { resourceID, repository } of serviceImages) {
+  assert.equal(published.images[resourceID], `${repository}@${release.artifacts.find(artifact => artifact.resource_id === resourceID).image_digest}`);
+}
 run("git", ["clone", "--quiet", "--branch", "master", "/input/application.bundle", application], "/");
 run("git", ["clone", "--quiet", "/input/gateway.bundle", gateway], "/");
 run("git", ["switch", "-c", "master"], gateway);
@@ -70,7 +82,7 @@ const settings = Object.fromEntries(run("ssh", ["-G", fixture], "/").split("\n")
 const address = JSON.parse(ssh("ip -j -4 route get 1.1.1.1"))[0].prefsrc;
 assert.match(address, /^10\.[0-9.]+$|^192\.168\.[0-9.]+$|^172\.(1[6-9]|2[0-9]|3[01])\.[0-9.]+$/);
 ssh(`test ! -e ${quote(runtime)}`);
-assert.equal(ssh("ss -H -ltn '( sport = :18880 or sport = :18443 or sport = :8092 )'"), "");
+assert.equal(ssh("ss -H -ltn '( sport = :18880 or sport = :18443 or sport = :8092 or sport = :8093 )'"), "");
 const target = {
   ansible_host: address, ansible_port: Number(settings.port), ansible_user: settings.user, ansible_connection: "ssh", ansible_become: false, ansible_become_method: "sudo",
   ansible_ssh_private_key_file: "/qualification/ssh-key",
@@ -116,7 +128,7 @@ try {
     if (status !== null) { assert.equal(status, 200); break; }
     await new Promise((resolve) => setTimeout(resolve, 100));
   }
-  docker(["pull", published.image]);
+  for (const image of Object.values(published.images)) docker(["pull", image]);
   runtimeOwned = true;
   for (const label of ["foundation", "foundation-retry"]) {
     process.stdout.write(`Run the real Gateway command: ${label}.\n`);
@@ -127,7 +139,7 @@ try {
   const networks = JSON.parse(docker(["inspect", caddy]))[0].NetworkSettings.Networks;
   const peers = Object.values(networks).map((network) => `${network.IPAddress}/32`);
   assert.ok(peers.length > 0);
-  await writeFile(join(application, ".mprlab/deploy/.env"), `MUSIC_TRUSTED_PROXIES=${peers.join(",")}\n`);
+  await writeFile(join(application, ".mprlab/deploy/.env"), `MUSIC_TRUSTED_PROXIES=${peers.join(",")}\nGALLERY_TAUTH_SIGNING_KEY=${gallerySigningKey}\nGALLERY_GOOGLE_WEB_CLIENT_ID=fixture.apps.googleusercontent.com\n`);
   const variables = { application_manifest: `${application}/.mprlab/deploy/resources.yml`, gateway_root: gateway, selected_contract: "/provider/selected.json", selected_caddy_config: "/provider/Caddyfile", expected_volume: volume };
   await writeFile("/provider/volume.json", JSON.stringify(variables));
   await writeFile(join(evidence, "media-volume.log"), run(ansible, ["-i", inventory, "/workspace/tests/music/host-volume.yml", "--extra-vars", "@/provider/volume.json"], gateway));
@@ -136,10 +148,10 @@ try {
   await writeFile("/provider/media/selected.json", JSON.stringify({ tracks: { [trackId]: record } }));
   await writeFile("/provider/media/allowlist.json", JSON.stringify({ tracks: [{ id: trackId, playback: { kind: "hls", durationMs: record.durationMs } }] }));
   run("tar", ["-cf", "/provider/media.tar", "-C", "/provider/media", "."], "/");
-  docker(["create", "--name", "music-deployment-transfer", "--mount", `type=volume,src=${volume},dst=/media`, published.image]);
+  docker(["create", "--name", "music-deployment-transfer", "--mount", `type=volume,src=${volume},dst=/media`, published.images.music]);
   try { docker(["cp", "-", "music-deployment-transfer:/media"], { input: await readFile("/provider/media.tar") }); }
   finally { docker(["rm", "music-deployment-transfer"]); }
-  docker(["run", "--rm", "--network", "none", "--platform", "linux/amd64", "--mount", `type=volume,src=${volume},dst=/media,readonly`, "--entrypoint", "/music-media", published.image, "validate", "--media-root", "/media", "--index", "/media/selected.json", "--allowlist", "/media/allowlist.json"]);
+  docker(["run", "--rm", "--network", "none", "--platform", "linux/amd64", "--mount", `type=volume,src=${volume},dst=/media,readonly`, "--entrypoint", "/music-media", published.images.music, "validate", "--media-root", "/media", "--index", "/media/selected.json", "--allowlist", "/media/allowlist.json"]);
   const deploymentReceipts = [];
   const serviceIdentities = [];
   const desiredStates = [];
@@ -148,42 +160,51 @@ try {
     await writeFile(join(evidence, `${label}.log`), run("make", makeArgs));
     deploymentReceipts.push(await readFile("/provider/pages.json", "utf8"));
     assert.equal(run("git", ["rev-parse", "refs/heads/gh-pages"], "/origins/application.git"), published.pagesCommit);
-    serviceIdentities.push(docker(["ps", "--quiet", "--filter", "label=com.mprlab.owner=tyemirov-site"]));
+    serviceIdentities.push(docker(["ps", "--quiet", "--filter", "label=com.mprlab.owner=tyemirov-site"]).split("\n").sort().join("\n"));
     const stateBytes = ssh(`cat ${quote(runtime + "/state/active-resources.json")}`);
     await writeFile(join(evidence, `${label}-state.json`), stateBytes);
     const state = JSON.parse(stateBytes);
-    assert.equal(state.observed.length, 7);
+    assert.deepEqual(state.observed.filter(entry => entry.owner === "tyemirov-site").map(entry => entry.resource.id).sort(),
+      ["api-route", "gallery", "gallery-auth", "gallery-http", "gallery-public", "music", "music-http", "music-public", "private", "website"]);
     assert.ok(state.observed.every((entry) => entry.status === "verified"));
     desiredStates.push(state.desired);
   }
   assert.equal(deploymentReceipts[0], deploymentReceipts[1], "The exact retry must retain the Pages deployment");
   assert.equal(serviceIdentities[0], serviceIdentities[1], "The exact retry must retain the service container");
   assert.deepEqual(desiredStates[0], desiredStates[1], "The exact retry must retain the desired resource generation");
-  const service = docker(["ps", "--quiet", "--filter", "label=com.mprlab.owner=tyemirov-site"]);
+  const service = docker(["ps", "--quiet", "--filter", "label=com.mprlab.owner=tyemirov-site", "--filter", "label=com.mprlab.resource=music", "--filter", "label=com.docker.compose.service=stream"]);
   assert.match(service, /^[0-9a-f]+$/);
   const inspection = JSON.parse(docker(["inspect", service]))[0];
-  assert.equal(inspection.Config.Image, published.image);
+  assert.equal(inspection.Config.Image, published.images.music);
   assert.equal(inspection.State.Running, true);
   assert.equal(inspection.Mounts.find((mount) => mount.Destination === "/media").RW, false);
+  const galleryService = docker(["ps", "--quiet", "--filter", "label=com.mprlab.owner=tyemirov-site", "--filter", "label=com.mprlab.resource=gallery", "--filter", "label=com.docker.compose.service=api"]);
+  assert.match(galleryService, /^[0-9a-f]+$/);
+  const galleryInspection = JSON.parse(docker(["inspect", galleryService]))[0];
+  assert.equal(galleryInspection.Config.Image, published.images.gallery);
+  assert.equal(galleryInspection.State.Running, true);
+  const dataMount = galleryInspection.Mounts.find(mount => mount.Destination === "/data");
+  assert.equal(dataMount.Name, galleryVolume);
+  assert.equal(dataMount.RW, true);
   const audioCA = docker(["exec", caddy, "cat", "/data/caddy/pki/authorities/local/root.crt"]);
-  async function send(path, options = {}) {
+  async function send(path, options = {}, origin = "https://api.tyemirov.net") {
     return new Promise((resolve, reject) => {
-      const connection = request(new URL(path, "https://audio.tyemirov.net"), { ca: audioCA, family: 4, agent: false, ...options,
+      const connection = request(new URL(path, origin), { ca: audioCA, family: 4, agent: false, ...options,
         lookup: (_host, _options, callback) => callback(null, "127.0.0.4", 4),
       }, (response) => {
         const chunks = []; response.on("data", (chunk) => chunks.push(chunk)); response.on("error", reject);
         response.on("end", () => resolve({ status: response.statusCode, headers: response.headers, body: Buffer.concat(chunks) }));
       });
-      connection.on("error", reject); connection.setTimeout(10000, () => connection.destroy(new Error("Audio HTTPS probe timed out")));
+      connection.on("error", reject); connection.setTimeout(10000, () => connection.destroy(new Error("Service HTTPS probe timed out")));
       connection.end(options.body);
     });
   }
-  assert.equal((await send("/readyz")).status, 200);
-  const created = await send("/api/playback-grants", { method: "POST", headers: { Origin: "https://tyemirov.net", "Content-Type": "application/json" }, body: JSON.stringify({ trackId: "test-tone" }) });
+  assert.equal((await send("/music/readyz")).status, 200);
+  const created = await send("/music/playback-grants", { method: "POST", headers: { Origin: "https://tyemirov.net", "Content-Type": "application/json" }, body: JSON.stringify({ trackId: "test-tone" }) });
   assert.equal(created.status, 201, created.body.toString());
   const cookie = created.headers["set-cookie"][0].split(";")[0];
   const grant = JSON.parse(created.body.toString());
-  assert.equal(new URL(grant.playlistUrl).origin, "https://audio.tyemirov.net");
+  assert.equal(new URL(grant.playlistUrl).origin, "https://api.tyemirov.net");
   for (const name of ["index.m3u8", "init.mp4", "seg-00000.m4s"]) {
     const path = new URL(name, grant.playlistUrl).pathname;
     assert.equal((await send(path)).status, 401);
@@ -194,10 +215,51 @@ try {
   const segment = new URL("seg-00000.m4s", grant.playlistUrl).pathname;
   const ranged = await send(segment, { headers: { Cookie: cookie, Range: "bytes=0-15" } });
   assert.equal(ranged.status, 206); assert.equal(ranged.body.length, 16);
-  assert.equal((await send(`/api/playback-grants/${grant.grantId}`, { method: "DELETE", headers: { Cookie: cookie, Origin: "https://tyemirov.net" } })).status, 204);
+  assert.equal((await send(`/music/playback-grants/${grant.grantId}`, { method: "DELETE", headers: { Cookie: cookie, Origin: "https://tyemirov.net" } })).status, 204);
   assert.equal((await send(segment, { headers: { Cookie: cookie } })).status, 410);
-  await writeFile(join(evidence, "http-results.json"), JSON.stringify({ tls: "verified internal CA and declared hostname", readiness: 200, grant: 201, anonymousMedia: 401, authorizedMedia: 200, range: 206, revokedMedia: 410 }) + "\n");
+  const gallerySend = (path, options = {}) => send(path, options, galleryOrigin);
+  function ownerCookie(email) {
+    const now = Math.floor(Date.now() / 1000);
+    const token = [{ alg: "HS256", typ: "JWT" }, { iss: "tauth", user_id: "deployment-test-owner", user_email: email, tenant_id: "tyemirov-gallery", iat: now - 60, exp: now + 3600 }]
+      .map(value => Buffer.from(JSON.stringify(value)).toString("base64url")).join(".");
+    return `tyemirov_gallery_session=${token}.${createHmac("sha256", gallerySigningKey).update(token).digest("base64url")}`;
+  }
+  const ownerHeaders = { Cookie: ownerCookie("vadym@tyemirov.net"), Origin: "https://tyemirov.net" };
+  assert.equal((await gallerySend("/gallery/readyz")).status, 200);
+  assert.equal((await gallerySend("/gallery/draft")).status, 401);
+  assert.equal((await gallerySend("/gallery/draft", { headers: { ...ownerHeaders, Cookie: ownerCookie("other@example.invalid") } })).status, 403);
+  const draftResponse = await gallerySend("/gallery/draft", { headers: ownerHeaders });
+  assert.equal(draftResponse.status, 200);
+  assert.equal(draftResponse.headers["access-control-allow-origin"], "https://tyemirov.net");
+  const draft = JSON.parse(draftResponse.body.toString());
+  const publishedCatalog = JSON.parse(run("git", ["show", `${published.pagesCommit}:data/site.json`], "/origins/application.git"));
+  assert.deepEqual(draft.gallery, publishedCatalog.gallery, "The deployed gallery image must use the catalog from the published Pages artifact.");
+  const publicationResponse = await gallerySend("/gallery/publications", { method: "POST", headers: { ...ownerHeaders, "Content-Type": "application/json" }, body: JSON.stringify({ draftEtag: draftResponse.headers.etag, baseCatalogDigest: (await gallerySend("/gallery/readyz")).headers["x-catalog-digest"] }) });
+  assert.equal(publicationResponse.status, 201);
+  const publication = JSON.parse(publicationResponse.body.toString());
+  assert.equal((await gallerySend(publication.archiveUrl)).status, 401);
+  const archive = await gallerySend(publication.archiveUrl, { headers: ownerHeaders });
+  assert.equal(archive.status, 200);
+  draft.gallery.description = "The deployed gallery keeps this owner draft after restart.";
+  const saved = await gallerySend("/gallery/draft", { method: "PUT", headers: { ...ownerHeaders, "Content-Type": "application/json", "If-Match": draftResponse.headers.etag }, body: JSON.stringify(draft) });
+  assert.equal(saved.status, 200);
+  docker(["restart", galleryService]);
+  const galleryDeadline = performance.now() + 10000;
+  while ((await gallerySend("/gallery/readyz")).status !== 200) {
+    assert.equal(docker(["inspect", galleryService, "--format", "{{.State.Running}}"]), "true");
+    assert.ok(performance.now() < galleryDeadline, "The deployed gallery did not become ready after restart.");
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  const restoredDraft = await gallerySend("/gallery/draft", { headers: ownerHeaders });
+  assert.equal(restoredDraft.status, 200);
+  assert.equal(restoredDraft.headers.etag, saved.headers.etag);
+  assert.deepEqual(JSON.parse(restoredDraft.body.toString()), draft);
+  const restoredArchive = await gallerySend(publication.archiveUrl, { headers: ownerHeaders });
+  assert.equal(restoredArchive.status, 200);
+  assert.equal(restoredArchive.body.equals(archive.body), true, "Restart and draft changes must preserve the publication archive.");
+  await writeFile(join(evidence, "http-results.json"), JSON.stringify({ tls: "verified internal CA and declared hostnames", music: { readiness: 200, grant: 201, anonymousMedia: 401, authorizedMedia: 200, range: 206, revokedMedia: 410 }, gallery: { readiness: 200, anonymousDraft: 401, otherOwner: 403, ownerDraft: 200, publishedCatalog: "matches deployed image", publication: 201, savedDraftAndArchive: "unchanged after restart", auth: "controlled TAuth claims; login not qualified" } }) + "\n");
   await writeFile(join(evidence, "service.log"), docker(["logs", service]));
+  await writeFile(join(evidence, "gallery-service.log"), docker(["logs", galleryService]));
   await cp(lifecycle, join(evidence, "lifecycle"), { recursive: true });
   await copyFile("/provider/pages.json", join(evidence, "pages-provider.json"));
   const pagesCA = await readFile("/provider/pages.crt");
@@ -216,7 +278,7 @@ try {
   assert.equal(docker(["ps", "--all", "--quiet", "--filter", "label=com.mprlab.owner=tyemirov-site"]), "");
   assert.equal(docker(["ps", "--all", "--quiet", "--filter", "label=com.docker.compose.project=mprlab-caddy"]), "");
   ssh(`test ! -e ${quote(runtime)}`);
-  const result = { passed: true, applicationCommit, gatewayCommit, image: published.image, pagesCommit: published.pagesCommit, foundation: "actual Gateway deploy and retry", application: "actual application deploy and retry", cleanup: "Gateway cleanup playbook and retry", topology: "one isolated Linux host in gateway and computercat groups", github: "local Pages API and HTTPS Git artifact fixture" };
+  const result = { passed: true, applicationCommit, gatewayCommit, images: published.images, pagesCommit: published.pagesCommit, foundation: "actual Gateway deploy and retry", application: "actual application deploy and retry", cleanup: "Gateway cleanup playbook and retry", topology: "one isolated Linux host in gateway and computercat groups", github: "local Pages API and HTTPS Git artifact fixture" };
   await writeFile(join(evidence, "deployment-results.json"), JSON.stringify(result, null, 2) + "\n");
   process.stdout.write(JSON.stringify(result) + "\n");
 } catch (error) { failures.push(error); }

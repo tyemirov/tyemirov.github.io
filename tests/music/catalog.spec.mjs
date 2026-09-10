@@ -9,9 +9,9 @@ test("global category filtering supports selection, clearing, and keyboard contr
   await page.setViewportSize({ width: 390, height: 844 });
   const site = await (await context.request.get("/data/site.json")).json();
   await page.goto("/");
-  const category = site.essays.items[0].kicker;
+  const category = site.articles.items[0].kicker;
   await page.locator(".essay-list").getByRole("button", { name: category, exact: true }).first().click();
-  await expect(page.locator(".essay-list h2")).toHaveText(site.essays.items.filter((item) => item.kicker === category).map((item) => item.title));
+  await expect(page.locator(".essay-list h2")).toHaveText(site.articles.items.filter((item) => item.kicker === category).map((item) => item.title));
   for (const section of [".project-section", ".music-section", ".arts-section"]) await expect(page.locator(section)).toBeHidden();
   const selected = page.locator(".essay-list").getByRole("button", { name: category, exact: true }).first();
   await expect(selected).toHaveAttribute("aria-pressed", "true");
@@ -20,7 +20,7 @@ test("global category filtering supports selection, clearing, and keyboard contr
   await expect(page.locator(".essay-list h2")).toHaveCount(4);
   for (const section of [".project-section", ".music-section", ".arts-section"]) await expect(page.locator(section)).toBeVisible();
   const filters = page.getByRole("navigation", { name: "Filter content" });
-  for (const [label, selector] of [[site.mprlab.label, ".project-section"], [site.music.label, ".music-section"], [site.arts.label, ".arts-section"], [site.essays.label, ".essay-section"]]) {
+  for (const [label, selector] of [[site.mprlab.label, ".project-section"], [site.music.label, ".music-section"], [site.gallery.label, ".arts-section"], [site.articles.label, ".essay-section"]]) {
     const button = filters.getByRole("button", { name: label, exact: true });
     await button.focus(); await button.press("Space");
     await expect(button).toHaveAttribute("aria-pressed", "true");
@@ -38,7 +38,7 @@ test("global category filtering selects before the card limit and accepts source
   await context.route(/loopaware\.mprlab\.com/, (route) => route.abort());
   await context.route("**/data/site.json", async (route) => {
     const site = await (await route.fetch()).json();
-    site.essays.items.push({ title: "Source-tagged fifth essay", source: "Research", url: "https://example.com/essay", summary: "Test catalog entry.", order: 50, status: "live" });
+    site.articles.items.push({ ...structuredClone(site.articles.items[0]), id: "fifth-article", slug: "fifth-article", title: "Source-tagged fifth essay", source: {label:"Research",url:"https://example.com/essay"}, summary: "Test catalog entry.", order: 50, status: "live" });
     await route.fulfill({ json: site });
   });
   await page.goto("/");

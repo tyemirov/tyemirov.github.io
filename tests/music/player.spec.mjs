@@ -81,7 +81,7 @@ test("the bottom player stays pinned during scroll and leaves the footer accessi
     const footer = await page.locator("mpr-footer").boundingBox();
     expect(footer.y + footer.height).toBeLessThanOrEqual((await player.boundingBox()).y + 1);
   }
-  await context.route("**/api/playback-grants", (route) => route.fulfill({ status: 503, body: "Unavailable" }));
+  await context.route("**/music/playback-grants", (route) => route.fulfill({ status: 503, body: "Unavailable" }));
   await page.locator(".track-play").nth(1).click();
   await expect(player.getByRole("alert")).toBeVisible();
   await expect.poll(async () => {
@@ -126,7 +126,7 @@ test("cold playback starts within three seconds at 10 Mbps and 100 ms latency", 
 });
 
 test("a later track selection owns the player after a delayed grant response", async ({ page, context }) => {
-  await context.route("**/api/playback-grants", async (route) => {
+  await context.route("**/music/playback-grants", async (route) => {
     if (route.request().postDataJSON().trackId.endsWith("-01")) {
       await new Promise((resolve) => setTimeout(resolve, 350));
     }
@@ -146,7 +146,7 @@ test("a later track selection owns the player after a delayed grant response", a
 test("an invalid API playlist produces Retry before any media request", async ({ page, context }) => {
   let mediaRequests = 0;
   page.on("request", (request) => { if (request.url().includes("/hls/")) mediaRequests++; });
-  await context.route("**/api/playback-grants", async (route) => {
+  await context.route("**/music/playback-grants", async (route) => {
     const response = await route.fetch();
     const grant = await response.json();
     grant.playlistUrl = "https://untrusted.example/index.m3u8";
@@ -162,9 +162,9 @@ test("an invalid API playlist produces Retry before any media request", async ({
 
 test("resume replaces one lost grant and preserves the paused position", async ({ page, context }) => {
   let creations = 0, reads = 0;
-  page.on("request", (request) => { if (request.method() === "POST" && request.url().endsWith("/api/playback-grants")) creations++; });
-  await context.route("**/api/playback-grants/*", async (route) => {
-    if (route.request().method() === "GET" && reads++ === 0) await route.fulfill({ status: 401, json: { error: { code: "session_required", message: "Session expired.", requestId: "AAAAAAAAAAAAAAAA" } } });
+  page.on("request", (request) => { if (request.method() === "POST" && request.url().endsWith("/music/playback-grants")) creations++; });
+  await context.route("**/music/playback-grants/*", async (route) => {
+    if (route.request().method() === "GET" && reads++ === 0) await route.fulfill({ status: 401, json: { code: "session_required", message: "Session expired.", requestId: "AAAAAAAAAAAAAAAA" } });
     else await route.continue();
   });
   await page.goto("/music/soliloquies-vol-i/");
@@ -182,7 +182,7 @@ test("resume replaces one lost grant and preserves the paused position", async (
 
 test("a playing grant near expiry renews without changing the source", async ({ page, context }) => {
   let renewed;
-  await context.route("**/api/playback-grants", async (route) => {
+  await context.route("**/music/playback-grants", async (route) => {
     const response = await route.fetch();
     const grant = await response.json();
     grant.expiresAt = new Date(Date.parse(grant.serverTime) + 60000).toISOString();
@@ -201,8 +201,8 @@ test("a playing grant near expiry renews without changing the source", async ({ 
 
 test("Retry honors the server delay without an automatic request loop", async ({ page, context }) => {
   let creations = 0;
-  await context.route("**/api/playback-grants", async (route) => {
-    if (++creations === 1) await route.fulfill({ status: 429, headers: { "Retry-After": "2", "Access-Control-Expose-Headers": "Retry-After" }, json: { error: { code: "rate_limited", message: "Too many requests.", requestId: "AAAAAAAAAAAAAAAA" } } });
+  await context.route("**/music/playback-grants", async (route) => {
+    if (++creations === 1) await route.fulfill({ status: 429, headers: { "Retry-After": "2", "Access-Control-Expose-Headers": "Retry-After" }, json: { code: "rate_limited", message: "Too many requests.", requestId: "AAAAAAAAAAAAAAAA" } });
     else await route.continue();
   });
   await page.goto("/music/soliloquies-vol-i/");
@@ -220,10 +220,10 @@ test("Retry honors the server delay without an automatic request loop", async ({
 
 test("repeated authorization failure stops after one replacement", async ({ page, context }) => {
   let creations = 0;
-  page.on("request", (request) => { if (request.method() === "POST" && request.url().endsWith("/api/playback-grants")) creations++; });
-  await context.route("**/hls/**", (route) => route.fulfill({ status: 410, headers: { "Access-Control-Allow-Origin": "https://localhost:18443", "Access-Control-Allow-Credentials": "true" }, json: { error: { code: "grant_expired", message: "Expired.", requestId: "AAAAAAAAAAAAAAAA" } } }));
-  await context.route("**/api/playback-grants/*", async (route) => {
-    if (route.request().method() === "GET") await route.fulfill({ status: 410, json: { error: { code: "grant_expired", message: "Expired.", requestId: "AAAAAAAAAAAAAAAA" } } });
+  page.on("request", (request) => { if (request.method() === "POST" && request.url().endsWith("/music/playback-grants")) creations++; });
+  await context.route("**/hls/**", (route) => route.fulfill({ status: 410, headers: { "Access-Control-Allow-Origin": "https://localhost:18443", "Access-Control-Allow-Credentials": "true" }, json: { code: "grant_expired", message: "Expired.", requestId: "AAAAAAAAAAAAAAAA" } }));
+  await context.route("**/music/playback-grants/*", async (route) => {
+    if (route.request().method() === "GET") await route.fulfill({ status: 410, json: { code: "grant_expired", message: "Expired.", requestId: "AAAAAAAAAAAAAAAA" } });
     else await route.continue();
   });
   await page.goto("/music/soliloquies-vol-i/");
@@ -235,7 +235,7 @@ test("repeated authorization failure stops after one replacement", async ({ page
 
 for (const scenario of ["configuration", "unsupported browser"]) {
   test(`${scenario} failure preserves album content and platform links`, async ({ page, context }) => {
-    if (scenario === "configuration") await context.route("**/music/player-config.json", (route) => route.fulfill({ status: 503, body: "Unavailable" }));
+    if (scenario === "configuration") await context.route("**/config-site.json", (route) => route.fulfill({ status: 503, body: "Unavailable" }));
     else await context.addInitScript(() => {
       HTMLMediaElement.prototype.canPlayType = () => "";
       Object.defineProperty(window, "MediaSource", { value: undefined });
@@ -281,7 +281,7 @@ test("resume after a real service restart restores playback once", async ({ page
   await player.getByLabel("Seek").fill("6");
   expect((await context.request.post("/fixture-control/restart")).status()).toBe(204);
   let replacements = 0;
-  page.on("request", (request) => { if (request.method() === "POST" && request.url().endsWith("/api/playback-grants")) replacements++; });
+  page.on("request", (request) => { if (request.method() === "POST" && request.url().endsWith("/music/playback-grants")) replacements++; });
   await player.getByRole("button", { name: "Play", exact: true }).click();
   await expect.poll(() => audio.evaluate((element) => element.currentTime)).toBeGreaterThan(6);
   expect(replacements).toBe(1);
@@ -291,7 +291,7 @@ test("two tabs recover from concurrent first-cookie creation", async ({ page, co
   const other = await context.newPage();
   let arrived = 0, release;
   const both = new Promise((resolve) => { release = resolve; });
-  await context.route("**/api/playback-grants", async (route) => {
+  await context.route("**/music/playback-grants", async (route) => {
     if (++arrived <= 2) { if (arrived === 2) release(); await both; }
     await route.continue();
   });
@@ -305,7 +305,7 @@ test("two tabs recover from concurrent first-cookie creation", async ({ page, co
 test("a successful body with the wrong HTTP status is rejected", async ({ page, context }) => {
   let mediaRequests = 0;
   page.on("request", (request) => { if (request.url().includes("/hls/")) mediaRequests++; });
-  await context.route("**/api/playback-grants", async (route) => {
+  await context.route("**/music/playback-grants", async (route) => {
     const response = await route.fetch();
     await route.fulfill({ response, status: 202 });
   });
@@ -360,7 +360,7 @@ test("changing a track in one tab preserves the other tab's grant", async ({ pag
   await page.locator("#music-player").getByRole("button", { name: "Next track" }).click();
   await expect(page.locator(".player-track")).toHaveText("To be, or not to be (Hamlet)");
   let replacements = 0;
-  other.on("request", (request) => { if (request.method() === "POST" && request.url().endsWith("/api/playback-grants")) replacements++; });
+  other.on("request", (request) => { if (request.method() === "POST" && request.url().endsWith("/music/playback-grants")) replacements++; });
   await other.locator("#music-player").getByLabel("Seek").fill("6");
   await other.locator("#music-player").getByRole("button", { name: "Play", exact: true }).click();
   await expect.poll(() => other.locator("audio").evaluate((element) => element.currentTime)).toBeGreaterThan(6);
@@ -376,7 +376,7 @@ test("a media error while paused defers recovery until Play", async ({ page }) =
   await player.getByRole("button", { name: "Pause", exact: true }).click();
   await player.getByLabel("Seek").fill("6");
   let reads = 0;
-  page.on("request", (request) => { if (request.method() === "GET" && request.url().includes("/api/playback-grants/")) reads++; });
+  page.on("request", (request) => { if (request.method() === "GET" && request.url().includes("/music/playback-grants/")) reads++; });
   await audio.evaluate((element) => element.dispatchEvent(new Event("error")));
   await expect(player.getByRole("button", { name: "Play", exact: true })).toBeEnabled();
   expect(reads).toBe(0);
@@ -390,17 +390,17 @@ test("reload releases only the departing document's grant across nine visits", a
   await context.unrouteAll({ behavior: "wait" });
   const other = await context.newPage();
   await other.goto("/music/soliloquies-vol-i/");
-  const otherGrantResponse = other.waitForResponse((response) => response.request().method() === "POST" && response.url().endsWith("/api/playback-grants"));
+  const otherGrantResponse = other.waitForResponse((response) => response.request().method() === "POST" && response.url().endsWith("/music/playback-grants"));
   await other.locator(".track-play").first().click();
   const otherGrant = await (await otherGrantResponse).json();
   await expect.poll(() => other.locator("audio").evaluate((audio) => audio.currentTime)).toBeGreaterThan(0.2);
   await other.locator("#music-player").getByRole("button", { name: "Pause", exact: true }).click();
   await page.goto("/music/soliloquies-vol-i/");
-  const grantStatus = async (grant) => (await context.request.get(`https://localhost:18444/api/playback-grants/${grant.grantId}`, {
+  const grantStatus = async (grant) => (await context.request.get(`https://localhost:18444/music/playback-grants/${grant.grantId}`, {
     headers: { Origin: "https://localhost:18443" },
   })).status();
   for (let visit = 0; visit < 9; visit++) {
-    const response = page.waitForResponse((response) => response.request().method() === "POST" && response.url().endsWith("/api/playback-grants"));
+    const response = page.waitForResponse((response) => response.request().method() === "POST" && response.url().endsWith("/music/playback-grants"));
     await page.locator(".track-play").first().click();
     const created = await response;
     expect(created.status()).toBe(201);
@@ -433,12 +433,12 @@ for (const resource of ["index.m3u8", "init.mp4", "seg-00000.m4s"]) {
   test(`HLS rate limits on ${resource} preserve the server cooldown`, async ({ page, context }, testInfo) => {
     test.skip(testInfo.project.name !== "chromium-hls", "The hls.js request adapter owns HTTP error details.");
     let limitedRequests = 0, grantReads = 0;
-    page.on("request", (request) => { if (request.method() === "GET" && request.url().includes("/api/playback-grants/")) grantReads++; });
+    page.on("request", (request) => { if (request.method() === "GET" && request.url().includes("/music/playback-grants/")) grantReads++; });
     await context.route(`**/hls/**/${resource}`, async (route) => {
       limitedRequests++;
       await route.fulfill({ status: 429, headers: { "Retry-After": "60", "Access-Control-Expose-Headers": "Retry-After",
         "Access-Control-Allow-Origin": "https://localhost:18443", "Access-Control-Allow-Credentials": "true" },
-      json: { error: { code: "rate_limited", message: "Too many requests.", requestId: "AAAAAAAAAAAAAAAA" } } });
+      json: { code: "rate_limited", message: "Too many requests.", requestId: "AAAAAAAAAAAAAAAA" } });
     });
     await page.goto("/music/soliloquies-vol-i/");
     await page.clock.install();

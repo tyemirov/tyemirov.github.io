@@ -1,9 +1,11 @@
 // @ts-check
 import { test, expect } from "./test-fixtures.mjs";
+import { readFileSync } from "node:fs";
 
-const paths = ["/", "/civilization/", "/decisioning/", "/freedom/", "/gallery/", "/timeseries/", "/music/",
-  "/music/egyptian-nights/", "/music/february-get-ink-and-weep/", "/music/pump-it/", "/music/singing-pasternak/",
-  "/music/soliloquies-vol-i/", "/music/soliloquies-vol-ii/", "/music/songs-of-desire/"];
+const catalog = JSON.parse(readFileSync(new URL("../../data/site.json", import.meta.url), "utf8"));
+const paths = ["/", "/civilization/", "/decisioning/", "/freedom/", "/gallery/", "/timeseries/", "/music/", "/articles/",
+  ...catalog.music.items.filter(album => album.status === "live").map(album => `/music/${album.slug}/`),
+  ...catalog.articles.items.filter(article => article.status === "live").map(article => `/articles/${article.slug}/`)];
 
 test.beforeEach(async ({ context }) => {
   await context.route(/loopaware\.mprlab\.com/, route => route.abort());
