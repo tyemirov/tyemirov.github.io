@@ -1,7 +1,7 @@
 // @ts-check
 
 const ID = /^[a-z0-9][a-z0-9-]{0,79}$/;
-export const PLATFORMS = Object.freeze({ spotify: "Spotify", apple: "Apple Music", youtube: "YouTube Music", amazon: "Amazon Music" });
+export const PLATFORMS = Object.freeze({ spotify: "Spotify", apple: "Apple Music", youtube: "YouTube Music", amazon: "Amazon Music", suno: "Suno" });
 
 /** @typedef {{kind: "external"} | {kind: "hls", durationMs: number}} Playback */
 /** @typedef {{id: string, title: string, playback: Playback}} Track */

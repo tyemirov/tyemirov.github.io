@@ -1,5 +1,6 @@
 // @ts-check
 import { PLATFORMS } from "./catalog.js";
+import { musicIcon } from "./icons.js";
 
 /** @param {string} tag @param {string} className @param {string} [text] */
 function element(tag, className, text) {
@@ -93,7 +94,8 @@ export function renderAlbumDetails(album) {
       button.className = "track-play";
       button.dataset.playTrack = track.id;
       button.setAttribute("aria-label", `Play ${track.title}`);
-      button.textContent = "Play";
+      button.title = `Play ${track.title}`;
+      button.innerHTML = musicIcon("play");
       row.append(button);
     }
     list.append(row);
