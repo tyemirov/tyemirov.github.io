@@ -1,25 +1,33 @@
 // @ts-check
 import { initializeSiteFooter } from "./assets/js/footer.js";
-import { validateMusic } from "./music/catalog.js";
+import { validatePublicCatalog } from "./assets/js/catalog.js";
 import { renderMusicIndex, renderAlbumDetails, renderMusicError, renderAlbumNotFound } from "./music/render.js";
-import { fetchExhibitCatalog } from "./gallery/js/core/gateway.js";
+import { orderedArtworks } from "./gallery/js/core/catalog.js";
 
 const SITE_DATA_URL = "/data/site.json";
 
 let currentFilter = null;
 let siteData = null;
-let galleryExhibits = [];
+/** @type {AbortController | null} */
+let homepageRequest = null;
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (document.querySelector(".hero")) void hydrateHomePage();
+  if (!document.querySelector(".hero")) return;
+  void hydrateHomePage();
+  window.addEventListener("pageshow", event => {
+    if (event.persisted) void hydrateHomePage();
+  });
+  window.addEventListener("pagehide", event => {
+    if (!event.persisted) homepageRequest?.abort();
+  });
 });
 
-async function loadSite() {
-  const response = await fetch(SITE_DATA_URL, { headers: { Accept: "application/json" } });
+/** @param {AbortSignal} [signal] */
+async function loadSite(signal) {
+  const response = await fetch(SITE_DATA_URL, { signal, cache: "no-cache", headers: { Accept: "application/json" } });
   if (!response.ok) throw new Error(`Failed to load the site catalog: ${response.status}`);
   const data = await response.json();
-  validateMusic(data.music);
-  return data;
+  return validatePublicCatalog(data);
 }
 
 /** @param {"index" | "album"} kind */
@@ -58,28 +66,19 @@ export async function hydrateMusicPage(kind) {
 }
 
 async function hydrateHomePage() {
+  homepageRequest?.abort();
+  const request = new AbortController();
+  homepageRequest = request;
   try {
-    siteData = await loadSite();
+    siteData = await loadSite(request.signal);
     renderAll(siteData);
-    void loadGalleryPreviews();
   } catch (error) {
+    if (request.signal.aborted) return;
     renderMusicError("Music is unavailable. Please reload the page.");
     document.querySelector(".music-section").classList.remove("is-hidden");
     console.error("Site catalog failed.", error);
-  }
-}
-
-async function loadGalleryPreviews() {
-  try {
-    const catalog = await fetchExhibitCatalog();
-    galleryExhibits = catalog.exhibits;
-    renderArts(siteData.arts);
-  } catch (error) {
-    const notice = document.createElement("p");
-    notice.setAttribute("role", "status");
-    notice.textContent = "Gallery previews are unavailable. Open the gallery to try again.";
-    document.querySelector(".arts-section .section-blurb").append(notice);
-    console.error("Gallery previews failed.", error);
+  } finally {
+    if (homepageRequest === request) homepageRequest = null;
   }
 }
 
@@ -96,9 +95,9 @@ function renderAll(data) {
 function renderContent(data) {
   renderFilters(data);
   renderProjects(data.mprlab);
-  renderEssays(data.essays);
+  renderEssays(data.articles);
   renderMusic(data.music);
-  renderArts(data.arts);
+  renderArts(data.gallery);
 }
 
 function renderFilters(data) {
@@ -109,9 +108,9 @@ function renderFilters(data) {
     filters.setAttribute("aria-label", "Filter content");
     document.querySelector("main").prepend(filters);
   }
-  const sections = [data.mprlab, data.essays, data.music, data.arts];
+  const sections = [{ ...data.mprlab, items: data.projects }, data.articles, data.music, data.gallery];
   const tags = [...new Set(sections.flatMap((section) => [section.label, ...(section.items || []).filter(liveOnly).map(itemTag).filter(Boolean)]))];
-  filters.replaceChildren(createFilterButton(null, "All"), ...tags.map((tag) => createFilterButton(tag, tag)));
+  filters.replaceChildren(createFilterButton(null, "All"), ...[...new Set([...tags, ...siteData.projects.map(item=>item.source), ...siteData.articles.items.map(item=>item.source.label)])].map((tag) => createFilterButton(tag, tag)));
 }
 
 function createFilterButton(tag, label) {
@@ -128,8 +127,8 @@ function createFilterButton(tag, label) {
   return button;
 }
 
-function itemTag(item) { return item.kicker || item.source; }
-function matchesFilter(item, section) { return currentFilter === null || currentFilter === section.label || currentFilter === itemTag(item); }
+function itemTag(item) { return item.kicker; }
+function matchesFilter(item, section) { return currentFilter === null || currentFilter === section.label || currentFilter === itemTag(item) || currentFilter === (typeof item.source === "string" ? item.source : item.source?.label); }
 
 function renderSiteMeta(site) {
   if (!site) return;
@@ -180,7 +179,11 @@ function renderProjects(mprlab) {
   if (!projectSection || !mprlab) return;
 
   updateText(".project-section .section-blurb .lead", mprlab.blurb);
-  projectSection.classList.toggle("is-hidden", !matchesFilter(mprlab, mprlab));
+  let cards = projectSection.querySelector('.project-list');
+  if (!cards) { cards = document.createElement('div'); cards.className = 'project-list'; projectSection.append(cards); }
+  const selected = siteData.projects.filter(project => matchesFilter(project, mprlab)).sort(byOrder);
+  cards.replaceChildren(...selected.map(createProjectCard));
+  projectSection.classList.toggle('is-hidden', !selected.length);
 }
 
 function renderEssays(essays) {
@@ -215,10 +218,8 @@ function renderArts(arts) {
   const artsSection = document.querySelector(".arts-section");
   if (!artsSection || !arts) return;
 
-  const item = (arts.items || []).filter(liveOnly).find((candidate) => matchesFilter(candidate, arts));
-  if (item) {
-    updateText(".arts-section .section-blurb .lead", item.summary);
-  }
+  const item = currentFilter === null || currentFilter === arts.label;
+  updateText(".arts-section .section-blurb .lead", arts.description);
 
   let previews = artsSection.querySelector(".arts-preview-list");
   if (!previews) {
@@ -226,20 +227,31 @@ function renderArts(arts) {
     previews.className = "arts-preview-list";
     artsSection.querySelector(".section-actions").before(previews);
   }
-  previews.replaceChildren(...galleryExhibits.flatMap((exhibit) => exhibit.artworks.map((artwork) => {
+  const featured = new Map();
+  for (const exhibit of siteData.gallery.exhibits) {
+    for (const artwork of orderedArtworks(siteData.gallery, exhibit.sections.flatMap(section => section.artworkIds))) {
+      if (!featured.has(artwork.id)) featured.set(artwork.id, { artwork, title: exhibit.title, href: `/gallery/exhibits/${encodeURIComponent(exhibit.id)}/` });
+    }
+  }
+  for (const collection of siteData.gallery.collections) {
+    for (const artwork of orderedArtworks(siteData.gallery, collection.artworkIds)) {
+      if (!featured.has(artwork.id)) featured.set(artwork.id, { artwork, title: collection.title, href: `/gallery/collections/${encodeURIComponent(collection.id)}/` });
+    }
+  }
+  previews.replaceChildren(...[...featured.values()].map(({ artwork, title, href }) => {
     const link = document.createElement("a");
     link.className = "arts-preview";
-    link.href = `/gallery/#/exhibits/${encodeURIComponent(exhibit.id)}`;
-    link.setAttribute("aria-label", `${artwork.title} — ${exhibit.title}`);
+    link.href = href;
+    link.setAttribute("aria-label", `${artwork.title} — ${title}`);
     const image = document.createElement("img");
-    image.src = `/gallery/${artwork.preview}`;
-    image.alt = artwork.title;
+    image.src = artwork.image.cardUrl;
+    image.alt = artwork.alt;
     image.loading = "lazy";
     const caption = document.createElement("span");
     caption.textContent = artwork.title;
     link.append(image, caption);
     return link;
-  })));
+  }));
 
   updateText(".arts-section .notes-label", arts.label);
   updateText(".arts-section .section-title", arts.title);
@@ -285,7 +297,7 @@ function createProjectCard(project) {
   const title = document.createElement("h2");
   const titleLink = document.createElement("a");
   titleLink.className = "project-title-link";
-  titleLink.href = project.href || "#";
+  titleLink.href = project.kind === "tool" ? project.href : `/articles/${siteData.articles.items.find(article => article.id === project.parts[0].articleId).slug}/`;
   titleLink.textContent = project.title || "Untitled";
   title.append(titleLink);
 
@@ -293,7 +305,8 @@ function createProjectCard(project) {
   summary.className = "card-body";
   summary.textContent = project.summary || "";
 
-  card.append(kicker, title, summary);
+  const tags=document.createElement('div'); tags.className='card-tags'; tags.append(kicker,createFilterButton(project.source,project.source));
+  card.append(tags, title, summary);
 
   if (Array.isArray(project.parts)) {
     const list = document.createElement("ul");
@@ -301,9 +314,9 @@ function createProjectCard(project) {
     project.parts.forEach(part => {
       const li = document.createElement("li");
       const a = document.createElement("a");
-      a.href = part.url;
-      a.target = "_blank";
-      a.textContent = part.label;
+      const article = siteData.articles.items.find(item => item.id === part.articleId);
+      a.href = `/articles/${article.slug}/`;
+      a.textContent = article.title;
       li.append(a);
       list.append(li);
     });
@@ -314,27 +327,12 @@ function createProjectCard(project) {
   actions.className = "project-actions";
   const link = document.createElement("a");
   link.className = "project-link";
-  link.href = project.href || "#";
-  link.textContent = project.cta || link.href;
+  link.href = titleLink.href;
+  link.textContent = project.kind === "tool" ? project.cta : "Read series";
   actions.append(link);
   card.append(actions);
 
   return card;
-}
-
-function createProjectEssayLink(essay) {
-  const link = document.createElement("a");
-  link.className = "project-essay-link";
-  link.href = essay.url;
-  link.target = "_blank";
-  const label = document.createElement("span");
-  label.className = "project-essay-label";
-  label.textContent = essay.label || "Companion essay";
-  const title = document.createElement("span");
-  title.className = "project-essay-title";
-  title.textContent = essay.title;
-  link.append(label, title);
-  return link;
 }
 
 function createArticleCard(article) {
@@ -345,8 +343,7 @@ function createArticleCard(article) {
 
   const title = document.createElement("h2");
   const titleLink = document.createElement("a");
-  titleLink.href = article.url;
-  titleLink.target = "_blank";
+  titleLink.href = `/articles/${article.slug}/`;
   titleLink.textContent = article.title;
   title.append(titleLink);
 
@@ -358,12 +355,12 @@ function createArticleCard(article) {
   actions.className = "project-actions";
   const link = document.createElement("a");
   link.className = "project-link";
-  link.href = article.url;
-  link.target = "_blank";
-  link.textContent = article.cta || "Read on Substack";
+  link.href = `/articles/${article.slug}/`;
+  link.textContent = "Read article";
   actions.append(link);
 
-  card.append(kicker, title, summary, actions);
+  const tags=document.createElement('div'); tags.className='card-tags'; tags.append(kicker,createFilterButton(article.source.label,article.source.label));
+  card.append(tags, title, summary, actions);
   return card;
 }
 
@@ -382,7 +379,7 @@ function createMusicItem(item) {
 
   const meta = document.createElement("p");
   meta.className = "article-meta-tag";
-  meta.textContent = item.latest ? "Latest Release" : (item.releaseDate || "Music");
+  meta.textContent = item.latest ? "Latest Release" : item.releaseDate.value;
   if (item.latest) meta.style.color = "var(--copper)";
 
   const title = document.createElement("h3");
@@ -403,4 +400,4 @@ function updateText(selector, value) {
 }
 
 function liveOnly(item) { return !item.status || item.status === "live"; }
-function byOrder(a, b) { return (a.order || 999) - (b.order || 999); }
+function byOrder(a, b) { return a.order - b.order || String(a.id ?? a.slug ?? a.label).localeCompare(String(b.id ?? b.slug ?? b.label)); }
