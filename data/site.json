@@ -53,7 +53,7 @@
     "role": "Technical Founder & Engineering Leader",
     "footnote": "Meta · BlackRock · Shopify · Morgan Stanley",
     "alt": "Portrait of Vadym Tyemirov",
-    "sizes": "(max-width: 640px) 72vw, 360px",
+    "sizes": "(max-width: 1000px) 80px, 112px",
     "image": {
       "webp": {
         "srcset": "assets/profile/vadym-tyemirov-360.webp 360w, assets/profile/vadym-tyemirov-720.webp 720w",
@@ -179,13 +179,93 @@
     "title": "Albums, song cycles, and vocal settings.",
     "items": [
       {
+        "slug": "soliloquies-vol-ii",
+        "title": "Soliloquies Vol. II",
+        "subtitle": "Meditations",
+        "coverImage": "/music/covers/soliloquies-vol-ii.jpg",
+        "releaseDate": "2026",
+        "status": "live",
+        "latest": true,
+        "shortDescription": "Nine vocal settings of philosophy, drama, and poetry.",
+        "streamingLinks": {
+          "suno": "https://suno.com/playlist/260e3808-961d-42e7-97d3-222770ae14ac"
+        },
+        "tracks": [
+          {
+            "id": "soliloquies-vol-ii-01",
+            "title": "Meditations 2.1 (Marcus Aurelius)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-02",
+            "title": "Some things are in our power and others are not (Epictetus)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-03",
+            "title": "Of Anger (Seneca)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-04",
+            "title": "Hymn to Zeus (Cleanthes of Assos)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-05",
+            "title": "Meditations 5.2 (Marcus Aurelius)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-06",
+            "title": "All Is Dross That Is Not Helena (Marlowe)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-07",
+            "title": "The Most Terrible Grief Of All (Euripides)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-08",
+            "title": "I Freely Chose (Aeschylus)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-09",
+            "title": "For Whom the Bell Tolls (John Donne)",
+            "playback": {
+              "kind": "external"
+            }
+          }
+        ],
+        "credits": "Vadym Tyemirov",
+        "notes": "The second volume brings together Marcus Aurelius, Epictetus, Seneca, Cleanthes, Marlowe, Euripides, Aeschylus, and John Donne.",
+        "order": 5
+      },
+      {
         "slug": "soliloquies-vol-i",
         "title": "Soliloquies Vol. I",
         "subtitle": "A cycle of intimate vocal works built around solitary speech, memory, and inward argument.",
         "coverImage": "/music/covers/soliloquies-vol-i.jpg",
         "releaseDate": "2026",
         "status": "live",
-        "latest": true,
         "shortDescription": "Solitary speech and memory through the lens of classical and modern poetry.",
         "streamingLinks": {
           "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
