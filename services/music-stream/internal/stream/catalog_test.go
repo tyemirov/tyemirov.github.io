@@ -53,7 +53,7 @@ func TestRequestLogsIdentifyKnownTracksWithoutPrivateValues(t *testing.T) {
 		}
 	}
 	readLog("test-tone")
-	for _, path := range []string{playlist.Path, "/api/playback-grants/" + grant.GrantID} {
+	for _, path := range []string{playlist.Path, "/music/playback-grants/" + grant.GrantID} {
 		response := fixture.request(t, "GET", path, nil, cookie, nil)
 		if response.StatusCode != 200 {
 			t.Fatalf("authorized request returned %d", response.StatusCode)
@@ -64,15 +64,15 @@ func TestRequestLogsIdentifyKnownTracksWithoutPrivateValues(t *testing.T) {
 		t.Fatal("grant renewal failed")
 	}
 	readLog("test-tone")
-	if fixture.request(t, "DELETE", "/api/playback-grants/"+grant.GrantID, nil, cookie, map[string]string{"Origin": websiteOrigin}).StatusCode != 204 {
+	if fixture.request(t, "DELETE", "/music/playback-grants/"+grant.GrantID, nil, cookie, map[string]string{"Origin": websiteOrigin}).StatusCode != 204 {
 		t.Fatal("grant removal failed")
 	}
 	readLog("test-tone")
-	for _, path := range []string{"/readyz", playlist.Path} {
+	for _, path := range []string{"/music/readyz", playlist.Path} {
 		fixture.request(t, "GET", path, nil, nil, nil)
 		readLog("")
 	}
-	fixture.request(t, "POST", "/api/playback-grants", []byte(`{"trackId":"unknown-track"}`), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
+	fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"unknown-track"}`), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
 	readLog("")
 }
 
@@ -95,7 +95,7 @@ func TestRejectedCatalogKeepsPlaybackAndDisablementStopsIt(t *testing.T) {
 	if fixture.request(t, "GET", playlist.Path, nil, cookie, nil).StatusCode != 410 {
 		t.Fatal("disabled track still authorizes media")
 	}
-	if fixture.request(t, "POST", "/api/playback-grants", []byte(`{"trackId":"test-tone"}`), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"}).StatusCode != 404 {
+	if fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"}).StatusCode != 404 {
 		t.Fatal("disabled track still creates grants")
 	}
 }
@@ -145,10 +145,10 @@ func TestMissingMediaReadinessAndSafeLogs(t *testing.T) {
 	if err := os.Remove(filepath.Join(fixture.mediaRoot, "packages", fixture.assetID, "seg-00000.m4s")); err != nil {
 		t.Fatal(err)
 	}
-	if fixture.request(t, "GET", "/healthz", nil, nil, nil).StatusCode != 200 {
+	if fixture.request(t, "GET", "/music/healthz", nil, nil, nil).StatusCode != 200 {
 		t.Fatal("missing media changed liveness")
 	}
-	if fixture.request(t, "GET", "/readyz", nil, nil, nil).StatusCode != 503 {
+	if fixture.request(t, "GET", "/music/readyz", nil, nil, nil).StatusCode != 503 {
 		t.Fatal("missing media did not fail readiness")
 	}
 	response := fixture.request(t, "GET", strings.Replace(playlist.Path, "index.m3u8", "seg-00000.m4s", 1), nil, cookie, nil)
@@ -159,7 +159,7 @@ func TestMissingMediaReadinessAndSafeLogs(t *testing.T) {
 	if strings.Contains(logs.String(), cookie.Value) || strings.Contains(logs.String(), grant.GrantID) || strings.Contains(logs.String(), fixture.assetID) || strings.Contains(logs.String(), fixture.mediaRoot) {
 		t.Fatal("request logs contain private values")
 	}
-	if !strings.Contains(logs.String(), "/hls/{grantId}/{assetId}/{file}") {
+	if !strings.Contains(logs.String(), "/music/hls/{grantId}/{assetId}/{file}") {
 		t.Fatal("request log has no bounded route template")
 	}
 }
@@ -167,7 +167,7 @@ func TestMissingMediaReadinessAndSafeLogs(t *testing.T) {
 func TestRevocationAndHTTPValidation(t *testing.T) {
 	fixture := prepareFixture(t)
 	grant, cookie := fixture.create(t, nil)
-	path := "/api/playback-grants/" + grant.GrantID
+	path := "/music/playback-grants/" + grant.GrantID
 	for attempt := 0; attempt < 2; attempt++ {
 		if fixture.request(t, "DELETE", path, nil, cookie, map[string]string{"Origin": websiteOrigin}).StatusCode != 204 {
 			t.Fatal("deletion is not idempotent")
@@ -181,21 +181,21 @@ func TestRevocationAndHTTPValidation(t *testing.T) {
 		body   string
 		status int
 	}{{`{"trackId":"test-tone","unknown":true}`, 400}, {`{"trackId":"../private"}`, 400}, {strings.Repeat("x", 1025), 413}} {
-		if fixture.request(t, "POST", "/api/playback-grants", []byte(entry.body), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"}).StatusCode != entry.status {
+		if fixture.request(t, "POST", "/music/playback-grants", []byte(entry.body), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"}).StatusCode != entry.status {
 			t.Fatal("invalid JSON input accepted")
 		}
 	}
 	for _, entry := range []struct {
 		path, method, allow string
 		status              int
-	}{{path, "POST", "GET, DELETE, OPTIONS", 405}, {path + "/expiration", "GET", "PUT, OPTIONS", 405}, {"/missing", "OPTIONS", "", 404}} {
+	}{{path, "POST", "GET, HEAD, DELETE, OPTIONS", 405}, {path + "/expiration", "GET", "PUT, OPTIONS", 405}, {"/missing", "OPTIONS", "", 404}} {
 		headers := map[string]string{"Origin": websiteOrigin, "Access-Control-Request-Method": "GET"}
 		response := fixture.request(t, entry.method, entry.path, nil, cookie, headers)
 		if response.StatusCode != entry.status || response.Header.Get("Allow") != entry.allow {
 			t.Errorf("method contract %s %s: got %d Allow=%q", entry.method, entry.path, response.StatusCode, response.Header.Get("Allow"))
 		}
 	}
-	for _, path := range []string{"/hls/%2e%2e/private", "/hls/%252f/private", playlist.Path + "?source=private"} {
+	for _, path := range []string{"/music/hls/%2e%2e/private", "/music/hls/%252f/private", playlist.Path + "?source=private"} {
 		if fixture.request(t, "GET", path, nil, cookie, nil).StatusCode != 400 {
 			t.Fatal("encoded or query media path accepted")
 		}

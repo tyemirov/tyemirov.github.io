@@ -22,7 +22,7 @@ func sessionKey(request *http.Request) ([32]byte, string, bool) {
 }
 
 func setSessionCookie(writer http.ResponseWriter, value string) {
-	http.SetCookie(writer, &http.Cookie{Name: cookieName, Value: value, Path: "/", Secure: true, HttpOnly: true, SameSite: http.SameSiteStrictMode, MaxAge: int(sessionLifetime.Seconds())})
+	http.SetCookie(writer, &http.Cookie{Name: cookieName, Value: value, Path: "/music", Secure: true, HttpOnly: true, SameSite: http.SameSiteStrictMode, MaxAge: int(sessionLifetime.Seconds())})
 }
 
 func lifetime(media *validatedPackage) time.Duration {
@@ -30,7 +30,7 @@ func lifetime(media *validatedPackage) time.Duration {
 }
 
 func (service *Service) response(grant *playbackGrant, now time.Time) grantResponse {
-	return grantResponse{GrantID: grant.id, TrackID: grant.trackID, PlaylistURL: service.config.PublicOrigin + "/hls/" + grant.id + "/" + grant.media.record.AssetID + "/" + playlistName, DurationMS: grant.media.record.DurationMS, ServerTime: now.UTC(), ExpiresAt: grant.expires.UTC()}
+	return grantResponse{GrantID: grant.id, TrackID: grant.trackID, PlaylistURL: service.config.PublicOrigin + "/music/hls/" + grant.id + "/" + grant.media.record.AssetID + "/" + playlistName, DurationMS: grant.media.record.DurationMS, ServerTime: now.UTC(), ExpiresAt: grant.expires.UTC()}
 }
 
 func readInput(writer http.ResponseWriter, request *http.Request, input any) bool {
@@ -47,7 +47,7 @@ func readInput(writer http.ResponseWriter, request *http.Request, input any) boo
 		sendError(writer, 413, "body_too_large")
 		return false
 	}
-	if decodeJSON(data, input) != nil {
+	if decodeTransport(data, input) != nil {
 		sendError(writer, 400, "invalid_request")
 		return false
 	}
@@ -55,9 +55,7 @@ func readInput(writer http.ResponseWriter, request *http.Request, input any) boo
 }
 
 func (service *Service) createGrant(writer *responseWriter, request *http.Request) {
-	var input struct {
-		TrackID string `json:"trackId"`
-	}
+	var input grantInput
 	if !readInput(writer, request, &input) {
 		return
 	}
@@ -152,21 +150,19 @@ func (service *Service) grantResource(writer *responseWriter, request *http.Requ
 		return
 	}
 	renew := len(parts) == 2
-	if (renew && request.Method != http.MethodPut) || (!renew && request.Method != http.MethodGet && request.Method != http.MethodDelete) {
+	if (renew && request.Method != http.MethodPut) || (!renew && request.Method != http.MethodGet && request.Method != http.MethodHead && request.Method != http.MethodDelete) {
 		if renew {
 			methodError(writer, "PUT, OPTIONS")
 		} else {
-			methodError(writer, "GET, DELETE, OPTIONS")
+			methodError(writer, "GET, HEAD, DELETE, OPTIONS")
 		}
 		return
 	}
-	if request.Method != http.MethodGet && !service.origins[request.Header.Get("Origin")] {
+	if request.Method != http.MethodGet && request.Method != http.MethodHead && !service.origins[request.Header.Get("Origin")] {
 		sendError(writer, 403, "origin_denied")
 		return
 	}
-	var expiration struct {
-		ExpiresAt time.Time `json:"expiresAt"`
-	}
+	var expiration grantExpiration
 	if renew {
 		if !readInput(writer, request, &expiration) {
 			return
@@ -219,7 +215,7 @@ func (service *Service) mediaResource(writer *responseWriter, request *http.Requ
 		methodError(writer, "GET, HEAD, OPTIONS")
 		return
 	}
-	parts := strings.Split(strings.TrimPrefix(request.URL.Path, "/hls/"), "/")
+	parts := strings.Split(strings.TrimPrefix(request.URL.Path, "/music/hls/"), "/")
 	if len(parts) != 3 || len(parts[0]) != 22 || !assetPattern.MatchString(parts[1]) {
 		sendError(writer, 404, "not_found")
 		return
