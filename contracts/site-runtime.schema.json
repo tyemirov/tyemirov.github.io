@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tyemirov.net/contracts/site-runtime.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "apiOrigin": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^https://[^/@?#\\s]+$"
+    }
+  },
+  "required": [
+    "apiOrigin"
+  ],
+  "$defs": {}
+}
