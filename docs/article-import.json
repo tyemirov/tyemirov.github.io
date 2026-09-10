@@ -1,0 +1,47 @@
+{
+  "source": "Public article bodies selected by the owner",
+  "articles": [
+    {
+      "id": "the-human-act-of-making-things-exist",
+      "sourceUrl": "https://vadymtyemirov1.substack.com/p/the-human-act-of-making-things-exist",
+      "sourceBodySha256": "bb6f375aa92a3221c467a3e961c7bf20d0e779d3ca38915b1595d555b4779dbb",
+      "bodyCharacters": 7265,
+      "imageCount": 1,
+      "publishedAt": "2026-03-19T05:19:53.593Z",
+      "verifiedTextTokens": 1271,
+      "textDifferences": 0
+    },
+    {
+      "id": "the-age-of-the-meta-manager",
+      "sourceUrl": "https://vadymtyemirov1.substack.com/p/the-age-of-the-meta-manager",
+      "sourceBodySha256": "2fd06de1fd8780d06876e9be1a7616a343eb1769d4f9d84478c412c5baa93897",
+      "bodyCharacters": 24056,
+      "imageCount": 1,
+      "publishedAt": "2026-03-01T11:39:17.588Z",
+      "verifiedTextTokens": 4268,
+      "textDifferences": 0
+    },
+    {
+      "id": "the-wittgenstein-mirror",
+      "sourceUrl": "https://vadymtyemirov1.substack.com/p/the-wittgenstein-mirror",
+      "sourceBodySha256": "b6a3f904bfb63939f4b15a6bd65255a655269e5b66e2748a59d4fcf0928c331f",
+      "bodyCharacters": 24895,
+      "imageCount": 3,
+      "publishedAt": "2026-04-23T13:02:55.380Z",
+      "verifiedTextTokens": 4223,
+      "textDifferences": 0
+    },
+    {
+      "id": "codex-fast-and-the-price-of-intelligence",
+      "sourceUrl": "https://vadymtyemirov1.substack.com/p/codex-fast-and-the-price-of-intelligence",
+      "sourceBodySha256": "0a193c250fa0ebc9ca35d3471e78d9bf9dc5adf2dc68ecaf68ac745ee1e2027c",
+      "bodyCharacters": 7425,
+      "imageCount": 0,
+      "publishedAt": "2026-04-04T00:04:08.085Z",
+      "verifiedTextTokens": 1293,
+      "textDifferences": 0
+    }
+  ],
+  "series": "No part references in the four imported articles. No series membership was inferred.",
+  "fidelityMethod": "Compare source and rendered local text tokens after removal of subscription controls; retain punctuation and word order."
+}

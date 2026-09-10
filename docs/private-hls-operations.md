@@ -131,6 +131,7 @@ The test creates temporary application and Gateway repositories with local Git o
 A local Gateway fixture supplies the release version decision.
 The actual application `make release` command runs canonical CI and builds the declared artifacts on the isolated Docker host.
 The test verifies artifact sizes and SHA-256 values against the sealed receipt.
+The receipt must contain the music image, gallery image, and Pages artifact.
 It repeats the same release and requires an unchanged receipt.
 
 Evidence is in `output/playwright/release/`.
@@ -151,7 +152,7 @@ make music-publication-test
 
 The test reads the successful release result and its exported source and artifact archive.
 The actual application `make publish` command uses those exact inputs.
-Docker loads, pushes, verifies, and pulls the image through a real TLS registry on the isolated host.
+Docker loads, pushes, verifies, and pulls both service images through a real TLS registry on the isolated host.
 The test preserves the declared registry identity through temporary DNS and certificate trust within that host and the controller container.
 The controller connects to the registry through a local SSH tunnel and verifies its certificate.
 GitHub release metadata uses Gateway's local provider fixture, and Git references use local repositories.
@@ -168,7 +169,7 @@ Pages activation and complete deployment remain separate B001 checks.
 
 First, complete the sealed publication check.
 Use the same isolated SSH host and controller architecture.
-Ports 443, 18880, 18443, and 8092 must be free on that host.
+Ports 443, 18880, 18443, 8092, and 8093 must be free on that host.
 Run one deployment test at a time:
 
 ```bash
@@ -179,13 +180,15 @@ The test restores the registry data, Git artifacts, and lifecycle receipts from 
 It uses the exported Gateway source commit.
 The test runs Gateway `make deploy` twice to verify the Caddy foundation.
 It creates the declared media volume through Gateway and transfers generated audio into that volume.
-The test then runs application `make deploy` twice with the sealed service image and Pages artifact.
-The exact retry must keep the service container and Pages deployment identity.
+The test then runs application `make deploy` twice with both sealed service images and the Pages artifact.
+The exact retry must keep both service containers and the Pages deployment identity.
 
 The local GitHub API fixture checks each Pages request and records its effects.
 An HTTPS server reads the actual `gh-pages` branch from the local Git repository.
-Certificate checks remain active for Pages, the registry, and the audio route.
+Certificate checks stay active for Pages, the registry, and both API routes.
 The audio checks cover readiness, grants, anonymous rejection, authorized media, byte ranges, and grant removal.
+Gallery checks cover owner authorization, the published catalog, and saved drafts and publication archives after restart.
+Controlled TAuth claims test gallery authorization but do not qualify Studio login.
 The test runs the actual Gateway cleanup playbook twice with an explicit isolated-host profile.
 
 Evidence is in `output/playwright/deployment/`, under the selected source commit.
@@ -310,7 +313,7 @@ The service rejects an invalid forwarded address chain from a trusted peer.
 The service supports local TLS certificate arguments for the test fixture.
 Production TLS and routing belong to the application declaration and Gateway.
 `/healthz` checks process availability.
-`/readyz` checks the active media files.
+`/music/readyz` checks the active media files.
 Authorization failures return typed JSON without filesystem paths.
 The service emits bounded route names and omits cookie values and grant URLs from request logs.
 Known grant and media requests include the public `trackId` from validated catalog or grant state.
