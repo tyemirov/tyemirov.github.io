@@ -86,10 +86,10 @@ test("invalid music content produces a visible error", async ({ page, context })
   await expect(page.locator(".album-card")).toHaveCount(0);
 });
 
-test("the built music pages preserve all five albums and 41 track titles", async ({ page, context }) => {
+test("the built music pages preserve all six albums and 50 track titles", async ({ page, context }) => {
   await context.route(/loopaware\.mprlab\.com/, (route) => route.abort());
   await page.goto("/music/");
-  await expect(page.locator(".album-card")).toHaveCount(5);
+  await expect(page.locator(".album-card")).toHaveCount(6);
   for (const album of expected.items) {
     await expect(page.getByRole("heading", { name: album.displayTitle || album.title, exact: true })).toBeVisible();
   }
@@ -109,7 +109,7 @@ test("the built music pages preserve all five albums and 41 track titles", async
       await expect(page.locator(`.streaming-links a[href="${href}"]`), platform).toBeVisible();
     }
   }
-  expect(titles).toBe(41);
+  expect(titles).toBe(50);
 });
 
 test("the footer initializes when its library loads after the catalog", async ({ page, context }) => {

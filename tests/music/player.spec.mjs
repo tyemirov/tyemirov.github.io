@@ -33,6 +33,64 @@ test("the album player supports playback, pause, seeking, and the local queue", 
   await expect(page.getByRole("link", { name: "Spotify", exact: true })).toBeVisible();
 });
 
+for (const width of [1280, 390, 320]) {
+  test(`compact icon player keeps accessible controls at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto("/music/soliloquies-vol-i/");
+    const track = page.locator(".track-play").first();
+    await expect(track.locator("svg")).toBeVisible();
+    await track.click();
+    const player = page.getByRole("region", { name: "Music player" });
+    const pause = player.getByRole("button", { name: "Pause", exact: true });
+    await expect(pause).toBeEnabled();
+    for (const name of ["Previous track", "Pause", "Next track"]) {
+      const control = player.getByRole("button", { name, exact: true });
+      await expect(control.locator("svg")).toBeVisible();
+      await expect(control).toHaveText("");
+      const bounds = await control.boundingBox();
+      expect(bounds.width).toBeGreaterThanOrEqual(44);
+      expect(bounds.height).toBeGreaterThanOrEqual(44);
+    }
+    await pause.focus();
+    await page.keyboard.press("Space");
+    const play = player.getByRole("button", { name: "Play", exact: true });
+    await expect(play).toBeFocused();
+    await expect(play.locator("svg")).toBeVisible();
+    await expect(player.getByLabel("Seek")).toBeVisible();
+    expect((await player.boundingBox()).height).toBeLessThanOrEqual(width > 700 ? 84 : 128);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.screenshot({ path: `output/playwright/player-compact-${width}-${test.info().project.name}.png`, fullPage: true });
+  });
+}
+
+test("the bottom player stays pinned during scroll and leaves the footer accessible", async ({ page, context }) => {
+  await page.goto("/music/soliloquies-vol-i/");
+  const player = page.getByRole("region", { name: "Music player" });
+  await expect(player).toBeHidden();
+  await page.locator(".track-play").first().click();
+  await player.getByRole("button", { name: "Pause", exact: true }).click();
+  for (const width of [1280, 390, 320]) {
+    await page.setViewportSize({ width, height: 844 });
+    for (const fraction of [0, 0.5, 1]) {
+      await page.evaluate((fraction) => window.scrollTo({ top: document.documentElement.scrollHeight * fraction, behavior: "instant" }), fraction);
+      await expect.poll(async () => {
+        const bounds = await player.boundingBox();
+        return Math.abs(bounds.y + bounds.height - 844);
+      }).toBeLessThanOrEqual(1);
+    }
+    const footer = await page.locator("mpr-footer").boundingBox();
+    expect(footer.y + footer.height).toBeLessThanOrEqual((await player.boundingBox()).y + 1);
+  }
+  await context.route("**/api/playback-grants", (route) => route.fulfill({ status: 503, body: "Unavailable" }));
+  await page.locator(".track-play").nth(1).click();
+  await expect(player.getByRole("alert")).toBeVisible();
+  await expect.poll(async () => {
+    await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
+    const footer = await page.locator("mpr-footer").boundingBox();
+    return footer.y + footer.height - (await player.boundingBox()).y;
+  }).toBeLessThanOrEqual(1);
+});
+
 test("cold playback starts within three seconds at 10 Mbps and 100 ms latency", async ({ page, context }, testInfo) => {
   test.skip(testInfo.project.name !== "chromium-hls", "Chromium CDP qualifies the hls.js network path.");
   await page.goto("/music/soliloquies-vol-i/");
