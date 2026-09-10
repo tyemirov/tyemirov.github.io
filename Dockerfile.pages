@@ -3,16 +3,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends git ca-certific
 WORKDIR /source
 COPY package.json package-lock.json ./
 RUN npm ci --ignore-scripts
-COPY .gitignore apple-touch-icon.png favicon.* index.html robots.txt site.js site.webmanifest sitemap.xml styles.css ./
+COPY .gitignore apple-touch-icon.png config-ui.yaml favicon.* index.html robots.txt site.js site.webmanifest styles.css ./
 COPY assets ./assets
+COPY articles ./articles
+COPY contracts ./contracts
+COPY .mprlab/deploy/resources.yml ./.mprlab/deploy/resources.yml
+COPY scripts/site ./scripts/site
 COPY civilization ./civilization
 COPY data ./data
 COPY decisioning ./decisioning
 COPY freedom ./freedom
 COPY gallery/assets ./gallery/assets
-COPY gallery/data ./gallery/data
 COPY gallery/images ./gallery/images
 COPY gallery/index.html ./gallery/index.html
+COPY gallery/order ./gallery/order
+COPY gallery/studio ./gallery/studio
 COPY gallery/js ./gallery/js
 COPY music ./music
 COPY timeseries ./timeseries
