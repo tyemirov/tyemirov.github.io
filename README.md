@@ -54,7 +54,7 @@ Every HTML page in this repository MUST include the LoopAware tracking script at
 
 ## Local Website
 
-Install Docker with Compose.
+Install Docker with Compose, Node.js, and [gHTTP](https://github.com/tyemirov/ghttp).
 Start Docker before you start the local services.
 
 The default private media directory is `~/.local/share/tyemirov-site/music`.
@@ -73,18 +73,23 @@ Start the website and media service:
 make up
 ```
 
-Open `https://localhost:8444/readyz` and accept the local HTTPS certificate.
-Then open `https://localhost:8443` and accept the local HTTPS certificate.
+Open `https://localhost:8443`.
+gHTTP `--https --https-persist` installs its development certificate authority once in the host trust store.
+Subsequent starts reuse the trusted certificate authority.
+The website and HTTPS media route use this certificate.
 HTTPS is required for the music authorization cookie.
 The website and media API use separate local origins, as in production.
 
 `make up` builds the production Pages artifact and the production media service from the current source.
-The local Caddy container serves the Pages artifact and the HTTPS media route.
+Two host gHTTP processes serve the Pages artifact and the HTTPS media route.
+The media container exposes HTTP on an assigned loopback port for the gHTTP proxy.
 The media initialization container enables local HLS playback from the private index and generates the corresponding allowlist.
 It copies the prepared packages into a retained Docker volume.
 The local catalog uses the titles and metadata from `data/site.json`.
 The service reads `/media/selected.json`, `/media/allowlist.json`, and `/media/packages` from that volume.
-The command returns after the website and media service pass their health checks.
+Local website files and process logs use `.local/runtime/<LOCAL_PROJECT>`.
+Certificates persist in `~/.local/share/tyemirov-site/certs`.
+The command returns after both HTTPS endpoints pass certificate validation and health checks.
 After source changes, run `make up` again to rebuild the site and service.
 To select other ports, run `make up UP_PORT=8445 MUSIC_PORT=8446`.
 
@@ -94,12 +99,13 @@ Stop the local services:
 make down
 ```
 
-`make down` removes this Compose project's containers and network.
-The private media volume and local certificate remain available.
+`make down` stops both gHTTP processes and removes this Compose project's containers and network.
+The development certificate authority and credentials remain available for the next start.
+The private media volume remains available.
 
 ## Local Validation
 
-Use Docker, Node.js, npm, Git, and FFmpeg for the local lifecycle integration test.
+Use Docker, gHTTP, Node.js, npm, Git, and FFmpeg for the local lifecycle integration test.
 Install the test dependencies and run the test:
 
 ```bash
@@ -109,7 +115,7 @@ make local-test
 ```
 
 This test uses generated audio in a temporary directory and a separate Compose project.
-It checks startup, HTTPS, media authorization, silent browser playback, repeated startup, and shutdown.
+It checks startup, trusted HTTPS, media authorization, silent browser playback, repeated startup, and shutdown.
 
 Use Docker and a sibling `mprlab-gateway` checkout:
 
