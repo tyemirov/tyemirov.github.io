@@ -27,7 +27,7 @@ services:
       - --media-root=/media
       - --index=/media/selected.json
       - --allowlist=/media/allowlist.json
-      - --public-origin=https://localhost:${MUSIC_PORT:-8444}
+      - --public-origin=https://localhost:${API_PORT:-8444}
       - --allowed-origins=https://localhost:${UP_PORT:-8443}
     volumes:
       - media:/media:ro
@@ -37,5 +37,139 @@ services:
       media-init:
         condition: service_completed_successfully
 
+  tauth:
+    image: ghcr.io/tyemirov/tauth:2.2.1@sha256:e6d299c6f0890889c9d905384d5c67c895053cb5d80aac70ca2bec947c4f0b6a
+    command: ["--config=/config/tauth.yaml"]
+    environment:
+      STUDIO_WEBSITE_ORIGIN: https://localhost:${UP_PORT:-8443}
+      GALLERY_GOOGLE_WEB_CLIENT_ID: ${GALLERY_GOOGLE_WEB_CLIENT_ID:?Start local services with make up}
+    env_file:
+      - path: ${LOCAL_GALLERY_ENV:?Start local services with make up}
+        required: false
+    volumes:
+      - tauth-data:/data
+      - type: bind
+        source: ./local/tauth.yaml
+        target: /config/tauth.yaml
+        read_only: true
+        bind:
+          create_host_path: false
+    ports:
+      - "127.0.0.1::8080"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:8080/health"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
+
+  gallery:
+    build:
+      context: .
+      dockerfile: services/gallery/Dockerfile
+    command:
+      - --listen=0.0.0.0:8093
+      - --database=/data/gallery.db
+      - --public-root=/site
+      - --allowed-origin=https://localhost:${UP_PORT:-8443}
+      - --tenant-id=tyemirov-gallery-development
+      - --owner-email=vadym@tyemirov.net
+      - --cookie-name=tyemirov_gallery_development_session
+      - --payments=paypal
+      - --paypal-api-origin=https://gallery-payment:8095
+      - --paypal-checkout-origin=https://localhost:${PAYMENT_PORT:-8446}
+      - --paypal-client-id=LOCALGALLERYCLIENT
+      - --paypal-merchant-id=LOCALGALLERYMERCHANT
+      - --paypal-webhook-id=LOCALGALLERYHOOK
+      - --receipts=pinguin
+      - --pinguin-grpc-address=gallery-mail:50051
+    env_file:
+      - path: ${LOCAL_GALLERY_ENV:?Start local services with make up}
+        required: false
+      - path: ${LOCAL_MAIL_ENV:?Start local services with make up}
+        required: false
+      - path: ${LOCAL_PAYMENT_ENV:?Start local services with make up}
+        required: false
+    environment:
+      SSL_CERT_FILE: /payment-ca.pem
+    volumes:
+      - gallery-data:/data
+      - type: bind
+        source: ${LOCAL_PAYMENT_CERT_ROOT:?Start local services with make up}/certificate.pem
+        target: /payment-ca.pem
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${LOCAL_SITE_ROOT:?Start local services with make up}
+        target: /site
+        read_only: true
+        bind:
+          create_host_path: false
+    ports:
+      - "127.0.0.1::8093"
+    depends_on:
+      media-init:
+        condition: service_completed_successfully
+      gallery-mail:
+        condition: service_healthy
+      gallery-payment:
+        condition: service_healthy
+
+  gallery-payment:
+    build:
+      context: ./local/payment
+    environment:
+      PAYMENT_API_ORIGIN: https://gallery-payment:8095
+      PAYMENT_CHECKOUT_ORIGIN: https://localhost:${PAYMENT_PORT:-8446}
+      PAYMENT_WEBSITE_ORIGIN: https://localhost:${UP_PORT:-8443}
+      PAYMENT_GALLERY_ORIGIN: http://gallery:8093
+      PAYMENT_CLIENT_ID: LOCALGALLERYCLIENT
+      PAYMENT_MERCHANT_ID: LOCALGALLERYMERCHANT
+      PAYMENT_WEBHOOK_ID: LOCALGALLERYHOOK
+      PAYMENT_DATABASE: /data/payments.db
+      PAYMENT_CERTIFICATE: /certificate/certificate.pem
+      PAYMENT_KEY: /certificate/key.pem
+    env_file:
+      - path: ${LOCAL_PAYMENT_ENV:?Start local services with make up}
+        required: false
+    volumes:
+      - gallery-payment-data:/data
+      - type: bind
+        source: ${LOCAL_PAYMENT_CERT_ROOT:?Start local services with make up}
+        target: /certificate
+        read_only: true
+        bind:
+          create_host_path: false
+    ports:
+      - "127.0.0.1::8094"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8094/readyz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
+
+  gallery-mail:
+    build:
+      context: .
+      dockerfile: services/gallery/Dockerfile
+      target: mail-sink
+    command: ["serve", "--listen=0.0.0.0:50051", "--database=/data/mail.db"]
+    env_file:
+      - path: ${LOCAL_MAIL_ENV:?Start local services with make up}
+        required: false
+    volumes:
+      - gallery-mail-data:/data
+    ports:
+      - "127.0.0.1::50051"
+    healthcheck:
+      test: ["CMD", "/gallery-mail-sink", "ready", "--address=127.0.0.1:50051"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
+
 volumes:
   media:
+  gallery-data:
+  gallery-mail-data:
+  gallery-payment-data:
+  tauth-data:
