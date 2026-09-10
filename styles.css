@@ -93,7 +93,13 @@ body::before {
   padding: 60px 40px 120px;
 }
 
-.home .page-shell { padding: 32px 32px 40px; }
+.home {
+  --home-space-small: 8px;
+  --home-space-medium: 16px;
+  --home-space-section: 32px;
+}
+
+.home .page-shell { padding: 24px 32px var(--home-space-medium); }
 
 /* Header / Hero */
 .hero {
@@ -280,7 +286,7 @@ h1 {
   border: 1px solid var(--line);
 }
 
-.article-list, .essay-list, .arts-list {
+.article-list, .essay-list, .arts-list, .project-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
   gap: 1px;
@@ -524,8 +530,29 @@ h1 {
   --mpr-color-border: var(--line);
 }
 
+/* Homepage spacing */
+.home .hero { gap: var(--home-space-medium); padding-bottom: var(--home-space-medium); }
+.home .hero h1 { margin-bottom: var(--home-space-medium); }
+.home .hero .lead-secondary { margin-top: var(--home-space-small); }
+.home .hero-links { margin-top: var(--home-space-medium); }
+.home .site-filters { gap: var(--home-space-small) var(--home-space-medium); margin-block: var(--home-space-medium); }
+.home .site-filters button { min-height: 24px; }
+.home main > section { margin-top: var(--home-space-section); }
+.home main > .site-filters + section { margin-top: var(--home-space-medium); }
+.home .section-heading, .home .section-blurb { margin-bottom: var(--home-space-medium); }
+.home .notes-label { margin-bottom: var(--home-space-small); }
+.home .section-actions { margin-top: var(--home-space-medium); }
+.home .project-card { padding: 12px; }
+.home .project-card .card-kicker-tag { margin-bottom: var(--home-space-small); min-height: 24px; }
+.home .project-card h2 { margin-bottom: var(--home-space-small); line-height: 1.1; }
+.home .card-body { margin: 0 0 12px; }
+.home .project-actions { margin-top: 0; }
+.home .project-link { overflow-wrap: anywhere; }
+.home .music-list { grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: var(--home-space-medium); }
+.home .music-card-cover { margin-bottom: var(--home-space-small); }
+.home .site-footer { margin-top: var(--home-space-medium); padding-top: var(--home-space-small); }
+
 /* Responsive */
-.home .site-footer { margin-top: 24px; padding-top: 16px; }
 @media (max-width: 1000px) {
   .hero {
     grid-template-columns: minmax(0, 1fr);
@@ -546,8 +573,31 @@ h1 {
 }
 
 @media (max-width: 600px) {
-  .home .page-shell { padding: 24px 20px 32px; }
+  .home .page-shell { padding: 16px 20px var(--home-space-medium); }
   h1 { font-size: 4rem; }
   .project-grid { grid-template-columns: 1fr; }
   .section-title { font-size: 2.5rem; }
+}
+
+.home .project-list h2 { font-size: 1.35rem; }
+.home .card-tags { display:flex; flex-wrap:wrap; gap: 8px; }
+
+/* Complete project cards retain their summaries in a compact catalog. */
+.home .project-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.home .project-list .card-body { line-height: 1.35; }
+.home .essay-list h2 { font-size: 1.5rem; }
+@media (max-width: 850px) {
+  .home .project-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .home .project-list h2 { font-size: 1.05rem; }
+  .home .project-list .card-body { font-size: 16px; }
+  .home .music-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .home .music-list .article-title { font-size: 1.15rem; }
+}
+.home .card-body { line-height: 1.4; }
+.home main > section { margin-top: 12px; }
+@media (min-width: 650px) {
+  .home .essay-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home .hero p { line-height: 1.5; }
 }
