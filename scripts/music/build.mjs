@@ -9,6 +9,10 @@ const output = process.argv[2];
 if (!output) throw new Error("Supply the Pages output directory.");
 const site = JSON.parse(await readFile(join(root, "data/site.json"), "utf8"));
 const music = validateMusic(site.music);
+await mkdir(join(output, "music/covers"), { recursive: true });
+for (const album of music.items) {
+  await copyFile(join(root, album.coverImage), join(output, album.coverImage));
+}
 await mkdir(join(output, "music/dist"), { recursive: true });
 await build({
   absWorkingDir: root,
