@@ -1,5 +1,6 @@
 // @ts-check
 import { PLATFORMS } from "./catalog.js";
+import { renderMarkdown } from "../assets/js/markdown.js";
 import { musicIcon } from "./icons.js";
 
 /** @param {string} tag @param {string} className @param {string} [text] */
@@ -42,7 +43,7 @@ export function renderMusicIndex(music, contact) {
     const card = element("article", "album-card");
     card.append(cover(album, "album-cover"), element("h2", "album-title", album.displayTitle ?? album.title));
     if (album.translation) card.append(element("p", "album-translation", album.translation));
-    card.append(element("p", "album-meta", `${album.latest ? "Latest Release • " : ""}${album.releaseDate} • ${album.tracks.length} Tracks`));
+    card.append(element("p", "album-meta", `${album.latest ? "Latest Release • " : ""}${album.releaseDate.value} • ${album.tracks.length} Tracks`));
     card.append(element("p", "album-description", album.subtitle));
     const actions = element("div", "album-actions");
     const details = document.createElement("a");
@@ -74,11 +75,11 @@ export function renderAlbumDetails(album) {
   const header = element("header", "album-header");
   header.append(element("h1", "album-title-large", album.displayTitle ?? album.title));
   if (album.translation) header.append(element("p", "album-translation-large", album.translation));
-  header.append(element("p", "album-meta-large", `${album.latest ? "Latest Release • " : ""}${album.releaseDate} • ${album.tracks.length} Tracks`));
+  header.append(element("p", "album-meta-large", `${album.latest ? "Latest Release • " : ""}${album.releaseDate.value} • ${album.tracks.length} Tracks`));
   const notes = element("section", "album-notes");
   const authoredNotes = element("div", "notes-body");
   // Only repository-authored notes from the validated publication catalog enter this markup boundary.
-  authoredNotes.innerHTML = album.notes;
+  authoredNotes.innerHTML = renderMarkdown(album.notes.text);
   notes.append(element("p", "lead-text", album.subtitle), authoredNotes);
   const trackSection = element("section", "tracklist-section");
   trackSection.append(element("h2", "section-subtitle", "Track List"));
