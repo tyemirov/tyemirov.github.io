@@ -20,7 +20,5 @@ COPY scripts/build-pages-artifact.sh ./scripts/
 COPY scripts/music/build.mjs scripts/music/validate-artifact.mjs ./scripts/music/
 COPY local/prepare.mjs ./local/
 RUN git init -q && git add . && PAGES_DIST_DIR=/public bash scripts/build-pages-artifact.sh
-FROM caddy:2.11.4-alpine@sha256:5f5c8640aae01df9654968d946d8f1a56c497f1dd5c5cda4cf95ab7c14d58648 AS local
-COPY local/Caddyfile /etc/caddy/Caddyfile
 FROM scratch
 COPY --from=build /public/ /
