@@ -13,7 +13,11 @@ services:
         bind:
           create_host_path: false
       - media:/media
-      - site:/site
+      - type: bind
+        source: ${LOCAL_SITE_ROOT:?Start local services with make up}
+        target: /site
+        bind:
+          create_host_path: false
 
   music:
     build:
@@ -27,36 +31,11 @@ services:
       - --allowed-origins=https://localhost:${UP_PORT:-8443}
     volumes:
       - media:/media:ro
+    ports:
+      - "127.0.0.1::8092"
     depends_on:
       media-init:
         condition: service_completed_successfully
 
-  website:
-    image: ${COMPOSE_PROJECT_NAME}-website
-    build:
-      context: .
-      dockerfile: Dockerfile.pages
-      target: local
-    environment:
-      MUSIC_PORT: ${MUSIC_PORT:-8444}
-    ports:
-      - "127.0.0.1:${UP_PORT:-8443}:443"
-      - "127.0.0.1:${MUSIC_PORT:-8444}:444"
-    volumes:
-      - site:/srv:ro
-      - caddy-data:/data
-      - caddy-config:/config
-    depends_on:
-      music:
-        condition: service_started
-    healthcheck:
-      test: ["CMD-SHELL", "wget --no-check-certificate -q -O /dev/null https://localhost:444/readyz && wget --no-check-certificate -q -O /dev/null https://localhost/index.html"]
-      interval: 2s
-      timeout: 2s
-      retries: 30
-
 volumes:
   media:
-  site:
-  caddy-data:
-  caddy-config:
