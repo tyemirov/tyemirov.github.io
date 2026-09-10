@@ -108,7 +108,8 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - Recorded the B069 candidate digests and seven public HTTP observations.
   - Preserved F001 and its existing production acceptance gates.
 
-- [ ] [I002] (P1) Reduce portrait prominence on the homepage
+- [!] [I002] (P1) Reduce portrait prominence on the homepage
+  Blocked: The required internal-browser review needs the unavailable trusted computer-use service.
   Goal:
   Make the portrait a small secondary part of the introduction.
 
@@ -132,8 +133,15 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - Treat that measurement as partial implementation evidence, not owner acceptance.
   - Verify the portrait at widths of 390, 769, and 1280 pixels, after reload and return navigation.
   - Keep this issue open until the displayed design satisfies the original comment.
+  - Current headless checks cover initial load, reload, and return navigation at all three required widths.
+  - The served portrait measures 80 by 80 pixels at 390 and 769 pixels.
+  - The served portrait measures 112 by 112 pixels at 1280 pixels.
+  - Local screenshots and measurements are recorded in `docs/homepage-gallery-validation.md`.
+  - The internal browser connection reports "Browser use requires a trusted Node REPL browser service".
+  - The required internal-tab review remains open.
 
-- [ ] [I003] (P1) Consolidate the homepage navigation into one compact row
+- [!] [I003] (P1) Consolidate the homepage navigation into one compact row
+  Blocked: The required internal-browser review needs the unavailable trusted computer-use service.
   Goal:
   Keep the five hero links together when the viewport has sufficient width.
 
@@ -156,8 +164,15 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - The observed viewport measured 769 by 456 pixels.
   - Verify initial load, reload, and return navigation at widths of 390, 769, and 1280 pixels.
   - Keep this issue open until the owner-visible page meets the requested layout.
+  - New browser checks found that `/music` did not load the album scripts through the static test host.
+  - The canonical hero link now uses `/music/`.
+  - The five links occupy one row at 769 and 1280 pixels after initial load, reload, and return navigation.
+  - Phone checks found no horizontal overflow.
+  - Keyboard checks verify link order and visible focus in Chromium, Firefox, and WebKit.
+  - The required internal-tab review remains open.
 
-- [ ] [I004] (P1) Make Soliloquies Vol. II visible throughout the music catalog
+- [!] [I004] (P1) Make Soliloquies Vol. II visible throughout the music catalog
+  Blocked: The required internal-browser review needs the unavailable trusted computer-use service.
   Goal:
   Show Soliloquies Vol. II consistently on the homepage, music index, and album page.
 
@@ -186,8 +201,16 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - Verify all three page entry points against the same served catalog.
   - Run silent headless playback checks for all nine supplied recordings under F001.
   - Keep this issue open until the owner-visible catalog satisfies the comment.
+  - A new browser test reproduced an old catalog after an actual history-cache return.
+  - The homepage now retrieves the catalog after that return.
+  - Catalog requests now require HTTP cache validation.
+  - `make local-recordings-test` passed all nine supplied tracks through hls.js and native HLS.
+  - All 18 anonymous playlist requests returned HTTP 401.
+  - `make up` completed with the current local catalog and existing certificate authority.
+  - The internal-tab review and the exact historical tab diagnosis remain open.
 
-- [ ] [I005] (P1) Reduce empty vertical space throughout the homepage
+- [!] [I005] (P1) Reduce empty vertical space throughout the homepage
+  Blocked: Internal browser review needs the trusted computer-use service.
   Goal:
   Make the homepage easier to scan with less scrolling between useful content.
 
@@ -214,6 +237,17 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - Use these observations as a baseline for the complete spacing review.
   - Compare widths of 390, 769, and 1280 pixels with the player hidden and visible.
   - Verify the actual visual result in the internal browser before closure.
+  - New browser tests reproduced excessive page height, section gaps, and a footer that covered page content.
+  - Homepage sections now use shared spacing values, and the footer stays in the document flow.
+  - Essay cards keep their text with less space between labels, titles, descriptions, and actions.
+  - Phone layouts show three album covers per row.
+  - Page heights decreased from 4918, 3022, and 2627 pixels to 3618, 2520, and 2285 pixels at the three widths.
+  - All 24 spacing tests pass across four browser projects, including filtering, contact menu access, and the real album player.
+  - With the player visible, the page reserves only its measured height, and the footer stays accessible.
+  - The homepage has no player controls. The player checks use the actual album page.
+  - The internal-tab review is still open because the computer-use service requires `NODE_REPL_TRUSTED_SERVICES`.
+  - The rebuilt local website shows the new spacing with live CDN assets and no browser errors.
+  - The published shared UI now supplies the current footer menu under release `4.0.0`.
 
 ## Maintenance
 
@@ -449,7 +483,10 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - A31 uses automated checks. The owner requires silent headless tests, with no manual listening gate.
   - Physical mobile acceptance is not feasible and is excluded from completion gates by the owner.
 
-- [ ] [F002] (P1) Implement the gallery owner and visitor workflows
+- [!] [F002] (P1) Implement the gallery owner and visitor workflows
+  Current implementation: The [redesign record](../docs/redesign-implementation.md) contains Studio, contract, routing, and article evidence.
+  The published shared UI release now supplies nested authentication configuration.
+  Blocked: Provider acceptance needs gallery PayPal and Pinguin configuration, and internal browser review needs the trusted computer-use service.
   Goal:
   Provide a working gallery for image uploads, arrangement, exhibits, purchases, and full-resolution file delivery.
 
@@ -485,5 +522,82 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - Complete a sandbox purchase and retrieve the exact purchased full-resolution file revision.
   - Reject unpaid, expired, and revoked download requests, including duplicate payment events.
   - Verify all flows in the internal browser and through deterministic integration tests before closure.
+  - The canonical model migration passed 48 gallery browser checks across four browser projects.
+  - Collections and exhibit sections refer to one root artwork catalog with independent order.
+  - The old embedded shape and unverified sale claims were removed.
+  - The Pages container, artifact rejection checks, and local preparation checks passed.
+  - Private asset, draft, and publication HTTP tests now pass with the race detector.
+  - The executable passes OpenAPI validation and the shared public catalog validator.
+  - Focused Linux API, OpenAPI, and Go static checks pass with network access disabled.
+  - Published `mpr-ui@latest` resolves to `3.11.11` and rejects the required nested provider configuration.
+  - Browser authentication requires the shared library release before integration can continue.
+  - Order creation now preserves server prices, private revisions, and idempotent retries.
+  - Concurrent requests and a lost response after restart preserve one provider capture.
+  - Verified events require the correct order, merchant, currency, and amount before entitlement creation.
+  - Buyer cancellation persists after restart and cannot hide a capture or its uncertain result.
+  - Verified refunds revoke access before or after completion.
+  - Completion events received after a refund cannot make access active again.
+  - Protected downloads preserve purchased bytes after catalog changes and service restart.
+  - Download grants expire after ten minutes and permit authorized renewal without a new purchase.
+  - Refunds reject existing download grants, conditional requests, and renewal requests.
+  - The user selected `vadym@tyemirov.net` as the Studio owner email.
+  - The service processes stored verified events after provider outages and restart through a persistent retry schedule.
+  - Verified events supply provider associations after lost creation or capture responses without another payment capture.
+  - Receipt processing preserves order access during email failures and uses a persistent retry schedule after restart.
+  - Pinguin status requests retain the accepted notification ID without another receipt submission.
+  - The buyer order page verifies purchased bytes and keeps authorization outside URLs and browser storage.
+  - Gallery and buyer checks pass 76 browser cases, including refunds, cancellation, expired grants, and private state removal.
+  - The Pages container includes the buyer page and rejects invalid API configuration.
+  - Checkout uses server prices and preserves request identity after a lost creation response.
+  - The buyer must keep the access code and accept the purchase terms before the page shows payment controls.
+  - Gallery, checkout, and buyer order checks pass 100 browser cases, with the pending Studio test excluded.
+  - The artifact and Pages container checks pass with the checkout files included.
+  - Owner order pages support email and status filters with bounded cursor pages.
+  - Access reissues require the verified buyer email and keep one audit record across concurrent retries and restart.
+  - Access reissue keeps unpaid and revoked download restrictions.
+  - The owner HTTP checks and the 52 buyer and checkout browser cases pass.
+  - The Studio interface now provides owner order details and verified access reissue.
+  - The CLI now creates validated database snapshots and restores them into new paths.
+  - Recovery tests keep draft revisions, purchased bytes, receipt state, publication archives, and access audit records.
+  - Invalid sources, schema changes, broken foreign keys, and existing destination journals prevent restoration.
+  - Backup recovery passes through the CLI and restored HTTP service on the native host and in the Linux container.
+  - `make up` now starts the gallery API through gHTTP with the existing certificate authority and an independent local signing key.
+  - The local integration test verifies draft revisions and original private image bytes after shutdown and restart.
+  - The test also verifies owner access, origin restrictions, and separation from public website files.
+  - The focused duplicate-port test passes, and the running website and both APIs pass HTTPS checks.
+  - The local gallery uses `--payments=paypal` and `--receipts=pinguin` with persistent local provider implementations.
+  - The mail executable receives a receipt from the real gallery API and keeps its contents after restart.
+  - `make local-receipts` provides inspection through the published Pinguin gRPC interface.
+  - Local lifecycle tests verify the mail container, stored message, inspection command, and persistent API key after restart.
+  - The local payment provider stores orders, approvals, captures, and completed payment events in SQLite.
+  - All three local tests pass, including browser checkout, keyboard approval at phone width, stored receipts, and purchased file downloads.
+  - An approved local payment can complete after restart, while forged payment events and unauthorized approval origins fail.
+  - Shutdown keeps payment records, service keys, and the private provider certificate.
+  - Verified full and partial reversals now revoke purchase access through the refund resource contract.
+  - Reversal tests verify existing download links, delayed completion, lost capture responses, and stored retries after restart.
+  - The complete native API suite passes, and focused reversal and executable checks pass in the Linux container.
+  - Live email delivery and provider acceptance still require qualification.
+  - The production gallery image now packages the canonical public catalog and referenced images with its executable.
+  - The AMD64 container test verifies owner authorization, publication image bytes, and saved drafts after container replacement.
+  - The manifest declares the gallery image, retained data volume, HTTP capability, HTTPS route, and public readiness check.
+  - Gateway accepts its release, publication, and deployment plans in the isolated repository fixture.
+  - All three local tests pass after the image build-context change, including the complete purchase workflow and data after restart.
+  - The production service disables payments and receipts until provider configuration and qualification are completed.
+  - The user supplied the public Google OAuth web client ID from project `temirov`.
+  - The manifest now declares `gallery-auth` with that client reference and the fresh gallery signing key.
+  - Gateway accepts all three lifecycle plans with that tenant declaration in the isolated fixture.
+  - The supplied client export includes the production website origin but excludes `https://localhost:8443`.
+  - Local Google login needs that authorized origin, and browser-facing TAuth routing still requires qualification.
+  - The CI image now includes local orchestration source, and its local preparation and Pages artifact checks pass without network access.
+  - Qualification scripts now include both service images and gallery HTTPS, authorization, catalog, and persistence assertions.
+  - Publication and deployment preflight checks reject the old release because its gallery image is absent.
+  - Complete qualification still requires internal browser review, live provider acceptance, and a new sealed release.
+  - The Studio test no longer requires password login, which the owner workflow does not require.
+  - The earlier published config loader rejected nested Google configuration with `config-ui.yaml missing auth.googleClientId`.
+  - The published shared UI now resolves to `4.0.0`, and Studio uses its nested provider configuration.
+  - All 36 Studio browser checks pass, including owner isolation, uploads, arrangement, conflicts, export, access reissue, and logout.
+  - Shared session recovery preserves unsaved edits, and unapplied editor changes require an explicit discard choice.
+  - The local stack includes TAuth and passes all three checks with persistent TAuth and gallery volumes.
+  - The final redesign `make ci` checkpoint passed with 491 browser passes, 21 configuration-specific skips, and no failures.
 
 ## Planning

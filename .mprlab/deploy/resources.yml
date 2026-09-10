@@ -8,6 +8,27 @@ mprlab_resources:
       id: private
       bindings:
         trusted-proxies: MUSIC_TRUSTED_PROXIES
+        gallery-tauth-signing-key: GALLERY_TAUTH_SIGNING_KEY
+        gallery-google-web-client-id: GALLERY_GOOGLE_WEB_CLIENT_ID
+    - kind: tauth_tenant
+      id: gallery-auth
+      capability: tauth.tenants
+      version: 1
+      tenant:
+        id: tyemirov-gallery
+        display_name: Gallery Studio
+        origins:
+          - https://tyemirov.net
+        google_web_client_id:
+          resource: private
+          output: gallery-google-web-client-id
+        jwt_signing_key:
+          resource: private
+          output: gallery-tauth-signing-key
+        cookie:
+          domain: api.tyemirov.net
+          session_name: tyemirov_gallery_session
+          refresh_name: tyemirov_gallery_refresh
     - kind: compose_project
       id: music
       images:
@@ -38,7 +59,7 @@ mprlab_resources:
             - --allowlist
             - /media/allowlist.json
             - --public-origin
-            - https://audio.tyemirov.net
+            - https://api.tyemirov.net
             - --allowed-origins
             - https://tyemirov.net,https://www.tyemirov.net
           environment:
@@ -56,7 +77,7 @@ mprlab_resources:
           readiness:
             protocol: http
             port: 8092
-            path: /readyz
+            path: /music/readyz
             expected_status: 200
     - kind: runtime_capability
       id: music-http
@@ -70,22 +91,12 @@ mprlab_resources:
         port: 8092
       health:
         protocol: http
-        path: /readyz
+        path: /music/readyz
         expected_status: 200
-    - kind: caddy_route
-      id: music-route
-      hostname: audio.tyemirov.net
-      listener: https
-      handlers:
-        - id: music
-          path_prefix: /
-          upstream: tyemirov-site.music-http
-      tls:
-        mode: automatic
     - kind: health_check
       id: music-public
       protocol: http
-      url: https://audio.tyemirov.net/readyz
+      url: https://api.tyemirov.net/music/readyz
       expected_status: 200
     - kind: github_pages
       id: website
@@ -99,3 +110,84 @@ mprlab_resources:
         dockerfile: Dockerfile.pages
       verification:
         path: /.mprlab-release.json
+    - kind: compose_project
+      id: gallery
+      images:
+        - id: service
+          repository: ghcr.io/tyemirov/personal-site-gallery
+          build:
+            context: .
+            dockerfile: services/gallery/Dockerfile
+            platforms:
+              - linux/amd64
+      volumes:
+        - id: data
+          name: tyemirov-site-gallery-data
+          retention: retain
+      services:
+        - id: api
+          image: service
+          placement:
+            group: computercat
+            cardinality: one
+          command:
+            - --listen=0.0.0.0:8093
+            - --database=/data/gallery.db
+            - --public-root=/site
+            - --allowed-origin=https://tyemirov.net
+            - --tenant-id=tyemirov-gallery
+            - --owner-email=vadym@tyemirov.net
+            - --cookie-name=tyemirov_gallery_session
+            - --payments=disabled
+            - --receipts=disabled
+          environment:
+            GALLERY_TAUTH_SIGNING_KEY:
+              resource: private
+              output: gallery-tauth-signing-key
+          mounts:
+            - volume: data
+              target: /data
+          ports:
+            - container_port: 8093
+              host_port: 8093
+              scope: private_lan
+          readiness:
+            protocol: http
+            port: 8093
+            path: /gallery/readyz
+            expected_status: 200
+    - kind: runtime_capability
+      id: gallery-http
+      name: tyemirov-site.gallery-http
+      version: 1
+      project: gallery
+      service: api
+      endpoint:
+        scope: private_lan
+        scheme: http
+        port: 8093
+      health:
+        protocol: http
+        path: /gallery/readyz
+        expected_status: 200
+    - kind: health_check
+      id: gallery-public
+      protocol: http
+      url: https://api.tyemirov.net/gallery/readyz
+      expected_status: 200
+    - kind: caddy_route
+      id: api-route
+      hostname: api.tyemirov.net
+      listener: https
+      handlers:
+        - id: music
+          path_prefix: /music
+          upstream: tyemirov-site.music-http
+        - id: gallery
+          path_prefix: /gallery
+          upstream: tyemirov-site.gallery-http
+        - id: auth
+          path_prefix: /auth
+          upstream: tauth.http
+      tls:
+        mode: automatic

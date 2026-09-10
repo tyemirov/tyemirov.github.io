@@ -123,12 +123,56 @@ Add repository-specific technical nouns below this line.
 - `collection`: A permanent ordered group of artwork references.
 - `exhibit`: A dated presentation with ordered artwork references.
 - `Studio`: The proposed private interface for gallery content and orders.
+- `checkout`: The buyer workflow that creates an order from selected sale offers.
 - `master`: The private original image revision supplied with a purchased offer.
 - `sale offer`: The price, license, availability, and file revision for one product.
 - `entitlement`: A stored authorization to receive a purchased file revision.
 - `webhook`: An HTTP event notification from an external provider.
 - `lightbox`: A dialog that presents an artwork image.
 - `mail sink`: A local service that records test email without external delivery.
+- `original image`: The exact uploaded image bytes before preview generation.
+- `gallery asset ID`: The SHA-256 checksum of one private original image.
+- `ETag`: An HTTP validator that identifies a resource representation.
+- `cursor`: An identifier that selects the next page of an API collection.
+- `publication archive`: One reviewed catalog and its referenced public images, stored as a ZIP file.
+- `SQLite`: The database engine that stores gallery drafts, assets, and orders.
+- `database snapshot`: A complete database state from one transaction.
+- `database backup`: A database snapshot kept for later recovery.
+- `order access secret`: A random value that authorizes access to one buyer order.
+- `access reissue`: A recorded request from the owner for existing buyer order access.
+- `audit record`: Persistent data that identifies the owner, buyer, order, and time for an access reissue.
+- `purchase snapshot`: The stored price, currency, license, and private revision selected for an order.
+- `idempotency`: The property that a repeated request preserves the result of its initial execution.
+- `payment capture`: The PayPal operation that requests the approved payment amount for the merchant.
+- `provider reconciliation`: An examination of provider records to resolve an uncertain payment result.
+- `refund`: A payment amount that the merchant returns to the buyer.
+- `partial refund`: A refund for less than the full purchase amount.
+- `reversal`: An operation through which PayPal returns all or part of a captured payment.
+- `revocation`: A stored removal of authorization to receive a purchased file.
+- `download grant`: A temporary authorization to retrieve one purchased file revision with its own access secret.
+- `background worker`: A service task that processes stored operations outside an HTTP request.
+- `retry schedule`: The stored times for subsequent attempts to process pending operations.
+
+- `receipt`: An email record of a verified gallery purchase and its access instructions.
+- `receipt queue`: The persistent gallery records that control receipt attempts and their status.
+- `email delivery`: The process that sends an email to its recipient.
+- `notification`: One message that Pinguin accepts for email delivery.
+- `SMTP`: The email transport protocol that Pinguin uses for email delivery.
+
+## Website Design Technical Nouns
+
+- `content catalog`: The public site content stored in `data/site.json`.
+- `canonical URL`: The selected public address of one page.
+- `origin`: The scheme, hostname, and optional port of a URL.
+- `path prefix`: The initial path segments assigned to one service.
+- `route manifest`: The generated list of public pages and their artifact files.
+- `slug`: A stable text identifier used in a public page path.
+- `CommonMark`: The selected Markdown specification for article text.
+- `OpenAPI`: The machine-readable description of HTTP operations and representations.
+- `JSON Schema`: The machine-readable definition of JSON document structure and value constraints.
+- `content digest`: The SHA-256 checksum of a complete public content catalog.
+- `cutover`: The controlled replacement of the active application contract.
+- `tenant`: An independent authentication configuration and identity scope in TAuth.
 
 ## MPR Lab Technical Verbs
 
@@ -163,6 +207,9 @@ Use the simple present, simple past, simple future, imperative, or infinitive fo
 ## Repository Technical Verbs
 
 Add repository-specific technical verbs below this line.
+
+- `revoke`: Remove stored authorization to receive a purchased file.
+- `restore`: Create a database from a database backup for recovery.
 
 ```text
 - `term`: Definition with one meaning and the approved verb forms.
