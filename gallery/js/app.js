@@ -113,14 +113,13 @@ Promise.all([fetchSiteConfig(), fetchExhibitCatalog()])
     state.exhibits = normalizeCatalog(catalog);
 
     if (elements.brandName) {
-      setText(elements.brandName, state.brand);
+      elements.brandName.setAttribute('brand-label', state.brand);
     }
 
     applyDefaultMetadata({ brand: state.brand, siteUrl: state.siteUrl });
 
     setupCart();
     setupRouting();
-    renderHome();
     ensurePayPalSdk(config.payment?.paypal_client_id, state.currency);
   })
   .catch((error) => {
@@ -282,6 +281,8 @@ function setupRouting() {
 }
 
 function toggleRoute(route) {
+  document.querySelector('.hero').classList.toggle('is-hidden', route !== ROUTES.HOME);
+  elements.sectionNav.classList.toggle('is-hidden', route !== ROUTES.HOME);
   const routeMap = [
     { view: elements.homeView, key: ROUTES.HOME },
     { view: elements.exhibitView, key: ROUTES.EXHIBIT },

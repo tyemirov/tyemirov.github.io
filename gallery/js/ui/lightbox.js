@@ -34,6 +34,7 @@ export function initLightbox(dialog) {
   return {
     open(src, title) {
       image.src = src;
+      image.alt = title;
       if (caption instanceof HTMLElement) {
         caption.textContent = title;
       }

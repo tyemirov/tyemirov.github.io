@@ -1,99 +1,71 @@
 # Tyemirov's Gallery
 
-A static virtual gallery for exhibiting and selling digital artwork.
+The gallery is a static application at `/gallery/` on the personal website.
+It uses HTML, CSS, and JavaScript modules.
 
-## Architecture
+## Current Behavior
 
-The gallery is intentionally a static site.
+- The homepage shows artwork previews from the gallery catalog.
+- Exhibit dates determine the Now Showing, Upcoming, and Closed groups.
+- Exhibit pages show artwork labels, image specifications, and a lightbox.
+- Direct exhibit links and browser reloads preserve the selected view.
+- The basket stores selections in `localStorage`.
+- The existing PayPal integration runs in the browser.
 
-- Hosting target: GitHub-hosted static delivery for `/gallery/`
-- Runtime: HTML + CSS + vanilla JavaScript ES modules
-- Data source: local JSON files in `data/`
-- Routing: hash routes such as `#/`, `#/exhibits/:id`, `#/about`, and `#/cart`
-- Commerce: client-side PayPal SDK integration
-- Persistence: basket state in `localStorage`
+The gallery has no order service or protected download service.
+The `images/full/` files are public lightbox assets.
+The `images/purchased/` directory contains a placeholder.
 
-There is no backend, database, authentication layer, or signed-download service in the current architecture.
+## Local Use
 
-## Local Development
-
-Serve the repository over HTTP. Do not open the gallery via `file://`, because the app fetches JSON at runtime.
-
-From the repository root:
+From the repository root, start the local stack:
 
 ```bash
-python3 -m http.server 8080
+make up
 ```
 
-Then open:
+Open [the local gallery](https://localhost:8443/gallery/).
+The stack uses gHTTP and the local certificate authority.
+The root README describes the required private music input.
 
-```text
-http://localhost:8080/gallery/
+Stop the stack with:
+
+```bash
+make down
 ```
 
-## Current Feature Set
+## Content and Source Code
 
-- Homepage with exhibits grouped by date-driven status: `Now Showing`, `Upcoming`, `Closed`
-- Exhibit detail page with artwork grid, museum-style labels, specs drawer, and lightbox
-- Basket with quantity editing, subtotal calculation, and PayPal checkout
-- About page
-- Per-route metadata updates for exhibit pages, including JSON-LD
-- Data-driven catalog from `data/exhibits.json` and site settings from `data/site.json`
+| Path | Purpose |
+| --- | --- |
+| `data/exhibits.json` | Current exhibit and artwork records |
+| `data/site.json` | Gallery settings |
+| `images/previews/` | Card images |
+| `images/full/` | Public lightbox images |
+| `js/core/` | Catalog, routes, basket, and data requests |
+| `js/ui/` | Page and component rendering |
+| `js/app.js` | Application setup and event handlers |
+| `tests/` | Catalog and component tests |
 
-## Current Constraints
+## Validation
 
-- The current content schedule determines which status groups appear. If all exhibits are in the past, the homepage will show only `Closed`.
-- Purchased asset delivery is not implemented. `images/purchased/` is a placeholder only.
-- Analytics events are not wired yet.
-- There is no automated test harness in `gallery/` yet.
-- Images are lazy-loaded, but there is no responsive image pipeline or protected media flow.
+Run gallery component tests:
 
-## Project Layout
-
-```text
-gallery/
-  index.html
-  assets/
-    css/
-    icons/
-  data/
-    exhibits.json
-    site.json
-  images/
-    previews/
-    full/
-    purchased/
-  js/
-    app.js
-    constants.js
-    types.d.js
-    core/
-    ui/
-    utils/
+```bash
+npm --prefix gallery test
 ```
 
-## Deployment Notes
+Run the homepage and gallery browser tests from the repository root:
 
-- Keep the gallery static unless a concrete requirement cannot be met without a server.
-- Preserve the `/gallery/` path assumption when changing canonical URLs, redirects, or asset paths.
-- Treat the PayPal client ID as public client configuration, not a secret.
+```bash
+make music-browser-test MUSIC_BROWSER_ARGS='tests/music/homepage.spec.mjs'
+```
 
-## Backend Plan If Needed Later
+These browser tests use the shared website test server.
+They cover responsive layout, gallery entry, direct routes, and the artwork lightbox.
 
-Add a backend only when the static model becomes insufficient. The likely triggers are:
+## Proposed Operating Model
 
-1. Verified post-payment fulfillment is required.
-2. Purchased downloads must be protected with expiring links.
-3. Edition inventory must be reserved or decremented centrally.
-4. Analytics or event collection must be stored server-side.
-5. Content publishing requires an admin workflow instead of direct JSON edits.
-
-Recommended rollout if that happens:
-
-1. Keep the frontend static and continue serving the gallery from GitHub-hosted infrastructure.
-2. Add a small API layer separately, not inside the static site, using a lightweight platform such as Cloudflare Workers, Fly.io, or Railway.
-3. Move purchased assets to private object storage and serve them through short-lived signed URLs.
-4. Add PayPal webhook handling for payment verification before fulfillment.
-5. Add a minimal order record and fulfillment log before attempting a full CMS or admin panel.
-
-Until those triggers exist, the right architecture is the current static one.
+Read [the Gallery Operating Plan](OPERATING-PLAN.md) for owner uploads, collections, exhibits, purchases, and private file delivery.
+The plan separates current behavior from the proposed Studio and commerce services.
+Those services require implementation and provider qualification before sales acceptance.

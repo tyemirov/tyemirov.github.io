@@ -2,8 +2,8 @@
 
 /** @type {const} */
 export const DATA_ENDPOINTS = Object.freeze({
-  site: 'data/site.json',
-  exhibits: 'data/exhibits.json'
+  site: '/gallery/data/site.json',
+  exhibits: '/gallery/data/exhibits.json'
 });
 
 /** @type {const} */

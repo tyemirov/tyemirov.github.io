@@ -130,10 +130,10 @@ button.secondary:hover,
   padding: 1rem 0;
 }
 
-.gallery-header__brand {
-  font-family: 'EB Garamond', 'Times New Roman', serif;
-  font-size: 1.25rem;
-  letter-spacing: 0.04em;
+.gallery-header mpr-header {
+  min-width: 0;
+  --mpr-color-surface-primary: var(--color-bg);
+  --mpr-color-text-primary: var(--color-text);
 }
 
 .gallery-nav {
