@@ -60,13 +60,25 @@ func (service *Service) createCapture(writer http.ResponseWriter, request *http.
 		return
 	}
 	key := captureRequestID(record.ID)
-	if _, err := service.database.ExecContext(request.Context(), `INSERT INTO payment_attempts(order_id,request_id) SELECT id,? FROM orders WHERE id=? AND status IN (?,?) AND provider_id!='' ON CONFLICT(order_id) DO NOTHING`, key, record.ID, orderPending, orderAwaitingApproval); err != nil {
+	transaction, err := service.database.BeginTx(request.Context(), nil)
+	if err != nil {
+		service.storageError(writer, request, "begin capture claim", err)
+		return
+	}
+	defer rollback(transaction)
+	attempt, err := transaction.ExecContext(request.Context(), `INSERT INTO payment_attempts(order_id,request_id) SELECT id,? FROM orders WHERE id=? AND status IN (?,?) AND provider_id!='' ON CONFLICT(order_id) DO NOTHING`, key, record.ID, orderPending, orderAwaitingApproval)
+	if err != nil {
 		service.storageError(writer, request, "create capture attempt", err)
+		return
+	}
+	newAttempt, err := attempt.RowsAffected()
+	if err != nil {
+		service.storageError(writer, request, "read capture attempt", err)
 		return
 	}
 	lease := uuid.NewString()
 	now := time.Now().Unix()
-	result, err := service.database.ExecContext(request.Context(), `UPDATE payment_attempts SET lease_id=?,lease_until=? WHERE order_id=? AND capture_id='' AND lease_until<=? AND EXISTS (SELECT 1 FROM orders WHERE id=payment_attempts.order_id AND status IN (?,?))`, lease, now+90, record.ID, now, orderPending, orderAwaitingApproval)
+	result, err := transaction.ExecContext(request.Context(), `UPDATE payment_attempts SET lease_id=?,lease_until=? WHERE order_id=? AND capture_id='' AND lease_until<=? AND EXISTS (SELECT 1 FROM orders WHERE id=payment_attempts.order_id AND status IN (?,?))`, lease, now+90, record.ID, now, orderPending, orderAwaitingApproval)
 	if err != nil {
 		service.storageError(writer, request, "claim capture attempt", err)
 		return
@@ -77,12 +89,23 @@ func (service *Service) createCapture(writer http.ResponseWriter, request *http.
 		return
 	}
 	if changed == 1 {
-		if _, err := service.database.ExecContext(request.Context(), `UPDATE orders SET status=? WHERE id=? AND status=?`, orderPending, record.ID, orderAwaitingApproval); err != nil {
+		if _, err := transaction.ExecContext(request.Context(), `UPDATE orders SET status=? WHERE id=? AND status=?`, orderPending, record.ID, orderAwaitingApproval); err != nil {
 			service.storageError(writer, request, "record pending capture", err)
 			return
 		}
+	}
+	if err := transaction.Commit(); err != nil {
+		service.storageError(writer, request, "commit capture claim", err)
+		return
+	}
+	if changed == 1 {
 		captureID, err := service.paypal.capture(request.Context(), record, key)
-		if err != nil {
+		if errors.Is(err, errPaymentApprovalRequired) && newAttempt == 1 {
+			if err := service.restorePaymentApproval(request.Context(), record.ID, lease); err != nil {
+				service.storageError(writer, request, "restore payment approval", err)
+				return
+			}
+		} else if err != nil {
 			slog.Error("capture payment result is pending", "orderId", record.ID, "requestId", writer.Header().Get("X-Request-ID"), "error", err)
 			if _, releaseErr := service.database.ExecContext(request.Context(), `UPDATE payment_attempts SET lease_id='',lease_until=0 WHERE order_id=? AND lease_id=?`, record.ID, lease); releaseErr != nil {
 				service.storageError(writer, request, "release capture claim", releaseErr)
@@ -111,6 +134,32 @@ func (service *Service) createCapture(writer http.ResponseWriter, request *http.
 	}
 	respond(writer, http.StatusAccepted, record.view())
 }
+func (service *Service) restorePaymentApproval(ctx context.Context, orderID, lease string) error {
+	transaction, err := service.database.BeginTx(ctx, nil)
+	if err != nil {
+		return fmt.Errorf("begin approval restoration: %w", err)
+	}
+	defer rollback(transaction)
+	// Remove only this claim: no capture was sent, and cancellation is safe again.
+	result, err := transaction.ExecContext(ctx, `DELETE FROM payment_attempts WHERE order_id=? AND lease_id=? AND capture_id=''`, orderID, lease)
+	if err != nil {
+		return fmt.Errorf("remove unapproved capture claim: %w", err)
+	}
+	changed, err := result.RowsAffected()
+	if err != nil {
+		return fmt.Errorf("read removed capture claim: %w", err)
+	}
+	if changed == 1 {
+		if _, err := transaction.ExecContext(ctx, `UPDATE orders SET status=? WHERE id=? AND status=?`, orderAwaitingApproval, orderID, orderPending); err != nil {
+			return fmt.Errorf("restore unapproved order: %w", err)
+		}
+	}
+	if err := transaction.Commit(); err != nil {
+		return fmt.Errorf("commit approval restoration: %w", err)
+	}
+	return nil
+}
+
 func (service *Service) receivePaymentEvent(writer http.ResponseWriter, request *http.Request) {
 	if service.paypal == nil {
 		problem(writer, http.StatusServiceUnavailable, "sales_unavailable", "Gallery payments are not available.")

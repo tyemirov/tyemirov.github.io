@@ -26,6 +26,8 @@ const (
 
 var paypalVerificationHeaders = []string{paypalAlgorithmHeader, paypalCertificateHeader, paypalTransmissionHeader, paypalSignatureHeader, paypalTimeHeader}
 
+var errPaymentApprovalRequired = errors.New("the provider order requires buyer approval")
+
 var errUnverifiedPaymentEvent = errors.New("the provider did not verify the payment event")
 
 const paypalTokenPath = "/v1/oauth2/token"
@@ -321,6 +323,9 @@ func (client *paypalClient) capture(ctx context.Context, record orderRecord, key
 	}
 	if err := client.matchPurchase(result, record); err != nil {
 		return "", err
+	}
+	if result.Status == "PAYER_ACTION_REQUIRED" && len(result.PurchaseUnits[0].Payments.Captures) == 0 {
+		return "", errPaymentApprovalRequired
 	}
 	if result.Status == "APPROVED" {
 		if len(result.PurchaseUnits[0].Payments.Captures) != 0 {
