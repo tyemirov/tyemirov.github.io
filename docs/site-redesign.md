@@ -337,7 +337,7 @@ Password login is not a requirement for this design.
 9. Keep payment webhooks under provider verification instead of browser cookie authentication.
 10. Keep buyer and download access in authorization headers with browser credentials omitted.
 
-The proposed music cookie name is `__Secure-music-session`.
+The hosted music cookie name is `__Secure-music-session`.
 The current `__Host-music-session` name requires `Path=/` under the [cookie prefix rules](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie#cookie_prefixes).
 It cannot be reused with `Path=/music`.
 The new cookie remains host-only because the service omits the `Domain` attribute.
@@ -419,6 +419,18 @@ Music and Arts open `/music/` and `/gallery/`.
 Article pages prioritize readable text, section headings, images, and source attribution.
 Gallery pages prioritize images and clear exhibit or collection context.
 
+Each internal header shows a `^` link to the homepage.
+Nested pages also show their parent section, for example `[^][Music]` on an album page.
+Header navigation excludes the current page.
+When a homepage section filter is selected, the repeated section label is hidden.
+The `All` filter restores these labels.
+
+Album covers and titles open their album pages.
+Streaming service links use icons with accessible names.
+Album pages show tracks before notes and credits.
+The Gallery header exposes shared Google login and a direct Studio link.
+Studio requires the authenticated gallery owner before it shows private controls.
+
 1. Render project cards through `site.js` and `data/site.json`.
 2. Connect kicker and source tags to `window.toggleProjectFilter(tag)`.
 3. Use shared content selectors for homepage cards and section pages.
@@ -495,7 +507,16 @@ An architecture document or a partial schema alone does not satisfy it.
 5. Verify native HLS, JavaScript HLS, gallery publication, purchases, and downloads through the unified origin.
 6. Reject the obsolete service hosts in selected config and old root paths in service tests.
 
-The local website and API use separate HTTPS origins, as production does.
+The local website uses `http://localhost:8080`.
+The other local frontend origin is `http://localhost:8081`.
+The local API uses `http://localhost:8082`.
+Local music uses `music_development_session`.
+
+Local TAuth enables its HTTP cookie policy.
+The local music cookie retains `HttpOnly` and `SameSite=Strict`.
+Local TAuth uses `HttpOnly` and `SameSite=Lax`.
+Hosted origins require HTTPS and retain secure cookies.
+
 One local API proxy sends complete prefixes to the separate services.
 Provider credentials remain outside tracked configuration and generated artifacts.
 
