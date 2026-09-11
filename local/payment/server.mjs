@@ -13,7 +13,8 @@ const config = Object.fromEntries(['PAYMENT_API_ORIGIN', 'PAYMENT_CHECKOUT_ORIGI
 }));
 for (const name of ['PAYMENT_API_ORIGIN', 'PAYMENT_CHECKOUT_ORIGIN', 'PAYMENT_WEBSITE_ORIGIN', 'PAYMENT_GALLERY_ORIGIN']) {
   const value = new URL(config[name]);
-  const protocol = name === 'PAYMENT_GALLERY_ORIGIN' ? 'http:' : 'https:';
+  const protocol = ['PAYMENT_GALLERY_ORIGIN', 'PAYMENT_WEBSITE_ORIGIN'].includes(name) ? 'http:' : 'https:';
+  if (name === 'PAYMENT_WEBSITE_ORIGIN' && value.hostname !== 'localhost') throw new Error('Use localhost for the local website.');
   if (value.protocol !== protocol || value.origin !== config[name]) throw new Error(`Use an explicit origin for ${name}.`);
 }
 if (config.GALLERY_PAYPAL_CLIENT_SECRET.length < 32) throw new Error('Local payment credentials require at least 32 bytes.');

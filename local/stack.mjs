@@ -3,7 +3,8 @@ import { spawn, execFileSync } from "node:child_process";
 import { createHash, randomBytes } from "node:crypto";
 import { once } from "node:events";
 import { access, mkdir, mkdtemp, open, readFile, rename, rm, writeFile } from "node:fs/promises";
-import { request } from "node:https";
+import { request as httpsRequest } from "node:https";
+import { request as httpRequest } from "node:http";
 import { createConnection, createServer } from "node:net";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
@@ -25,11 +26,11 @@ const composeArgs = ["compose", "-p", project, "-f", join(root, "compose.local.y
 const environment = { ...process.env, LOCAL_SITE_ROOT: site, LOCAL_GALLERY_ENV: galleryEnvironment, LOCAL_MAIL_ENV: mailEnvironment, LOCAL_PAYMENT_ENV: paymentEnvironment, LOCAL_PAYMENT_CERT_ROOT: paymentCertificates };
 const sharedConfig = JSON.parse(await readFile(join(root, 'config-ui.yaml'), 'utf8'));
 environment.GALLERY_GOOGLE_WEB_CLIENT_ID = sharedConfig.environments[0].auth.providers.google.clientId;
-const origins = [process.env.UP_PORT, process.env.API_PORT, process.env.PAYMENT_PORT].map((port) => {
+const origins = [process.env.UP_PORT, process.env.API_PORT, process.env.PAYMENT_PORT].map((port, index) => {
   if (!port || !/^\d+$/.test(port) || Number(port) < 1 || Number(port) > 65535) throw new Error("Supply valid UP_PORT, API_PORT, and PAYMENT_PORT through make.");
-  return `https://localhost:${port}`;
+  return `${index === 2 ? "https" : "http"}://localhost:${port}`;
 });
-if (new Set(origins).size !== origins.length) throw new Error("UP_PORT, API_PORT, and PAYMENT_PORT must differ.");
+if (new Set([process.env.UP_PORT, process.env.API_PORT, process.env.PAYMENT_PORT].map(Number)).size !== origins.length) throw new Error("UP_PORT, API_PORT, and PAYMENT_PORT must differ.");
 
 /** Create local service identities once and keep them across shutdown. */
 async function prepareLocalIdentities() {
@@ -73,9 +74,11 @@ async function stop() {
   await rm(socketPath, { force: true });
 }
 
-/** Verify the local HTTPS endpoint against the CA created by gHTTP. */
+/** Verify each endpoint; use the local CA for payment HTTPS. */
 async function ready(url) {
-  const ca = await readFile(join(certificates, "ca.pem"));
+  const tls = new URL(url).protocol === "https:";
+  const ca = tls ? await readFile(join(certificates, "ca.pem")) : undefined;
+  const request = tls ? httpsRequest : httpRequest;
   await new Promise((resolve, reject) => {
     const probe = request(url, { ca, agent: false }, (response) => {
       response.resume();
@@ -148,10 +151,10 @@ async function supervise() {
     server.listen(socketPath);
     await once(server, "listening");
     for (const signal of ["SIGTERM", "SIGINT"]) process.once(signal, () => finish().catch(console.error));
-    await start([process.env.UP_PORT, "--bind", "127.0.0.1", "--directory", site, "--no-md", "--https", "--https-persist", "--response-header", "/=Cache-Control:no-store"], origins[0] + "/");
-    await start([process.env.API_PORT, "--bind", "127.0.0.1", "--directory", apiRoot, "--no-md", "--tls-cert", join(certificates, "localhost.pem"), "--tls-key", join(certificates, "localhost.key"), "--proxy", `/music=${process.env.LOCAL_MUSIC_BACKEND}`, "--proxy", `/gallery=${process.env.LOCAL_GALLERY_BACKEND}`, "--proxy", `/auth=${process.env.LOCAL_TAUTH_BACKEND}`], origins[1] + "/music/readyz");
+    await start([process.env.UP_PORT, "--bind", "127.0.0.1", "--directory", site, "--no-md", "--response-header", "/=Cache-Control:no-store", "--response-header", "/=Referrer-Policy:no-referrer-when-downgrade"], origins[0] + "/");
+    await start([process.env.API_PORT, "--bind", "127.0.0.1", "--directory", apiRoot, "--no-md", "--proxy", `/music=${process.env.LOCAL_MUSIC_BACKEND}`, "--proxy", `/gallery=${process.env.LOCAL_GALLERY_BACKEND}`, "--proxy", `/auth=${process.env.LOCAL_TAUTH_BACKEND}`], origins[1] + "/music/readyz");
     await ready(origins[1] + "/gallery/readyz");
-    await start([process.env.PAYMENT_PORT, "--bind", "127.0.0.1", "--directory", site, "--no-md", "--tls-cert", join(certificates, "localhost.pem"), "--tls-key", join(certificates, "localhost.key"), "--proxy", `/=${process.env.LOCAL_PAYMENT_BACKEND}`], origins[2] + "/readyz");
+    await start([process.env.PAYMENT_PORT, "--bind", "127.0.0.1", "--directory", site, "--no-md", "--https", "--https-persist", "--proxy", `/=${process.env.LOCAL_PAYMENT_BACKEND}`], origins[2] + "/readyz");
     process.send({ ready: true });
     process.disconnect();
   } catch (error) {
