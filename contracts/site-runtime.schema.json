@@ -8,7 +8,7 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 512,
-      "pattern": "^https://[^/@?#\\s]+$"
+      "pattern": "^(?:https://[^/@?#\\s]+|http://localhost(?::[0-9]+)?)$"
     }
   },
   "required": [

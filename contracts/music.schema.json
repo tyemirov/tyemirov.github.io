@@ -346,7 +346,7 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 4096,
-          "pattern": "^https://[^/@?#\\s]+(?:/[^\\s]*)?$",
+          "pattern": "^(?:https://[^/@?#\\s]+|http://localhost(?::[0-9]+)?)(?:/[^\\s]*)?$",
           "format": "uri"
         },
         "durationMs": {
