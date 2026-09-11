@@ -103,7 +103,7 @@ These checks do not replace the required internal browser review.
 | Focused browser checks | All 236 catalog, layout, navigation, and footer checks passed across four browser configurations. |
 | Studio browser checks | All 36 checks passed across four browser configurations, with the current published shared UI. |
 
-The final `make ci` command passed after the last implementation change.
+Before the gallery review corrections, the `make ci` command passed.
 Its browser suite reported 491 passes, 21 configuration-specific skips, no failures, and no flaky results.
 The same command passed the gallery service suite, executable contract checks, and static checks.
 The browser result is `output/playwright/music-results.json`.
@@ -116,3 +116,26 @@ These results do not certify unchanged historical prose.
 
 Production deployment, live Google and payment acceptance, and the required internal browser review did not occur.
 The internal review tool still reports `sky requires node_repl; configure NODE_REPL_TRUSTED_SERVICES`.
+
+
+## Gallery review corrections
+
+The browser tests for all four review findings failed before the corrections.
+A capture request before PayPal approval now keeps the approval link and lets the buyer cancel the order.
+The API removes the unused capture claim in a transaction.
+An uncertain capture result keeps its pending state.
+The buyer cannot cancel that order.
+
+Checkout keeps the creation form and basket until PayPal supplies the approval URL.
+The next creation request uses the original idempotency key, email, offers, and catalog digest.
+
+Studio filters use order statuses generated from the canonical schema.
+Basket notices now use the CSS visibility class for both confirmation and error messages.
+
+The five new browser scenarios passed in all four browser configurations: 20 passes and no failures.
+The scenarios include payment completion and cancellation after a premature capture request.
+The gallery service suite passed with the Go race detector.
+The tests for simultaneous capture requests and uncertain capture results also passed after the transaction change.
+The final `make ci` command passed after all four review corrections.
+Its browser suite reported 511 passes, 21 configuration-specific skips, no failures, and no flaky results.
+The same command passed the gallery service suite with the Go race detector, executable contract checks, and static checks.
