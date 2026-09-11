@@ -2,8 +2,8 @@
 PAGES_DIST_DIR ?= $(CURDIR)/.pages-dist
 ANSIBLE_PLAYBOOK ?= $(abspath ../mprlab-gateway/.venv/bin/ansible-playbook)
 ANSIBLE_INVENTORY_BIN ?= $(abspath ../mprlab-gateway/.venv/bin/ansible-inventory)
-UP_PORT ?= 8443
-API_PORT ?= 8444
+UP_PORT ?= 8080
+API_PORT ?= 8082
 PAYMENT_PORT ?= 8446
 LOCAL_PROJECT ?= tyemirov-site-local
 MUSIC_LOCAL_ROOT ?= $(HOME)/.local/share/tyemirov-site/music
