@@ -9,8 +9,8 @@ test("local Compose uses the production artifacts, storage layout, and separate 
   });
   assert.equal(result.status, 0, result.stderr);
   const { services, volumes } = JSON.parse(result.stdout);
-  assert.ok(services.music.command.includes("--public-origin=https://localhost:18444"));
-  assert.ok(services.music.command.includes("--allowed-origins=https://localhost:18443"));
+  assert.ok(services.music.command.includes("--public-origin=http://localhost:18444"));
+  assert.ok(services.music.command.includes("--allowed-origins=http://localhost:18443"));
   assert.ok(services.music.command.includes("--index=/media/selected.json"));
   assert.ok(services.music.command.includes("--allowlist=/media/allowlist.json"));
   assert.equal(services.music.build.context.endsWith("/services/music-stream"), true);
@@ -22,7 +22,7 @@ test("local Compose uses the production artifacts, storage layout, and separate 
   assert.ok(services.gallery, "The local stack must start the gallery API.");
   assert.ok(services.gallery.command.includes("--database=/data/gallery.db"));
   assert.ok(services.gallery.command.includes("--public-root=/site"));
-  assert.ok(services.gallery.command.includes("--allowed-origin=https://localhost:18443"));
+  assert.ok(services.gallery.command.includes("--allowed-origin=http://localhost:18443"));
   assert.ok(services.gallery.command.includes("--tenant-id=tyemirov-gallery-development"));
   assert.ok(services.gallery.command.includes("--owner-email=vadym@tyemirov.net"));
   assert.ok(services.gallery.command.includes("--cookie-name=tyemirov_gallery_development_session"));
@@ -34,7 +34,7 @@ test("local Compose uses the production artifacts, storage layout, and separate 
   assert.ok(services.gallery.volumes.some(volume => volume.type === "bind" && volume.source === "/tmp/local-site" && volume.target === "/site" && volume.read_only));
   assert.ok(volumes["gallery-data"]);
   assert.ok(volumes["tauth-data"]);
-  assert.equal(services.tauth.environment.STUDIO_WEBSITE_ORIGIN,"https://localhost:18443");
+  assert.equal(services.tauth.environment.STUDIO_WEBSITE_ORIGIN,"http://localhost:18443");
   assert.equal(services.tauth.environment.GALLERY_GOOGLE_WEB_CLIENT_ID,"fixture.apps.googleusercontent.com");
   assert.ok(services.gallery.command.includes("--receipts=pinguin"));
   assert.ok(services.gallery.command.includes("--pinguin-grpc-address=gallery-mail:50051"));

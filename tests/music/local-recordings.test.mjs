@@ -2,21 +2,20 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { request } from "node:https";
+import { request } from "node:http";
 import { chromium, webkit, expect } from "@playwright/test";
 import { installSharedUIAssets } from "./shared-ui-assets.mjs";
 import { installCapabilityScenario } from "./browser-capabilities.mjs";
 
-const siteOrigin = `https://localhost:${process.env.UP_PORT}`;
-const mediaOrigin = `https://localhost:${process.env.API_PORT}`;
+const siteOrigin = `http://localhost:${process.env.UP_PORT}`;
+const mediaOrigin = `http://localhost:${process.env.API_PORT}`;
 const albumSlug = "soliloquies-vol-ii";
 const canonical = JSON.parse(await readFile(new URL("../../data/site.json", import.meta.url), "utf8"));
 const album = canonical.music.items.find(album => album.slug === albumSlug);
-const ca = await readFile(`${process.env.LOCAL_CERT_ROOT}/ca.pem`);
 
 function get(url) {
   return new Promise((resolve, reject) => {
-    const req = request(url, { ca }, response => {
+    const req = request(url, response => {
       const chunks = [];
       response.on("data", chunk => chunks.push(chunk));
       response.on("end", () => resolve({ status: response.statusCode, body: Buffer.concat(chunks), headers: response.headers }));

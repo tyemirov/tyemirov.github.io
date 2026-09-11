@@ -78,8 +78,11 @@ test("the bottom player stays pinned during scroll and leaves the footer accessi
         return Math.abs(bounds.y + bounds.height - 844);
       }).toBeLessThanOrEqual(1);
     }
-    const footer = await page.locator("mpr-footer").boundingBox();
-    expect(footer.y + footer.height).toBeLessThanOrEqual((await player.boundingBox()).y + 1);
+    await expect.poll(async () => {
+      await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
+      const footer = await page.locator("mpr-footer").boundingBox();
+      return footer.y + footer.height - (await player.boundingBox()).y;
+    }).toBeLessThanOrEqual(1);
   }
   await context.route("**/music/playback-grants", (route) => route.fulfill({ status: 503, body: "Unavailable" }));
   await page.locator(".track-play").nth(1).click();

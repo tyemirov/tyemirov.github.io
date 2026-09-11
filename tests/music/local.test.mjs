@@ -5,12 +5,13 @@ import { spawnSync } from "node:child_process";
 import { createHmac, createHash, randomUUID } from "node:crypto";
 import { parseEnv } from "node:util";
 import { mkdtemp, mkdir, copyFile, readFile, writeFile, rm } from "node:fs/promises";
-import { request } from "node:https";
+import { request as httpsRequest } from "node:https";
+import { request as httpRequest } from "node:http";
 import { createServer } from "node:net";
 import { once } from "node:events";
 import { dirname, join, resolve } from "node:path";
 import { tmpdir } from "node:os";
-import { chromium, expect } from "@playwright/test";
+import { chromium, webkit, expect } from "@playwright/test";
 import { installSharedUIAssets } from "./shared-ui-assets.mjs";
 
 const root = resolve(import.meta.dirname, "../..");
@@ -22,6 +23,7 @@ function run(command, args, cwd = root) {
 }
 function http(url, options = {}, body) {
   return new Promise((resolve, reject) => {
+    const request = new URL(url).protocol === "https:" ? httpsRequest : httpRequest;
     const req = request(url, { agent: false, ...options }, (response) => {
       const chunks = [];
       response.on("data", (chunk) => chunks.push(chunk));
@@ -50,8 +52,8 @@ test("make up serves the site, private music, and persistent gallery; make down 
   await new Promise((resolve) => portServer.close(resolve));
   await new Promise((resolve) => mediaPortServer.close(resolve));
   await new Promise((resolve) => paymentPortServer.close(resolve));
-  const origin = `https://localhost:${port}`;
-  const mediaOrigin = `https://localhost:${mediaPort}`;
+  const origin = `http://localhost:${port}`;
+  const mediaOrigin = `http://localhost:${mediaPort}`;
   const galleryOrigin = mediaOrigin;
   const paymentOrigin = `https://localhost:${paymentPort}`;
   const project = `personal-site-test-${process.pid}`;
@@ -91,6 +93,7 @@ test("make up serves the site, private music, and persistent gallery; make down 
   assert.equal((await https(origin + "/")).status, 200);
   assert.equal((await https(origin + "/gallery/")).status, 200);
   assert.equal((await https(origin + "/gallery/studio/")).status, 200);
+  assert.equal((await https(origin + "/gallery/studio/")).headers["referrer-policy"], "no-referrer-when-downgrade");
   const authConfig=JSON.parse((await https(origin + '/config-ui.yaml')).body).environments[0];
   assert.deepEqual(authConfig.origins,[origin]);
   assert.equal(authConfig.auth.tauthUrl,mediaOrigin);
@@ -168,7 +171,8 @@ test("make up serves the site, private music, and persistent gallery; make down 
   assert.match(playlist.body, /#EXT-X-ENDLIST/);
   const segment = await https(grant.playlistUrl.replace("index.m3u8", "seg-00000.m4s"), { headers: { Cookie: cookie, Range: "bytes=0-31" } });
   assert.equal(segment.status, 206);
-  const browser = await chromium.launch({ headless: true });
+  for (const engine of [chromium, webkit]) {
+  const browser = await engine.launch({ headless: true });
   try {
     const context = await browser.newContext();
     await installSharedUIAssets(context);
@@ -189,6 +193,7 @@ test("make up serves the site, private music, and persistent gallery; make down 
     await player.getByRole("button", { name: "Play", exact: true }).click();
     await expect.poll(() => audio.evaluate((element) => element.currentTime)).toBeGreaterThan(7);
   } finally { await browser.close(); }
+  }
   const stylesPath = join(directory, "styles.css");
   await writeFile(stylesPath, await readFile(stylesPath, "utf8") + "\n/* local-rebuild-check */\n");
   make("up");

@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 async function prepare(context, credential = 'fixture-owner') {
   await context.addCookies([{ name:'gallery-fixture', value:'checkout', domain:'localhost', path:'/', secure:true }]);
   await context.route('https://cdn.jsdelivr.net/npm/js-yaml@5.4.1/dist/browser/js-yaml.umd.min.js', async route => route.fulfill({contentType:'application/javascript',body:await readFile('node_modules/js-yaml/dist/browser/js-yaml.umd.min.js')}));
-  await context.route('https://accounts.google.com/gsi/client', route => route.fulfill({contentType:'application/javascript',body:`globalThis.google={accounts:{id:{initialize(options){this.options=options},renderButton(host,options){const button=document.createElement('button');button.textContent='Sign in with Google';button.onclick=()=>{options.click_listener();this.options.callback({credential:${JSON.stringify(credential)},state:options.state})};host.replaceChildren(button)},disableAutoSelect(){},cancel(){}}}};`}));
+  await context.route('https://accounts.google.com/gsi/client', route => route.fulfill({contentType:'application/javascript',body:`globalThis.google={accounts:{id:{initialize(options){this.options=options},renderButton(host,options){const button=document.createElement('button');button.setAttribute('aria-label','Sign in with Google');button.textContent=options.type==='icon'?'G':'Sign in with Google';if(options.type==='icon'){button.style.cssText='width:30px;height:30px;padding:0;display:grid;place-items:center'}button.onclick=()=>{options.click_listener();this.options.callback({credential:${JSON.stringify(credential)},state:options.state})};host.replaceChildren(button)},disableAutoSelect(){},cancel(){}}}};`}));
 }
 async function login(page, context, credential) {
   await prepare(context,credential); await page.goto('/gallery/studio/');
@@ -175,4 +175,18 @@ test('Studio filters orders with every canonical status',async({page,context})=>
   const result=await response;expect(result.status()).toBe(200);
   expect((await result.json()).items.every(order=>order.status===status)).toBe(true);
  }
+});
+
+
+test('Gallery offers shared sign-in and opens the authenticated Studio',async({page,context})=>{
+ await prepare(context,'fixture-owner');await page.setViewportSize({width:390,height:900});await page.goto('/gallery/');
+ await expect(page.getByRole('link',{name:'Exhibits',exact:true})).toHaveCount(0);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+ await page.getByRole('button',{name:'Sign in with Google',exact:true}).click();
+ await expect(page.locator('mpr-header')).toHaveAttribute('data-mpr-auth-status','authenticated');
+ await page.getByRole('link',{name:'Studio',exact:true}).click();
+ await expect(page.locator('#studio-workspace')).toBeVisible();
+ await expect(page.getByLabel('Upload images')).toBeVisible();
+ await expect(page.getByRole('button',{name:'Collections',exact:true})).toBeVisible();
+ await expect(page.getByRole('button',{name:'Orders',exact:true})).toBeVisible();
 });
