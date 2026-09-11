@@ -95,7 +95,8 @@ for (const name of ['gallery', 'music']) {
   const go = `// Code generated from contracts/${name}.openapi.yaml. DO NOT EDIT.\npackage ${name === 'gallery' ? 'gallery' : 'stream'}\n\nconst (\n${Object.entries(constants).map(([key, id]) => `${key} = ${JSON.stringify(routes[name][id].path)}`).join('\n')}\n)\n`;
   outputs.set(name === 'gallery' ? 'services/gallery/routes_generated.go' : 'services/music-stream/internal/stream/routes_generated.go', execFileSync('gofmt', { input: go, encoding: 'utf8' }));
 }
-outputs.set('assets/js/generated/routes.js', '// @ts-check\n// Generated from contracts/*.openapi.yaml. Do not edit.\nexport const routes = Object.freeze(' + JSON.stringify(routes, null, 2) + ');\n');
+outputs.set('assets/js/generated/routes.js', '// @ts-check\n// Generated from contracts/*.openapi.yaml. Do not edit.\nexport const routes = Object.freeze(' + JSON.stringify(routes, null, 2) + ');\n'
+  + '// Order statuses from contracts/gallery.schema.json.\nexport const galleryOrderStatuses = Object.freeze(' + JSON.stringify(schemas.gallery.$defs.order.properties.status.enum) + ');\n');
 for (const [path, contents] of outputs) {
   if (process.argv.includes('--check')) {
     if (await readFile(`${root}/${path}`, 'utf8') !== contents) throw new Error(`Generated contract differs: ${path}`);
