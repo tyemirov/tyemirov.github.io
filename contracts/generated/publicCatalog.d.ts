@@ -47,10 +47,6 @@ export interface PublicCatalog {
       };
     };
   };
-  mprlab: {
-    label: string;
-    blurb: string;
-  };
   /**
    * @minItems 0
    * @maxItems 10000
@@ -64,12 +60,14 @@ export interface PublicCatalog {
         kicker: "AI" | "Modeling" | "Decisioning" | "Arts" | "Writings";
         status: "draft" | "live";
         order: number;
-        source: string;
         theme: "copper" | "teal" | "olive" | "slate" | "amber" | "indigo" | "violet";
-        kind: "tool";
+        kind: "model";
         href: string;
-        cta: string;
         sourceUrl: string;
+        /**
+         * Owner of all personal content in this catalog, including articles, albums, and Gallery records.
+         */
+        owner: "vadym-tyemirov";
       }
     | {
         id: string;
@@ -79,7 +77,6 @@ export interface PublicCatalog {
         kicker: "AI" | "Modeling" | "Decisioning" | "Arts" | "Writings";
         status: "draft" | "live";
         order: number;
-        source: string;
         theme: "copper" | "teal" | "olive" | "slate" | "amber" | "indigo" | "violet";
         kind: "series";
         /**
@@ -94,6 +91,10 @@ export interface PublicCatalog {
             articleId: string;
           }[]
         ];
+        /**
+         * Owner of all personal content in this catalog, including articles, albums, and Gallery records.
+         */
+        owner: "vadym-tyemirov";
       }
   )[];
   music: {
@@ -282,5 +283,19 @@ export interface PublicCatalog {
         height: number;
       } | null;
     }[];
+  };
+  /**
+   * Owner of all personal content in this catalog, including articles, albums, and Gallery records.
+   */
+  owner: "vadym-tyemirov";
+  models: {
+    label: "Models";
+    title: string;
+  };
+  software: {
+    label: "Software by MPR Lab";
+    href: "https://mprlab.com";
+    owner: "mpr-lab";
+    kind: "software";
   };
 }

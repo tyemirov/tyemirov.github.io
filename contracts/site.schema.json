@@ -272,28 +272,6 @@
         "image"
       ]
     },
-    "mprlab": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "label": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 80,
-          "pattern": "\\S"
-        },
-        "blurb": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 20000,
-          "pattern": "\\S"
-        }
-      },
-      "required": [
-        "label",
-        "blurb"
-      ]
-    },
     "article": {
       "type": "object",
       "additionalProperties": false,
@@ -328,14 +306,7 @@
           "pattern": "\\S"
         },
         "kicker": {
-          "type": "string",
-          "enum": [
-            "AI",
-            "Modeling",
-            "Decisioning",
-            "Arts",
-            "Writings"
-          ]
+          "$ref": "#/$defs/topic"
         },
         "status": {
           "type": "string",
@@ -506,14 +477,7 @@
           "pattern": "\\S"
         },
         "kicker": {
-          "type": "string",
-          "enum": [
-            "AI",
-            "Modeling",
-            "Decisioning",
-            "Arts",
-            "Writings"
-          ]
+          "$ref": "#/$defs/topic"
         },
         "status": {
           "type": "string",
@@ -661,14 +625,7 @@
               "pattern": "\\S"
             },
             "kicker": {
-              "type": "string",
-              "enum": [
-                "AI",
-                "Modeling",
-                "Decisioning",
-                "Arts",
-                "Writings"
-              ]
+              "$ref": "#/$defs/topic"
             },
             "status": {
               "type": "string",
@@ -681,12 +638,6 @@
               "type": "integer",
               "minimum": 0,
               "maximum": 1000000000
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 100,
-              "pattern": "\\S"
             },
             "theme": {
               "type": "string",
@@ -701,7 +652,7 @@
               ]
             },
             "kind": {
-              "const": "tool"
+              "const": "model"
             },
             "href": {
               "type": "string",
@@ -709,18 +660,15 @@
               "maxLength": 1024,
               "pattern": "^/(?:[A-Za-z0-9][A-Za-z0-9_-]*/)*(?:[A-Za-z0-9][A-Za-z0-9_-]*(?:\\.[A-Za-z0-9]+)?)?$"
             },
-            "cta": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 200,
-              "pattern": "\\S"
-            },
             "sourceUrl": {
               "type": "string",
               "minLength": 1,
               "maxLength": 4096,
               "pattern": "^https://[^/@?#\\s]+(?:/[^\\s]*)?$",
               "format": "uri"
+            },
+            "owner": {
+              "$ref": "#/$defs/owner"
             }
           },
           "required": [
@@ -731,12 +679,11 @@
             "kicker",
             "status",
             "order",
-            "source",
             "theme",
             "kind",
             "href",
-            "cta",
-            "sourceUrl"
+            "sourceUrl",
+            "owner"
           ]
         },
         {
@@ -768,14 +715,7 @@
               "pattern": "\\S"
             },
             "kicker": {
-              "type": "string",
-              "enum": [
-                "AI",
-                "Modeling",
-                "Decisioning",
-                "Arts",
-                "Writings"
-              ]
+              "$ref": "#/$defs/topic"
             },
             "status": {
               "type": "string",
@@ -788,12 +728,6 @@
               "type": "integer",
               "minimum": 0,
               "maximum": 1000000000
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 100,
-              "pattern": "\\S"
             },
             "theme": {
               "type": "string",
@@ -830,6 +764,9 @@
               "minItems": 1,
               "maxItems": 100,
               "uniqueItems": true
+            },
+            "owner": {
+              "$ref": "#/$defs/owner"
             }
           },
           "required": [
@@ -840,10 +777,10 @@
             "kicker",
             "status",
             "order",
-            "source",
             "theme",
             "kind",
-            "parts"
+            "parts",
+            "owner"
           ]
         }
       ]
@@ -863,9 +800,6 @@
         },
         "profile": {
           "$ref": "#/$defs/profile"
-        },
-        "mprlab": {
-          "$ref": "#/$defs/mprlab"
         },
         "projects": {
           "type": "array",
@@ -911,6 +845,15 @@
             "title",
             "items"
           ]
+        },
+        "owner": {
+          "$ref": "#/$defs/owner"
+        },
+        "models": {
+          "$ref": "#/$defs/models"
+        },
+        "software": {
+          "$ref": "#/$defs/software"
         }
       },
       "required": [
@@ -918,11 +861,13 @@
         "contact",
         "hero",
         "profile",
-        "mprlab",
         "projects",
         "music",
         "gallery",
-        "articles"
+        "articles",
+        "owner",
+        "models",
+        "software"
       ]
     },
     "publicCatalog": {
@@ -940,9 +885,6 @@
         },
         "profile": {
           "$ref": "#/$defs/profile"
-        },
-        "mprlab": {
-          "$ref": "#/$defs/mprlab"
         },
         "projects": {
           "type": "array",
@@ -988,6 +930,15 @@
             "title",
             "items"
           ]
+        },
+        "owner": {
+          "$ref": "#/$defs/owner"
+        },
+        "models": {
+          "$ref": "#/$defs/models"
+        },
+        "software": {
+          "$ref": "#/$defs/software"
         }
       },
       "required": [
@@ -995,11 +946,68 @@
         "contact",
         "hero",
         "profile",
-        "mprlab",
         "projects",
         "music",
         "gallery",
-        "articles"
+        "articles",
+        "owner",
+        "models",
+        "software"
+      ]
+    },
+    "owner": {
+      "const": "vadym-tyemirov",
+      "description": "Owner of all personal content in this catalog, including articles, albums, and Gallery records."
+    },
+    "topic": {
+      "type": "string",
+      "enum": [
+        "AI",
+        "Modeling",
+        "Decisioning",
+        "Arts",
+        "Writings"
+      ]
+    },
+    "models": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "const": "Models"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "label",
+        "title"
+      ]
+    },
+    "software": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "const": "Software by MPR Lab"
+        },
+        "href": {
+          "const": "https://mprlab.com"
+        },
+        "owner": {
+          "const": "mpr-lab"
+        },
+        "kind": {
+          "const": "software"
+        }
+      },
+      "required": [
+        "label",
+        "href",
+        "owner",
+        "kind"
       ]
     }
   }
