@@ -31,12 +31,11 @@ function showToast(notice) {
 try {
   const catalog = await fetchGallery();
   const cart = createCartManager(catalog);
-  document.getElementById('brand-name').setAttribute('brand-label', catalog.brand);
   document.getElementById('hero-subtitle').textContent = catalog.description;
   document.getElementById('about-description').textContent = catalog.description;
   document.getElementById('footer-year').textContent = String(new Date().getFullYear());
   const options = {
-    onOpen: (items, index) => lightbox.open(items, index),
+    onOpen: (items, index, opener) => lightbox.open(items, index, opener),
     onAdd: artwork => {
       cart.add(artwork);
       document.getElementById('cart-toast').textContent = `Added to Basket · ${artwork.title}`;
@@ -75,7 +74,7 @@ try {
     Object.values(views).forEach(hideElement);
     document.querySelector('.hero').classList.toggle('is-hidden', route.route !== ROUTES.HOME);
     for (const link of document.querySelectorAll('#nav-links a')) {
-      if (link.getAttribute('href') === routeHref(route.route, route.id)) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+      link.hidden = link.getAttribute('href') === routeHref(route.route, route.id);
     }
     let presentation = null;
     if (route.route === ROUTES.HOME) {

@@ -11,7 +11,6 @@ const FORMATS = { PNG: ['image/png', 'png'], JPEG: ['image/jpeg', 'jpg'], WebP: 
 function invalid() { throw new OrderClientError('The gallery returned an invalid response. Try again later.'); }
 function text(value) { if (typeof value !== 'string' || !value.trim() || value.length > 20000) invalid(); }
 function pattern(value, expression) { if (typeof value !== 'string' || !expression.test(value)) invalid(); }
-function httpsURL(value) { text(value); const url = new URL(value); if (url.protocol !== 'https:' || url.username || url.password) invalid(); return url; }
 
 /** @typedef {import('../types.d.js').BuyerOrder} BuyerOrder */
 /** @param {unknown} value @param {string} expectedID @returns {BuyerOrder} */
@@ -102,7 +101,7 @@ export async function createOrderClient(signal) {
 export function validateOrderConfig(value) {
   if(!siteRuntime(value)) invalid();
   const config = /** @type {{apiOrigin:string}} */ (value);
-  const origin = httpsURL(config.apiOrigin);
+  const origin = new URL(config.apiOrigin);
   if (origin.origin !== config.apiOrigin) invalid();
   return origin.origin;
 }

@@ -36,8 +36,8 @@ export function initLightbox(dialog) {
   dialog.addEventListener('close', () => { image.removeAttribute('src'); opener?.focus({ preventScroll: true }); artworks = []; });
   image.addEventListener('error', () => { if (dialog.open) notice.textContent = 'The artwork image could not load. Close this view and try again.'; });
   return {
-    /** @param {import('../types.d.js').Artwork[]} sequence @param {number} selected */
-    open(sequence, selected) { artworks = sequence; index = selected; opener = document.activeElement; render(); dialog.showModal(); },
+    /** @param {import('../types.d.js').Artwork[]} sequence @param {number} selected @param {HTMLButtonElement} trigger */
+    open(sequence, selected, trigger) { artworks = sequence; index = selected; opener = trigger; render(); dialog.showModal(); },
     close,
   };
 }

@@ -12,7 +12,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0B0C0E" />
   <meta name="color-scheme" content="dark" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
   <meta name="robots" content="index,follow" />
   <title>Vadym Tyemirov · Virtual Gallery</title>
@@ -44,7 +43,7 @@
   <link rel="stylesheet" href="/gallery/assets/css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.css" />
-  <script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui-config.js" data-mpr-ui-bundle-src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.js"></script>
     <style>
       .site-footer {
         display: block;
@@ -67,14 +66,15 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="gallery-header">
     <div class="layout-container gallery-header__inner">
-      <mpr-header id="brand-name" brand-label="Vadym Tyemirov · Virtual Gallery" brand-href="/" settings="false"></mpr-header>
-      <nav class="gallery-nav" aria-label="Primary" id="nav-links">
-        <a class="gallery-nav__link" href="/gallery/" data-route="home">Exhibits</a>
+      <mpr-header data-config-url="/config-ui.yaml" logout-url="/gallery/" id="brand-name" brand-label="Vadym Tyemirov · Virtual Gallery" brand-href="/" settings="false">
+      <nav slot="nav-right" class="gallery-nav" aria-label="Primary" id="nav-links">
         <a class="gallery-nav__link" href="/gallery/about/" data-route="about">About</a>
         <a class="gallery-nav__link gallery-nav__link--basket" href="/gallery/cart/" data-route="cart">
           Basket <span class="gallery-nav__badge" id="cart-count">0</span>
         </a>
+        <a class="gallery-nav__link" href="/gallery/studio/">Studio</a>
       </nav>
+      </mpr-header>
     </div>
   </header>
 
