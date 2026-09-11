@@ -74,8 +74,8 @@ func New(config Config) (*Service, error) {
 		config.ReconcileInterval = defaultReconciliationInterval
 	}
 	origin, err := url.Parse(config.AllowedOrigin)
-	if err != nil || origin.Scheme != "https" || origin.Host == "" || origin.User != nil || origin.Path != "" || origin.RawQuery != "" || origin.Fragment != "" {
-		return nil, errors.New("configure gallery: allowed origin must be an HTTPS origin")
+	if err != nil || (origin.Scheme != "https" && !(origin.Scheme == "http" && origin.Hostname() == "localhost")) || origin.Host == "" || origin.User != nil || origin.Path != "" || origin.RawQuery != "" || origin.Fragment != "" {
+		return nil, errors.New("configure gallery: allowed origin must use HTTPS or HTTP localhost")
 	}
 	address, err := mail.ParseAddress(config.OwnerEmail)
 	if err != nil || address.Address != config.OwnerEmail || config.OwnerEmail != strings.ToLower(config.OwnerEmail) {

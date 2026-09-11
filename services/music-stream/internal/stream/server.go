@@ -32,6 +32,7 @@ type Config struct {
 }
 
 const cookieName = "__Secure-music-session"
+const localCookieName = "music_development_session"
 const sessionLifetime = 24 * time.Hour
 const minimumGrantLifetime = 30 * time.Minute
 const grantMargin = 15 * time.Minute
@@ -56,6 +57,7 @@ type playbackGrant struct {
 type Service struct {
 	counters    Counters
 	config      Config
+	cookie      http.Cookie
 	root        *os.Root
 	origins     map[string]bool
 	mu          sync.Mutex
@@ -73,7 +75,7 @@ type Service struct {
 
 func validOrigin(origin string) bool {
 	parsed, err := url.Parse(origin)
-	return err == nil && parsed.Scheme == "https" && parsed.Host != "" && parsed.Path == "" && parsed.RawQuery == "" && parsed.Fragment == "" && parsed.User == nil
+	return err == nil && (parsed.Scheme == "https" || (parsed.Scheme == "http" && parsed.Hostname() == "localhost")) && parsed.Host != "" && parsed.Path == "" && parsed.RawQuery == "" && parsed.Fragment == "" && parsed.User == nil
 }
 
 // New validates configuration and all active media before accepting traffic.
@@ -94,7 +96,7 @@ func New(config Config) (*Service, error) {
 		proxies = append(proxies, prefix.Masked())
 	}
 	if !validOrigin(config.PublicOrigin) || len(config.AllowedOrigins) == 0 {
-		return nil, fmt.Errorf("configure explicit HTTPS origins")
+		return nil, fmt.Errorf("configure explicit HTTPS or HTTP localhost origins")
 	}
 	origins := make(map[string]bool)
 	for _, origin := range config.AllowedOrigins {
@@ -128,6 +130,11 @@ func New(config Config) (*Service, error) {
 		config.Logger = slog.New(slog.NewJSONHandler(io.Discard, nil))
 	}
 	service := &Service{config: config, root: root, origins: origins, tracks: tracks, sessions: make(map[[32]byte]*browserSession), grants: make(map[string]*playbackGrant), addresses: make(map[netip.Addr]*addressLimit), stop: make(chan struct{})}
+	service.cookie = http.Cookie{Name: cookieName, Path: "/music", Secure: true, HttpOnly: true, SameSite: http.SameSiteStrictMode, MaxAge: int(sessionLifetime.Seconds())}
+	if strings.HasPrefix(config.PublicOrigin, "http:") {
+		service.cookie.Name = localCookieName
+		service.cookie.Secure = false
+	}
 	service.limits = limits
 	service.proxies = proxies
 	service.addressIdle = max(addressRetention, time.Duration(math.Ceil(float64(limits.AddressGrantBurst)/float64(limits.AddressGrantRate)*60))*time.Second)

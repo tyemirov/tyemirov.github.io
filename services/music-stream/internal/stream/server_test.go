@@ -184,6 +184,46 @@ func TestProtectedPlaybackAndCookieScope(t *testing.T) {
 	}
 }
 
+func TestLocalHTTPPlaybackUsesAnIndependentCookie(t *testing.T) {
+	const localWebsite = "http://localhost:8080"
+	const localAPI = "http://localhost:8082"
+	fixture := prepareFixture(t, func(config *stream.Config) {
+		config.PublicOrigin = localAPI
+		config.AllowedOrigins = []string{localWebsite}
+	})
+	response := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, map[string]string{"Origin": localWebsite, "Content-Type": "application/json"})
+	if response.StatusCode != http.StatusCreated {
+		t.Fatalf("create local grant: HTTP %d", response.StatusCode)
+	}
+	cookie := response.Cookies()[0]
+	if cookie.Name != "music_development_session" || cookie.Secure || !cookie.HttpOnly || cookie.SameSite != http.SameSiteStrictMode || cookie.Path != "/music" {
+		t.Fatal("incorrect local cookie policy")
+	}
+	var grant testGrant
+	if err := json.NewDecoder(response.Body).Decode(&grant); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.HasPrefix(grant.PlaylistURL, localAPI+"/music/") {
+		t.Fatal("incorrect local playlist origin")
+	}
+	path := strings.TrimPrefix(grant.PlaylistURL, localAPI)
+	if result := fixture.request(t, "GET", path, nil, cookie, nil); result.StatusCode != http.StatusOK {
+		t.Fatalf("read local playlist: HTTP %d", result.StatusCode)
+	}
+	if result := fixture.request(t, "GET", path, nil, nil, nil); result.StatusCode != http.StatusUnauthorized {
+		t.Fatalf("read local playlist without session: HTTP %d", result.StatusCode)
+	}
+}
+
+func TestHTTPOriginsRejectNonLocalHosts(t *testing.T) {
+	for _, origin := range []string{"http://example.com", "http://localhost.example.com", "http://127.0.0.1", "http://localhost@evil.example"} {
+		_, err := stream.New(stream.Config{PublicOrigin: origin, AllowedOrigins: []string{"https://site.example.com"}})
+		if err == nil || !strings.Contains(err.Error(), "origins") {
+			t.Fatalf("reject public origin %q: %v", origin, err)
+		}
+	}
+}
+
 func TestGrantRenewalExpirationAndOrigin(t *testing.T) {
 	fixture := prepareFixture(t)
 	for _, origin := range []string{"", "null", "https://untrusted.test"} {

@@ -9,8 +9,8 @@ import (
 	"time"
 )
 
-func sessionKey(request *http.Request) ([32]byte, string, bool) {
-	cookie, err := request.Cookie(cookieName)
+func (service *Service) sessionKey(request *http.Request) ([32]byte, string, bool) {
+	cookie, err := request.Cookie(service.cookie.Name)
 	if err != nil {
 		return [32]byte{}, "", false
 	}
@@ -21,8 +21,10 @@ func sessionKey(request *http.Request) ([32]byte, string, bool) {
 	return sha256.Sum256([]byte(cookie.Value)), cookie.Value, true
 }
 
-func setSessionCookie(writer http.ResponseWriter, value string) {
-	http.SetCookie(writer, &http.Cookie{Name: cookieName, Value: value, Path: "/music", Secure: true, HttpOnly: true, SameSite: http.SameSiteStrictMode, MaxAge: int(sessionLifetime.Seconds())})
+func (service *Service) setSessionCookie(writer http.ResponseWriter, value string) {
+	cookie := service.cookie
+	cookie.Value = value
+	http.SetCookie(writer, &cookie)
 }
 
 func lifetime(media *validatedPackage) time.Duration {
@@ -76,7 +78,7 @@ func (service *Service) createGrant(writer *responseWriter, request *http.Reques
 		return
 	}
 	writer.trackID = input.TrackID
-	key, raw, valid := sessionKey(request)
+	key, raw, valid := service.sessionKey(request)
 	session, exists := service.sessions[key]
 	if !valid || !exists || !now.Before(session.expires) {
 		if len(service.sessions) >= service.limits.Sessions || len(service.grants) >= service.limits.Grants {
@@ -119,13 +121,13 @@ func (service *Service) createGrant(writer *responseWriter, request *http.Reques
 	grant := &playbackGrant{id: id, session: key, trackID: input.TrackID, media: media, created: now, expires: now.Add(lifetime(media)), renewal: newBucket(now, service.limits.GrantRenewalBurst)}
 	service.grants[id] = grant
 	session.expires = now.Add(sessionLifetime)
-	setSessionCookie(writer, raw)
+	service.setSessionCookie(writer, raw)
 	writer.Header().Set("Location", grantRoute+"/"+id)
 	sendJSON(writer, 201, service.response(grant, now))
 }
 
 func (service *Service) authorize(request *http.Request, id string, now time.Time) (*playbackGrant, int, string) {
-	key, _, valid := sessionKey(request)
+	key, _, valid := service.sessionKey(request)
 	session, exists := service.sessions[key]
 	if !valid || !exists || !now.Before(session.expires) {
 		return nil, 401, "session_required"
@@ -204,8 +206,8 @@ func (service *Service) grantResource(writer *responseWriter, request *http.Requ
 		}
 		grant.expires = expiration.ExpiresAt.UTC()
 		service.sessions[grant.session].expires = now.Add(sessionLifetime)
-		_, raw, _ := sessionKey(request)
-		setSessionCookie(writer, raw)
+		_, raw, _ := service.sessionKey(request)
+		service.setSessionCookie(writer, raw)
 	}
 	sendJSON(writer, 200, service.response(grant, now))
 }
