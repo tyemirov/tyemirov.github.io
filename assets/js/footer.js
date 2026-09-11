@@ -1,6 +1,6 @@
 // @ts-check
 
-const FOOTER_LABEL = "Built by Marco Polo Research Lab";
+const FOOTER_LABEL = "Website software by MPR Lab";
 
 /**
  * @param {{contact?: {label: string, href: string}, themeAttribute?: string}} [options]

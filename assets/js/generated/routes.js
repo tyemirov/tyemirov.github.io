@@ -274,5 +274,6 @@ export const routes = Object.freeze({
     }
   }
 });
+export const siteTopics = Object.freeze(["AI","Modeling","Decisioning","Arts","Writings"]);
 // Order statuses from contracts/gallery.schema.json.
 export const galleryOrderStatuses = Object.freeze(["payment-pending","awaiting-approval","complete","cancelled","revoked"]);
