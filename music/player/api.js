@@ -55,7 +55,7 @@ export function createPlaybackAPI(config) {
   if (!siteRuntime(config)) throw new PlaybackError("invalid_config");
   let url;
   try { url = new URL(config.apiOrigin); } catch { throw new PlaybackError("invalid_config"); }
-  if (url.protocol !== "https:" || url.origin !== config.apiOrigin) throw new PlaybackError("invalid_config");
+  if (url.origin !== config.apiOrigin) throw new PlaybackError("invalid_config");
   const origin = url.origin;
 
   async function request(path, method, body, signal) {

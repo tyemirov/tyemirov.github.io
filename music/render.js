@@ -29,7 +29,9 @@ function platformLinks(album) {
     link.href = href;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.textContent = PLATFORMS[platform];
+    link.setAttribute("aria-label", PLATFORMS[platform]);
+    link.title = PLATFORMS[platform];
+    link.innerHTML = musicIcon(platform);
     links.append(link);
   }
   return links;
@@ -41,17 +43,20 @@ export function renderMusicIndex(music, contact) {
   const albums = music.items.filter((album) => album.status === "live").sort((a, b) => a.order - b.order);
   grid.replaceChildren(...albums.map((album) => {
     const card = element("article", "album-card");
-    card.append(cover(album, "album-cover"), element("h2", "album-title", album.displayTitle ?? album.title));
+    const artwork = cover(album, "album-cover");
+    const albumLink = document.createElement("a");
+    albumLink.className = artwork.className;
+    albumLink.href = `/music/${album.slug}/`;
+    albumLink.setAttribute("aria-label", `Open ${album.title}`);
+    albumLink.append(...artwork.childNodes);
+    const title = element("h2", "album-title");
+    const titleLink = document.createElement("a");
+    titleLink.href = albumLink.href; titleLink.textContent = album.displayTitle ?? album.title;
+    title.append(titleLink); card.append(albumLink, title);
     if (album.translation) card.append(element("p", "album-translation", album.translation));
     card.append(element("p", "album-meta", `${album.latest ? "Latest Release • " : ""}${album.releaseDate.value} • ${album.tracks.length} Tracks`));
     card.append(element("p", "album-description", album.subtitle));
-    const actions = element("div", "album-actions");
-    const details = document.createElement("a");
-    details.className = "listen-button";
-    details.href = `/music/${album.slug}/`;
-    details.textContent = "Album Notes";
-    actions.append(details);
-    card.append(actions, platformLinks(album));
+    card.append(platformLinks(album));
     return card;
   }));
   const contactLine = element("p", "lead");
@@ -104,7 +109,8 @@ export function renderAlbumDetails(album) {
   trackSection.append(list);
   const credits = element("section", "credits-section");
   credits.append(element("h2", "section-subtitle", "Credits"), element("div", "credits-body", album.credits));
-  content.append(header, notes, trackSection, credits);
+  notes.prepend(element("h2", "section-subtitle", "About this album"));
+  content.append(header, trackSection, notes, credits);
   layout.append(sidebar, content);
   article.append(layout);
   document.querySelector("#album-container").replaceChildren(article);
