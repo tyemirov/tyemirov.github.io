@@ -23,6 +23,11 @@ const loading = document.getElementById('loading-state');
 const disposers = [];
 let currentRoute;
 
+function showToast(notice) {
+  showElement(notice);
+  notice.classList.add('is-visible');
+}
+
 try {
   const catalog = await fetchGallery();
   const cart = createCartManager(catalog);
@@ -35,7 +40,7 @@ try {
     onAdd: artwork => {
       cart.add(artwork);
       document.getElementById('cart-toast').textContent = `Added to Basket · ${artwork.title}`;
-      showElement(document.getElementById('cart-toast'));
+      showToast(document.getElementById('cart-toast'));
     },
   };
   const renderCart = () => renderCartView(document.getElementById('cart-populated'), cart.items(), id => cart.remove(id));
@@ -48,9 +53,10 @@ try {
     try {
       cart.reload();
       hideElement(notice);
+      notice.classList.remove('is-visible');
     } catch {
       notice.textContent = 'The basket could not update. Check browser storage before checkout.';
-      showElement(notice);
+      showToast(notice);
     }
   };
   const onStorage = event => {

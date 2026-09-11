@@ -123,6 +123,10 @@ async function initializeCheckout(current) {
     throw error;
    }
    if(attemptGeneration!==generation) return;
+   if(created.order.status==='payment-pending' && created.order.approvalUrl===null) {
+    status.textContent='Payment setup is pending. Retry this order to continue to PayPal.';
+    return;
+   }
    orderID=created.order.id; secret=created.accessSecret;
    history.replaceState(null,'',`${ORDER_PAGE}?order=${orderID}`);
    checkout.replaceChildren(); checkout.hidden=true;

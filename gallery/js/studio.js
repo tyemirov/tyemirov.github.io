@@ -1,4 +1,5 @@
 // @ts-check
+import { galleryOrderStatuses } from '/assets/js/generated/routes.js';
 import { initializeSiteFooter } from '../../assets/js/footer.js';
 import { createStudioClient } from './core/studio.js';
 import { validatePublicCatalog } from '../../assets/js/catalog.js';
@@ -240,7 +241,7 @@ function editGroup(kind,existing){
 async function orders(){
   panel.append(element('h2','Orders'));const filters=element('form',null,{class:'studio-toolbar'});
   const email=field(filters,'Buyer email','',{type:'email',required:false});
-  const state=select(filters,'Order status',[['','All'],...['pending','awaiting_approval','complete','cancelled','revoked'].map(value=>[value,value])]);
+  const state=select(filters,'Order status',[['','All'],...galleryOrderStatuses.map(value=>[value,value])]);
   filters.append(element('button','Find orders',{type:'submit'}));panel.append(filters);
   const list=element('div',null);panel.append(list);let cursor=null;
   const more=button('Load more orders',()=>load(cursor));panel.append(more);
