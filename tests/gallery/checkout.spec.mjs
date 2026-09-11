@@ -147,3 +147,66 @@ test('checkout updates the basket that remains open in another tab',async({page,
  await expect(page.getByText('Your basket is empty. Explore the gallery to find available works.',{exact:true})).toBeVisible();
  await expect(page.locator('#cart-count')).toHaveText('0');
 });
+
+
+for (const nextAction of ['approve','cancel']) test(`premature capture preserves approval and cancellation before the buyer chooses ${nextAction}`,async({page,context})=>{
+ await checkout(page);
+ await page.getByLabel('Receipt email',{exact:true}).fill('buyer@example.test');
+ await page.getByRole('button',{name:'Create order',exact:true}).click();
+ await page.getByLabel('I saved my access code and accept this order',{exact:true}).check();
+ const id=new URL(page.url()).searchParams.get('order');
+ const capture=page.waitForResponse(response=>response.url().endsWith(`/orders/${id}/captures`));
+ await page.getByRole('button',{name:'Complete approved payment',exact:true}).click();
+ expect((await (await capture).json()).status).toBe('awaiting-approval');
+ await expect(page.getByRole('status')).toContainText('Awaiting payment approval');
+ await expect(page.getByRole('button',{name:'Cancel unpaid order',exact:true})).toBeVisible();
+ if(nextAction==='cancel'){
+  await page.getByRole('button',{name:'Cancel unpaid order',exact:true}).click();
+  await expect(page.getByRole('status')).toContainText('Order cancelled');return;
+ }
+ const popupEvent=page.waitForEvent('popup');
+ await page.getByRole('link',{name:'Continue to PayPal',exact:true}).click();
+ const popup=await popupEvent;
+ await popup.getByRole('button',{name:'Approve test payment',exact:true}).click();
+ await expect(popup).toHaveURL(new RegExp(`order=${id}$`));await popup.close();
+ await page.getByRole('button',{name:'Complete approved payment',exact:true}).click();
+ await expect(page.getByRole('status')).toContainText('Waiting for payment verification');
+ expect((await context.request.post(`/fixture-control/gallery/complete/${id}`)).status()).toBe(204);
+ await page.getByRole('button',{name:'Check payment status',exact:true}).click();
+ await expect(page.getByRole('status')).toContainText('Payment complete');
+});
+
+test('pending provider creation preserves the basket and retries the original purchase',async({page,context})=>{
+ await checkout(page);
+ const attempts=[];
+ page.on('request',request=>{if(request.url()==='https://localhost:18444/gallery/orders' && request.method()==='POST')attempts.push({body:request.postDataJSON(),key:request.headers()['idempotency-key']});});
+ expect((await context.request.post('/fixture-control/gallery/fail-creation')).status()).toBe(204);
+ await page.getByLabel('Receipt email',{exact:true}).fill('buyer@example.test');
+ const creation=page.waitForResponse(response=>response.url()==='https://localhost:18444/gallery/orders' && response.request().method()==='POST');
+ await page.getByRole('button',{name:'Create order',exact:true}).click();
+ const first=await (await creation).json();
+ expect(first.order.status).toBe('payment-pending');expect(first.order.approvalUrl).toBeNull();
+ await expect(page.getByRole('button',{name:'Retry order',exact:true})).toBeVisible();
+ expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('gallery-offer-basket')))).toEqual(['browser-download']);
+ await expect(page.getByRole('button',{name:'Check approved payment',exact:true})).toHaveCount(0);
+ await page.getByRole('button',{name:'Retry order',exact:true}).click();
+ await expect(page).toHaveURL(new RegExp(`order=${first.order.id}$`));
+ await expect(page.getByLabel('Save this access code',{exact:true})).toHaveValue(first.accessSecret);
+ await page.getByLabel('I saved my access code and accept this order',{exact:true}).check();
+ await expect(page.getByRole('link',{name:'Continue to PayPal',exact:true})).toBeVisible();
+ expect(attempts).toHaveLength(2);expect(attempts[1]).toEqual(attempts[0]);
+ expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('gallery-offer-basket')))).toEqual([]);
+});
+
+test('basket notices become opaque and clear after a successful refresh',async({page,context})=>{
+ const site=await (await page.request.get('/data/site.json')).json();
+ await page.goto(`/gallery/artworks/${site.gallery.artworks[0].id}/`);
+ await page.getByRole('button',{name:'Add to Basket',exact:true}).click();
+ const notice=page.locator('#cart-toast');
+ await expect(notice).toContainText('Added to Basket');await expect(notice).toHaveCSS('opacity','1');
+ const other=await context.newPage();await other.goto('/gallery/cart/');
+ await other.evaluate(()=>localStorage.setItem('gallery-offer-basket','invalid'));
+ await expect(notice).toContainText('The basket could not update');await expect(notice).toHaveCSS('opacity','1');
+ await other.evaluate(()=>localStorage.setItem('gallery-offer-basket','[]'));
+ await expect(notice).toBeHidden();await expect(notice).not.toHaveClass(/is-visible/);
+});

@@ -23,6 +23,7 @@ export async function startGalleryFixture({ temporary, certificate, key, siteRoo
   await writeFile(join(publicRoot, 'data/site.json'), JSON.stringify(site));
   const orders = new Map();
   const creationKeys = new Map();
+  let failNextCreation = false;
   const provider = createServer({ cert: await readFile(certificate), key: await readFile(key) }, async (request, response) => {
     try {
       if (request.url === '/v1/oauth2/token') { request.resume(); json(response, 200, { access_token: 'local-provider-access', token_type: 'Bearer', expires_in: 3600 }); return; }
@@ -36,6 +37,7 @@ export async function startGalleryFixture({ temporary, certificate, key, siteRoo
           record = { id, captured: false, approved:false, returnURL:input.payment_source.paypal.experience_context.return_url, units: input.purchase_units };
           orders.set(id, record); creationKeys.set(key, record);
         }
+        if (failNextCreation) { failNextCreation = false; json(response, 503, {}); return; }
         json(response, 201, { id: record.id, status: 'PAYER_ACTION_REQUIRED', links: [{ rel: 'payer-action', method: 'GET', href: `${apiOrigin}/checkoutnow?token=${record.id}` }] }); return;
       }
       const checkout = new URL(request.url,apiOrigin);
@@ -140,6 +142,7 @@ export async function startGalleryFixture({ temporary, certificate, key, siteRoo
           json(response,200,config); return true;
         }
         if (request.method !== 'POST' || !request.url.startsWith('/fixture-control/gallery/')) return false;
+        if (request.url === '/fixture-control/gallery/fail-creation') { request.resume(); failNextCreation = true; response.writeHead(204).end(); return true; }
         if (request.url === '/fixture-control/gallery/orders') {
           const created = await fetch(internalOrigin+'/gallery/orders', { method: 'POST', headers: { Origin:origin, 'Content-Type':'application/json', 'Idempotency-Key':randomUUID() }, body: JSON.stringify({ offerIds:['browser-download'], email:'buyer@example.test', catalogDigest:createHash('sha256').update(JSON.stringify(site)).digest('hex') }) });
           const payload = await created.json();

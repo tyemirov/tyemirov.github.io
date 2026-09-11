@@ -162,3 +162,17 @@ test('Studio retains local edits across shared session recovery and fits three v
     await page.screenshot({path:`output/playwright/site-redesign/studio-${test.info().project.name}-${width}.png`,fullPage:true});
   }
 });
+
+
+test('Studio filters orders with every canonical status',async({page,context})=>{
+ await login(page,context,'fixture-owner');await expect(page.locator('#studio-workspace')).toBeVisible();
+ await page.getByRole('button',{name:'Orders',exact:true}).click();
+ const schema=JSON.parse(await readFile('contracts/gallery.schema.json','utf8'));
+ for(const status of schema.$defs.order.properties.status.enum){
+  await page.getByLabel('Order status',{exact:true}).selectOption(status);
+  const response=page.waitForResponse(response=>new URL(response.url()).pathname==='/gallery/orders' && new URL(response.url()).searchParams.get('status')===status);
+  await page.getByRole('button',{name:'Find orders',exact:true}).click();
+  const result=await response;expect(result.status()).toBe(200);
+  expect((await result.json()).items.every(order=>order.status===status)).toBe(true);
+ }
+});
