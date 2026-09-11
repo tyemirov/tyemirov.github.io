@@ -98,6 +98,9 @@ function renderContent(data) {
   renderEssays(data.articles);
   renderMusic(data.music);
   renderArts(data.gallery);
+  for (const [selector, section] of [['.project-section',data.mprlab],['.essay-section',data.articles],['.music-section',data.music],['.arts-section',data.gallery]]) {
+    document.querySelector(`${selector} .notes-label`).hidden = currentFilter === section.label;
+  }
 }
 
 function renderFilters(data) {
