@@ -274,3 +274,5 @@ export const routes = Object.freeze({
     }
   }
 });
+// Order statuses from contracts/gallery.schema.json.
+export const galleryOrderStatuses = Object.freeze(["payment-pending","awaiting-approval","complete","cancelled","revoked"]);
