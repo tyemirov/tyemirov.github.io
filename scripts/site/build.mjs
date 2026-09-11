@@ -25,11 +25,23 @@ async function file(path, body) {
   await mkdir(resolve(output, path, '..'), { recursive: true });
   await writeFile(join(output, path), body);
 }
+function withNavigation(path, html) {
+  const parent = path.startsWith('/music/') && path !== '/music/' ? ['Music','/music/']
+    : path.startsWith('/gallery/') && path !== '/gallery/' ? ['Gallery','/gallery/']
+    : path.startsWith('/articles/') && path !== '/articles/' ? ['Articles','/articles/'] : null;
+  const navigation = `<nav slot="brand" class="site-navigation" aria-label="Page hierarchy"><a href="/" aria-label="Home" title="Home">^</a>${parent ? `<a href="${parent[1]}">${parent[0]}</a>` : ''}</nav>`;
+  return html.replace(/<mpr-header\b[^>]*>[\s\S]*?<\/mpr-header>/, header => {
+    const sourceLink = header.match(/brand-href="(https:[^"]+)"/);
+    const companion = sourceLink && !html.replace(header,'').includes(sourceLink[1])
+      ? `<a slot="nav-right" class="site-companion" href="${sourceLink[1]}" target="_blank" rel="noopener noreferrer">Read companion article</a>` : '';
+    return header.replace('</mpr-header>',navigation+companion+'</mpr-header>');
+  }).replace('</head>', '<link rel="stylesheet" href="/assets/css/navigation.css">\n</head>');
+}
 async function page(path, html) {
   if (routes.has(path)) throw new Error(`Duplicate page route: ${path}`);
   const target = `${path.slice(1)}index.html`;
   routes.set(path, target);
-  await file(target, html);
+  await file(target, withNavigation(path, html));
 }
 function document(path, title, description, content) {
   return `<!doctype html>
@@ -51,7 +63,7 @@ function document(path, title, description, content) {
 for (const path of ['/', '/music/', '/gallery/order/', '/gallery/studio/']) await page(path, await readFile(join(root, path, 'index.html'), 'utf8'));
 for (const project of site.projects.filter(project => project.kind === 'tool')) await page(project.href, await readFile(join(root,project.href,'index.html'),'utf8'));
 const articles = source.articles.items.filter(item => item.status === 'live').sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));
-await page('/articles/', document('/articles/', site.articles.title, 'Complete articles by Vadym Tyemirov.', `<p><a href="/">← Home</a></p><h1>${escape(site.articles.title)}</h1><nav id="article-filters" aria-label="Filter articles"></nav><div id="article-list">${articles.map(article => `<article class="article-summary" data-kicker="${escape(article.kicker)}" data-source="${escape(article.source.label)}"><h2><a href="/articles/${article.slug}/">${escape(article.title)}</a></h2><p>${escape(article.summary)}</p></article>`).join('')}</div>`));
+await page('/articles/', document('/articles/', site.articles.title, 'Complete articles by Vadym Tyemirov.', `<h1>${escape(site.articles.title)}</h1><nav id="article-filters" aria-label="Filter articles"></nav><div id="article-list">${articles.map(article => `<article class="article-summary" data-kicker="${escape(article.kicker)}" data-source="${escape(article.source.label)}"><h2><a href="/articles/${article.slug}/">${escape(article.title)}</a></h2><p>${escape(article.summary)}</p></article>`).join('')}</div>`));
 for (const article of articles) {
   const body = renderMarkdown(article.body.text);
   const images = new Set([...body.matchAll(/<img src="([^"]+)"/g)].map(match => match[1]));
@@ -62,7 +74,7 @@ for (const article of articles) {
     await copyFile(join(root, path), join(output, path));
   }
   const path = `/articles/${article.slug}/`;
-  await page(path, document(path, article.title, article.summary, `<nav><a href="/articles/">← Articles</a></nav><article class="article-body"><header><p class="eyebrow">${escape(article.kicker)}</p><h1>${escape(article.title)}</h1>${article.publishedAt ? `<time datetime="${article.publishedAt}">${article.publishedAt.slice(0, 10)}</time>` : ''}<p class="article-source"><a href="${escape(article.source.url)}">Read the original on ${escape(article.source.label)}</a></p></header>${body}</article>`));
+  await page(path, document(path, article.title, article.summary, `<article class="article-body"><header><p class="eyebrow">${escape(article.kicker)}</p><h1>${escape(article.title)}</h1>${article.publishedAt ? `<time datetime="${article.publishedAt}">${article.publishedAt.slice(0, 10)}</time>` : ''}<p class="article-source"><a href="${escape(article.source.url)}">Read the original on ${escape(article.source.label)}</a></p></header>${body}</article>`));
 }
 let gallery = await readFile(join(root, 'gallery/index.html'), 'utf8');
 // Every deep page uses site-absolute assets and a real static file.
@@ -85,6 +97,6 @@ await file('data/site.json', JSON.stringify(site, null, 2) + '\n');
 await file('config-site.json', JSON.stringify(config, null, 2) + '\n');
 await file('config-ui.yaml', JSON.stringify(uiConfig, null, 2) + '\n');
 await file('data/routes.json', JSON.stringify([...routes].map(([path, file]) => ({ path, file })), null, 2) + '\n');
-await file('404.html', document('/404.html', 'Page not found', 'The requested page does not exist.', '<h1>Page not found</h1><p><a href="/">Return home</a></p>'));
+await file('404.html', withNavigation('/404.html', document('/404.html', 'Page not found', 'The requested page does not exist.', '<h1>Page not found</h1>')));
 
 await file('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + [...routes.keys()].filter(path=>!['/gallery/order/','/gallery/cart/','/gallery/studio/'].includes(path)).map(path=>`  <url><loc>${escape(new URL(path,site.site.canonical).href)}</loc></url>`).join('\n') + '\n</urlset>\n');
