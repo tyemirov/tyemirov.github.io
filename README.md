@@ -77,17 +77,23 @@ Start the website, APIs, local payment provider, and mail sink:
 make up
 ```
 
-Open `https://localhost:8443`.
+Open `http://localhost:8080`.
+The local frontend uses this origin for Google login.
+To use the other frontend origin, run `make up UP_PORT=8081`.
+Local gHTTP sets `Referrer-Policy: no-referrer-when-downgrade` for [Google HTTP localhost login](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid?hl=en).
 gHTTP `--https --https-persist` installs its development certificate authority once in the host trust store.
 Subsequent starts reuse the trusted certificate authority.
-The website, HTTPS media route, and gallery API use this certificate.
-HTTPS is required for the music authorization cookie.
+Only the local payment approval endpoint uses this certificate.
+The local website and APIs use HTTP on `localhost`.
+Local music uses the separate `music_development_session` cookie without the `Secure` attribute.
+The hosted music cookie retains its `Secure`, `HttpOnly`, and `SameSite=Strict` attributes.
+HTTP origins are accepted only for the exact `localhost` hostname.
 The website and APIs use different local origins.
-Both application APIs use `https://localhost:8444`, under `/music` and `/gallery`.
+Both application APIs use `http://localhost:8082`, under `/music` and `/gallery`.
 Local payment approval uses `https://localhost:8446`.
 
 `make up` builds the Pages artifact, media service, and gallery API from the current source.
-Three host gHTTP processes serve the Pages artifact, HTTPS API routes, and local payment approval.
+Three host gHTTP processes serve the Pages artifact, HTTP API routes, and local payment approval.
 Each API container exposes HTTP on an assigned loopback port for its gHTTP proxy.
 The media initialization container enables local HLS playback from the private index and generates the corresponding allowlist.
 It copies the prepared packages into a retained Docker volume.
@@ -95,9 +101,9 @@ The local catalog uses the titles and metadata from `data/site.json`.
 The service reads `/media/selected.json`, `/media/allowlist.json`, and `/media/packages` from that volume.
 Local website files and process logs use `.local/runtime/<LOCAL_PROJECT>`.
 Certificates persist in `~/.local/share/tyemirov-site/certs`.
-The command returns after all HTTPS endpoints pass certificate validation and readiness checks.
+The command returns after all endpoints pass readiness checks and the payment endpoint passes certificate validation.
 After source changes, run `make up` again to rebuild the site and service.
-To select other ports, run `make up UP_PORT=8445 API_PORT=8446 PAYMENT_PORT=8448`.
+To select another API port, run `make up API_PORT=8083`.
 All three ports must differ.
 
 The gallery database uses `/data/gallery.db` in the persistent `gallery-data` volume.
