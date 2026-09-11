@@ -27,8 +27,8 @@ services:
       - --media-root=/media
       - --index=/media/selected.json
       - --allowlist=/media/allowlist.json
-      - --public-origin=https://localhost:${API_PORT:-8444}
-      - --allowed-origins=https://localhost:${UP_PORT:-8443}
+      - --public-origin=http://localhost:${API_PORT:-8082}
+      - --allowed-origins=http://localhost:${UP_PORT:-8080}
     volumes:
       - media:/media:ro
     ports:
@@ -41,7 +41,7 @@ services:
     image: ghcr.io/tyemirov/tauth:2.2.1@sha256:e6d299c6f0890889c9d905384d5c67c895053cb5d80aac70ca2bec947c4f0b6a
     command: ["--config=/config/tauth.yaml"]
     environment:
-      STUDIO_WEBSITE_ORIGIN: https://localhost:${UP_PORT:-8443}
+      STUDIO_WEBSITE_ORIGIN: http://localhost:${UP_PORT:-8080}
       GALLERY_GOOGLE_WEB_CLIENT_ID: ${GALLERY_GOOGLE_WEB_CLIENT_ID:?Start local services with make up}
     env_file:
       - path: ${LOCAL_GALLERY_ENV:?Start local services with make up}
@@ -70,7 +70,7 @@ services:
       - --listen=0.0.0.0:8093
       - --database=/data/gallery.db
       - --public-root=/site
-      - --allowed-origin=https://localhost:${UP_PORT:-8443}
+      - --allowed-origin=http://localhost:${UP_PORT:-8080}
       - --tenant-id=tyemirov-gallery-development
       - --owner-email=vadym@tyemirov.net
       - --cookie-name=tyemirov_gallery_development_session
@@ -121,7 +121,7 @@ services:
     environment:
       PAYMENT_API_ORIGIN: https://gallery-payment:8095
       PAYMENT_CHECKOUT_ORIGIN: https://localhost:${PAYMENT_PORT:-8446}
-      PAYMENT_WEBSITE_ORIGIN: https://localhost:${UP_PORT:-8443}
+      PAYMENT_WEBSITE_ORIGIN: http://localhost:${UP_PORT:-8080}
       PAYMENT_GALLERY_ORIGIN: http://gallery:8093
       PAYMENT_CLIENT_ID: LOCALGALLERYCLIENT
       PAYMENT_MERCHANT_ID: LOCALGALLERYMERCHANT
