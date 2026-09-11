@@ -250,6 +250,8 @@ h1 {
   max-width: 65ch;
 }
 
+.notes-label[hidden] { display: none; }
+
 .notes-label {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.7rem;
