@@ -16,3 +16,6 @@ mpr-header {
 }
 .skip-link { position: absolute; left: 16px; top: -80px; z-index: 10; padding: 8px; background: var(--bg); }
 .skip-link:focus { top: 8px; }
+
+.content-page { min-height: 100vh; display: flex; flex-direction: column; }
+.content-page > main { flex: 1; width: 100%; box-sizing: border-box; }
