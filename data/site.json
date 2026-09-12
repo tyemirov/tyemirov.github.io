@@ -46,7 +46,7 @@
     "role": "Technical Founder & Engineering Leader",
     "footnote": "Meta · BlackRock · Shopify · Morgan Stanley",
     "alt": "Portrait of Vadym Tyemirov",
-    "sizes": "(max-width: 1000px) 80px, 112px",
+    "sizes": "(max-width: 600px) 112px, (max-width: 1000px) 160px, 340px",
     "image": {
       "webp": {
         "srcset": "/assets/profile/vadym-tyemirov-360.webp 360w, /assets/profile/vadym-tyemirov-720.webp 720w",
@@ -745,8 +745,8 @@
     "title": "My Gallery"
   },
   "articles": {
-    "label": "Articles",
-    "title": "Articles",
+    "label": "Essays",
+    "title": "Essays and research notes.",
     "items": [
       {
         "id": "the-human-act-of-making-things-exist",
@@ -848,7 +848,7 @@
   "owner": "vadym-tyemirov",
   "models": {
     "label": "Models",
-    "title": "Models"
+    "title": "Models and interactive tools."
   },
   "software": {
     "label": "Software by MPR Lab",
