@@ -25,11 +25,16 @@ async function file(path, body) {
   await mkdir(resolve(output, path, '..'), { recursive: true });
   await writeFile(join(output, path), body);
 }
+function parentFor(path) {
+  if (site.projects.some(project => project.kind === 'model' && project.href === path)) return { label: site.models.label, path: '/models/' };
+  for (const [prefix, label] of [['/music/', 'Music'], ['/gallery/', 'Gallery'], ['/articles/', 'Articles']]) {
+    if (path.startsWith(prefix) && path !== prefix) return { label, path: prefix };
+  }
+  return null;
+}
 function withNavigation(path, html) {
-  const parent = path.startsWith('/music/') && path !== '/music/' ? ['Music','/music/']
-    : path.startsWith('/gallery/') && path !== '/gallery/' ? ['Gallery','/gallery/']
-    : path.startsWith('/articles/') && path !== '/articles/' ? ['Articles','/articles/'] : null;
-  const navigation = `<nav slot="brand" class="site-navigation" aria-label="Page hierarchy"><a href="/" aria-label="Home" title="Home">^</a>${parent ? `<a href="${parent[1]}">${parent[0]}</a>` : ''}</nav>`;
+  const parent = parentFor(path);
+  const navigation = `<nav slot="brand" class="site-navigation" aria-label="Page hierarchy"><a href="/" aria-label="Home" title="Home">^</a>${parent ? `<a href="${parent.path}">${parent.label}</a>` : ''}</nav>`;
   return html.replace(/<mpr-header\b[^>]*>[\s\S]*?<\/mpr-header>/, header => {
     const sourceLink = header.match(/brand-href="(https:[^"]+)"/);
     const companion = sourceLink && !html.replace(header,'').includes(sourceLink[1])
@@ -47,7 +52,7 @@ function document(path, title, description, content) {
   return `<!doctype html>
 <html lang="en"><head>
 <script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Vadym Tyemirov"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escape(title)} | Vadym Tyemirov</title><meta name="description" content="${escape(description)}">
 <link rel="canonical" href="${new URL(path, site.site.canonical).href}">
 <link rel="icon" type="image/png" href="/favicon.png"><link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -55,15 +60,16 @@ function document(path, title, description, content) {
 <script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.js"></script>
 <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/articles/style.css"><link rel="stylesheet" href="/assets/css/footer.css">
 <script type="module" src="/articles/articles.js"></script>
-</head><body><a class="skip-link" href="#main">Skip to content</a>
-<mpr-header brand-label="Vadym Tyemirov · Writings" brand-href="/" settings="false"></mpr-header>
+</head><body class="content-page"><a class="skip-link" href="#main">Skip to content</a>
+<mpr-header brand-label="Vadym Tyemirov" brand-href="/" settings="false"></mpr-header>
 <main id="main" class="article-shell">${content}</main>
 <mpr-footer sticky="false" id="site-footer" class="site-footer"></mpr-footer></body></html>\n`;
 }
 for (const path of ['/', '/music/', '/gallery/order/', '/gallery/studio/']) await page(path, await readFile(join(root, path, 'index.html'), 'utf8'));
-for (const project of site.projects.filter(project => project.kind === 'tool')) await page(project.href, await readFile(join(root,project.href,'index.html'),'utf8'));
+for (const project of site.projects.filter(project => project.kind === 'model')) await page(project.href, await readFile(join(root,project.href,'index.html'),'utf8'));
+await page('/models/', document('/models/', site.models.title, 'Models by Vadym Tyemirov.', `<h1>${escape(site.models.title)}</h1><nav id="article-filters" aria-label="Filter models"></nav><p class="topic-empty" hidden>No items match this topic.</p><div id="model-list">${site.projects.filter(project => project.kind === 'model').sort((a,b) => a.order-b.order).map(project => `<article class="article-summary" data-kicker="${escape(project.kicker)}"><h2><a href="${escape(project.href)}">${escape(project.title)}</a></h2><p>${escape(project.summary)}</p><a href="${escape(project.sourceUrl)}">Read companion article</a></article>`).join('')}</div>`));
 const articles = source.articles.items.filter(item => item.status === 'live').sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));
-await page('/articles/', document('/articles/', site.articles.title, 'Complete articles by Vadym Tyemirov.', `<h1>${escape(site.articles.title)}</h1><nav id="article-filters" aria-label="Filter articles"></nav><div id="article-list">${articles.map(article => `<article class="article-summary" data-kicker="${escape(article.kicker)}" data-source="${escape(article.source.label)}"><h2><a href="/articles/${article.slug}/">${escape(article.title)}</a></h2><p>${escape(article.summary)}</p></article>`).join('')}</div>`));
+await page('/articles/', document('/articles/', site.articles.title, 'Complete articles by Vadym Tyemirov.', `<h1>${escape(site.articles.title)}</h1><nav id="article-filters" aria-label="Filter articles"></nav><p class="topic-empty" hidden>No items match this topic.</p><div id="article-list">${articles.map(article => `<article class="article-summary" data-kicker="${escape(article.kicker)}" data-source="${escape(article.source.label)}"><h2><a href="/articles/${article.slug}/">${escape(article.title)}</a></h2><p>${escape(article.summary)}</p></article>`).join('')}</div>`));
 for (const article of articles) {
   const body = renderMarkdown(article.body.text);
   const images = new Set([...body.matchAll(/<img src="([^"]+)"/g)].map(match => match[1]));
@@ -96,7 +102,7 @@ for (const album of site.music.items) {
 await file('data/site.json', JSON.stringify(site, null, 2) + '\n');
 await file('config-site.json', JSON.stringify(config, null, 2) + '\n');
 await file('config-ui.yaml', JSON.stringify(uiConfig, null, 2) + '\n');
-await file('data/routes.json', JSON.stringify([...routes].map(([path, file]) => ({ path, file })), null, 2) + '\n');
+await file('data/routes.json', JSON.stringify([...routes].map(([path, file]) => ({ path, file, parent: parentFor(path) })), null, 2) + '\n');
 await file('404.html', withNavigation('/404.html', document('/404.html', 'Page not found', 'The requested page does not exist.', '<h1>Page not found</h1>')));
 
 await file('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + [...routes.keys()].filter(path=>!['/gallery/order/','/gallery/cart/','/gallery/studio/'].includes(path)).map(path=>`  <url><loc>${escape(new URL(path,site.site.canonical).href)}</loc></url>`).join('\n') + '\n</urlset>\n');

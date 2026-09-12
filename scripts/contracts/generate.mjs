@@ -96,6 +96,7 @@ for (const name of ['gallery', 'music']) {
   outputs.set(name === 'gallery' ? 'services/gallery/routes_generated.go' : 'services/music-stream/internal/stream/routes_generated.go', execFileSync('gofmt', { input: go, encoding: 'utf8' }));
 }
 outputs.set('assets/js/generated/routes.js', '// @ts-check\n// Generated from contracts/*.openapi.yaml. Do not edit.\nexport const routes = Object.freeze(' + JSON.stringify(routes, null, 2) + ');\n'
+  + 'export const siteTopics = Object.freeze(' + JSON.stringify(schemas.site.$defs.topic.enum) + ');\n'
   + '// Order statuses from contracts/gallery.schema.json.\nexport const galleryOrderStatuses = Object.freeze(' + JSON.stringify(schemas.gallery.$defs.order.properties.status.enum) + ');\n');
 for (const [path, contents] of outputs) {
   if (process.argv.includes('--check')) {
