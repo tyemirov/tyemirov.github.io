@@ -173,6 +173,7 @@ function renderProjects(models) {
   if (!projectSection || !models) return;
 
   updateText(".project-section .section-title", models.title);
+  updateText(".project-section .notes-label", models.label);
   let cards = projectSection.querySelector('.project-list');
   if (!cards) { cards = document.createElement('div'); cards.className = 'project-list'; projectSection.append(cards); }
   const selected = siteData.projects.filter(project => matchesFilter(project)).sort(byOrder);
@@ -247,7 +248,7 @@ function renderArts(arts) {
     return link;
   }));
 
-  updateText(".arts-section .notes-label", arts.label);
+  updateText(".arts-section .notes-label", "Arts");
   updateText(".arts-section .section-title", arts.title);
 
   artsSection.classList.toggle("is-hidden", !item);
@@ -299,6 +300,13 @@ function createProjectCard(project) {
     card.append(list);
   }
 
+  if (project.kind === "model") {
+    const actions = document.createElement("div");
+    actions.className = "project-actions";
+    actions.append(createCardAction("Explore model", project.href), createCardAction("Read companion article", project.sourceUrl));
+    card.append(actions);
+  }
+
   return card;
 }
 
@@ -321,7 +329,20 @@ function createArticleCard(article) {
   const tags = document.createElement('div'); tags.className = 'card-tags';
   if (currentFilter !== article.kicker) tags.append(kicker);
   card.append(tags, title, summary);
+  const actions = document.createElement("div");
+  actions.className = "project-actions";
+  actions.append(createCardAction("Read article", `/articles/${article.slug}/`), createCardAction(`Read on ${article.source.label}`, article.source.url));
+  card.append(actions);
   return card;
+}
+
+/** @param {string} label @param {string} href */
+function createCardAction(label, href) {
+  const link = document.createElement("a");
+  link.className = "project-link";
+  link.href = href;
+  link.textContent = label;
+  return link;
 }
 
 function createMusicItem(item) {
