@@ -28,7 +28,7 @@ test('section links open the complete catalog without a repeated section kicker'
  await expect(page.locator('.album-card')).toHaveCount(6);
  await expect(page.getByRole('navigation',{name:'Page hierarchy'}).getByRole('link')).toHaveText(['^']);
  await page.goto('/models/');
- await expect(page.getByRole('heading',{level:1})).toHaveText('Models');
+ await expect(page.getByRole('heading',{level:1})).toHaveText('Models and interactive tools.');
  await expect(page.locator('.article-summary')).toHaveCount(4);
 });
 

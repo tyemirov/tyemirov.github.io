@@ -4,14 +4,13 @@ import { test, expect } from "./test-fixtures.mjs";
 import { installCapabilityScenario } from "./browser-capabilities.mjs";
 
 const catalog = JSON.parse(await readFile(new URL("../../data/site.json", import.meta.url), "utf8"));
-const pageHeightLimits = new Map([[390, 3800], [769, 2700], [1280, 2350]]);
 
 test.beforeEach(async ({ context }) => {
   await context.route(/loopaware\.mprlab\.com/, route => route.abort());
 });
 
 for (const width of [390, 769, 1280]) {
-  test(`homepage keeps its complete content compact at ${width}px`, async ({ page }, testInfo) => {
+  test(`homepage preserves editorial section spacing at ${width}px`, async ({ page }, testInfo) => {
     await page.setViewportSize({ width, height: 844 });
     await page.goto("/");
     await expect(page.locator(".arts-preview")).toHaveCount(4);
@@ -32,11 +31,10 @@ for (const width of [390, 769, 1280]) {
     });
     await testInfo.attach("page-spacing", { body: JSON.stringify(metrics, null, 2), contentType: "application/json" });
     await page.screenshot({ path: `output/playwright/homepage-gallery-progress/i005-home-${width}-${testInfo.project.name}.png`, fullPage: true });
-    expect.soft(metrics.height).toBeLessThan(pageHeightLimits.get(width));
     expect.soft(metrics.overflow).toBe(false);
-    expect.soft(Math.round(Math.max(...metrics.gaps))).toBeLessThanOrEqual(32);
+    for (const gap of metrics.gaps) expect.soft(Math.round(gap)).toBe(width <= 600 ? 60 : 100);
     expect.soft(metrics.footer.top - metrics.lastActionBottom).toBeGreaterThanOrEqual(0);
-    expect.soft(metrics.footer.top - metrics.lastActionBottom).toBeLessThanOrEqual(48);
+    expect.soft(metrics.footer.top - metrics.lastActionBottom).toBeLessThanOrEqual(121);
     expect.soft(metrics.footer.bottom).toBeCloseTo(metrics.height, 0);
     expect.soft(metrics.bodyFontSize).toBeGreaterThanOrEqual(16);
     await expect(page.locator(".essay-list h2")).toHaveText(catalog.articles.items.filter(item => item.status === "live").sort((a, b) => a.order - b.order).map(item => item.title));

@@ -16,6 +16,7 @@ for (const width of [390, 1280]) {
     test(`current footer on ${path} at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(path);
+      await page.evaluate(() => document.fonts.ready);
       const footer = page.locator("#site-footer");
       await expect(footer).toHaveAttribute("menu", /"placement":"top"/);
       const button = footer.getByRole("button", { name: "Website software by MPR Lab", exact: true });

@@ -17,25 +17,25 @@ test("Soliloquies Vol. II is featured with its cover and nine recordings", async
 });
 
 for (const width of [1280, 769, 390]) {
-  test(`homepage uses a compact portrait and spacing at ${width}px`, async ({ page }) => {
+  test(`homepage keeps its portrait bounded and controls on one row at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 998 });
     await page.goto("/");
     await expect(page.locator(".hero-copy h1")).toHaveText("Models, articles, music, and art.");
     const portrait = await page.locator(".profile-photo img").boundingBox();
-    expect(portrait.width).toBeLessThanOrEqual(120);
-    expect(portrait.height).toBeLessThanOrEqual(120);
-    if (width >= 769) {
+    expect(portrait.width).toBeLessThanOrEqual(width <= 1000 ? 160 : 340);
+    expect(portrait.height / portrait.width).toBeCloseTo(1.5, 1);
+    {
       const rows = await page.locator(".hero-links a").evaluateAll((links) => links.map((link) => Math.round(link.getBoundingClientRect().top)));
       expect(new Set(rows).size).toBe(1);
     }
-    expect((await page.locator(".hero").boundingBox()).height).toBeLessThan(width >= 769 ? 520 : 700);
+    expect((await page.locator(".hero").boundingBox()).height).toBeLessThan(1100);
     await page.evaluate(() => document.fonts.ready);
     const sectionGap = await page.evaluate(() => {
       const music = document.querySelector(".music-section").getBoundingClientRect();
       const arts = document.querySelector(".arts-section").getBoundingClientRect();
       return arts.top - music.bottom;
     });
-    expect(sectionGap).toBeLessThanOrEqual(56);
+    expect(Math.round(sectionGap)).toBeGreaterThanOrEqual(width <= 600 ? 60 : 100);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
     await page.screenshot({ path: `output/playwright/homepage-${width}-${test.info().project.name}.png`, fullPage: true });
   });
@@ -66,11 +66,11 @@ for (const width of [390, 769, 1280]) {
           overflow: document.documentElement.scrollWidth > innerWidth,
         };
       });
-      expect(metrics.portrait.width).toBeLessThanOrEqual(width <= 1000 ? 80 : 112);
-      expect(metrics.portrait.height).toBe(metrics.portrait.width);
+      expect(metrics.portrait.width).toBeLessThanOrEqual(width <= 1000 ? 160 : 340);
+      expect(metrics.portrait.height / metrics.portrait.width).toBeCloseTo(1.5, 1);
       expect(metrics.portrait.fit).toBe("cover");
       expect(metrics.overflow).toBe(false);
-      if (width >= 769) expect(new Set(metrics.rows).size).toBe(1);
+      expect(new Set(metrics.rows).size).toBe(1);
       const links = page.locator(".hero-links a");
       await page.keyboard.press(nextLinkKey);
       await links.first().focus();

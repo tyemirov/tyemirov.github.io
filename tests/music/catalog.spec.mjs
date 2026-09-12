@@ -30,8 +30,12 @@ test("global category filtering supports selection, clearing, and keyboard contr
   await filters.getByRole("button", { name: "All", exact: true }).click();
   for (const section of [".project-section", ".essay-section", ".music-section", ".arts-section"]) await expect(page.locator(section)).toBeVisible();
   await filters.screenshot({ path: `output/playwright/filters-${test.info().project.name}.png` });
-  const overflow = await page.evaluate(() => [...document.querySelectorAll("main *, .hero *")].filter((element) => element.getBoundingClientRect().right > window.innerWidth).map((element) => `${element.tagName}.${element.className}`).slice(0, 20));
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const overflow = await page.evaluate(() => [...document.querySelectorAll("main *, .hero *")].filter((element) => !element.matches('.hero-links a') && element.getBoundingClientRect().right > window.innerWidth).map((element) => `${element.tagName}.${element.className}`).slice(0, 20));
   expect(overflow).toEqual([]);
+  const lastLink = page.locator('.hero-links a').last();
+  await lastLink.focus();
+  await expect(lastLink).toBeInViewport();
 });
 
 test("global category filtering selects before the card limit and excludes publication sources", async ({ page, context }) => {
