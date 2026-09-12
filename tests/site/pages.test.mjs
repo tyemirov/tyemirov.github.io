@@ -36,7 +36,7 @@ test('generated article and gallery routes survive direct HTTP navigation', asyn
     const sitemap=readFileSync(join(output,'sitemap.xml'),'utf8');
     for(const article of source.articles.items) assert.ok(sitemap.includes(`/articles/${article.slug}/`));
     assert.ok(!sitemap.includes('/gallery/order/'));
-    for(const project of source.projects.filter(project=>project.kind==='tool')) assert.equal((await fetch(origin+project.href)).status,200);
+    for(const project of source.projects.filter(project=>project.kind==='model')) assert.equal((await fetch(origin+project.href)).status,200);
     const publicSite = JSON.parse(readFileSync(join(output, 'data/site.json'), 'utf8'));
     assert.ok(publicSite.articles.items.every(item => !('body' in item)));
     assert.equal(JSON.parse(readFileSync(join(output, 'config-site.json'), 'utf8')).apiOrigin, 'https://api.tyemirov.net');

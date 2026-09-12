@@ -18,12 +18,15 @@ test('catalog CLI validates the complete source and produces only public records
     draft.id = 'private-draft'; draft.slug = 'private-draft'; draft.status = 'draft';
     draft.body.text = 'PRIVATE_DRAFT_TEXT';
     source.articles.items.push(draft);
-    const {href,cta,sourceUrl,...hub}=structuredClone(source.projects[0]);
+    const {href,sourceUrl,...hub}=structuredClone(source.projects[0]);
     source.projects.push({...hub,id:'article-series',slug:'article-series',kind:'series',parts:[{articleId:source.articles.items[0].id},{articleId:source.articles.items[1].id}]});
     const input = join(dir, 'input.json'), output = join(dir, 'public.json');
     writeFileSync(input, JSON.stringify(source));
     execFileSync(process.execPath, [cli, input, output], { cwd: root });
     const text = readFileSync(output, 'utf8'), published = JSON.parse(text);
+    assert.equal(published.owner, 'vadym-tyemirov');
+    assert.deepEqual(published.gallery, source.gallery);
+    assert.deepEqual(published.music, source.music);
     assert.equal(published.articles.items.length, source.articles.items.length - 1);
     assert.ok(published.articles.items.every(article => !('body' in article)));
     assert.ok(!text.includes('PRIVATE_DRAFT_TEXT'));

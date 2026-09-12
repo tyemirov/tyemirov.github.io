@@ -21,7 +21,7 @@ test('gallery uses real content paths and survives reload', async ({ page }) => 
 
 test('homepage points to local articles and has no catalog validation error', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('link', { name: 'Writing', exact: true })).toHaveAttribute('href', '/articles/');
+  await expect(page.getByRole('link', { name: 'Articles', exact: true })).toHaveAttribute('href', '/articles/');
   await expect(page.locator('.essay-list article')).toHaveCount(4);
   await expect(page.locator('.project-list article')).toHaveCount(4);
   await page.locator('.essay-list h2 a').first().click();

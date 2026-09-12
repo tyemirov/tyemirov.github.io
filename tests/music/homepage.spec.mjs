@@ -20,7 +20,7 @@ for (const width of [1280, 769, 390]) {
   test(`homepage uses a compact portrait and spacing at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 998 });
     await page.goto("/");
-    await expect(page.locator(".hero-copy h1")).toHaveText("Tools, essays, music, and arts.");
+    await expect(page.locator(".hero-copy h1")).toHaveText("Models, articles, music, and art.");
     const portrait = await page.locator(".profile-photo img").boundingBox();
     expect(portrait.width).toBeLessThanOrEqual(120);
     expect(portrait.height).toBeLessThanOrEqual(120);

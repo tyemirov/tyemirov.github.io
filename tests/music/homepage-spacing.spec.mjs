@@ -49,13 +49,13 @@ for (const width of [390, 769, 1280]) {
     await expect(page.locator(".arts-section .section-actions a")).toBeFocused();
     await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
     await expect(page.locator("mpr-footer footer")).toBeInViewport();
-    await page.getByRole("navigation", { name: "Filter content" }).getByRole("button", { name: "Music", exact: true }).click();
-    await expect(page.locator(".music-section")).toBeVisible();
+    await page.getByRole("navigation", { name: "Filter content" }).getByRole("button", { name: "Modeling", exact: true }).click();
+    await expect(page.locator(".project-section")).toBeVisible();
     await expect(page.locator(".essay-section")).toBeHidden();
     await page.getByRole("navigation", { name: "Filter content" }).getByRole("button", { name: "All", exact: true }).click();
     await expect(page.locator(".essay-list .project-card")).toHaveCount(4);
     const footer = page.locator("mpr-footer");
-    await footer.getByRole("button", { name: "Built by Marco Polo Research Lab", exact: true }).click();
+    await footer.getByRole("button", { name: "Website software by MPR Lab", exact: true }).click();
     const contact = footer.getByRole("link", { name: catalog.contact.label, exact: true });
     await contact.scrollIntoViewIfNeeded();
     await expect(contact).toBeInViewport();

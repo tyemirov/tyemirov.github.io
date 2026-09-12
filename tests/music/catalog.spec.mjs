@@ -13,14 +13,14 @@ test("global category filtering supports selection, clearing, and keyboard contr
   await page.locator(".essay-list").getByRole("button", { name: category, exact: true }).first().click();
   await expect(page.locator(".essay-list h2")).toHaveText(site.articles.items.filter((item) => item.kicker === category).map((item) => item.title));
   for (const section of [".project-section", ".music-section", ".arts-section"]) await expect(page.locator(section)).toBeHidden();
-  const selected = page.locator(".essay-list").getByRole("button", { name: category, exact: true }).first();
+  const selected = page.locator(".site-filters").getByRole("button", { name: category, exact: true }).first();
   await expect(selected).toHaveAttribute("aria-pressed", "true");
   await expect(selected).toBeFocused();
   await selected.press("Enter");
   await expect(page.locator(".essay-list h2")).toHaveCount(4);
   for (const section of [".project-section", ".music-section", ".arts-section"]) await expect(page.locator(section)).toBeVisible();
   const filters = page.getByRole("navigation", { name: "Filter content" });
-  for (const [label, selector] of [[site.mprlab.label, ".project-section"], [site.music.label, ".music-section"], [site.gallery.label, ".arts-section"], [site.articles.label, ".essay-section"]]) {
+  for (const [label, selector] of [["Modeling", ".project-section"], ["Decisioning", ".project-section"], ["Arts", ".arts-section"], ["AI", ".essay-section"]]) {
     const button = filters.getByRole("button", { name: label, exact: true });
     await button.focus(); await button.press("Space");
     await expect(button).toHaveAttribute("aria-pressed", "true");
@@ -34,18 +34,18 @@ test("global category filtering supports selection, clearing, and keyboard contr
   expect(overflow).toEqual([]);
 });
 
-test("global category filtering selects before the card limit and accepts source tags", async ({ page, context }) => {
+test("global category filtering selects before the card limit and excludes publication sources", async ({ page, context }) => {
   await context.route(/loopaware\.mprlab\.com/, (route) => route.abort());
   await context.route("**/data/site.json", async (route) => {
     const site = await (await route.fetch()).json();
-    site.articles.items.push({ ...structuredClone(site.articles.items[0]), id: "fifth-article", slug: "fifth-article", title: "Source-tagged fifth essay", source: {label:"Research",url:"https://example.com/essay"}, summary: "Test catalog entry.", order: 50, status: "live" });
+    site.articles.items.push({ ...structuredClone(site.articles.items[0]), id: "fifth-article", slug: "fifth-article", title: "Fifth article", kicker: "Decisioning", summary: "Test catalog entry.", order: 50, status: "live" });
     await route.fulfill({ json: site });
   });
   await page.goto("/");
   const filters = page.getByRole("navigation", { name: "Filter content" });
-  await filters.getByRole("button", { name: "Research", exact: true }).click();
-  await expect(page.locator(".essay-list h2")).toHaveText(["Source-tagged fifth essay"]);
-  await page.locator(".essay-list").getByRole("button", { name: "Research", exact: true }).click();
+  await filters.getByRole("button", { name: "Decisioning", exact: true }).click();
+  await expect(page.locator(".essay-list h2")).toHaveText(["Fifth article"]);
+  await filters.getByRole("button", { name: "All", exact: true }).click();
   await expect(page.locator(".essay-list h2")).toHaveCount(4);
   await expect(filters.getByRole("button", { name: "All", exact: true })).toBeFocused();
 });
@@ -66,7 +66,7 @@ test("one canonical catalog supplies the built pages and playback allowlist", as
   await expect(page.locator(".music-list .music-card")).toHaveCount(3);
   for (const section of [".project-section", ".essay-section", ".arts-section"]) await expect(page.locator(section)).toBeVisible();
   const footer = page.locator("mpr-footer");
-  await footer.getByRole("button", { name: "Built by Marco Polo Research Lab", exact: true }).click();
+  await footer.getByRole("button", { name: "Website software by MPR Lab", exact: true }).click();
   const contact = footer.getByRole("link", { name: site.contact.label, exact: true });
   await expect(contact).toBeVisible();
   await expect(contact).toHaveAttribute("href", site.contact.href);

@@ -18,7 +18,7 @@ for (const width of [390, 1280]) {
       await page.goto(path);
       const footer = page.locator("#site-footer");
       await expect(footer).toHaveAttribute("menu", /"placement":"top"/);
-      const button = footer.getByRole("button", { name: "Built by Marco Polo Research Lab", exact: true });
+      const button = footer.getByRole("button", { name: "Website software by MPR Lab", exact: true });
       await button.click();
       await expect(footer.getByRole("link", { name: "Gravity Notes", exact: true })).toHaveAttribute("href", "https://gravity.mprlab.com");
       await page.keyboard.press("Escape");
