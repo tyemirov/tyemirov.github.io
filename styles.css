@@ -585,7 +585,7 @@ h1 {
 .home .card-tags { display:flex; flex-wrap:wrap; gap: 8px; }
 
 /* Complete project cards retain their summaries in a compact catalog. */
-.home .project-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.home .project-list { grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); }
 .home .project-list .card-body { line-height: 1.35; }
 .home .essay-list h2 { font-size: 1.5rem; }
 @media (max-width: 850px) {
@@ -603,3 +603,8 @@ h1 {
   .home .essay-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home .hero p { line-height: 1.5; }
 }
+
+/* Topic results use only the columns occupied by visible cards. */
+.home .project-list, .home .essay-list { grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); }
+.topic-heading { margin: 0 0 20px; }
+[hidden] { display: none !important; }
