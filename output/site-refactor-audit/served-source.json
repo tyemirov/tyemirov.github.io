@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "path": "site.js",
+      "status": 200,
+      "matchesBuiltArtifact": true
+    },
+    {
+      "path": "articles/articles.js",
+      "status": 200,
+      "matchesBuiltArtifact": true
+    },
+    {
+      "path": "assets/js/topics.js",
+      "status": 200,
+      "matchesBuiltArtifact": true
+    },
+    {
+      "path": "assets/js/footer.js",
+      "status": 200,
+      "matchesBuiltArtifact": true
+    },
+    {
+      "path": "styles.css",
+      "status": 200,
+      "matchesBuiltArtifact": true
+    },
+    {
+      "path": "freedom/style.css",
+      "status": 200,
+      "matchesBuiltArtifact": true
+    },
+    {
+      "path": "timeseries/styles.css",
+      "status": 200,
+      "matchesBuiltArtifact": true
+    }
+  ],
+  "historyFocus": "passed"
+}

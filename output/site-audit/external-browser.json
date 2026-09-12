@@ -1,0 +1,66 @@
+[
+  {
+    "url": "https://llm-crossword.mprlab.com/",
+    "error": "page.goto: net::ERR_SSL_PROTOCOL_ERROR at https://llm-crossword.mprlab.com/"
+  },
+  {
+    "url": "https://rsvp.mprlab.com/",
+    "error": "page.goto: net::ERR_SSL_PROTOCOL_ERROR at https://rsvp.mprlab.com/"
+  },
+  {
+    "url": "https://www.mercatus.org/publications/urban-economics/freedom-50-states",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "text": "Sorry, you have been blocked\nYou are unable to access mercatus.org\nWhy have I been blocked?\n\nThis website is using a security service to protect itself from online attacks. The act"
+  },
+  {
+    "url": "https://pubsonline.informs.org/doi/10.1287/opre.2013.1165",
+    "status": 403,
+    "title": "Just a moment...",
+    "text": ""
+  },
+  {
+    "url": "https://journals.sagepub.com/doi/10.1111/poms.13086",
+    "status": 403,
+    "title": "Just a moment...",
+    "text": ""
+  },
+  {
+    "url": "https://dl.acm.org/doi/10.1145/3442188.3445922",
+    "status": 403,
+    "title": "Just a moment...",
+    "text": ""
+  },
+  {
+    "url": "https://pubsonline.informs.org/doi/10.1287/mnsc.18.5.319",
+    "status": 403,
+    "title": "Just a moment...",
+    "text": ""
+  },
+  {
+    "url": "https://www.oreilly.com/library/view/generative-deep-learning/9781098134174/",
+    "status": 403,
+    "title": "Access Denied",
+    "text": "Access Denied\nYou don't have permission to access \"http://www.oreilly.com/library/view/generative-deep-learning/9781098134174/\" on this server.\n\nReference #18.600ed217.1789162837.3"
+  },
+  {
+    "url": "https://openai.com/index/instruction-following/",
+    "status": 403,
+    "title": "",
+    "text": ""
+  },
+  {
+    "url": "https://scaife.perseus.org/reader/urn:cts:greekLit:tlg0059.tlg012.perseus-eng2:227-279/",
+    "error": "page.goto: net::ERR_CONNECTION_RESET at https://scaife.perseus.org/reader/urn:cts:greekLit:tlg0059.tlg012.perseus-eng2:227-279/"
+  },
+  {
+    "url": "https://www.projectwhitehorse.com/pdfs/boyd/patterns%20of%20conflict.pdf",
+    "error": "page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://www.projectwhitehorse.com/pdfs/boyd/patterns%20of%20conflict.pdf"
+  },
+  {
+    "url": "https://archive.org/details/collectedworkso900cgju",
+    "status": 404,
+    "title": "Internet Archive: Error",
+    "text": "Skip to main content\n \nTEXTS\n \nVIDEO\n \nAUDIO\n \nSOFTWARE\n \nIMAGES\n SIGN UP | LOG IN\n UPLOAD\nSign up for free\nLog in\nABOUT BLOG EVENTS PROJECTS HELP DONATE  CONTACT JOBS VOLUNTEER\nTh"
+  }
+]
