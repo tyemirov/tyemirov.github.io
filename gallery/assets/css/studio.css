@@ -12,7 +12,7 @@ mpr-header { --mpr-color-surface-primary:var(--bg); --mpr-color-text-primary:var
 .studio-shell button, dialog button { border:1px solid var(--line-strong); background:var(--bg-subtle); color:var(--ink); padding:9px 12px; font:inherit; cursor:pointer; border-radius:4px; }
 button:disabled { opacity:.5; cursor:default; }
 .studio-shell input, .studio-shell textarea, .studio-shell select, dialog input { font:inherit; max-width:100%; color:var(--ink); background:var(--bg); border:1px solid var(--line-strong); padding:8px; border-radius:4px; box-sizing:border-box; }
-.studio-shell label { display:grid; gap:6px; margin:10px 0; min-width:0; }
+.studio-shell label { display:grid; grid-template-columns:minmax(0,1fr); gap:6px; margin:10px 0; min-width:0; }
 .studio-field { display:grid; grid-template-columns:minmax(0,1fr); gap:6px; margin:10px 0; min-width:0; }
 .studio-field label { margin:0; }
 .studio-field input, .studio-field select, .studio-field textarea { width:100%; min-width:0; }
