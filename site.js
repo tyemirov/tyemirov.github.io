@@ -4,6 +4,9 @@ import { validatePublicCatalog } from "./assets/js/catalog.js";
 import { renderMusicIndex, renderAlbumDetails, renderMusicError, renderAlbumNotFound } from "./music/render.js";
 import { orderedArtworks } from "./gallery/js/core/catalog.js";
 
+import { initializeTopics } from "./assets/js/topics.js";
+
+let disposeTopics;
 const SITE_DATA_URL = "/data/site.json";
 
 let currentFilter = null;
@@ -86,52 +89,40 @@ function renderAll(data) {
   if (!data || typeof data !== "object") return;
 
   renderSiteMeta(data.site);
-  renderHero(data.hero);
+  renderHero(data.hero, data.software);
   renderProfile(data.profile);
-  renderContent(data);
+  disposeTopics?.();
+  disposeTopics = initializeTopics({ navigation: document.querySelector('.site-filters'), render: topic => {
+    currentFilter = topic;
+    renderContent(data);
+  }});
   void initializeSiteFooter({ contact: data.contact, themeAttribute: "data-theme" });
 }
 
 function renderContent(data) {
-  renderFilters(data);
-  renderProjects(data.mprlab);
+  renderProjects(data.models);
   renderEssays(data.articles);
   renderMusic(data.music);
   renderArts(data.gallery);
-  for (const [selector, section] of [['.project-section',data.mprlab],['.essay-section',data.articles],['.music-section',data.music],['.arts-section',data.gallery]]) {
-    document.querySelector(`${selector} .notes-label`).hidden = currentFilter === section.label;
+  const heading = document.querySelector('.topic-heading');
+  heading.hidden = currentFilter === null;
+  heading.textContent = currentFilter || '';
+  for (const section of document.querySelectorAll('main > section')) {
+    section.querySelector('.section-heading').hidden = currentFilter !== null;
+    section.querySelector('.section-actions').hidden = currentFilter !== null;
   }
-}
-
-function renderFilters(data) {
-  let filters = document.querySelector(".site-filters");
-  if (!filters) {
-    filters = document.createElement("nav");
-    filters.className = "site-filters";
-    filters.setAttribute("aria-label", "Filter content");
-    document.querySelector("main").prepend(filters);
-  }
-  const sections = [{ ...data.mprlab, items: data.projects }, data.articles, data.music, data.gallery];
-  const tags = [...new Set(sections.flatMap((section) => [section.label, ...(section.items || []).filter(liveOnly).map(itemTag).filter(Boolean)]))];
-  filters.replaceChildren(createFilterButton(null, "All"), ...[...new Set([...tags, ...siteData.projects.map(item=>item.source), ...siteData.articles.items.map(item=>item.source.label)])].map((tag) => createFilterButton(tag, tag)));
+  document.querySelector('.topic-empty').hidden = currentFilter === null || [...document.querySelectorAll('main > section')].some(section => !section.classList.contains('is-hidden'));
 }
 
 function createFilterButton(tag, label) {
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "card-kicker-tag";
-  button.textContent = label;
-  button.dataset.filterTag = tag || "";
-  button.setAttribute("aria-pressed", String(currentFilter === tag));
-  button.addEventListener("click", () => {
-    button.focus({ preventScroll: true });
-    window.toggleProjectFilter(tag);
-  });
+  const button = document.createElement('button');
+  button.type = 'button'; button.className = 'card-kicker-tag';
+  button.textContent = label; button.dataset.filterTag = tag;
+  button.addEventListener('click', () => window.toggleProjectFilter(tag));
   return button;
 }
-
 function itemTag(item) { return item.kicker; }
-function matchesFilter(item, section) { return currentFilter === null || currentFilter === section.label || currentFilter === itemTag(item) || currentFilter === (typeof item.source === "string" ? item.source : item.source?.label); }
+function matchesFilter(item) { return currentFilter === null || currentFilter === itemTag(item); }
 
 function renderSiteMeta(site) {
   if (!site) return;
@@ -142,7 +133,7 @@ function renderSiteMeta(site) {
   if (canonicalTag && site.canonical) canonicalTag.setAttribute("href", site.canonical);
 }
 
-function renderHero(hero) {
+function renderHero(hero, software) {
   if (!hero) return;
   updateText(".eyebrow", hero.eyebrow);
   updateText(".hero-copy h1", hero.title);
@@ -151,7 +142,7 @@ function renderHero(hero) {
 
   const links = (hero.links || []).filter(liveOnly).sort(byOrder);
   const heroLinks = document.querySelector(".hero-links");
-  if (heroLinks) heroLinks.replaceChildren(...links.map(createHeroLink));
+  if (heroLinks) heroLinks.replaceChildren(...links.map(createHeroLink), createHeroLink({ label: `${software.label} ↗`, href: software.href, target: "_blank", style: "secondary" }));
 }
 
 function renderProfile(profile) {
@@ -177,14 +168,14 @@ function renderProfile(profile) {
   }
 }
 
-function renderProjects(mprlab) {
+function renderProjects(models) {
   const projectSection = document.querySelector(".project-section");
-  if (!projectSection || !mprlab) return;
+  if (!projectSection || !models) return;
 
-  updateText(".project-section .section-blurb .lead", mprlab.blurb);
+  updateText(".project-section .section-title", models.title);
   let cards = projectSection.querySelector('.project-list');
   if (!cards) { cards = document.createElement('div'); cards.className = 'project-list'; projectSection.append(cards); }
-  const selected = siteData.projects.filter(project => matchesFilter(project, mprlab)).sort(byOrder);
+  const selected = siteData.projects.filter(project => matchesFilter(project)).sort(byOrder);
   cards.replaceChildren(...selected.map(createProjectCard));
   projectSection.classList.toggle('is-hidden', !selected.length);
 }
@@ -194,7 +185,7 @@ function renderEssays(essays) {
   const essayList = document.querySelector(".essay-list");
   if (!essaySection || !essayList || !essays) return;
 
-  const filtered = (essays.items || []).filter(liveOnly).filter((item) => matchesFilter(item, essays)).sort(byOrder).slice(0, 4);
+  const filtered = (essays.items || []).filter(liveOnly).filter((item) => matchesFilter(item, essays)).sort(byOrder).slice(0, currentFilter === null ? 4 : undefined);
   
   updateText(".essay-section .notes-label", essays.label);
   updateText(".essay-section .section-title", essays.title);
@@ -208,7 +199,7 @@ function renderMusic(music) {
   const musicList = document.querySelector(".music-list");
   if (!musicSection || !musicList || !music) return;
 
-  const items = (music.items || []).filter(liveOnly).filter((item) => matchesFilter(item, music)).sort(byOrder).slice(0, 3);
+  const items = (music.items || []).filter(liveOnly).filter((item) => matchesFilter(item, music)).sort(byOrder).slice(0, currentFilter === null ? 3 : undefined);
   
   updateText(".music-section .notes-label", music.label);
   updateText(".music-section .section-title", music.title);
@@ -221,7 +212,7 @@ function renderArts(arts) {
   const artsSection = document.querySelector(".arts-section");
   if (!artsSection || !arts) return;
 
-  const item = currentFilter === null || currentFilter === arts.label;
+  const item = currentFilter === null || currentFilter === "Arts";
   updateText(".arts-section .section-blurb .lead", arts.description);
 
   let previews = artsSection.querySelector(".arts-preview-list");
@@ -262,20 +253,6 @@ function renderArts(arts) {
   artsSection.classList.toggle("is-hidden", !item);
 }
 
-window.toggleProjectFilter = (tag) => {
-  const active = document.activeElement;
-  const focusTag = active instanceof HTMLElement ? active.dataset.filterTag : undefined;
-  const focusInCard = active?.closest(".essay-list") !== null;
-  currentFilter = (currentFilter === tag) ? null : tag;
-  renderContent(siteData);
-  if (focusTag !== undefined) {
-    const scope = focusInCard ? ".essay-list" : ".site-filters";
-    const button = [...document.querySelectorAll(`${scope} button`)].find((candidate) => candidate.dataset.filterTag === focusTag);
-    const focusTarget = button || document.querySelector('.site-filters button[data-filter-tag=""]');
-    focusTarget.focus({ preventScroll: true });
-  }
-};
-
 function createHeroLink(link) {
   const anchor = document.createElement("a");
   anchor.className = link.style === "secondary" ? "button button-secondary" : "button";
@@ -292,15 +269,11 @@ function createProjectCard(project) {
   const activeClass = currentFilter === project.kicker ? " is-active" : "";
   card.className = `project-card${themeClass}${activeClass}`;
 
-  const kicker = document.createElement("button");
-  kicker.className = "card-kicker-tag";
-  kicker.textContent = project.kicker || "";
-  kicker.onclick = (e) => { e.preventDefault(); e.stopPropagation(); window.toggleProjectFilter(project.kicker); };
-
+  const kicker = createFilterButton(project.kicker, project.kicker);
   const title = document.createElement("h2");
   const titleLink = document.createElement("a");
   titleLink.className = "project-title-link";
-  titleLink.href = project.kind === "tool" ? project.href : `/articles/${siteData.articles.items.find(article => article.id === project.parts[0].articleId).slug}/`;
+  titleLink.href = project.kind === "model" ? project.href : `/articles/${siteData.articles.items.find(article => article.id === project.parts[0].articleId).slug}/`;
   titleLink.textContent = project.title || "Untitled";
   title.append(titleLink);
 
@@ -308,7 +281,7 @@ function createProjectCard(project) {
   summary.className = "card-body";
   summary.textContent = project.summary || "";
 
-  const tags=document.createElement('div'); tags.className='card-tags'; tags.append(kicker,createFilterButton(project.source,project.source));
+  const tags=document.createElement('div'); tags.className='card-tags'; if (currentFilter !== project.kicker) tags.append(kicker);
   card.append(tags, title, summary);
 
   if (Array.isArray(project.parts)) {
@@ -325,15 +298,6 @@ function createProjectCard(project) {
     });
     card.append(list);
   }
-
-  const actions = document.createElement("div");
-  actions.className = "project-actions";
-  const link = document.createElement("a");
-  link.className = "project-link";
-  link.href = titleLink.href;
-  link.textContent = project.kind === "tool" ? project.cta : "Read series";
-  actions.append(link);
-  card.append(actions);
 
   return card;
 }
@@ -354,16 +318,9 @@ function createArticleCard(article) {
   summary.className = "card-body";
   summary.textContent = article.summary || "";
 
-  const actions = document.createElement("div");
-  actions.className = "project-actions";
-  const link = document.createElement("a");
-  link.className = "project-link";
-  link.href = `/articles/${article.slug}/`;
-  link.textContent = "Read article";
-  actions.append(link);
-
-  const tags=document.createElement('div'); tags.className='card-tags'; tags.append(kicker,createFilterButton(article.source.label,article.source.label));
-  card.append(tags, title, summary, actions);
+  const tags = document.createElement('div'); tags.className = 'card-tags';
+  if (currentFilter !== article.kicker) tags.append(kicker);
+  card.append(tags, title, summary);
   return card;
 }
 
@@ -399,7 +356,7 @@ function createMusicItem(item) {
 
 function updateText(selector, value) {
   const el = document.querySelector(selector);
-  if (el && value) el.textContent = value;
+  if (el && value !== undefined) el.textContent = value;
 }
 
 function liveOnly(item) { return !item.status || item.status === "live"; }
