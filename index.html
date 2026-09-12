@@ -57,10 +57,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.css"
     />
@@ -88,12 +84,12 @@
             <source
               type="image/webp"
               srcset="assets/profile/vadym-tyemirov-360.webp 360w, assets/profile/vadym-tyemirov-720.webp 720w"
-              sizes="(max-width: 1000px) 80px, 112px"
+              sizes="(max-width: 600px) 112px, (max-width: 1000px) 160px, 340px"
             />
             <img
               src="assets/profile/vadym-tyemirov-360.jpg"
               srcset="assets/profile/vadym-tyemirov-360.jpg 360w, assets/profile/vadym-tyemirov-720.jpg 720w"
-              sizes="(max-width: 1000px) 80px, 112px"
+              sizes="(max-width: 600px) 112px, (max-width: 1000px) 160px, 340px"
               width="360"
               height="540"
               alt="Portrait of Vadym Tyemirov"
@@ -114,14 +110,15 @@
         <h2 class="topic-heading" hidden></h2>
         <p class="topic-empty" hidden>No items match this topic.</p>
         <section class="project-section is-hidden" aria-label="Models">
-          <div class="section-heading"><h2 class="section-title">Models</h2></div>
+          <div class="section-heading"><span class="notes-label"></span><h2 class="section-title"></h2></div>
           <div class="project-list"></div>
           <div class="section-actions"><a href="/models/" class="button button-secondary">All models &rarr;</a></div>
         </section>
 
         <section class="essay-section is-hidden" aria-label="Articles">
           <div class="section-heading">
-            <h2 class="section-title">Articles</h2>
+            <span class="notes-label"></span>
+            <h2 class="section-title"></h2>
           </div>
           <div class="essay-list"></div>
           <div class="section-actions">
@@ -131,7 +128,8 @@
 
         <section class="music-section is-hidden" aria-label="Music">
           <div class="section-heading">
-            <h2 class="section-title">Music</h2>
+            <span class="notes-label"></span>
+            <h2 class="section-title"></h2>
           </div>
           <div class="music-list"></div>
           <div class="section-actions">
@@ -141,7 +139,8 @@
 
         <section class="arts-section is-hidden" aria-label="Gallery">
           <div class="section-heading">
-            <h2 class="section-title">Gallery</h2>
+            <span class="notes-label"></span>
+            <h2 class="section-title"></h2>
           </div>
           <div class="section-blurb">
             <p class="lead"></p>
