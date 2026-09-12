@@ -10,6 +10,10 @@ The contracts below control implementation and qualification.
 The [implementation record](redesign-implementation.md) lists completed changes, evidence, and remaining dependencies.
 Production deployment remains unchanged.
 
+The [personal site refactoring plan](site-refactoring-plan.md) records the September 11 ownership correction and navigation audit.
+Use that plan for the next content ownership and presentation changes.
+Personal models belong to Vadym Tyemirov. MPR Lab identifies software products only.
+
 The [Gallery Operating Plan](../gallery/OPERATING-PLAN.md) owns gallery product behavior.
 This document owns the proposed site structure, shared API routes, and content contract changes.
 For those subjects, this document replaces earlier hostname and hash-route proposals.
@@ -160,13 +164,17 @@ Those rules require public integration tests at their owning boundaries.
 
 ### Catalog Structure
 
-The target root contains `site`, `contact`, `hero`, `profile`, `mprlab`, `projects`, `articles`, `music`, and `gallery`.
+The root contains `owner`, `site`, `contact`, `hero`, `profile`, `models`, `software`, `projects`, `articles`, `music`, and `gallery`.
 The migration removes `essays` and the duplicated `arts.items` promotion records.
 Gallery cards derive from `gallery` records.
 The gallery gains `label` and `title` fields for the homepage section.
 The migration moves those values from `arts` without duplicate promotion records.
 
-`site`, `contact`, `hero`, `profile`, and `mprlab` retain their content responsibilities.
+`site`, `contact`, `hero`, and `profile` retain their content responsibilities.
+The required root owner is `vadym-tyemirov`.
+Articles, music, and Gallery records inherit this personal owner.
+The `models` field defines personal model presentation.
+The separate `software` field identifies MPR Lab and its external destination.
 The complete schema must enumerate their current fields and nested objects.
 Navigation stores site-absolute paths for local destinations.
 Canonical page URLs derive from `site.canonical` and the route contract.
@@ -182,7 +190,8 @@ The derived gallery URL replaces the duplicated `gallery.siteUrl` field.
 | Ordered references | Array position defines membership order |
 | Card order | Integer `order`, then stable ID as the tie breaker |
 | Kicker | `AI`, `Modeling`, `Decisioning`, `Arts`, or `Writings` |
-| Source label | Separate from the kicker, for example `MPR Lab` or `Substack` |
+| Owner | Root `vadym-tyemirov` for all personal content. Explicit on personal projects |
+| Source label | Original article publication, for example `Substack` |
 | Card theme | `copper`, `teal`, `olive`, `slate`, `amber`, `indigo`, or `violet` |
 | Local public asset | Site-absolute path to an included artifact file |
 | Optional absent fact | Explicit null where the schema permits absence |
@@ -243,12 +252,12 @@ No article API or article database is necessary for this release.
 ### Projects And Series
 
 Project cards remain in `projects` and render through `site.js`.
-Each project has one explicit `kind`: `tool` or `series`.
-Both kinds share identity, title, summary, kicker, source label, theme, status, and order fields.
+Each project has one explicit `kind`: `model` or `series`.
+Both kinds share identity, title, summary, kicker, owner, theme, status, and order fields.
 
 | Kind | Additional fields | Behavior |
 | --- | --- | --- |
-| `tool` | Local `href`, `cta`, companion `sourceUrl` | Opens the existing tool page |
+| `model` | Local `href`, companion `sourceUrl` | Opens the personal model page |
 | `series` | `parts: [{articleId}]` | Shows an ordered hub of local articles |
 
 The `parts` array owns series membership and order.
@@ -414,7 +423,7 @@ TAuth errors and provider payloads retain their owning contracts.
 ## Website Presentation
 
 The homepage retains a compact profile and section navigation.
-The Writing link opens `/articles/`.
+The Articles link opens `/articles/`.
 Music and Arts open `/music/` and `/gallery/`.
 Article pages prioritize readable text, section headings, images, and source attribution.
 Gallery pages prioritize images and clear exhibit or collection context.
