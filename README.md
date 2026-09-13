@@ -191,7 +191,7 @@ The mail checks verify the same stored message through gRPC and the inspection c
 The purchase test verifies browser approval, signed payment events, receipt storage, and download of the purchased image.
 It also verifies capture of an approved payment after stack restart.
 
-Use Docker and a sibling `mprlab-gateway` checkout:
+Use Docker and GitHub CLI access to the Gateway release assets:
 
 ```bash
 make music-ci-container
@@ -199,7 +199,10 @@ make music-container-test
 ```
 
 The first command runs `make ci` in Linux with managed headless browsers and muted audio.
-It uses committed Gateway source for isolated lifecycle plans and source checks.
+The lifecycle test uses the installed Gateway runtime with a temporary operator inventory and local Git origins.
+The CI container installs the published Gateway version selected by `MPRLAB_GATEWAY_CI_VERSION`.
+Use `make music-ci-container MUSIC_CI_TARGET=lifecycle-contract-test` for the focused Gateway test.
+Separate host, release, publication, and deployment qualification tools still use Gateway source.
 The second command builds the actual Pages and media images and verifies their public behavior.
 Both commands can run on a headless CI server.
 The [operations runbook](docs/private-hls-operations.md) gives native toolchain and media preparation commands.
@@ -218,7 +221,12 @@ After production prerequisites pass, the operator runs:
 make release && make publish && make deploy
 ```
 
-These commands delegate to the sibling Gateway checkout.
+These commands use the installed `mprlab-gateway` runtime.
+Each target supplies the application Git root through `--app-root`.
+Use `MPRLAB_GATEWAY_EXECUTABLE` to select an installed command by its absolute path.
+If the command is unavailable, the target stops with an installation error.
+Gateway inventory and private config use `MPRLAB_GATEWAY_OPERATOR_ROOT`, which defaults to `$HOME/.config/mprlab-gateway`.
+Install the runtime with the [Gateway installation procedure](https://github.com/MarcoPoloResearchLab/mprlab-gateway/blob/master/docs/runtime-installation.md).
 The [validation record](docs/private-hls-validation.md) identifies completed checks and remaining production prerequisites.
 
 ## Site Redesign
