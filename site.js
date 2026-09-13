@@ -4,12 +4,10 @@ import { validatePublicCatalog } from "./assets/js/catalog.js";
 import { renderMusicIndex, renderAlbumDetails, renderMusicError, renderAlbumNotFound } from "./music/render.js";
 import { orderedArtworks } from "./gallery/js/core/catalog.js";
 
-import { initializeTopics } from "./assets/js/topics.js";
+import { siteTopics } from "./assets/js/generated/routes.js";
 
-let disposeTopics;
 const SITE_DATA_URL = "/data/site.json";
 
-let currentFilter = null;
 let siteData = null;
 /** @type {AbortController | null} */
 let homepageRequest = null;
@@ -75,6 +73,7 @@ async function hydrateHomePage() {
   try {
     siteData = await loadSite(request.signal);
     renderAll(siteData);
+    await restoreSectionScroll(request.signal);
   } catch (error) {
     if (request.signal.aborted) return;
     renderMusicError("Music is unavailable. Please reload the page.");
@@ -85,33 +84,39 @@ async function hydrateHomePage() {
   }
 }
 
+/** @param {AbortSignal} signal */
+async function restoreSectionScroll(signal) {
+  if (!location.hash) return;
+  if (document.readyState !== 'complete') {
+    await new Promise(resolve => window.addEventListener('load', resolve, { once: true }));
+  }
+  await document.fonts.ready;
+  await new Promise(resolve => requestAnimationFrame(resolve));
+  if (signal.aborted) return;
+  const section = document.getElementById(location.hash.slice(1));
+  if (section?.matches('main > section')) section.scrollIntoView({ behavior: 'instant' });
+}
+
 function renderAll(data) {
   if (!data || typeof data !== "object") return;
 
   renderSiteMeta(data.site);
   renderHero(data.hero, data.software);
   renderProfile(data.profile);
-  disposeTopics?.();
-  disposeTopics = initializeTopics({ navigation: document.querySelector('.site-filters'), render: topic => {
-    currentFilter = topic;
-    renderContent(data);
-  }});
+  window.toggleProjectFilter = topic => {
+    if (!siteTopics.includes(topic)) throw new Error(`Unknown content topic: ${topic}`);
+    const url = new URL('/articles/', location.origin);
+    url.searchParams.set('topic', topic);
+    location.assign(url);
+  };
+  renderContent(data);
   void initializeSiteFooter({ contact: data.contact, themeAttribute: "data-theme" });
 }
 
 function renderContent(data) {
-  renderProjects(data.models);
   renderEssays(data.articles);
   renderMusic(data.music);
   renderArts(data.gallery);
-  const heading = document.querySelector('.topic-heading');
-  heading.hidden = currentFilter === null;
-  heading.textContent = currentFilter || '';
-  for (const section of document.querySelectorAll('main > section')) {
-    section.querySelector('.section-heading').hidden = currentFilter !== null;
-    section.querySelector('.section-actions').hidden = currentFilter !== null;
-  }
-  document.querySelector('.topic-empty').hidden = currentFilter === null || [...document.querySelectorAll('main > section')].some(section => !section.classList.contains('is-hidden'));
 }
 
 function createFilterButton(tag, label) {
@@ -122,7 +127,6 @@ function createFilterButton(tag, label) {
   return button;
 }
 function itemTag(item) { return item.kicker; }
-function matchesFilter(item) { return currentFilter === null || currentFilter === itemTag(item); }
 
 function renderSiteMeta(site) {
   if (!site) return;
@@ -168,31 +172,19 @@ function renderProfile(profile) {
   }
 }
 
-function renderProjects(models) {
-  const projectSection = document.querySelector(".project-section");
-  if (!projectSection || !models) return;
-
-  updateText(".project-section .section-title", models.title);
-  updateText(".project-section .notes-label", models.label);
-  let cards = projectSection.querySelector('.project-list');
-  if (!cards) { cards = document.createElement('div'); cards.className = 'project-list'; projectSection.append(cards); }
-  const selected = siteData.projects.filter(project => matchesFilter(project)).sort(byOrder);
-  cards.replaceChildren(...selected.map(createProjectCard));
-  projectSection.classList.toggle('is-hidden', !selected.length);
-}
-
 function renderEssays(essays) {
   const essaySection = document.querySelector(".essay-section");
   const essayList = document.querySelector(".essay-list");
   if (!essaySection || !essayList || !essays) return;
 
-  const filtered = (essays.items || []).filter(liveOnly).filter((item) => matchesFilter(item, essays)).sort(byOrder).slice(0, currentFilter === null ? 4 : undefined);
+  const filtered = (essays.items || []).filter(liveOnly).sort(byOrder).slice(0, 4);
   
-  updateText(".essay-section .notes-label", essays.label);
   updateText(".essay-section .section-title", essays.title);
   
-  essayList.replaceChildren(...filtered.map(createArticleCard));
-  essaySection.classList.toggle("is-hidden", filtered.length === 0);
+  essayList.replaceChildren(...filtered.map(article => createArticleCard(article, null)));
+  const projects = siteData.projects.filter(liveOnly).sort(byOrder);
+  essaySection.querySelector('.project-list').replaceChildren(...projects.map(project => createProjectCard(project, essays.items, null)));
+  essaySection.classList.toggle("is-hidden", filtered.length === 0 && projects.length === 0);
 }
 
 function renderMusic(music) {
@@ -200,10 +192,9 @@ function renderMusic(music) {
   const musicList = document.querySelector(".music-list");
   if (!musicSection || !musicList || !music) return;
 
-  const items = (music.items || []).filter(liveOnly).filter((item) => matchesFilter(item, music)).sort(byOrder).slice(0, currentFilter === null ? 3 : undefined);
+  const items = (music.items || []).filter(liveOnly).sort(byOrder).slice(0, 3);
   
-  updateText(".music-section .notes-label", music.label);
-  updateText(".music-section .section-title", music.title);
+  updateText(".music-section .section-title", music.label);
   
   musicList.replaceChildren(...items.map(createMusicItem));
   musicSection.classList.toggle("is-hidden", items.length === 0);
@@ -213,7 +204,6 @@ function renderArts(arts) {
   const artsSection = document.querySelector(".arts-section");
   if (!artsSection || !arts) return;
 
-  const item = currentFilter === null || currentFilter === "Arts";
   updateText(".arts-section .section-blurb .lead", arts.description);
 
   let previews = artsSection.querySelector(".arts-preview-list");
@@ -248,10 +238,9 @@ function renderArts(arts) {
     return link;
   }));
 
-  updateText(".arts-section .notes-label", "Arts");
   updateText(".arts-section .section-title", arts.title);
 
-  artsSection.classList.toggle("is-hidden", !item);
+  artsSection.classList.remove("is-hidden");
 }
 
 function createHeroLink(link) {
@@ -264,17 +253,17 @@ function createHeroLink(link) {
   return anchor;
 }
 
-function createProjectCard(project) {
+function createProjectCard(project, articles, selectedTopic) {
   const card = document.createElement("article");
   const themeClass = project.theme ? ` project-card-${project.theme}` : "";
-  const activeClass = currentFilter === project.kicker ? " is-active" : "";
+  const activeClass = selectedTopic === project.kicker ? " is-active" : "";
   card.className = `project-card${themeClass}${activeClass}`;
 
   const kicker = createFilterButton(project.kicker, project.kicker);
   const title = document.createElement("h2");
   const titleLink = document.createElement("a");
   titleLink.className = "project-title-link";
-  titleLink.href = project.kind === "model" ? project.href : `/articles/${siteData.articles.items.find(article => article.id === project.parts[0].articleId).slug}/`;
+  titleLink.href = project.kind === "model" ? project.href : `/articles/${articles.find(article => article.id === project.parts[0].articleId).slug}/`;
   titleLink.textContent = project.title || "Untitled";
   title.append(titleLink);
 
@@ -282,7 +271,7 @@ function createProjectCard(project) {
   summary.className = "card-body";
   summary.textContent = project.summary || "";
 
-  const tags=document.createElement('div'); tags.className='card-tags'; if (currentFilter !== project.kicker) tags.append(kicker);
+  const tags=document.createElement('div'); tags.className='card-tags'; if (selectedTopic !== project.kicker) tags.append(kicker);
   card.append(tags, title, summary);
 
   if (Array.isArray(project.parts)) {
@@ -291,7 +280,7 @@ function createProjectCard(project) {
     project.parts.forEach(part => {
       const li = document.createElement("li");
       const a = document.createElement("a");
-      const article = siteData.articles.items.find(item => item.id === part.articleId);
+      const article = articles.find(item => item.id === part.articleId);
       a.href = `/articles/${article.slug}/`;
       a.textContent = article.title;
       li.append(a);
@@ -303,14 +292,25 @@ function createProjectCard(project) {
   if (project.kind === "model") {
     const actions = document.createElement("div");
     actions.className = "project-actions";
-    actions.append(createCardAction("Explore model", project.href), createCardAction("Read companion article", project.sourceUrl));
+    actions.append(createCardAction("Explore interactive tool", project.href), createCardAction("Read companion article", project.sourceUrl));
     card.append(actions);
   }
 
   return card;
 }
 
-function createArticleCard(article) {
+export function renderArticleIndex(site, selectedTopic) {
+  const matches = item => selectedTopic === null || item.kicker === selectedTopic;
+  const articles = site.articles.items.filter(liveOnly).filter(matches).sort(byOrder);
+  const projects = site.projects.filter(liveOnly).filter(matches).sort(byOrder);
+  document.querySelector('#article-list').replaceChildren(
+    ...articles.map(article => createArticleCard(article, selectedTopic)),
+    ...projects.map(project => createProjectCard(project, site.articles.items, selectedTopic)),
+  );
+  document.querySelector('.topic-empty').hidden = articles.length + projects.length > 0;
+}
+
+function createArticleCard(article, selectedTopic) {
   const card = document.createElement("article");
   card.className = "project-card";
 
@@ -327,7 +327,7 @@ function createArticleCard(article) {
   summary.textContent = article.summary || "";
 
   const tags = document.createElement('div'); tags.className = 'card-tags';
-  if (currentFilter !== article.kicker) tags.append(kicker);
+  if (selectedTopic !== article.kicker) tags.append(kicker);
   card.append(tags, title, summary);
   const actions = document.createElement("div");
   actions.className = "project-actions";
