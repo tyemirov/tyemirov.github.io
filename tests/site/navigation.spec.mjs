@@ -4,7 +4,7 @@ import {test,expect} from '../music/test-fixtures.mjs';
 test('internal pages show only home and their parent in the header',async({page,context})=>{
  await context.route(/loopaware\.mprlab\.com/,route=>route.abort());
  const site=await (await page.request.get('/data/site.json')).json();
- for(const [path,parents] of [['/music/',[]],[`/music/${site.music.items[0].slug}/`,['Music']],['/gallery/',[]],[`/gallery/artworks/${site.gallery.artworks[0].id}/`,['Gallery']],['/gallery/about/',['Gallery']],['/gallery/studio/',['Gallery']],['/articles/',[]],[`/articles/${site.articles.items[0].slug}/`,['Articles']],['/models/',[]],['/civilization/',['Models']],['/404.html',[]]]){
+ for(const [path,parents] of [['/music/',[]],[`/music/${site.music.items[0].slug}/`,['Music']],['/gallery/',[]],[`/gallery/artworks/${site.gallery.artworks[0].id}/`,['Gallery']],['/gallery/about/',['Gallery']],['/gallery/studio/',['Gallery']],['/articles/',[]],[`/articles/${site.articles.items[0].slug}/`,['Articles']],['/civilization/',['Articles']],['/404.html',[]]]){
   await page.goto(path);
   const nav=page.getByRole('navigation',{name:'Page hierarchy',exact:true});
   await expect(nav.getByRole('link')).toHaveText(['^',...parents]);
@@ -13,6 +13,7 @@ test('internal pages show only home and their parent in the header',async({page,
  }
  await page.goto('/gallery/');
  await page.getByRole('link',{name:'About',exact:true}).click();
+ await page.waitForLoadState('load');
  await expect(page.getByRole('navigation',{name:'Page hierarchy'}).getByRole('link')).toHaveText(['^','Gallery']);
  await page.getByRole('navigation',{name:'Page hierarchy'}).getByRole('link',{name:'Gallery',exact:true}).click();
  await expect(page.getByRole('navigation',{name:'Page hierarchy'}).getByRole('link')).toHaveText(['^']);
@@ -25,11 +26,14 @@ test('internal pages show only home and their parent in the header',async({page,
 test('section links open the complete catalog without a repeated section kicker',async({page})=>{
  await page.goto('/');
  await page.locator('.hero-links').getByRole('link',{name:'Music',exact:true}).click();
+ await expect(page).toHaveURL(/\/#music$/);
+ await page.locator('#music .section-actions a').click();
  await expect(page.locator('.album-card')).toHaveCount(6);
  await expect(page.getByRole('navigation',{name:'Page hierarchy'}).getByRole('link')).toHaveText(['^']);
- await page.goto('/models/');
- await expect(page.getByRole('heading',{level:1})).toHaveText('Models and interactive tools.');
- await expect(page.locator('.article-summary')).toHaveCount(4);
+ await page.goto('/articles/');
+ await expect(page.getByRole('heading',{level:1})).toHaveText('Articles');
+ const site = await (await page.request.get('/data/site.json')).json();
+ await expect(page.locator('#article-list article')).toHaveCount(site.articles.items.length + site.projects.length);
 });
 
 test('album covers open albums and streaming services use labeled icons',async({page})=>{

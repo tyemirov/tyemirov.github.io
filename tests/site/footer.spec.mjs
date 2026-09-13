@@ -8,7 +8,7 @@ test.beforeEach(async ({ context }) => {
 for (const width of [390, 1280]) {
   test(`footer follows content and fills short pages at ${width}px`, async ({ page }) => {
     const routes = await (await page.request.get('/data/routes.json')).json();
-    for (const path of [...routes.map(route => route.path), '/404.html', '/?topic=Writings']) {
+    for (const path of [...routes.map(route => route.path), '/404.html', '/articles/?topic=Writings']) {
       await test.step(path, async () => {
         await page.setViewportSize({ width, height: 900 });
         await page.goto(path);

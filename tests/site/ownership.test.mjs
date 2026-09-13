@@ -44,6 +44,7 @@ test('every personal model carries Vadym Tyemirov ownership and the model kind',
 test('the contract rejects MPR Lab ownership and obsolete project shapes', () => {
   expectInvalid([
     value => { delete value.owner; },
+    value => { value.models = { label: 'Models', title: 'Obsolete section' }; },
     value => { value.owner = 'mpr-lab'; },
     value => { value.gallery.owner = 'mpr-lab'; },
     value => { value.projects[0].owner = 'mpr-lab'; },
@@ -73,9 +74,10 @@ test('the built catalog reaches every live album and every live model', () => {
     for (const album of source.music.items.filter(item => item.status === 'live')) {
       assert.ok(existsSync(join(dir, 'music', album.slug, 'index.html')), `album page: ${album.slug}`);
     }
-    const modelsHtml = readFileSync(join(dir, 'models/index.html'), 'utf8');
+    assert.ok(existsSync(join(dir, 'articles/index.html')));
+    assert.ok(!existsSync(join(dir, 'models/index.html')));
     for (const project of source.projects.filter(item => item.status === 'live')) {
-      assert.ok(modelsHtml.includes(`href="${project.href}"`), `models index links ${project.href}`);
+      assert.ok(existsSync(join(dir, project.href, 'index.html')), `interactive page: ${project.href}`);
     }
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
@@ -86,9 +88,9 @@ test('the route manifest carries explicit parents without current-page links', (
     execFileSync(process.execPath, ['scripts/site/build.mjs', dir], { cwd: root, stdio: 'pipe' });
     const routes = JSON.parse(readFileSync(join(dir, 'data/routes.json'), 'utf8'));
     const byPath = new Map(routes.map(route => [route.path, route]));
-    assert.deepEqual(byPath.get('/models/').parent, null);
+    assert.equal(byPath.has('/models/'), false);
     for (const slug of ['civilization', 'decisioning', 'freedom', 'timeseries']) {
-      assert.deepEqual(byPath.get(`/${slug}/`).parent, { label: 'Models', path: '/models/' });
+      assert.deepEqual(byPath.get(`/${slug}/`).parent, { label: 'Articles', path: '/articles/' });
     }
     assert.deepEqual(byPath.get('/articles/the-wittgenstein-mirror/').parent, { label: 'Articles', path: '/articles/' });
     assert.deepEqual(byPath.get('/music/soliloquies-vol-ii/').parent, { label: 'Music', path: '/music/' });

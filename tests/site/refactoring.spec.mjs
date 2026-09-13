@@ -1,36 +1,33 @@
 // @ts-check
 import { test, expect } from '../music/test-fixtures.mjs';
 
-test('personal sections and topic selection survive history, reload, and keyboard activation', async ({ page }) => {
-  await page.goto('/');
-  for (const [label, href] of [['Models','/models/'],['Articles','/articles/'],['Music','/music/'],['Gallery','/gallery/']]) {
-    await expect(page.locator('.hero-links').getByRole('link', {name:label, exact:true})).toHaveAttribute('href',href);
-  }
-  await page.locator('.project-list').getByRole('button',{name:'Modeling',exact:true}).first().click();
+test('article topics survive history, reload, and keyboard activation', async ({ page }) => {
+  await page.goto('/articles/');
+  await page.locator('#article-list').getByRole('button', { name: 'Modeling', exact: true }).first().click();
   await expect(page).toHaveURL(/\?topic=Modeling$/);
-  await expect(page.locator('.project-list .project-card')).toHaveCount(3);
-  await expect(page.getByRole('heading',{name:'Modeling',exact:true})).toHaveCount(1);
-  await expect(page.locator('.project-list button')).toHaveCount(0);
-  const selected=page.locator('.site-filters').getByRole('button',{name:'Modeling',exact:true});
+  const cards = page.locator('#article-list .project-card');
+  await expect(cards).toHaveCount(3);
+  await expect(page.getByRole('heading', { name: 'Articles', exact: true })).toHaveCount(1);
+  await expect(cards.locator('button')).toHaveCount(0);
+  const navigation = page.locator('#article-filters');
+  const selected = navigation.getByRole('button', { name: 'Modeling', exact: true });
   await expect(selected).toBeFocused();
   await page.reload();
-  await expect(page.locator('.project-list .project-card')).toHaveCount(3);
-  await page.locator('.site-filters').getByRole('button',{name:'Decisioning',exact:true}).click();
-  await expect(page.locator('.project-list .project-card')).toHaveCount(1);
+  await expect(cards).toHaveCount(3);
+  await navigation.getByRole('button', { name: 'Decisioning', exact: true }).click();
+  await expect(cards).toHaveCount(1);
   await page.goBack();
   await expect(selected).toBeFocused();
-  await expect(page.locator('.project-list .project-card')).toHaveCount(3);
+  await expect(cards).toHaveCount(3);
   await page.goForward();
-  await expect(page.locator('.site-filters').getByRole('button',{name:'Decisioning',exact:true})).toBeFocused();
-  await expect(page.locator('.project-list .project-card')).toHaveCount(1);
-  await page.locator('.site-filters').getByRole('button',{name:'All',exact:true}).focus();
+  await expect(navigation.getByRole('button', { name: 'Decisioning', exact: true })).toBeFocused();
+  await expect(cards).toHaveCount(1);
+  await navigation.getByRole('button', { name: 'All', exact: true }).focus();
   await page.keyboard.press('Enter');
-  await expect(page).toHaveURL(/\/$/);
-  await expect(page.locator('.project-list .project-card')).toHaveCount(4);
-  await expect(page.locator('.site-filters').getByRole('button',{name:'All',exact:true})).toBeFocused();
-  await expect(page.locator('.site-filters')).not.toContainText(/Tools|Substack|MPR Lab/);
-  await page.goto('/models/?topic=AI');
-  await expect(page.getByText('No items match this topic.',{exact:true})).toBeVisible();
+  await expect(page).toHaveURL(/\/articles\/$/);
+  const site = await (await page.request.get('/data/site.json')).json();
+  await expect(cards).toHaveCount(site.articles.items.length + site.projects.length);
+  await expect(navigation.getByRole('button', { name: 'All', exact: true })).toBeFocused();
 });
 
 test('models have consistent titles and usable responsive layouts', async ({page}) => {
@@ -39,7 +36,7 @@ test('models have consistent titles and usable responsive layouts', async ({page
     await page.setViewportSize({width,height:900});
     for(const project of site.projects) {
       await page.goto(project.href);
-      await expect(page.getByRole('navigation',{name:'Page hierarchy'}).getByRole('link')).toHaveText(['^','Models']);
+      await expect(page.getByRole('navigation',{name:'Page hierarchy'}).getByRole('link')).toHaveText(['^','Articles']);
       if (project.slug === 'freedom') {
         await page.locator('#goalSchoolChoice').check();
         await page.locator('#incomeValue').fill('120000');
@@ -53,10 +50,10 @@ test('models have consistent titles and usable responsive layouts', async ({page
       }
       expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
     }
-    await page.goto('/?topic=Modeling');
+    await page.goto('/articles/?topic=Modeling');
     await expect(page.locator('.project-card')).toHaveCount(3);
-    const cards=await page.locator('.project-list .project-card').evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().right));
-    const grid=await page.locator('.project-list').boundingBox();
+    const cards=await page.locator('#article-list .project-card').evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().right));
+    const grid=await page.locator('#article-list').boundingBox();
     expect(Math.max(...cards)).toBeGreaterThan(grid.x+grid.width-3);
   }
   await page.goto('/timeseries/');
@@ -85,8 +82,8 @@ test('topic results include every matching article beyond the overview limit', a
   });
   await page.goto('/');
   await expect(page.locator('.essay-list article')).toHaveCount(4);
-  await page.locator('.site-filters').getByRole('button',{name:'AI',exact:true}).click();
-  await expect(page.locator('.essay-list article')).toHaveCount(5);
+  await page.locator('.essay-list').getByRole('button',{name:'AI',exact:true}).first().click();
+  await expect(page.locator('#article-list article')).toHaveCount(5);
   await page.reload();
-  await expect(page.locator('.essay-list article')).toHaveCount(5);
+  await expect(page.locator('#article-list article')).toHaveCount(5);
 });

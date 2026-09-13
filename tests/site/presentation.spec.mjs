@@ -5,6 +5,42 @@ test.beforeEach(async ({ context }) => {
   await context.route(/loopaware\.mprlab\.com/, route => route.abort());
 });
 
+test('article catalog uses homepage tiles across viewport sizes and topic navigation', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('/articles/');
+  const site = await (await page.request.get('/data/site.json')).json();
+  const cards = page.locator('#article-list article');
+  await expect(cards).toHaveCount(site.articles.items.length + site.projects.length);
+  await expect(page.locator('#article-list')).toHaveCSS('display', 'grid');
+  const boxes = await cards.evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().toJSON()));
+  expect(boxes[0].y).toBe(boxes[1].y);
+  expect(boxes[1].x).toBeGreaterThan(boxes[0].x);
+  await expect(cards.first()).toHaveCSS('padding-left', '48px');
+  await expect(cards.first().locator('h2')).toHaveCSS('font-size', '48px');
+  await expect(cards.first().getByRole('link', { name: 'Read article', exact: true })).toHaveAttribute('href', `/articles/${site.articles.items[0].slug}/`);
+  await expect(cards.first().getByRole('link', { name: 'Read on Substack', exact: true })).toHaveAttribute('href', site.articles.items[0].source.url);
+  await page.screenshot({ path: `output/playwright/restoration/article-tiles-desktop-${test.info().project.name}.png`, fullPage: true });
+  await cards.first().getByRole('button', { name: 'AI', exact: true }).click();
+  await expect(page).toHaveURL(/\?topic=AI$/);
+  await expect(cards).toHaveCount(site.articles.items.filter(item => item.kicker === 'AI').length);
+  await page.reload();
+  await expect(cards).toHaveCount(site.articles.items.filter(item => item.kicker === 'AI').length);
+  await page.locator('#article-filters').getByRole('button', { name: 'Writings', exact: true }).click();
+  await expect(page.getByText('No items match this topic.', { exact: true })).toBeVisible();
+  await page.goBack();
+  await expect(cards).toHaveCount(site.articles.items.filter(item => item.kicker === 'AI').length);
+  await page.locator('#article-filters').getByRole('button', { name: 'All', exact: true }).click();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(cards).toHaveCount(site.articles.items.length + site.projects.length);
+  const mobile = await cards.evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().toJSON()));
+  expect(mobile[0].x).toBe(mobile[1].x);
+  expect(mobile[1].y).toBeGreaterThan(mobile[0].y);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  await page.screenshot({ path: `output/playwright/restoration/article-tiles-mobile-${test.info().project.name}.png`, fullPage: true });
+  await cards.first().getByRole('link', { name: 'Read article', exact: true }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(site.articles.items[0].title);
+});
+
 test('homepage restores production typography, section hierarchy, and card actions', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/');
@@ -19,7 +55,7 @@ test('homepage restores production typography, section hierarchy, and card actio
       section: css('.essay-section .section-title').fontSize,
       serif: css('.essay-list h2').fontFamily,
       body: css('.card-body').fontFamily,
-      mono: css('.notes-label').fontFamily,
+      mono: css('.profile-footnote').fontFamily,
     };
   });
   expect.soft(styles.heading).toBe('128px');
@@ -29,7 +65,7 @@ test('homepage restores production typography, section hierarchy, and card actio
   expect.soft(styles.serif).toContain('Instrument Serif');
   expect.soft(styles.body).toContain('Space Grotesk');
   expect.soft(styles.mono).toContain('IBM Plex Mono');
-  await expect(page.locator('main > section .notes-label:visible')).toHaveCount(4);
+  await expect(page.locator('main > section .section-title')).toHaveText(['Articles', 'Music', 'Gallery']);
   const actions = page.locator('.essay-list .project-actions');
   await expect(actions).toHaveCount(4);
   const firstRow = await actions.evaluateAll(nodes => nodes.slice(0, 3).map(node => Math.round(node.getBoundingClientRect().top)));

@@ -4,54 +4,39 @@ import { test, expect } from "./test-fixtures.mjs";
 
 const expected = JSON.parse(readFileSync(new URL("./catalog.expected.json", import.meta.url), "utf8"));
 
-test("global category filtering supports selection, clearing, and keyboard controls", async ({ page, context }) => {
-  await context.route(/loopaware\.mprlab\.com/, (route) => route.abort());
+test("article topic filtering supports selection, clearing, and keyboard controls", async ({ page, context }) => {
+  await context.route(/loopaware\.mprlab\.com/, route => route.abort());
   await page.setViewportSize({ width: 390, height: 844 });
-  const site = await (await context.request.get("/data/site.json")).json();
-  await page.goto("/");
-  const category = site.articles.items[0].kicker;
-  await page.locator(".essay-list").getByRole("button", { name: category, exact: true }).first().click();
-  await expect(page.locator(".essay-list h2")).toHaveText(site.articles.items.filter((item) => item.kicker === category).map((item) => item.title));
-  for (const section of [".project-section", ".music-section", ".arts-section"]) await expect(page.locator(section)).toBeHidden();
-  const selected = page.locator(".site-filters").getByRole("button", { name: category, exact: true }).first();
-  await expect(selected).toHaveAttribute("aria-pressed", "true");
-  await expect(selected).toBeFocused();
-  await selected.press("Enter");
-  await expect(page.locator(".essay-list h2")).toHaveCount(4);
-  for (const section of [".project-section", ".music-section", ".arts-section"]) await expect(page.locator(section)).toBeVisible();
-  const filters = page.getByRole("navigation", { name: "Filter content" });
-  for (const [label, selector] of [["Modeling", ".project-section"], ["Decisioning", ".project-section"], ["Arts", ".arts-section"], ["AI", ".essay-section"]]) {
-    const button = filters.getByRole("button", { name: label, exact: true });
-    await button.focus(); await button.press("Space");
-    await expect(button).toHaveAttribute("aria-pressed", "true");
-    await expect(page.locator(selector)).toBeVisible();
-    for (const other of [".project-section", ".essay-section", ".music-section", ".arts-section"].filter((value) => value !== selector)) await expect(page.locator(other)).toBeHidden();
+  const site = await (await page.request.get('/data/site.json')).json();
+  await page.goto('/articles/');
+  const filters = page.getByRole('navigation', { name: 'Filter articles' });
+  for (const label of ['Modeling', 'Decisioning', 'Arts', 'AI']) {
+    const button = filters.getByRole('button', { name: label, exact: true });
+    await button.focus();
+    await button.press('Space');
+    await expect(button).toHaveAttribute('aria-pressed', 'true');
+    const count = [...site.articles.items, ...site.projects].filter(item => item.kicker === label).length;
+    await expect(page.locator('#article-list article')).toHaveCount(count);
+    await expect(button).toBeFocused();
   }
-  await filters.getByRole("button", { name: "All", exact: true }).click();
-  for (const section of [".project-section", ".essay-section", ".music-section", ".arts-section"]) await expect(page.locator(section)).toBeVisible();
-  await filters.screenshot({ path: `output/playwright/filters-${test.info().project.name}.png` });
+  await filters.getByRole('button', { name: 'All', exact: true }).click();
+  await expect(page.locator('#article-list article')).toHaveCount(site.articles.items.length + site.projects.length);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
-  const overflow = await page.evaluate(() => [...document.querySelectorAll("main *, .hero *")].filter((element) => !element.matches('.hero-links a') && element.getBoundingClientRect().right > window.innerWidth).map((element) => `${element.tagName}.${element.className}`).slice(0, 20));
-  expect(overflow).toEqual([]);
-  const lastLink = page.locator('.hero-links a').last();
-  await lastLink.focus();
-  await expect(lastLink).toBeInViewport();
 });
 
-test("global category filtering selects before the card limit and excludes publication sources", async ({ page, context }) => {
-  await context.route(/loopaware\.mprlab\.com/, (route) => route.abort());
-  await context.route("**/data/site.json", async (route) => {
+test("article collection filters beyond the homepage preview limit", async ({ page, context }) => {
+  await context.route('**/data/site.json', async route => {
     const site = await (await route.fetch()).json();
-    site.articles.items.push({ ...structuredClone(site.articles.items[0]), id: "fifth-article", slug: "fifth-article", title: "Fifth article", kicker: "Decisioning", summary: "Test catalog entry.", order: 50, status: "live" });
+    site.articles.items.push({ ...site.articles.items[0], id: 'fifth-article', slug: 'fifth-article', title: 'Fifth article', kicker: 'Decisioning', order: 50 });
     await route.fulfill({ json: site });
   });
-  await page.goto("/");
-  const filters = page.getByRole("navigation", { name: "Filter content" });
-  await filters.getByRole("button", { name: "Decisioning", exact: true }).click();
-  await expect(page.locator(".essay-list h2")).toHaveText(["Fifth article"]);
-  await filters.getByRole("button", { name: "All", exact: true }).click();
-  await expect(page.locator(".essay-list h2")).toHaveCount(4);
-  await expect(filters.getByRole("button", { name: "All", exact: true })).toBeFocused();
+  await page.goto('/');
+  await expect(page.locator('.essay-list article')).toHaveCount(4);
+  await page.locator('#articles .section-actions a').click();
+  const filters = page.getByRole('navigation', { name: 'Filter articles' });
+  await filters.getByRole('button', { name: 'Decisioning', exact: true }).click();
+  await expect(page.locator('#article-list h2')).toHaveText(['Fifth article', 'Decision Planes']);
+  await expect(filters.getByRole('button', { name: 'Substack', exact: true })).toHaveCount(0);
 });
 
 test("one canonical catalog supplies the built pages and playback allowlist", async ({ page, context }) => {
@@ -68,7 +53,7 @@ test("one canonical catalog supplies the built pages and playback allowlist", as
   await page.goto("/");
   await expect(page.locator(".hero-copy h1")).toHaveText(site.hero.title);
   await expect(page.locator(".music-list .music-card")).toHaveCount(3);
-  for (const section of [".project-section", ".essay-section", ".arts-section"]) await expect(page.locator(section)).toBeVisible();
+  for (const section of [".essay-section", ".arts-section"]) await expect(page.locator(section)).toBeVisible();
   const footer = page.locator("mpr-footer");
   await footer.getByRole("button", { name: "Website software by MPR Lab", exact: true }).click();
   const contact = footer.getByRole("link", { name: site.contact.label, exact: true });

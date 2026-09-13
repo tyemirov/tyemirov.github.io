@@ -20,7 +20,7 @@ for (const width of [1280, 769, 390]) {
   test(`homepage keeps its portrait bounded and controls on one row at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 998 });
     await page.goto("/");
-    await expect(page.locator(".hero-copy h1")).toHaveText("Models, articles, music, and art.");
+    await expect(page.locator(".hero-copy h1")).toHaveText("Articles, music, and art.");
     const portrait = await page.locator(".profile-photo img").boundingBox();
     expect(portrait.width).toBeLessThanOrEqual(width <= 1000 ? 160 : 340);
     expect(portrait.height / portrait.width).toBeCloseTo(1.5, 1);
@@ -49,11 +49,11 @@ for (const width of [390, 769, 1280]) {
     for (const visit of ["initial", "reload", "return"]) {
       if (visit === "reload") await page.reload();
       if (visit === "return") {
-        await page.locator('.hero-links').getByRole('link', { name: 'Music', exact: true }).click();
+        await page.locator('#music .section-actions a').click();
         await expect(page.locator(".album-card")).toHaveCount(6);
         await page.goBack({ waitUntil: "commit" });
       }
-      await expect(page.locator(".hero-links a")).toHaveCount(5);
+      await expect(page.locator(".hero-links a")).toHaveCount(4);
       const portrait = page.locator(".profile-photo img");
       await expect.poll(() => portrait.evaluate(image => image.naturalWidth)).toBeGreaterThan(0);
       const metrics = await page.evaluate(() => {
@@ -74,7 +74,7 @@ for (const width of [390, 769, 1280]) {
       const links = page.locator(".hero-links a");
       await page.keyboard.press(nextLinkKey);
       await links.first().focus();
-      for (let index = 0; index < 5; index++) {
+      for (let index = 0; index < 4; index++) {
         await expect(links.nth(index)).toBeFocused();
         const focus = await links.nth(index).evaluate(link => {
           const style = getComputedStyle(link);
@@ -83,7 +83,7 @@ for (const width of [390, 769, 1280]) {
         expect(focus.visible).toBe(true);
         expect(focus.outline).not.toBe("none");
         expect(focus.width).toBeGreaterThan(0);
-        if (index < 4) await page.keyboard.press(nextLinkKey);
+        if (index < 3) await page.keyboard.press(nextLinkKey);
       }
       await test.info().attach(`${width}-${visit}-metrics`, { body: JSON.stringify(metrics), contentType: "application/json" });
       await page.screenshot({ path: `output/playwright/homepage-${width}-${visit}-${test.info().project.name}.png`, fullPage: true });

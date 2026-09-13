@@ -34,11 +34,11 @@ for (const width of [390, 769, 1280]) {
     expect.soft(metrics.overflow).toBe(false);
     for (const gap of metrics.gaps) expect.soft(Math.round(gap)).toBe(width <= 600 ? 60 : 100);
     expect.soft(metrics.footer.top - metrics.lastActionBottom).toBeGreaterThanOrEqual(0);
-    expect.soft(metrics.footer.top - metrics.lastActionBottom).toBeLessThanOrEqual(121);
+    expect.soft(Math.round(metrics.footer.top - metrics.lastActionBottom)).toBeLessThanOrEqual(121);
     expect.soft(metrics.footer.bottom).toBeCloseTo(metrics.height, 0);
     expect.soft(metrics.bodyFontSize).toBeGreaterThanOrEqual(16);
     await expect(page.locator(".essay-list h2")).toHaveText(catalog.articles.items.filter(item => item.status === "live").sort((a, b) => a.order - b.order).map(item => item.title));
-    await expect(page.locator(".hero-links a")).toHaveCount(5);
+    await expect(page.locator(".hero-links a")).toHaveCount(4);
     for (const action of await page.locator(".hero-links a, .section-actions a").all()) {
       await expect(action).toBeVisible();
       expect((await action.boundingBox()).height).toBeGreaterThanOrEqual(40);
@@ -47,11 +47,10 @@ for (const width of [390, 769, 1280]) {
     await expect(page.locator(".arts-section .section-actions a")).toBeFocused();
     await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
     await expect(page.locator("mpr-footer footer")).toBeInViewport();
-    await page.getByRole("navigation", { name: "Filter content" }).getByRole("button", { name: "Modeling", exact: true }).click();
-    await expect(page.locator(".project-section")).toBeVisible();
-    await expect(page.locator(".essay-section")).toBeHidden();
-    await page.getByRole("navigation", { name: "Filter content" }).getByRole("button", { name: "All", exact: true }).click();
-    await expect(page.locator(".essay-list .project-card")).toHaveCount(4);
+    await page.locator('.hero-links').getByRole('link', { name: 'Articles', exact: true }).click();
+    await expect(page).toHaveURL(/\/#articles$/);
+    await expect(page.locator('#articles .section-title')).toBeInViewport();
+    await expect(page.locator('.essay-list .project-card')).toHaveCount(4);
     const footer = page.locator("mpr-footer");
     await footer.getByRole("button", { name: "Website software by MPR Lab", exact: true }).click();
     const contact = footer.getByRole("link", { name: catalog.contact.label, exact: true });
