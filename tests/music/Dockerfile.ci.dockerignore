@@ -10,6 +10,7 @@
 !assets/**
 !articles/**
 !contracts/**
+!config-ui.yaml
 !scripts/site/**
 !scripts/contracts/**
 !civilization/**
@@ -21,6 +22,7 @@
 !gallery/images/**
 !gallery/index.html
 !gallery/order/**
+!gallery/studio/**
 !gallery/js/**
 !index.html
 !local/**
