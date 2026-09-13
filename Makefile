@@ -1,5 +1,7 @@
 .DEFAULT_GOAL := ci
 PAGES_DIST_DIR ?= $(CURDIR)/.pages-dist
+MPRLAB_GATEWAY_CI_VERSION := v4.0.2
+MUSIC_CI_TARGET ?= ci
 ANSIBLE_PLAYBOOK ?= $(abspath ../mprlab-gateway/.venv/bin/ansible-playbook)
 ANSIBLE_INVENTORY_BIN ?= $(abspath ../mprlab-gateway/.venv/bin/ansible-inventory)
 UP_PORT ?= 8080
@@ -29,7 +31,7 @@ local-prepare-test:
 
 .PHONY: lifecycle-contract-test
 lifecycle-contract-test:
-	@ANSIBLE_PLAYBOOK="$(ANSIBLE_PLAYBOOK)" ANSIBLE_INVENTORY_BIN="$(ANSIBLE_INVENTORY_BIN)" node --test tests/music/lifecycle.test.mjs
+	@MPRLAB_GATEWAY_EXECUTABLE="$(MPRLAB_GATEWAY_EXECUTABLE)" node --test tests/music/lifecycle.test.mjs
 
 .PHONY: ci pages-build loopaware-site-id-test release publish deploy
 
@@ -72,8 +74,18 @@ music-artifact-test:
 music-ci-container:
 	@docker build -q -t music-ci:local -f tests/music/Dockerfile.ci .
 	@mkdir -p output/playwright/linux
-	@git -C ../mprlab-gateway bundle create "$(CURDIR)/output/playwright/gateway.bundle" HEAD
-	@docker run --rm --init --shm-size=1g --mount "type=bind,src=$(CURDIR)/output/playwright/gateway.bundle,dst=/gateway.bundle,readonly" --mount "type=bind,src=$(CURDIR)/output/playwright/linux,dst=/workspace/output/playwright" music-ci:local
+	@set -eu; \
+	gateway_download="$$(mktemp -d)"; \
+	trap 'rm -rf "$$gateway_download"' EXIT; \
+	gateway_asset="mprlab-gateway-$(MPRLAB_GATEWAY_CI_VERSION)-linux-$$(docker image inspect music-ci:local --format '{{.Architecture}}').tar.gz"; \
+	gh release download "$(MPRLAB_GATEWAY_CI_VERSION)" --repo MarcoPoloResearchLab/mprlab-gateway --pattern "$$gateway_asset" --dir "$$gateway_download"; \
+	gateway_digest="$$(gh api "repos/MarcoPoloResearchLab/mprlab-gateway/releases/tags/$(MPRLAB_GATEWAY_CI_VERSION)" --jq ".assets[] | select(.name == \"$$gateway_asset\") | .digest")"; \
+	test "sha256:$$(shasum -a 256 "$$gateway_download/$$gateway_asset" | cut -d ' ' -f 1)" = "$$gateway_digest"; \
+	docker run --rm --init --shm-size=1g \
+		--env MPRLAB_GATEWAY_CI_VERSION="$(MPRLAB_GATEWAY_CI_VERSION)" \
+		--mount "type=bind,src=$$gateway_download/$$gateway_asset,dst=/gateway-runtime.tar.gz,readonly" \
+		--mount "type=bind,src=$(CURDIR)/output/playwright/linux,dst=/workspace/output/playwright" \
+		music-ci:local bash tests/music/run-ci.sh "$(MUSIC_CI_TARGET)"
 
 music-container-test:
 	@node --test $(MUSIC_CONTAINER_ARGS) tests/music/container.test.mjs
@@ -113,8 +125,18 @@ pages-build:
 loopaware-site-id-test:
 	@./tests/loopaware_site_id_test.sh
 
+MPRLAB_GATEWAY_EXECUTABLE ?= mprlab-gateway
+
+.PHONY: release publish deploy
+
 release publish deploy:
-	@application_root="$$(git rev-parse --show-toplevel)"; gateway_root="$$(dirname "$${application_root}")/mprlab-gateway"; $(MAKE) --no-print-directory -C "$${gateway_root}" "app-$@" MPRLAB_APP_ROOT="$${application_root}"
+	@application_root="$$(git rev-parse --show-toplevel)"; \
+	if ! command -v "$(MPRLAB_GATEWAY_EXECUTABLE)" >/dev/null 2>&1; then \
+		printf 'Gateway runtime is unavailable: %s. Install a released runtime and add its command directory to PATH.\n' \
+			"$(MPRLAB_GATEWAY_EXECUTABLE)" >&2; \
+		exit 2; \
+	fi; \
+	exec "$(MPRLAB_GATEWAY_EXECUTABLE)" "app-$@" --app-root "$${application_root}"
 
 .PHONY: site-contract-test contracts-generate
 site-contract-test:
