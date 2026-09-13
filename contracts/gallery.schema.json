@@ -1,0 +1,1178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tyemirov.net/contracts/gallery.schema.json",
+  "$ref": "#/$defs/catalog",
+  "$defs": {
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cardUrl": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "^/gallery/images/(previews|full)/[a-zA-Z0-9_-]+\\.(png|jpg|jpeg|webp)$"
+        },
+        "lightboxUrl": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "^/gallery/images/(previews|full)/[a-zA-Z0-9_-]+\\.(png|jpg|jpeg|webp)$"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000000
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000000
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "PNG",
+            "JPEG",
+            "WebP"
+          ]
+        }
+      },
+      "required": [
+        "cardUrl",
+        "lightboxUrl",
+        "width",
+        "height",
+        "format"
+      ]
+    },
+    "offeredFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "PNG",
+            "JPEG",
+            "WebP"
+          ]
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000000
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000000
+        }
+      },
+      "required": [
+        "label",
+        "format",
+        "width",
+        "height"
+      ]
+    },
+    "offer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "priceCents": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000000
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3,
+          "pattern": "^[A-Z]{3}$"
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "file": {
+          "$ref": "#/$defs/offeredFile"
+        },
+        "deliveryTerms": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "id",
+        "priceCents",
+        "currency",
+        "license",
+        "revision",
+        "file",
+        "deliveryTerms"
+      ]
+    },
+    "artwork": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        },
+        "medium": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        },
+        "year": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4,
+          "pattern": "^[0-9]{4}$"
+        },
+        "image": {
+          "$ref": "#/$defs/image"
+        },
+        "offer": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/offer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "alt",
+        "medium",
+        "year",
+        "image",
+        "offer"
+      ]
+    },
+    "collection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        },
+        "introduction": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 20000
+        },
+        "coverArtworkId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "coverPosition": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "artworkIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "maxItems": 10000,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "introduction",
+        "coverArtworkId",
+        "coverPosition",
+        "artworkIds"
+      ]
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        },
+        "artworkIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "maxItems": 10000,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "artworkIds"
+      ]
+    },
+    "exhibit": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        },
+        "subtitle": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 20000
+        },
+        "introduction": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 20000
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "coverArtworkId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "coverPosition": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/section"
+          },
+          "minItems": 1,
+          "maxItems": 10000
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "subtitle",
+        "introduction",
+        "startDate",
+        "endDate",
+        "coverArtworkId",
+        "coverPosition",
+        "sections"
+      ]
+    },
+    "catalog": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "\\S"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "pattern": "\\S"
+        },
+        "brand": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        },
+        "artworks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artwork"
+          },
+          "minItems": 0,
+          "maxItems": 10000
+        },
+        "collections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/collection"
+          },
+          "minItems": 0,
+          "maxItems": 10000
+        },
+        "exhibits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/exhibit"
+          },
+          "minItems": 0,
+          "maxItems": 10000
+        }
+      },
+      "required": [
+        "label",
+        "title",
+        "brand",
+        "description",
+        "artworks",
+        "collections",
+        "exhibits"
+      ]
+    },
+    "draft": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gallery": {
+          "$ref": "#/$defs/catalog"
+        },
+        "masters": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "maxProperties": 10000,
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      },
+      "required": [
+        "gallery",
+        "masters"
+      ]
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "checksum": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000000
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000000
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "PNG",
+            "JPEG",
+            "WebP"
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        }
+      },
+      "required": [
+        "id",
+        "checksum",
+        "width",
+        "height",
+        "format",
+        "createdAt"
+      ]
+    },
+    "publicationRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "draftEtag": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^\"draft-[1-9][0-9]*\"$"
+        },
+        "baseCatalogDigest": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "draftEtag",
+        "baseCatalogDigest"
+      ]
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "minLength": 64,
+          "maxLength": 64
+        },
+        "draftEtag": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^\"draft-[1-9][0-9]*\"$"
+        },
+        "baseCatalogDigest": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "archiveUrl": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024,
+          "pattern": "^/(?:[A-Za-z0-9][A-Za-z0-9_-]*/)*(?:[A-Za-z0-9][A-Za-z0-9_-]*(?:\\.[A-Za-z0-9]+)?)?$"
+        }
+      },
+      "required": [
+        "id",
+        "draftEtag",
+        "baseCatalogDigest",
+        "archiveUrl"
+      ]
+    },
+    "orderInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "offerIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "maxItems": 20,
+          "uniqueItems": true
+        },
+        "email": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 254,
+          "pattern": "\\S",
+          "format": "email"
+        },
+        "catalogDigest": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "offerIds",
+        "email",
+        "catalogDigest"
+      ]
+    },
+    "orderItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "artworkId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000,
+          "pattern": "\\S"
+        },
+        "offer": {
+          "$ref": "#/$defs/offer"
+        }
+      },
+      "required": [
+        "artworkId",
+        "title",
+        "offer"
+      ]
+    },
+    "entitlement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "offerId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "revoked"
+          ]
+        }
+      },
+      "required": [
+        "offerId",
+        "revision",
+        "status"
+      ]
+    },
+    "receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "queued",
+            "sent",
+            "attention"
+          ]
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "downloadInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "offerId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        }
+      },
+      "required": [
+        "offerId"
+      ]
+    },
+    "download": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "offerId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "href": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024,
+          "pattern": "^/(?:[A-Za-z0-9][A-Za-z0-9_-]*/)*(?:[A-Za-z0-9][A-Za-z0-9_-]*(?:\\.[A-Za-z0-9]+)?)?$"
+        }
+      },
+      "required": [
+        "id",
+        "offerId",
+        "revision",
+        "expiresAt",
+        "href"
+      ]
+    },
+    "accessReissueInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "verifiedEmail": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 254,
+          "pattern": "\\S",
+          "format": "email"
+        }
+      },
+      "required": [
+        "verifiedEmail"
+      ]
+    },
+    "accessReissue": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "orderId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "verifiedEmail": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 254,
+          "pattern": "\\S",
+          "format": "email"
+        },
+        "ownerEmail": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 254,
+          "pattern": "\\S",
+          "format": "email"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        }
+      },
+      "required": [
+        "id",
+        "orderId",
+        "verifiedEmail",
+        "ownerEmail",
+        "createdAt"
+      ]
+    },
+    "orderUpdate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "const": "cancelled"
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "\\S"
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "requestId"
+      ]
+    },
+    "readiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "const": "ready"
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "order": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "payment-pending",
+            "awaiting-approval",
+            "complete",
+            "cancelled",
+            "revoked"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 254,
+          "pattern": "\\S",
+          "format": "email"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/orderItem"
+          },
+          "minItems": 1,
+          "maxItems": 20
+        },
+        "totalCents": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20000000000
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3,
+          "pattern": "^[A-Z]{3}$"
+        },
+        "approvalUrl": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096,
+              "pattern": "^https://[^/@?#\\s]+(?:/[^\\s]*)?$",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "entitlements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entitlement"
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "receipt": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/receipt"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "status",
+        "email",
+        "items",
+        "totalCents",
+        "currency",
+        "approvalUrl",
+        "entitlements",
+        "receipt"
+      ]
+    },
+    "ownerOrder": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "payment-pending",
+            "awaiting-approval",
+            "complete",
+            "cancelled",
+            "revoked"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 254,
+          "pattern": "\\S",
+          "format": "email"
+        },
+        "totalCents": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20000000000
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3,
+          "pattern": "^[A-Z]{3}$"
+        },
+        "receipt": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/receipt"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "createdAt",
+        "status",
+        "email",
+        "totalCents",
+        "currency",
+        "receipt"
+      ]
+    },
+    "assetPage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/asset"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "nextCursor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "items",
+        "nextCursor"
+      ]
+    },
+    "ownerOrderPage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ownerOrder"
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "nextCursor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "items",
+        "nextCursor"
+      ]
+    },
+    "orderCreation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "order": {
+          "$ref": "#/$defs/order"
+        },
+        "accessSecret": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 43,
+          "pattern": "^[A-Za-z0-9_-]{43}$"
+        }
+      },
+      "required": [
+        "order",
+        "accessSecret"
+      ]
+    },
+    "downloadCreation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "download": {
+          "$ref": "#/$defs/download"
+        },
+        "accessSecret": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 43,
+          "pattern": "^[A-Za-z0-9_-]{43}$"
+        }
+      },
+      "required": [
+        "download",
+        "accessSecret"
+      ]
+    },
+    "accessReissueCreation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reissue": {
+          "$ref": "#/$defs/accessReissue"
+        },
+        "accessSecret": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 43,
+          "pattern": "^[A-Za-z0-9_-]{43}$"
+        },
+        "orderUrl": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096,
+          "pattern": "^https://[^/@?#\\s]+(?:/[^\\s]*)?$",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "reissue",
+        "accessSecret",
+        "orderUrl"
+      ]
+    },
+    "orderSnapshot": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 254,
+          "pattern": "\\S",
+          "format": "email"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/orderItem"
+          },
+          "minItems": 1,
+          "maxItems": 20
+        },
+        "totalCents": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20000000000
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3,
+          "pattern": "^[A-Z]{3}$"
+        }
+      },
+      "required": [
+        "email",
+        "items",
+        "totalCents",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    "emptyInput": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    }
+  }
+}

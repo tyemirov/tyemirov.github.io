@@ -77,13 +77,13 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: 420px 1fr;
+  grid-template-columns: 420px minmax(0, 1fr);
   gap: var(--gap);
 }
 
 @media (max-width: 1100px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -189,7 +189,7 @@ body {
 
 .toggleGroup {
   display: grid;
-  grid-template-columns: 1fr; /* Changed from 1fr 1fr to single column for better fit */
+  grid-template-columns: minmax(0, 1fr); /* Changed from 1fr 1fr to single column for better fit */
   gap: 10px;
   margin-top: 14px;
 }
@@ -298,7 +298,7 @@ body {
 
 @media (max-width: 1020px) {
   .charts {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -315,7 +315,7 @@ body {
   background: #fff;
   border: 2px solid rgba(15, 109, 77, 0.22);
   border-radius: 18px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .container table {
@@ -432,6 +432,13 @@ body {
 
 @media (max-width: 600px) {
   .container { padding: 12px; }
-  .grid { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
   .container h1 { font-size: 28px; }
+}
+
+.grid > *, .charts > * { min-width: 0; }
+@media (max-width: 600px) {
+  .row { grid-template-columns: minmax(0, 1fr) 110px; }
+  .panel { padding: 16px; }
+  .tableBox { overflow-x: auto; }
 }

@@ -387,11 +387,13 @@ textarea {
 
 @media (max-width: 1024px) {
   .main-grid, .result-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .sidebar { position: static; }
 }
 
 @media (max-width: 640px) {
-  .button-grid, .range-group { grid-template-columns: 1fr; }
+  .button-grid, .range-group { grid-template-columns: minmax(0, 1fr); }
 }
+
+.main-grid > *, .result-layout > *, .range-group > * { min-width: 0; }

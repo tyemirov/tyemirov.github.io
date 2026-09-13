@@ -1,0 +1,14 @@
+{
+  "responses": [
+    {
+      "path": "/auth/nonce",
+      "status": 200
+    },
+    {
+      "path": "/gsi/button",
+      "status": 403
+    }
+  ],
+  "workspaceVisible": false,
+  "status": "Sign in to open the owner workspace."
+}

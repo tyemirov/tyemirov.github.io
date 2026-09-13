@@ -5,6 +5,7 @@ import { spawnSync } from "node:child_process";
 import { mkdtemp, mkdir, writeFile, readFile, rm } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { tmpdir, platform } from "node:os";
+import { assertReleaseArtifacts, serviceImages } from "./release-contract.mjs";
 
 const root = resolve(".");
 const phase = process.env.MUSIC_QUALIFICATION_PHASE ?? "publication";
@@ -14,7 +15,6 @@ const registryImage = "registry:3.1.1@sha256:1be55279f18a2fe1a74edf2664cac61c1be
 const volumes = ["music-publication-registry-data", "music-publication-registry-tls"];
 const certDirectory = "/etc/docker/certs.d/ghcr.io";
 const hostEntry = "127.0.0.1 ghcr.io # music-publication-qualification\n";
-const repository = "ghcr.io/tyemirov/personal-site-music";
 const quote = (value) => "'" + value.replaceAll("'", "'\\''") + "'";
 function run(program, args, options = {}) {
   const result = spawnSync(program, args, { cwd: root, encoding: "utf8", timeout: 600000, maxBuffer: 16000000, ...options });
@@ -23,13 +23,16 @@ function run(program, args, options = {}) {
 }
 
 test(`Gateway ${phase} uses the exact sealed release and isolated providers`, { timeout: 1800000 }, async () => {
-  const config = process.env.MUSIC_QUALIFICATION_SSH_CONFIG, host = process.env.MUSIC_QUALIFICATION_HOST;
-  assert.ok(config && host, "Select the dedicated isolated SSH host through MUSIC_QUALIFICATION_SSH_CONFIG and MUSIC_QUALIFICATION_HOST");
   const selected = JSON.parse(await readFile("output/playwright/release/release-results.json", "utf8"));
   assert.equal(selected.passed, true);
   assert.match(selected.applicationCommit, /^[0-9a-f]{40}$/);
   assert.equal(selected.archive, selected.applicationCommit);
   const source = join(root, "output/playwright/release", selected.archive);
+  const release = JSON.parse(await readFile(join(source, "release/receipt.json"), "utf8"));
+  assert.equal(release.application.commit, selected.applicationCommit);
+  assertReleaseArtifacts(release.artifacts);
+  const config = process.env.MUSIC_QUALIFICATION_SSH_CONFIG, host = process.env.MUSIC_QUALIFICATION_HOST;
+  assert.ok(config && host, "Select the dedicated isolated SSH host through MUSIC_QUALIFICATION_SSH_CONFIG and MUSIC_QUALIFICATION_HOST");
   const published = join(root, "output/playwright/publication", selected.applicationCommit);
   const evidence = join(root, "output/playwright", phase, selected.applicationCommit);
   if (phase === "deployment") assert.equal(JSON.parse(await readFile(join(published, "publication-results.json"), "utf8")).passed, true);
@@ -44,7 +47,7 @@ test(`Gateway ${phase} uses the exact sealed release and isolated providers`, { 
     assert.equal(run("docker", ["ps", "--all", "--filter", `name=^/${controller}$`, "--format", "{{.Names}}"]).trim(), "", "The test controller must be absent");
     assert.equal(remoteDocker(["ps", "--all", "--format", "{{.Names}}"]).trim(), "", "The registry fixture requires a dedicated empty Docker host");
     assert.equal(remoteDocker(["volume", "ls", "--quiet"]).trim(), "", "The registry fixture requires an empty volume set");
-    assert.equal(remoteDocker(["image", "ls", "--quiet", repository]).trim(), "", "The selected image must be absent before publication");
+    for (const { repository } of serviceImages) assert.equal(remoteDocker(["image", "ls", "--quiet", repository]).trim(), "", "The selected image must be absent before publication");
     assert.equal(ssh("ss -H -ltn '( sport = :443 )'").trim(), "", "The isolated registry HTTPS port must be free");
     ssh(`test ! -e ${quote(certDirectory)}`);
     const originalHosts = ssh("cat /etc/hosts");
@@ -99,7 +102,7 @@ test(`Gateway ${phase} uses the exact sealed release and isolated providers`, { 
     await cleanup(() => { if (ownsController && run("docker", ["ps", "--all", "--quiet", "--filter", `name=^/${controller}$`]).trim()) run("docker", ["rm", "-f", controller]); });
     await cleanup(() => { if (ownsRegistry && remoteDocker(["ps", "--all", "--quiet", "--filter", `name=^/${registry}$`]).trim()) remoteDocker(["rm", "-f", registry]); });
     if (ownsVolumes) for (const volume of volumes) await cleanup(() => { if (remoteDocker(["volume", "ls", "--quiet", "--filter", `name=^${volume}$`]).trim()) remoteDocker(["volume", "rm", volume]); });
-    if (ownsRegistry) await cleanup(() => {
+    if (ownsRegistry) for (const { repository } of serviceImages) await cleanup(() => {
       const references = remoteDocker(["image", "ls", "--format", "{{.Repository}}:{{.Tag}}", repository]).trim().split("\n").filter((reference) => reference && !reference.endsWith(":<none>"));
       for (const reference of references) remoteDocker(["image", "rm", reference]);
       const identities = remoteDocker(["image", "ls", "--digests", "--format", "{{.Repository}}@{{.Digest}}", repository]).trim().split("\n").filter((identity) => identity && !identity.endsWith("@<none>"));

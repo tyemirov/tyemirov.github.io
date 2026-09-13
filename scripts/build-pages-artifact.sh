@@ -6,6 +6,8 @@ output_dir="${PAGES_DIST_DIR:-${repo_root}/.pages-dist}"
 source_paths=(
   apple-touch-icon.png
   assets
+  articles/articles.js
+  articles/style.css
   civilization
   data
   decisioning
@@ -14,16 +16,16 @@ source_paths=(
   favicon.svg
   freedom
   gallery/assets
-  gallery/data
   gallery/images
   gallery/index.html
+  gallery/order
+  gallery/studio
   gallery/js
   index.html
   music
   robots.txt
   site.js
   site.webmanifest
-  sitemap.xml
   styles.css
   timeseries
 )
@@ -37,10 +39,12 @@ rm -rf "${output_dir}"
 mkdir -p "${output_dir}"
 cd "${repo_root}"
 while IFS= read -r -d '' relative_path; do
+  [[ -f "${relative_path}" ]] || continue
   mkdir -p "${output_dir}/$(dirname "${relative_path}")"
   cp "${relative_path}" "${output_dir}/${relative_path}"
-done < <(git ls-files -z -- "${source_paths[@]}")
+done < <(git ls-files --cached --others --exclude-standard --deduplicate -z -- "${source_paths[@]}")
 
+node "${repo_root}/scripts/site/build.mjs" "${output_dir}"
 node "${repo_root}/scripts/music/build.mjs" "${output_dir}"
 
 for required_path in data/site.json index.html site.js styles.css gallery/index.html; do

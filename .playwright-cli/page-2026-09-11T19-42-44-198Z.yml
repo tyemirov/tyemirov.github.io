@@ -1,0 +1,23 @@
+- generic [active] [ref=f7e1]:
+  - link "Skip to Studio" [ref=f7e2] [cursor=pointer]:
+    - /url: "#studio-main"
+  - banner [ref=f7e4]:
+    - generic [ref=f7e5]:
+      - navigation "Page hierarchy" [ref=f7e7]:
+        - link "Home" [ref=f7e8] [cursor=pointer]:
+          - /url: /
+          - text: ^
+        - link "Gallery" [ref=f7e9] [cursor=pointer]:
+          - /url: /gallery/
+      - group "Authentication providers" [ref=f7e13]:
+        - generic [ref=f7e15]:
+          - button "Sign in with Google. Opens in new tab" [ref=f7e17] [cursor=pointer]
+          - iframe
+  - main [ref=f7e29]:
+    - heading "Gallery Studio" [level=1] [ref=f7e30]
+    - status [ref=f7e31]: Sign in to open the owner workspace.
+  - contentinfo [ref=f7e33]:
+    - generic [ref=f7e35]:
+      - button "Toggle theme" [ref=f7e37]: ☀️
+      - button "Built by Marco Polo Research Lab" [ref=f7e40] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f7e42]: ⌃

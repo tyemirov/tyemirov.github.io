@@ -1,0 +1,180 @@
+{
+  "source": "data/site.json",
+  "changes": {
+    "essays": "articles with complete CommonMark bodies and verified provenance",
+    "arts": "gallery label and title",
+    "gallery.siteUrl": "canonical URL generated per route"
+  },
+  "projects": [
+    {
+      "id": "civilization",
+      "slug": "civilization",
+      "kind": "tool"
+    },
+    {
+      "id": "decisioning",
+      "slug": "decisioning",
+      "kind": "tool"
+    },
+    {
+      "id": "freedom",
+      "slug": "freedom",
+      "kind": "tool"
+    },
+    {
+      "id": "timeseries",
+      "slug": "timeseries",
+      "kind": "tool"
+    }
+  ],
+  "articles": [
+    {
+      "id": "the-human-act-of-making-things-exist",
+      "slug": "the-human-act-of-making-things-exist",
+      "source": "https://vadymtyemirov1.substack.com/p/the-human-act-of-making-things-exist"
+    },
+    {
+      "id": "the-age-of-the-meta-manager",
+      "slug": "the-age-of-the-meta-manager",
+      "source": "https://vadymtyemirov1.substack.com/p/the-age-of-the-meta-manager"
+    },
+    {
+      "id": "the-wittgenstein-mirror",
+      "slug": "the-wittgenstein-mirror",
+      "source": "https://vadymtyemirov1.substack.com/p/the-wittgenstein-mirror"
+    },
+    {
+      "id": "codex-fast-and-the-price-of-intelligence",
+      "slug": "codex-fast-and-the-price-of-intelligence",
+      "source": "https://vadymtyemirov1.substack.com/p/codex-fast-and-the-price-of-intelligence"
+    }
+  ],
+  "albums": [
+    {
+      "slug": "soliloquies-vol-ii",
+      "releaseDate": {
+        "precision": "year",
+        "value": "2026"
+      },
+      "notesFormat": "commonmark",
+      "trackIds": [
+        "soliloquies-vol-ii-01",
+        "soliloquies-vol-ii-02",
+        "soliloquies-vol-ii-03",
+        "soliloquies-vol-ii-04",
+        "soliloquies-vol-ii-05",
+        "soliloquies-vol-ii-06",
+        "soliloquies-vol-ii-07",
+        "soliloquies-vol-ii-08",
+        "soliloquies-vol-ii-09"
+      ]
+    },
+    {
+      "slug": "soliloquies-vol-i",
+      "releaseDate": {
+        "precision": "year",
+        "value": "2026"
+      },
+      "notesFormat": "commonmark",
+      "trackIds": [
+        "soliloquies-vol-i-01",
+        "soliloquies-vol-i-02",
+        "soliloquies-vol-i-03",
+        "soliloquies-vol-i-04",
+        "soliloquies-vol-i-05",
+        "soliloquies-vol-i-06",
+        "soliloquies-vol-i-07",
+        "soliloquies-vol-i-08"
+      ]
+    },
+    {
+      "slug": "songs-of-desire",
+      "releaseDate": {
+        "precision": "year",
+        "value": "2026"
+      },
+      "notesFormat": "commonmark",
+      "trackIds": [
+        "songs-of-desire-01",
+        "songs-of-desire-02",
+        "songs-of-desire-03",
+        "songs-of-desire-04",
+        "songs-of-desire-05",
+        "songs-of-desire-06",
+        "songs-of-desire-07",
+        "songs-of-desire-08",
+        "songs-of-desire-09"
+      ]
+    },
+    {
+      "slug": "egyptian-nights",
+      "releaseDate": {
+        "precision": "year",
+        "value": "2026"
+      },
+      "notesFormat": "commonmark",
+      "trackIds": [
+        "egyptian-nights-01",
+        "egyptian-nights-02",
+        "egyptian-nights-03",
+        "egyptian-nights-04",
+        "egyptian-nights-05",
+        "egyptian-nights-06",
+        "egyptian-nights-07",
+        "egyptian-nights-08"
+      ]
+    },
+    {
+      "slug": "singing-pasternak",
+      "releaseDate": {
+        "precision": "year",
+        "value": "2026"
+      },
+      "notesFormat": "commonmark",
+      "trackIds": [
+        "singing-pasternak-01",
+        "singing-pasternak-02",
+        "singing-pasternak-03",
+        "singing-pasternak-04",
+        "singing-pasternak-05",
+        "singing-pasternak-06",
+        "singing-pasternak-07"
+      ]
+    },
+    {
+      "slug": "february-get-ink-and-weep",
+      "releaseDate": {
+        "precision": "year",
+        "value": "2026"
+      },
+      "notesFormat": "commonmark",
+      "trackIds": [
+        "february-get-ink-and-weep-01",
+        "february-get-ink-and-weep-02",
+        "february-get-ink-and-weep-03",
+        "february-get-ink-and-weep-04",
+        "february-get-ink-and-weep-05",
+        "february-get-ink-and-weep-06",
+        "february-get-ink-and-weep-07",
+        "february-get-ink-and-weep-08",
+        "february-get-ink-and-weep-09"
+      ]
+    }
+  ],
+  "gallery": {
+    "artworkIds": [
+      "third-act-triptych-01",
+      "third-act-triptych-02",
+      "third-act-triptych-03",
+      "third-act-triptych-04"
+    ],
+    "collectionIds": [
+      "selected-works"
+    ],
+    "exhibitIds": [
+      "the-third-act"
+    ],
+    "activeOffers": 0
+  },
+  "seriesMembership": "No verified series membership in the source records."
+}

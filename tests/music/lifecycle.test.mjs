@@ -43,7 +43,8 @@ test("the selected application plans through Gateway and its public lifecycle co
     await copyFile(join(gateway, "deploy/ansible/inventory/hosts.example.yml"), join(gateway, "deploy/ansible/inventory/hosts.yml"));
     await initialize(gateway, join(directory, "gateway-origin.git"), "git@github.com:example/gateway-fixture.git");
     await initialize(application, join(directory, "application-origin.git"), "git@github.com:tyemirov/tyemirov.github.io.git");
-    await writeFile(join(application, ".mprlab/deploy/.env"), "MUSIC_TRUSTED_PROXIES=127.0.0.1/32\n");
+    const gallerySigningFixture = "gallery-lifecycle-fixture-signing-key-not-for-production";
+    await writeFile(join(application, ".mprlab/deploy/.env"), `MUSIC_TRUSTED_PROXIES=127.0.0.1/32\nGALLERY_TAUTH_SIGNING_KEY=${gallerySigningFixture}\nGALLERY_GOOGLE_WEB_CLIENT_ID=fixture.apps.googleusercontent.com\n`);
     const toolArgs = [`ANSIBLE_PLAYBOOK=${process.env.ANSIBLE_PLAYBOOK}`, `ANSIBLE_INVENTORY_BIN=${process.env.ANSIBLE_INVENTORY_BIN}`];
     const logs = join(applicationSource, "output/playwright/lifecycle"); await mkdir(logs, { recursive: true });
     async function plan(target) {
@@ -52,8 +53,10 @@ test("the selected application plans through Gateway and its public lifecycle co
       return success(result);
     }
     const proof = await plan("verify-selected-manifest-isolation");
+    assert.ok(!proof.includes(gallerySigningFixture), "lifecycle output must exclude the gallery signing key");
     assert.match(proof, /MPRLAB_APP_LIFECYCLE_END entrypoint=plan operation=deploy status=0/);
     assert.match(proof, /computercat-host/);
+    for (const resource of ["gallery", "gallery-http", "api-route", "gallery-public", "gallery-auth"]) assert.ok(proof.includes(`item=${resource})`), `Gateway must validate ${resource}.`);
     for (const phase of ["release", "publish"]) {
       const output = await plan(`plan-app-${phase}`);
       assert.match(output, new RegExp(`MPRLAB_APP_LIFECYCLE_END entrypoint=plan operation=${phase} status=0`));

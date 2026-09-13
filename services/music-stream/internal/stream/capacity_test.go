@@ -26,7 +26,7 @@ func TestConfiguredCapacityPreservesExistingAccess(t *testing.T) {
 		cookie *http.Cookie
 		status int
 	}{{nil, 503}, {cookie, 409}} {
-		response := fixture.request(t, "POST", "/api/playback-grants", []byte(`{"trackId":"test-tone"}`), entry.cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
+		response := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), entry.cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
 		if response.StatusCode != entry.status {
 			t.Fatalf("capacity: got %d want %d", response.StatusCode, entry.status)
 		}
@@ -53,14 +53,14 @@ func TestTrustedProxyAndBoundedAddressState(t *testing.T) {
 		status  int
 	}{{"203.0.113.1", 201}, {"203.0.113.1", 429}, {"203.0.113.2, 127.0.0.1", 201}, {"203.0.113.3", 503}, {"invalid", 400}} {
 		headers["X-Forwarded-For"] = entry.address
-		response := fixture.request(t, "POST", "/api/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, headers)
+		response := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, headers)
 		if response.StatusCode != entry.status {
 			t.Fatalf("proxy address %s: got %d want %d", entry.address, response.StatusCode, entry.status)
 		}
 	}
 	fixture.now.Add(121)
 	headers["X-Forwarded-For"] = "203.0.113.3"
-	if fixture.request(t, "POST", "/api/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, headers).StatusCode != 201 {
+	if fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, headers).StatusCode != 201 {
 		t.Fatal("idle address state was not released")
 	}
 }

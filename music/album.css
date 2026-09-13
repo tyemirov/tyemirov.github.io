@@ -1,28 +1,10 @@
-.breadcrumb {
-  margin-bottom: 40px;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-}
-
-.breadcrumb a {
-  color: var(--muted);
-  text-decoration: none;
-}
-
-.breadcrumb a:hover {
-  color: var(--ink);
-}
-
 .album-detail {
   margin-top: 40px;
 }
 
 .album-layout {
   display: grid;
-  grid-template-columns: 380px 1fr;
+  grid-template-columns: 380px minmax(0,1fr);
   gap: 80px;
 }
 
@@ -56,31 +38,10 @@
   margin-bottom: 16px;
 }
 
-.links-grid {
-  display: grid;
-  gap: 12px;
-}
-
-.streaming-link {
-  display: block;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.8rem;
-  text-decoration: none;
-  padding: 12px;
-  border: 1px solid var(--line);
-  text-align: center;
-  transition: all 200ms ease;
-}
-
-.streaming-link:hover {
-  border-color: var(--ink);
-  background: var(--bg-subtle);
-}
-
 .album-title-large {
   font-family: "Instrument Serif", serif;
   font-size: clamp(3rem, 8vw, 5rem);
-  line-height: 0.9;
+  line-height: 0.95;
   margin: 0 0 16px;
 }
 
@@ -97,7 +58,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--muted);
-  margin-bottom: 48px;
+  margin-bottom: 40px;
   border-bottom: 1px solid var(--line);
   padding-bottom: 24px;
 }
@@ -151,3 +112,6 @@
     max-width: 400px;
   }
 }
+
+.album-content { min-width:0; }
+.tracklist-section .section-subtitle { margin-top:0; border-top:0; padding-top:0; }

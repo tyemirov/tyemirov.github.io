@@ -2,6 +2,30 @@
 PAGES_DIST_DIR ?= $(CURDIR)/.pages-dist
 ANSIBLE_PLAYBOOK ?= $(abspath ../mprlab-gateway/.venv/bin/ansible-playbook)
 ANSIBLE_INVENTORY_BIN ?= $(abspath ../mprlab-gateway/.venv/bin/ansible-inventory)
+UP_PORT ?= 8080
+API_PORT ?= 8082
+PAYMENT_PORT ?= 8446
+LOCAL_PROJECT ?= tyemirov-site-local
+MUSIC_LOCAL_ROOT ?= $(HOME)/.local/share/tyemirov-site/music
+GHTTP ?= ghttp
+LOCAL_CERT_ROOT ?= $(HOME)/.local/share/tyemirov-site/certs
+LOCAL_ENV = UP_PORT="$(UP_PORT)" API_PORT="$(API_PORT)" PAYMENT_PORT="$(PAYMENT_PORT)" MUSIC_LOCAL_ROOT="$(MUSIC_LOCAL_ROOT)" LOCAL_PROJECT="$(LOCAL_PROJECT)" GHTTP="$(GHTTP)" LOCAL_CERT_ROOT="$(LOCAL_CERT_ROOT)"
+
+.PHONY: up down local-test local-prepare-test local-recordings-test local-receipts
+up down:
+	@$(LOCAL_ENV) node local/stack.mjs $@
+
+local-receipts:
+	@$(LOCAL_ENV) node local/stack.mjs receipts
+
+local-test:
+	@GHTTP="$(GHTTP)" LOCAL_CERT_ROOT="$(LOCAL_CERT_ROOT)" node --test $(LOCAL_TEST_ARGS) tests/music/local-config.test.mjs tests/music/local.test.mjs
+
+local-recordings-test:
+	@$(LOCAL_ENV) node --test tests/music/local-recordings.test.mjs
+
+local-prepare-test:
+	@node --test tests/music/local-prepare.test.mjs
 
 .PHONY: lifecycle-contract-test
 lifecycle-contract-test:
@@ -57,13 +81,31 @@ music-container-test:
 music-api-test:
 	@cd services/music-stream && go test -race ./...
 
+.PHONY: gallery-check gallery-contract-test gallery-api-test gallery-browser-test gallery-container-test
+gallery-container-test:
+	@node --test tests/gallery/container.test.mjs
+
+gallery-check:
+	@cd services/gallery && go vet ./...
+	@cd services/gallery && go vet ../../tests/gallery/server/main.go
+	@cd services/gallery && go vet ../../tests/gallery/mail-seed/main.go
+
+gallery-contract-test:
+	@node --test tests/gallery/api.test.mjs
+
+gallery-api-test:
+	@cd services/gallery && go test -race $(GALLERY_API_ARGS) ./...
+
+gallery-browser-test:
+	@npm run test:music -- gallery/ $(GALLERY_BROWSER_ARGS)
+
 music-browser-test:
 	@npm run test:music -- $(MUSIC_BROWSER_ARGS)
 
 music-check:
 	@cd services/music-stream && go vet ./...
 
-ci: pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-load-test music-browser-test
+ci: site-contract-test pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test local-prepare-test music-load-test music-browser-test gallery-api-test gallery-contract-test gallery-check
 
 pages-build:
 	@PAGES_DIST_DIR="$(PAGES_DIST_DIR)" ./scripts/build-pages-artifact.sh
@@ -73,3 +115,10 @@ loopaware-site-id-test:
 
 release publish deploy:
 	@application_root="$$(git rev-parse --show-toplevel)"; gateway_root="$$(dirname "$${application_root}")/mprlab-gateway"; $(MAKE) --no-print-directory -C "$${gateway_root}" "app-$@" MPRLAB_APP_ROOT="$${application_root}"
+
+.PHONY: site-contract-test contracts-generate
+site-contract-test:
+	@node --test tests/site/*.test.mjs
+
+contracts-generate:
+	@node scripts/contracts/generate.mjs

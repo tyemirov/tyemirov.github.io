@@ -17,9 +17,9 @@ test("protected HLS plays, seeks, and renews without replacing the source", asyn
   const supportsNative = await page.locator("audio").evaluate((audio) => audio.canPlayType("application/vnd.apple.mpegurl") !== "");
   await expect(page.locator("#engine")).toHaveText(supportsNative ? "native" : "hls.js");
   const playlist = await page.locator("#playlist").textContent();
-  const cookies = await context.cookies("https://localhost:18444");
-  expect(cookies).toEqual(expect.arrayContaining([expect.objectContaining({ name: "__Host-music-session", httpOnly: true, secure: true, sameSite: "Strict", path: "/" })]));
-  expect(await page.evaluate(() => document.cookie)).not.toContain("__Host-music-session");
+  const cookies = await context.cookies("https://localhost:18444/music");
+  expect(cookies).toEqual(expect.arrayContaining([expect.objectContaining({ name: "__Secure-music-session", httpOnly: true, secure: true, sameSite: "Strict", path: "/music" })]));
+  expect(await page.evaluate(() => document.cookie)).not.toContain("__Secure-music-session");
   expect(await page.locator("audio").evaluate((audio) => audio.muted)).toBe(true);
   const source = await page.locator("audio").evaluate((audio) => audio.currentSrc);
   await page.locator("audio").evaluate((audio) => { audio.currentTime = 7; });
@@ -46,7 +46,7 @@ test("a copied playlist and every referenced media file require the owning sessi
   const anonymous = await playwright.request.newContext({ ignoreHTTPSErrors: true });
   const other = await playwright.request.newContext({ ignoreHTTPSErrors: true });
   try {
-    expect((await other.post("https://localhost:18444/api/playback-grants", {
+    expect((await other.post("https://localhost:18444/music/playback-grants", {
       headers: { Origin: "https://localhost:18443" }, data: { trackId: "test-tone" },
     })).status()).toBe(201);
     for (const name of ["index.m3u8", "init.mp4", "seg-00000.m4s", "seg-00001.m4s", "seg-00002.m4s"]) {

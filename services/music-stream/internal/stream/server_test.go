@@ -120,7 +120,7 @@ func (fixture *fixture) request(t *testing.T, method, path string, body []byte, 
 
 func (fixture *fixture) create(t *testing.T, cookie *http.Cookie) (testGrant, *http.Cookie) {
 	t.Helper()
-	response := fixture.request(t, "POST", "/api/playback-grants", []byte(`{"trackId":"test-tone"}`), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
+	response := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
 	if response.StatusCode != 201 {
 		body, _ := io.ReadAll(response.Body)
 		t.Fatalf("grant creation: got %d, want 201: %s", response.StatusCode, body)
@@ -139,7 +139,7 @@ func (fixture *fixture) create(t *testing.T, cookie *http.Cookie) (testGrant, *h
 func TestProtectedPlaybackAndCookieScope(t *testing.T) {
 	fixture := prepareFixture(t)
 	grant, cookie := fixture.create(t, nil)
-	if cookie.Name != "__Host-music-session" || !cookie.HttpOnly || !cookie.Secure || cookie.Domain != "" || cookie.Path != "/" || cookie.SameSite != http.SameSiteStrictMode || cookie.MaxAge != 86400 {
+	if cookie.Name != "__Secure-music-session" || !cookie.HttpOnly || !cookie.Secure || cookie.Domain != "" || cookie.Path != "/music" || cookie.SameSite != http.SameSiteStrictMode || cookie.MaxAge != 86400 {
 		t.Fatalf("incorrect cookie attributes")
 	}
 	if grant.TrackID != "test-tone" || grant.DurationMS < 13000 || grant.ExpiresAt.Sub(grant.ServerTime) != 30*time.Minute {
@@ -184,15 +184,55 @@ func TestProtectedPlaybackAndCookieScope(t *testing.T) {
 	}
 }
 
+func TestLocalHTTPPlaybackUsesAnIndependentCookie(t *testing.T) {
+	const localWebsite = "http://localhost:8080"
+	const localAPI = "http://localhost:8082"
+	fixture := prepareFixture(t, func(config *stream.Config) {
+		config.PublicOrigin = localAPI
+		config.AllowedOrigins = []string{localWebsite}
+	})
+	response := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, map[string]string{"Origin": localWebsite, "Content-Type": "application/json"})
+	if response.StatusCode != http.StatusCreated {
+		t.Fatalf("create local grant: HTTP %d", response.StatusCode)
+	}
+	cookie := response.Cookies()[0]
+	if cookie.Name != "music_development_session" || cookie.Secure || !cookie.HttpOnly || cookie.SameSite != http.SameSiteStrictMode || cookie.Path != "/music" {
+		t.Fatal("incorrect local cookie policy")
+	}
+	var grant testGrant
+	if err := json.NewDecoder(response.Body).Decode(&grant); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.HasPrefix(grant.PlaylistURL, localAPI+"/music/") {
+		t.Fatal("incorrect local playlist origin")
+	}
+	path := strings.TrimPrefix(grant.PlaylistURL, localAPI)
+	if result := fixture.request(t, "GET", path, nil, cookie, nil); result.StatusCode != http.StatusOK {
+		t.Fatalf("read local playlist: HTTP %d", result.StatusCode)
+	}
+	if result := fixture.request(t, "GET", path, nil, nil, nil); result.StatusCode != http.StatusUnauthorized {
+		t.Fatalf("read local playlist without session: HTTP %d", result.StatusCode)
+	}
+}
+
+func TestHTTPOriginsRejectNonLocalHosts(t *testing.T) {
+	for _, origin := range []string{"http://example.com", "http://localhost.example.com", "http://127.0.0.1", "http://localhost@evil.example"} {
+		_, err := stream.New(stream.Config{PublicOrigin: origin, AllowedOrigins: []string{"https://site.example.com"}})
+		if err == nil || !strings.Contains(err.Error(), "origins") {
+			t.Fatalf("reject public origin %q: %v", origin, err)
+		}
+	}
+}
+
 func TestGrantRenewalExpirationAndOrigin(t *testing.T) {
 	fixture := prepareFixture(t)
 	for _, origin := range []string{"", "null", "https://untrusted.test"} {
-		response := fixture.request(t, "POST", "/api/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, map[string]string{"Origin": origin, "Content-Type": "application/json"})
+		response := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, map[string]string{"Origin": origin, "Content-Type": "application/json"})
 		if response.StatusCode != 403 {
 			t.Errorf("forbidden origin: got %d", response.StatusCode)
 		}
 	}
-	preflight := fixture.request(t, "OPTIONS", "/api/playback-grants", nil, nil, map[string]string{"Origin": websiteOrigin, "Access-Control-Request-Method": "POST", "Access-Control-Request-Headers": "content-type"})
+	preflight := fixture.request(t, "OPTIONS", "/music/playback-grants", nil, nil, map[string]string{"Origin": websiteOrigin, "Access-Control-Request-Method": "POST", "Access-Control-Request-Headers": "content-type"})
 	if preflight.StatusCode != 204 || preflight.Header.Get("Access-Control-Allow-Credentials") != "true" {
 		t.Fatal("credentialed preflight failed")
 	}
@@ -223,7 +263,7 @@ func TestRequestRateLimitsAndRefill(t *testing.T) {
 	for count := 1; count < 5; count++ {
 		fixture.create(t, cookie)
 	}
-	limited := fixture.request(t, "POST", "/api/playback-grants", []byte(`{"trackId":"test-tone"}`), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
+	limited := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
 	if limited.StatusCode != 429 || limited.Header.Get("Retry-After") != "3" {
 		t.Fatalf("session creation limit: got %d retry=%s", limited.StatusCode, limited.Header.Get("Retry-After"))
 	}
@@ -259,24 +299,24 @@ func TestRequestRateLimitsAndRefill(t *testing.T) {
 
 func (fixture *fixture) renew(t *testing.T, grant testGrant, cookie *http.Cookie) *http.Response {
 	t.Helper()
-	expires := time.Unix(fixture.now.Load(), 0).Add(max(30*time.Minute, time.Duration(grant.DurationMS)*time.Millisecond+15*time.Minute))
+	expires := time.Unix(fixture.now.Load(), 0).UTC().Add(max(30*time.Minute, time.Duration(grant.DurationMS)*time.Millisecond+15*time.Minute))
 	body, err := json.Marshal(map[string]time.Time{"expiresAt": expires})
 	if err != nil {
 		t.Fatal(err)
 	}
-	return fixture.request(t, "PUT", "/api/playback-grants/"+grant.GrantID+"/expiration", body, cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
+	return fixture.request(t, "PUT", "/music/playback-grants/"+grant.GrantID+"/expiration", body, cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
 }
 
 func TestExpirationReplacementIsIdempotent(t *testing.T) {
 	fixture := prepareFixture(t)
 	grant, cookie := fixture.create(t, nil)
 	fixture.now.Add(60)
-	expires := time.Unix(fixture.now.Load(), 0).Add(30 * time.Minute).UTC()
+	expires := time.Unix(fixture.now.Load(), 0).UTC().Add(30 * time.Minute).UTC()
 	body, err := json.Marshal(map[string]time.Time{"expiresAt": expires})
 	if err != nil {
 		t.Fatal(err)
 	}
-	path := "/api/playback-grants/" + grant.GrantID + "/expiration"
+	path := "/music/playback-grants/" + grant.GrantID + "/expiration"
 	for attempt := 0; attempt < 2; attempt++ {
 		response := fixture.request(t, "PUT", path, body, cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
 		if response.StatusCode != 200 {
@@ -303,7 +343,7 @@ func TestClientAddressLimitIgnoresUntrustedForwardedHeaders(t *testing.T) {
 	for count := 0; count < 20; count++ {
 		fixture.create(t, nil)
 	}
-	limited := fixture.request(t, "POST", "/api/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json", "X-Forwarded-For": "203.0.113.99"})
+	limited := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json", "X-Forwarded-For": "203.0.113.99"})
 	if limited.StatusCode != 429 || limited.Header.Get("Retry-After") != "1" {
 		t.Fatalf("address limit: got %d retry=%s", limited.StatusCode, limited.Header.Get("Retry-After"))
 	}

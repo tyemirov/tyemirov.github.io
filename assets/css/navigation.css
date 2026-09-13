@@ -1,0 +1,15 @@
+.site-navigation { display:flex; align-items:center; gap:8px; font:500 14px/1.2 "IBM Plex Mono",monospace; }
+.site-navigation a { display:inline-flex; align-items:center; justify-content:center; min-width:40px; min-height:40px; padding:0 12px; border:1px solid currentColor; border-radius:6px; color:inherit; text-decoration:none; }
+.site-navigation a:hover { background:color-mix(in srgb,currentColor 10%,transparent); }
+.site-navigation a:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
+.site-navigation a[aria-label="Home"] { font-size:22px; }
+.site-companion { font-size:14px; }
+mpr-header { --mpr-header-bg:var(--bg,#faf9f3); --mpr-color-text-primary:var(--ink,#384623); }
+.gallery-nav [hidden] { display:none; }
+
+.gallery-header mpr-header { width:100%; }
+.gallery-header .mpr-header__inner { padding:0; flex-wrap:nowrap; gap:12px; }
+.gallery-header .mpr-header__nav { margin-left:0; flex:1 1 auto; }
+.gallery-header .gallery-nav { gap:14px; font-size:14px; flex-wrap:wrap; }
+.gallery-header .mpr-header__actions { order:initial; flex:0 0 auto; }
+.gallery-header .mpr-header__actions .mpr-auth-actions { inline-size:auto; }

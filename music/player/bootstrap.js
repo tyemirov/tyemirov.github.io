@@ -5,7 +5,7 @@ import { mountPlayerView } from "./view.js";
 import { connectMediaSession } from "./media-session.js";
 
 export async function initializePlayer(album) {
-  const response = await fetch("/music/player-config.json", { headers: { Accept: "application/json" } });
+  const response = await fetch("/config-site.json", { headers: { Accept: "application/json" } });
   if (!response.ok) throw new Error("Player configuration is unavailable.");
   const api = createPlaybackAPI(await response.json());
   const audio = document.createElement("audio");

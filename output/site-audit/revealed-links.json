@@ -1,0 +1,126 @@
+{
+  "results": [
+    {
+      "page": "/freedom/",
+      "width": 1440,
+      "href": "https://taxfoundation.org/research/all/state/2025-state-tax-competitiveness-index/",
+      "label": "Tax Foundation (2025 Index)",
+      "result": "navigation-clicked",
+      "requests": [
+        "https://taxfoundation.org/research/all/state/2025-state-tax-competitiveness-index/"
+      ]
+    },
+    {
+      "page": "/freedom/",
+      "width": 1440,
+      "href": "https://hslda.org/legal",
+      "label": "HSLDA Regulatory Tiers",
+      "result": "navigation-clicked",
+      "requests": [
+        "https://hslda.org/legal"
+      ]
+    },
+    {
+      "page": "/freedom/",
+      "width": 1440,
+      "href": "https://www.freedominthe50states.org/",
+      "label": "Cato Institute: Freedom in the 50 States",
+      "result": "navigation-clicked",
+      "requests": [
+        "https://www.freedominthe50states.org/"
+      ]
+    },
+    {
+      "page": "/freedom/",
+      "width": 1440,
+      "href": "https://www.mercatus.org/publications/urban-economics/freedom-50-states",
+      "label": "Mercatus Land Use Index",
+      "result": "navigation-clicked",
+      "requests": [
+        "https://www.mercatus.org/publications/urban-economics/freedom-50-states"
+      ]
+    },
+    {
+      "page": "/freedom/",
+      "width": 1440,
+      "href": "full_states_dataset.json",
+      "label": "View Raw Dataset (JSON)",
+      "result": "navigation-clicked",
+      "requests": [
+        "http://localhost:8080/freedom/full_states_dataset.json"
+      ]
+    },
+    {
+      "page": "/freedom/",
+      "width": 390,
+      "href": "https://taxfoundation.org/research/all/state/2025-state-tax-competitiveness-index/",
+      "label": "Tax Foundation (2025 Index)",
+      "result": "navigation-clicked",
+      "requests": [
+        "https://taxfoundation.org/research/all/state/2025-state-tax-competitiveness-index/"
+      ]
+    },
+    {
+      "page": "/freedom/",
+      "width": 390,
+      "href": "https://hslda.org/legal",
+      "label": "HSLDA Regulatory Tiers",
+      "result": "navigation-clicked",
+      "requests": [
+        "https://hslda.org/legal"
+      ]
+    },
+    {
+      "page": "/freedom/",
+      "width": 390,
+      "href": "https://www.freedominthe50states.org/",
+      "label": "Cato Institute: Freedom in the 50 States",
+      "result": "navigation-clicked",
+      "requests": [
+        "https://www.freedominthe50states.org/"
+      ]
+    },
+    {
+      "page": "/freedom/",
+      "width": 390,
+      "href": "https://www.mercatus.org/publications/urban-economics/freedom-50-states",
+      "label": "Mercatus Land Use Index",
+      "result": "navigation-clicked",
+      "requests": [
+        "https://www.mercatus.org/publications/urban-economics/freedom-50-states"
+      ]
+    },
+    {
+      "page": "/freedom/",
+      "width": 390,
+      "href": "full_states_dataset.json",
+      "label": "View Raw Dataset (JSON)",
+      "result": "navigation-clicked",
+      "requests": [
+        "http://localhost:8080/freedom/full_states_dataset.json"
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "width": 1440,
+      "bounds": {
+        "x": 1053.171875,
+        "y": -19,
+        "width": 238,
+        "height": 28.125
+      },
+      "viewportHeight": 950
+    },
+    {
+      "width": 390,
+      "bounds": {
+        "x": 101.171875,
+        "y": -33.890625,
+        "width": 270,
+        "height": 28.125
+      },
+      "viewportHeight": 950
+    }
+  ]
+}

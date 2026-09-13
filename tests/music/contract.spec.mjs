@@ -1,11 +1,11 @@
 // @ts-check
 import { test, expect } from "./test-fixtures.mjs";
 import SwaggerParser from "@apidevtools/swagger-parser";
-import Ajv from "ajv";
+import Ajv from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { resolve } from "node:path";
 
-const api = await SwaggerParser.validate(resolve(import.meta.dirname, "../../services/music-stream/openapi.json"));
+const api = await SwaggerParser.validate(resolve(import.meta.dirname, "../../contracts/generated/music.openapi.json"));
 const ajv = new Ajv({ strict: false, allErrors: true });
 addFormats(ajv);
 
@@ -24,7 +24,7 @@ test("the real HTTP lifecycle conforms to the canonical OpenAPI contract", async
     }
     return null;
   }
-  const collection = "/api/playback-grants", item = `${collection}/{grantId}`;
+  const collection = "/music/playback-grants", item = `${collection}/{grantId}`;
   const created = await request.post(origin + collection, { headers, data: { trackId: "test-tone" } });
   expect(created.status()).toBe(201);
   const grant = await verify(created, collection, "post");
