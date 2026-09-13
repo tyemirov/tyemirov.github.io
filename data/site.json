@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Vadym Tyemirov | Models, Articles, Music, and Art",
-    "description": "Models, articles, music, and artwork by Vadym Tyemirov.",
+    "title": "Vadym Tyemirov | Articles, Music, and Gallery",
+    "description": "Articles, music, and artwork by Vadym Tyemirov.",
     "canonical": "https://tyemirov.net/"
   },
   "contact": {
@@ -10,31 +10,25 @@
   },
   "hero": {
     "eyebrow": "Vadym Tyemirov",
-    "title": "Models, articles, music, and art.",
-    "summary": "I build models, write, compose music, and make art.",
+    "title": "Articles, music, and art.",
+    "summary": "I write, compose music, and make art.",
     "detail": "My software work is at MPR Lab.",
     "links": [
       {
-        "label": "Models",
-        "href": "/models/",
-        "style": "primary",
-        "order": 10
-      },
-      {
         "label": "Articles",
-        "href": "/articles/",
+        "href": "#articles",
         "style": "secondary",
         "order": 20
       },
       {
         "label": "Music",
-        "href": "/music/",
+        "href": "#music",
         "style": "secondary",
         "order": 30
       },
       {
         "label": "Gallery",
-        "href": "/gallery/",
+        "href": "#gallery",
         "style": "secondary",
         "order": 40
       }
@@ -742,11 +736,11 @@
       }
     ],
     "label": "Arts",
-    "title": "My Gallery"
+    "title": "Gallery"
   },
   "articles": {
-    "label": "Essays",
-    "title": "Essays and research notes.",
+    "label": "Articles",
+    "title": "Articles",
     "items": [
       {
         "id": "the-human-act-of-making-things-exist",
@@ -846,10 +840,6 @@
     ]
   },
   "owner": "vadym-tyemirov",
-  "models": {
-    "label": "Models",
-    "title": "Models and interactive tools."
-  },
   "software": {
     "label": "Software by MPR Lab",
     "href": "https://mprlab.com",
