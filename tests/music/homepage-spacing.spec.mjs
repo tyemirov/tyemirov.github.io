@@ -25,7 +25,7 @@ for (const width of [390, 769, 1280]) {
         overflow: document.documentElement.scrollWidth > innerWidth,
         gaps: sections.slice(1).map((section, index) => section.getBoundingClientRect().top - sections[index].getBoundingClientRect().bottom),
         footer: { top: bounds.top + scrollY, bottom: bounds.bottom + scrollY, position: getComputedStyle(footer).position },
-        lastActionBottom: document.querySelector(".arts-section .section-actions").getBoundingClientRect().bottom + scrollY,
+        lastActionBottom: document.querySelector(".tools-section").getBoundingClientRect().bottom + scrollY,
         bodyFontSize: parseFloat(getComputedStyle(document.querySelector(".card-body")).fontSize),
       };
     });

@@ -65,7 +65,7 @@ test('homepage restores production typography, section hierarchy, and card actio
   expect.soft(styles.serif).toContain('Instrument Serif');
   expect.soft(styles.body).toContain('Space Grotesk');
   expect.soft(styles.mono).toContain('IBM Plex Mono');
-  await expect(page.locator('main > section .section-title')).toHaveText(['Articles', 'Music', 'Gallery']);
+  await expect(page.locator('main > section .section-title')).toHaveText(['Articles', 'Music', 'Gallery', 'Tools']);
   const actions = page.locator('.essay-list .project-actions');
   await expect(actions).toHaveCount(4);
   const firstRow = await actions.evaluateAll(nodes => nodes.slice(0, 3).map(node => Math.round(node.getBoundingClientRect().top)));

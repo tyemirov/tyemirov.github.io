@@ -20,7 +20,7 @@ for (const width of [1280, 769, 390]) {
   test(`homepage keeps its portrait bounded and controls on one row at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 998 });
     await page.goto("/");
-    await expect(page.locator(".hero-copy h1")).toHaveText("Articles, music, and art.");
+    await expect(page.locator(".hero-copy h1")).toHaveText("Tools, essays, music, and arts.");
     const portrait = await page.locator(".profile-photo img").boundingBox();
     expect(portrait.width).toBeLessThanOrEqual(width <= 1000 ? 160 : 340);
     expect(portrait.height / portrait.width).toBeCloseTo(1.5, 1);

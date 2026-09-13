@@ -38,12 +38,13 @@ test('every personal model carries Vadym Tyemirov ownership and the model kind',
     assert.ok(!('source' in project), `model ${project.slug} must not carry a source label`);
   }
   assert.ok(!('mprlab' in source), 'personal catalog must not carry an MPR Lab ownership block');
-  assert.equal(source.software.href, 'https://mprlab.com');
+  assert.equal(source.tools.platform.link.href, 'https://mprlab.com/');
 });
 
 test('the contract rejects MPR Lab ownership and obsolete project shapes', () => {
   expectInvalid([
     value => { delete value.owner; },
+    value => { value.software = { label: 'Software by MPR Lab', href: 'https://mprlab.com', owner: 'mpr-lab', kind: 'software' }; },
     value => { value.models = { label: 'Models', title: 'Obsolete section' }; },
     value => { value.owner = 'mpr-lab'; },
     value => { value.gallery.owner = 'mpr-lab'; },
