@@ -33,6 +33,13 @@
               "minLength": 1,
               "maxLength": 320,
               "pattern": "^mailto:[^\\s@]+@[^\\s@]+$"
+            },
+            {
+              "enum": [
+                "#articles",
+                "#music",
+                "#gallery"
+              ]
             }
           ]
         },
@@ -849,9 +856,6 @@
         "owner": {
           "$ref": "#/$defs/owner"
         },
-        "models": {
-          "$ref": "#/$defs/models"
-        },
         "software": {
           "$ref": "#/$defs/software"
         }
@@ -866,7 +870,6 @@
         "gallery",
         "articles",
         "owner",
-        "models",
         "software"
       ]
     },
@@ -934,9 +937,6 @@
         "owner": {
           "$ref": "#/$defs/owner"
         },
-        "models": {
-          "$ref": "#/$defs/models"
-        },
         "software": {
           "$ref": "#/$defs/software"
         }
@@ -951,7 +951,6 @@
         "gallery",
         "articles",
         "owner",
-        "models",
         "software"
       ]
     },
@@ -967,23 +966,6 @@
         "Decisioning",
         "Arts",
         "Writings"
-      ]
-    },
-    "models": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "label": {
-          "const": "Models"
-        },
-        "title": {
-          "type": "string",
-          "minLength": 1
-        }
-      },
-      "required": [
-        "label",
-        "title"
       ]
     },
     "software": {

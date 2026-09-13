@@ -21,7 +21,7 @@ export interface SourceCatalog {
      */
     links: {
       label: string;
-      href: string;
+      href: string | ("#articles" | "#music" | "#gallery");
       style: "primary" | "secondary";
       order: number;
       target?: "_blank";
@@ -292,10 +292,6 @@ export interface SourceCatalog {
    * Owner of all personal content in this catalog, including articles, albums, and Gallery records.
    */
   owner: "vadym-tyemirov";
-  models: {
-    label: "Models";
-    title: string;
-  };
   software: {
     label: "Software by MPR Lab";
     href: "https://mprlab.com";
