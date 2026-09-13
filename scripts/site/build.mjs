@@ -26,7 +26,7 @@ async function file(path, body) {
   await writeFile(join(output, path), body);
 }
 function parentFor(path) {
-  if (site.projects.some(project => project.kind === 'model' && project.href === path)) return { label: site.models.label, path: '/models/' };
+  if (site.projects.some(project => project.kind === 'model' && project.href === path)) return { label: 'Articles', path: '/articles/' };
   for (const [prefix, label] of [['/music/', 'Music'], ['/gallery/', 'Gallery'], ['/articles/', 'Articles']]) {
     if (path.startsWith(prefix) && path !== prefix) return { label, path: prefix };
   }
@@ -67,9 +67,8 @@ function document(path, title, description, content) {
 }
 for (const path of ['/', '/music/', '/gallery/order/', '/gallery/studio/']) await page(path, await readFile(join(root, path, 'index.html'), 'utf8'));
 for (const project of site.projects.filter(project => project.kind === 'model')) await page(project.href, await readFile(join(root,project.href,'index.html'),'utf8'));
-await page('/models/', document('/models/', site.models.title, 'Models by Vadym Tyemirov.', `<h1>${escape(site.models.title)}</h1><nav id="article-filters" aria-label="Filter models"></nav><p class="topic-empty" hidden>No items match this topic.</p><div id="model-list">${site.projects.filter(project => project.kind === 'model').sort((a,b) => a.order-b.order).map(project => `<article class="article-summary" data-kicker="${escape(project.kicker)}"><h2><a href="${escape(project.href)}">${escape(project.title)}</a></h2><p>${escape(project.summary)}</p><a href="${escape(project.sourceUrl)}">Read companion article</a></article>`).join('')}</div>`));
 const articles = source.articles.items.filter(item => item.status === 'live').sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));
-await page('/articles/', document('/articles/', site.articles.title, 'Complete articles by Vadym Tyemirov.', `<h1>${escape(site.articles.title)}</h1><nav id="article-filters" aria-label="Filter articles"></nav><p class="topic-empty" hidden>No items match this topic.</p><div id="article-list">${articles.map(article => `<article class="article-summary" data-kicker="${escape(article.kicker)}" data-source="${escape(article.source.label)}"><h2><a href="/articles/${article.slug}/">${escape(article.title)}</a></h2><p>${escape(article.summary)}</p></article>`).join('')}</div>`));
+await page('/articles/', document('/articles/', site.articles.title, 'Complete articles by Vadym Tyemirov.', `<h1>${escape(site.articles.title)}</h1><nav id="article-filters" aria-label="Filter articles"></nav><p class="topic-empty" hidden>No items match this topic.</p><div id="article-list" class="article-list"></div>`));
 for (const article of articles) {
   const body = renderMarkdown(article.body.text);
   const images = new Set([...body.matchAll(/<img src="([^"]+)"/g)].map(match => match[1]));
