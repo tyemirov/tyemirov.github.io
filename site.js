@@ -101,7 +101,7 @@ function renderAll(data) {
   if (!data || typeof data !== "object") return;
 
   renderSiteMeta(data.site);
-  renderHero(data.hero, data.software);
+  renderHero(data.hero);
   renderProfile(data.profile);
   window.toggleProjectFilter = topic => {
     if (!siteTopics.includes(topic)) throw new Error(`Unknown content topic: ${topic}`);
@@ -117,6 +117,7 @@ function renderContent(data) {
   renderEssays(data.articles);
   renderMusic(data.music);
   renderArts(data.gallery);
+  renderTools(data.tools);
 }
 
 function createFilterButton(tag, label) {
@@ -137,7 +138,7 @@ function renderSiteMeta(site) {
   if (canonicalTag && site.canonical) canonicalTag.setAttribute("href", site.canonical);
 }
 
-function renderHero(hero, software) {
+function renderHero(hero) {
   if (!hero) return;
   updateText(".eyebrow", hero.eyebrow);
   updateText(".hero-copy h1", hero.title);
@@ -146,7 +147,7 @@ function renderHero(hero, software) {
 
   const links = (hero.links || []).filter(liveOnly).sort(byOrder);
   const heroLinks = document.querySelector(".hero-links");
-  if (heroLinks) heroLinks.replaceChildren(...links.map(createHeroLink), createHeroLink({ label: `${software.label} ↗`, href: software.href, target: "_blank", style: "secondary" }));
+  if (heroLinks) heroLinks.replaceChildren(...links.map(createHeroLink));
 }
 
 function renderProfile(profile) {
@@ -241,6 +242,37 @@ function renderArts(arts) {
   updateText(".arts-section .section-title", arts.title);
 
   artsSection.classList.remove("is-hidden");
+}
+
+/** @param {import('./contracts/generated/publicCatalog').PublicCatalog["tools"]} tools */
+function renderTools(tools) {
+  const section = document.querySelector(".tools-section");
+  updateText(".tools-section .section-title", tools.title);
+  updateText(".tools-platform h3", tools.platform.title);
+  updateText(".tools-platform .platform-summary", tools.platform.summary);
+  section.querySelector(".tools-platform .section-actions").replaceChildren(createHeroLink(tools.platform.link));
+  updateText(".tools-games h3", tools.games.title);
+  section.querySelector(".games-list").replaceChildren(...tools.games.items.map(game => {
+    const card = document.createElement("article");
+    card.className = "game-card";
+    const status = document.createElement("p");
+    status.className = "game-status";
+    status.textContent = game.status;
+    const title = document.createElement("h4");
+    title.textContent = game.title;
+    const summary = document.createElement("p");
+    summary.className = "game-summary";
+    summary.textContent = game.summary;
+    card.append(status, title, summary);
+    if (game.link) {
+      const actions = document.createElement("div");
+      actions.className = "section-actions";
+      actions.append(createHeroLink(game.link));
+      card.append(actions);
+    }
+    return card;
+  }));
+  section.classList.remove("is-hidden");
 }
 
 function createHeroLink(link) {
