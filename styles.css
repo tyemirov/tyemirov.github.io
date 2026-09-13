@@ -144,7 +144,6 @@ h1 {
 
 .lead {
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  max-width: 32ch;
   line-height: 1.2;
   font-weight: 400;
   color: var(--ink);
@@ -232,7 +231,7 @@ h1 {
 }
 
 /* Sections */
-.project-section, .essay-section, .music-section, .arts-section {
+.essay-section, .music-section, .arts-section {
   margin-top: 100px;
 }
 
@@ -503,18 +502,6 @@ h1 {
   --mpr-color-border: var(--line);
 }
 
-.site-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 1.5rem;
-  margin-block: 2rem;
-}
-
-.site-filters .card-kicker-tag {
-  margin: 0;
-  color: var(--ink);
-}
-
 .card-kicker-tag[aria-pressed="true"] {
   text-decoration: underline;
   text-underline-offset: 0.35em;
@@ -537,7 +524,6 @@ h1 {
 .card-tags { display: flex; gap: 16px; }
 .project-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
 .project-link { overflow-wrap: anywhere; }
-.topic-heading { margin: 40px 0; }
 [hidden] { display: none !important; }
 
 @media (max-width: 1000px) {
@@ -559,12 +545,11 @@ h1 {
   .profile-name { font-size: 1.75rem; }
   .profile-role { font-size: 0.75rem; }
   .profile-footnote { font-size: 0.65rem; }
-  .project-section, .essay-section, .music-section, .arts-section { margin-top: 60px; }
+  .essay-section, .music-section, .arts-section { margin-top: 60px; }
   .section-title { font-size: 2.5rem; margin-block: 24px; }
   .section-heading, .section-blurb { margin-bottom: 32px; }
   .project-card { padding: 28px; }
   .project-card h2 { font-size: 2.5rem; line-height: 1; }
-  .site-filters { gap: 16px 24px; }
   .music-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -572,3 +557,6 @@ h1 {
   html { scroll-behavior: auto; }
   .profile-photo, .music-card, .project-card, a, .button { transition: none; }
 }
+
+main > section[id] { scroll-margin-top: 24px; }
+.essay-section .project-list { margin-top: 24px; }
