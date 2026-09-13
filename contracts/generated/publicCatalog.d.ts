@@ -21,7 +21,7 @@ export interface PublicCatalog {
      */
     links: {
       label: string;
-      href: string | ("#articles" | "#music" | "#gallery");
+      href: string | ("#articles" | "#music" | "#gallery" | "#tools");
       style: "primary" | "secondary";
       order: number;
       target?: "_blank";
@@ -288,10 +288,50 @@ export interface PublicCatalog {
    * Owner of all personal content in this catalog, including articles, albums, and Gallery records.
    */
   owner: "vadym-tyemirov";
-  software: {
-    label: "Software by MPR Lab";
-    href: "https://mprlab.com";
-    owner: "mpr-lab";
-    kind: "software";
+  tools: {
+    title: "Tools";
+    platform: {
+      title: "Platform";
+      summary: string;
+      link: {
+        label: string;
+        href: string | ("#articles" | "#music" | "#gallery" | "#tools");
+        style: "primary" | "secondary";
+        order: number;
+        target?: "_blank";
+      };
+    };
+    games: {
+      title: "Games";
+      /**
+       * @minItems 1
+       */
+      items: [
+        {
+          title: string;
+          summary: string;
+          status: "Work in progress";
+          link?: {
+            label: string;
+            href: string | string | string | ("#articles" | "#music" | "#gallery" | "#tools");
+            style: "primary" | "secondary";
+            order: number;
+            target?: "_blank";
+          };
+        },
+        ...{
+          title: string;
+          summary: string;
+          status: "Work in progress";
+          link?: {
+            label: string;
+            href: string | string | string | ("#articles" | "#music" | "#gallery" | "#tools");
+            style: "primary" | "secondary";
+            order: number;
+            target?: "_blank";
+          };
+        }[]
+      ];
+    };
   };
 }

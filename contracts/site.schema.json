@@ -38,7 +38,8 @@
               "enum": [
                 "#articles",
                 "#music",
-                "#gallery"
+                "#gallery",
+                "#tools"
               ]
             }
           ]
@@ -856,8 +857,8 @@
         "owner": {
           "$ref": "#/$defs/owner"
         },
-        "software": {
-          "$ref": "#/$defs/software"
+        "tools": {
+          "$ref": "#/$defs/tools"
         }
       },
       "required": [
@@ -870,7 +871,7 @@
         "gallery",
         "articles",
         "owner",
-        "software"
+        "tools"
       ]
     },
     "publicCatalog": {
@@ -937,8 +938,8 @@
         "owner": {
           "$ref": "#/$defs/owner"
         },
-        "software": {
-          "$ref": "#/$defs/software"
+        "tools": {
+          "$ref": "#/$defs/tools"
         }
       },
       "required": [
@@ -951,7 +952,7 @@
         "gallery",
         "articles",
         "owner",
-        "software"
+        "tools"
       ]
     },
     "owner": {
@@ -968,28 +969,90 @@
         "Writings"
       ]
     },
-    "software": {
+    "toolGame": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "label": {
-          "const": "Software by MPR Lab"
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000,
+          "pattern": "\\S"
         },
-        "href": {
-          "const": "https://mprlab.com"
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000,
+          "pattern": "\\S"
         },
-        "owner": {
-          "const": "mpr-lab"
+        "status": {
+          "const": "Work in progress"
         },
-        "kind": {
-          "const": "software"
+        "link": {
+          "$ref": "#/$defs/link"
         }
       },
       "required": [
-        "label",
-        "href",
-        "owner",
-        "kind"
+        "title",
+        "summary",
+        "status"
+      ]
+    },
+    "tools": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "const": "Tools"
+        },
+        "platform": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "title": {
+              "const": "Platform"
+            },
+            "summary": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000,
+              "pattern": "\\S"
+            },
+            "link": {
+              "$ref": "#/$defs/link"
+            }
+          },
+          "required": [
+            "title",
+            "summary",
+            "link"
+          ]
+        },
+        "games": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "title": {
+              "const": "Games"
+            },
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/toolGame"
+              }
+            }
+          },
+          "required": [
+            "title",
+            "items"
+          ]
+        }
+      },
+      "required": [
+        "title",
+        "platform",
+        "games"
       ]
     }
   }
