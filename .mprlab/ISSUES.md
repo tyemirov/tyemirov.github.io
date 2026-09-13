@@ -8,6 +8,22 @@ Format: `- [ ] [B042] (P1) {I007} Title`
 
 ## BugFixes
 
+- [ ] [B004] (P2) Resolve the WebKit Studio order timeout in the full browser suite.
+  The full browser suite timed out in the owner order test at `tests/gallery/studio.spec.mjs:112`.
+  The test waited for the created order and its `Open order` button.
+  Expected: The owner can open the created order and verify access reissue and logout.
+  Validation: The full run had 574 passed tests, 21 skipped tests, and one failure.
+  The isolated retry passed with `make music-browser-test MUSIC_BROWSER_ARGS='--project=webkit tests/gallery/studio.spec.mjs:108'`.
+  Investigate the full-suite condition before a fix. No browser code changed during the Gateway update.
+
+
+- [x] [B003] (P2) Include required site files in the CI image.
+  The CI image omitted `config-ui.yaml` and `gallery/studio/` from its build context.
+  The site contract tests failed with `ENOENT` for those required public files.
+  The image now includes both paths.
+  Validation: `make music-ci-container MUSIC_CI_TARGET=site-contract-test` passed all 12 tests.
+
+
 - [x] [B001] (P1) Align application publication with the current Gateway contract
   Goal:
   Make the application lifecycle obey the current repository deployment policy before production music activation.
