@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Vadym Tyemirov | Articles, Music, and Gallery",
-    "description": "Articles, music, and artwork by Vadym Tyemirov.",
+    "title": "Vadym Tyemirov | Articles, Music, Gallery, and Tools",
+    "description": "Articles, music, and artwork by Vadym Tyemirov, plus tools and games from MPR Lab.",
     "canonical": "https://tyemirov.net/"
   },
   "contact": {
@@ -10,9 +10,9 @@
   },
   "hero": {
     "eyebrow": "Vadym Tyemirov",
-    "title": "Articles, music, and art.",
-    "summary": "I write, compose music, and make art.",
-    "detail": "My software work is at MPR Lab.",
+    "title": "Tools, essays, music, and arts.",
+    "summary": "Vadym Tyemirov is a product-minded engineering leader who bridges the gap between cutting-edge Artificial Intelligence and scalable enterprise infrastructure.",
+    "detail": "With a career spanning Meta, BlackRock, Shopify, and Morgan Stanley, he focuses on turning complex technical challenges into revenue-generating products. This domain collects the resulting essays, tools, and experiments in one place.",
     "links": [
       {
         "label": "Articles",
@@ -31,6 +31,12 @@
         "href": "#gallery",
         "style": "secondary",
         "order": 40
+      },
+      {
+        "label": "Tools",
+        "href": "#tools",
+        "style": "secondary",
+        "order": 50
       }
     ]
   },
@@ -840,10 +846,52 @@
     ]
   },
   "owner": "vadym-tyemirov",
-  "software": {
-    "label": "Software by MPR Lab",
-    "href": "https://mprlab.com",
-    "owner": "mpr-lab",
-    "kind": "software"
+  "tools": {
+    "title": "Tools",
+    "platform": {
+      "title": "Platform",
+      "summary": "The shared foundation behind MPR Lab’s software: services for AI, media creation, authentication, usage billing, messaging, and product feedback. Built to help small teams turn ideas into working products.",
+      "link": {
+        "label": "Explore MPR Lab ↗",
+        "href": "https://mprlab.com/",
+        "style": "secondary",
+        "order": 10,
+        "target": "_blank"
+      }
+    },
+    "games": {
+      "title": "Games",
+      "items": [
+        {
+          "title": "Hecate",
+          "summary": "Create and solve crosswords, word searches, Kriss Kross fill-ins, and Codeword puzzles with an AI word-puzzle builder.",
+          "status": "Work in progress",
+          "link": {
+            "label": "Try Hecate ↗",
+            "href": "https://hecate.mprlab.com/",
+            "style": "secondary",
+            "order": 10,
+            "target": "_blank"
+          }
+        },
+        {
+          "title": "Allergy Wheel",
+          "summary": "Pick your allergens, spin the wheel, and play your way toward ten hearts in this colorful browser game.",
+          "status": "Work in progress",
+          "link": {
+            "label": "Try Allergy Wheel ↗",
+            "href": "https://allergy.mprlab.com/",
+            "style": "secondary",
+            "order": 20,
+            "target": "_blank"
+          }
+        },
+        {
+          "title": "StackLab",
+          "summary": "A new game taking shape at MPR Lab. More details to come.",
+          "status": "Work in progress"
+        }
+      ]
+    }
   }
 }
