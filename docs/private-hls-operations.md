@@ -6,7 +6,7 @@ The [validation record](private-hls-validation.md) separates local evidence from
 
 ## Local Validation
 
-For headless Linux CI, use Docker and a sibling `mprlab-gateway` checkout.
+For headless Linux CI, use Docker and GitHub CLI access to the Gateway release assets.
 Run these commands from the repository root:
 
 ```bash
@@ -17,7 +17,9 @@ make music-container-test
 The CI target includes package, HTTP, artifact, catalog, browser, load-command, and Gateway lifecycle checks.
 The container builds pin the toolchain and browser images.
 The service container test selects the declared `linux/amd64` production architecture.
-The lifecycle fixture uses committed Gateway source and synthetic inventory with local Git origins.
+The lifecycle fixture uses the installed Gateway runtime and a temporary operator inventory with local Git origins.
+The CI container installs the published version selected by `MPRLAB_GATEWAY_CI_VERSION` in the Makefile.
+Use `make music-ci-container MUSIC_CI_TARGET=lifecycle-contract-test` for the focused Gateway test.
 Its plans and source checks make no production changes.
 
 For a native toolchain, install the dependencies and run:
@@ -28,7 +30,9 @@ npx playwright install --with-deps chromium firefox webkit
 make ci
 ```
 
-Set `ANSIBLE_PLAYBOOK` and `ANSIBLE_INVENTORY_BIN` if Gateway tools differ from the sibling checkout defaults.
+Install `mprlab-gateway` before native CI.
+Use `MPRLAB_GATEWAY_EXECUTABLE` to select an installed command by its absolute path.
+Separate host qualification tools use `ANSIBLE_PLAYBOOK`, `ANSIBLE_INVENTORY_BIN`, and a Gateway source checkout.
 The package tests require FFmpeg and FFprobe 8.1.2.
 The Go tests require Go 1.26.5 and Node 26.5.1.
 
