@@ -231,7 +231,7 @@ h1 {
 }
 
 /* Sections */
-.essay-section, .music-section, .arts-section {
+.essay-section, .music-section, .arts-section, .tools-section {
   margin-top: 100px;
 }
 
@@ -545,7 +545,7 @@ h1 {
   .profile-name { font-size: 1.75rem; }
   .profile-role { font-size: 0.75rem; }
   .profile-footnote { font-size: 0.65rem; }
-  .essay-section, .music-section, .arts-section { margin-top: 60px; }
+  .essay-section, .music-section, .arts-section, .tools-section { margin-top: 60px; }
   .section-title { font-size: 2.5rem; margin-block: 24px; }
   .section-heading, .section-blurb { margin-bottom: 32px; }
   .project-card { padding: 28px; }
@@ -560,3 +560,51 @@ h1 {
 
 main > section[id] { scroll-margin-top: 24px; }
 .essay-section .project-list { margin-top: 24px; }
+
+/* Tools */
+.tools-platform {
+  border-block: 1px solid var(--line);
+  padding-block: 40px;
+}
+.tools-platform h3, .tools-games h3 {
+  margin: 0 0 24px;
+  font: 400 2.5rem/1.1 "Instrument Serif", serif;
+}
+.platform-summary {
+  max-width: 65ch;
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+.tools-games { margin-top: 48px; }
+.games-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.game-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background: var(--bg);
+  min-width: 0;
+}
+.game-status {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font: 400 0.7rem/1.5 "IBM Plex Mono", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.game-card h4 {
+  margin: 0 0 20px;
+  font: 400 2rem/1.15 "Instrument Serif", serif;
+}
+.game-summary { margin: 0 0 28px; line-height: 1.6; }
+.game-card .section-actions { margin-top: auto; }
+.game-card .button { white-space: normal; }
+@media (max-width: 900px) {
+  .games-list { grid-template-columns: 1fr; }
+}
