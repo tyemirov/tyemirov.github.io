@@ -1,29 +1,41 @@
 // @ts-check
-import { validateMusic } from "./music/catalog.js";
+import { initializeSiteFooter } from "./assets/js/footer.js";
+import { validatePublicCatalog } from "./assets/js/catalog.js";
 import { renderMusicIndex, renderAlbumDetails, renderMusicError, renderAlbumNotFound } from "./music/render.js";
+import { orderedArtworks } from "./gallery/js/core/catalog.js";
+
+import { siteTopics } from "./assets/js/generated/routes.js";
 
 const SITE_DATA_URL = "/data/site.json";
 
-let currentFilter = null;
 let siteData = null;
+/** @type {AbortController | null} */
+let homepageRequest = null;
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (document.querySelector(".hero")) void hydrateHomePage();
+  if (!document.querySelector(".hero")) return;
+  void hydrateHomePage();
+  window.addEventListener("pageshow", event => {
+    if (event.persisted) void hydrateHomePage();
+  });
+  window.addEventListener("pagehide", event => {
+    if (!event.persisted) homepageRequest?.abort();
+  });
 });
 
-async function loadSite() {
-  const response = await fetch(SITE_DATA_URL, { headers: { Accept: "application/json" } });
+/** @param {AbortSignal} [signal] */
+async function loadSite(signal) {
+  const response = await fetch(SITE_DATA_URL, { signal, cache: "no-cache", headers: { Accept: "application/json" } });
   if (!response.ok) throw new Error(`Failed to load the site catalog: ${response.status}`);
   const data = await response.json();
-  validateMusic(data.music);
-  return data;
+  return validatePublicCatalog(data);
 }
 
 /** @param {"index" | "album"} kind */
 export async function hydrateMusicPage(kind) {
   try {
     const data = await loadSite();
-    renderFooter(data.contact);
+    void initializeSiteFooter({ contact: data.contact, themeAttribute: "data-theme" });
     if (kind === "index") renderMusicIndex(data.music, data.contact);
     else {
       const slug = window.location.pathname.split("/").filter(Boolean).pop();
@@ -55,60 +67,66 @@ export async function hydrateMusicPage(kind) {
 }
 
 async function hydrateHomePage() {
+  homepageRequest?.abort();
+  const request = new AbortController();
+  homepageRequest = request;
   try {
-    siteData = await loadSite();
+    siteData = await loadSite(request.signal);
     renderAll(siteData);
+    await restoreSectionScroll(request.signal);
   } catch (error) {
+    if (request.signal.aborted) return;
     renderMusicError("Music is unavailable. Please reload the page.");
     document.querySelector(".music-section").classList.remove("is-hidden");
     console.error("Site catalog failed.", error);
+  } finally {
+    if (homepageRequest === request) homepageRequest = null;
   }
+}
+
+/** @param {AbortSignal} signal */
+async function restoreSectionScroll(signal) {
+  if (!location.hash) return;
+  if (document.readyState !== 'complete') {
+    await new Promise(resolve => window.addEventListener('load', resolve, { once: true }));
+  }
+  await document.fonts.ready;
+  await new Promise(resolve => requestAnimationFrame(resolve));
+  if (signal.aborted) return;
+  const section = document.getElementById(location.hash.slice(1));
+  if (section?.matches('main > section')) section.scrollIntoView({ behavior: 'instant' });
 }
 
 function renderAll(data) {
   if (!data || typeof data !== "object") return;
 
   renderSiteMeta(data.site);
-  renderHero(data.hero);
+  renderHero(data.hero, data.software);
   renderProfile(data.profile);
+  window.toggleProjectFilter = topic => {
+    if (!siteTopics.includes(topic)) throw new Error(`Unknown content topic: ${topic}`);
+    const url = new URL('/articles/', location.origin);
+    url.searchParams.set('topic', topic);
+    location.assign(url);
+  };
   renderContent(data);
-  renderFooter(data.contact);
+  void initializeSiteFooter({ contact: data.contact, themeAttribute: "data-theme" });
 }
 
 function renderContent(data) {
-  renderFilters(data);
-  renderProjects(data.mprlab);
-  renderEssays(data.essays);
+  renderEssays(data.articles);
   renderMusic(data.music);
-  renderArts(data.arts);
-}
-
-function renderFilters(data) {
-  let filters = document.querySelector(".site-filters");
-  if (!filters) {
-    filters = document.createElement("nav");
-    filters.className = "site-filters";
-    filters.setAttribute("aria-label", "Filter content");
-    document.querySelector("main").prepend(filters);
-  }
-  const sections = [data.mprlab, data.essays, data.music, data.arts];
-  const tags = [...new Set(sections.flatMap((section) => [section.label, ...(section.items || []).filter(liveOnly).map(itemTag).filter(Boolean)]))];
-  filters.replaceChildren(createFilterButton(null, "All"), ...tags.map((tag) => createFilterButton(tag, tag)));
+  renderArts(data.gallery);
 }
 
 function createFilterButton(tag, label) {
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "card-kicker-tag";
-  button.textContent = label;
-  button.dataset.filterTag = tag || "";
-  button.setAttribute("aria-pressed", String(currentFilter === tag));
-  button.addEventListener("click", () => window.toggleProjectFilter(tag));
+  const button = document.createElement('button');
+  button.type = 'button'; button.className = 'card-kicker-tag';
+  button.textContent = label; button.dataset.filterTag = tag;
+  button.addEventListener('click', () => window.toggleProjectFilter(tag));
   return button;
 }
-
-function itemTag(item) { return item.kicker || item.source; }
-function matchesFilter(item, section) { return currentFilter === null || currentFilter === section.label || currentFilter === itemTag(item); }
+function itemTag(item) { return item.kicker; }
 
 function renderSiteMeta(site) {
   if (!site) return;
@@ -119,7 +137,7 @@ function renderSiteMeta(site) {
   if (canonicalTag && site.canonical) canonicalTag.setAttribute("href", site.canonical);
 }
 
-function renderHero(hero) {
+function renderHero(hero, software) {
   if (!hero) return;
   updateText(".eyebrow", hero.eyebrow);
   updateText(".hero-copy h1", hero.title);
@@ -128,7 +146,7 @@ function renderHero(hero) {
 
   const links = (hero.links || []).filter(liveOnly).sort(byOrder);
   const heroLinks = document.querySelector(".hero-links");
-  if (heroLinks) heroLinks.replaceChildren(...links.map(createHeroLink));
+  if (heroLinks) heroLinks.replaceChildren(...links.map(createHeroLink), createHeroLink({ label: `${software.label} ↗`, href: software.href, target: "_blank", style: "secondary" }));
 }
 
 function renderProfile(profile) {
@@ -154,26 +172,19 @@ function renderProfile(profile) {
   }
 }
 
-function renderProjects(mprlab) {
-  const projectSection = document.querySelector(".project-section");
-  if (!projectSection || !mprlab) return;
-
-  updateText(".project-section .section-blurb .lead", mprlab.blurb);
-  projectSection.classList.toggle("is-hidden", !matchesFilter(mprlab, mprlab));
-}
-
 function renderEssays(essays) {
   const essaySection = document.querySelector(".essay-section");
   const essayList = document.querySelector(".essay-list");
   if (!essaySection || !essayList || !essays) return;
 
-  const filtered = (essays.items || []).filter(liveOnly).filter((item) => matchesFilter(item, essays)).sort(byOrder).slice(0, 4);
+  const filtered = (essays.items || []).filter(liveOnly).sort(byOrder).slice(0, 4);
   
-  updateText(".essay-section .notes-label", essays.label);
   updateText(".essay-section .section-title", essays.title);
   
-  essayList.replaceChildren(...filtered.map(createArticleCard));
-  essaySection.classList.toggle("is-hidden", filtered.length === 0);
+  essayList.replaceChildren(...filtered.map(article => createArticleCard(article, null)));
+  const projects = siteData.projects.filter(liveOnly).sort(byOrder);
+  essaySection.querySelector('.project-list').replaceChildren(...projects.map(project => createProjectCard(project, essays.items, null)));
+  essaySection.classList.toggle("is-hidden", filtered.length === 0 && projects.length === 0);
 }
 
 function renderMusic(music) {
@@ -181,10 +192,9 @@ function renderMusic(music) {
   const musicList = document.querySelector(".music-list");
   if (!musicSection || !musicList || !music) return;
 
-  const items = (music.items || []).filter(liveOnly).filter((item) => matchesFilter(item, music)).sort(byOrder).slice(0, 3);
+  const items = (music.items || []).filter(liveOnly).sort(byOrder).slice(0, 3);
   
-  updateText(".music-section .notes-label", music.label);
-  updateText(".music-section .section-title", music.title);
+  updateText(".music-section .section-title", music.label);
   
   musicList.replaceChildren(...items.map(createMusicItem));
   musicSection.classList.toggle("is-hidden", items.length === 0);
@@ -194,30 +204,44 @@ function renderArts(arts) {
   const artsSection = document.querySelector(".arts-section");
   if (!artsSection || !arts) return;
 
-  const item = (arts.items || []).filter(liveOnly).find((candidate) => matchesFilter(candidate, arts));
-  if (item) {
-    updateText(".arts-section .section-blurb .lead", item.summary);
-  }
+  updateText(".arts-section .section-blurb .lead", arts.description);
 
-  updateText(".arts-section .notes-label", arts.label);
+  let previews = artsSection.querySelector(".arts-preview-list");
+  if (!previews) {
+    previews = document.createElement("div");
+    previews.className = "arts-preview-list";
+    artsSection.querySelector(".section-actions").before(previews);
+  }
+  const featured = new Map();
+  for (const exhibit of siteData.gallery.exhibits) {
+    for (const artwork of orderedArtworks(siteData.gallery, exhibit.sections.flatMap(section => section.artworkIds))) {
+      if (!featured.has(artwork.id)) featured.set(artwork.id, { artwork, title: exhibit.title, href: `/gallery/exhibits/${encodeURIComponent(exhibit.id)}/` });
+    }
+  }
+  for (const collection of siteData.gallery.collections) {
+    for (const artwork of orderedArtworks(siteData.gallery, collection.artworkIds)) {
+      if (!featured.has(artwork.id)) featured.set(artwork.id, { artwork, title: collection.title, href: `/gallery/collections/${encodeURIComponent(collection.id)}/` });
+    }
+  }
+  previews.replaceChildren(...[...featured.values()].map(({ artwork, title, href }) => {
+    const link = document.createElement("a");
+    link.className = "arts-preview";
+    link.href = href;
+    link.setAttribute("aria-label", `${artwork.title} — ${title}`);
+    const image = document.createElement("img");
+    image.src = artwork.image.cardUrl;
+    image.alt = artwork.alt;
+    image.loading = "lazy";
+    const caption = document.createElement("span");
+    caption.textContent = artwork.title;
+    link.append(image, caption);
+    return link;
+  }));
+
   updateText(".arts-section .section-title", arts.title);
 
-  artsSection.classList.toggle("is-hidden", !item);
+  artsSection.classList.remove("is-hidden");
 }
-
-window.toggleProjectFilter = (tag) => {
-  const active = document.activeElement;
-  const focusTag = active instanceof HTMLElement ? active.dataset.filterTag : undefined;
-  const focusInCard = active?.closest(".essay-list") !== null;
-  currentFilter = (currentFilter === tag) ? null : tag;
-  renderContent(siteData);
-  if (focusTag !== undefined) {
-    const scope = focusInCard ? ".essay-list" : ".site-filters";
-    const button = [...document.querySelectorAll(`${scope} button`)].find((candidate) => candidate.dataset.filterTag === focusTag);
-    const focusTarget = button || document.querySelector('.site-filters button[data-filter-tag=""]');
-    focusTarget.focus({ preventScroll: true });
-  }
-};
 
 function createHeroLink(link) {
   const anchor = document.createElement("a");
@@ -229,21 +253,17 @@ function createHeroLink(link) {
   return anchor;
 }
 
-function createProjectCard(project) {
+function createProjectCard(project, articles, selectedTopic) {
   const card = document.createElement("article");
   const themeClass = project.theme ? ` project-card-${project.theme}` : "";
-  const activeClass = currentFilter === project.kicker ? " is-active" : "";
+  const activeClass = selectedTopic === project.kicker ? " is-active" : "";
   card.className = `project-card${themeClass}${activeClass}`;
 
-  const kicker = document.createElement("button");
-  kicker.className = "card-kicker-tag";
-  kicker.textContent = project.kicker || "";
-  kicker.onclick = (e) => { e.preventDefault(); e.stopPropagation(); window.toggleProjectFilter(project.kicker); };
-
+  const kicker = createFilterButton(project.kicker, project.kicker);
   const title = document.createElement("h2");
   const titleLink = document.createElement("a");
   titleLink.className = "project-title-link";
-  titleLink.href = project.href || "#";
+  titleLink.href = project.kind === "model" ? project.href : `/articles/${articles.find(article => article.id === project.parts[0].articleId).slug}/`;
   titleLink.textContent = project.title || "Untitled";
   title.append(titleLink);
 
@@ -251,7 +271,8 @@ function createProjectCard(project) {
   summary.className = "card-body";
   summary.textContent = project.summary || "";
 
-  card.append(kicker, title, summary);
+  const tags=document.createElement('div'); tags.className='card-tags'; if (selectedTopic !== project.kicker) tags.append(kicker);
+  card.append(tags, title, summary);
 
   if (Array.isArray(project.parts)) {
     const list = document.createElement("ul");
@@ -259,43 +280,37 @@ function createProjectCard(project) {
     project.parts.forEach(part => {
       const li = document.createElement("li");
       const a = document.createElement("a");
-      a.href = part.url;
-      a.target = "_blank";
-      a.textContent = part.label;
+      const article = articles.find(item => item.id === part.articleId);
+      a.href = `/articles/${article.slug}/`;
+      a.textContent = article.title;
       li.append(a);
       list.append(li);
     });
     card.append(list);
   }
 
-  const actions = document.createElement("div");
-  actions.className = "project-actions";
-  const link = document.createElement("a");
-  link.className = "project-link";
-  link.href = project.href || "#";
-  link.textContent = project.cta || link.href;
-  actions.append(link);
-  card.append(actions);
+  if (project.kind === "model") {
+    const actions = document.createElement("div");
+    actions.className = "project-actions";
+    actions.append(createCardAction("Explore interactive tool", project.href), createCardAction("Read companion article", project.sourceUrl));
+    card.append(actions);
+  }
 
   return card;
 }
 
-function createProjectEssayLink(essay) {
-  const link = document.createElement("a");
-  link.className = "project-essay-link";
-  link.href = essay.url;
-  link.target = "_blank";
-  const label = document.createElement("span");
-  label.className = "project-essay-label";
-  label.textContent = essay.label || "Companion essay";
-  const title = document.createElement("span");
-  title.className = "project-essay-title";
-  title.textContent = essay.title;
-  link.append(label, title);
-  return link;
+export function renderArticleIndex(site, selectedTopic) {
+  const matches = item => selectedTopic === null || item.kicker === selectedTopic;
+  const articles = site.articles.items.filter(liveOnly).filter(matches).sort(byOrder);
+  const projects = site.projects.filter(liveOnly).filter(matches).sort(byOrder);
+  document.querySelector('#article-list').replaceChildren(
+    ...articles.map(article => createArticleCard(article, selectedTopic)),
+    ...projects.map(project => createProjectCard(project, site.articles.items, selectedTopic)),
+  );
+  document.querySelector('.topic-empty').hidden = articles.length + projects.length > 0;
 }
 
-function createArticleCard(article) {
+function createArticleCard(article, selectedTopic) {
   const card = document.createElement("article");
   card.className = "project-card";
 
@@ -303,8 +318,7 @@ function createArticleCard(article) {
 
   const title = document.createElement("h2");
   const titleLink = document.createElement("a");
-  titleLink.href = article.url;
-  titleLink.target = "_blank";
+  titleLink.href = `/articles/${article.slug}/`;
   titleLink.textContent = article.title;
   title.append(titleLink);
 
@@ -312,35 +326,41 @@ function createArticleCard(article) {
   summary.className = "card-body";
   summary.textContent = article.summary || "";
 
+  const tags = document.createElement('div'); tags.className = 'card-tags';
+  if (selectedTopic !== article.kicker) tags.append(kicker);
+  card.append(tags, title, summary);
   const actions = document.createElement("div");
   actions.className = "project-actions";
+  actions.append(createCardAction("Read article", `/articles/${article.slug}/`), createCardAction(`Read on ${article.source.label}`, article.source.url));
+  card.append(actions);
+  return card;
+}
+
+/** @param {string} label @param {string} href */
+function createCardAction(label, href) {
   const link = document.createElement("a");
   link.className = "project-link";
-  link.href = article.url;
-  link.target = "_blank";
-  link.textContent = article.cta || "Read on Substack";
-  actions.append(link);
-
-  card.append(kicker, title, summary, actions);
-  return card;
+  link.href = href;
+  link.textContent = label;
+  return link;
 }
 
 function createMusicItem(item) {
   const card = document.createElement("a");
   card.className = "article-card music-card";
-  card.href = `/music/${item.slug}`;
+  card.href = `/music/${item.slug}/`;
 
   const cover = document.createElement("div");
   cover.className = "music-card-cover";
   const img = document.createElement("img");
-  img.src = item.coverImage || "/music/covers/placeholder.jpg";
+  img.src = item.coverImage;
   img.alt = `${item.title} cover`;
   img.loading = "lazy";
   cover.append(img);
 
   const meta = document.createElement("p");
   meta.className = "article-meta-tag";
-  meta.textContent = item.latest ? "Latest Release" : (item.releaseDate || "Music");
+  meta.textContent = item.latest ? "Latest Release" : item.releaseDate.value;
   if (item.latest) meta.style.color = "var(--copper)";
 
   const title = document.createElement("h3");
@@ -357,42 +377,8 @@ function createMusicItem(item) {
 
 function updateText(selector, value) {
   const el = document.querySelector(selector);
-  if (el && value) el.textContent = value;
+  if (el && value !== undefined) el.textContent = value;
 }
 
 function liveOnly(item) { return !item.status || item.status === "live"; }
-function byOrder(a, b) { return (a.order || 999) - (b.order || 999); }
-
-function renderFooter(contact) {
-  const footer = document.querySelector("#site-footer");
-  if (!footer) return;
-
-  const initFooter = () => {
-    if (typeof globalThis.MPRUI?.getFooterSiteCatalog === "function") {
-      const links = globalThis.MPRUI.getFooterSiteCatalog();
-      const footerLinks = Array.isArray(links) ? [...links] : [];
-      if (contact?.href && contact?.label) {
-        footerLinks.push({ label: contact.label, url: contact.href });
-      }
-      if (footerLinks.length) {
-        footer.setAttribute("links-collection", JSON.stringify({
-          style: "drop-up",
-          text: "Built by Marco Polo Research Lab",
-          links: footerLinks
-        }));
-      }
-    }
-    footer.setAttribute("size", "small");
-    footer.setAttribute("privacy-link-hidden", "true");
-    footer.setAttribute("inner-class", "site-footer__inner");
-    footer.setAttribute("wrapper-class", "site-footer__layout");
-    footer.setAttribute("theme-toggle", "true");
-  };
-
-  footer.addEventListener("theme-change", (e) => {
-    const isDark = e.detail.value === "dark";
-    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
-  });
-
-  void customElements.whenDefined("mpr-footer").then(initFooter);
-}
+function byOrder(a, b) { return a.order - b.order || String(a.id ?? a.slug ?? a.label).localeCompare(String(b.id ?? b.slug ?? b.label)); }

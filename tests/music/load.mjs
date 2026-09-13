@@ -7,7 +7,7 @@ import { once } from "node:events";
 import { setTimeout as sleep } from "node:timers/promises";
 import { parseArgs } from "node:util";
 
-const GRANTS = "/api/playback-grants";
+const GRANTS = "/music/playback-grants";
 const PUBLIC_ORIGIN = "https://music-load.example.invalid";
 const WEBSITE_ORIGIN = "https://website.example.invalid";
 const TRACK = "load-noise";
@@ -104,7 +104,7 @@ async function main() {
     }
     function mediaPath(url) {
       const parsed = new URL(url);
-      if (parsed.origin !== PUBLIC_ORIGIN || parsed.search || parsed.hash || !/^\/hls\/[A-Za-z0-9_-]{22}\/[a-f0-9]{64}\/(index\.m3u8|init\.mp4|seg-\d{5}\.m4s)$/.test(parsed.pathname)) throw new Error("Invalid load media reference");
+      if (parsed.origin !== PUBLIC_ORIGIN || parsed.search || parsed.hash || !/^\/music\/hls\/[A-Za-z0-9_-]{22}\/[a-f0-9]{64}\/(index\.m3u8|init\.mp4|seg-\d{5}\.m4s)$/.test(parsed.pathname)) throw new Error("Invalid load media reference");
       return parsed.pathname;
     }
     /** @type {Listener[]} */
@@ -113,12 +113,12 @@ async function main() {
       const { response, bytes } = await request("grant", GRANTS, session, "POST", { trackId: TRACK });
       if (!session.cookie) {
         const cookies = response.headers.getSetCookie();
-        if (cookies.length !== 1 || !cookies[0].startsWith("__Host-music-session=")) throw new Error("Load session cookie is absent");
+        if (cookies.length !== 1 || !cookies[0].startsWith("__Secure-music-session=")) throw new Error("Load session cookie is absent");
         session.cookie = cookies[0].split(";")[0];
       }
       const grant = JSON.parse(bytes.toString());
       const playlistPath = mediaPath(grant.playlistUrl);
-      if (!/^[A-Za-z0-9_-]{22}$/.test(grant.grantId) || !playlistPath.startsWith(`/hls/${grant.grantId}/`)) throw new Error("Invalid load grant identity");
+      if (!/^[A-Za-z0-9_-]{22}$/.test(grant.grantId) || !playlistPath.startsWith(`/music/hls/${grant.grantId}/`)) throw new Error("Invalid load grant identity");
       const listener = { session, id: grant.grantId, playlistPath, segments: [] };
       active.push(listener);
       const playlist = (await request("playlist", playlistPath, session)).bytes.toString();

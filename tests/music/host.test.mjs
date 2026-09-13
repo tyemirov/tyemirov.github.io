@@ -92,12 +92,12 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     const client = `
       const origin = 'http://127.0.0.1:8092';
       const check = (actual, expected) => { if (actual !== expected) throw new Error('HTTP status ' + actual + ', expected ' + expected); };
-      check((await fetch(origin + '/readyz')).status, 200);
-      const response = await fetch(origin + '/api/playback-grants', {method:'POST', headers:{Origin:'https://tyemirov.net','Content-Type':'application/json','X-Forwarded-For':'203.0.113.1'}, body:JSON.stringify({trackId:'test-tone'})});
+      check((await fetch(origin + '/music/readyz')).status, 200);
+      const response = await fetch(origin + '/music/playback-grants', {method:'POST', headers:{Origin:'https://tyemirov.net','Content-Type':'application/json','X-Forwarded-For':'203.0.113.1'}, body:JSON.stringify({trackId:'test-tone'})});
       check(response.status, 201);
       const cookie = response.headers.getSetCookie()[0].split(';')[0];
       const grant = await response.json(), playlist = new URL(grant.playlistUrl);
-      if (playlist.origin !== 'https://audio.tyemirov.net') throw new Error('Incorrect declared media origin');
+      if (playlist.origin !== 'https://api.tyemirov.net') throw new Error('Incorrect declared media origin');
       for (const name of ['index.m3u8','init.mp4','seg-00000.m4s']) {
         const path = new URL(name, playlist).pathname;
         check((await fetch(origin + path)).status, 401);
@@ -105,7 +105,7 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
         check(media.status, 200);
         if (!(await media.arrayBuffer()).byteLength) throw new Error('Empty media response');
       }
-      check((await fetch(origin + '/api/playback-grants/' + grant.grantId, {method:'DELETE',headers:{Origin:'https://tyemirov.net',Cookie:cookie}})).status, 204);
+      check((await fetch(origin + '/music/playback-grants/' + grant.grantId, {method:'DELETE',headers:{Origin:'https://tyemirov.net',Cookie:cookie}})).status, 204);
       process.stdout.write('readiness, declared origins, protected media, and grant removal passed\\n');
     `;
     async function startAndCheck(environment = []) {
@@ -160,7 +160,7 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     const proxyResult = JSON.parse(success(remoteDocker(["run", "--rm", "-i", "--network", "host", "--mount", `type=volume,src=${proxyVolume},dst=/data,readonly`, "--entrypoint", "node", preparationImage, "--input-type=module", "-"], await readFile("tests/music/host-proxy-client.mjs", "utf8"))));
     const proxyLogs = remoteDocker(["logs", proxyContainer]);
     assert.equal(proxyLogs.status, 0, proxyLogs.stderr);
-    assert.ok(!(proxyLogs.stdout + proxyLogs.stderr).includes("__Host-music-session="), "Proxy logs must exclude cookies");
+    assert.ok(!(proxyLogs.stdout + proxyLogs.stderr).includes("__Secure-music-session="), "Proxy logs must exclude cookies");
     assert.ok(!(proxyLogs.stdout + proxyLogs.stderr).includes("/hls/"), "Proxy logs must exclude authorized media URLs");
     await writeFile(join(logs, "proxy.log"), proxyLogs.stdout + proxyLogs.stderr);
     const evidence = { passed: true, host, kernel: success(ssh("uname -srmo")), serviceArchitecture: "amd64", source: "generated-tone",

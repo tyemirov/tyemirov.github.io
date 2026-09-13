@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Local payment approval</title>
+  <link rel="icon" type="image/png" href="{{WEBSITE_ORIGIN}}/favicon.png">
+  <link rel="icon" type="image/x-icon" href="{{WEBSITE_ORIGIN}}/favicon.ico">
+  <link rel="apple-touch-icon" href="{{WEBSITE_ORIGIN}}/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.css">
+  <script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.js"></script>
+  <style>*{box-sizing:border-box}body{font:1rem system-ui;margin:0;background:#12161a;color:#edf1f5}main,body>header,body>mpr-footer{display:block;max-width:42rem;margin:2rem auto;padding:0 1rem}button{font:inherit;padding:.75rem 1rem;cursor:pointer}a{color:#a3d8df}button:focus-visible,a:focus-visible{outline:3px solid #a3d8df;outline-offset:3px}</style>
+</head>
+<body>
+  <header><mpr-header brand-label="Local gallery payment" brand-href="{{WEBSITE_ORIGIN}}/gallery/" settings="false"></mpr-header></header>
+  <main>
+    <h1>Local payment approval</h1>
+    <p>This development payment does not transfer money.</p>
+    <p>Total: <strong>{{TOTAL}}</strong></p>
+    <form method="post" action="/local-orders/{{ORDER_ID}}/approvals"><button>Approve test payment</button></form>
+    <p><a href="{{WEBSITE_ORIGIN}}/gallery/">Back to the gallery</a></p>
+  </main>
+  <mpr-footer sticky="false" id="site-footer"></mpr-footer>
+  <script type="module">
+    // @ts-check
+    await customElements.whenDefined('mpr-footer');
+    const links=globalThis.MPRUI.getFooterSiteCatalog().map(({url,...link})=>({...link,href:url}));
+    document.querySelector('#site-footer').setAttribute('menu',JSON.stringify({label:'Built by Marco Polo Research Lab',placement:'top',sections:[{id:'mpr-projects',label:'Projects',mode:'static',links}]}));
+  </script>
+</body>
+</html>

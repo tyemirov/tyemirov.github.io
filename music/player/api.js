@@ -1,7 +1,8 @@
 // @ts-check
-const GRANTS = "/api/playback-grants";
+import { routes } from "../../assets/js/generated/routes.js";
+import { musicGrant, musicError, siteRuntime } from "../../assets/js/generated/validators.js";
+const GRANTS = routes.music.createGrant.path;
 const GRANT_ID = /^[A-Za-z0-9_-]{22}$/;
-const RESPONSE_KEYS = ["grantId", "trackId", "playlistUrl", "durationMs", "serverTime", "expiresAt"];
 const ERROR_CODES = new Set(["session_required", "origin_denied", "not_found", "grant_expired", "track_unavailable", "grant_limit", "rate_limited", "media_unavailable", "invalid_request", "json_required", "body_too_large", "method_not_allowed", "headers_denied"]);
 
 export class PlaybackError extends Error {
@@ -29,11 +30,11 @@ function timestamp(value) {
 }
 
 function validateGrant(value, track, origin) {
-  if (!value || typeof value !== "object" || Object.keys(value).length !== RESPONSE_KEYS.length || Object.keys(value).some((key) => !RESPONSE_KEYS.includes(key))) throw new PlaybackError("invalid_response");
+  if (!musicGrant(value)) throw new PlaybackError("invalid_response");
   if (!GRANT_ID.test(value.grantId) || value.trackId !== track.id || !Number.isSafeInteger(value.durationMs) || value.durationMs < 1000 || value.durationMs > 7200250 || Math.abs(value.durationMs - track.playback.durationMs) > 250) throw new PlaybackError("invalid_response");
   let url;
   try { url = new URL(value.playlistUrl); } catch { throw new PlaybackError("invalid_response"); }
-  const path = new RegExp(`^/hls/${value.grantId}/[a-f0-9]{64}/index\\.m3u8$`);
+  const path = new RegExp(`^/music/hls/${value.grantId}/[a-f0-9]{64}/index\\.m3u8$`);
   if (url.origin !== origin || url.username || url.password || url.search || url.hash || !path.test(url.pathname)) throw new PlaybackError("invalid_response");
   const serverTimeMs = timestamp(value.serverTime), expiresAtMs = timestamp(value.expiresAt);
   const lifetime = Math.max(1800000, value.durationMs + 900000);
@@ -51,10 +52,10 @@ function sameGrant(value, previous) {
 }
 
 export function createPlaybackAPI(config) {
-  if (!config || Object.keys(config).length !== 1 || typeof config.apiOrigin !== "string") throw new PlaybackError("invalid_config");
+  if (!siteRuntime(config)) throw new PlaybackError("invalid_config");
   let url;
   try { url = new URL(config.apiOrigin); } catch { throw new PlaybackError("invalid_config"); }
-  if (url.protocol !== "https:" || url.origin !== config.apiOrigin) throw new PlaybackError("invalid_config");
+  if (url.origin !== config.apiOrigin) throw new PlaybackError("invalid_config");
   const origin = url.origin;
 
   async function request(path, method, body, signal) {
@@ -77,9 +78,9 @@ export function createPlaybackAPI(config) {
     let value;
     try { value = await response.json(); } catch { throw new PlaybackError("invalid_response"); }
     if (!response.ok) {
-      if (!value?.error || Object.keys(value).length !== 1 || Object.keys(value.error).sort().join(",") !== "code,message,requestId" || !ERROR_CODES.has(value.error.code) || typeof value.error.message !== "string" || typeof value.error.requestId !== "string") throw new PlaybackError("invalid_response");
+      if (!musicError(value) || !ERROR_CODES.has(value.code)) throw new PlaybackError("invalid_response");
       if (response.status === 429) throw rateLimitError(response.headers.get("Retry-After"));
-      throw new PlaybackError(value.error.code, response.status);
+      throw new PlaybackError(value.code, response.status);
     }
     return value;
   }

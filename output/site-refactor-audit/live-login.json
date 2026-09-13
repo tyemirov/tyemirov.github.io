@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-09-11T22:36:41.123Z",
+  "responses": [
+    {
+      "path": "/auth/nonce",
+      "status": 200
+    },
+    {
+      "path": "/gsi/button",
+      "status": 403
+    }
+  ],
+  "errors": [
+    "[GSI_LOGGER]: The given origin is not allowed for the given client ID."
+  ],
+  "workspaceVisible": false
+}

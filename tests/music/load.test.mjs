@@ -11,7 +11,7 @@ test("the load command exercises paced media, shared sessions, and seek bursts t
   try {
     const report = join(directory, "report.json");
     const result = spawnSync(process.execPath, ["tests/music/load.mjs", "--listeners", "4", "--seconds", "7", "--seek-every", "6", "--report", report], { encoding: "utf8", timeout: 60000 });
-    assert.equal(result.status, 0, result.stderr);
+    assert.equal(result.status, 0, result.stderr + result.stdout);
     const evidence = JSON.parse(await readFile(report, "utf8"));
     assert.equal(evidence.passed, true);
     assert.equal(evidence.listeners, 4);
@@ -27,6 +27,6 @@ test("the load command exercises paced media, shared sessions, and seek bursts t
     assert.equal(evidence.networkErrors, 0);
     assert.equal(evidence.source.kind, "generated-noise");
     assert.ok(evidence.source.durationMs >= 180000);
-    assert.doesNotMatch(JSON.stringify(evidence), /__Host-music-session|\/hls\/|playlistUrl|grantId/);
+    assert.doesNotMatch(JSON.stringify(evidence), /__Secure-music-session|\/hls\/|playlistUrl|grantId/);
   } finally { await rm(directory, { recursive: true, force: true }); }
 });

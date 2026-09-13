@@ -1,60 +1,23 @@
 // @ts-check
 import { ROUTES } from '../constants.js';
 
-/**
- * @param {string} hash
- */
-export function parseHash(hash) {
-  const cleaned = hash.replace(/^#!/, '#').replace(/^#\/*/, '');
-  if (!cleaned) {
-    return { route: ROUTES.HOME };
-  }
-  const [segment, param] = cleaned.split('/');
-  switch (segment) {
-    case ROUTES.CART:
-      return { route: ROUTES.CART };
-    case ROUTES.ABOUT:
-      return { route: ROUTES.ABOUT };
-    case 'exhibits':
-      if (param) {
-        return { route: ROUTES.EXHIBIT, exhibitId: decodeURIComponent(param) };
-      }
-      break;
-    default:
-      break;
-  }
-  return { route: ROUTES.HOME };
+/** @param {string} path */
+export function parsePath(path) {
+  if (path === '/gallery/') return { route: ROUTES.HOME };
+  const match = /^\/gallery\/(exhibits|collections|artworks)\/([a-z0-9][a-z0-9-]{0,99})\/$/.exec(path);
+  if (match) return { route: match[1], id: match[2] };
+  if (path === '/gallery/about/') return { route: ROUTES.ABOUT };
+  if (path === '/gallery/cart/') return { route: ROUTES.CART };
+  return { route: ROUTES.NOT_FOUND };
 }
 
-/**
- * @param {string} route
- * @param {string} [param]
- */
-export function navigate(route, param) {
-  if (route === ROUTES.HOME) {
-    window.location.hash = '#/';
-    return;
-  }
-  if (route === ROUTES.EXHIBIT && param) {
-    window.location.hash = `#/exhibits/${encodeURIComponent(param)}`;
-    return;
-  }
-  window.location.hash = `#/${route}`;
-}
+/** @param {string} route @param {string} [id] */
+export function routeHref(route, id) { return route === ROUTES.HOME ? '/gallery/' : `/gallery/${route}${id ? `/${encodeURIComponent(id)}` : ''}/`; }
 
-/**
- * @param {(state: { route: string; exhibitId?: string }) => void} handler
- * @returns {() => void}
- */
+/** @param {(state: {route: string, id?: string}) => void} handler */
 export function subscribe(handler) {
-  const emit = () => handler(parseHash(window.location.hash));
-  const listener = () => {
-    emit();
-    window.requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  };
-  window.addEventListener('hashchange', listener);
-  emit();
-  return () => window.removeEventListener('hashchange', listener);
+  const listener = () => { handler(parsePath(location.pathname)); window.scrollTo({ top: 0 }); };
+  window.addEventListener('popstate', listener);
+  handler(parsePath(location.pathname));
+  return () => window.removeEventListener('popstate', listener);
 }

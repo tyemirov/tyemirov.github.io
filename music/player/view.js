@@ -1,4 +1,5 @@
 // @ts-check
+import { musicIcon } from "../icons.js";
 const formatTime = (seconds) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
 
 export function mountPlayerView(controller, audio) {
@@ -10,12 +11,17 @@ export function mountPlayerView(controller, audio) {
   region.setAttribute("aria-label", "Music player");
   region.hidden = true;
   region.innerHTML = `<div class="player-summary"><img class="player-cover" alt="Album cover"><div><strong class="player-track"></strong><p class="player-album"></p></div></div>
-    <div class="player-controls"><button type="button" data-action="previous" aria-label="Previous track">Previous</button><button type="button" data-action="toggle">Play</button><button type="button" data-action="next" aria-label="Next track">Next</button><button type="button" data-action="retry" hidden>Retry</button></div>
-    <div class="player-progress"><label for="music-seek">Seek</label><input id="music-seek" type="range" min="0" max="1" step="1" value="0"><span class="player-time" aria-live="off"></span></div>
-    <label class="player-volume" for="music-volume">Volume <input id="music-volume" type="range" min="0" max="1" step="0.05" value="1"></label>
-    <p class="player-status" role="status" aria-live="polite"></p><p class="player-error" role="alert" hidden></p>`;
+    <div class="player-controls"><button type="button" data-action="previous" aria-label="Previous track" title="Previous track">${musicIcon("previous")}</button><button type="button" data-action="toggle" aria-label="Play" title="Play">${musicIcon("play")}</button><button type="button" data-action="next" aria-label="Next track" title="Next track">${musicIcon("next")}</button><button type="button" data-action="retry" aria-label="Retry" title="Retry" hidden>${musicIcon("retry")}</button></div>
+    <div class="player-progress"><label class="player-sr-only" for="music-seek">Seek</label><input id="music-seek" type="range" min="0" max="1" step="1" value="0"><span class="player-time" aria-live="off"></span></div>
+    <label class="player-volume" for="music-volume" title="Volume">${musicIcon("volume")}<span class="player-sr-only">Volume</span><input id="music-volume" type="range" min="0" max="1" step="0.05" value="1"></label>
+    <p class="player-status player-sr-only" role="status" aria-live="polite"></p><p class="player-error" role="alert" hidden></p>`;
   region.append(audio);
   document.body.insertBefore(region, document.querySelector("mpr-footer"));
+  const heightProperty = "--music-player-height";
+  const resize = new ResizeObserver(() => {
+    document.documentElement.style.setProperty(heightProperty, `${region.getBoundingClientRect().height}px`);
+  });
+  resize.observe(region);
   const find = (selector) => region.querySelector(selector);
   const initialVolume = audio.volume;
   audio.volume = initialVolume === 1 ? 0.5 : 1;
@@ -44,9 +50,16 @@ export function mountPlayerView(controller, audio) {
     if (!state.track) return;
     const busy = ["authorizing", "loading"].includes(state.phase);
     find(".player-track").textContent = state.track.title;
+    find(".player-track").title = state.track.title;
     find(".player-album").textContent = state.album.displayTitle ?? state.album.title;
+    find(".player-album").title = state.album.displayTitle ?? state.album.title;
     find(".player-cover").src = state.album.coverImage;
-    toggle.textContent = ["playing", "buffering"].includes(state.phase) ? "Pause" : "Play";
+    const toggleLabel = ["playing", "buffering"].includes(state.phase) ? "Pause" : "Play";
+    if (toggle.getAttribute("aria-label") !== toggleLabel) {
+      toggle.innerHTML = musicIcon(toggleLabel === "Pause" ? "pause" : "play");
+      toggle.setAttribute("aria-label", toggleLabel);
+      toggle.title = toggleLabel;
+    }
     toggle.disabled = busy || state.phase === "error";
     find('[data-action="previous"]').disabled = !state.previous;
     find('[data-action="next"]').disabled = !state.next;
@@ -74,5 +87,10 @@ export function mountPlayerView(controller, audio) {
   };
   controller.addEventListener("change", render, options);
   render();
-  return () => { events.abort(); region.remove(); };
+  return () => {
+    events.abort();
+    resize.disconnect();
+    region.remove();
+    document.documentElement.style.removeProperty(heightProperty);
+  };
 }

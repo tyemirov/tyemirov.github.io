@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head>
+<script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Gallery Studio | Vadym Tyemirov</title>
+<meta name="description" content="Private gallery library, drafts, publications, and orders.">
+<link rel="canonical" href="https://tyemirov.net/gallery/studio/">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.css">
+<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/css/footer.css"><link rel="stylesheet" href="/gallery/assets/css/studio.css">
+<script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui-config.js" data-mpr-ui-bundle-src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.js"></script>
+<script type="module" src="/gallery/js/studio.js"></script>
+</head><body>
+<a class="skip-link" href="#studio-main">Skip to Studio</a>
+<mpr-header data-config-url="/config-ui.yaml" brand-label="Vadym Tyemirov · Studio" brand-href="/" settings="false" logout-url="/gallery/studio/"></mpr-header>
+<main id="studio-main" class="studio-shell">
+<h1>Gallery Studio</h1>
+<p id="studio-status" role="status" aria-live="polite">Sign in to open the owner workspace.</p>
+<section id="studio-workspace" hidden>
+<div class="studio-toolbar"><button id="studio-save" type="button">Save draft</button><button id="studio-reload" type="button">Reload saved draft</button><button id="studio-preview" type="button">Preview</button><span id="studio-save-state">Saved draft</span></div>
+<p>Draft changes stay private. Export a reviewed publication to update the website through its release process.</p>
+<nav id="studio-tabs" aria-label="Studio areas"><button type="button" data-area="Library" aria-pressed="true">Library</button><button type="button" data-area="Collections" aria-pressed="false">Collections</button><button type="button" data-area="Exhibits" aria-pressed="false">Exhibits</button><button type="button" data-area="Orders" aria-pressed="false">Orders</button></nav>
+<section id="studio-panel" aria-label="Library"></section>
+</section>
+</main>
+<dialog id="studio-preview-dialog" aria-label="Publication preview"><div class="studio-toolbar"><button type="button" id="studio-preview-close">Close preview</button><button type="button" data-preview-width="390">Phone</button><button type="button" data-preview-width="1000">Desktop</button></div><div id="studio-preview-content"></div><label><input type="checkbox" id="studio-reviewed"> I reviewed this draft for publication</label><button type="button" id="studio-export">Export publication</button><p id="studio-export-status" role="status"></p></dialog>
+<mpr-footer sticky="false" id="site-footer" class="site-footer"></mpr-footer>
+</body></html>

@@ -2,6 +2,7 @@ package stream
 
 import (
 	"crypto/rand"
+	_ "embed"
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
@@ -30,8 +31,8 @@ type Config struct {
 	TrustedProxies []string
 }
 
-const cookieName = "__Host-music-session"
-const grantRoute = "/api/playback-grants"
+const cookieName = "__Secure-music-session"
+const localCookieName = "music_development_session"
 const sessionLifetime = 24 * time.Hour
 const minimumGrantLifetime = 30 * time.Minute
 const grantMargin = 15 * time.Minute
@@ -53,17 +54,10 @@ type playbackGrant struct {
 	revoked bool
 	renewal tokenBucket
 }
-type grantResponse struct {
-	GrantID     string    `json:"grantId"`
-	TrackID     string    `json:"trackId"`
-	PlaylistURL string    `json:"playlistUrl"`
-	DurationMS  int64     `json:"durationMs"`
-	ServerTime  time.Time `json:"serverTime"`
-	ExpiresAt   time.Time `json:"expiresAt"`
-}
 type Service struct {
 	counters    Counters
 	config      Config
+	cookie      http.Cookie
 	root        *os.Root
 	origins     map[string]bool
 	mu          sync.Mutex
@@ -81,7 +75,7 @@ type Service struct {
 
 func validOrigin(origin string) bool {
 	parsed, err := url.Parse(origin)
-	return err == nil && parsed.Scheme == "https" && parsed.Host != "" && parsed.Path == "" && parsed.RawQuery == "" && parsed.Fragment == "" && parsed.User == nil
+	return err == nil && (parsed.Scheme == "https" || (parsed.Scheme == "http" && parsed.Hostname() == "localhost")) && parsed.Host != "" && parsed.Path == "" && parsed.RawQuery == "" && parsed.Fragment == "" && parsed.User == nil
 }
 
 // New validates configuration and all active media before accepting traffic.
@@ -102,7 +96,7 @@ func New(config Config) (*Service, error) {
 		proxies = append(proxies, prefix.Masked())
 	}
 	if !validOrigin(config.PublicOrigin) || len(config.AllowedOrigins) == 0 {
-		return nil, fmt.Errorf("configure explicit HTTPS origins")
+		return nil, fmt.Errorf("configure explicit HTTPS or HTTP localhost origins")
 	}
 	origins := make(map[string]bool)
 	for _, origin := range config.AllowedOrigins {
@@ -136,6 +130,11 @@ func New(config Config) (*Service, error) {
 		config.Logger = slog.New(slog.NewJSONHandler(io.Discard, nil))
 	}
 	service := &Service{config: config, root: root, origins: origins, tracks: tracks, sessions: make(map[[32]byte]*browserSession), grants: make(map[string]*playbackGrant), addresses: make(map[netip.Addr]*addressLimit), stop: make(chan struct{})}
+	service.cookie = http.Cookie{Name: cookieName, Path: "/music", Secure: true, HttpOnly: true, SameSite: http.SameSiteStrictMode, MaxAge: int(sessionLifetime.Seconds())}
+	if strings.HasPrefix(config.PublicOrigin, "http:") {
+		service.cookie.Name = localCookieName
+		service.cookie.Secure = false
+	}
 	service.limits = limits
 	service.proxies = proxies
 	service.addressIdle = max(addressRetention, time.Duration(math.Ceil(float64(limits.AddressGrantBurst)/float64(limits.AddressGrantRate)*60))*time.Second)
@@ -196,6 +195,7 @@ func (service *Service) Reload() error {
 }
 
 type responseWriter struct {
+	head bool
 	http.ResponseWriter
 	status  int
 	bytes   int
@@ -216,6 +216,9 @@ func (writer *responseWriter) Write(data []byte) (int, error) {
 	if writer.status == 0 {
 		writer.WriteHeader(http.StatusOK)
 	}
+	if writer.head {
+		return len(data), nil
+	}
 	count, err := writer.ResponseWriter.Write(data)
 	writer.bytes += count
 	return count, err
@@ -229,10 +232,13 @@ func randomValue(size int) (string, error) {
 	return base64.RawURLEncoding.EncodeToString(value), nil
 }
 
+//go:embed contract.openapi.json
+var openAPIContract []byte
+
 func sendError(writer http.ResponseWriter, status int, code string) {
 	writer.Header().Set("Content-Type", "application/json")
 	writer.WriteHeader(status)
-	_ = json.NewEncoder(writer).Encode(map[string]any{"error": map[string]string{"code": code, "message": strings.ReplaceAll(code, "_", " ") + ".", "requestId": writer.Header().Get("X-Request-ID")}})
+	_ = json.NewEncoder(writer).Encode(map[string]string{"code": code, "message": strings.ReplaceAll(code, "_", " ") + ".", "requestId": writer.Header().Get("X-Request-ID")})
 }
 
 func sendJSON(writer http.ResponseWriter, status int, value any) {
@@ -243,7 +249,7 @@ func sendJSON(writer http.ResponseWriter, status int, value any) {
 
 // ServeHTTP exposes the grant API and authorized HLS resources.
 func (service *Service) ServeHTTP(output http.ResponseWriter, request *http.Request) {
-	writer := &responseWriter{ResponseWriter: output, cache: "no-store"}
+	writer := &responseWriter{ResponseWriter: output, cache: "no-store", head: request.Method == http.MethodHead}
 	started := time.Now()
 	route := request.URL.Path
 	requestID, err := randomValue(12)
@@ -278,19 +284,31 @@ func (service *Service) ServeHTTP(output http.ResponseWriter, request *http.Requ
 	if service.origins[origin] {
 		writer.Header().Set("Access-Control-Allow-Origin", origin)
 		writer.Header().Set("Access-Control-Allow-Credentials", "true")
-		writer.Header().Set("Access-Control-Expose-Headers", "Retry-After, Content-Range, Accept-Ranges, X-Request-ID")
+		writer.Header().Set("Access-Control-Expose-Headers", "Retry-After, Content-Range, Accept-Ranges, X-Request-ID, Location, ETag")
 		writer.Header().Set("Vary", "Origin")
 	}
 	if request.Method == http.MethodOptions {
 		service.preflight(writer, request)
 		return
 	}
-	if route == "/healthz" || route == "/readyz" {
-		if request.Method != http.MethodGet {
-			methodError(writer, "GET")
+	if route == schemaPath {
+		if request.Method != http.MethodGet && request.Method != http.MethodHead {
+			methodError(writer, "GET, HEAD, OPTIONS")
 			return
 		}
-		if route == "/readyz" && !service.ready() {
+		writer.Header().Set("Content-Type", "application/json")
+		writer.WriteHeader(http.StatusOK)
+		if request.Method == http.MethodGet {
+			_, _ = writer.Write(openAPIContract)
+		}
+		return
+	}
+	if route == healthPath || route == readinessPath {
+		if request.Method != http.MethodGet && request.Method != http.MethodHead {
+			methodError(writer, "GET, HEAD, OPTIONS")
+			return
+		}
+		if route == readinessPath && !service.ready() {
 			sendError(writer, 503, "media_unavailable")
 			return
 		}
@@ -313,7 +331,7 @@ func (service *Service) ServeHTTP(output http.ResponseWriter, request *http.Requ
 		service.grantResource(writer, request)
 		return
 	}
-	if strings.HasPrefix(route, "/hls/") {
+	if strings.HasPrefix(route, "/music/hls/") {
 		writer.cache = "private, no-store"
 		service.mediaResource(writer, request)
 		return
@@ -322,13 +340,13 @@ func (service *Service) ServeHTTP(output http.ResponseWriter, request *http.Requ
 }
 
 func routeTemplate(route string) string {
-	if strings.HasPrefix(route, "/hls/") {
-		return "/hls/{grantId}/{assetId}/{file}"
+	if strings.HasPrefix(route, "/music/hls/") {
+		return "/music/hls/{grantId}/{assetId}/{file}"
 	}
 	if strings.HasPrefix(route, grantRoute+"/") {
 		return grantRoute + "/{grantId}"
 	}
-	if route == grantRoute || route == "/healthz" || route == "/readyz" {
+	if route == grantRoute || route == healthPath || route == readinessPath {
 		return route
 	}
 	return "unknown"
@@ -352,18 +370,18 @@ func (service *Service) preflight(writer http.ResponseWriter, request *http.Requ
 		parts := strings.Split(strings.TrimPrefix(request.URL.Path, grantRoute+"/"), "/")
 		if len(parts[0]) == 22 {
 			if len(parts) == 1 {
-				allowed = "GET, DELETE, OPTIONS"
+				allowed = "GET, HEAD, DELETE, OPTIONS"
 			} else if len(parts) == 2 && parts[1] == "expiration" {
 				allowed = "PUT, OPTIONS"
 			}
 		}
-	} else if strings.HasPrefix(request.URL.Path, "/hls/") {
-		parts := strings.Split(strings.TrimPrefix(request.URL.Path, "/hls/"), "/")
+	} else if strings.HasPrefix(request.URL.Path, "/music/hls/") {
+		parts := strings.Split(strings.TrimPrefix(request.URL.Path, "/music/hls/"), "/")
 		if len(parts) == 3 && len(parts[0]) == 22 && assetPattern.MatchString(parts[1]) {
 			allowed = "GET, HEAD, OPTIONS"
 		}
-	} else if request.URL.Path == "/healthz" || request.URL.Path == "/readyz" {
-		allowed = "GET, OPTIONS"
+	} else if request.URL.Path == healthPath || request.URL.Path == readinessPath || request.URL.Path == schemaPath {
+		allowed = "GET, HEAD, OPTIONS"
 	}
 	if allowed == "" {
 		sendError(writer, 404, "not_found")

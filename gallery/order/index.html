@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="color-scheme" content="dark" />
+  <title>Your gallery order · Vadym Tyemirov</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/gallery/assets/css/styles.css" />
+  <link rel="stylesheet" href="/gallery/assets/css/order.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.css" />
+  <link rel="stylesheet" href="/assets/css/footer.css" />
+  <script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.js"></script>
+  <script type="module" src="/gallery/js/order.js"></script>
+</head>
+<body class="gallery">
+  <a class="skip-link" href="#order-main">Skip to order</a>
+  <header class="gallery-header">
+    <div class="layout-container gallery-header__inner">
+      <mpr-header brand-label="Vadym Tyemirov · Virtual Gallery" brand-href="/gallery/" settings="false"></mpr-header>
+      <a class="link" href="/gallery/">Back to the gallery</a>
+    </div>
+  </header>
+  <main id="order-main" class="buyer-order" tabindex="-1">
+    <h1>Your gallery order</h1>
+    <p id="order-number" class="order-number"></p>
+    <p id="order-status" role="status" aria-live="polite">Loading order access…</p>
+    <p id="order-error" role="alert" hidden></p>
+    <section id="order-checkout" hidden></section>
+    <form id="order-access" class="order-access">
+      <label for="access-code">Access code</label>
+      <p id="access-help">Enter the private code from checkout or your receipt. Keep it for future downloads.</p>
+      <input id="access-code" type="password" required minlength="43" maxlength="43" pattern="[A-Za-z0-9_\-]{43}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="access-help" />
+      <button type="submit" disabled>Open order</button>
+    </form>
+    <section id="order-details" aria-label="Purchase details" hidden></section>
+    <section id="order-recovery" class="order-access" aria-label="Save order access" hidden>
+      <h2>Keep your order access</h2>
+      <p>Review the order above, then save this code before payment. You will need it if you reload or return later.</p>
+      <label for="created-access-code">Save this access code</label>
+      <input id="created-access-code" type="text" readonly autocomplete="off" spellcheck="false" />
+      <button id="save-order-access" type="button">Save access details</button>
+      <label><input id="accept-created-order" type="checkbox" /> I saved my access code and accept this order</label>
+    </section>
+    <noscript><p>Enable JavaScript to open your order and download purchased files.</p></noscript>
+  </main>
+  <mpr-footer sticky="false" id="site-footer" class="site-footer"></mpr-footer>
+</body>
+</html>

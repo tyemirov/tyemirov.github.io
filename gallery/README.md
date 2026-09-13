@@ -1,99 +1,140 @@
 # Tyemirov's Gallery
 
-A static virtual gallery for exhibiting and selling digital artwork.
+The gallery is a static browser frontend at `/gallery/`.
+It uses HTML, CSS, and JavaScript modules.
 
-## Architecture
+## Current Behavior
 
-The gallery is intentionally a static site.
+The root `data/site.json` file contains the public gallery catalog.
+Each artwork has one record with a permanent identifier.
+Collections and exhibits refer to those identifiers in their own order.
+Collections remain available after an exhibit closes.
 
-- Hosting target: GitHub-hosted static delivery for `/gallery/`
-- Runtime: HTML + CSS + vanilla JavaScript ES modules
-- Data source: local JSON files in `data/`
-- Routing: hash routes such as `#/`, `#/exhibits/:id`, `#/about`, and `#/cart`
-- Commerce: client-side PayPal SDK integration
-- Persistence: basket state in `localStorage`
+The entrance shows the populated Now Showing, Upcoming, Collections, and Past Exhibits groups.
+Each exhibit has dated sections with ordered artwork references.
+Collections and artworks have direct routes.
+The lightbox supports Previous, Next, arrow keys, and Escape.
+The artwork label shows its medium, year, and pixel dimensions.
 
-There is no backend, database, authentication layer, or signed-download service in the current architecture.
+An active offer shows its price, license, included file, and delivery terms.
+The four migrated artworks have no active offers.
+Their previous print, edition, and color-profile claims require owner review.
+The basket stores offer identifiers in `localStorage`.
+The basket links to checkout when all selected offers use one currency.
+Buyer payment requests use the gallery API.
 
-## Local Development
+The `images/full/` files are public display images.
+They are not private sale masters.
 
-Serve the repository over HTTP. Do not open the gallery via `file://`, because the app fetches JSON at runtime.
+## Buyer Orders
 
-From the repository root:
+Checkout sends offer identifiers, the receipt email, and the public catalog digest to the API.
+The API supplies the purchase price and terms.
+The buyer must review these terms and keep the access code before the page shows the PayPal link.
+`Save access details` downloads the order link and its separate access code as a text file.
+If the creation response is lost, `Retry order` uses the same request identity and contents.
+
+Order creation removes the selected offers from the basket.
+Other open gallery tabs receive the basket change.
+If browser storage fails, the created order and its access code remain available.
+
+The buyer opens `/gallery/order/?order=ORDER_ID` and enters the order access secret from checkout or the receipt.
+The page reads the API origin from `/config-site.json`.
+The generated production origin is `https://api.tyemirov.net`.
+This configuration does not deploy the API or activate sales.
+
+The page shows the stored purchase price, license, file specification, and receipt status.
+The buyer can return to PayPal, request server payment capture, or cancel an order before capture starts.
+Payment callbacks do not authorize downloads.
+The page shows downloads only after the server reports verified completion and active entitlements.
+
+Each download requests a new ten-minute grant.
+The client verifies the original image checksum against the purchased revision before it saves the file.
+Expired grants permit a new attempt through the same download control.
+A verified refund prevents subsequent file access.
+The page keeps the purchase details when a request fails.
+
+The page sends access secrets in authorization headers, never in URLs.
+It does not put secrets in browser storage.
+Reload, navigation, and `Close order` remove the secret and private order details from the page.
+A route change cancels pending requests and rejects results from the previous order.
+The page reports malformed responses without their raw contents.
+
+## Local Use
+
+From the repository root, start the local stack:
 
 ```bash
-python3 -m http.server 8080
+make up
 ```
 
-Then open:
+Open [the local gallery](https://localhost:8443/gallery/).
+The stack uses gHTTP and the existing local certificate authority.
+The root README describes the required private music input.
+The gallery API is available at `https://localhost:8445`.
+The local site reads that origin from its prepared API configuration.
+The API keeps private images and drafts in the `gallery-data` volume.
+The local signing key stays outside the public site directory.
+The local gallery uses `--payments=paypal` and `--receipts=pinguin` with the local provider implementations.
+The payment approval page uses `https://localhost:8446` and does not transfer money.
+The local mail sink stores receipts without external email delivery.
+Use `make local-receipts` to inspect those messages.
 
-```text
-http://localhost:8080/gallery/
+Stop the stack with:
+
+```bash
+make down
 ```
 
-## Current Feature Set
+## Source Code
 
-- Homepage with exhibits grouped by date-driven status: `Now Showing`, `Upcoming`, `Closed`
-- Exhibit detail page with artwork grid, museum-style labels, specs drawer, and lightbox
-- Basket with quantity editing, subtotal calculation, and PayPal checkout
-- About page
-- Per-route metadata updates for exhibit pages, including JSON-LD
-- Data-driven catalog from `data/exhibits.json` and site settings from `data/site.json`
+| Path | Purpose |
+| --- | --- |
+| `../data/site.json` | Public artwork, collection, and exhibit records |
+| `images/previews/` | Public card images |
+| `images/full/` | Public lightbox images |
+| `js/core/` | Catalog validation, routes, basket, and HTTP requests |
+| `js/ui/` | Gallery views and metadata |
+| `js/app.js` | Public gallery setup and event handlers |
+| `order/index.html` | Buyer access and purchase page |
+| `/config-site.json` | Public gallery API origin |
+| `js/order.js` | Buyer page state and event handlers |
+| `../tests/gallery/` | Browser integration tests |
 
-## Current Constraints
+## Validation
 
-- The current content schedule determines which status groups appear. If all exhibits are in the past, the homepage will show only `Closed`.
-- Purchased asset delivery is not implemented. `images/purchased/` is a placeholder only.
-- Analytics events are not wired yet.
-- There is no automated test harness in `gallery/` yet.
-- Images are lazy-loaded, but there is no responsive image pipeline or protected media flow.
+Run the public gallery checks:
 
-## Project Layout
-
-```text
-gallery/
-  index.html
-  assets/
-    css/
-    icons/
-  data/
-    exhibits.json
-    site.json
-  images/
-    previews/
-    full/
-    purchased/
-  js/
-    app.js
-    constants.js
-    types.d.js
-    core/
-    ui/
-    utils/
+```bash
+make gallery-browser-test
 ```
 
-## Deployment Notes
+The tests use the repository website fixture and headless browsers.
+They cover independent references, dates, direct routes, image navigation, catalog errors, metadata, and phone layouts.
+Buyer tests use the real gallery API with a local PayPal implementation and a supplied test certificate.
+The tests verify checkout, exact file bytes, refunds, cancellation, expired grants, invalid responses, and private state removal.
+Checkout tests include local payment approval, a lost creation response, changed browser prices, and browser storage failures.
+The browser fixture retrieves the current published shared UI assets.
+These results do not prove hosted authentication or live-provider acceptance.
+The shared homepage checks verify gallery previews and entry links.
 
-- Keep the gallery static unless a concrete requirement cannot be met without a server.
-- Preserve the `/gallery/` path assumption when changing canonical URLs, redirects, or asset paths.
-- Treat the PayPal client ID as public client configuration, not a secret.
+## Remaining Work
 
-## Backend Plan If Needed Later
+Studio provides image preparation, drafts, arrangements, publication export, and owner order operations.
+F002 still requires internal browser review and provider qualification.
+The [Gallery Operating Plan](OPERATING-PLAN.md) defines the complete workflow and its acceptance gates.
+Provider and production acceptance remain separate from local tests.
 
-Add a backend only when the static model becomes insufficient. The likely triggers are:
+## Reviewed Publication Import
 
-1. Verified post-payment fulfillment is required.
-2. Purchased downloads must be protected with expiring links.
-3. Edition inventory must be reserved or decremented centrally.
-4. Analytics or event collection must be stored server-side.
-5. Content publishing requires an admin workflow instead of direct JSON edits.
+1. Export a publication archive from the gallery API.
+2. Run `node scripts/site/import-gallery.mjs ARCHIVE.zip REPOSITORY_ROOT` from the repository root.
+3. Review the changed gallery catalog and public images.
+4. Run `make site-contract-test pages-build`.
 
-Recommended rollout if that happens:
+The import preserves local article bodies and all other source content.
+A stale base digest stops the import before catalog changes.
+Publication retries use the draft ETag and base catalog digest as their identity.
+The database keeps that identity for its lifetime.
 
-1. Keep the frontend static and continue serving the gallery from GitHub-hosted infrastructure.
-2. Add a small API layer separately, not inside the static site, using a lightweight platform such as Cloudflare Workers, Fly.io, or Railway.
-3. Move purchased assets to private object storage and serve them through short-lived signed URLs.
-4. Add PayPal webhook handling for payment verification before fulfillment.
-5. Add a minimal order record and fulfillment log before attempting a full CMS or admin panel.
-
-Until those triggers exist, the right architecture is the current static one.
+The [implementation record](../docs/redesign-implementation.md) lists the retained-draft migration and current Studio evidence.

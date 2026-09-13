@@ -3,9 +3,9 @@ import assert from "node:assert/strict";
 import { request } from "node:https";
 import { readFile } from "node:fs/promises";
 
-const origin = "https://audio.tyemirov.net";
+const origin = "https://api.tyemirov.net";
 const website = "https://tyemirov.net";
-const grantPath = "/api/playback-grants";
+const grantPath = "/music/playback-grants";
 const ca = await readFile("/data/caddy/pki/authorities/local/root.crt");
 
 /** @param {string} path @param {{method?: string, headers?: Record<string, string>, body?: string, localAddress?: string}} [options] */
@@ -27,7 +27,7 @@ function send(path, options = {}) {
 }
 
 const creation = { method: "POST", headers: { Origin: website, "Content-Type": "application/json" }, body: JSON.stringify({ trackId: "test-tone" }) };
-assert.equal((await send("/readyz")).status, 200);
+assert.equal((await send("/music/readyz")).status, 200);
 const preflight = await send(grantPath, { method: "OPTIONS", headers: { Origin: website, "Access-Control-Request-Method": "POST", "Access-Control-Request-Headers": "Content-Type" } });
 assert.equal(preflight.status, 204);
 assert.equal(preflight.headers["access-control-allow-origin"], website);
@@ -37,7 +37,7 @@ assert.equal((await send(grantPath, { ...creation, headers: { ...creation.header
 const created = await send(grantPath, creation);
 assert.equal(created.status, 201);
 const session = created.headers["set-cookie"][0];
-assert.match(session, /^__Host-music-session=/);
+assert.match(session, /^__Secure-music-session=/);
 for (const flag of ["Path=/", "Secure", "HttpOnly", "SameSite=Strict"]) assert.ok(session.includes(flag));
 assert.ok(!session.includes("Domain="));
 const cookie = session.split(";")[0];

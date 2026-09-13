@@ -1,0 +1,22 @@
+{
+  "environments": [{
+    "description": "Production",
+    "origins": ["https://tyemirov.net"],
+    "auth": {
+      "tauthUrl": "https://api.tyemirov.net",
+      "tenantId": "tyemirov-gallery",
+      "logoutPath": "/auth/logout",
+      "sessionPath": "/auth/session",
+      "providers": {
+        "google": {
+          "enabled": true,
+          "clientId": "927328730595-fvjdq04oglsqm13ge2mmm3o0vf9mk4n0.apps.googleusercontent.com",
+          "loginPath": "/auth/google",
+          "noncePath": "/auth/nonce"
+        },
+        "apple": {"enabled": false},
+        "password": {"enabled": false}
+      }
+    }
+  }]
+}
