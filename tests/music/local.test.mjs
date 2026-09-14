@@ -87,7 +87,28 @@ test("make up serves the site, private music, and persistent gallery; make down 
   await writeFile(join(mediaRoot, "selected.json"), JSON.stringify({ tracks: Object.fromEntries(tracks.map((track) => [track.id, record])) }));
   run("git", ["init", "-q"], directory);
   run("git", ["add", "."], directory);
+  // Start the website through its real dependency before stack.mjs can write configuration.
+  const runtime = join(directory, ".local/runtime", project);
+  const preparedSite = join(runtime, "site");
+  await mkdir(preparedSite, { recursive: true });
+  const websiteStartup = spawnSync("docker", ["compose", "-p", project, "-f", "compose.local.yml", "up", "--build", "--detach", "--wait", "website"], {
+    cwd: directory,
+    env: { ...process.env, UP_PORT: String(port), API_PORT: String(mediaPort), PAYMENT_PORT: String(paymentPort), MUSIC_LOCAL_ROOT: mediaRoot, LOCAL_SITE_ROOT: preparedSite, LOCAL_GALLERY_ENV: join(runtime, "gallery.env"), LOCAL_MAIL_ENV: join(runtime, "mail.env"), LOCAL_PAYMENT_ENV: join(runtime, "payment.env"), LOCAL_PAYMENT_CERT_ROOT: join(runtime, "payment-certificate"), GALLERY_GOOGLE_WEB_CLIENT_ID: "fixture.apps.googleusercontent.com" },
+    encoding: "utf8", timeout: 300000, maxBuffer: 4000000,
+  });
+  assert.equal(websiteStartup.status, 0, websiteStartup.stdout + websiteStartup.stderr);
+  const initialSiteConfig = await http(origin + "/config-site.json");
+  const initialUIConfig = await http(origin + "/config-ui.yaml");
+  assert.equal(initialSiteConfig.status, 200);
+  assert.equal(initialUIConfig.status, 200);
+  assert.deepEqual(JSON.parse(initialSiteConfig.body), { apiOrigin: mediaOrigin }, "The first website response must use the local API.");
+  const initialAuth = JSON.parse(initialUIConfig.body).environments[0];
+  assert.deepEqual(initialAuth.origins, [origin]);
+  assert.equal(initialAuth.auth.tauthUrl, mediaOrigin);
+  assert.equal(initialAuth.auth.tenantId, "tyemirov-gallery-development");
   make("up");
+  const websiteContainer = run("docker", ["ps", "--quiet", "--filter", `label=com.docker.compose.project=${project}`, "--filter", "label=com.docker.compose.service=website"]);
+  assert.ok(websiteContainer, "make up must serve static assets through the website container.");
   const ca = await readFile(certificatePath);
   const https = (url, options = {}, body) => http(url, { ca, ...options }, body);
   assert.equal((await https(origin + "/")).status, 200);
