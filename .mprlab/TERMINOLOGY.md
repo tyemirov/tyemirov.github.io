@@ -96,6 +96,9 @@ Give each term one meaning. Use the same term for the same concept in all docume
 Add repository-specific technical nouns below this line.
 
 - `CDN`: A content delivery network that serves public library assets.
+- `CIDR`: An IP address prefix that identifies one address or network range.
+- `DNS`: The system that resolves a public hostname to its network destination.
+- `reverse proxy`: A server that accepts client requests and forwards them to a backend service.
 - `migration`: A bounded change from an obsolete application contract to the current contract.
 - `AAC-LC`: The audio codec profile selected for website music playback.
 - `asset ID`: The SHA-256 identity of one immutable media package.

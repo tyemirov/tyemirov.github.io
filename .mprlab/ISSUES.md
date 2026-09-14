@@ -8,13 +8,180 @@ Format: `- [ ] [B042] (P1) {I007} Title`
 
 ## BugFixes
 
-- [ ] [B004] (P2) Resolve the WebKit Studio order timeout in the full browser suite.
+- [x] [B009] (P2) Correct the Time Series action row width in Linux WebKit.
+  The Gateway adoption CI run measured 396 pixels at a 390-pixel viewport on `/timeseries/`.
+  The failure occurred after `Load Example` and `Generate Report` in `tests/site/refactoring.spec.mjs:51`.
+  The focused Linux WebKit rerun reproduced the same width without a source change.
+  The retained regression traces are under `output/playwright/b004-b009-red/music-results/`.
+
+  The action row kept all three buttons on one line and pushed `Load Example` beyond the viewport.
+  The action row now permits wrapping without hiding content or changing the width assertion.
+  The browser assertion now reports the page path and overflowing elements.
+
+  Validation: The initial Linux WebKit regression reproduced the overflow before the CSS change.
+  Run `make music-browser-test MUSIC_BROWSER_ARGS='--project=webkit tests/site/refactoring.spec.mjs:33'` in the Linux CI image.
+  The corrected B004 and B009 checks passed all eight cases across four browser projects.
+  Final validation: `make music-ci-container` passed, including 583 browser cases and 21 explicit skips.
+  The complete log is `output/playwright/b004-b009-ci-final.log`.
+
+- [ ] [B008] (P2) Diagnose the intermittent load-test segment count.
+  The shared API CI run failed the assertion `evidence.requests.segment.count >= 8` in `tests/music/load.test.mjs`.
+  The load command returned success, but the test did not retain its temporary report after the assertion failed.
+  The focused `make music-load-test` rerun passed without a code change.
+  A separate run recorded eight segment requests, eight seek requests, and no HTTP or network errors.
+  The cause of the first failure is unknown.
+  Validation: Reproduce the failure with a retained report before changing the scheduler or its acceptance checks.
+
+- [x] [B007] (P2) Resolve one published shared UI release for browser fixtures.
+  Goal: Test one complete published UI release when mutable CDN aliases disagree.
+  The shared API validation received `mpr-ui-config.js` and `mpr-ui.js` from version `4.1.0`, but CSS from `4.0.0`.
+  `make local-test` failed with `shared_ui_mixed_published_versions`.
+  The browser CI fixture failed on the same prerequisite, so that run was stopped.
+  The explicit `4.1.0` asset URLs all returned version `4.1.0`.
+  The fixture now resolves the release once from the configuration asset and retrieves the other assets by that version.
+  It rejects an invalid release version and keeps its mixed-version check.
+  This change does not qualify production CDN convergence or change application authentication.
+  Validation: `make local-test` passed all four cases with published release `4.1.0`.
+  The shared-origin `make ci` run passed, including 583 browser cases and 21 explicit skips.
+
+- [x] [B006] (P2) Wait for completed navigation before album layout checks.
+  Goal: Measure the album layout after the browser completes navigation.
+  The B005 CI run failed the WebKit album-navigation test at a 390-pixel viewport.
+  The page measured 3,008 pixels while `document.readyState` was `interactive` and the album layout was `block`.
+  After the load event, the same page measured 390 pixels and used its declared grid layout.
+  The original focused test failed twice in three runs.
+  A temporary diagnostic confirmed the transition without a stylesheet change.
+  The corrected test waits for the navigation load event before its existing width assertion.
+  It does not increase the timeout or change the expected width.
+  Validation: The corrected focused WebKit test passed all three runs.
+  Command: `make music-browser-test MUSIC_BROWSER_ARGS='tests/site/navigation.spec.mjs --project=webkit --grep "album covers" --repeat-each=3'`.
+  Final validation: `make ci` passed, including 583 browser cases and 21 explicit skips.
+
+- [-] [B005] (P1) Remove manual proxy-address configuration from the shared music API.
+  Goal:
+  Expose Gallery and music through `api.tyemirov.net` without an operator-maintained music proxy list.
+  The owner replaced the dedicated streaming hostname with this shared API decision.
+  TAuth continues to use its established integration, tenant, and routing contract.
+  This issue corrects the deployment boundary exposed during F001 acceptance after B001.
+
+  Observed failure:
+  On September 13, 2026, `make deploy` failed for application commit `310fff6e0114551bbef2cb1f796848471dd31c18`.
+  Gateway `v4.1.0` used source commit `2bdddf6dc69671aa7331ed84c4277516215b706a`.
+  The private-value lookup returned `app_lifecycle.private_binding_absent` during deployment preparation.
+  `MUSIC_TRUSTED_PROXIES` was absent from the canonical `.mprlab/deploy/.env` file.
+  Both Gallery bindings were present and nonempty.
+  The `v1.1.0` release and publication receipts already existed.
+  Expected: Caddy supplies the network boundary without a manually copied proxy address.
+
+  Current application contract:
+  - Use `api.tyemirov.net/gallery` and `api.tyemirov.net/music` for the application APIs.
+  - Keep one generated `apiOrigin` in `/config-site.json`.
+  - Remove the separate streaming hostname and `musicOrigin` field without an alias.
+  - Keep the existing TAuth integration and private inputs.
+  - Keep media behind service authorization and the private backend port.
+  - Keep the host-only Secure, HttpOnly, `SameSite=Strict` music cookie with `Path=/music`.
+  - Apply all request-rate limits at Caddy without application proxy CIDRs.
+  - Remove service request quotas for grant creation, renewal, and media.
+  - Keep service authorization and session, grant, and concurrent-response capacity.
+  - Return `503 media_unavailable` for concurrent-response capacity and `409 grant_limit` for active-grant capacity.
+  - Keep sealed receipts and use the canonical lifecycle for a corrected application commit.
+
+  Required Caddy policy:
+  The intended music limit is 6,000 requests per connection address in a 60-second window.
+  It counts all requests under `/music`, including preflight, grants, playlists, and segments.
+  The target is 100 listeners behind one address.
+  Six-second segments need approximately 1,000 requests per minute for that group during continuous playback.
+  The policy leaves capacity for startup, seeking, and renewal.
+  Gallery and TAuth requests must not share this music limit.
+  Caller-supplied forwarding headers must not select the address limit.
+  Caddy rate responses must include credentialed CORS and expose `Retry-After`.
+  The player must honor that header without an application error body.
+  The old service address policy counted only grant creation, at 60 per minute with a burst of 20.
+  The two policies are not equivalent.
+
+  Gateway adoption:
+  Gateway B568 and I245 are implemented in installed runtime `v4.2.0`, source `5d50c59d986d515166e6db6cf0deeb2a4cc3cf5d`.
+  Direct runtime validation passed on September 14, 2026.
+  The selected music handler now declares its 6,000-request budget and exact credentialed browser origins.
+  Gallery and TAuth retain their existing handler policies.
+  A hostname-wide budget remains a valid alternative policy, but this application selects an independent music budget.
+  The CI container now installs Gateway `v4.2.0`.
+
+  The earlier dedicated-host trial accepted all 6,001 requests despite its declared limit.
+  The corrected Gateway applies each declared limit before its selected upstream handler.
+  `docs/b005-gateway-rate-limit.md` records the historical defect and current installed-runtime qualification.
+
+  Validation evidence:
+  The initial lifecycle regression reproduced the missing proxy binding with valid Gallery inputs.
+  The service regression initially rejected the twenty-first distinct session behind one address.
+  Both corrected checks passed before the shared-origin revision.
+  The earlier dedicated-host trial passed real playback in Chromium, Firefox, and WebKit.
+  Its final `make ci` run passed 583 browser cases and skipped 21 cases after the B006 test correction.
+
+  The shared-origin Pages regression initially rejected the extra `musicOrigin` field.
+  The corrected Pages build and local-preparation checks pass with only `apiOrigin`.
+  The shared-origin isolated test passes private-port isolation, TLS, CORS, byte ranges, grant removal, and renewal.
+  One hundred clients behind one address obtain grants and media.
+  Chromium, Firefox, and WebKit pass playback, seeking, and reload through `api.tyemirov.net`.
+  The music cookie does not accompany Gallery paths.
+
+  The first shared-origin traffic trial failed because the required Caddy policy was absent.
+  The shared-origin revision passed final repository CI with 583 browser cases and 21 explicit skips.
+  The owner then assigned all request-rate limits to Caddy.
+  HTTP regressions reproduced the service grant-creation, renewal, and media quotas before their removal.
+  The corrected service retains capacity limits and passes those HTTP regressions.
+  Final repository CI for quota removal passed, including 583 browser cases and 21 explicit skips.
+  Both container tests passed with the corrected service.
+  The player cooldown tests passed with plain-text proxy responses.
+
+  The installed `v4.2.0` host regression first accepted all 6,001 requests without the application handler policy.
+  After the declaration change, `make music-host-test` passed with the installed package's tasks and Caddy template.
+  It verified the request limit, positive `Retry-After`, both permitted browser origins, and rejection of forged address headers.
+  A distinct connection address retained its own budget.
+  Gallery and auth probe upstreams remained available after the music budget was exhausted.
+  These probes qualify route isolation, not Gallery business operations or live TAuth login.
+
+  Playback, seeking, reload, private-port isolation, TLS, protected media, and 100 shared-address listeners passed.
+  The first Linux CI run with Gateway `v4.2.0` passed 581 browser cases, with 21 explicit skips and two failures.
+  B004 records the Studio order timeout, and B009 records the Time Series report width.
+  The focused Linux rerun passed the Studio case and reproduced the report width failure.
+  The separate Gallery API, contract, and static checks passed after browser CI stopped.
+  The complete CI log is `output/playwright/b005-v420-ci-final.log`.
+
+  B004 corrected the order test to use pagination beyond its first 50 records.
+  B009 corrected the Time Series action row to wrap on narrow screens.
+  Both regressions failed before correction and passed all eight focused cases across four browser projects afterward.
+  Final `make music-ci-container` passed, including 583 browser cases, 21 explicit skips, and the Gallery backend checks.
+  The current CI log is `output/playwright/b004-b009-ci-final.log`.
+
+  Remaining acceptance:
+  - Qualify production DNS, TLS, routing, media, and capacity through an authorized rollout.
+  B005 stays open until the required acceptance checks pass.
+  Existing sealed receipts and production deployment are unchanged.
+
+- [x] [B004] (P2) Resolve the WebKit Studio order timeout in the full browser suite.
   The full browser suite timed out in the owner order test at `tests/gallery/studio.spec.mjs:112`.
   The test waited for the created order and its `Open order` button.
   Expected: The owner can open the created order and verify access reissue and logout.
   Validation: The full run had 574 passed tests, 21 skipped tests, and one failure.
   The isolated retry passed with `make music-browser-test MUSIC_BROWSER_ARGS='--project=webkit tests/gallery/studio.spec.mjs:108'`.
-  Investigate the full-suite condition before a fix. No browser code changed during the Gateway update.
+
+  The September 14 Gateway adoption run reproduced this timeout in Linux WebKit.
+  That run passed 581 browser cases, skipped 21 cases, and also failed B009.
+  The focused Linux rerun passed this Studio case without a source change.
+
+  The API sorts orders by UUID and returns 50 records per page.
+  The test assumed that its new order appeared on the first page, despite orders from earlier tests.
+  A regression created 51 orders and selected the largest UUID, which reproduced the timeout in isolation.
+  The corrected test uses `Load more orders` until the target appears.
+  It waits for each response and its rendered records before it requests another page.
+  The 51-order setup preserves coverage beyond the first page in an isolated run.
+
+  The application pagination contract and test timeout remain unchanged.
+  Validation: The corrected B004 and B009 checks passed all eight cases across four browser projects.
+  Final `make music-ci-container` passed, including 583 browser cases and 21 explicit skips.
+  The Studio case passed in the full WebKit run in 1.5 seconds.
+  The complete log is `output/playwright/b004-b009-ci-final.log`.
 
 
 - [x] [B003] (P2) Include required site files in the CI image.

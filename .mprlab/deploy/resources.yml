@@ -7,7 +7,6 @@ mprlab_resources:
     - kind: private_values
       id: private
       bindings:
-        trusted-proxies: MUSIC_TRUSTED_PROXIES
         gallery-tauth-signing-key: GALLERY_TAUTH_SIGNING_KEY
         gallery-google-web-client-id: GALLERY_GOOGLE_WEB_CLIENT_ID
     - kind: tauth_tenant
@@ -62,10 +61,6 @@ mprlab_resources:
             - https://api.tyemirov.net
             - --allowed-origins
             - https://tyemirov.net,https://www.tyemirov.net
-          environment:
-            MUSIC_TRUSTED_PROXIES:
-              resource: private
-              output: trusted-proxies
           mounts:
             - volume: media
               target: /media
@@ -183,6 +178,15 @@ mprlab_resources:
         - id: music
           path_prefix: /music
           upstream: tyemirov-site.music-http
+          access:
+            rate_limit:
+              events: 6000
+              window_seconds: 60
+            browser:
+              allowed_origins:
+                - https://tyemirov.net
+                - https://www.tyemirov.net
+              allow_credentials: true
         - id: gallery
           path_prefix: /gallery
           upstream: tyemirov-site.gallery-http
@@ -191,3 +195,4 @@ mprlab_resources:
           upstream: tauth.http
       tls:
         mode: automatic
+      access: {}
