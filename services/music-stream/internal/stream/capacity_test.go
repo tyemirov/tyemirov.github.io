@@ -39,32 +39,6 @@ func TestConfiguredCapacityPreservesExistingAccess(t *testing.T) {
 	fixture.create(t, nil)
 }
 
-func TestTrustedProxyAndBoundedAddressState(t *testing.T) {
-	fixture := prepareFixture(t, func(config *stream.Config) {
-		limits := stream.DefaultLimits()
-		limits.AddressGrantBurst = 1
-		limits.ClientAddresses = 2
-		config.Limits = &limits
-		config.TrustedProxies = []string{"127.0.0.1/32"}
-	})
-	headers := map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"}
-	for _, entry := range []struct {
-		address string
-		status  int
-	}{{"203.0.113.1", 201}, {"203.0.113.1", 429}, {"203.0.113.2, 127.0.0.1", 201}, {"203.0.113.3", 503}, {"invalid", 400}} {
-		headers["X-Forwarded-For"] = entry.address
-		response := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, headers)
-		if response.StatusCode != entry.status {
-			t.Fatalf("proxy address %s: got %d want %d", entry.address, response.StatusCode, entry.status)
-		}
-	}
-	fixture.now.Add(121)
-	headers["X-Forwarded-For"] = "203.0.113.3"
-	if fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, headers).StatusCode != 201 {
-		t.Fatal("idle address state was not released")
-	}
-}
-
 type heldResponse struct {
 	http.ResponseWriter
 	entered chan<- struct{}
@@ -135,12 +109,12 @@ func TestConcurrentMediaResponsesReleaseCapacity(t *testing.T) {
 				path, credential = otherPlaylist.Path, otherCookie
 			}
 			response := fixture.request(t, "GET", path, nil, credential, nil)
-			if response.StatusCode != 429 || response.Header.Get("Retry-After") == "" {
+			if response.StatusCode != 503 || response.Header.Get("Retry-After") != "" {
 				t.Errorf("concurrent %s limit: got %d", boundary, response.StatusCode)
 			}
 			body, _ := io.ReadAll(response.Body)
-			if !strings.Contains(string(body), "rate_limited") {
-				t.Error("missing typed limit response")
+			if !strings.Contains(string(body), "media_unavailable") {
+				t.Error("missing typed capacity response")
 			}
 			close(release)
 			released = true

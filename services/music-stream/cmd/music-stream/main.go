@@ -17,8 +17,6 @@ import (
 	"github.com/tyemirov/tyemirov.github.io/services/music-stream/internal/stream"
 )
 
-const trustedProxiesEnvironment = "MUSIC_TRUSTED_PROXIES"
-
 func main() {
 	logger := slog.New(slog.NewJSONHandler(os.Stderr, nil))
 	if err := run(logger); err != nil {
@@ -41,12 +39,8 @@ func run(logger *slog.Logger) error {
 		value *int
 		name  string
 	}{
-		{&limits.AddressGrantRate, "address-grants-per-minute"}, {&limits.AddressGrantBurst, "address-grant-burst"},
-		{&limits.SessionGrantRate, "session-grants-per-minute"}, {&limits.SessionGrantBurst, "session-grant-burst"},
-		{&limits.GrantRenewalRate, "grant-renewals-per-minute"}, {&limits.GrantRenewalBurst, "grant-renewal-burst"},
-		{&limits.SessionMediaRate, "session-media-per-minute"}, {&limits.SessionMediaBurst, "session-media-burst"},
 		{&limits.Sessions, "max-sessions"}, {&limits.Grants, "max-grants"}, {&limits.SessionGrants, "max-session-grants"},
-		{&limits.ClientAddresses, "max-client-addresses"}, {&limits.SessionMediaResponses, "max-session-media-responses"}, {&limits.MediaResponses, "max-media-responses"},
+		{&limits.SessionMediaResponses, "max-session-media-responses"}, {&limits.MediaResponses, "max-media-responses"},
 	} {
 		flag.IntVar(entry.value, entry.name, *entry.value, "Positive service limit")
 	}
@@ -57,11 +51,7 @@ func run(logger *slog.Logger) error {
 	if (*certificate == "") != (*key == "") {
 		return fmt.Errorf("supply both TLS certificate and key")
 	}
-	var proxies []string
-	if trustedProxies := os.Getenv(trustedProxiesEnvironment); trustedProxies != "" {
-		proxies = strings.Split(trustedProxies, ",")
-	}
-	service, err := stream.New(stream.Config{MediaRoot: *root, IndexPath: *index, AllowlistPath: *allowlist, PublicOrigin: *origin, AllowedOrigins: strings.Split(*allowed, ","), Logger: logger, Limits: &limits, TrustedProxies: proxies})
+	service, err := stream.New(stream.Config{MediaRoot: *root, IndexPath: *index, AllowlistPath: *allowlist, PublicOrigin: *origin, AllowedOrigins: strings.Split(*allowed, ","), Logger: logger, Limits: &limits})
 	if err != nil {
 		return err
 	}

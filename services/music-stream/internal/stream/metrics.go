@@ -8,7 +8,6 @@ type Counters struct {
 	ActiveSessions   int    `json:"activeSessions"`
 	ActiveGrants     int    `json:"activeGrants"`
 	MediaResponses   int    `json:"mediaResponses"`
-	TrackedAddresses int    `json:"trackedAddresses"`
 }
 
 // Snapshot returns bounded aggregate data without listener or package identities.
@@ -29,6 +28,5 @@ func (service *Service) Snapshot() Counters {
 		}
 	}
 	counters.MediaResponses = service.responses
-	counters.TrackedAddresses = len(service.addresses)
 	return counters
 }

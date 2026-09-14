@@ -69,9 +69,6 @@ func (service *Service) createGrant(writer *responseWriter, request *http.Reques
 	service.mu.Lock()
 	defer service.mu.Unlock()
 	service.expire(now)
-	if !service.admitAddress(writer, request, now) {
-		return
-	}
 	media, exists := service.tracks[input.TrackID]
 	if !exists {
 		sendError(writer, 404, "not_found")
@@ -92,12 +89,8 @@ func (service *Service) createGrant(writer *responseWriter, request *http.Reques
 		}
 		raw = newRaw
 		key = sha256.Sum256([]byte(raw))
-		session = &browserSession{expires: now.Add(sessionLifetime), creation: newBucket(now, service.limits.SessionGrantBurst), media: newBucket(now, service.limits.SessionMediaBurst)}
+		session = &browserSession{expires: now.Add(sessionLifetime)}
 		service.sessions[key] = session
-	}
-	if delay := session.creation.take(now, service.limits.SessionGrantRate, service.limits.SessionGrantBurst); delay > 0 {
-		rejectRate(writer, delay)
-		return
 	}
 	active := 0
 	for _, grant := range service.grants {
@@ -118,7 +111,7 @@ func (service *Service) createGrant(writer *responseWriter, request *http.Reques
 		sendError(writer, 503, "media_unavailable")
 		return
 	}
-	grant := &playbackGrant{id: id, session: key, trackID: input.TrackID, media: media, created: now, expires: now.Add(lifetime(media)), renewal: newBucket(now, service.limits.GrantRenewalBurst)}
+	grant := &playbackGrant{id: id, session: key, trackID: input.TrackID, media: media, created: now, expires: now.Add(lifetime(media))}
 	service.grants[id] = grant
 	session.expires = now.Add(sessionLifetime)
 	service.setSessionCookie(writer, raw)
@@ -200,10 +193,6 @@ func (service *Service) grantResource(writer *responseWriter, request *http.Requ
 			sendJSON(writer, 200, service.response(grant, now))
 			return
 		}
-		if delay := grant.renewal.take(now, service.limits.GrantRenewalRate, service.limits.GrantRenewalBurst); delay > 0 {
-			rejectRate(writer, delay)
-			return
-		}
 		grant.expires = expiration.ExpiresAt.UTC()
 		service.sessions[grant.session].expires = now.Add(sessionLifetime)
 		_, raw, _ := service.sessionKey(request)
@@ -244,12 +233,7 @@ func (service *Service) mediaResource(writer *responseWriter, request *http.Requ
 	session := service.sessions[grant.session]
 	if session.responses >= service.limits.SessionMediaResponses || service.responses >= service.limits.MediaResponses {
 		service.mu.Unlock()
-		rejectRate(writer, time.Second)
-		return
-	}
-	if delay := session.media.take(service.config.Now(), service.limits.SessionMediaRate, service.limits.SessionMediaBurst); delay > 0 {
-		service.mu.Unlock()
-		rejectRate(writer, delay)
+		sendError(writer, http.StatusServiceUnavailable, "media_unavailable")
 		return
 	}
 	session.responses++
