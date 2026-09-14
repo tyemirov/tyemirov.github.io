@@ -6,7 +6,7 @@ Status: Implementation in progress under F001. B001 is closed. Production qualif
 Current evidence: [Implementation validation](private-hls-validation.md).
 Repository: `/Users/tyemirov/Development/tyemirov.github.io`.
 Website: `https://tyemirov.net`.
-Proposed media origin: `https://audio.tyemirov.net`.
+Selected media origin: `https://api.tyemirov.net`.
 
 ## 1. Outcome and authority
 
@@ -106,7 +106,7 @@ Browser
   |
   | HTTPS API and HLS requests, with browser cookie
   v
-Caddy: audio.tyemirov.net
+Caddy: api.tyemirov.net
   |
   | proxy all application requests
   v
@@ -193,11 +193,11 @@ Accept existing Unicode display text without normalization or translation.
 Use text nodes for titles and labels.
 Keep existing authored note markup within an explicit trusted-content boundary.
 
-Add one public config document at `music/player-config.json`:
+Add one public config document at `/config-site.json`:
 
 ```json
 {
-  "apiOrigin": "https://audio.tyemirov.net"
+  "apiOrigin": "https://api.tyemirov.net"
 }
 ```
 
@@ -343,7 +343,7 @@ Keep the raw value out of server logs, JavaScript, URLs, and API response bodies
 Set this cookie from the media origin:
 
 ```http
-Set-Cookie: __Host-music-session=<opaque-value>; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=86400
+Set-Cookie: __Secure-music-session=<opaque-value>; Path=/music; Secure; HttpOnly; SameSite=Strict; Max-Age=86400
 ```
 
 Omit the `Domain` attribute.
@@ -419,11 +419,11 @@ Set `Cache-Control: no-store` on API responses and errors.
 
 | Method and path | Input | Success | Main failures |
 | --- | --- | --- | --- |
-| `POST /api/playback-grants` | JSON `trackId`, permitted Origin, optional existing cookie | `201`, grant body, Location, session cookie | `400`, `403`, `404`, `409`, `429`, `503` |
-| `GET /api/playback-grants/{grantId}` | Cookie belonging to the grant | `200`, current grant state | `401`, `404`, `410` |
-| `PUT /api/playback-grants/{grantId}/expiration` | JSON `expiresAt`, cookie, permitted Origin | `200`, renewed grant body | `400`, `401`, `403`, `404`, `410`, `429` |
-| `DELETE /api/playback-grants/{grantId}` | Cookie, permitted Origin | `204` | `401`, `403`, `404` |
-| `GET` or `HEAD /hls/{grantId}/{assetId}/{file}` | Valid cookie and active matching grant | `200` or valid range response | `401`, `404`, `410`, `416`, `429` |
+| `POST /music/playback-grants` | JSON `trackId`, permitted Origin, optional existing cookie | `201`, grant body, Location, session cookie | `400`, `403`, `404`, `409`, `429`, `503` |
+| `GET /music/playback-grants/{grantId}` | Cookie belonging to the grant | `200`, current grant state | `401`, `404`, `410` |
+| `PUT /music/playback-grants/{grantId}/expiration` | JSON `expiresAt`, cookie, permitted Origin | `200`, renewed grant body | `400`, `401`, `403`, `404`, `410`, `429` |
+| `DELETE /music/playback-grants/{grantId}` | Cookie, permitted Origin | `204` | `401`, `403`, `404` |
+| `GET` or `HEAD /music/hls/{grantId}/{assetId}/{file}` | Valid cookie and active matching grant | `200` or valid range response | `401`, `404`, `410`, `416`, `429`, `503` |
 | `GET /healthz` | None | `200`, process liveness | `503` |
 | `GET /readyz` | None | `200`, validated catalog and media state | `503` |
 
@@ -441,7 +441,7 @@ Creation and renewal response:
 {
   "grantId": "<grant-id>",
   "trackId": "soliloquies-vol-i-01",
-  "playlistUrl": "https://audio.tyemirov.net/hls/<grant-id>/<asset-id>/index.m3u8",
+  "playlistUrl": "https://api.tyemirov.net/music/hls/<grant-id>/<asset-id>/index.m3u8",
   "durationMs": 241360,
   "serverTime": "2026-09-08T20:00:00Z",
   "expiresAt": "2026-09-08T20:30:00Z"
@@ -467,7 +467,7 @@ Use the same `404` when a grant belongs to another session.
 Use `410 grant_expired` for an expired grant belonging to the supplied session.
 Use `410 track_unavailable` when the track is disabled after grant creation.
 Use `409 grant_limit` when the session has eight active grants.
-Use `429 rate_limited` with `Retry-After` for a request rate limit.
+Handle Caddy `429` responses through the `Retry-After` header without an application error body.
 Use `503 media_unavailable` for missing active package bytes or service capacity failure.
 Make deletion idempotent for a known session's already deleted grant until its original expiry.
 Expire the deletion record with the same bounded cleanup process.
@@ -546,23 +546,30 @@ Keep package directories outside Caddy static-file routes.
 Keep shared HTTP caching disabled for protected media in this release.
 An OS file cache can still accelerate authorized reads.
 
-Trust client address headers only from the configured gateway proxy boundary.
-Derive the address from the connection when the peer is outside that boundary.
-Never trust an arbitrary public `X-Forwarded-For` value.
+Apply all request-rate limits at Caddy with its connection address.
+Ignore caller-supplied address headers for this limit.
+Keep the backend port on the Gateway private network.
+Do not require an application proxy-address list.
 
 Use these initial limits as configuration defaults:
 
 | Boundary | Limit | Behavior |
 | --- | --- | --- |
-| Grant creation per client address | 60 per minute, burst 20 | `429` with `Retry-After` |
-| Grant creation per browser session | 20 per minute, burst 5 | `429` with `Retry-After` |
-| Renewal per grant | 2 per minute, burst 1 | `429` with `Retry-After` |
-| Media requests per browser session | 600 per minute, burst 60 | `429` with `Retry-After` |
-| Concurrent media responses per session | 8 | `429` until capacity is available |
+| Music path requests per client address at Caddy | 6,000 in a 60-second window | `429` with `Retry-After` |
+| Active browser sessions | 10,000 | `503 media_unavailable` |
+| Retained grants | 80,000 | `503 media_unavailable` |
+| Active grants per browser session | 8 | `409 grant_limit` |
+| Concurrent media responses per session | 8 | `503 media_unavailable` |
+| Concurrent media responses per service | 256 | `503 media_unavailable` |
 | JSON body | 1 KiB | `413` |
 | Request headers | 16 KiB | HTTP parser rejection |
 
-Implement rate limits as token buckets with bounded key retention.
+Keep authorization and capacity checks in the service.
+Do not keep service request quotas, token buckets, or rate-limit CLI options.
+Use a separate Caddy window for the music path.
+Expose `Retry-After` through credentialed CORS on Caddy rate responses.
+Gateway `v4.2.0` supports this limit through the music handler's `access` policy.
+Use B005 and the operations runbook for the capacity rationale and installed-runtime evidence.
 Measure seek behavior and shared-address households before changing these defaults.
 These limits permit browser prefetch and do not enforce real-time listening speed.
 Bound total simultaneous responses for the host separately from individual session limits.
@@ -686,7 +693,7 @@ Paths below describe planned work. They are not implementation evidence.
 | `music/player/native-engine.js` | Native HLS adapter |
 | `music/player/hls-engine.js` | hls.js adapter |
 | `music/player/view.js` | Semantic controls and accessible status |
-| `music/player-config.json` | Public media origin |
+| `/config-site.json` | Public Gallery and music origins |
 | `music/player.css` | Shared player layout |
 | `music/dist/` | Generated player assets in the Pages artifact |
 | `music/index.html` and album entry documents | Module bootstrap, header, footer, player container |
@@ -757,7 +764,7 @@ If a supported engine fails credentialed playback, resolve that boundary before 
 1. Implement config, readiness, browser sessions, and playback grants.
 2. Implement all JSON endpoints and error codes in section 7.
 3. Implement authorized file responses and range handling.
-4. Implement CORS, proxy address validation, and bounded rate limits.
+4. Implement CORS, service capacity limits, and the declared Caddy address limit.
 5. Implement expiration, track disablement, and session cleanup.
 6. Verify real HTTP behavior with controlled clocks and a real package directory.
 
@@ -817,7 +824,7 @@ Each row requires observable evidence through the stated public boundary.
 | A18 | Native media without Origin | Valid cookie and grant authorize the media request |
 | A19 | Range and HEAD | Authorization precedes range bytes, size information, and conditional responses |
 | A20 | Traversal and symlinks | Requests cannot escape the validated package |
-| A21 | Rate limits | Typed `429` and correct retry behavior without uncontrolled loops |
+| A21 | Rate limits | Caddy `429` and correct retry behavior without uncontrolled loops |
 | A22 | Resource exhaustion | Session, grant, and limiter memory stay bounded |
 | A23 | Rapid track clicks | Stale responses cannot replace the final selection |
 | A24 | Multiple tabs | One tab's track change does not revoke another tab's grant |
@@ -934,8 +941,8 @@ The media feature needs these application surfaces after that prerequisite is re
 | Website | Existing domain on GitHub Pages, with `gh-pages` publication |
 | Media service | Immutable application image, one instance, exact placement group |
 | Private storage | Retained `tyemirov-site-music-media` volume at `/media`, with validated `selected.json` and `allowlist.json` |
-| Media origin | Caddy route for `audio.tyemirov.net` to the application service |
-| Configuration | Catalog allowlist, media root, exact Origins, limits, and `MUSIC_TRUSTED_PROXIES` from the private environment file |
+| Media origin | Shared Caddy route at `api.tyemirov.net`, with `/music` assigned to the music service |
+| Configuration | Catalog allowlist, media root, exact Origins, service limits, and the declared Caddy traffic policy |
 | Health | Process, readiness, public HTTPS, and real media authorization probes |
 | Operator data path | Private transfer and activation procedure for validated packages |
 
@@ -983,7 +990,7 @@ Coordinate website and backend catalog updates so a newly visible Play control a
 | Input or decision | Proposed default | When required |
 | --- | --- | --- |
 | Public complete-song playback | Anonymous complete tracks | Before implementation scope acceptance |
-| Media hostname | `audio.tyemirov.net` | Before production DNS and TLS qualification |
+| Media hostname | `api.tyemirov.net` | Before production DNS and TLS qualification |
 | Backend ownership | `services/music-stream/` in this repository | Before backend scaffolding |
 | Initial recordings | One owner-selected track, then validated catalog recordings | Before real media preparation |
 | Source location and track mapping | Owner-supplied private files mapped to permanent IDs | Before real media preparation |

@@ -27,7 +27,7 @@ I002, I003, I004, and I005 retain their existing acceptance criteria.
 | Website | `https://tyemirov.net` |
 | Public sections | `/music/`, `/gallery/`, `/articles/` |
 | Articles | Full local text, with a visible source link |
-| API origin | `https://api.tyemirov.net` |
+| Application API origin | `https://api.tyemirov.net` |
 | Gallery tenant | `tyemirov-gallery` |
 | Studio owner | `vadym@tyemirov.net` |
 | Google web client ID | `927328730595-fvjdq04oglsqm13ge2mmm3o0vf9mk4n0.apps.googleusercontent.com` |
@@ -78,7 +78,7 @@ The existing gateway preserves each path prefix.
 Each service owns its complete public paths.
 The selected manifest needs no path rewrite field.
 
-1. Replace the two application hostname routes with one `api.tyemirov.net` route.
+1. Keep Gallery and music on `api.tyemirov.net`.
 2. Assign `/music` to `tyemirov-site.music-http`.
 3. Assign `/gallery` to `tyemirov-site.gallery-http`.
 4. Assign `/auth` to the verified TAuth HTTP capability.
@@ -310,13 +310,13 @@ Artwork without an offer remains visible and cannot enter checkout.
 
 The website loads one application config at `/config-site.json`.
 Its closed shape is `{apiOrigin}`.
-For production, the value is `https://api.tyemirov.net`.
+Production uses `https://api.tyemirov.net` for Gallery and music.
 The value contains no path, query, fragment, user information, or secret.
 API paths derive from the generated application contracts.
 
-1. Generate `apiOrigin` from the selected API route in the deployment manifest.
-2. Reject zero or multiple matching application API origins during generation.
-3. Use the same origin for the music public-origin argument and gallery generated links.
+1. Generate `apiOrigin` from the shared Gallery and music route.
+2. Reject a declaration that puts these services on separate routes.
+3. Match the music public-origin argument and Gallery links to `apiOrigin`.
 4. Remove `music/player-config.json` and `gallery/api-config.json` during cutover.
 5. Keep `/config-ui.yaml` as the shared authentication input.
 6. Use the published nested `mpr-ui` authentication schema without an application-specific copy.
@@ -358,7 +358,8 @@ The Google provider must register the exact website origins used by production a
 
 ## Application API Routes
 
-All paths below are relative to `https://api.tyemirov.net`.
+Gallery and music paths use `https://api.tyemirov.net`.
+TAuth continues to use its existing integration and tenant contract.
 The application services receive these complete paths from Caddy.
 Existing resource identities and stored purchase data remain stable.
 
