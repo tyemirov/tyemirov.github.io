@@ -23,7 +23,7 @@ sharedConfig.environments[0].origins = [websiteOrigin];
 sharedConfig.environments[0].auth.tauthUrl = apiOrigin;
 sharedConfig.environments[0].auth.tenantId = "tyemirov-gallery-development";
 const sitePath = "data/site.json";
-const indexName = "selected.json";
+const indexName = "catalog.json";
 const packagesName = "packages";
 const site = JSON.parse(await readFile(join(publicSite, sitePath), "utf8"));
 /** @type {{ tracks: Record<string, { durationMs: number }> }} */

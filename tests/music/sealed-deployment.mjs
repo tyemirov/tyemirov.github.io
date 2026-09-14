@@ -137,18 +137,7 @@ try {
   const caddy = docker(["ps", "--quiet", "--filter", "label=com.docker.compose.project=mprlab-caddy"]);
   assert.match(caddy, /^[0-9a-f]+$/);
   await writeFile(join(application, ".mprlab/deploy/.env"), `GALLERY_TAUTH_SIGNING_KEY=${gallerySigningKey}\nGALLERY_GOOGLE_WEB_CLIENT_ID=fixture.apps.googleusercontent.com\n`);
-  const variables = { application_manifest: `${application}/.mprlab/deploy/resources.yml`, gateway_root: gateway, selected_contract: "/provider/selected.json", selected_caddy_config: "/provider/Caddyfile", expected_volume: volume };
-  await writeFile("/provider/volume.json", JSON.stringify(variables));
-  await writeFile(join(evidence, "media-volume.log"), run(ansible, ["-i", inventory, "/workspace/tests/music/host-volume.yml", "--extra-vars", "@/provider/volume.json"], gateway));
-  run("ffmpeg", ["-nostdin", "-v", "error", "-f", "lavfi", "-i", "sine=frequency=440:sample_rate=48000", "-t", "13", "/provider/tone.wav"], "/");
-  const { trackId, ...record } = JSON.parse(run("node", ["scripts/music/prepare.mjs", "--source", "/provider/tone.wav", "--media-root", "/provider/media", "--track-id", "test-tone"]));
-  await writeFile("/provider/media/selected.json", JSON.stringify({ tracks: { [trackId]: record } }));
-  await writeFile("/provider/media/allowlist.json", JSON.stringify({ tracks: [{ id: trackId, playback: { kind: "hls", durationMs: record.durationMs } }] }));
-  run("tar", ["-cf", "/provider/media.tar", "-C", "/provider/media", "."], "/");
-  docker(["create", "--name", "music-deployment-transfer", "--mount", `type=volume,src=${volume},dst=/media`, published.images.music]);
-  try { docker(["cp", "-", "music-deployment-transfer:/media"], { input: await readFile("/provider/media.tar") }); }
-  finally { docker(["rm", "music-deployment-transfer"]); }
-  docker(["run", "--rm", "--network", "none", "--platform", "linux/amd64", "--mount", `type=volume,src=${volume},dst=/media,readonly`, "--entrypoint", "/music-media", published.images.music, "validate", "--media-root", "/media", "--index", "/media/selected.json", "--allowlist", "/media/allowlist.json"]);
+  assert.equal(docker(["volume", "ls", "--quiet", "--filter", `name=^${volume}$`]), "", "Deployment must create its own media storage.");
   const deploymentReceipts = [];
   const serviceIdentities = [];
   const desiredStates = [];
@@ -197,23 +186,11 @@ try {
     });
   }
   assert.equal((await send("/music/readyz")).status, 200);
-  const created = await send("/music/playback-grants", { method: "POST", headers: { Origin: "https://tyemirov.net", "Content-Type": "application/json" }, body: JSON.stringify({ trackId: "test-tone" }) });
-  assert.equal(created.status, 201, created.body.toString());
-  const cookie = created.headers["set-cookie"][0].split(";")[0];
-  const grant = JSON.parse(created.body.toString());
-  assert.equal(new URL(grant.playlistUrl).origin, "https://api.tyemirov.net");
-  for (const name of ["index.m3u8", "init.mp4", "seg-00000.m4s"]) {
-    const path = new URL(name, grant.playlistUrl).pathname;
-    assert.equal((await send(path)).status, 401);
-    const media = await send(path, { headers: { Cookie: cookie, Origin: "https://tyemirov.net" } });
-    assert.equal(media.status, 200); assert.ok(media.body.length > 0);
-    assert.equal(media.headers["access-control-allow-origin"], "https://tyemirov.net");
-  }
-  const segment = new URL("seg-00000.m4s", grant.playlistUrl).pathname;
-  const ranged = await send(segment, { headers: { Cookie: cookie, Range: "bytes=0-15" } });
-  assert.equal(ranged.status, 206); assert.equal(ranged.body.length, 16);
-  assert.equal((await send(`/music/playback-grants/${grant.grantId}`, { method: "DELETE", headers: { Cookie: cookie, Origin: "https://tyemirov.net" } })).status, 204);
-  assert.equal((await send(segment, { headers: { Cookie: cookie } })).status, 410);
+  const siteCatalog = JSON.parse(await readFile(join(application, "data/site.json"), "utf8"));
+  const externalTrack = siteCatalog.music.items.flatMap(album => album.tracks).find(track => track.playback.kind === "external");
+  assert.ok(externalTrack);
+  const externalGrant = await send("/music/playback-grants", { method: "POST", headers: { Origin: "https://tyemirov.net", "Content-Type": "application/json" }, body: JSON.stringify({ trackId: externalTrack.id }) });
+  assert.equal(externalGrant.status, 404);
   const gallerySend = (path, options = {}) => send(path, options, galleryOrigin);
   function ownerCookie(email) {
     const now = Math.floor(Date.now() / 1000);
@@ -254,7 +231,7 @@ try {
   const restoredArchive = await gallerySend(publication.archiveUrl, { headers: ownerHeaders });
   assert.equal(restoredArchive.status, 200);
   assert.equal(restoredArchive.body.equals(archive.body), true, "Restart and draft changes must preserve the publication archive.");
-  await writeFile(join(evidence, "http-results.json"), JSON.stringify({ tls: "verified internal CA and declared hostnames", music: { readiness: 200, grant: 201, anonymousMedia: 401, authorizedMedia: 200, range: 206, revokedMedia: 410 }, gallery: { readiness: 200, anonymousDraft: 401, otherOwner: 403, ownerDraft: 200, publishedCatalog: "matches deployed image", publication: 201, savedDraftAndArchive: "unchanged after restart", auth: "controlled TAuth claims; login not qualified" } }) + "\n");
+  await writeFile(join(evidence, "http-results.json"), JSON.stringify({ tls: "verified internal CA and declared hostnames", music: { readiness: 200, initialStorage: "absent", externalGrant: 404 }, gallery: { readiness: 200, anonymousDraft: 401, otherOwner: 403, ownerDraft: 200, publishedCatalog: "matches deployed image", publication: 201, savedDraftAndArchive: "unchanged after restart", auth: "controlled TAuth claims; login not qualified" } }) + "\n");
   await writeFile(join(evidence, "service.log"), docker(["logs", service]));
   await writeFile(join(evidence, "gallery-service.log"), docker(["logs", galleryService]));
   await cp(lifecycle, join(evidence, "lifecycle"), { recursive: true });

@@ -49,11 +49,12 @@ services:
 
   music:
     build:
-      context: ./services/music-stream
+      context: .
+      dockerfile: services/music-stream/Dockerfile
     command:
       - --listen=0.0.0.0:8092
       - --media-root=/media
-      - --index=/media/selected.json
+      - --index=/media/catalog.json
       - --allowlist=/media/allowlist.json
       - --public-origin=http://localhost:${API_PORT:-8082}
       - --allowed-origins=http://localhost:${UP_PORT:-8080}

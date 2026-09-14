@@ -11,6 +11,33 @@ Format: `- [ ] [B042] (P1) {I007} Title`
 
 ## BugFixes
 
+- [x] [B010] (P1) Supply the music runtime catalog in the deployment image.
+  The deployed music container exits because `/media/selected.json` is absent.
+  Caddy then returns HTTP 502 for `/music/readyz`.
+  The current public catalog declares 50 external tracks and requires no private audio packages.
+  The image omits its required catalog and allowlist metadata.
+  Earlier host tests supplied these files through separate test setup.
+
+  Requirements:
+  - Generate runtime metadata from `data/site.json` during the image build.
+  - Use `catalog.json` as the canonical media catalog filename.
+  - Start the declared service with empty retained storage.
+  - Reject an HLS declaration without its required prepared media.
+  - Keep private recordings outside public artifacts and images.
+  - Verify startup and container replacement through the declared command.
+
+  Validation: The initial container regression reproduced the missing catalog failure before the image correction.
+  The corrected image passes startup and container replacement with empty retained storage.
+  Metadata generation rejects an HLS declaration without prepared media.
+  The local stack passes all four tests, and the container tests pass protected audio access.
+  Gateway v4.3.0 accepts the release, publication, and deployment plans in the isolated repository fixture.
+  The original container failure and focused results are under `output/playwright/b010/`.
+  Final Linux CI passed, including 583 browser cases and 21 explicit skips.
+  The complete log is `output/playwright/b010/b010-ci-final.log`.
+  The Governor check reports three existing differences in unchanged governance files.
+  The documentation language check and Git whitespace check pass.
+  Production deployment remains a separate operation.
+
 - [x] [B009] (P2) Correct the Time Series action row width in Linux WebKit.
   The Gateway adoption CI run measured 396 pixels at a 390-pixel viewport on `/timeseries/`.
   The failure occurred after `Load Example` and `Generate Report` in `tests/site/refactoring.spec.mjs:51`.

@@ -62,7 +62,12 @@ The payment TLS setup also requires `openssl req` with `-addext` support.
 Start Docker before you start the local services.
 
 The default private media directory is `~/.local/share/tyemirov-site/music`.
-This directory contains `selected.json` and the prepared media packages for the current catalog.
+This directory contains `catalog.json` and the prepared media packages for the current catalog.
+
+The production image generates its runtime catalog and allowlist from `data/site.json`.
+The current production tracks use external playback, so production startup requires no prepared audio packages.
+The image build rejects HLS declarations until the production deployment contract supplies their prepared media.
+Run `make music-deployment-container-test` to verify startup with empty retained storage and container replacement.
 The [media preparation procedure](docs/private-hls-operations.md#private-audio-preparation) describes package preparation.
 
 To use another private media directory, set its path in your shell:
@@ -99,7 +104,7 @@ Each API container exposes HTTP on an assigned loopback port for its gHTTP proxy
 The media initialization container enables local HLS playback from the private index and generates the corresponding allowlist.
 It copies the prepared packages into a retained Docker volume.
 The local catalog uses the titles and metadata from `data/site.json`.
-The service reads `/media/selected.json`, `/media/allowlist.json`, and `/media/packages` from that volume.
+The service reads `/media/catalog.json`, `/media/allowlist.json`, and `/media/packages` from that volume.
 Local website files and host process logs use `.local/runtime/<LOCAL_PROJECT>`.
 The website container sends its logs to Docker.
 Certificates persist in `~/.local/share/tyemirov-site/certs`.

@@ -49,7 +49,7 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     const sshSettings = Object.fromEntries(success(run("ssh", ["-G", "-F", config, host])).split("\n").map((line) => {
       const space = line.indexOf(" "); return [line.slice(0, space), line.slice(space + 1)];
     }));
-    const inventory = join(directory, "inventory.json"), selected = join(directory, "selected.json");
+    const inventory = join(directory, "inventory.json"), selected = join(directory, "runtime-contract.json");
     await writeFile(inventory, JSON.stringify({ all: { hosts: { fixture: {
       ansible_host: host, ansible_port: Number(sshSettings.port), ansible_user: sshSettings.user,
       ansible_ssh_private_key_file: sshSettings.identityfile, ansible_ssh_common_args: `-F ${quote(config)}`,
@@ -65,12 +65,15 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     ownsVolume = true;
     await reconcile("volume-create");
     const contract = JSON.parse(await readFile(selected, "utf8"));
+    // This generated-audio qualification supplies explicit HLS fixture metadata.
+    // The production command is tested separately with empty retained storage.
+    const fixtureCommand = contract.service.command.map(value => value === "/runtime/music/catalog.json" ? "/media/catalog.json" : value === "/runtime/music/allowlist.json" ? "/media/allowlist.json" : value);
     assert.equal(contract.volume, volumeName);
     const volume = JSON.parse(success(remoteDocker(["volume", "inspect", contract.volume])))[0];
     assert.equal(volume.Labels["com.mprlab.owner"], contract.owner);
     assert.equal(volume.Labels["com.mprlab.retention"], "retain");
 
-    success(run("docker", ["build", "-q", "--platform", "linux/amd64", "-t", serviceImage, "services/music-stream"]));
+    success(run("docker", ["build", "-q", "--platform", "linux/amd64", "-t", serviceImage, "-f", "services/music-stream/Dockerfile", "."]));
     success(run("docker", ["build", "-q", "-t", preparationImage, "-f", "scripts/music/Dockerfile", "scripts/music"]));
     for (const [image, file] of [[serviceImage, "service.tar"], [preparationImage, "preparation.tar"]]) {
       const archive = join(directory, file);
@@ -84,14 +87,14 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     success(run("ffmpeg", ["-nostdin", "-v", "error", "-f", "lavfi", "-i", "sine=frequency=440:sample_rate=48000", "-t", "13", source]));
     const receipt = JSON.parse(success(run(process.execPath, ["scripts/music/prepare.mjs", "--source", source, "--media-root", mediaRoot, "--track-id", "test-tone"])));
     const { trackId, ...record } = receipt;
-    await writeFile(join(mediaRoot, "selected.json"), JSON.stringify({ tracks: { [trackId]: record } }));
+    await writeFile(join(mediaRoot, "catalog.json"), JSON.stringify({ tracks: { [trackId]: record } }));
     await writeFile(join(mediaRoot, "allowlist.json"), JSON.stringify({ tracks: [{ id: trackId, playback: { kind: "hls", durationMs: record.durationMs } }] }));
     const mediaArchive = join(directory, "media.tar.gz");
     success(run("tar", ["-czf", mediaArchive, "-C", mediaRoot, "."]));
     const mount = ["--mount", `type=volume,src=${contract.volume},dst=/media`];
     success(remoteDocker(["run", "--rm", "-i", "--network", "none", ...mount, "--entrypoint", "tar", preparationImage, "-xzf", "-", "-C", "/media"], await readFile(mediaArchive)));
     const validate = () => success(remoteDocker(["run", "--rm", "--network", "none", "--platform", "linux/amd64", ...mount, "--entrypoint", "/music-media", serviceImage,
-      "validate", "--media-root", "/media", "--index", "/media/selected.json", "--allowlist", "/media/allowlist.json"]));
+      "validate", "--media-root", "/media", "--index", "/media/catalog.json", "--allowlist", "/media/allowlist.json"]));
     validate();
     const client = `
       const origin = 'http://127.0.0.1:8092';
@@ -115,7 +118,7 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     async function startAndCheck() {
       ownsContainer = true;
       success(remoteDocker(["run", "-d", "--name", container, "--platform", "linux/amd64", "--read-only",
-        "--mount", `type=volume,src=${contract.volume},dst=/media,readonly`, "-p", contract.ports[0], serviceImage, ...contract.service.command]));
+        "--mount", `type=volume,src=${contract.volume},dst=/media,readonly`, "-p", contract.ports[0], serviceImage, ...fixtureCommand]));
       const deadline = performance.now() + 10000;
       while (true) {
         const result = remoteDocker(["logs", container]);
@@ -153,7 +156,7 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     // Only the isolated Pages artifact fixture uses this extra server block.
     await appendFile(caddyConfig, "\ntyemirov.net {\n tls internal\n root * /data/site\n file_server\n}\n:18093 {\n bind 127.0.0.1\n respond \"gallery-probe\" 200\n}\n:18094 {\n bind 127.0.0.1\n respond \"auth-probe\" 200\n}\n");
     const configArchive = join(directory, "caddy.tar.gz");
-    success(run("tar", ["-czf", configArchive, "-C", directory, "Caddyfile", "site", "selected.json"]));
+    success(run("tar", ["-czf", configArchive, "-C", directory, "Caddyfile", "site", "runtime-contract.json"]));
     success(remoteDocker(["run", "--rm", "-i", "--network", "none", ...proxyMount, "--entrypoint", "tar", preparationImage, "-xzf", "-", "-C", "/data"], await readFile(configArchive)));
     const proxyArguments = [...proxyMount, "--env", "ADMIN_EMAIL=fixture@example.invalid", proxyImage];
     success(remoteDocker(["run", "--rm", "--network", "none", ...proxyArguments, "caddy", "validate", "--config", "/data/Caddyfile", "--adapter", "caddyfile"]));

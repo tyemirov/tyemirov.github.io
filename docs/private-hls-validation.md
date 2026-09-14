@@ -291,7 +291,11 @@ The latest CI lifecycle fixture uses committed Gateway source at `737bbfaa0af753
 The release and publication tests use the Gateway bundle captured with their source archive, as recorded below.
 It calls actual Gateway Make targets for deployment, release, and publication plans.
 The declaration selects computercat and private port 8092 for the media service.
-Its retained volume supplies `/media/selected.json`, `/media/allowlist.json`, and prepared packages.
+The production image supplies `/runtime/music/catalog.json` and `/runtime/music/allowlist.json` from the public catalog.
+Its retained volume supplies private packages when the deployment contract declares them.
+The current production catalog has only external tracks, so empty storage is valid.
+The B010 regression starts the declared image with empty storage and verifies container replacement.
+The build rejects an HLS declaration without prepared media.
 The fixture verifies the private-value binding with a synthetic proxy CIDR.
 The latest Gateway plan logs are in `output/playwright/linux/lifecycle/`.
 Earlier native and standalone container runs retain their own output directories.

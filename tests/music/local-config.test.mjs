@@ -15,9 +15,9 @@ test("local Compose uses the production artifacts, storage layout, and separate 
   const { services, volumes } = JSON.parse(result.stdout);
   assert.ok(services.music.command.includes("--public-origin=http://localhost:18444"));
   assert.ok(services.music.command.includes("--allowed-origins=http://localhost:18443"));
-  assert.ok(services.music.command.includes("--index=/media/selected.json"));
+  assert.ok(services.music.command.includes("--index=/media/catalog.json"));
   assert.ok(services.music.command.includes("--allowlist=/media/allowlist.json"));
-  assert.equal(services.music.build.context.endsWith("/services/music-stream"), true);
+  assert.equal(services.music.build.dockerfile, "services/music-stream/Dockerfile");
   assert.equal(services.music.volumes[0].type, "volume");
   assert.equal(services.music.volumes[0].source, "media");
   assert.equal(services.music.volumes[0].read_only, true);

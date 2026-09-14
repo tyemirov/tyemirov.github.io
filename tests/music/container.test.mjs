@@ -29,7 +29,7 @@ test("the pinned Linux images prepare audio and serve authorized media", { timeo
   const name = `music-test-${process.pid}`;
   try {
     success(run(["build", "-q", "-t", "music-prepare:f001-test", "-f", "scripts/music/Dockerfile", "scripts/music"]));
-    success(run(["build", "-q", "--platform", "linux/amd64", "-t", "music-stream:f001-test", "services/music-stream"]));
+    success(run(["build", "-q", "--platform", "linux/amd64", "-t", "music-stream:f001-test", "-f", "services/music-stream/Dockerfile", "."]));
     assert.equal(success(run(["image", "inspect", "music-stream:f001-test", "--format", "{{.Architecture}}"])), "amd64");
     const mount = ["--mount", `type=bind,src=${directory},dst=/work`];
     success(run(["run", "--rm", "--network", "none", ...mount, "--entrypoint", "ffmpeg", "music-prepare:f001-test", "-nostdin", "-v", "error", "-f", "lavfi", "-i", "sine=frequency=440:sample_rate=48000", "-t", "13", "/work/tone.wav"]));

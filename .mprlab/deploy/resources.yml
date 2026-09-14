@@ -34,7 +34,7 @@ mprlab_resources:
         - id: service
           repository: ghcr.io/tyemirov/personal-site-music
           build:
-            context: services/music-stream
+            context: .
             dockerfile: services/music-stream/Dockerfile
             platforms:
               - linux/amd64
@@ -54,9 +54,9 @@ mprlab_resources:
             - --media-root
             - /media
             - --index
-            - /media/selected.json
+            - /runtime/music/catalog.json
             - --allowlist
-            - /media/allowlist.json
+            - /runtime/music/allowlist.json
             - --public-origin
             - https://api.tyemirov.net
             - --allowed-origins

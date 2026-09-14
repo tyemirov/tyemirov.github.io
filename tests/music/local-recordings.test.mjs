@@ -35,7 +35,7 @@ test("the local service plays all nine supplied Vol. II recordings with protecte
   const served = JSON.parse(response.body).music.items.find(album => album.slug === albumSlug);
   assert.deepEqual(served.tracks.map(track => [track.id, track.title]), album.tracks.map(track => [track.id, track.title]));
   assert.equal(served.tracks.length, 9);
-  const selected = JSON.parse(await readFile(`${process.env.MUSIC_LOCAL_ROOT}/selected.json`, "utf8"));
+  const selected = JSON.parse(await readFile(`${process.env.MUSIC_LOCAL_ROOT}/catalog.json`, "utf8"));
   for (const track of served.tracks) {
     assert.equal(track.playback.kind, "hls");
     assert.equal(track.playback.durationMs, selected.tracks[track.id].durationMs);
