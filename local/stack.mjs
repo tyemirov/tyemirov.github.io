@@ -151,7 +151,6 @@ async function supervise() {
     server.listen(socketPath);
     await once(server, "listening");
     for (const signal of ["SIGTERM", "SIGINT"]) process.once(signal, () => finish().catch(console.error));
-    await start([process.env.UP_PORT, "--bind", "127.0.0.1", "--directory", site, "--no-md", "--response-header", "/=Cache-Control:no-store", "--response-header", "/=Referrer-Policy:no-referrer-when-downgrade"], origins[0] + "/");
     await start([process.env.API_PORT, "--bind", "127.0.0.1", "--directory", apiRoot, "--no-md", "--proxy", `/music=${process.env.LOCAL_MUSIC_BACKEND}`, "--proxy", `/gallery=${process.env.LOCAL_GALLERY_BACKEND}`, "--proxy", `/auth=${process.env.LOCAL_TAUTH_BACKEND}`], origins[1] + "/music/readyz");
     await ready(origins[1] + "/gallery/readyz");
     await start([process.env.PAYMENT_PORT, "--bind", "127.0.0.1", "--directory", site, "--no-md", "--https", "--https-persist", "--proxy", `/=${process.env.LOCAL_PAYMENT_BACKEND}`], origins[2] + "/readyz");
@@ -180,16 +179,19 @@ if (command === "supervise") {
   await mkdir(site, { recursive: true });
   await mkdir(apiRoot, { recursive: true });
   try {
+    compose(["stop", "website"]);
     await checkPorts();
     await prepareLocalIdentities();
     await preparePaymentCertificate();
     compose(["up", "--build", "--force-recreate", "--detach", "--wait", "--wait-timeout", "60"]);
-    await writeFile(join(site, "config-site.json"), JSON.stringify({ apiOrigin: origins[1] }) + "\n");
-    sharedConfig.environments[0].description='Local';
-    sharedConfig.environments[0].origins=[origins[0]];
-    sharedConfig.environments[0].auth.tauthUrl=origins[1];
-    sharedConfig.environments[0].auth.tenantId='tyemirov-gallery-development';
-    await writeFile(join(site,'config-ui.yaml'),JSON.stringify(sharedConfig,null,2)+'\n');
+    const websiteDeadline = Date.now() + 30000;
+    for (;;) {
+      try { await ready(origins[0] + "/"); break; }
+      catch (error) {
+        if (Date.now() >= websiteDeadline) throw new Error("The website container did not become ready.", { cause: error });
+        await delay(100);
+      }
+    }
     const backend = compose(["port", "music", "8092"], true).trim();
     const galleryBackend = compose(["port", "gallery", "8093"], true).trim();
     const paymentBackend = compose(["port", "gallery-payment", "8094"], true).trim();
@@ -210,6 +212,7 @@ if (command === "supervise") {
     console.log(`Local site: ${origins[0]}\nLocal audio: ${origins[1]}/music/readyz\nLocal gallery API: ${origins[1]}/gallery/readyz\nLocal payment provider: ${origins[2]}/readyz`);
   } catch (error) {
     await stop();
+    compose(["logs", "--no-color", "--tail", "50", "website"]);
     compose(["down"]);
     throw new Error(`Local startup failed. See ${join(state, "ghttp.log")}.`, { cause: error });
   }

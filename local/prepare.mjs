@@ -9,6 +9,19 @@ if (paths.some((path, index) => path === sep || paths.some((other, otherIndex) =
   throw new Error("Local preparation requires four separate directories.");
 }
 const [publicSite, sourceMedia, localSite, localMedia] = paths;
+const [websiteOrigin, apiOrigin] = ["LOCAL_WEBSITE_ORIGIN", "LOCAL_API_ORIGIN"].map((name) => {
+  const value = process.env[name];
+  if (!value || !/^http:\/\/localhost:[0-9]+$/.test(value)) throw new Error(`Supply ${name} as an HTTP localhost origin with a port.`);
+  const origin = new URL(value);
+  if (Number(value.slice(value.lastIndexOf(":") + 1)) < 1) throw new Error(`Supply a positive port in ${name}.`);
+  return origin.origin;
+});
+if (websiteOrigin === apiOrigin) throw new Error("The local website and API origins must differ.");
+const sharedConfig = JSON.parse(await readFile(join(publicSite, "config-ui.yaml"), "utf8"));
+sharedConfig.environments[0].description = "Local";
+sharedConfig.environments[0].origins = [websiteOrigin];
+sharedConfig.environments[0].auth.tauthUrl = apiOrigin;
+sharedConfig.environments[0].auth.tenantId = "tyemirov-gallery-development";
 const sitePath = "data/site.json";
 const indexName = "selected.json";
 const packagesName = "packages";
@@ -27,6 +40,8 @@ await mkdir(localMedia, { recursive: true });
 await cp(join(sourceMedia, packagesName), join(localMedia, packagesName), { recursive: true });
 for (const entry of await readdir(localSite)) await rm(join(localSite, entry), { recursive: true, force: true });
 await cp(publicSite, localSite, { recursive: true });
+await writeFile(join(localSite, "config-site.json"), JSON.stringify({ apiOrigin }) + "\n");
+await writeFile(join(localSite, "config-ui.yaml"), JSON.stringify(sharedConfig, null, 2) + "\n");
 await writeFile(join(localSite, sitePath), JSON.stringify(site, null, 2) + "\n");
 await writeFile(join(localSite, "music/playback-allowlist.json"), allowlist);
 await writeFile(join(localMedia, "allowlist.json"), allowlist);
