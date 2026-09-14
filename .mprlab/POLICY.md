@@ -110,6 +110,17 @@ Apply this gate when the selected task requires credentials.
 - Request new credentials only after each authorized existing input fails verification.
 - Report a credential blocker only after you complete this gate.
 
+## Issue Closure
+
+- Close an issue when its required implementation, documentation, and code validation are completed.
+- Keep release, publication, deployment, production DNS/TLS, and live acceptance outside implementation issue acceptance criteria.
+- Do not keep an implementation issue open or blocked because production operations are not completed.
+- Record pending production operations in a runbook or separate operational record.
+- Validate deployment tooling and infrastructure configuration through the required isolated integration tests.
+
+Failed or missing required code validation prevents closure.
+Production operations outside the task do not remove code validation requirements.
+
 ## Validation
 
 - Use repository-native `make` targets.

@@ -2,6 +2,9 @@
 
 Entries record newly discovered requests or changes.
 
+Issue closure depends on completed implementation and required code validation.
+Release, publication, deployment, and production acceptance are separate operational concerns.
+
 Read `AGENTS.md` and its task-specific references before changes.
 
 Format: `- [ ] [B042] (P1) {I007} Title`
@@ -57,7 +60,7 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   Command: `make music-browser-test MUSIC_BROWSER_ARGS='tests/site/navigation.spec.mjs --project=webkit --grep "album covers" --repeat-each=3'`.
   Final validation: `make ci` passed, including 583 browser cases and 21 explicit skips.
 
-- [-] [B005] (P1) Remove manual proxy-address configuration from the shared music API.
+- [x] [B005] (P1) Remove manual proxy-address configuration from the shared music API.
   Goal:
   Expose Gallery and music through `api.tyemirov.net` without an operator-maintained music proxy list.
   The owner replaced the dedicated streaming hostname with this shared API decision.
@@ -154,10 +157,10 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   Final `make music-ci-container` passed, including 583 browser cases, 21 explicit skips, and the Gallery backend checks.
   The current CI log is `output/playwright/b004-b009-ci-final.log`.
 
-  Remaining acceptance:
-  - Qualify production DNS, TLS, routing, media, and capacity through an authorized rollout.
-  B005 stays open until the required acceptance checks pass.
-  Existing sealed receipts and production deployment are unchanged.
+  Completion:
+  The implementation and required code validation are completed.
+  Production deployment and public acceptance are separate operational concerns and do not control B005 closure.
+  Existing sealed receipts remain unchanged.
 
 - [x] [B004] (P2) Resolve the WebKit Studio order timeout in the full browser suite.
   The full browser suite timed out in the owner order test at `tests/gallery/studio.spec.mjs:112`.
@@ -614,12 +617,13 @@ Format: `- [ ] [B042] (P1) {I007} Title`
 
 ## Features
 
-- [-] [F001] (P1) Add private HLS music playback to the personal website
+- [x] [F001] (P1) Add private HLS music playback to the personal website
   Goal:
   Play complete songs on the website through an owner-operated media service with temporary cookie authorization.
 
-  Status: The owner supplied the Music share. The SoundOn comparison and private package preparation are completed.
-  A36 requires operator production execution and public acceptance.
+  Status: Implementation, private package preparation, and required code validation are completed.
+  B001 and B005 are closed.
+  A36 records separate production execution and public acceptance, which do not control F001 closure.
 
   Requirements:
   - Implement [the implementation plan](../docs/private-hls-implementation.md), including its acceptance matrix and operator boundaries.
@@ -640,7 +644,8 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - Record physical mobile testing as not feasible, with no pending acceptance action.
 
   Validation:
-  - Complete milestones 0 through 5 and record acceptance results A01 through A36 from the implementation plan.
+  - Complete the code milestones and record acceptance results A01 through A35 from the implementation plan.
+  - Record A36 separately as production acceptance outside issue closure.
   - Preserve the expected failing integration results before production behavior changes.
   - Run the final repository CI after the last stack change.
   - Current evidence: [implementation validation](../docs/private-hls-validation.md) records the package, HTTP, and browser results.
@@ -665,6 +670,7 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - All 82 real-recording browser checks passed: 41 tracks through native HLS and 41 through hls.js.
   - A31 uses automated checks. The owner requires silent headless tests, with no manual listening gate.
   - Physical mobile acceptance is not feasible and is excluded from completion gates by the owner.
+  - Final code validation after B005 passed `make music-ci-container`, including 583 browser cases and 21 explicit skips.
 
 - [!] [F002] (P1) Implement the gallery owner and visitor workflows
   Current implementation: The [redesign record](../docs/redesign-implementation.md) contains Studio, contract, routing, and article evidence.

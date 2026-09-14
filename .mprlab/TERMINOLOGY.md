@@ -10,6 +10,8 @@ Give each term one meaning. Use the same term for the same concept in all docume
 
 ## MPR Lab Technical Nouns
 
+- `TLS`: The protocol that protects communication between a client and a server.
+
 - `acceptance criteria`: Conditions that show that a change has the necessary behavior.
 - `active issue tracker`: The canonical file that contains current work.
 - `ADR`: An architecture decision record.
