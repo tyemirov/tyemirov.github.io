@@ -19,7 +19,7 @@ test("media activation validates a candidate and preserves the selected index on
     const preparation = run(process.execPath, ["scripts/music/prepare.mjs", "--source", source, "--media-root", mediaRoot, "--track-id", "test-tone"]);
     assert.equal(preparation.status, 0, preparation.stderr);
     const receipt = JSON.parse(preparation.stdout);
-    const receiptPath = join(directory, "receipt.json"), allowlist = join(directory, "allowlist.json"), index = join(directory, "selected.json");
+    const receiptPath = join(directory, "receipt.json"), allowlist = join(directory, "allowlist.json"), index = join(directory, "catalog.json");
     await writeFile(receiptPath, preparation.stdout);
     await writeFile(allowlist, JSON.stringify({ tracks: [{ id: receipt.trackId, playback: { kind: "hls", durationMs: receipt.durationMs } }] }));
     const common = ["--media-root", mediaRoot, "--allowlist", allowlist];

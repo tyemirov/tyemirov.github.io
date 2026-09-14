@@ -23,7 +23,7 @@ test("local preparation enables the real catalog against private media without c
     const tone = join(temporary, "tone.wav");
     run("ffmpeg", ["-nostdin", "-v", "error", "-f", "lavfi", "-i", "sine=frequency=440:sample_rate=48000", "-t", "13", tone]);
     const { trackId, ...record } = JSON.parse(run(process.execPath, ["scripts/music/prepare.mjs", "--source", tone, "--media-root", source, "--track-id", "test-tone"]));
-    await writeFile(join(source, "selected.json"), JSON.stringify({ tracks: Object.fromEntries(tracks.map((track) => [track.id, record])) }));
+    await writeFile(join(source, "catalog.json"), JSON.stringify({ tracks: Object.fromEntries(tracks.map((track) => [track.id, record])) }));
     const environment = { ...process.env, LOCAL_WEBSITE_ORIGIN: "http://localhost:18080", LOCAL_API_ORIGIN: "http://localhost:18082" };
     const originalUI = await readFile(join(publicSite, "config-ui.yaml"), "utf8");
     const originalAPI = await readFile(join(publicSite, "config-site.json"), "utf8");
@@ -42,7 +42,7 @@ test("local preparation enables the real catalog against private media without c
     const local = JSON.parse(await readFile(join(site, "data/site.json"), "utf8"));
     assert.deepEqual(local.music.items.flatMap((album) => album.tracks).map((track) => track.playback), tracks.map(() => ({ kind: "hls", durationMs: record.durationMs })));
     assert.equal(await readFile(join(publicSite, "data/site.json"), "utf8"), original);
-    run("go", ["run", "./cmd/music-media", "validate", "--media-root", media, "--index", join(media, "selected.json"), "--allowlist", join(media, "allowlist.json")], { cwd: join(root, "services/music-stream") });
+    run("go", ["run", "./cmd/music-media", "validate", "--media-root", media, "--index", join(media, "catalog.json"), "--allowlist", join(media, "allowlist.json")], { cwd: join(root, "services/music-stream") });
     await writeFile(join(site, "obsolete.txt"), "old site file");
     await mkdir(join(media, "packages", "retained-package"));
     environment.LOCAL_WEBSITE_ORIGIN = "http://localhost:18081";
@@ -51,7 +51,7 @@ test("local preparation enables the real catalog against private media without c
     await assertLocalConfig();
     await assert.rejects(readFile(join(site, "obsolete.txt")), { code: "ENOENT" });
     assert.ok((await stat(join(media, "packages", "retained-package"))).isDirectory());
-    await writeFile(join(source, "selected.json"), '{"tracks":{}}');
+    await writeFile(join(source, "catalog.json"), '{"tracks":{}}');
     const invalid = spawnSync(process.execPath, ["local/prepare.mjs", publicSite, source, site, media], { cwd: root, env: environment, encoding: "utf8" });
     assert.notEqual(invalid.status, 0);
     assert.match(invalid.stderr, /missing local media/);

@@ -6,7 +6,7 @@ import { readFile } from "node:fs/promises";
 const origin = "https://api.tyemirov.net";
 const website = "https://tyemirov.net";
 const grantPath = "/music/playback-grants";
-const contract = JSON.parse(await readFile("/data/selected.json", "utf8"));
+const contract = JSON.parse(await readFile("/data/runtime-contract.json", "utf8"));
 const musicPolicy = contract.route.handlers.find(handler => handler.id === "music").access;
 const { events, window_seconds: windowSeconds } = musicPolicy.rate_limit;
 const agent = new Agent({ keepAlive: true, maxSockets: 64 });

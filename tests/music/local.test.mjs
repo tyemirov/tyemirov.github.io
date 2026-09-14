@@ -84,7 +84,7 @@ test("make up serves the site, private music, and persistent gallery; make down 
   const sitePath = join(directory, "data/site.json");
   const site = JSON.parse(await readFile(sitePath, "utf8"));
   const tracks = site.music.items.flatMap((album) => album.tracks);
-  await writeFile(join(mediaRoot, "selected.json"), JSON.stringify({ tracks: Object.fromEntries(tracks.map((track) => [track.id, record])) }));
+  await writeFile(join(mediaRoot, "catalog.json"), JSON.stringify({ tracks: Object.fromEntries(tracks.map((track) => [track.id, record])) }));
   run("git", ["init", "-q"], directory);
   run("git", ["add", "."], directory);
   // Start the website through its real dependency before stack.mjs can write configuration.
@@ -177,7 +177,7 @@ test("make up serves the site, private music, and persistent gallery; make down 
   assert.equal((await https(galleryOrigin + assetPath)).status, 401);
   assert.equal((await https(galleryOrigin + "/gallery/draft", { headers: { ...ownerHeaders, Origin: "https://untrusted.example.test" } })).status, 403);
   assert.deepEqual(JSON.parse((await https(origin + "/config-site.json")).body), { apiOrigin: mediaOrigin });
-  for (const path of ["/.git/config", "/.local/music/selected.json", "/services/music-stream/go.mod", "/services/gallery/go.mod", `/.local/runtime/${project}/gallery.env`, `/.local/runtime/${project}/mail.env`, `/.local/runtime/${project}/payment.env`, `/.local/runtime/${project}/payment-certificate/key.pem`, "/gallery.db", "/mail.db", "/payments.db"]) {
+  for (const path of ["/.git/config", "/.local/music/catalog.json", "/services/music-stream/go.mod", "/services/gallery/go.mod", `/.local/runtime/${project}/gallery.env`, `/.local/runtime/${project}/mail.env`, `/.local/runtime/${project}/payment.env`, `/.local/runtime/${project}/payment-certificate/key.pem`, "/gallery.db", "/mail.db", "/payments.db"]) {
     assert.equal((await https(origin + path)).status, 404, path);
   }
   const grantResponse = await https(mediaOrigin + "/music/playback-grants", { method: "POST", headers: { Origin: origin, "Content-Type": "application/json" } }, JSON.stringify({ trackId: tracks[0].id }));
