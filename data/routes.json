@@ -1,0 +1,214 @@
+[
+  {
+    "path": "/",
+    "file": "index.html",
+    "parent": null
+  },
+  {
+    "path": "/music/",
+    "file": "music/index.html",
+    "parent": null
+  },
+  {
+    "path": "/gallery/order/",
+    "file": "gallery/order/index.html",
+    "parent": {
+      "label": "Gallery",
+      "path": "/gallery/"
+    }
+  },
+  {
+    "path": "/gallery/studio/",
+    "file": "gallery/studio/index.html",
+    "parent": {
+      "label": "Gallery",
+      "path": "/gallery/"
+    }
+  },
+  {
+    "path": "/civilization/",
+    "file": "civilization/index.html",
+    "parent": {
+      "label": "Articles",
+      "path": "/articles/"
+    }
+  },
+  {
+    "path": "/decisioning/",
+    "file": "decisioning/index.html",
+    "parent": {
+      "label": "Articles",
+      "path": "/articles/"
+    }
+  },
+  {
+    "path": "/freedom/",
+    "file": "freedom/index.html",
+    "parent": {
+      "label": "Articles",
+      "path": "/articles/"
+    }
+  },
+  {
+    "path": "/timeseries/",
+    "file": "timeseries/index.html",
+    "parent": {
+      "label": "Articles",
+      "path": "/articles/"
+    }
+  },
+  {
+    "path": "/articles/",
+    "file": "articles/index.html",
+    "parent": null
+  },
+  {
+    "path": "/articles/the-human-act-of-making-things-exist/",
+    "file": "articles/the-human-act-of-making-things-exist/index.html",
+    "parent": {
+      "label": "Articles",
+      "path": "/articles/"
+    }
+  },
+  {
+    "path": "/articles/the-age-of-the-meta-manager/",
+    "file": "articles/the-age-of-the-meta-manager/index.html",
+    "parent": {
+      "label": "Articles",
+      "path": "/articles/"
+    }
+  },
+  {
+    "path": "/articles/the-wittgenstein-mirror/",
+    "file": "articles/the-wittgenstein-mirror/index.html",
+    "parent": {
+      "label": "Articles",
+      "path": "/articles/"
+    }
+  },
+  {
+    "path": "/articles/codex-fast-and-the-price-of-intelligence/",
+    "file": "articles/codex-fast-and-the-price-of-intelligence/index.html",
+    "parent": {
+      "label": "Articles",
+      "path": "/articles/"
+    }
+  },
+  {
+    "path": "/gallery/",
+    "file": "gallery/index.html",
+    "parent": null
+  },
+  {
+    "path": "/gallery/about/",
+    "file": "gallery/about/index.html",
+    "parent": {
+      "label": "Gallery",
+      "path": "/gallery/"
+    }
+  },
+  {
+    "path": "/gallery/cart/",
+    "file": "gallery/cart/index.html",
+    "parent": {
+      "label": "Gallery",
+      "path": "/gallery/"
+    }
+  },
+  {
+    "path": "/gallery/artworks/third-act-triptych-01/",
+    "file": "gallery/artworks/third-act-triptych-01/index.html",
+    "parent": {
+      "label": "Gallery",
+      "path": "/gallery/"
+    }
+  },
+  {
+    "path": "/gallery/artworks/third-act-triptych-02/",
+    "file": "gallery/artworks/third-act-triptych-02/index.html",
+    "parent": {
+      "label": "Gallery",
+      "path": "/gallery/"
+    }
+  },
+  {
+    "path": "/gallery/artworks/third-act-triptych-03/",
+    "file": "gallery/artworks/third-act-triptych-03/index.html",
+    "parent": {
+      "label": "Gallery",
+      "path": "/gallery/"
+    }
+  },
+  {
+    "path": "/gallery/artworks/third-act-triptych-04/",
+    "file": "gallery/artworks/third-act-triptych-04/index.html",
+    "parent": {
+      "label": "Gallery",
+      "path": "/gallery/"
+    }
+  },
+  {
+    "path": "/gallery/collections/selected-works/",
+    "file": "gallery/collections/selected-works/index.html",
+    "parent": {
+      "label": "Gallery",
+      "path": "/gallery/"
+    }
+  },
+  {
+    "path": "/gallery/exhibits/the-third-act/",
+    "file": "gallery/exhibits/the-third-act/index.html",
+    "parent": {
+      "label": "Gallery",
+      "path": "/gallery/"
+    }
+  },
+  {
+    "path": "/music/soliloquies-vol-ii/",
+    "file": "music/soliloquies-vol-ii/index.html",
+    "parent": {
+      "label": "Music",
+      "path": "/music/"
+    }
+  },
+  {
+    "path": "/music/soliloquies-vol-i/",
+    "file": "music/soliloquies-vol-i/index.html",
+    "parent": {
+      "label": "Music",
+      "path": "/music/"
+    }
+  },
+  {
+    "path": "/music/songs-of-desire/",
+    "file": "music/songs-of-desire/index.html",
+    "parent": {
+      "label": "Music",
+      "path": "/music/"
+    }
+  },
+  {
+    "path": "/music/egyptian-nights/",
+    "file": "music/egyptian-nights/index.html",
+    "parent": {
+      "label": "Music",
+      "path": "/music/"
+    }
+  },
+  {
+    "path": "/music/singing-pasternak/",
+    "file": "music/singing-pasternak/index.html",
+    "parent": {
+      "label": "Music",
+      "path": "/music/"
+    }
+  },
+  {
+    "path": "/music/february-get-ink-and-weep/",
+    "file": "music/february-get-ink-and-weep/index.html",
+    "parent": {
+      "label": "Music",
+      "path": "/music/"
+    }
+  }
+]

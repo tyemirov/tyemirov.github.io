@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script>
+  <script>
+    if (window.location.pathname === '/gallery') {
+      window.location.replace(`/gallery/${window.location.search}${window.location.hash}`);
+    }
+  </script>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0B0C0E" />
+  <meta name="color-scheme" content="dark" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+  <meta name="robots" content="index,follow" />
+  <title>Selected Works</title>
+  <meta name="description" content="A permanent collection of digital works." />
+  <link rel="canonical" href="https://tyemirov.net/gallery/collections/selected-works/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vadym Tyemirov · Virtual Gallery" />
+  <meta property="og:description" content="Digital artworks, permanent collections, and dated exhibits." />
+  <meta property="og:url" content="https://tyemirov.net/gallery/" />
+  <meta property="og:image" content="https://tyemirov.net/gallery/images/previews/third-act-01-preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vadym Tyemirov · Virtual Gallery" />
+  <meta name="twitter:description" content="A modern salon for digital works." />
+  <meta name="twitter:image" content="https://tyemirov.net/gallery/images/previews/third-act-01-preview.jpg" />
+  <script type="application/ld+json" id="structured-data">
+    {
+      "@context": "https://schema.org",
+      "@type": "ArtGallery",
+      "name": "Vadym Tyemirov · Virtual Gallery",
+      "url": "https://tyemirov.net/gallery/",
+      "description": "Digital artworks, permanent collections, and dated exhibits."
+    }
+  </script>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="/gallery/assets/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.css" />
+  <script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui-config.js" data-mpr-ui-bundle-src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.js"></script>
+    <style>
+      .site-footer {
+        display: block;
+        margin-top: 18px;
+      }
+      .site-footer__inner {
+        width: min(100%, 1200px);
+        margin: 0 auto;
+      }
+      .site-footer__layout {
+        align-items: center;
+      }
+      mpr-footer.site-footer footer.mpr-footer {
+        backdrop-filter: blur(14px);
+      }
+    </style>
+    <link rel="stylesheet" href="/assets/css/footer.css" />
+<link rel="stylesheet" href="/assets/css/navigation.css">
+</head>
+<body class="gallery">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="gallery-header">
+    <div class="layout-container gallery-header__inner">
+      <mpr-header data-config-url="/config-ui.yaml" logout-url="/gallery/" id="brand-name" brand-label="Vadym Tyemirov · Virtual Gallery" brand-href="/" settings="false">
+      <nav slot="nav-right" class="gallery-nav" aria-label="Primary" id="nav-links">
+        <a class="gallery-nav__link" href="/gallery/about/" data-route="about">About</a>
+        <a class="gallery-nav__link gallery-nav__link--basket" href="/gallery/cart/" data-route="cart">
+          Basket <span class="gallery-nav__badge" id="cart-count">0</span>
+        </a>
+        <a class="gallery-nav__link" href="/gallery/studio/">Studio</a>
+      </nav>
+      <nav slot="brand" class="site-navigation" aria-label="Page hierarchy"><a href="/" aria-label="Home" title="Home">^</a><a href="/gallery/">Gallery</a></nav></mpr-header>
+    </div>
+  </header>
+
+  <main id="main-content" class="gallery-main" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="layout-container hero__inner" id="hero-placeholder">
+        <p class="hero__eyebrow">A modern salon for digital works</p>
+        <h1 class="hero__title" id="hero-title">Virtual Gallery</h1>
+        <p class="hero__subtitle" id="hero-subtitle">Now Showing · Upcoming · Closed</p>
+      </div>
+    </section>
+
+
+    <section class="view view--loading" id="loading-state" role="status" aria-live="polite">
+      <div class="layout-container">
+        <p class="loading-indicator">Loading exhibitions…</p>
+      </div>
+    </section>
+
+    <section class="view is-hidden" id="home-view" aria-labelledby="hero-title">
+      <div class="layout-container">
+        <div id="exhibit-groups" class="exhibit-groups" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="view is-hidden" id="exhibit-view" aria-live="polite">
+      <div class="layout-container">
+        <div id="exhibit-detail" class="exhibit-detail"></div>
+      </div>
+    </section>
+
+    <section class="view is-hidden" id="about-view">
+      <div class="layout-container">
+        <article class="panel about">
+          <header class="panel__header">
+            <h2 class="panel__title">About the Gallery</h2>
+          </header>
+          <p id="about-description"></p>
+          <p>Questions about commissions or acquisitions? Write to <a href="mailto:collect@tyemirov.gallery" class="link">collect@tyemirov.gallery</a>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="view is-hidden" id="cart-view" aria-labelledby="cart-heading">
+      <div class="layout-container">
+        <header class="panel panel--transparent">
+          <h2 class="panel__title" id="cart-heading">Basket</h2>
+          <p class="panel__subtitle">Review the license and included file for each selected work.</p>
+        </header>
+        <div id="cart-empty"></div>
+        <div id="cart-populated" class="cart"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast-region" aria-live="assertive" aria-atomic="true">
+    <div id="cart-toast" class="toast is-hidden" role="status"></div>
+  </div>
+
+  <dialog id="lightbox" class="lightbox" aria-modal="true">
+    <button type="button" class="lightbox__close" data-lightbox-close aria-label="Close artwork"></button>
+    <img class="lightbox__image" src="" alt="" />
+    <p class="lightbox__caption" data-lightbox-caption aria-live="polite"></p>
+    <nav class="lightbox__navigation" aria-label="Artwork navigation">
+      <button type="button" class="button secondary" data-lightbox-previous>Previous artwork</button>
+      <button type="button" class="button secondary" data-lightbox-next>Next artwork</button>
+    </nav>
+    <p data-lightbox-error role="alert"></p>
+  </dialog>
+
+  <footer class="gallery-footer">
+    <div class="layout-container gallery-footer__inner">
+      <p class="gallery-footer__note">© <span id="footer-year"></span> Vadym Tyemirov · Virtual Gallery</p>
+      <p class="gallery-footer__note">Artworks · Collections · Exhibits</p>
+    </div>
+  </footer>
+
+  <mpr-footer sticky="false" id="site-footer" class="site-footer"></mpr-footer>
+
+   <script type="module">
+     import { initializeSiteFooter } from "/assets/js/footer.js";
+     void initializeSiteFooter();
+   </script>
+
+  <script type="module" src="/gallery/js/app.js"></script>
+</body>
+</html>
