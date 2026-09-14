@@ -173,7 +173,7 @@ if (command === "supervise") {
   await stop();
   compose(["down"]);
 } else if (command === "up") {
-  await access(join(process.env.MUSIC_LOCAL_ROOT, "selected.json"));
+  await access(join(process.env.MUSIC_LOCAL_ROOT, "catalog.json"));
   execFileSync(process.env.GHTTP, ["--help"], { stdio: "ignore" });
   await stop();
   await mkdir(site, { recursive: true });
