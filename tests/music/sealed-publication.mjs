@@ -44,7 +44,6 @@ await cp("/input/release", releaseRoot, { recursive: true });
 await mkdir(join(lifecycle, "ci"));
 await copyFile("/input/ci.json", join(lifecycle, "ci", `${applicationCommit}.json`));
 await copyFile(join(gateway, "deploy/ansible/inventory/hosts.example.yml"), join(gateway, "deploy/ansible/inventory/hosts.yml"));
-await writeFile(join(application, ".mprlab/deploy/.env"), "MUSIC_TRUSTED_PROXIES=127.0.0.1/32\n");
 run("go", ["build", "-o", "/provider/gh", "./internal/lifecycle/testdata/provider-helper"], gateway);
 process.env.PATH = `/provider:${process.env.PATH}`;
 process.env.MPRLAB_PROVIDER_HELPER_MODE = "application";

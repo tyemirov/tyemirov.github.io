@@ -67,7 +67,7 @@ try {
   const bundle = await build({ entryPoints: [join(root, "tests/music/fixture-entry.mjs")], bundle: true, format: "esm", write: false, logLevel: "silent" });
   async function startMedia() {
   // Permit rapid page visits while retaining the eight active-grant limit.
-  media = spawn(binary, ["--listen", "127.0.0.1:18447", "--media-root", mediaRoot, "--index", index, "--allowlist", allowlist, "--public-origin", "https://localhost:18444", "--allowed-origins", "https://localhost:18443", "--tls-cert", certificate, "--tls-key", key, "--session-grant-burst", "16"], { stdio: ["ignore", "ignore", "pipe"] });
+  media = spawn(binary, ["--listen", "127.0.0.1:18447", "--media-root", mediaRoot, "--index", index, "--allowlist", allowlist, "--public-origin", "https://localhost:18444", "--allowed-origins", "https://localhost:18443", "--tls-cert", certificate, "--tls-key", key], { stdio: ["ignore", "ignore", "pipe"] });
   let mediaLog = "";
   media.stderr.on("data", (value) => { mediaLog = (mediaLog + value).slice(-20000); });
   const deadline = Date.now() + 10000;

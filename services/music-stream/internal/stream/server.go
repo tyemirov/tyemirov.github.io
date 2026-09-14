@@ -8,9 +8,7 @@ import (
 	"fmt"
 	"io"
 	"log/slog"
-	"math"
 	"net/http"
-	"net/netip"
 	"net/url"
 	"os"
 	"path/filepath"
@@ -28,7 +26,6 @@ type Config struct {
 	Now            func() time.Time
 	Logger         *slog.Logger
 	Limits         *Limits
-	TrustedProxies []string
 }
 
 const cookieName = "__Secure-music-session"
@@ -40,8 +37,6 @@ const jsonBodyLimit = 1024
 
 type browserSession struct {
 	expires   time.Time
-	creation  tokenBucket
-	media     tokenBucket
 	responses int
 }
 type playbackGrant struct {
@@ -52,25 +47,21 @@ type playbackGrant struct {
 	created time.Time
 	expires time.Time
 	revoked bool
-	renewal tokenBucket
 }
 type Service struct {
-	counters    Counters
-	config      Config
-	cookie      http.Cookie
-	root        *os.Root
-	origins     map[string]bool
-	mu          sync.Mutex
-	tracks      map[string]*validatedPackage
-	sessions    map[[32]byte]*browserSession
-	grants      map[string]*playbackGrant
-	addresses   map[netip.Addr]*addressLimit
-	limits      Limits
-	proxies     []netip.Prefix
-	addressIdle time.Duration
-	responses   int
-	stop        chan struct{}
-	closed      sync.Once
+	counters  Counters
+	config    Config
+	cookie    http.Cookie
+	root      *os.Root
+	origins   map[string]bool
+	mu        sync.Mutex
+	tracks    map[string]*validatedPackage
+	sessions  map[[32]byte]*browserSession
+	grants    map[string]*playbackGrant
+	limits    Limits
+	responses int
+	stop      chan struct{}
+	closed    sync.Once
 }
 
 func validOrigin(origin string) bool {
@@ -86,14 +77,6 @@ func New(config Config) (*Service, error) {
 	}
 	if err := validateLimits(limits); err != nil {
 		return nil, fmt.Errorf("configure limits: %w", err)
-	}
-	proxies := make([]netip.Prefix, 0, len(config.TrustedProxies))
-	for _, value := range config.TrustedProxies {
-		prefix, err := netip.ParsePrefix(value)
-		if err != nil {
-			return nil, fmt.Errorf("configure trusted proxy: %w", err)
-		}
-		proxies = append(proxies, prefix.Masked())
 	}
 	if !validOrigin(config.PublicOrigin) || len(config.AllowedOrigins) == 0 {
 		return nil, fmt.Errorf("configure explicit HTTPS or HTTP localhost origins")
@@ -129,15 +112,13 @@ func New(config Config) (*Service, error) {
 	if config.Logger == nil {
 		config.Logger = slog.New(slog.NewJSONHandler(io.Discard, nil))
 	}
-	service := &Service{config: config, root: root, origins: origins, tracks: tracks, sessions: make(map[[32]byte]*browserSession), grants: make(map[string]*playbackGrant), addresses: make(map[netip.Addr]*addressLimit), stop: make(chan struct{})}
+	service := &Service{config: config, root: root, origins: origins, tracks: tracks, sessions: make(map[[32]byte]*browserSession), grants: make(map[string]*playbackGrant), stop: make(chan struct{})}
 	service.cookie = http.Cookie{Name: cookieName, Path: "/music", Secure: true, HttpOnly: true, SameSite: http.SameSiteStrictMode, MaxAge: int(sessionLifetime.Seconds())}
 	if strings.HasPrefix(config.PublicOrigin, "http:") {
 		service.cookie.Name = localCookieName
 		service.cookie.Secure = false
 	}
 	service.limits = limits
-	service.proxies = proxies
-	service.addressIdle = max(addressRetention, time.Duration(math.Ceil(float64(limits.AddressGrantBurst)/float64(limits.AddressGrantRate)*60))*time.Second)
 	go service.expireLoop()
 	return service, nil
 }
@@ -158,11 +139,6 @@ func (service *Service) expireLoop() {
 }
 
 func (service *Service) expire(now time.Time) {
-	for address, entry := range service.addresses {
-		if now.Sub(entry.lastSeen) >= service.addressIdle {
-			delete(service.addresses, address)
-		}
-	}
 	for key, session := range service.sessions {
 		if !now.Before(session.expires) {
 			delete(service.sessions, key)

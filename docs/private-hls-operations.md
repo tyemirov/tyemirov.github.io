@@ -53,7 +53,8 @@ This command runs 100 simulated listeners for 15 minutes in a network-isolated c
 Each pair of listeners shares one browser session and uses two independent playback grants.
 Clients request segments at their encoded duration and request two extra segments during each 60-second seek burst.
 The fixture uses generated three-minute noise and the actual Go service with its default limits.
-Distinct synthetic client addresses reach the service through an explicitly trusted loopback test peer.
+The clients use distinct browser sessions through one loopback connection address.
+This service test does not qualify Caddy traffic limits.
 The command removes its private files and stops its service after the run.
 
 The JSON report is `output/playwright/load/load-results.json`.
@@ -89,10 +90,13 @@ For the current Lima qualification host, run:
 ```bash
 export MUSIC_QUALIFICATION_SSH_CONFIG="$(limactl list mprlab-semantic-qualification --format '{{.SSHConfigFile}}')"
 export MUSIC_QUALIFICATION_HOST=lima-mprlab-semantic-qualification
+export MUSIC_QUALIFICATION_GATEWAY_ROOT="$HOME/.local/share/mprlab-gateway/releases/v4.2.0/darwin-arm64/runtime"
+export ANSIBLE_PLAYBOOK="$HOME/.local/share/mprlab-gateway/releases/v4.2.0/darwin-arm64/toolchain/bin/ansible-playbook"
 make music-host-test
 ```
 
-A headless CI server can supply its isolated host through the same two environment variables.
+A headless CI server supplies its host, installed runtime root, and matching Ansible toolchain through these environment variables.
+The test validates the captured runtime package before it uses that package's tasks and template.
 The current ARM64 qualification VM uses Ubuntu's `qemu-user-binfmt` package to execute the AMD64 service.
 The test uses the controller's native preparation image for archive transfer and HTTP checks.
 That image must also execute on the selected test host.
@@ -106,9 +110,17 @@ The test then replaces the container and repeats validation against the retained
 It also renders the selected media route with Gateway's actual Caddy template.
 Caddy validates that configuration and serves HTTPS with a temporary internal certificate authority.
 The HTTP client verifies the certificate and declared hostname through a connection address supplied only to the test.
-The service trusts the exact Docker proxy address through the declared environment variable.
-The proxy checks cover CORS, cookie attributes, anonymous rejection, byte ranges, grant removal, and address limits.
-Caller-supplied forwarding headers cannot bypass the address limit, and distinct client addresses retain separate limits.
+The service has no proxy-address input.
+Gateway renders the private port and the shared API route.
+The host test selects its music handler for isolated media qualification.
+An HTTP check rejects backend access through the external test interface.
+The proxy checks cover CORS, cookie attributes, anonymous rejection, byte ranges, grant removal, renewal, and address limits.
+One hundred clients share an address and request their private media concurrently.
+Headless Chromium, Firefox, and WebKit load the Pages artifact through the selected website and API hostnames.
+Chromium enables third-party cookie phaseout, and Firefox blocks third-party cookies.
+WebKit uses its default privacy settings.
+The test keeps actual TLS, cookies, CORS, and media requests.
+The test requires independent address limits and rejection of caller-supplied forwarding headers as a way to bypass those limits.
 The test checks that proxy logs exclude cookies and authorized media URLs.
 It removes its test volumes, containers, and remote application image tags after the check.
 The pinned Caddy image remains in the test host's image cache.
@@ -309,10 +321,11 @@ docker run --rm music-stream:local --help
 The native service listens on loopback by default.
 A container proxy needs an explicit container interface, such as `--listen 0.0.0.0:8092`.
 Expose that port only through the selected private proxy boundary.
-Set `MUSIC_TRUSTED_PROXIES` to comma-separated CIDRs for verified proxy peers.
-An empty value trusts no proxy peers.
-An invalid CIDR stops service startup.
-The service rejects an invalid forwarded address chain from a trusted peer.
+The application has no proxy-address list or forwarded-address parser.
+Gateway binds the backend port to its private network address.
+Caddy owns the public address limit.
+The service retains session, grant, media, and total capacity limits.
+Do not publish backend port 8092 on a public interface.
 
 The service supports local TLS certificate arguments for the test fixture.
 Production TLS and routing belong to the application declaration and Gateway.
@@ -329,7 +342,8 @@ These counters have no public HTTP route.
 
 B001 has a selected application declaration and canonical Gateway lifecycle commands.
 Real Gateway plans and source checks pass in local fixtures.
-The isolated-host volume, service, and rendered proxy checks pass.
+Historical F001 checks passed for the isolated volume, service, and rendered proxy.
+The B005 traffic-limit check passes with installed Gateway `v4.2.0` and the selected handler policy described below.
 The actual release and exact retry also pass with the isolated Docker host.
 Publication and its exact retry pass with the isolated registry and local Git provider fixtures.
 Pages activation, complete isolated deployment, exact retries, and Gateway cleanup also pass.
@@ -340,14 +354,51 @@ The backend authorizes requests and serves prepared media segments.
 The declaration retains volume `tyemirov-site-music-media` and mounts its parent at `/media` for read-only service access.
 The service reads `/media/selected.json` and `/media/allowlist.json` from that volume.
 Prepare both files and their referenced packages before service startup.
-The production volume, transfer route, proxy addresses, and outbound capacity require host qualification.
+The production volume, transfer route, private port, and outbound capacity require host qualification.
 The media hostname returned `NXDOMAIN` during the September 8, 2026 read-only check.
 Configure and verify its public DNS before production HTTPS acceptance.
 
-Gateway reads `MUSIC_TRUSTED_PROXIES` from the ignored application file `.mprlab/deploy/.env`.
-Its private-value binding supplies the same variable to the service.
-Use the observed proxy peer CIDRs when the production route is qualified.
-Synthetic proxy addresses in tests are fixture data.
+### B005 Shared API Boundary
+
+Gallery and music use `https://api.tyemirov.net`.
+Caddy sends `/gallery` requests to Gallery and `/music` requests to the private music service.
+TAuth continues to use its established tenant, routing, cookies, and private inputs.
+The generated `/config-site.json` has one required field, `apiOrigin`.
+The browser does not need a music-service hostname.
+The selected manifest has no separate streaming route or alias.
+
+The music cookie stays host-only, Secure, HttpOnly, and `SameSite=Strict`, with `Path=/music`.
+The website and API hostname belong to the same HTTPS site.
+The browser sends credentials for music requests.
+The music cookie does not accompany Gallery paths.
+
+The intended Caddy policy is 6,000 requests per address in a 60-second window for `/music` only.
+It must count music preflight, grants, playlists, segments, and readiness checks.
+It must use the connection address instead of caller-supplied forwarding headers.
+Gallery and TAuth must not share this music limit.
+The previous grant-only address limit was 60 per minute with a burst of 20.
+The policies are not equivalent.
+
+The capacity target is 100 listeners behind one shared address.
+Six-second segments need approximately 1,000 requests per minute for that group during continuous playback.
+The 6,000-request limit leaves capacity for startup, seeking, renewal, and preflight.
+The service keeps authorization and bounded session, grant, and media capacity.
+
+The owner assigned all request-rate limits to Caddy.
+The service has no per-session request quotas, token buckets, or rate-limit CLI options.
+It returns `503 media_unavailable` when concurrent media responses reach capacity.
+Its active-grant capacity still returns `409 grant_limit`.
+Caddy rate responses must include credentialed CORS and expose a positive `Retry-After` value.
+Production network capacity still needs measurement.
+
+Gateway B568 and I245 are implemented in installed runtime `v4.2.0`.
+The selected music handler declares the budget and browser access policy.
+The installed-runtime host test passed rate enforcement, forged-header rejection, and independent connection addresses.
+Gallery and auth probe upstreams remained available after the music budget was exhausted.
+These probes verify route isolation and do not qualify Gallery operations or live TAuth login.
+The [Gateway adoption record](b005-gateway-rate-limit.md) contains the reproduction and current evidence.
+Keep the existing `v1.1.0` receipts.
+Use a newly validated application commit for the corrected release.
 
 The provisional audience is 100 concurrent listeners.
 The plan requires representative load and network qualification on the selected host.

@@ -254,6 +254,18 @@
               }
             }
           },
+          "429": {
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
+            "headers": {
+              "Retry-After": {
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]*$"
+                }
+              }
+            }
+          },
           "503": {
             "description": "The request failed with a typed application error.",
             "headers": {
@@ -449,6 +461,18 @@
               "Cache-Control": {
                 "schema": {
                   "const": "no-store"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
+            "headers": {
+              "Retry-After": {
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -745,6 +769,18 @@
                     "message",
                     "requestId"
                   ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
+            "headers": {
+              "Retry-After": {
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -1098,6 +1134,18 @@
               }
             }
           },
+          "429": {
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
+            "headers": {
+              "Retry-After": {
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]*$"
+                }
+              }
+            }
+          },
           "503": {
             "description": "The request failed with a typed application error.",
             "headers": {
@@ -1293,6 +1341,18 @@
               "Cache-Control": {
                 "schema": {
                   "const": "no-store"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
+            "headers": {
+              "Retry-After": {
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -1589,6 +1649,18 @@
                     "message",
                     "requestId"
                   ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
+            "headers": {
+              "Retry-After": {
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -1933,6 +2005,18 @@
               }
             }
           },
+          "429": {
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
+            "headers": {
+              "Retry-After": {
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]*$"
+                }
+              }
+            }
+          },
           "503": {
             "description": "The request failed with a typed application error.",
             "headers": {
@@ -2128,6 +2212,18 @@
               "Cache-Control": {
                 "schema": {
                   "const": "no-store"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
+            "headers": {
+              "Retry-After": {
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -2424,6 +2520,18 @@
                     "message",
                     "requestId"
                   ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
+            "headers": {
+              "Retry-After": {
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -2813,6 +2921,57 @@
               }
             }
           },
+          "409": {
+            "description": "The browser session has reached its active grant capacity.",
+            "headers": {
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100,
+                  "pattern": "\\S"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100,
+                      "pattern": "^[a-z][a-z0-9_]*$"
+                    },
+                    "message": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 2000,
+                      "pattern": "\\S"
+                    },
+                    "requestId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100,
+                      "pattern": "\\S"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "requestId"
+                  ]
+                }
+              }
+            }
+          },
           "413": {
             "description": "The request failed with a typed application error.",
             "headers": {
@@ -2911,6 +3070,18 @@
                     "message",
                     "requestId"
                   ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
+            "headers": {
+              "Retry-After": {
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -3294,6 +3465,18 @@
                     "message",
                     "requestId"
                   ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
+            "headers": {
+              "Retry-After": {
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -3802,52 +3985,13 @@
             }
           },
           "429": {
-            "description": "The request failed with a typed application error.",
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
             "headers": {
-              "X-Request-ID": {
+              "Retry-After": {
+                "required": true,
                 "schema": {
                   "type": "string",
-                  "minLength": 1,
-                  "maxLength": 100,
-                  "pattern": "\\S"
-                }
-              },
-              "Cache-Control": {
-                "schema": {
-                  "const": "no-store"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "code": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "^[a-z][a-z0-9_]*$"
-                    },
-                    "message": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 2000,
-                      "pattern": "\\S"
-                    },
-                    "requestId": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "\\S"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "requestId"
-                  ]
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -4302,52 +4446,13 @@
             }
           },
           "429": {
-            "description": "The request failed with a typed application error.",
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
             "headers": {
-              "X-Request-ID": {
+              "Retry-After": {
+                "required": true,
                 "schema": {
                   "type": "string",
-                  "minLength": 1,
-                  "maxLength": 100,
-                  "pattern": "\\S"
-                }
-              },
-              "Cache-Control": {
-                "schema": {
-                  "const": "no-store"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "code": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "^[a-z][a-z0-9_]*$"
-                    },
-                    "message": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 2000,
-                      "pattern": "\\S"
-                    },
-                    "requestId": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "\\S"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "requestId"
-                  ]
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -4604,19 +4709,13 @@
             }
           },
           "429": {
-            "description": "The request failed with a typed application error.",
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
             "headers": {
-              "X-Request-ID": {
+              "Retry-After": {
+                "required": true,
                 "schema": {
                   "type": "string",
-                  "minLength": 1,
-                  "maxLength": 100,
-                  "pattern": "\\S"
-                }
-              },
-              "Cache-Control": {
-                "schema": {
-                  "const": "no-store"
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -5032,52 +5131,13 @@
             }
           },
           "429": {
-            "description": "The request completed.",
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
             "headers": {
-              "X-Request-ID": {
+              "Retry-After": {
+                "required": true,
                 "schema": {
                   "type": "string",
-                  "minLength": 1,
-                  "maxLength": 100,
-                  "pattern": "\\S"
-                }
-              },
-              "Cache-Control": {
-                "schema": {
-                  "const": "no-store"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "code": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "^[a-z][a-z0-9_]*$"
-                    },
-                    "message": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 2000,
-                      "pattern": "\\S"
-                    },
-                    "requestId": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "\\S"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "requestId"
-                  ]
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -5688,52 +5748,13 @@
             }
           },
           "429": {
-            "description": "The request failed with a typed application error.",
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
             "headers": {
-              "X-Request-ID": {
+              "Retry-After": {
+                "required": true,
                 "schema": {
                   "type": "string",
-                  "minLength": 1,
-                  "maxLength": 100,
-                  "pattern": "\\S"
-                }
-              },
-              "Cache-Control": {
-                "schema": {
-                  "const": "no-store"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "code": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "^[a-z][a-z0-9_]*$"
-                    },
-                    "message": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 2000,
-                      "pattern": "\\S"
-                    },
-                    "requestId": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "\\S"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "requestId"
-                  ]
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -6234,52 +6255,13 @@
             }
           },
           "429": {
-            "description": "The request completed.",
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
             "headers": {
-              "X-Request-ID": {
+              "Retry-After": {
+                "required": true,
                 "schema": {
                   "type": "string",
-                  "minLength": 1,
-                  "maxLength": 100,
-                  "pattern": "\\S"
-                }
-              },
-              "Cache-Control": {
-                "schema": {
-                  "const": "no-store"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "code": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "^[a-z][a-z0-9_]*$"
-                    },
-                    "message": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 2000,
-                      "pattern": "\\S"
-                    },
-                    "requestId": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "\\S"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "requestId"
-                  ]
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -6822,52 +6804,13 @@
             }
           },
           "429": {
-            "description": "The request failed with a typed application error.",
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
             "headers": {
-              "X-Request-ID": {
+              "Retry-After": {
+                "required": true,
                 "schema": {
                   "type": "string",
-                  "minLength": 1,
-                  "maxLength": 100,
-                  "pattern": "\\S"
-                }
-              },
-              "Cache-Control": {
-                "schema": {
-                  "const": "no-store"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "code": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "^[a-z][a-z0-9_]*$"
-                    },
-                    "message": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 2000,
-                      "pattern": "\\S"
-                    },
-                    "requestId": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "\\S"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "requestId"
-                  ]
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -7182,19 +7125,13 @@
             }
           },
           "429": {
-            "description": "The request failed with a typed application error.",
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
             "headers": {
-              "X-Request-ID": {
+              "Retry-After": {
+                "required": true,
                 "schema": {
                   "type": "string",
-                  "minLength": 1,
-                  "maxLength": 100,
-                  "pattern": "\\S"
-                }
-              },
-              "Cache-Control": {
-                "schema": {
-                  "const": "no-store"
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }
@@ -7631,52 +7568,13 @@
             }
           },
           "429": {
-            "description": "The request completed.",
+            "description": "Caddy rejected the request because the music request limit was reached. The response body is not an application error.",
             "headers": {
-              "X-Request-ID": {
+              "Retry-After": {
+                "required": true,
                 "schema": {
                   "type": "string",
-                  "minLength": 1,
-                  "maxLength": 100,
-                  "pattern": "\\S"
-                }
-              },
-              "Cache-Control": {
-                "schema": {
-                  "const": "no-store"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "code": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "^[a-z][a-z0-9_]*$"
-                    },
-                    "message": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 2000,
-                      "pattern": "\\S"
-                    },
-                    "requestId": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100,
-                      "pattern": "\\S"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "requestId"
-                  ]
+                  "pattern": "^[1-9][0-9]*$"
                 }
               }
             }

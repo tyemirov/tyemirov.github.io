@@ -257,44 +257,49 @@ func TestGrantRenewalExpirationAndOrigin(t *testing.T) {
 	}
 }
 
-func TestRequestRateLimitsAndRefill(t *testing.T) {
-	fixture := prepareFixture(t)
-	grant, cookie := fixture.create(t, nil)
-	for count := 1; count < 5; count++ {
-		fixture.create(t, cookie)
-	}
-	limited := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
-	if limited.StatusCode != 429 || limited.Header.Get("Retry-After") != "3" {
-		t.Fatalf("session creation limit: got %d retry=%s", limited.StatusCode, limited.Header.Get("Retry-After"))
-	}
-	fixture.now.Add(3)
-	fixture.create(t, cookie)
-	if fixture.renew(t, grant, cookie).StatusCode != 200 {
-		t.Fatal("first renewal rejected")
-	}
-	fixture.now.Add(1)
-	limited = fixture.renew(t, grant, cookie)
-	if limited.StatusCode != 429 || limited.Header.Get("Retry-After") != "29" {
-		t.Fatalf("renewal limit: got %d retry=%s", limited.StatusCode, limited.Header.Get("Retry-After"))
-	}
-	fixture.now.Add(29)
-	if fixture.renew(t, grant, cookie).StatusCode != 200 {
-		t.Fatal("renewal bucket did not refill")
-	}
-	playlist, _ := url.Parse(grant.PlaylistURL)
-	for count := 0; count < 60; count++ {
-		if fixture.request(t, "HEAD", playlist.Path, nil, cookie, nil).StatusCode != 200 {
-			t.Fatal("media burst rejected early")
+func TestRequestsBelowCapacityHaveNoServiceRateQuota(t *testing.T) {
+	t.Run("grant creation", func(t *testing.T) {
+		fixture := prepareFixture(t)
+		_, cookie := fixture.create(t, nil)
+		for count := 1; count < 8; count++ {
+			fixture.create(t, cookie)
 		}
-	}
-	limited = fixture.request(t, "HEAD", playlist.Path, nil, cookie, nil)
-	if limited.StatusCode != 429 || limited.Header.Get("Retry-After") != "1" {
-		t.Fatalf("media limit: got %d retry=%s", limited.StatusCode, limited.Header.Get("Retry-After"))
-	}
-	fixture.now.Add(1)
-	if fixture.request(t, "HEAD", playlist.Path, nil, cookie, nil).StatusCode != 200 {
-		t.Fatal("media bucket did not refill")
-	}
+		response := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"})
+		if response.StatusCode != 409 {
+			t.Fatalf("active grant capacity: got %d want 409", response.StatusCode)
+		}
+	})
+	t.Run("renewal", func(t *testing.T) {
+		fixture := prepareFixture(t)
+		grant, cookie := fixture.create(t, nil)
+		for count := 0; count < 3; count++ {
+			fixture.now.Add(1)
+			response := fixture.renew(t, grant, cookie)
+			if response.StatusCode != 200 {
+				t.Fatalf("renewal %d: got %d want 200", count+1, response.StatusCode)
+			}
+			response.Body.Close()
+		}
+	})
+	t.Run("media", func(t *testing.T) {
+		fixture := prepareFixture(t)
+		grant, cookie := fixture.create(t, nil)
+		playlist, _ := url.Parse(grant.PlaylistURL)
+		for count := 0; count < 80; count++ {
+			method := "GET"
+			if count%2 == 0 {
+				method = "HEAD"
+			}
+			response := fixture.request(t, method, playlist.Path, nil, cookie, nil)
+			if response.StatusCode != 200 {
+				t.Fatalf("media request %d: got %d want 200", count+1, response.StatusCode)
+			}
+			if _, err := io.Copy(io.Discard, response.Body); err != nil {
+				t.Fatal(err)
+			}
+			response.Body.Close()
+		}
+	})
 }
 
 func (fixture *fixture) renew(t *testing.T, grant testGrant, cookie *http.Cookie) *http.Response {
@@ -338,15 +343,12 @@ func TestExpirationReplacementIsIdempotent(t *testing.T) {
 	}
 }
 
-func TestClientAddressLimitIgnoresUntrustedForwardedHeaders(t *testing.T) {
+func TestDistinctSessionsBehindOneProxyDoNotShareAnAddressLimit(t *testing.T) {
 	fixture := prepareFixture(t)
-	for count := 0; count < 20; count++ {
-		fixture.create(t, nil)
+	for count := 0; count < 100; count++ {
+		response := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json", "X-Forwarded-For": "invalid", "Forwarded": "for=203.0.113.99"})
+		if response.StatusCode != http.StatusCreated {
+			t.Fatalf("session %d behind one proxy: got %d", count, response.StatusCode)
+		}
 	}
-	limited := fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), nil, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json", "X-Forwarded-For": "203.0.113.99"})
-	if limited.StatusCode != 429 || limited.Header.Get("Retry-After") != "1" {
-		t.Fatalf("address limit: got %d retry=%s", limited.StatusCode, limited.Header.Get("Retry-After"))
-	}
-	fixture.now.Add(1)
-	fixture.create(t, nil)
 }

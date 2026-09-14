@@ -39,7 +39,7 @@ test('generated article and gallery routes survive direct HTTP navigation', asyn
     for(const project of source.projects.filter(project=>project.kind==='model')) assert.equal((await fetch(origin+project.href)).status,200);
     const publicSite = JSON.parse(readFileSync(join(output, 'data/site.json'), 'utf8'));
     assert.ok(publicSite.articles.items.every(item => !('body' in item)));
-    assert.equal(JSON.parse(readFileSync(join(output, 'config-site.json'), 'utf8')).apiOrigin, 'https://api.tyemirov.net');
+    assert.deepEqual(JSON.parse(readFileSync(join(output, 'config-site.json'), 'utf8')), { apiOrigin: 'https://api.tyemirov.net' });
   } finally { await new Promise(resolve => server.close(resolve)); rmSync(output, { recursive: true, force: true }); }
 });
 

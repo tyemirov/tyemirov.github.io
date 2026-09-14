@@ -3,7 +3,7 @@ import { routes } from "../../assets/js/generated/routes.js";
 import { musicGrant, musicError, siteRuntime } from "../../assets/js/generated/validators.js";
 const GRANTS = routes.music.createGrant.path;
 const GRANT_ID = /^[A-Za-z0-9_-]{22}$/;
-const ERROR_CODES = new Set(["session_required", "origin_denied", "not_found", "grant_expired", "track_unavailable", "grant_limit", "rate_limited", "media_unavailable", "invalid_request", "json_required", "body_too_large", "method_not_allowed", "headers_denied"]);
+const ERROR_CODES = new Set(["session_required", "origin_denied", "not_found", "grant_expired", "track_unavailable", "grant_limit", "media_unavailable", "invalid_request", "json_required", "body_too_large", "method_not_allowed", "headers_denied"]);
 
 export class PlaybackError extends Error {
   constructor(code, status = 0, retryAfter = 0) {
@@ -72,6 +72,7 @@ export function createPlaybackAPI(config) {
       throw new PlaybackError("media_unavailable");
     }
     if (response.status === 204 && method === "DELETE") return null;
+    if (response.status === 429) throw rateLimitError(response.headers.get("Retry-After"));
     const expectedStatus = method === "POST" ? 201 : method === "DELETE" ? 204 : 200;
     if (response.ok && response.status !== expectedStatus) throw new PlaybackError("invalid_response");
     if (response.headers.get("Content-Type")?.split(";")[0].trim() !== "application/json") throw new PlaybackError("invalid_response");
@@ -79,7 +80,6 @@ export function createPlaybackAPI(config) {
     try { value = await response.json(); } catch { throw new PlaybackError("invalid_response"); }
     if (!response.ok) {
       if (!musicError(value) || !ERROR_CODES.has(value.code)) throw new PlaybackError("invalid_response");
-      if (response.status === 429) throw rateLimitError(response.headers.get("Retry-After"));
       throw new PlaybackError(value.code, response.status);
     }
     return value;

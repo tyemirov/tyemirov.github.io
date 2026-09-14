@@ -12,7 +12,7 @@ const PUBLIC_ORIGIN = "https://music-load.example.invalid";
 const WEBSITE_ORIGIN = "https://website.example.invalid";
 const TRACK = "load-noise";
 const REQUEST_KINDS = ["grant", "playlist", "initialization", "segment", "seek", "revoke"];
-/** @typedef {{cookie: string, address: string}} Session */
+/** @typedef {{cookie: string}} Session */
 /** @typedef {{session: Session, id: string, playlistPath: string, segments: Array<{path: string, seconds: number}>}} Listener */
 
 function run(program, args, cwd = resolve(".")) {
@@ -61,7 +61,7 @@ async function main() {
     run("go", ["build", "-o", binary, "./cmd/music-stream"], resolve("services/music-stream"));
     service = spawn(binary, ["--listen", "127.0.0.1:0", "--media-root", mediaRoot, "--index", index, "--allowlist", allowlist,
       "--public-origin", PUBLIC_ORIGIN, "--allowed-origins", WEBSITE_ORIGIN],
-    { env: { ...process.env, MUSIC_TRUSTED_PROXIES: "127.0.0.1/32" }, stdio: ["ignore", "ignore", "pipe"] });
+    { stdio: ["ignore", "ignore", "pipe"] });
     serviceClosed = once(service, "close");
     const address = await new Promise((resolveReady, reject) => {
       let pending = "";
@@ -89,7 +89,7 @@ async function main() {
       let response, bytes;
       try {
         response = await fetch(origin + path, { method, redirect: "error", signal: AbortSignal.timeout(10000),
-          headers: { Origin: WEBSITE_ORIGIN, "X-Forwarded-For": session.address, ...(session.cookie ? { Cookie: session.cookie } : {}),
+          headers: { Origin: WEBSITE_ORIGIN, ...(session.cookie ? { Cookie: session.cookie } : {}),
             ...(body ? { "Content-Type": "application/json" } : {}) }, ...(body ? { body: JSON.stringify(body) } : {}) });
         bytes = Buffer.from(await response.arrayBuffer());
       } catch {
@@ -134,7 +134,7 @@ async function main() {
       await request("initialization", mediaPath(new URL("init.mp4", grant.playlistUrl).href), session);
     }
     const starts = await Promise.allSettled(Array.from({ length: listeners / 2 }, async (_, index) => {
-      const session = { cookie: "", address: `198.18.0.${index + 1}` };
+      const session = { cookie: "" };
       await startListener(session); await startListener(session);
     }));
     for (const result of starts) if (result.status === "rejected") failures.push(result.reason.message);

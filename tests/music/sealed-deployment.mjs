@@ -136,10 +136,7 @@ try {
   }
   const caddy = docker(["ps", "--quiet", "--filter", "label=com.docker.compose.project=mprlab-caddy"]);
   assert.match(caddy, /^[0-9a-f]+$/);
-  const networks = JSON.parse(docker(["inspect", caddy]))[0].NetworkSettings.Networks;
-  const peers = Object.values(networks).map((network) => `${network.IPAddress}/32`);
-  assert.ok(peers.length > 0);
-  await writeFile(join(application, ".mprlab/deploy/.env"), `MUSIC_TRUSTED_PROXIES=${peers.join(",")}\nGALLERY_TAUTH_SIGNING_KEY=${gallerySigningKey}\nGALLERY_GOOGLE_WEB_CLIENT_ID=fixture.apps.googleusercontent.com\n`);
+  await writeFile(join(application, ".mprlab/deploy/.env"), `GALLERY_TAUTH_SIGNING_KEY=${gallerySigningKey}\nGALLERY_GOOGLE_WEB_CLIENT_ID=fixture.apps.googleusercontent.com\n`);
   const variables = { application_manifest: `${application}/.mprlab/deploy/resources.yml`, gateway_root: gateway, selected_contract: "/provider/selected.json", selected_caddy_config: "/provider/Caddyfile", expected_volume: volume };
   await writeFile("/provider/volume.json", JSON.stringify(variables));
   await writeFile(join(evidence, "media-volume.log"), run(ansible, ["-i", inventory, "/workspace/tests/music/host-volume.yml", "--extra-vars", "@/provider/volume.json"], gateway));

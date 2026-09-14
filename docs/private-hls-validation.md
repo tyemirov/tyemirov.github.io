@@ -2,8 +2,142 @@
 
 The owner supplied the source recordings. F001 requires operator production execution for its remaining production gates.
 The [implementation plan](private-hls-implementation.md) defines the scope.
-This record describes local evidence from September 8, 2026.
+This record separates current B005 qualification from historical F001 evidence.
 The [operations runbook](private-hls-operations.md) gives the current commands.
+## Current B005 Shared API Qualification
+
+The owner selected `api.tyemirov.net` for Gallery and music.
+The application uses one `apiOrigin` and has no separate streaming route.
+TAuth continues to use the existing integration and tenant contract.
+The music service has no proxy-address input.
+The owner assigned all request-rate limits to Caddy after the shared-origin revision passed CI.
+
+The service now keeps authorization and capacity checks without request quotas or token buckets.
+Concurrent-response capacity returns `503 media_unavailable`.
+Active-grant capacity returns `409 grant_limit`.
+
+The shared-origin Pages regression first failed because the artifact still contained the extra `musicOrigin` field.
+The corrected Pages and local-preparation targets pass with `{apiOrigin: "https://api.tyemirov.net"}`.
+The isolated host used real Gateway volume and port tasks and selected the music handler from the shared Caddy route.
+That host trial preceded removal of the remaining service request quotas.
+Private-port isolation, TLS verification, CORS, media authorization, byte ranges, grant removal, and renewal pass.
+One hundred clients behind one address obtain their grants and generated media.
+
+Chromium 153.0.8010.12, Firefox 155.0, and WebKit 26.6 pass playback, seeking, and reload through the shared API origin.
+The browser tests use Chromium third-party cookie phaseout, Firefox third-party cookie blocking, and default WebKit privacy.
+The cookie stays host-only on `api.tyemirov.net` with Secure, HttpOnly, `SameSite=Strict`, and `Path=/music`.
+The cookie does not accompany Gallery paths.
+The browser test does not replace music responses or inject music cookies.
+
+The original traffic check failed because all 6,001 music requests reached the backend within one window.
+Gateway B568 and I245 are now implemented in installed runtime `v4.2.0`, source `5d50c59d986d515166e6db6cf0deeb2a4cc3cf5d`.
+The application now declares the supported music handler policy and its permitted browser origins.
+The [adoption record](b005-gateway-rate-limit.md) gives the current contract and historical reproduction.
+
+On September 14, 2026, the host test passed with the installed runtime's tasks and Caddy template.
+The test verified HTTP 429 after 6,000 requests, a positive `Retry-After`, and credentialed access for both declared origins.
+Forged forwarding headers did not bypass the limit, and a distinct connection address retained its own budget.
+Gallery and auth probe upstreams remained available after music requests exhausted their budget.
+Those probes qualify route isolation, not Gallery business operations or live TAuth login.
+The latest host trial also passed playback, media authorization, private-port isolation, and 100 shared-address listeners with the capacity-only service.
+
+The Pages and service containers pass.
+The first local and browser checks stopped because jsDelivr returned mixed shared UI versions.
+The configuration and JavaScript used `4.1.0`, while CSS used `4.0.0`.
+B007 corrects the fixture to select one published release before it retrieves the remaining assets.
+The fixture keeps its version-consistency check.
+The corrected local test passed all four cases with published UI release `4.1.0`.
+The shared-origin CI run passed, including 583 browser cases and 21 explicit skips.
+B008 records an earlier intermittent load assertion and its passing focused rerun.
+
+The Caddy-only revision first failed real HTTP tests for grant creation, renewal, and media request quotas.
+The concurrent-response test also reproduced the old `429` capacity response.
+After quota removal, these service tests pass with authorization and capacity checks intact.
+A browser regression first failed because the player required JSON before it handled a proxy `429`.
+The corrected browser target passes all four grant and HLS cooldown cases with plain-text proxy responses.
+OpenAPI now describes Caddy rate responses separately from application errors.
+Final `make ci` passed for this revision, including 583 browser cases and 21 explicit skips.
+Both container tests passed with the corrected service.
+The final CI log is `output/playwright/b005-caddy-only-ci-final.log`.
+The quota and proxy-response failure logs use the `b005-caddy-only-` prefix in the same directory.
+The first Linux CI run for Gateway `v4.2.0` passed 581 browser cases, skipped 21 cases, and failed two WebKit cases.
+B004 records the Studio order timeout, which passed on a focused Linux rerun without a source change.
+B009 records the Time Series report width of 396 pixels at a 390-pixel viewport, which the focused rerun reproduced.
+The separate Gallery API, contract, and static checks passed after browser CI stopped.
+The complete log is `output/playwright/b005-v420-ci-final.log`.
+The focused browser and Gallery logs use the `b005-v420-` prefix in the same directory.
+That complete CI run failed despite the passing focused Studio case.
+
+B004 later reproduced the Studio timeout with 51 orders and a target beyond the first 50 records.
+The corrected test uses the visible pagination controls until its target appears.
+B009 identified the Time Series action row as the source of the overflow.
+The row now permits its buttons to wrap on narrow screens.
+Both regressions passed all eight focused cases across four browser projects after correction.
+Final `make music-ci-container` passed, including 583 browser cases, 21 explicit skips, and the Gallery backend checks.
+
+The current CI log is `output/playwright/b004-b009-ci-final.log`.
+The regression logs are `output/playwright/b004-b009-red.log` and `output/playwright/b004-b009-green.log`.
+The Governor check reports the same pre-existing managed-content differences and no manifest warnings.
+
+## Earlier B005 Dedicated-Hostname Qualification
+
+The following trial preceded the owner's shared-API decision.
+Its browser evidence used `streaming.tyemirov.net` and does not qualify the current API-origin revision.
+
+B005 selects `streaming.tyemirov.net` while Gallery and authentication keep `api.tyemirov.net`.
+The current application changes are uncommitted over `310fff6e0114551bbef2cb1f796848471dd31c18`.
+The generated runtime contract needs separate `musicOrigin` and `apiOrigin` fields.
+The service has no manual proxy-address input or address parser.
+The declared Caddy limit is 6,000 route requests per connection address per minute.
+The operations runbook defines its capacity target and cookie contract.
+
+The initial lifecycle test reproduced `app_lifecycle.private_binding_absent` with valid Gallery inputs and no music proxy binding.
+The initial HTTP regression received HTTP 429 for the twenty-first distinct session behind one address.
+The initial Pages test rejected the missing `musicOrigin` field.
+The corrected lifecycle, service, Pages, and local-preparation tests pass.
+The lifecycle test uses the installed Gateway runtime.
+
+The isolated host test uses Gateway's actual retained-volume task, private-port task, and Caddy template.
+The AMD64 service reads the transferred private media after container replacement.
+A client on the external test interface cannot reach the backend port.
+TLS verification, CORS, anonymous rejection, byte ranges, grant removal, and renewal pass.
+One hundred concurrent clients behind one address obtain grants and all five files in their generated media package.
+The test uses local hostnames for the actual website and streaming origins.
+
+| Headless browser | Version | Privacy setting | Playback engine | Result |
+| --- | --- | --- | --- | --- |
+| Chromium | 153.0.8010.12 | Third-party cookie phaseout | Native HLS | Playback, seeking, and reload pass |
+| Firefox | 155.0 | Third-party cookies blocked | hls.js | Playback, seeking, and reload pass |
+| WebKit | 26.6 | Default privacy | hls.js | Playback, seeking, and reload pass |
+
+All three browsers keep the host-only Secure, HttpOnly, `SameSite=Strict` cookie with `Path=/music`.
+The browser test uses the Pages artifact and real HTTPS requests through Caddy to the service.
+Only public shared UI assets and analytics requests use browser test routing.
+The test does not replace music responses or inject music cookies.
+The host browser report is replaced when a later qualification runs.
+
+The complete host test fails on the Gateway traffic limit.
+All 6,001 requests from one address reached the backend within one 60-second window.
+The Caddy adapter places the proxy handler before the rate limiter.
+A separate anonymous reproduction returned HTTP 200 for three requests with a two-request limit.
+The [Gateway adoption record](b005-gateway-rate-limit.md) records the subsequent correction and passing isolated host test.
+The isolated host result does not establish effective address limits or production acceptance.
+Existing sealed receipts are unchanged.
+
+Pages and Linux container checks pass.
+The local `make up` and `make down` checks pass, including the first-response runtime configuration check.
+The initial CI run passed 582 browser cases and skipped 21 cases.
+One WebKit album-layout test failed before navigation completed.
+B006 records that test correction and its focused reproduction.
+The corrected `make ci` run passed, including 583 browser cases and 21 explicit skips.
+The Gallery API, contract, and static checks also pass.
+The complete CI log is `output/playwright/b005-ci-final.log`.
+The initial WebKit failure trace is `output/playwright/b005-ci-failure/trace.zip`.
+The Governor check reports pre-existing managed-content differences in `.gitignore`, `.mprlab/POLICY.md`, and `.mprlab/AGENTS.DOCKER.md`.
+It reports no manifest warnings.
+
+## Historical F001 Evidence From September 8, 2026
+
 The tested source is the primary checkout on `feature/F001-private-hls`, including uncommitted implementation changes over `dbc89a1220abd3bd54a214f891c1238807be0078`.
 The final CI image identifies its source snapshot as `sha256:18d5fbe4584c026e70ef710f8558f2b335a5cdb89132fc0212564c311d396353`.
 The isolated-host target runs separately from `make ci` and passed against the current host test files.
