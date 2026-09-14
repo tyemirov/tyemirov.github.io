@@ -287,7 +287,7 @@ Validate and select it:
   --media-root "$MUSIC_PRIVATE_ROOT" \
   --allowlist .pages-dist/music/playback-allowlist.json \
   --candidate "$MUSIC_CANDIDATE_INDEX" \
-  --index "$MUSIC_PRIVATE_ROOT/selected.json"
+  --index "$MUSIC_PRIVATE_ROOT/catalog.json"
 ```
 
 Activation validates a private snapshot before the atomic replacement.
@@ -307,10 +307,12 @@ The current tools have no automatic package removal.
 Build the local service image:
 
 ```bash
-docker build -t music-stream:local services/music-stream
+docker build -t music-stream:local -f services/music-stream/Dockerfile .
 ```
 
-The image contains `/music-stream` and `/music-media`.
+The image contains `/music-stream`, `/music-media`, and generated metadata under `/runtime/music`.
+Its build context is the repository root.
+The final image contains no original recordings or prepared audio packages.
 The service requires explicit media root, index, allowlist, public HTTPS origin, and allowed website origins.
 Use `--help` to inspect all rate and capacity flags:
 
@@ -351,12 +353,25 @@ The owner selected computercat, and Gateway inventory resolves group `computerca
 Read-only SSH checks confirmed the host and Docker runtime.
 Encoding runs during offline preparation.
 The backend authorizes requests and serves prepared media segments.
-The declaration retains volume `tyemirov-site-music-media` and mounts its parent at `/media` for read-only service access.
-The service reads `/media/selected.json` and `/media/allowlist.json` from that volume.
-Prepare both files and their referenced packages before service startup.
-The production volume, transfer route, private port, and outbound capacity require host qualification.
-The media hostname returned `NXDOMAIN` during the September 8, 2026 read-only check.
-Configure and verify its public DNS before production HTTPS acceptance.
+
+The declaration retains volume `tyemirov-site-music-media` at `/media` for private audio packages.
+The production service reads `/runtime/music/catalog.json` and `/runtime/music/allowlist.json` from its image.
+The image build generates both files from `data/site.json` with the shared playback validator.
+All current production tracks use external playback.
+Thus, the media catalog contains no package records, and empty retained storage is valid.
+Image replacement also replaces the runtime metadata, independently of retained storage.
+
+The build rejects an HLS declaration because its prepared media is absent from the production deployment contract.
+Complete that contract before you change a public track to HLS playback.
+Do not supply empty metadata as a substitute for required HLS packages.
+
+Local HLS preparation writes `catalog.json`, `allowlist.json`, and packages into the local media volume.
+The local service uses explicit paths under `/media`.
+The production image metadata does not replace those local inputs.
+
+Run `make music-deployment-container-test` to verify the declared command with empty retained storage and container replacement.
+Run `make music-runtime-test` to verify metadata generation and rejection of an HLS declaration without prepared media.
+Public DNS, TLS, and production activation remain separate operational checks.
 
 ### B005 Shared API Boundary
 

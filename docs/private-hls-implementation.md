@@ -942,7 +942,7 @@ The media feature needs these application surfaces after that prerequisite is re
 | --- | --- |
 | Website | Existing domain on GitHub Pages, with `gh-pages` publication |
 | Media service | Immutable application image, one instance, exact placement group |
-| Private storage | Retained `tyemirov-site-music-media` volume at `/media`, with validated `selected.json` and `allowlist.json` |
+| Private storage | Retained `tyemirov-site-music-media` volume at `/media`. Production metadata comes from `/runtime/music` in the image |
 | Media origin | Shared Caddy route at `api.tyemirov.net`, with `/music` assigned to the music service |
 | Configuration | Catalog allowlist, media root, exact Origins, service limits, and the declared Caddy traffic policy |
 | Health | Process, readiness, public HTTPS, and real media authorization probes |
