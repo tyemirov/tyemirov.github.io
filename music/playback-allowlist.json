@@ -1,0 +1,304 @@
+{
+  "tracks": [
+    {
+      "id": "soliloquies-vol-ii-01",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-02",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-03",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-04",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-05",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-06",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-07",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-08",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-09",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-01",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-02",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-03",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-04",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-05",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-06",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-07",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-08",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "songs-of-desire-01",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "songs-of-desire-02",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "songs-of-desire-03",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "songs-of-desire-04",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "songs-of-desire-05",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "songs-of-desire-06",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "songs-of-desire-07",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "songs-of-desire-08",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "songs-of-desire-09",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "egyptian-nights-01",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "egyptian-nights-02",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "egyptian-nights-03",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "egyptian-nights-04",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "egyptian-nights-05",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "egyptian-nights-06",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "egyptian-nights-07",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "egyptian-nights-08",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "singing-pasternak-01",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "singing-pasternak-02",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "singing-pasternak-03",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "singing-pasternak-04",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "singing-pasternak-05",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "singing-pasternak-06",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "singing-pasternak-07",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-01",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-02",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-03",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-04",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-05",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-06",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-07",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-08",
+      "playback": {
+        "kind": "external"
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-09",
+      "playback": {
+        "kind": "external"
+      }
+    }
+  ]
+}

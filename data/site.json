@@ -1,0 +1,881 @@
+{
+  "site": {
+    "title": "Vadym Tyemirov | Articles, Music, Gallery, and Tools",
+    "description": "Articles, music, and artwork by Vadym Tyemirov, plus tools and games from MPR Lab.",
+    "canonical": "https://tyemirov.net/"
+  },
+  "contact": {
+    "label": "vadym@tyemirov.net",
+    "href": "mailto:vadym@tyemirov.net"
+  },
+  "hero": {
+    "eyebrow": "Vadym Tyemirov",
+    "title": "Tools, essays, music, and arts.",
+    "summary": "Vadym Tyemirov is a product-minded engineering leader who bridges the gap between cutting-edge Artificial Intelligence and scalable enterprise infrastructure.",
+    "detail": "With a career spanning Meta, BlackRock, Shopify, and Morgan Stanley, he focuses on turning complex technical challenges into revenue-generating products. This domain collects the resulting essays, tools, and experiments in one place.",
+    "links": [
+      {
+        "label": "Articles",
+        "href": "#articles",
+        "style": "secondary",
+        "order": 20
+      },
+      {
+        "label": "Music",
+        "href": "#music",
+        "style": "secondary",
+        "order": 30
+      },
+      {
+        "label": "Gallery",
+        "href": "#gallery",
+        "style": "secondary",
+        "order": 40
+      },
+      {
+        "label": "Tools",
+        "href": "#tools",
+        "style": "secondary",
+        "order": 50
+      }
+    ]
+  },
+  "profile": {
+    "ariaLabel": "Vadym Tyemirov profile",
+    "name": "Vadym Tyemirov",
+    "role": "Technical Founder & Engineering Leader",
+    "footnote": "Meta · BlackRock · Shopify · Morgan Stanley",
+    "alt": "Portrait of Vadym Tyemirov",
+    "sizes": "(max-width: 600px) 112px, (max-width: 1000px) 160px, 340px",
+    "image": {
+      "webp": {
+        "srcset": "/assets/profile/vadym-tyemirov-360.webp 360w, /assets/profile/vadym-tyemirov-720.webp 720w",
+        "type": "image/webp"
+      },
+      "jpg": {
+        "src": "/assets/profile/vadym-tyemirov-360.jpg",
+        "srcset": "/assets/profile/vadym-tyemirov-360.jpg 360w, /assets/profile/vadym-tyemirov-720.jpg 720w",
+        "width": 360,
+        "height": 540
+      }
+    }
+  },
+  "projects": [
+    {
+      "slug": "civilization",
+      "title": "Minimum Sustainable Modern Civilization",
+      "kicker": "Modeling",
+      "summary": "Estimate the population floor needed to sustain a modern market economy under staffing, dependency, resilience, autarky, and demographic constraints.",
+      "href": "/civilization/",
+      "theme": "copper",
+      "order": 10,
+      "status": "live",
+      "id": "civilization",
+      "kind": "model",
+      "sourceUrl": "https://open.substack.com/pub/vadymtyemirov/p/how-big-does-a-modern-civilization",
+      "owner": "vadym-tyemirov"
+    },
+    {
+      "slug": "decisioning",
+      "title": "Decision Planes",
+      "kicker": "Decisioning",
+      "summary": "Turn vague yes-or-no choices into explicit reasoning over confidence, stakes, expected value, uncertainty, and reversibility.",
+      "href": "/decisioning/",
+      "theme": "teal",
+      "order": 20,
+      "status": "live",
+      "id": "decisioning",
+      "kind": "model",
+      "sourceUrl": "https://open.substack.com/pub/vadymtyemirov1/p/stop-asking-is-this-good-or-bad",
+      "owner": "vadym-tyemirov"
+    },
+    {
+      "slug": "freedom",
+      "title": "The Vector of Liberty",
+      "kicker": "Modeling",
+      "summary": "Compare states by the friction they impose on concrete actions through taxes, permits, delays, and penalties, weighted against the kind of life you actually want to live.",
+      "href": "/freedom/",
+      "theme": "olive",
+      "order": 30,
+      "status": "live",
+      "id": "freedom",
+      "kind": "model",
+      "sourceUrl": "https://open.substack.com/pub/vadymtyemirov/p/the-vector-of-liberty",
+      "owner": "vadym-tyemirov"
+    },
+    {
+      "slug": "timeseries",
+      "title": "Time Series and Thresholds",
+      "kicker": "Modeling",
+      "summary": "Analyze ongoing processes and event thresholds to determine if a system is stable, ready for a decision, or drifting into failure.",
+      "href": "/timeseries/",
+      "theme": "amber",
+      "order": 50,
+      "status": "live",
+      "id": "timeseries",
+      "kind": "model",
+      "sourceUrl": "https://open.substack.com/pub/vadymtyemirov1/p/some-things-are-time-series-some",
+      "owner": "vadym-tyemirov"
+    }
+  ],
+  "music": {
+    "label": "Music",
+    "title": "Albums, song cycles, and vocal settings.",
+    "items": [
+      {
+        "slug": "soliloquies-vol-ii",
+        "title": "Soliloquies Vol. II",
+        "subtitle": "Meditations",
+        "coverImage": "/music/covers/soliloquies-vol-ii.jpg",
+        "releaseDate": {
+          "precision": "year",
+          "value": "2026"
+        },
+        "status": "live",
+        "latest": true,
+        "shortDescription": "Nine vocal settings of philosophy, drama, and poetry.",
+        "streamingLinks": {
+          "suno": "https://suno.com/playlist/260e3808-961d-42e7-97d3-222770ae14ac"
+        },
+        "tracks": [
+          {
+            "id": "soliloquies-vol-ii-01",
+            "title": "Meditations 2.1 (Marcus Aurelius)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-02",
+            "title": "Some things are in our power and others are not (Epictetus)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-03",
+            "title": "Of Anger (Seneca)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-04",
+            "title": "Hymn to Zeus (Cleanthes of Assos)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-05",
+            "title": "Meditations 5.2 (Marcus Aurelius)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-06",
+            "title": "All Is Dross That Is Not Helena (Marlowe)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-07",
+            "title": "The Most Terrible Grief Of All (Euripides)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-08",
+            "title": "I Freely Chose (Aeschylus)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-ii-09",
+            "title": "For Whom the Bell Tolls (John Donne)",
+            "playback": {
+              "kind": "external"
+            }
+          }
+        ],
+        "credits": "Vadym Tyemirov",
+        "notes": {
+          "format": "commonmark",
+          "text": "The second volume brings together Marcus Aurelius, Epictetus, Seneca, Cleanthes, Marlowe, Euripides, Aeschylus, and John Donne."
+        },
+        "order": 5
+      },
+      {
+        "slug": "soliloquies-vol-i",
+        "title": "Soliloquies Vol. I",
+        "subtitle": "A cycle of intimate vocal works built around solitary speech, memory, and inward argument.",
+        "coverImage": "/music/covers/soliloquies-vol-i.jpg",
+        "releaseDate": {
+          "precision": "year",
+          "value": "2026"
+        },
+        "status": "live",
+        "shortDescription": "Solitary speech and memory through the lens of classical and modern poetry.",
+        "streamingLinks": {
+          "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
+          "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+Soliloquies+Vol.+I",
+          "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Soliloquies+Vol.+I"
+        },
+        "credits": "All tracks performed and produced by Vadym Tyemirov.",
+        "notes": {
+          "format": "commonmark",
+          "text": "A collection of vocal performances focusing on the 'soliloquy'—moments of profound internal dialogue and public speech. From the stoicism of Marcus Aurelius to the timeless words of Shakespeare and Milton."
+        },
+        "order": 10,
+        "tracks": [
+          {
+            "id": "soliloquies-vol-i-01",
+            "title": "Inferno — Canto I",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-i-02",
+            "title": "To be, or not to be (Hamlet)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-i-03",
+            "title": "Meditations 2.1 (Marcus Aurelius)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-i-04",
+            "title": "Stopping by Woods on a Snowy Evening (Frost)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-i-05",
+            "title": "The Litany Against Fear (Dune)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-i-06",
+            "title": "Peace",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-i-07",
+            "title": "Dies Irae",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "soliloquies-vol-i-08",
+            "title": "Paradise Lost, Book I (Satan)",
+            "playback": {
+              "kind": "external"
+            }
+          }
+        ]
+      },
+      {
+        "slug": "songs-of-desire",
+        "title": "Songs of Desire",
+        "subtitle": "Longing, pursuit, and the unstable border between romantic address and self-invention.",
+        "coverImage": "/music/covers/songs-of-desire.jpg",
+        "releaseDate": {
+          "precision": "year",
+          "value": "2026"
+        },
+        "status": "live",
+        "shortDescription": "A multi-track album about longing and self-invention.",
+        "streamingLinks": {
+          "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
+          "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+Songs+of+Desire",
+          "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Songs+of+Desire"
+        },
+        "credits": "Produced and composed by Vadym Tyemirov.",
+        "notes": {
+          "format": "commonmark",
+          "text": "Songs of Desire explores the themes of pursuit and the construction of identity through romantic and introspective lenses."
+        },
+        "order": 20,
+        "tracks": [
+          {
+            "id": "songs-of-desire-01",
+            "title": "WANT / WON’T (Hypnagogic Pop)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "songs-of-desire-02",
+            "title": "Sans mesure / Sans respect",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "songs-of-desire-03",
+            "title": "Hungarian baby vs Albanian baby",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "songs-of-desire-04",
+            "title": "Friday Night Burn",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "songs-of-desire-05",
+            "title": "Moonshot",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "songs-of-desire-06",
+            "title": "Bridge of Ice to Venus",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "songs-of-desire-07",
+            "title": "Reincarnated as an Imp",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "songs-of-desire-08",
+            "title": "Two Doors",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "songs-of-desire-09",
+            "title": "Lullaby I",
+            "playback": {
+              "kind": "external"
+            }
+          }
+        ]
+      },
+      {
+        "slug": "egyptian-nights",
+        "title": "Egyptian Nights",
+        "subtitle": "Nocturnal atmosphere, mythic ornament, and theatrical voice.",
+        "coverImage": "/music/covers/egyptian-nights.jpg",
+        "releaseDate": {
+          "precision": "year",
+          "value": "2026"
+        },
+        "status": "live",
+        "shortDescription": "A song cycle shaped by nocturnal atmosphere and theatrical voice.",
+        "streamingLinks": {
+          "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
+          "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+Egyptian+Nights",
+          "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+Egyptian+Nights"
+        },
+        "credits": "Written, produced, and performed by Vadym Tyemirov.",
+        "notes": {
+          "format": "commonmark",
+          "text": "A cinematic journey through urban nights and mythic archetypes. The album blends atmospheric soundscapes with grounded, often gritty, narratives."
+        },
+        "order": 30,
+        "tracks": [
+          {
+            "id": "egyptian-nights-01",
+            "title": "Exhale / Inhale (smoking in the wind)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "egyptian-nights-02",
+            "title": "Brand New Tattoo",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "egyptian-nights-03",
+            "title": "Half a second",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "egyptian-nights-04",
+            "title": "I don't wanna rock",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "egyptian-nights-05",
+            "title": "$20 Tip",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "egyptian-nights-06",
+            "title": "Arguing in a restaurant",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "egyptian-nights-07",
+            "title": "Egyptian Nights",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "egyptian-nights-08",
+            "title": "The Sanitation of Cash (extra)",
+            "playback": {
+              "kind": "external"
+            }
+          }
+        ]
+      },
+      {
+        "slug": "singing-pasternak",
+        "title": "Поющий Пастернак",
+        "displayTitle": "Поющий Пастернак",
+        "translation": "Singing Pasternak",
+        "subtitle": "Russian-language album of vocal settings inspired by the poetic world of Boris Pasternak.",
+        "coverImage": "/music/covers/singing-pasternak.jpg",
+        "releaseDate": {
+          "precision": "year",
+          "value": "2026"
+        },
+        "status": "live",
+        "shortDescription": "Vocal settings of Boris Pasternak's poetry.",
+        "streamingLinks": {
+          "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
+          "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+%D0%9F%D0%BE%D1%8E%D1%89%D0%B8%D0%B9+%D0%9F%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D0%BA",
+          "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+%D0%9F%D0%BE%D1%8E%D1%89%D0%B8%D0%B9+%D0%9F%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D0%BA"
+        },
+        "credits": "Vocal arrangements and performance by Vadym Tyemirov. Lyrics by Boris Pasternak.",
+        "notes": {
+          "format": "commonmark",
+          "text": "An exploration of Pasternak's lyrical intensity through modern vocal settings. The album preserves the literary heritage while adding a contemporary sonic layer."
+        },
+        "order": 40,
+        "tracks": [
+          {
+            "id": "singing-pasternak-01",
+            "title": "На пароходе (On the Steamboat)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "singing-pasternak-02",
+            "title": "Вторая баллада (Second Ballad)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "singing-pasternak-03",
+            "title": "Любить иных — тяжелый крест (To love others is a heavy cross)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "singing-pasternak-04",
+            "title": "В низовьях (In the Lowlands)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "singing-pasternak-05",
+            "title": "Зимняя ночь (Winter Night)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "singing-pasternak-06",
+            "title": "Февраль (February)",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "singing-pasternak-07",
+            "title": "Быть или не быть (To be or not to be)",
+            "playback": {
+              "kind": "external"
+            }
+          }
+        ]
+      },
+      {
+        "slug": "february-get-ink-and-weep",
+        "title": "Февраль. Достать чернил и плакать …",
+        "displayTitle": "Февраль. Достать чернил и плакать …",
+        "translation": "February. Get ink and weep...",
+        "subtitle": "Russian-language album centered on winter, language, melancholy, and poetic intensity.",
+        "coverImage": "/music/covers/february.jpg",
+        "releaseDate": {
+          "precision": "year",
+          "value": "2026"
+        },
+        "status": "live",
+        "shortDescription": "Melancholy and winter through Russian poetry.",
+        "streamingLinks": {
+          "spotify": "https://open.spotify.com/artist/6ISzxLnssgtDJEfMQb5biX",
+          "youtube": "https://music.youtube.com/search?q=Vadym+Tyemirov+%D0%A4%D0%B5%D0%B2%D1%80%D0%B0%D0%BB%D1%8C.+%D0%94%D0%BE%D1%81%D1%82%D0%B0%D1%82%D1%8C+%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%BB+%D0%B8+%D0%BF%D0%BB%D0%B0%D0%BA%D0%B0%D1%82%D1%8C",
+          "amazon": "https://music.amazon.com/search/Vadym+Tyemirov+%D0%A4%D0%B5%D0%B2%D1%80%D0%B0%D0%BB%D1%8C.+%D0%94%D0%BE%D1%81%D1%82%D0%B0%D1%82%D1%8C+%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%BB+%D0%B8+%D0%BF%D0%BB%D0%B0%D0%BA%D0%B0%D1%82%D1%8C"
+        },
+        "credits": "Performance and production by Vadym Tyemirov. Lyrics by Boris Pasternak.",
+        "notes": {
+          "format": "commonmark",
+          "text": "A focused cycle dedicated to a single, iconic poem by Boris Pasternak, exploring its various emotional and rhythmic dimensions."
+        },
+        "order": 50,
+        "tracks": [
+          {
+            "id": "february-get-ink-and-weep-01",
+            "title": "Февраль [1]",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "february-get-ink-and-weep-02",
+            "title": "Февраль [2]",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "february-get-ink-and-weep-03",
+            "title": "Февраль [3]",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "february-get-ink-and-weep-04",
+            "title": "Февраль [4]",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "february-get-ink-and-weep-05",
+            "title": "Февраль [5]",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "february-get-ink-and-weep-06",
+            "title": "Февраль [6]",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "february-get-ink-and-weep-07",
+            "title": "Февраль [7]",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "february-get-ink-and-weep-08",
+            "title": "Февраль [8]",
+            "playback": {
+              "kind": "external"
+            }
+          },
+          {
+            "id": "february-get-ink-and-weep-09",
+            "title": "Февраль [9]",
+            "playback": {
+              "kind": "external"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "gallery": {
+    "brand": "Vadym Tyemirov · Virtual Gallery",
+    "description": "Digital artworks, permanent collections, and dated exhibits.",
+    "artworks": [
+      {
+        "id": "third-act-triptych-01",
+        "title": "Triptych No.1",
+        "description": "Three voices in one frame: the Old Master, the Ghibli echo, and the Yellow Balloon leitmotif—an elegant conversation across time.",
+        "alt": "Triptych No.1",
+        "medium": "Digital artwork",
+        "year": "2025",
+        "image": {
+          "cardUrl": "/gallery/images/previews/third-act-01-preview.jpg",
+          "lightboxUrl": "/gallery/images/full/third-act-01.png",
+          "width": 1536,
+          "height": 1024,
+          "format": "PNG"
+        },
+        "offer": null
+      },
+      {
+        "id": "third-act-triptych-02",
+        "title": "Triptych No.2",
+        "description": "Three voices in one frame: the Old Master, the Ghibli echo, and the Yellow Balloon leitmotif—an elegant conversation across time.",
+        "alt": "Triptych No.2",
+        "medium": "Digital artwork",
+        "year": "2025",
+        "image": {
+          "cardUrl": "/gallery/images/previews/third-act-02-preview.jpg",
+          "lightboxUrl": "/gallery/images/full/third-act-02.png",
+          "width": 1536,
+          "height": 1024,
+          "format": "PNG"
+        },
+        "offer": null
+      },
+      {
+        "id": "third-act-triptych-03",
+        "title": "Triptych No.3",
+        "description": "Three voices in one frame: the Old Master, the Ghibli echo, and the Yellow Balloon leitmotif—an elegant conversation across time.",
+        "alt": "Triptych No.3",
+        "medium": "Digital artwork",
+        "year": "2025",
+        "image": {
+          "cardUrl": "/gallery/images/previews/third-act-03-preview.jpg",
+          "lightboxUrl": "/gallery/images/full/third-act-03.png",
+          "width": 1536,
+          "height": 1024,
+          "format": "PNG"
+        },
+        "offer": null
+      },
+      {
+        "id": "third-act-triptych-04",
+        "title": "Triptych No.4",
+        "description": "Three voices in one frame: the Old Master, the Ghibli echo, and the Yellow Balloon leitmotif—an elegant conversation across time.",
+        "alt": "Triptych No.4",
+        "medium": "Digital artwork",
+        "year": "2025",
+        "image": {
+          "cardUrl": "/gallery/images/previews/third-act-04-preview.jpg",
+          "lightboxUrl": "/gallery/images/full/third-act-04.png",
+          "width": 1536,
+          "height": 1024,
+          "format": "PNG"
+        },
+        "offer": null
+      }
+    ],
+    "collections": [
+      {
+        "id": "selected-works",
+        "title": "Selected Works",
+        "introduction": "A permanent collection of digital works.",
+        "coverArtworkId": "third-act-triptych-01",
+        "coverPosition": [
+          50,
+          50
+        ],
+        "artworkIds": [
+          "third-act-triptych-01",
+          "third-act-triptych-02",
+          "third-act-triptych-03",
+          "third-act-triptych-04"
+        ]
+      }
+    ],
+    "exhibits": [
+      {
+        "id": "the-third-act",
+        "title": "The Third Act",
+        "subtitle": "Ménage à trois",
+        "introduction": "Three voices in one frame: the Old Master, the Ghibli echo, and the Yellow Balloon leitmotif—an elegant conversation across time.",
+        "startDate": "2025-10-01",
+        "endDate": "2025-10-18",
+        "coverArtworkId": "third-act-triptych-01",
+        "coverPosition": [
+          50,
+          50
+        ],
+        "sections": [
+          {
+            "id": "triptychs",
+            "title": "Triptychs",
+            "artworkIds": [
+              "third-act-triptych-01",
+              "third-act-triptych-02",
+              "third-act-triptych-03",
+              "third-act-triptych-04"
+            ]
+          }
+        ]
+      }
+    ],
+    "label": "Arts",
+    "title": "Gallery"
+  },
+  "articles": {
+    "label": "Articles",
+    "title": "Articles",
+    "items": [
+      {
+        "id": "the-human-act-of-making-things-exist",
+        "slug": "the-human-act-of-making-things-exist",
+        "title": "The Human Act of Making Things Exist",
+        "summary": "AI, Authorship, and the indomitable Will behind the human act of creation.",
+        "kicker": "AI",
+        "status": "live",
+        "order": 10,
+        "publishedAt": "2026-03-19T05:19:53.593Z",
+        "updatedAt": "2026-03-19T05:19:53.683Z",
+        "source": {
+          "label": "Substack",
+          "url": "https://vadymtyemirov1.substack.com/p/the-human-act-of-making-things-exist"
+        },
+        "image": {
+          "src": "/articles/images/the-human-act-of-making-things-exist-1.jpg",
+          "alt": "Illustration for The Human Act of Making Things Exist",
+          "width": 1456,
+          "height": 971
+        }
+      },
+      {
+        "id": "the-age-of-the-meta-manager",
+        "slug": "the-age-of-the-meta-manager",
+        "title": "The Age of the Meta-Manager",
+        "summary": "The shift from personal competence to systems orchestration as the primary scarcity in the age of AI.",
+        "kicker": "AI",
+        "status": "live",
+        "order": 20,
+        "publishedAt": "2026-03-01T11:39:17.588Z",
+        "updatedAt": "2026-03-24T19:03:56.854Z",
+        "source": {
+          "label": "Substack",
+          "url": "https://vadymtyemirov1.substack.com/p/the-age-of-the-meta-manager"
+        },
+        "image": {
+          "src": "/articles/images/the-age-of-the-meta-manager-1.jpg",
+          "alt": "Illustration for The Age of the Meta-Manager",
+          "width": 1456,
+          "height": 819
+        }
+      },
+      {
+        "id": "the-wittgenstein-mirror",
+        "slug": "the-wittgenstein-mirror",
+        "title": "The Wittgenstein Mirror",
+        "summary": "Beyond the hype of 'Superintelligence' and the fear of 'AI Slop'—using the digital mirror to expand human agency.",
+        "kicker": "AI",
+        "status": "live",
+        "order": 30,
+        "publishedAt": "2026-04-23T13:02:55.380Z",
+        "updatedAt": "2026-05-01T07:24:02.981Z",
+        "source": {
+          "label": "Substack",
+          "url": "https://vadymtyemirov1.substack.com/p/the-wittgenstein-mirror"
+        },
+        "image": {
+          "src": "/articles/images/the-wittgenstein-mirror-1.jpg",
+          "alt": "Illustration for The Wittgenstein Mirror",
+          "width": 1402,
+          "height": 1122
+        }
+      },
+      {
+        "id": "codex-fast-and-the-price-of-intelligence",
+        "slug": "codex-fast-and-the-price-of-intelligence",
+        "title": "Codex Fast and the Price of Intelligence on a Clock",
+        "summary": "Examining how intelligence is priced when speed becomes the primary variable in model performance.",
+        "kicker": "AI",
+        "status": "live",
+        "order": 40,
+        "publishedAt": "2026-04-04T00:04:08.085Z",
+        "updatedAt": "2026-04-04T00:04:08.241Z",
+        "source": {
+          "label": "Substack",
+          "url": "https://vadymtyemirov1.substack.com/p/codex-fast-and-the-price-of-intelligence"
+        },
+        "image": null
+      }
+    ]
+  },
+  "owner": "vadym-tyemirov",
+  "tools": {
+    "title": "Tools",
+    "platform": {
+      "title": "Platform",
+      "summary": "The shared foundation behind MPR Lab’s software: services for AI, media creation, authentication, usage billing, messaging, and product feedback. Built to help small teams turn ideas into working products.",
+      "link": {
+        "label": "Explore MPR Lab ↗",
+        "href": "https://mprlab.com/",
+        "style": "secondary",
+        "order": 10,
+        "target": "_blank"
+      }
+    },
+    "games": {
+      "title": "Games",
+      "items": [
+        {
+          "title": "Hecate",
+          "summary": "Create and solve crosswords, word searches, Kriss Kross fill-ins, and Codeword puzzles with an AI word-puzzle builder.",
+          "status": "Work in progress",
+          "link": {
+            "label": "Try Hecate ↗",
+            "href": "https://hecate.mprlab.com/",
+            "style": "secondary",
+            "order": 10,
+            "target": "_blank"
+          }
+        },
+        {
+          "title": "Allergy Wheel",
+          "summary": "Pick your allergens, spin the wheel, and play your way toward ten hearts in this colorful browser game.",
+          "status": "Work in progress",
+          "link": {
+            "label": "Try Allergy Wheel ↗",
+            "href": "https://allergy.mprlab.com/",
+            "style": "secondary",
+            "order": 20,
+            "target": "_blank"
+          }
+        },
+        {
+          "title": "StackLab",
+          "summary": "A new game taking shape at MPR Lab. More details to come.",
+          "status": "Work in progress"
+        }
+      ]
+    }
+  }
+}
