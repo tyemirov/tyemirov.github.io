@@ -97,7 +97,7 @@ Result before B568: All three requests returned HTTP 200.
 Required result: The third request returns HTTP 429 and a positive `Retry-After` value.
 The application must not compensate with an address parser or manual proxy list.
 
-## Remaining Application Acceptance
+## Code Acceptance
 
 The first Linux CI run passed 581 browser cases, skipped 21 cases, and failed two WebKit cases.
 B004 records the Studio timeout, and B009 records the Time Series report width.
@@ -107,5 +107,6 @@ The corrected focused checks passed all eight cases across four browser projects
 Final `make music-ci-container` passed, including 583 browser cases, 21 explicit skips, and the Gallery backend checks.
 
 The complete CI log is `output/playwright/b004-b009-ci-final.log`.
-Qualify production DNS, TLS, routing, media, and capacity through an authorized rollout.
-Existing sealed receipts and production deployment remain unchanged.
+B005 is closed because implementation and required code validation are completed.
+Production deployment and public acceptance are separate operational concerns outside this task.
+Existing sealed receipts remain unchanged.

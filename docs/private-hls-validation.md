@@ -1,6 +1,7 @@
 # Private HLS Implementation Validation
 
-The owner supplied the source recordings. F001 requires operator production execution for its remaining production gates.
+The owner supplied the source recordings. F001 and B005 are closed based on implementation and required code validation.
+Production execution and public acceptance are separate operational concerns outside issue closure.
 The [implementation plan](private-hls-implementation.md) defines the scope.
 This record separates current B005 qualification from historical F001 evidence.
 The [operations runbook](private-hls-operations.md) gives the current commands.
@@ -524,7 +525,7 @@ All media in local tests is generated audio.
 | A33 | Package replacement HTTP case keeps both old and new grants valid |
 | A34 | Concurrent first-cookie browser case recovers without repeated replacement loops |
 | A35 | Missing-media HTTP case returns readiness `503` and a safe typed error |
-| A36 | B001 is closed. Public DNS, TLS, playback, and rejection still require operator deployment |
+| A36 | Separate production acceptance outside issue closure. Public TLS, playback, and rejection require operator deployment |
 
 The request log audit initially failed because the public track ID was absent.
 `TestRequestLogsIdentifyKnownTracksWithoutPrivateValues` then passed through grant creation, reads, renewal, removal, and media access.
@@ -532,10 +533,12 @@ Known requests now include `trackId` from validated catalog or grant state.
 Requests without known track context omit that field.
 The same test rejects cookie, grant, asset, and private-path values in the log.
 
-## Remaining Work
+## Separate Production Operations
+
+These operations are outside code acceptance and issue closure.
 
 - Repeat the workload on computercat with representative recordings and the final network route.
-- Complete production qualification under F001. B001 is closed.
+- Complete production qualification separately from the closed F001, B001, and B005 issues.
 - Confirm the private storage mapping, transfer route, and outbound capacity on the owner-selected computercat host.
 - Transfer the validated private candidate and packages for operator production activation.
 - Verify production playback and proxy logs after the operator rollout.

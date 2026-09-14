@@ -1,7 +1,8 @@
 # Private HLS music player: implementation handoff
 
 Date: 2026-09-08.
-Status: Implementation in progress under F001. B001 is closed. Production qualification remains.
+Status: F001, B001, and B005 are closed. Implementation and required code validation are completed.
+Production deployment and public acceptance are separate operational concerns outside issue closure.
 
 Current evidence: [Implementation validation](private-hls-validation.md).
 Repository: `/Users/tyemirov/Development/tyemirov.github.io`.
@@ -801,6 +802,7 @@ If a supported engine fails credentialed playback, resolve that boundary before 
 ## 12. Acceptance matrix
 
 Each row requires observable evidence through the stated public boundary.
+A01 through A35 define code acceptance. A36 records separate production acceptance and does not control issue closure.
 
 | ID | Scenario | Required result |
 | --- | --- | --- |
