@@ -237,7 +237,10 @@ The current content contract uses `contracts/site.schema.json`.
 The public catalog excludes draft records and article bodies.
 Article pages contain the complete local text and a source link.
 Music and gallery use one generated `/config-site.json` file.
-The production API origin is `https://api.tyemirov.net`.
+Gallery and music use `apiOrigin: https://api.tyemirov.net`.
+TAuth continues to use its existing integration.
+Gateway `v4.2.0` passed the B005 isolated rate-limit check with the selected music handler policy.
+Production rollout remains a separate B005 acceptance step.
 
 Run `make contracts-generate` after canonical contract changes.
 Run `make site-contract-test` to validate generation, pages, and gallery imports.
