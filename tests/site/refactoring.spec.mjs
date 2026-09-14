@@ -48,7 +48,8 @@ test('models have consistent titles and usable responsive layouts', async ({page
         await page.locator('#compute-button').click();
         await expect(page.locator('#result-state-value')).not.toHaveText('Pending...');
       }
-      expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+      const overflow = await page.locator('body *').evaluateAll(elements => elements.filter(element => element.getBoundingClientRect().right > innerWidth).map(element => ({tag:element.tagName, id:element.id, class:element.className, right:element.getBoundingClientRect().right, width:element.getBoundingClientRect().width})));
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth), JSON.stringify({path:project.href, overflow})).toBeLessThanOrEqual(width);
     }
     await page.goto('/articles/?topic=Modeling');
     await expect(page.locator('.project-card')).toHaveCount(3);

@@ -2,19 +2,19 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdtemp, readFile, writeFile, rm, mkdir } from "node:fs/promises";
+import { mkdtemp, readFile, writeFile, rm, mkdir, cp, appendFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 
 const root = resolve(".");
-const gateway = resolve("../mprlab-gateway");
 const serviceImage = "music-stream:f001-host";
 const preparationImage = "music-prepare:f001-host";
 const container = "music-host-qualification";
 const volumeName = "tyemirov-site-music-media";
 const proxyContainer = "music-host-caddy";
 const proxyVolume = "music-host-caddy-data";
-const proxyImage = "docker.io/library/caddy@sha256:5f5c8640aae01df9654968d946d8f1a56c497f1dd5c5cda4cf95ab7c14d58648";
+const proxyImage = "docker.io/temirov/caddy-ratelimit@sha256:b45d6bea1555119a0d2e7f44d1e8ead45c22e5e2af22f328f5a843ec9084f5c9";
+const browserImage = "music-browser:b005-host";
 const quote = (value) => "'" + value.replaceAll("'", "'\\''") + "'";
 
 function run(program, args, options = {}) {
@@ -25,20 +25,24 @@ function success(result) {
   return result.stdout.trim();
 }
 
-test("Gateway creates a retained volume and the declared AMD64 music service uses its private media on an isolated host", { timeout: 360000 }, async () => {
+test("Gateway creates a retained volume and the declared AMD64 music service uses its private media on an isolated host", { timeout: 900000 }, async () => {
   const config = process.env.MUSIC_QUALIFICATION_SSH_CONFIG;
   const host = process.env.MUSIC_QUALIFICATION_HOST;
   assert.ok(config && host, "Set MUSIC_QUALIFICATION_SSH_CONFIG and MUSIC_QUALIFICATION_HOST to the isolated test host");
   assert.ok(process.env.ANSIBLE_PLAYBOOK, "Set ANSIBLE_PLAYBOOK to the Gateway toolchain");
+  assert.ok(process.env.MUSIC_QUALIFICATION_GATEWAY_ROOT, "Set MUSIC_QUALIFICATION_GATEWAY_ROOT to the installed runtime directory");
+  const gateway = resolve(process.env.MUSIC_QUALIFICATION_GATEWAY_ROOT);
+  const runtime = JSON.parse(success(run(join(gateway, "bin/mprlab-gateway"), ["runtime-inspect", "--root", gateway])));
+  const gatewayIdentity = { version: runtime.version, sourceCommit: runtime.source_commit, contractDigest: runtime.contract_digest };
   const ssh = (command, input) => run("ssh", ["-F", config, host, command], { input });
   const remoteDocker = (args, input) => ssh(["docker", ...args].map(quote).join(" "), input);
   const directory = await mkdtemp(join(tmpdir(), "music-host-"));
   let ownsVolume = false, ownsContainer = false, ownsServiceImage = false, ownsPreparationImage = false;
-  let ownsProxy = false, ownsProxyVolume = false;
+  let ownsProxy = false, ownsProxyVolume = false, ownsBrowserImage = false;
   try {
     assert.equal(success(remoteDocker(["ps", "--all", "--filter", `name=^/${container}$`, "--format", "{{.Names}}"])), "", "The test container must be absent before qualification");
     assert.equal(success(remoteDocker(["volume", "ls", "--quiet", "--filter", `name=^${volumeName}$`])), "", "The selected test volume must be absent before qualification");
-    for (const image of [serviceImage, preparationImage]) assert.equal(success(remoteDocker(["image", "ls", "--quiet", image])), "", "The test image must be absent before qualification");
+    for (const image of [serviceImage, preparationImage, browserImage]) assert.equal(success(remoteDocker(["image", "ls", "--quiet", image])), "", "The test image must be absent before qualification");
     assert.equal(success(remoteDocker(["ps", "--all", "--filter", `name=^/${proxyContainer}$`, "--format", "{{.Names}}"])), "", "The proxy test container must be absent");
     assert.equal(success(remoteDocker(["volume", "ls", "--quiet", "--filter", `name=^${proxyVolume}$`])), "", "The proxy test volume must be absent");
     assert.equal(success(ssh("ss -H -ltn '( sport = :80 or sport = :443 )'")), "", "The isolated host must have free HTTP and HTTPS listener ports");
@@ -47,7 +51,7 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     }));
     const inventory = join(directory, "inventory.json"), selected = join(directory, "selected.json");
     await writeFile(inventory, JSON.stringify({ all: { hosts: { fixture: {
-      ansible_host: sshSettings.hostname, ansible_port: Number(sshSettings.port), ansible_user: sshSettings.user,
+      ansible_host: host, ansible_port: Number(sshSettings.port), ansible_user: sshSettings.user,
       ansible_ssh_private_key_file: sshSettings.identityfile, ansible_ssh_common_args: `-F ${quote(config)}`,
     } } } }));
     const variables = join(directory, "vars.json"), caddyConfig = join(directory, "Caddyfile");
@@ -108,10 +112,10 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
       check((await fetch(origin + '/music/playback-grants/' + grant.grantId, {method:'DELETE',headers:{Origin:'https://tyemirov.net',Cookie:cookie}})).status, 204);
       process.stdout.write('readiness, declared origins, protected media, and grant removal passed\\n');
     `;
-    async function startAndCheck(environment = []) {
+    async function startAndCheck() {
       ownsContainer = true;
       success(remoteDocker(["run", "-d", "--name", container, "--platform", "linux/amd64", "--read-only",
-        "--mount", `type=volume,src=${contract.volume},dst=/media,readonly`, "-p", "127.0.0.1:8092:8092", ...environment, serviceImage, ...contract.service.command]));
+        "--mount", `type=volume,src=${contract.volume},dst=/media,readonly`, "-p", contract.ports[0], serviceImage, ...contract.service.command]));
       const deadline = performance.now() + 10000;
       while (true) {
         const result = remoteDocker(["logs", container]);
@@ -130,22 +134,31 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     validate();
     const result = await startAndCheck();
 
-    success(remoteDocker(["rm", "-f", container])); ownsContainer = false;
-    const proxyPeer = success(remoteDocker(["network", "inspect", "bridge", "--format", "{{(index .IPAM.Config 0).Gateway}}"]));
-    assert.match(proxyPeer, /^\d+\.\d+\.\d+\.\d+$/);
-    const binding = contract.service.environment.MUSIC_TRUSTED_PROXIES;
-    assert.equal(binding.resource, "private");
-    assert.equal(binding.output, "trusted-proxies");
-    await startAndCheck(["--env", `MUSIC_TRUSTED_PROXIES=${proxyPeer}/32`]);
+    const privatePeer = success(remoteDocker(["network", "inspect", "bridge", "--format", "{{(index .IPAM.Config 0).Gateway}}"]));
+    // A caller on the external test interface cannot reach the backend bind.
+    success(remoteDocker(["run", "--rm", "--entrypoint", "node", preparationImage, "--input-type=module", "-e",
+      `try { await fetch('http://${privatePeer}:8092/music/readyz', {signal:AbortSignal.timeout(2000)}); throw new Error('Private backend reachable from external interface'); } catch(error) { if(error.message !== 'fetch failed' && error.name !== 'TimeoutError') throw error; }`]));
     success(remoteDocker(["pull", proxyImage]));
     ownsProxyVolume = true;
     success(remoteDocker(["volume", "create", proxyVolume]));
     const proxyMount = ["--mount", `type=volume,src=${proxyVolume},dst=/data`];
+    const siteDirectory = join(directory, "site");
+    success(run("make", ["pages-build"]));
+    await cp(join(root, ".pages-dist"), siteDirectory, { recursive: true });
+    const catalogPath = join(siteDirectory, "data/site.json");
+    const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
+    const album = catalog.music.items.find(album => album.slug === "soliloquies-vol-i");
+    album.tracks = [{ ...album.tracks[0], id: trackId, playback: { kind: "hls", durationMs: record.durationMs } }];
+    await writeFile(catalogPath, JSON.stringify(catalog));
+    // Only the isolated Pages artifact fixture uses this extra server block.
+    await appendFile(caddyConfig, "\ntyemirov.net {\n tls internal\n root * /data/site\n file_server\n}\n:18093 {\n bind 127.0.0.1\n respond \"gallery-probe\" 200\n}\n:18094 {\n bind 127.0.0.1\n respond \"auth-probe\" 200\n}\n");
     const configArchive = join(directory, "caddy.tar.gz");
-    success(run("tar", ["-czf", configArchive, "-C", directory, "Caddyfile"]));
+    success(run("tar", ["-czf", configArchive, "-C", directory, "Caddyfile", "site", "selected.json"]));
     success(remoteDocker(["run", "--rm", "-i", "--network", "none", ...proxyMount, "--entrypoint", "tar", preparationImage, "-xzf", "-", "-C", "/data"], await readFile(configArchive)));
     const proxyArguments = [...proxyMount, "--env", "ADMIN_EMAIL=fixture@example.invalid", proxyImage];
     success(remoteDocker(["run", "--rm", "--network", "none", ...proxyArguments, "caddy", "validate", "--config", "/data/Caddyfile", "--adapter", "caddyfile"]));
+    const adapted = success(remoteDocker(["run", "--rm", "--network", "none", ...proxyArguments, "caddy", "adapt", "--config", "/data/Caddyfile", "--adapter", "caddyfile"]));
+    await writeFile(join(logs, "caddy-adapted.json"), adapted + "\n");
     ownsProxy = true;
     success(remoteDocker(["run", "-d", "--name", proxyContainer, "--network", "host", ...proxyArguments, "caddy", "run", "--config", "/data/Caddyfile", "--adapter", "caddyfile"]));
     const proxyDeadline = performance.now() + 15000;
@@ -157,14 +170,21 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
       assert.ok(performance.now() < proxyDeadline, `Proxy certificate readiness absent: ${logs.stderr}`);
       await new Promise((resolve) => setTimeout(resolve, 100));
     }
+    success(run("docker", ["build", "-q", "-t", browserImage, "-f", "tests/music/Dockerfile.browser", "."], { timeout: 360000 }));
+    ownsBrowserImage = true;
+    success(run("bash", ["-o", "pipefail", "-c", `docker image save ${quote(browserImage)} | ssh -F ${quote(config)} ${quote(host)} 'docker image load'`], { timeout: 360000 }));
+    const browsers = JSON.parse(success(remoteDocker(["run", "--rm", "--init", "--network", "host",
+      "--add-host", "tyemirov.net:127.0.0.1", "--add-host", "api.tyemirov.net:127.0.0.1",
+      browserImage, "node", "tests/music/host-browser-client.mjs"])));
+    await writeFile(join(logs, "browser-results.json"), JSON.stringify(browsers, null, 2) + "\n");
     const proxyResult = JSON.parse(success(remoteDocker(["run", "--rm", "-i", "--network", "host", "--mount", `type=volume,src=${proxyVolume},dst=/data,readonly`, "--entrypoint", "node", preparationImage, "--input-type=module", "-"], await readFile("tests/music/host-proxy-client.mjs", "utf8"))));
     const proxyLogs = remoteDocker(["logs", proxyContainer]);
     assert.equal(proxyLogs.status, 0, proxyLogs.stderr);
     assert.ok(!(proxyLogs.stdout + proxyLogs.stderr).includes("__Secure-music-session="), "Proxy logs must exclude cookies");
     assert.ok(!(proxyLogs.stdout + proxyLogs.stderr).includes("/hls/"), "Proxy logs must exclude authorized media URLs");
     await writeFile(join(logs, "proxy.log"), proxyLogs.stdout + proxyLogs.stderr);
-    const evidence = { passed: true, host, kernel: success(ssh("uname -srmo")), serviceArchitecture: "amd64", source: "generated-tone",
-      volumeCreation: "Gateway retained-volume task", mediaTransfer: "private archive over SSH", containerReplacement: "media retained", runtime: result,
+    const evidence = { passed: true, host, kernel: success(ssh("uname -srmo")), gateway: gatewayIdentity, serviceArchitecture: "amd64", source: "generated-tone",
+      volumeCreation: "Gateway retained-volume task", mediaTransfer: "private archive over SSH", containerReplacement: "media retained", runtime: result, privateBackend: "external interface unreachable", browsers,
       proxy: { image: proxyImage, configuration: "Gateway Caddy template with the declared media route", ...proxyResult } };
     await writeFile(join(logs, "host-results.json"), JSON.stringify(evidence, null, 2) + "\n");
     process.stdout.write(JSON.stringify(evidence) + "\n");
@@ -173,6 +193,7 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     if (ownsProxyVolume && success(remoteDocker(["volume", "ls", "--quiet", "--filter", `name=^${proxyVolume}$`]))) success(remoteDocker(["volume", "rm", proxyVolume]));
     if (ownsContainer && success(remoteDocker(["ps", "--all", "--quiet", "--filter", `name=^/${container}$`]))) success(remoteDocker(["rm", "-f", container]));
     if (ownsVolume && success(remoteDocker(["volume", "ls", "--quiet", "--filter", `name=^${volumeName}$`]))) success(remoteDocker(["volume", "rm", volumeName]));
+    if (ownsBrowserImage && success(remoteDocker(["image", "ls", "--quiet", browserImage]))) success(remoteDocker(["image", "rm", browserImage]));
     if (ownsServiceImage && success(remoteDocker(["image", "ls", "--quiet", serviceImage]))) success(remoteDocker(["image", "rm", serviceImage]));
     if (ownsPreparationImage && success(remoteDocker(["image", "ls", "--quiet", preparationImage]))) success(remoteDocker(["image", "rm", preparationImage]));
     await rm(directory, { recursive: true, force: true });

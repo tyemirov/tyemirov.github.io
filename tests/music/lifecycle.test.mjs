@@ -60,7 +60,7 @@ test("the selected application plans through Gateway and its public lifecycle co
     }
     await initialize(application, join(directory, "application-origin.git"), "git@github.com:tyemirov/tyemirov.github.io.git");
     const gallerySigningFixture = "gallery-lifecycle-fixture-signing-key-not-for-production";
-    await writeFile(join(application, ".mprlab/deploy/.env"), `MUSIC_TRUSTED_PROXIES=127.0.0.1/32\nGALLERY_TAUTH_SIGNING_KEY=${gallerySigningFixture}\nGALLERY_GOOGLE_WEB_CLIENT_ID=fixture.apps.googleusercontent.com\n`);
+    await writeFile(join(application, ".mprlab/deploy/.env"), `GALLERY_TAUTH_SIGNING_KEY=${gallerySigningFixture}\nGALLERY_GOOGLE_WEB_CLIENT_ID=fixture.apps.googleusercontent.com\n`);
     success(run("git", ["switch", "-qc", "feature/source-rejection"], application));
     for (const phase of ["release", "publish", "deploy"]) {
       const rejected = run("make", ["--no-print-directory", phase, `MPRLAB_GATEWAY_EXECUTABLE=${gateway}`], application, gatewayEnvironment);

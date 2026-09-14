@@ -15,8 +15,12 @@ test("the Pages artifact contains the player and rejects private audio", async (
     const valid = validate(); assert.equal(valid.status, 0, valid.stderr);
     const configPath = join(output, "config-site.json");
     const config = await readFile(configPath);
-    await writeFile(configPath, JSON.stringify({ apiOrigin: "http://untrusted.example" }));
-    const invalidGallery = validate(); assert.notEqual(invalidGallery.status, 0);
+    for (const field of ["apiOrigin"]) {
+      await writeFile(configPath, JSON.stringify({ ...JSON.parse(config.toString()), [field]: "http://untrusted.example" }));
+      const invalidOrigin = validate(); assert.notEqual(invalidOrigin.status, 0, field);
+    }
+    await writeFile(configPath, JSON.stringify({ apiOrigin: "https://api.tyemirov.net", musicOrigin: "https://streaming.tyemirov.net" }));
+    const obsolete = validate(); assert.notEqual(obsolete.status, 0, "The separate music origin is obsolete.");
     await writeFile(configPath, config);
     const files = await readdir(output);
     for (const reserved of ["CNAME", ".nojekyll", ".mprlab-release.json", ".git"]) assert.equal(files.includes(reserved), false, `${reserved} belongs to Gateway`);

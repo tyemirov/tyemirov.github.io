@@ -34,7 +34,6 @@ for (const [root, id, canonical] of [[application, "application", "git@github.co
   run("git", ["config", `url.file://${origin}.insteadOf`, canonical], root);
 }
 await copyFile(join(gateway, "deploy/ansible/inventory/hosts.example.yml"), join(gateway, "deploy/ansible/inventory/hosts.yml"));
-await writeFile(join(application, ".mprlab/deploy/.env"), "MUSIC_TRUSTED_PROXIES=127.0.0.1/32\n");
 run("go", ["build", "-o", "/provider/gix", "./internal/lifecycle/testdata/provider-helper"], gateway);
 await symlink("/provider/gix", "/provider/gh");
 process.env.PATH = `/provider:${process.env.PATH}`;

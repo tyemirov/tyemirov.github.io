@@ -106,9 +106,30 @@ test('collections and exhibits preserve independent artwork order with keyboard 
 });
 
 test('owner orders require a verified email before access reissue and clear private UI on logout', async ({ page, context }) => {
-  const response=await page.request.post('/fixture-control/gallery/orders');const created=await response.json();
+  // Put the target beyond the first 50 UUID-sorted orders, even in an isolated run.
+  const createdOrders = [];
+  for (let index = 0; index < 51; index++) {
+    const response = await page.request.post('/fixture-control/gallery/orders');
+    expect(response.status()).toBe(201);
+    createdOrders.push(await response.json());
+  }
+  const created = createdOrders.sort((left, right) => left.order.id.localeCompare(right.order.id)).at(-1);
   await login(page,context,'fixture-owner');await expect(page.locator('#studio-workspace')).toBeVisible();
-  await page.getByRole('button',{name:'Orders',exact:true}).click();
+  async function loadOrderPage(button) {
+    const pending = page.waitForResponse(response => response.request().method() === 'GET' && new URL(response.url()).pathname === '/gallery/orders');
+    await button.click();
+    const response = await pending;
+    expect(response.status()).toBe(200);
+    const listing = await response.json();
+    await expect(page.locator(`[data-order-id="${listing.items.at(-1).id}"]`)).toBeVisible();
+    return listing;
+  }
+  let listing = await loadOrderPage(page.getByRole('button', {name:'Orders', exact:true}));
+  expect(listing.items.some(item => item.id === created.order.id)).toBe(false);
+  while (!listing.items.some(item => item.id === created.order.id)) {
+    expect(listing.nextCursor).not.toBeNull();
+    listing = await loadOrderPage(page.getByRole('button', {name:'Load more orders', exact:true}));
+  }
   const order=page.locator(`[data-order-id="${created.order.id}"]`);await order.getByRole('button',{name:'Open order',exact:true}).click();
   await order.getByLabel('Verified buyer email',{exact:true}).fill('wrong@example.test');await order.getByRole('button',{name:'Reissue access',exact:true}).click();
   await expect(page.locator('#studio-status')).toContainText('email');await expect(order.getByLabel('Order access code',{exact:true})).toHaveCount(0);

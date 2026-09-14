@@ -205,7 +205,7 @@ test("a playing grant near expiry renews without changing the source", async ({ 
 test("Retry honors the server delay without an automatic request loop", async ({ page, context }) => {
   let creations = 0;
   await context.route("**/music/playback-grants", async (route) => {
-    if (++creations === 1) await route.fulfill({ status: 429, headers: { "Retry-After": "2", "Access-Control-Expose-Headers": "Retry-After" }, json: { code: "rate_limited", message: "Too many requests.", requestId: "AAAAAAAAAAAAAAAA" } });
+    if (++creations === 1) await route.fulfill({ status: 429, headers: { "Retry-After": "2", "Access-Control-Expose-Headers": "Retry-After" }, contentType: "text/plain", body: "Too Many Requests" });
     else await route.continue();
   });
   await page.goto("/music/soliloquies-vol-i/");
@@ -441,7 +441,7 @@ for (const resource of ["index.m3u8", "init.mp4", "seg-00000.m4s"]) {
       limitedRequests++;
       await route.fulfill({ status: 429, headers: { "Retry-After": "60", "Access-Control-Expose-Headers": "Retry-After",
         "Access-Control-Allow-Origin": "https://localhost:18443", "Access-Control-Allow-Credentials": "true" },
-      json: { code: "rate_limited", message: "Too many requests.", requestId: "AAAAAAAAAAAAAAAA" } });
+      contentType: "text/plain", body: "Too Many Requests" });
     });
     await page.goto("/music/soliloquies-vol-i/");
     await page.clock.install();

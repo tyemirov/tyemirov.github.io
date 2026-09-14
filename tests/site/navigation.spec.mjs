@@ -47,7 +47,7 @@ test('album covers open albums and streaming services use labeled icons',async({
   expect((await link.innerText()).trim()).toBe('');
  }
  await page.screenshot({path:`output/playwright/polish/music-index-${test.info().project.name}.png`,fullPage:true});
- await cover.click();await expect(page.locator('.album-title-large')).toBeVisible();
+ await cover.click();await page.waitForLoadState('load');await expect(page.locator('.album-title-large')).toBeVisible();
  for(const link of await page.locator('.streaming-link').all())await expect(link.locator('svg')).toBeVisible();
  for(const width of [390,769,1280]){
   await page.setViewportSize({width,height:900});

@@ -39,9 +39,6 @@ test("the pinned Linux images prepare audio and serve authorized media", { timeo
     await writeFile(join(directory, "allowlist.json"), JSON.stringify({ tracks: [{ id: trackId, playback: { kind: "hls", durationMs: record.durationMs } }] }));
     const config = ["--media-root", "/work/media", "--index", "/work/index.json", "--allowlist", "/work/allowlist.json"];
     success(run(["run", "--rm", "--network", "none", ...mount, "--entrypoint", "/music-media", "music-stream:f001-test", "validate", ...config]));
-    const invalidProxy = run(["run", "--rm", "--name", `${name}-invalid`, "--env", "MUSIC_TRUSTED_PROXIES=invalid", ...mount, "music-stream:f001-test", ...config, "--public-origin", "https://audio.example.test", "--allowed-origins", "https://example.test"], 5000);
-    assert.notEqual(invalidProxy.status, 0);
-    assert.match(invalidProxy.stderr, /configure trusted proxy/);
     success(run(["run", "-d", "--name", name, "--read-only", "--mount", `type=bind,src=${directory},dst=/work,readonly`, "-p", "127.0.0.1::8092", "music-stream:f001-test", ...config, "--listen", "0.0.0.0:8092", "--public-origin", "https://audio.example.test", "--allowed-origins", "https://example.test"]));
     const startupDeadline = performance.now() + 5000;
     while (true) {
@@ -73,8 +70,6 @@ test("the pinned Linux images prepare audio and serve authorized media", { timeo
     }));
     process.stdout.write(JSON.stringify({ linuxSmoke: true, concurrentTransfers: 8, bytes: transfers.reduce((a, b) => a + b), elapsedMs: Math.round(performance.now() - started) }) + "\n");
   } finally {
-    const invalidRemoved = run(["rm", "-f", `${name}-invalid`]);
-    if (invalidRemoved.status !== 0 && !invalidRemoved.stderr.includes("No such container")) throw new Error(invalidRemoved.stderr);
     const removed = run(["rm", "-f", name]);
     if (removed.status !== 0 && !removed.stderr.includes("No such container")) throw new Error(removed.stderr);
     await rm(directory, { recursive: true, force: true });
