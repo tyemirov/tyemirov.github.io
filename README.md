@@ -93,13 +93,15 @@ Both application APIs use `http://localhost:8082`, under `/music` and `/gallery`
 Local payment approval uses `https://localhost:8446`.
 
 `make up` builds the Pages artifact, media service, and gallery API from the current source.
-Three host gHTTP processes serve the Pages artifact, HTTP API routes, and local payment approval.
+The `website` container uses the gHTTP image specified by its SHA-256 digest to send files from the Pages artifact.
+Two host gHTTP processes send requests to the APIs and local payment provider.
 Each API container exposes HTTP on an assigned loopback port for its gHTTP proxy.
 The media initialization container enables local HLS playback from the private index and generates the corresponding allowlist.
 It copies the prepared packages into a retained Docker volume.
 The local catalog uses the titles and metadata from `data/site.json`.
 The service reads `/media/selected.json`, `/media/allowlist.json`, and `/media/packages` from that volume.
-Local website files and process logs use `.local/runtime/<LOCAL_PROJECT>`.
+Local website files and host process logs use `.local/runtime/<LOCAL_PROJECT>`.
+The website container sends its logs to Docker.
 Certificates persist in `~/.local/share/tyemirov-site/certs`.
 The command returns after all endpoints pass readiness checks and the payment endpoint passes certificate validation.
 After source changes, run `make up` again to rebuild the site and service.
