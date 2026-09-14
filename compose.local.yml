@@ -1,10 +1,38 @@
 services:
+  website:
+    image: ghcr.io/tyemirov/ghttp@sha256:02462ae8b5f9eedef4cf08e39351c99a62b6fd5a46335c5d6730b8c8cfb69ceb
+    user: root
+    command:
+      - "8000"
+      - --bind=0.0.0.0
+      - --directory=/site
+      - --no-md
+      - --response-header=/=Cache-Control:no-store
+      - --response-header=/=Referrer-Policy:no-referrer-when-downgrade
+    environment:
+      GHTTPD_DISABLE_DIR_INDEX: "1"
+    ports:
+      - "127.0.0.1:${UP_PORT:-8080}:8000"
+    volumes:
+      - type: bind
+        source: ${LOCAL_SITE_ROOT:?Start local services with make up}
+        target: /site
+        read_only: true
+        bind:
+          create_host_path: false
+    depends_on:
+      media-init:
+        condition: service_completed_successfully
+
   media-init:
     build:
       context: .
       dockerfile: Dockerfile.pages
       target: build
     command: ["node", "local/prepare.mjs", "/public", "/input-media", "/site", "/media"]
+    environment:
+      LOCAL_WEBSITE_ORIGIN: http://localhost:${UP_PORT:-8080}
+      LOCAL_API_ORIGIN: http://localhost:${API_PORT:-8082}
     volumes:
       - type: bind
         source: ${MUSIC_LOCAL_ROOT:?Start local services with make up}
