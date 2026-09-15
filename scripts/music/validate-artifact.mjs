@@ -19,7 +19,7 @@ async function inspect(directory, prefix = "") {
   }
 }
 await inspect(root);
-for (const path of ["site.js", "music/album.js", "music/music.js", "music/player.css", "music/dist/hls.LICENSE"]) await access(join(root, path));
+for (const path of ["site.js", "music/album.js", "music/music.js", "music/player.css"]) await access(join(root, path));
 for (const path of ["gallery/order/index.html", "gallery/js/order.js", "gallery/js/core/orders.js", "gallery/js/ui/orderView.js", "gallery/js/ui/checkoutView.js", "gallery/assets/css/order.css"]) await access(join(root, path));
 validateOrderConfig(JSON.parse(await readFile(join(root, ORDER_CONFIG_PATH.slice(1)), "utf8")));
 const site = validatePublicCatalog(JSON.parse(await readFile(join(root, "data/site.json"), "utf8")));

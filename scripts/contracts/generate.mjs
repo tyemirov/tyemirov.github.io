@@ -53,7 +53,7 @@ function goType(schema, owner, field) {
 const goModels = Object.entries(galleryTypes).map(([name, type]) => `type ${type} struct {\n${Object.entries(schemas.gallery.$defs[name].properties).map(([field, value]) => `${fieldNames[field] || field[0].toUpperCase() + field.slice(1)} ${goType(value, name, field)} \`json:"${field}"\``).join('\n')}\n}`).join('\n\n');
 outputs.set('services/gallery/models_generated.go', execFileSync('gofmt', { input: '// Code generated from contracts/gallery.schema.json. DO NOT EDIT.\npackage gallery\n\n' + goModels + '\n', encoding: 'utf8' }));
 const musicTypes={grantInput:'grantInput',expiration:'grantExpiration',grant:'grantResponse'};
-const musicFields={grantId:'GrantID',trackId:'TrackID',playlistUrl:'PlaylistURL',durationMs:'DurationMS',serverTime:'ServerTime',expiresAt:'ExpiresAt'};
+const musicFields={grantId:'GrantID',trackId:'TrackID',mediaUrl:'MediaURL',durationMs:'DurationMS',serverTime:'ServerTime',expiresAt:'ExpiresAt'};
 const musicModels=Object.entries(musicTypes).map(([name,type])=>`type ${type} struct {\n${Object.entries(schemas.music.$defs[name].properties).map(([field,value])=>`${musicFields[field]} ${value.format==='date-time'?'time.Time':value.type==='integer'?'int64':'string'} \`json:"${field}"\``).join('\n')}\n}`).join('\n\n');
 outputs.set('services/music-stream/internal/stream/models_generated.go',execFileSync('gofmt',{input:'// Code generated from contracts/music.schema.json. DO NOT EDIT.\npackage stream\nimport "time"\n'+musicModels+'\nvar schemaNames=map[string]string{"grantInput":"grantInput","grantExpiration":"expiration"}\n',encoding:'utf8'}));
 outputs.set('services/music-stream/internal/stream/contract.schemas.json',JSON.stringify(schemas.music)+'\n');
