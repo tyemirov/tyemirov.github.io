@@ -142,7 +142,7 @@ export interface SourceCatalog {
               kind: "external";
             }
           | {
-              kind: "hls";
+              kind: "file";
               durationMs: number;
             };
       }[];

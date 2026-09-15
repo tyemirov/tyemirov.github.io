@@ -45,7 +45,7 @@ export interface MusicCatalog {
             kind: "external";
           }
         | {
-            kind: "hls";
+            kind: "file";
             durationMs: number;
           };
     }[];
