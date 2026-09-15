@@ -64,10 +64,13 @@ Start Docker before you start the local services.
 The default private media directory is `~/.local/share/tyemirov-site/music`.
 This directory contains `catalog.json` and the prepared media packages for the current catalog.
 
-The production image generates its runtime catalog and allowlist from `data/site.json`.
-The current production tracks use external playback, so production startup requires no prepared audio packages.
-The image build rejects HLS declarations until the production deployment contract supplies their prepared media.
-Run `make music-deployment-container-test` to verify startup with empty retained storage and container replacement.
+Production audio packages are in `assets/music/packages/`.
+The media index is `assets/music/catalog.json`.
+The service image contains these files under `/assets/music`.
+The image build generates its allowlist from `data/site.json` and validates all media packages.
+All 50 published tracks use AAC-LC audio at 192 kbps in HLS packages.
+The Pages artifact does not include `assets/music`.
+Use `make music-deployment-container-test` to verify all tracks before and after container replacement without a media volume.
 The [media preparation procedure](docs/private-hls-operations.md#private-audio-preparation) describes package preparation.
 
 To use another private media directory, set its path in your shell:
