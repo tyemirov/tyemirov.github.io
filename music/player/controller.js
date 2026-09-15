@@ -14,7 +14,7 @@ export class PlayerController extends EventTarget {
     this.audio = audio;
     this.api = api;
     this.album = album;
-    this.queue = album.tracks.filter((track) => track.playback.kind === "hls");
+    this.queue = album.tracks.filter((track) => track.playback.kind === "file");
     this.track = null;
     this.grant = null;
     this.phase = "idle";
@@ -118,7 +118,7 @@ export class PlayerController extends EventTarget {
       if (sequence !== this.sequence) return;
       this.grant = grant;
       this.setPhase("loading", "Loading audio.");
-      await this.engine.load(grant.playlistUrl, position);
+      await this.engine.load(grant.mediaUrl, position);
       if (sequence !== this.sequence) return;
       if (previous) void this.api.revoke(previous).catch((error) => console.warn("Previous playback grant cleanup failed.", error.code));
       await this.audio.play();
@@ -149,7 +149,7 @@ export class PlayerController extends EventTarget {
       }
       if (this.sourceInvalid) {
         const position = this.resumePosition;
-        await this.engine.load(this.grant.playlistUrl, position);
+        await this.engine.load(this.grant.mediaUrl, position);
         if (sequence !== this.sequence) return;
         this.sourceInvalid = false;
       }

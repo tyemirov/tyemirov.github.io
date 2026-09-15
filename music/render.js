@@ -93,7 +93,7 @@ export function renderAlbumDetails(album) {
     const row = element("li", "track-row");
     row.dataset.trackId = track.id;
     row.append(element("span", "track-title", track.title));
-    if (track.playback.kind === "hls") {
+    if (track.playback.kind === "file") {
       const button = document.createElement("button");
       button.type = "button";
       button.disabled = true;
