@@ -61,17 +61,18 @@ Install Docker with Compose, Node.js, and [gHTTP](https://github.com/tyemirov/gh
 The payment TLS setup also requires `openssl req` with `-addext` support.
 Start Docker before you start the local services.
 
-The default private media directory is `~/.local/share/tyemirov-site/music`.
-This directory contains `catalog.json` and the prepared media packages for the current catalog.
+The default media directory is `assets/music`.
+This directory contains `catalog.json` and one `.m4a` file per track.
 
-Production audio packages are in `assets/music/packages/`.
+Production audio files are in `assets/music/`.
 The media index is `assets/music/catalog.json`.
 The service image contains these files under `/assets/music`.
-The image build generates its allowlist from `data/site.json` and validates all media packages.
-All 50 published tracks use AAC-LC audio at 192 kbps in HLS packages.
+The image build generates its allowlist from `data/site.json` and validates all audio files.
+All 50 published tracks use AAC-LC audio at 192 kbps in M4A files.
+The native browser player requests byte ranges for playback and seeking.
 The Pages artifact does not include `assets/music`.
 Use `make music-deployment-container-test` to verify all tracks before and after container replacement without a media volume.
-The [media preparation procedure](docs/private-hls-operations.md#private-audio-preparation) describes package preparation.
+The [media preparation procedure](docs/private-hls-operations.md#private-audio-preparation) describes audio preparation.
 
 To use another private media directory, set its path in your shell:
 
@@ -104,10 +105,10 @@ Local payment approval uses `https://localhost:8446`.
 The `website` container uses the gHTTP image specified by its SHA-256 digest to send files from the Pages artifact.
 Two host gHTTP processes send requests to the APIs and local payment provider.
 Each API container exposes HTTP on an assigned loopback port for its gHTTP proxy.
-The media initialization container enables local HLS playback from the private index and generates the corresponding allowlist.
-It copies the prepared packages into a retained Docker volume.
+The media initialization container enables local audio playback from the private index and generates the corresponding allowlist.
+It copies the prepared audio files into a retained Docker volume.
 The local catalog uses the titles and metadata from `data/site.json`.
-The service reads `/media/catalog.json`, `/media/allowlist.json`, and `/media/packages` from that volume.
+The service reads `/media/catalog.json`, `/media/allowlist.json`, and the `.m4a` files from that volume.
 Local website files and host process logs use `.local/runtime/<LOCAL_PROJECT>`.
 The website container sends its logs to Docker.
 Certificates persist in `~/.local/share/tyemirov-site/certs`.
