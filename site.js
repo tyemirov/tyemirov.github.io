@@ -247,32 +247,84 @@ function renderArts(arts) {
 /** @param {import('./contracts/generated/publicCatalog').PublicCatalog["tools"]} tools */
 function renderTools(tools) {
   const section = document.querySelector(".tools-section");
+  const toolsList = section?.querySelector(".tools-list");
+  if (!section || !toolsList || !tools) return;
+
   updateText(".tools-section .section-title", tools.title);
-  updateText(".tools-platform h3", tools.platform.title);
-  updateText(".tools-platform .platform-summary", tools.platform.summary);
-  section.querySelector(".tools-platform .section-actions").replaceChildren(createHeroLink(tools.platform.link));
-  updateText(".tools-games h3", tools.games.title);
-  section.querySelector(".games-list").replaceChildren(...tools.games.items.map(game => {
-    const card = document.createElement("article");
-    card.className = "game-card";
-    const status = document.createElement("p");
-    status.className = "game-status";
-    status.textContent = game.status;
-    const title = document.createElement("h4");
-    title.textContent = game.title;
-    const summary = document.createElement("p");
-    summary.className = "game-summary";
-    summary.textContent = game.summary;
-    card.append(status, title, summary);
-    if (game.link) {
-      const actions = document.createElement("div");
-      actions.className = "section-actions";
-      actions.append(createHeroLink(game.link));
-      card.append(actions);
-    }
-    return card;
-  }));
+
+  const platformCard = createToolCard({
+    titleText: tools.platform.title,
+    summaryText: tools.platform.summary,
+    tagText: "Platform",
+    link: tools.platform.link,
+    extraCardClass: "platform-card",
+  });
+
+  const gameCards = (tools.games?.items || []).map((game) =>
+    createToolCard({
+      titleText: game.title,
+      summaryText: game.summary,
+      tagText: game.status,
+      tagClass: "game-status",
+      link: game.link,
+      extraCardClass: "game-card",
+    })
+  );
+
+  toolsList.replaceChildren(platformCard, ...gameCards);
   section.classList.remove("is-hidden");
+}
+
+/**
+ * @param {{
+ *   titleText: string;
+ *   summaryText?: string;
+ *   tagText?: string;
+ *   tagClass?: string;
+ *   link?: { label?: string; href?: string; target?: string; style?: "primary" | "secondary" };
+ *   extraCardClass?: string;
+ * }} options
+ */
+function createToolCard({ titleText, summaryText, tagText, tagClass, link, extraCardClass }) {
+  const card = document.createElement("article");
+  card.className = `project-card tool-card${extraCardClass ? ` ${extraCardClass}` : ""}`;
+
+  if (tagText) {
+    const tags = document.createElement("div");
+    tags.className = "card-tags";
+    const tag = document.createElement("p");
+    tag.className = `card-kicker-tag${tagClass ? ` ${tagClass}` : ""}`;
+    tag.textContent = tagText;
+    tags.append(tag);
+    card.append(tags);
+  }
+
+  const title = document.createElement("h2");
+  if (link?.href) {
+    const titleLink = document.createElement("a");
+    titleLink.href = link.href;
+    if (link.target) titleLink.target = link.target;
+    if (link.target === "_blank") titleLink.rel = "noopener noreferrer";
+    titleLink.textContent = titleText;
+    title.append(titleLink);
+  } else {
+    title.textContent = titleText;
+  }
+
+  const summary = document.createElement("p");
+  summary.className = "card-body game-summary";
+  summary.textContent = summaryText || "";
+
+  card.append(title, summary);
+
+  if (link) {
+    const actions = document.createElement("div");
+    actions.className = "project-actions section-actions";
+    actions.append(createHeroLink(link));
+    card.append(actions);
+  }
+
+  return card;
 }
 
 function createHeroLink(link) {
