@@ -14,7 +14,7 @@ const forbidden = /(?:^|\/)(?:services|scripts|tests|node_modules|packages|index
 async function inspect(directory, prefix = "") {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     const path = prefix + entry.name;
-    if (entry.isSymbolicLink() || forbidden.test(path) || path === "music/package.json" || path === "data/music.json") throw new Error(`Pages artifact contains private media or an excluded path: ${path}`);
+    if (entry.isSymbolicLink() || forbidden.test(path) || path === "assets/music" || path === "music/package.json" || path === "data/music.json") throw new Error(`Pages artifact contains private media or an excluded path: ${path}`);
     if (entry.isDirectory()) await inspect(join(directory, entry.name), path + "/");
   }
 }
