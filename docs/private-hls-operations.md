@@ -82,7 +82,7 @@ Its Chromium network events confirm that the rule applies to the actual media re
 
 Use a dedicated Linux SSH host with Docker and an AMD64 execution path.
 Run one host test at a time.
-The declared media volume and the named test containers and images must be absent before the test.
+The isolated media volume and the named test containers and images must be absent before the test.
 HTTP ports 80 and 443 must be free on that isolated host.
 
 For the current Lima qualification host, run:
@@ -102,9 +102,10 @@ The test uses the controller's native preparation image for archive transfer and
 That image must also execute on the selected test host.
 
 The test calls Gateway's actual retained-volume task through Ansible.
-It reads the volume and service command from the selected application declaration.
+It uses an isolated volume and reads the service command from the selected application declaration.
 It transfers generated media through SSH into that volume and validates the transferred packages with the actual media CLI.
-The service starts with the declared paths and Origins and mounts the media volume read-only.
+The test service uses generated audio under `/media` and the declared origins.
+The production service uses the audio packages in its image.
 HTTP checks verify readiness, authorized media, rejected anonymous requests, and grant removal.
 The test then replaces the container and repeats validation against the retained media.
 It also renders the selected media route with Gateway's actual Caddy template.
@@ -195,14 +196,14 @@ make music-deployment-test
 The test restores the registry data, Git artifacts, and lifecycle receipts from the publication export.
 It uses the exported Gateway source commit.
 The test runs Gateway `make deploy` twice to verify the Caddy foundation.
-It creates the declared media volume through Gateway and transfers generated audio into that volume.
+The music image supplies all prepared audio packages without a media volume.
 The test then runs application `make deploy` twice with both sealed service images and the Pages artifact.
 The exact retry must keep both service containers and the Pages deployment identity.
 
 The local GitHub API fixture checks each Pages request and records its effects.
 An HTTPS server reads the actual `gh-pages` branch from the local Git repository.
 Certificate checks stay active for Pages, the registry, and both API routes.
-The audio checks cover readiness, grants, anonymous rejection, authorized media, byte ranges, and grant removal.
+The audio checks cover readiness, grants for every published track, anonymous rejection, audio segments, and grant removal.
 Gallery checks cover owner authorization, the published catalog, and saved drafts and publication archives after restart.
 Controlled TAuth claims test gallery authorization but do not qualify Studio login.
 The test runs the actual Gateway cleanup playbook twice with an explicit isolated-host profile.
@@ -245,7 +246,7 @@ Mount the selected source and private output directory when you run this image.
 Pass the paths as seen inside the container.
 Use `--network none` because preparation requires no network access.
 
-## Candidate Index And Activation
+## Local Candidate Index And Activation
 
 Build the offline command into a private tool directory:
 
@@ -310,9 +311,12 @@ Build the local service image:
 docker build -t music-stream:local -f services/music-stream/Dockerfile .
 ```
 
-The image contains `/music-stream`, `/music-media`, and generated metadata under `/runtime/music`.
+The image contains `/music-stream`, `/music-media`, and prepared audio under `/assets/music`.
 Its build context is the repository root.
-The final image contains no original recordings or prepared audio packages.
+The final image contains prepared audio packages and their media index.
+Original recordings stay outside the image.
+The final stage uses `scratch` after the pinned Node.js and Go build stages.
+The declared image repository is `ghcr.io/tyemirov/personal-site-music`.
 The service requires explicit media root, index, allowlist, public HTTPS origin, and allowed website origins.
 Use `--help` to inspect all rate and capacity flags:
 
@@ -354,23 +358,48 @@ Read-only SSH checks confirmed the host and Docker runtime.
 Encoding runs during offline preparation.
 The backend authorizes requests and serves prepared media segments.
 
-The declaration retains volume `tyemirov-site-music-media` at `/media` for private audio packages.
-The production service reads `/runtime/music/catalog.json` and `/runtime/music/allowlist.json` from its image.
-The image build generates both files from `data/site.json` with the shared playback validator.
-All current production tracks use external playback.
-Thus, the media catalog contains no package records, and empty retained storage is valid.
-Image replacement also replaces the runtime metadata, independently of retained storage.
+The production service reads all audio from its image under `/assets/music`.
+The source directory `assets/music/packages/` contains 49 media packages for 50 tracks.
+Two track IDs use the same package.
+Each package contains AAC-LC stereo audio at 192 kbps and 48 kHz in six-second fMP4 segments.
+The existing preparation command produced these packages.
+This change does not encode the audio again.
 
-The build rejects an HLS declaration because its prepared media is absent from the production deployment contract.
-Complete that contract before you change a public track to HLS playback.
-Do not supply empty metadata as a substitute for required HLS packages.
+`assets/music/catalog.json` maps track IDs to package identities and durations.
+`data/site.json` controls the published titles and HLS playback declarations.
+The image build generates `catalog.json` and `allowlist.json` under `/assets/music`.
+The generator rejects missing track records, different durations, and extra track records.
+The image build uses `music-media validate` to verify package checksums, playlists, and audio metadata.
+Invalid or missing media prevents the image build.
 
-Local HLS preparation writes `catalog.json`, `allowlist.json`, and packages into the local media volume.
-The local service uses explicit paths under `/media`.
-The production image metadata does not replace those local inputs.
+The production service operates without a media volume or file transfer after deployment.
+Image replacement changes the audio and its matching metadata together.
+The selected manifest has no music volume mount.
+Existing production volumes remain outside this change.
+The Pages build does not include `assets/music` or its metadata.
+The public website requests audio through the music API.
 
-Run `make music-deployment-container-test` to verify the declared command with empty retained storage and container replacement.
-Run `make music-runtime-test` to verify metadata generation and rejection of an HLS declaration without prepared media.
+Local orchestration continues to use `MUSIC_LOCAL_ROOT` and its Docker volume.
+The local service reads explicit paths under `/media`.
+The production image does not change those local inputs.
+
+Use `make music-deployment-container-test` to verify grants and audio segments for all 50 tracks before and after container replacement.
+Use `make music-runtime-test` to verify the media index, package validation, and rejection of invalid inputs.
+Use `make music-browser-test MUSIC_BROWSER_ARGS='music/bundled.spec.mjs'` to verify real audio playback in the automated browsers.
+Use `make music-container-test MUSIC_CONTAINER_ARGS='--test-name-pattern=Pages'` to verify that the Pages image does not include the audio.
+
+### Audio Updates
+
+1. Prepare new recordings with the audio preparation command.
+2. Put each prepared package in `assets/music/packages/` under its asset ID.
+3. Update `assets/music/catalog.json` with the new track records.
+4. Update the corresponding HLS durations in `data/site.json`.
+5. Do the runtime, container, and browser checks above.
+6. Use `make ci` after the last change.
+7. Release, publish, and deploy the validated source through the Gateway lifecycle when the operator requests those operations.
+
+The website artifact and service image must come from the same release.
+Production acceptance requires the release marker, API readiness, and real song playback.
 Public DNS, TLS, and production activation remain separate operational checks.
 
 ### B005 Shared API Boundary
