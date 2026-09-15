@@ -1,0 +1,202 @@
+{
+  "files": [
+    {
+      "name": "index.m3u8",
+      "bytes": 1259,
+      "sha256": "9ad51ad1dac38226b72e0748a44f47e20648fc002c17f0e3f98b7ed81476fec1"
+    },
+    {
+      "name": "init.mp4",
+      "bytes": 765,
+      "sha256": "d60921bf816c5b642adc1bc8eff05cc041afb098f3c0b71c1fbe2c2f5537ffee"
+    },
+    {
+      "name": "seg-00000.m4s",
+      "bytes": 149877,
+      "sha256": "789d3c8e17e322a31d818d65a6021a26abf385f88ad794b28829d834dcf8a96a"
+    },
+    {
+      "name": "seg-00001.m4s",
+      "bytes": 147622,
+      "sha256": "7801cb460706ca57b8fdf8f834348cd6341cff8158ddd289211f0c53e51f3a41"
+    },
+    {
+      "name": "seg-00002.m4s",
+      "bytes": 149818,
+      "sha256": "ebfa2140ebdbfbc4a32d56e1a45102f614f91860d8409a5ed48831df8dec0c04"
+    },
+    {
+      "name": "seg-00003.m4s",
+      "bytes": 145840,
+      "sha256": "76bef9246cf3069946f01abf5c760ad2a864e7b2c6a6ea3c33c7197f90274dd1"
+    },
+    {
+      "name": "seg-00004.m4s",
+      "bytes": 146478,
+      "sha256": "64ab2f125429f9bfb2b7ba07eb95f2fce6cc6c633e3955dffbb0ea748f5b5479"
+    },
+    {
+      "name": "seg-00005.m4s",
+      "bytes": 149141,
+      "sha256": "0f21013a8669e931755b2b7f93d165edfbf41beaf87ea6e869778e9bdca9dcdf"
+    },
+    {
+      "name": "seg-00006.m4s",
+      "bytes": 147497,
+      "sha256": "ddbd2b0cee517f57e3d0af4ff933126363a9b84563a7373d3e7f95e2e9b916fa"
+    },
+    {
+      "name": "seg-00007.m4s",
+      "bytes": 147867,
+      "sha256": "29e60aadbf74c498d49893ad923a6b61ccf4d8c5c15c029048d942e71e4688fb"
+    },
+    {
+      "name": "seg-00008.m4s",
+      "bytes": 148812,
+      "sha256": "8bb8f19724bf4725907bf35f5e115bc6fe0630b33c8e21ec091d7d47f738f1cb"
+    },
+    {
+      "name": "seg-00009.m4s",
+      "bytes": 146295,
+      "sha256": "1f1162178c5b6cda0d2e880b99ce32ed90edf1826066254c684b730ec0e7119f"
+    },
+    {
+      "name": "seg-00010.m4s",
+      "bytes": 146903,
+      "sha256": "00ef6f650ba0a6ed70b8445e64dff41387cd5a1c2591d7c1fb53e3b01d566478"
+    },
+    {
+      "name": "seg-00011.m4s",
+      "bytes": 147168,
+      "sha256": "a2259ae385a0c176ba8aa860508bc1e700a506f38a115be48ba5e3a95313b617"
+    },
+    {
+      "name": "seg-00012.m4s",
+      "bytes": 147675,
+      "sha256": "fafca230aa738927e269bccfa0699fe708d436738f73fa51a065778f4b902020"
+    },
+    {
+      "name": "seg-00013.m4s",
+      "bytes": 147510,
+      "sha256": "2fc7de47ea4dcfdd434d75f5e2d200c464beb42ddaefd52c0f5f8cc02cb39085"
+    },
+    {
+      "name": "seg-00014.m4s",
+      "bytes": 148026,
+      "sha256": "b227f85c948138bf1466e953d7796e5b98c769f7df1511f07488c6f7d87a2578"
+    },
+    {
+      "name": "seg-00015.m4s",
+      "bytes": 148449,
+      "sha256": "8d1b8ad1e2080433c639dac99e766b52e63ec16ccd90c78c54d12ee7574400d0"
+    },
+    {
+      "name": "seg-00016.m4s",
+      "bytes": 146712,
+      "sha256": "b839d7236e8bf972b30a75d364d3951647aff2434072d97c88f9c72a3894e00e"
+    },
+    {
+      "name": "seg-00017.m4s",
+      "bytes": 147484,
+      "sha256": "ece585af727eac59a288e60ead6dfa2b120f5ce57edfd577c48f3a1f9445fc40"
+    },
+    {
+      "name": "seg-00018.m4s",
+      "bytes": 146956,
+      "sha256": "f0505aabbef02feac4f089cbf7313fbc0fb51a4512bd062594e83c01fb049e09"
+    },
+    {
+      "name": "seg-00019.m4s",
+      "bytes": 147292,
+      "sha256": "0ce3b1a88a0276e4da31b7ca763cc2c9fe33b56a83125638475b78ace98e3648"
+    },
+    {
+      "name": "seg-00020.m4s",
+      "bytes": 148630,
+      "sha256": "43eeefbf9407862220bbe2df481e3ed4389aa2192f4221f28d4da347e9dfcfd4"
+    },
+    {
+      "name": "seg-00021.m4s",
+      "bytes": 146037,
+      "sha256": "c6e902c1fd5cc630f5ce5a4885593d93054069acd45103cf95b2959450f3a305"
+    },
+    {
+      "name": "seg-00022.m4s",
+      "bytes": 146988,
+      "sha256": "7ce013c2b78259ea536e6fdec38a3bbac8d44ecf6716b80c6ab8b346e8a79f82"
+    },
+    {
+      "name": "seg-00023.m4s",
+      "bytes": 146667,
+      "sha256": "ed27aa080210d1ecddbe5ff00ca4e344e62e4bd26ae64a8c8d5c559840fca910"
+    },
+    {
+      "name": "seg-00024.m4s",
+      "bytes": 146399,
+      "sha256": "291b45428d6e36d739ce9b15253ac1deee7c91adcabec61b524bfe02a8a31fab"
+    },
+    {
+      "name": "seg-00025.m4s",
+      "bytes": 145926,
+      "sha256": "ecb0357ca8243371aaf8d556ee57d527e116df0f7cbcd2d2ac5afe0142370c66"
+    },
+    {
+      "name": "seg-00026.m4s",
+      "bytes": 147142,
+      "sha256": "8c583b67ee85b8b0069e8464ed938d53b156f9e4edab985c3d38294e67ad76cd"
+    },
+    {
+      "name": "seg-00027.m4s",
+      "bytes": 149336,
+      "sha256": "c2c346d9322d158eeaff5b57ba85db154bd8bb2b8d0f9ea3e776a904a8e12cd8"
+    },
+    {
+      "name": "seg-00028.m4s",
+      "bytes": 147569,
+      "sha256": "e9eb5eee4040f419865942e4c3f7adc760b4716ca0a816ec5c2eb6e55e271eb5"
+    },
+    {
+      "name": "seg-00029.m4s",
+      "bytes": 147459,
+      "sha256": "e3f3726d4321368d47239a50ad942f8eb3f4b34f1e25b7d2a6cb8eca6c984f30"
+    },
+    {
+      "name": "seg-00030.m4s",
+      "bytes": 147452,
+      "sha256": "921c40de2b71204bc91f47d34c6f5b048b3dcdf9c52594d0a16131d8a1a506c2"
+    },
+    {
+      "name": "seg-00031.m4s",
+      "bytes": 147689,
+      "sha256": "b7eb332b949f867aa7f96e5114d89bbfb30f8aa4a75d9f0fc375739bab2d78e3"
+    },
+    {
+      "name": "seg-00032.m4s",
+      "bytes": 147219,
+      "sha256": "3b1a30b9f8cfd95f84065c1272d2c8f9829c1984ca747846e7dd8f191be8a7db"
+    },
+    {
+      "name": "seg-00033.m4s",
+      "bytes": 147989,
+      "sha256": "097cfc89210aa25d6b195f90215d3e90fbfd66b94ab45fb277f347e2d2c2be46"
+    },
+    {
+      "name": "seg-00034.m4s",
+      "bytes": 70013,
+      "sha256": "2424f973ef29f35c787205080e044b1eb624d92704a8417d96b73dbe7e830d41"
+    }
+  ],
+  "durationMs": 206861,
+  "peakBitrate": 199936,
+  "codec": "mp4a.40.2",
+  "sampleRateHz": 48000,
+  "channels": 2,
+  "preparation": {
+    "profile": "aac-lc-192k-48khz-stereo-fmp4-6s",
+    "ffmpegVersion": "8.1.2",
+    "ffprobeVersion": "8.1.2",
+    "sourceFormat": "wav",
+    "sourceCodec": "pcm_s16le",
+    "sourceSHA256": "6e7eff11460d53443b39b6c8fa5691815e393c2685322edc4e804f1ea70bf945"
+  }
+}

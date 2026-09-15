@@ -1,0 +1,87 @@
+{
+  "files": [
+    {
+      "name": "index.m3u8",
+      "bytes": 523,
+      "sha256": "f5e3b090013f8f77198c4fc4f1ec4ba392e3919d495bfd76ffc3c9e76762d682"
+    },
+    {
+      "name": "init.mp4",
+      "bytes": 765,
+      "sha256": "d60921bf816c5b642adc1bc8eff05cc041afb098f3c0b71c1fbe2c2f5537ffee"
+    },
+    {
+      "name": "seg-00000.m4s",
+      "bytes": 146911,
+      "sha256": "586a5be8649ba9725e0aed515a0c7e878068ec5c692a22b459094ea2b7c43157"
+    },
+    {
+      "name": "seg-00001.m4s",
+      "bytes": 148077,
+      "sha256": "80ef03990f2856499971cd9cf994fbfba3b1195470f4b03f6c63650a4b34826d"
+    },
+    {
+      "name": "seg-00002.m4s",
+      "bytes": 146612,
+      "sha256": "d58e3f3c0c7c17ff06c6c1182fa4b1fa7acc252e57d3e3ab41f32743fb5b256e"
+    },
+    {
+      "name": "seg-00003.m4s",
+      "bytes": 145835,
+      "sha256": "085feff339b2993134ec714888ec524c3d8ce7a77664739c78b94a110e13ec5a"
+    },
+    {
+      "name": "seg-00004.m4s",
+      "bytes": 147337,
+      "sha256": "87f1bcb69bea694deb03f628675e454db1b07e78b7cd06686c4c34e27085d7a2"
+    },
+    {
+      "name": "seg-00005.m4s",
+      "bytes": 147052,
+      "sha256": "a71c2b38590f4a6054ae2b92cf2237d71d07db255866120e505e213c8712fcdd"
+    },
+    {
+      "name": "seg-00006.m4s",
+      "bytes": 147554,
+      "sha256": "e13ed422596300261f8d44dd258b8f4e56b3a9e8d6faa1ab0a9703471109d4d5"
+    },
+    {
+      "name": "seg-00007.m4s",
+      "bytes": 147080,
+      "sha256": "a9bf9f30126f958ee22187232ad1c7f41f324beed9fe3baeffdcc646d119577b"
+    },
+    {
+      "name": "seg-00008.m4s",
+      "bytes": 148205,
+      "sha256": "542c9359d474078cd1e859f7bebaea2a000b9d4ce62deee3ab001df01feb7e66"
+    },
+    {
+      "name": "seg-00009.m4s",
+      "bytes": 148201,
+      "sha256": "d2e5d4ea9ba1f26c5ec65de2b09c9d468bae202d991db0a08b3ada89ec3171c1"
+    },
+    {
+      "name": "seg-00010.m4s",
+      "bytes": 147081,
+      "sha256": "43a0d5e58274f090d064ba089db80ec9fa8458a5501c17e9aead1ea19e8f041c"
+    },
+    {
+      "name": "seg-00011.m4s",
+      "bytes": 126028,
+      "sha256": "5ef71caff3a952d2d8641a617185f669a354500559940cd84c4a66549bc02438"
+    }
+  ],
+  "durationMs": 71101,
+  "peakBitrate": 197847,
+  "codec": "mp4a.40.2",
+  "sampleRateHz": 48000,
+  "channels": 2,
+  "preparation": {
+    "profile": "aac-lc-192k-48khz-stereo-fmp4-6s",
+    "ffmpegVersion": "8.1.2",
+    "ffprobeVersion": "8.1.2",
+    "sourceFormat": "wav",
+    "sourceCodec": "pcm_s16le",
+    "sourceSHA256": "f99eb3dd0fc22bee66439806b6a1ef5f59e7ce146807c7679bc69b41bc30b907"
+  }
+}

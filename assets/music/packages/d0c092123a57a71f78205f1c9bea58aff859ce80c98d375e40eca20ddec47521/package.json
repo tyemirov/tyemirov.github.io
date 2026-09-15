@@ -1,0 +1,157 @@
+{
+  "files": [
+    {
+      "name": "index.m3u8",
+      "bytes": 971,
+      "sha256": "936db86cb98d67cec8651ac26cd0aa1a21ae0d26f81f5f9bc486d6ce0e9eb284"
+    },
+    {
+      "name": "init.mp4",
+      "bytes": 765,
+      "sha256": "d60921bf816c5b642adc1bc8eff05cc041afb098f3c0b71c1fbe2c2f5537ffee"
+    },
+    {
+      "name": "seg-00000.m4s",
+      "bytes": 147290,
+      "sha256": "34efbf8283f45ed6e74b0f71e30582e1fc73878940f86ecbb48a741640a66b3a"
+    },
+    {
+      "name": "seg-00001.m4s",
+      "bytes": 147040,
+      "sha256": "8569a29fa1834b6141c6b07b1cea94f7faf43d4a7b7f30485ec7f53d4df36e4f"
+    },
+    {
+      "name": "seg-00002.m4s",
+      "bytes": 151279,
+      "sha256": "6ba10bb9c57ce3549616000b91a1ef9b56c71b965adf407721e28c6e1628c6f0"
+    },
+    {
+      "name": "seg-00003.m4s",
+      "bytes": 149756,
+      "sha256": "d2ebc170de7509db2aa97db3dc2a4198c256269da063c89c378e1c3336cab154"
+    },
+    {
+      "name": "seg-00004.m4s",
+      "bytes": 146145,
+      "sha256": "bc593aefd2ac3de0c43a7bc6f0f18279864e7597627e8bf5da04d1eda914efb7"
+    },
+    {
+      "name": "seg-00005.m4s",
+      "bytes": 145850,
+      "sha256": "3fa423a0a98e88cf2712386748cce535c8d3dc24eb51a7f1dda7930e859b256d"
+    },
+    {
+      "name": "seg-00006.m4s",
+      "bytes": 145851,
+      "sha256": "4e94446e79ddbd5714792a8d5cb266051f1b89a0946e38369c8282f0dfc5dd56"
+    },
+    {
+      "name": "seg-00007.m4s",
+      "bytes": 148814,
+      "sha256": "7e94b18552201483260de7d153bdc463011f29bdd4c06e66825e8a450697b2ca"
+    },
+    {
+      "name": "seg-00008.m4s",
+      "bytes": 149149,
+      "sha256": "854b2b0410fb0388fde1bfc70a4ca7deeecfdf3e568c95d84769c02ff62dc81a"
+    },
+    {
+      "name": "seg-00009.m4s",
+      "bytes": 148467,
+      "sha256": "72462d6dfe41f2584496fe2d5ff4ce94451667272eae803b87628659bf268f7d"
+    },
+    {
+      "name": "seg-00010.m4s",
+      "bytes": 147812,
+      "sha256": "ed40ef5f5ffc8284212633bccf289c352f23aff76a7de8b4e43f77cb734b181c"
+    },
+    {
+      "name": "seg-00011.m4s",
+      "bytes": 148087,
+      "sha256": "8453a40702601a92498251878f6af92308ee9193d96b2f144f6b0a203003179e"
+    },
+    {
+      "name": "seg-00012.m4s",
+      "bytes": 150223,
+      "sha256": "4e601fe488d34c657faa6bb342c4230e1180d9d7e666aa2d6f9865d6572a630c"
+    },
+    {
+      "name": "seg-00013.m4s",
+      "bytes": 150691,
+      "sha256": "c13a90a77cdcd122c6c956d7b7e6ab71978745437d6a23fcb29c956471bca3f3"
+    },
+    {
+      "name": "seg-00014.m4s",
+      "bytes": 150337,
+      "sha256": "51b87153f88ca6aedd743cdf82a12604a06736e29ec8301fadfc908e3e5f81fc"
+    },
+    {
+      "name": "seg-00015.m4s",
+      "bytes": 146118,
+      "sha256": "e1b4a98213276bdf8c3f939531727b6714be8ef57d879bf9e1ca2bc1d9800ad4"
+    },
+    {
+      "name": "seg-00016.m4s",
+      "bytes": 147483,
+      "sha256": "9b5987d9fcdcb13d4bfa1c0da7c71a3848fa7b27f75efa51875e0949c1a63128"
+    },
+    {
+      "name": "seg-00017.m4s",
+      "bytes": 145815,
+      "sha256": "94508ce865d0812f42612eb5982f74d9b2e9a1af14e757431d806b1127781345"
+    },
+    {
+      "name": "seg-00018.m4s",
+      "bytes": 150298,
+      "sha256": "e24c6e02e882ffb2357a382aad7857319af62e980387a0b3724d614909cffa1a"
+    },
+    {
+      "name": "seg-00019.m4s",
+      "bytes": 148198,
+      "sha256": "728f4eee99ba1d265dd184dffd5fdf86f8cf14ed5b547bbf3ea1050cba431b6d"
+    },
+    {
+      "name": "seg-00020.m4s",
+      "bytes": 146973,
+      "sha256": "aabddaa0644bf809d227fba6ff25617caa4c954403494937a9f095d1df86c231"
+    },
+    {
+      "name": "seg-00021.m4s",
+      "bytes": 147442,
+      "sha256": "1463fd61e40a9f980d7c3334a08deb291ff01409d600cbb841382518a3cab6b4"
+    },
+    {
+      "name": "seg-00022.m4s",
+      "bytes": 148330,
+      "sha256": "880e5b6d9ffe99903ab25ca75fde2a5adc8f0e766146c4470583fb516573443f"
+    },
+    {
+      "name": "seg-00023.m4s",
+      "bytes": 146241,
+      "sha256": "2ac8edef1d8be9bded215991dac517ecf7057ab7a1f6660b139dbe8d10516754"
+    },
+    {
+      "name": "seg-00024.m4s",
+      "bytes": 148307,
+      "sha256": "f708201d5b3d3e74e073a7cf096572beccb57118d74ba05981b30183bcdd9afe"
+    },
+    {
+      "name": "seg-00025.m4s",
+      "bytes": 103689,
+      "sha256": "14823037bc5614f2fcd724719556e9f37aeea3b7c3e42796b08b4299a4fb8dd6"
+    }
+  ],
+  "durationMs": 154541,
+  "peakBitrate": 201885,
+  "codec": "mp4a.40.2",
+  "sampleRateHz": 48000,
+  "channels": 2,
+  "preparation": {
+    "profile": "aac-lc-192k-48khz-stereo-fmp4-6s",
+    "ffmpegVersion": "8.1.2",
+    "ffprobeVersion": "8.1.2",
+    "sourceFormat": "wav",
+    "sourceCodec": "pcm_s16le",
+    "sourceSHA256": "2e0de768d85dbb6e529015a01f86d7b949eb2332e0b445594f55881ad6725016"
+  }
+}

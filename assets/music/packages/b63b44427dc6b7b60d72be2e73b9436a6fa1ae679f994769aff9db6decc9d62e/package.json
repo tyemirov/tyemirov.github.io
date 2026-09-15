@@ -1,0 +1,82 @@
+{
+  "files": [
+    {
+      "name": "index.m3u8",
+      "bytes": 491,
+      "sha256": "426e5e7cd37cca8e5922c64b925495fe197bed5a9ae0383fd2550373179ed988"
+    },
+    {
+      "name": "init.mp4",
+      "bytes": 765,
+      "sha256": "d60921bf816c5b642adc1bc8eff05cc041afb098f3c0b71c1fbe2c2f5537ffee"
+    },
+    {
+      "name": "seg-00000.m4s",
+      "bytes": 153741,
+      "sha256": "e6d16c6f150277eab3b1b8f46af84eb5fbe889eb9dbac496491f26450eee81ce"
+    },
+    {
+      "name": "seg-00001.m4s",
+      "bytes": 150714,
+      "sha256": "5d4e4ea55cc6bacf5b70b5001c60d64a3086aae74227d22900f98a6e4b9e47a2"
+    },
+    {
+      "name": "seg-00002.m4s",
+      "bytes": 150503,
+      "sha256": "16f8fe5609c9b9f5ea8145e68c94ffe35d53a87a1ff5410034ceba95ac27aa46"
+    },
+    {
+      "name": "seg-00003.m4s",
+      "bytes": 148250,
+      "sha256": "dd1081a004643ee67caa88697f84118547d0c2549288efe0435674060130f7b4"
+    },
+    {
+      "name": "seg-00004.m4s",
+      "bytes": 151644,
+      "sha256": "183a661da7b17352115b26ef0ceb616fe18fd9b556f87463a7faa1d5a2833928"
+    },
+    {
+      "name": "seg-00005.m4s",
+      "bytes": 147301,
+      "sha256": "494cfbc09c9391b56327942659d90a59fc3db208a345764aaf75d9db61992109"
+    },
+    {
+      "name": "seg-00006.m4s",
+      "bytes": 148856,
+      "sha256": "e4bbc3fc4df78650c44a7351731283bbd1499f96ad9d07db753f6110b5e5fcdc"
+    },
+    {
+      "name": "seg-00007.m4s",
+      "bytes": 146927,
+      "sha256": "907a6850f570dabed56dc2dbee5c8c8e25f562e9839fc3bdd888124e9f98eecf"
+    },
+    {
+      "name": "seg-00008.m4s",
+      "bytes": 146631,
+      "sha256": "09d31442de3d61283b1477bc440fb06c9018bc365a82b978b0762b72b28241ea"
+    },
+    {
+      "name": "seg-00009.m4s",
+      "bytes": 146389,
+      "sha256": "646fc9485cd7159dd2816a3c01107b0981e84c476a19fe3a0e75ad2ec67b47fa"
+    },
+    {
+      "name": "seg-00010.m4s",
+      "bytes": 91158,
+      "sha256": "b381b9d4a8469a875e4ac2c6f7a0c088573954247a584305c3c0bfb0204598fc"
+    }
+  ],
+  "durationMs": 63701,
+  "peakBitrate": 204443,
+  "codec": "mp4a.40.2",
+  "sampleRateHz": 48000,
+  "channels": 2,
+  "preparation": {
+    "profile": "aac-lc-192k-48khz-stereo-fmp4-6s",
+    "ffmpegVersion": "8.1.2",
+    "ffprobeVersion": "8.1.2",
+    "sourceFormat": "wav",
+    "sourceCodec": "pcm_s16le",
+    "sourceSHA256": "0495707f0f48466fa2a96e08f9dc3d733c4353a08fde64855f1ac21e5a24b4c8"
+  }
+}
