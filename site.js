@@ -42,7 +42,7 @@ export async function hydrateMusicPage(kind) {
       const album = data.music.items.find((item) => item.slug === slug && item.status === "live");
       if (album) {
         renderAlbumDetails(album);
-        if (album.tracks.some((track) => track.playback.kind === "hls")) {
+        if (album.tracks.some((track) => track.playback.kind === "file")) {
           try {
             const { initializePlayer } = await import("./music/player/bootstrap.js");
             await initializePlayer(album);
