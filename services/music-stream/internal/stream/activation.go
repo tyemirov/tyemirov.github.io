@@ -13,7 +13,7 @@ type mediaIndex struct {
 	Tracks map[string]mediaRecord `json:"tracks"`
 }
 
-// ValidateIndex verifies the complete private index against publication authority and package bytes.
+// ValidateIndex verifies the complete private index against publication authority and audio bytes.
 func ValidateIndex(mediaRoot, indexPath, allowlistPath string) error {
 	rootPath, err := filepath.EvalSymlinks(mediaRoot)
 	if err != nil {

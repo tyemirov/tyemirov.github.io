@@ -27,7 +27,7 @@ func TestRequestLogsIdentifyKnownTracksWithoutPrivateValues(t *testing.T) {
 	logs := make(requestLogSink, 16)
 	fixture := prepareFixture(t, func(config *stream.Config) { config.Logger = slog.New(slog.NewJSONHandler(logs, nil)) })
 	grant, cookie := fixture.create(t, nil)
-	playlist, _ := url.Parse(grant.PlaylistURL)
+	mediaURL, _ := url.Parse(grant.MediaURL)
 	readLog := func(trackID string) {
 		t.Helper()
 		select {
@@ -53,7 +53,7 @@ func TestRequestLogsIdentifyKnownTracksWithoutPrivateValues(t *testing.T) {
 		}
 	}
 	readLog("test-tone")
-	for _, path := range []string{playlist.Path, "/music/playback-grants/" + grant.GrantID} {
+	for _, path := range []string{mediaURL.Path, "/music/playback-grants/" + grant.GrantID} {
 		response := fixture.request(t, "GET", path, nil, cookie, nil)
 		if response.StatusCode != 200 {
 			t.Fatalf("authorized request returned %d", response.StatusCode)
@@ -68,7 +68,7 @@ func TestRequestLogsIdentifyKnownTracksWithoutPrivateValues(t *testing.T) {
 		t.Fatal("grant removal failed")
 	}
 	readLog("test-tone")
-	for _, path := range []string{"/music/readyz", playlist.Path} {
+	for _, path := range []string{"/music/readyz", mediaURL.Path} {
 		fixture.request(t, "GET", path, nil, nil, nil)
 		readLog("")
 	}
@@ -79,12 +79,12 @@ func TestRequestLogsIdentifyKnownTracksWithoutPrivateValues(t *testing.T) {
 func TestRejectedCatalogKeepsPlaybackAndDisablementStopsIt(t *testing.T) {
 	fixture := prepareFixture(t)
 	grant, cookie := fixture.create(t, nil)
-	playlist, _ := url.Parse(grant.PlaylistURL)
-	writeJSON(t, fixture.allowlistPath, map[string]any{"tracks": []any{map[string]any{"id": "test-tone", "playback": map[string]any{"kind": "hls", "durationMs": 999}}}})
+	mediaURL, _ := url.Parse(grant.MediaURL)
+	writeJSON(t, fixture.allowlistPath, map[string]any{"tracks": []any{map[string]any{"id": "test-tone", "playback": map[string]any{"kind": "file", "durationMs": 999}}}})
 	if fixture.service.Reload() == nil {
 		t.Fatal("invalid candidate activated")
 	}
-	if fixture.request(t, "GET", playlist.Path, nil, cookie, nil).StatusCode != 200 {
+	if fixture.request(t, "GET", mediaURL.Path, nil, cookie, nil).StatusCode != 200 {
 		t.Fatal("invalid candidate broke existing playback")
 	}
 	fixture.create(t, cookie)
@@ -92,7 +92,7 @@ func TestRejectedCatalogKeepsPlaybackAndDisablementStopsIt(t *testing.T) {
 	if err := fixture.service.Reload(); err != nil {
 		t.Fatal(err)
 	}
-	if fixture.request(t, "GET", playlist.Path, nil, cookie, nil).StatusCode != 410 {
+	if fixture.request(t, "GET", mediaURL.Path, nil, cookie, nil).StatusCode != 410 {
 		t.Fatal("disabled track still authorizes media")
 	}
 	if fixture.request(t, "POST", "/music/playback-grants", []byte(`{"trackId":"test-tone"}`), cookie, map[string]string{"Origin": websiteOrigin, "Content-Type": "application/json"}).StatusCode != 404 {
@@ -100,7 +100,7 @@ func TestRejectedCatalogKeepsPlaybackAndDisablementStopsIt(t *testing.T) {
 	}
 }
 
-func TestReplacementPinsExistingGrantToOriginalPackage(t *testing.T) {
+func TestReplacementInvalidatesPreviousRecordingGrant(t *testing.T) {
 	fixture := prepareFixture(t)
 	first, cookie := fixture.create(t, nil)
 	source := filepath.Join(t.TempDir(), "replacement.wav")
@@ -121,17 +121,20 @@ func TestReplacementPinsExistingGrantToOriginalPackage(t *testing.T) {
 		t.Fatal(err)
 	}
 	second, _ := fixture.create(t, cookie)
-	if first.PlaylistURL == second.PlaylistURL || !strings.Contains(second.PlaylistURL, receipt["assetId"].(string)) {
-		t.Fatal("new grant did not select the new package")
+	if first.MediaURL == second.MediaURL || !strings.Contains(second.MediaURL, receipt["assetId"].(string)) {
+		t.Fatal("new grant did not select the new audio file")
 	}
-	for _, grant := range []testGrant{first, second} {
-		playlist, _ := url.Parse(grant.PlaylistURL)
-		if fixture.request(t, "GET", playlist.Path, nil, cookie, nil).StatusCode != 200 {
-			t.Fatal("package replacement broke a valid pinned grant")
+	for _, entry := range []struct {
+		grant  testGrant
+		status int
+	}{{first, 410}, {second, 200}} {
+		mediaURL, _ := url.Parse(entry.grant.MediaURL)
+		if result := fixture.request(t, "GET", mediaURL.Path, nil, cookie, nil); result.StatusCode != entry.status {
+			t.Fatalf("recording replacement: got %d want %d", result.StatusCode, entry.status)
 		}
 	}
-	oldPlaylist, _ := url.Parse(first.PlaylistURL)
-	substituted := strings.Replace(oldPlaylist.Path, fixture.assetID, receipt["assetId"].(string), 1)
+	currentURL, _ := url.Parse(second.MediaURL)
+	substituted := strings.Replace(currentURL.Path, receipt["assetId"].(string), fixture.assetID, 1)
 	if fixture.request(t, "GET", substituted, nil, cookie, nil).StatusCode != 404 {
 		t.Fatal("grant authorized a substituted asset")
 	}
@@ -141,8 +144,8 @@ func TestMissingMediaReadinessAndSafeLogs(t *testing.T) {
 	var logs bytes.Buffer
 	fixture := prepareFixture(t, func(config *stream.Config) { config.Logger = slog.New(slog.NewJSONHandler(&logs, nil)) })
 	grant, cookie := fixture.create(t, nil)
-	playlist, _ := url.Parse(grant.PlaylistURL)
-	if err := os.Remove(filepath.Join(fixture.mediaRoot, "packages", fixture.assetID, "seg-00000.m4s")); err != nil {
+	mediaURL, _ := url.Parse(grant.MediaURL)
+	if err := os.Remove(filepath.Join(fixture.mediaRoot, "test-tone.m4a")); err != nil {
 		t.Fatal(err)
 	}
 	if fixture.request(t, "GET", "/music/healthz", nil, nil, nil).StatusCode != 200 {
@@ -151,7 +154,7 @@ func TestMissingMediaReadinessAndSafeLogs(t *testing.T) {
 	if fixture.request(t, "GET", "/music/readyz", nil, nil, nil).StatusCode != 503 {
 		t.Fatal("missing media did not fail readiness")
 	}
-	response := fixture.request(t, "GET", strings.Replace(playlist.Path, "index.m3u8", "seg-00000.m4s", 1), nil, cookie, nil)
+	response := fixture.request(t, "GET", mediaURL.Path, nil, cookie, nil)
 	body, _ := io.ReadAll(response.Body)
 	if response.StatusCode != 503 || !bytes.Contains(body, []byte("media_unavailable")) || bytes.Contains(body, []byte(fixture.mediaRoot)) {
 		t.Fatal("missing media returned an unsafe or incorrect error")
@@ -159,7 +162,7 @@ func TestMissingMediaReadinessAndSafeLogs(t *testing.T) {
 	if strings.Contains(logs.String(), cookie.Value) || strings.Contains(logs.String(), grant.GrantID) || strings.Contains(logs.String(), fixture.assetID) || strings.Contains(logs.String(), fixture.mediaRoot) {
 		t.Fatal("request logs contain private values")
 	}
-	if !strings.Contains(logs.String(), "/music/hls/{grantId}/{assetId}/{file}") {
+	if !strings.Contains(logs.String(), "/music/audio/{grantId}/{assetId}.m4a") {
 		t.Fatal("request log has no bounded route template")
 	}
 }
@@ -173,8 +176,8 @@ func TestRevocationAndHTTPValidation(t *testing.T) {
 			t.Fatal("deletion is not idempotent")
 		}
 	}
-	playlist, _ := url.Parse(grant.PlaylistURL)
-	if fixture.request(t, "HEAD", playlist.Path, nil, cookie, nil).StatusCode != 410 {
+	mediaURL, _ := url.Parse(grant.MediaURL)
+	if fixture.request(t, "HEAD", mediaURL.Path, nil, cookie, nil).StatusCode != 410 {
 		t.Fatal("revoked grant still authorizes media")
 	}
 	for _, entry := range []struct {
@@ -195,7 +198,7 @@ func TestRevocationAndHTTPValidation(t *testing.T) {
 			t.Errorf("method contract %s %s: got %d Allow=%q", entry.method, entry.path, response.StatusCode, response.Header.Get("Allow"))
 		}
 	}
-	for _, path := range []string{"/music/hls/%2e%2e/private", "/music/hls/%252f/private", playlist.Path + "?source=private"} {
+	for _, path := range []string{"/music/audio/%2e%2e/private", "/music/audio/%252f/private", mediaURL.Path + "?source=private"} {
 		if fixture.request(t, "GET", path, nil, cookie, nil).StatusCode != 400 {
 			t.Fatal("encoded or query media path accepted")
 		}
@@ -205,9 +208,9 @@ func TestRevocationAndHTTPValidation(t *testing.T) {
 func TestOperationalCountersContainOnlyAggregateState(t *testing.T) {
 	fixture := prepareFixture(t)
 	grant, cookie := fixture.create(t, nil)
-	playlist, _ := url.Parse(grant.PlaylistURL)
-	fixture.request(t, "GET", playlist.Path, nil, cookie, nil)
-	fixture.request(t, "GET", playlist.Path, nil, nil, nil)
+	mediaURL, _ := url.Parse(grant.MediaURL)
+	fixture.request(t, "GET", mediaURL.Path, nil, cookie, nil)
+	fixture.request(t, "GET", mediaURL.Path, nil, nil, nil)
 	stats := fixture.service.Snapshot()
 	if stats.Requests != 3 || stats.RejectedRequests != 1 || stats.Bytes == 0 || stats.ActiveSessions != 1 || stats.ActiveGrants != 1 {
 		t.Fatalf("incorrect service counters: %+v", stats)

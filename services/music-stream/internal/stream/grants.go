@@ -27,12 +27,12 @@ func (service *Service) setSessionCookie(writer http.ResponseWriter, value strin
 	http.SetCookie(writer, &cookie)
 }
 
-func lifetime(media *validatedPackage) time.Duration {
+func lifetime(media *validatedMedia) time.Duration {
 	return max(minimumGrantLifetime, time.Duration(media.record.DurationMS)*time.Millisecond+grantMargin)
 }
 
 func (service *Service) response(grant *playbackGrant, now time.Time) grantResponse {
-	return grantResponse{GrantID: grant.id, TrackID: grant.trackID, PlaylistURL: service.config.PublicOrigin + "/music/hls/" + grant.id + "/" + grant.media.record.AssetID + "/" + playlistName, DurationMS: grant.media.record.DurationMS, ServerTime: now.UTC(), ExpiresAt: grant.expires.UTC()}
+	return grantResponse{GrantID: grant.id, TrackID: grant.trackID, MediaURL: service.config.PublicOrigin + audioRoute + grant.id + "/" + grant.media.record.AssetID + ".m4a", DurationMS: grant.media.record.DurationMS, ServerTime: now.UTC(), ExpiresAt: grant.expires.UTC()}
 }
 
 func readInput(writer http.ResponseWriter, request *http.Request, input any) bool {
@@ -132,7 +132,7 @@ func (service *Service) authorize(request *http.Request, id string, now time.Tim
 	if !now.Before(grant.expires) {
 		return nil, 410, "grant_expired"
 	}
-	if _, enabled := service.tracks[grant.trackID]; !enabled {
+	if current, enabled := service.tracks[grant.trackID]; !enabled || current.record.AssetID != grant.media.record.AssetID {
 		return nil, 410, "track_unavailable"
 	}
 	return grant, 0, ""
@@ -206,8 +206,8 @@ func (service *Service) mediaResource(writer *responseWriter, request *http.Requ
 		methodError(writer, "GET, HEAD, OPTIONS")
 		return
 	}
-	parts := strings.Split(strings.TrimPrefix(request.URL.Path, "/music/hls/"), "/")
-	if len(parts) != 3 || len(parts[0]) != 22 || !assetPattern.MatchString(parts[1]) {
+	parts := strings.Split(strings.TrimPrefix(request.URL.Path, audioRoute), "/")
+	if len(parts) != 2 || len(parts[0]) != 22 || !strings.HasSuffix(parts[1], ".m4a") || !assetPattern.MatchString(strings.TrimSuffix(parts[1], ".m4a")) {
 		sendError(writer, 404, "not_found")
 		return
 	}
@@ -224,8 +224,8 @@ func (service *Service) mediaResource(writer *responseWriter, request *http.Requ
 		sendError(writer, 410, "grant_expired")
 		return
 	}
-	file, exists := grant.media.files[parts[2]]
-	if !exists || parts[1] != grant.media.record.AssetID {
+	file := grant.media.record
+	if parts[1] != file.AssetID+".m4a" {
 		service.mu.Unlock()
 		sendError(writer, 404, "not_found")
 		return
@@ -240,7 +240,7 @@ func (service *Service) mediaResource(writer *responseWriter, request *http.Requ
 	service.responses++
 	service.mu.Unlock()
 	defer func() { service.mu.Lock(); session.responses--; service.responses--; service.mu.Unlock() }()
-	opened, err := service.root.Open(packagePath(parts[1], file.Name))
+	opened, err := service.root.Open(file.File)
 	if err != nil {
 		sendError(writer, 503, "media_unavailable")
 		return
@@ -251,10 +251,6 @@ func (service *Service) mediaResource(writer *responseWriter, request *http.Requ
 		sendError(writer, 503, "media_unavailable")
 		return
 	}
-	contentType := "audio/mp4"
-	if file.Name == playlistName {
-		contentType = "application/vnd.apple.mpegurl"
-	}
-	writer.Header().Set("Content-Type", contentType)
-	http.ServeContent(writer, request, file.Name, time.Time{}, opened)
+	writer.Header().Set("Content-Type", "audio/mp4")
+	http.ServeContent(writer, request, file.File, time.Time{}, opened)
 }

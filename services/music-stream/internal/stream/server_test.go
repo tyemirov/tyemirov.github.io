@@ -22,12 +22,12 @@ const websiteOrigin = "https://site.music.test"
 const mediaOrigin = "https://audio.music.test"
 
 type testGrant struct {
-	GrantID     string    `json:"grantId"`
-	TrackID     string    `json:"trackId"`
-	PlaylistURL string    `json:"playlistUrl"`
-	DurationMS  int64     `json:"durationMs"`
-	ServerTime  time.Time `json:"serverTime"`
-	ExpiresAt   time.Time `json:"expiresAt"`
+	GrantID    string    `json:"grantId"`
+	TrackID    string    `json:"trackId"`
+	MediaURL   string    `json:"mediaUrl"`
+	DurationMS int64     `json:"durationMs"`
+	ServerTime time.Time `json:"serverTime"`
+	ExpiresAt  time.Time `json:"expiresAt"`
 }
 
 type fixture struct {
@@ -76,7 +76,7 @@ func prepareFixture(t *testing.T, options ...func(*stream.Config)) *fixture {
 	indexPath := filepath.Join(directory, "index.json")
 	allowlistPath := filepath.Join(directory, "allowlist.json")
 	writeJSON(t, indexPath, map[string]any{"tracks": map[string]any{"test-tone": receipt}})
-	writeJSON(t, allowlistPath, map[string]any{"tracks": []any{map[string]any{"id": "test-tone", "playback": map[string]any{"kind": "hls", "durationMs": receipt["durationMs"]}}}})
+	writeJSON(t, allowlistPath, map[string]any{"tracks": []any{map[string]any{"id": "test-tone", "playback": map[string]any{"kind": "file", "durationMs": receipt["durationMs"]}}}})
 	fixture := &fixture{mediaRoot: mediaRoot, indexPath: indexPath, allowlistPath: allowlistPath, assetID: receipt["assetId"].(string)}
 	fixture.now.Store(time.Date(2026, 9, 8, 20, 0, 0, 0, time.UTC).Unix())
 	config := stream.Config{MediaRoot: mediaRoot, IndexPath: indexPath, AllowlistPath: allowlistPath, PublicOrigin: mediaOrigin, AllowedOrigins: []string{websiteOrigin}, Now: func() time.Time { return time.Unix(fixture.now.Load(), 0).UTC() }}
@@ -145,16 +145,16 @@ func TestProtectedPlaybackAndCookieScope(t *testing.T) {
 	if grant.TrackID != "test-tone" || grant.DurationMS < 13000 || grant.ExpiresAt.Sub(grant.ServerTime) != 30*time.Minute {
 		t.Fatal("incorrect grant data")
 	}
-	playlistURL, err := url.Parse(grant.PlaylistURL)
+	mediaURL, err := url.Parse(grant.MediaURL)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if playlistURL.Scheme+"://"+playlistURL.Host != mediaOrigin {
-		t.Fatal("incorrect playlist origin")
+	if mediaURL.Scheme+"://"+mediaURL.Host != mediaOrigin {
+		t.Fatal("incorrect mediaURL origin")
 	}
 	_, otherCookie := fixture.create(t, nil)
-	base := strings.TrimSuffix(playlistURL.Path, "index.m3u8")
-	for _, file := range []string{"index.m3u8", "init.mp4", "seg-00000.m4s"} {
+	base := mediaURL.Path
+	for _, file := range []string{""} {
 		for _, method := range []string{"GET", "HEAD"} {
 			for _, entry := range []struct {
 				cookie *http.Cookie
@@ -170,12 +170,12 @@ func TestProtectedPlaybackAndCookieScope(t *testing.T) {
 			}
 		}
 	}
-	rangeResponse := fixture.request(t, "GET", base+"init.mp4", nil, cookie, map[string]string{"Range": "bytes=0-15", "Origin": websiteOrigin})
+	rangeResponse := fixture.request(t, "GET", base, nil, cookie, map[string]string{"Range": "bytes=0-15", "Origin": websiteOrigin})
 	data, _ := io.ReadAll(rangeResponse.Body)
 	if rangeResponse.StatusCode != 206 || len(data) != 16 || rangeResponse.Header.Get("Access-Control-Allow-Credentials") != "true" {
 		t.Fatal("incorrect credentialed range response")
 	}
-	invalidRange := fixture.request(t, "GET", base+"init.mp4", nil, cookie, map[string]string{"Range": "bytes=999999999-"})
+	invalidRange := fixture.request(t, "GET", base, nil, cookie, map[string]string{"Range": "bytes=999999999-"})
 	if invalidRange.StatusCode != 416 || !strings.Contains(invalidRange.Header.Get("Cache-Control"), "no-store") {
 		t.Fatal("incorrect uncachable range error")
 	}
@@ -203,15 +203,15 @@ func TestLocalHTTPPlaybackUsesAnIndependentCookie(t *testing.T) {
 	if err := json.NewDecoder(response.Body).Decode(&grant); err != nil {
 		t.Fatal(err)
 	}
-	if !strings.HasPrefix(grant.PlaylistURL, localAPI+"/music/") {
-		t.Fatal("incorrect local playlist origin")
+	if !strings.HasPrefix(grant.MediaURL, localAPI+"/music/") {
+		t.Fatal("incorrect local mediaURL origin")
 	}
-	path := strings.TrimPrefix(grant.PlaylistURL, localAPI)
+	path := strings.TrimPrefix(grant.MediaURL, localAPI)
 	if result := fixture.request(t, "GET", path, nil, cookie, nil); result.StatusCode != http.StatusOK {
-		t.Fatalf("read local playlist: HTTP %d", result.StatusCode)
+		t.Fatalf("read local mediaURL: HTTP %d", result.StatusCode)
 	}
 	if result := fixture.request(t, "GET", path, nil, nil, nil); result.StatusCode != http.StatusUnauthorized {
-		t.Fatalf("read local playlist without session: HTTP %d", result.StatusCode)
+		t.Fatalf("read local mediaURL without session: HTTP %d", result.StatusCode)
 	}
 }
 
@@ -246,12 +246,12 @@ func TestGrantRenewalExpirationAndOrigin(t *testing.T) {
 	if err := json.NewDecoder(renew.Body).Decode(&renewed); err != nil {
 		t.Fatal(err)
 	}
-	if renewed.PlaylistURL != grant.PlaylistURL || renewed.ExpiresAt.Sub(grant.ExpiresAt) != 25*time.Minute {
+	if renewed.MediaURL != grant.MediaURL || renewed.ExpiresAt.Sub(grant.ExpiresAt) != 25*time.Minute {
 		t.Fatal("renewal changed URL or incorrect expiry")
 	}
 	fixture.now.Store(renewed.ExpiresAt.Unix())
-	playlistURL, _ := url.Parse(grant.PlaylistURL)
-	response := fixture.request(t, "GET", playlistURL.Path, nil, cookie, nil)
+	mediaURL, _ := url.Parse(grant.MediaURL)
+	response := fixture.request(t, "GET", mediaURL.Path, nil, cookie, nil)
 	if response.StatusCode != 410 {
 		t.Fatalf("expiry boundary got %d", response.StatusCode)
 	}
@@ -284,13 +284,13 @@ func TestRequestsBelowCapacityHaveNoServiceRateQuota(t *testing.T) {
 	t.Run("media", func(t *testing.T) {
 		fixture := prepareFixture(t)
 		grant, cookie := fixture.create(t, nil)
-		playlist, _ := url.Parse(grant.PlaylistURL)
+		mediaURL, _ := url.Parse(grant.MediaURL)
 		for count := 0; count < 80; count++ {
 			method := "GET"
 			if count%2 == 0 {
 				method = "HEAD"
 			}
-			response := fixture.request(t, method, playlist.Path, nil, cookie, nil)
+			response := fixture.request(t, method, mediaURL.Path, nil, cookie, nil)
 			if response.StatusCode != 200 {
 				t.Fatalf("media request %d: got %d want 200", count+1, response.StatusCode)
 			}
@@ -331,7 +331,7 @@ func TestExpirationReplacementIsIdempotent(t *testing.T) {
 		if err := json.NewDecoder(response.Body).Decode(&renewed); err != nil {
 			t.Fatal(err)
 		}
-		if !renewed.ExpiresAt.Equal(expires) || renewed.PlaylistURL != grant.PlaylistURL {
+		if !renewed.ExpiresAt.Equal(expires) || renewed.MediaURL != grant.MediaURL {
 			t.Fatal("PUT retry changed the requested expiration or source")
 		}
 		fixture.now.Add(1)

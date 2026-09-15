@@ -15,7 +15,7 @@ COPY services/music-stream/cmd ./cmd
 COPY services/music-stream/internal ./internal
 ENV CGO_ENABLED=0
 RUN go build -trimpath -o /out/music-stream ./cmd/music-stream && go build -trimpath -o /out/music-media ./cmd/music-media
-COPY assets/music/packages /assets/music/packages
+COPY assets/music/*.m4a /assets/music/
 COPY --from=catalog /runtime/music/ /assets/music/
 RUN /out/music-media validate --media-root /assets/music --index /assets/music/catalog.json --allowlist /assets/music/allowlist.json
 FROM scratch
