@@ -21,7 +21,7 @@ for (const [name, engine, options, privacy] of [
     });
     const page = await context.newPage();
     const media = [];
-    page.on('response', response => { if (response.url().includes('/hls/')) media.push({ url: response.url(), status: response.status() }); });
+    page.on('response', response => { if (response.url().includes('/audio/')) media.push({ url: response.url(), status: response.status() }); });
     await page.goto(`${website}/music/soliloquies-vol-i/`);
     await page.locator('.track-play').first().click();
     const player = page.getByRole('region', { name: 'Music player' });
@@ -37,14 +37,12 @@ for (const [name, engine, options, privacy] of [
     expect(await context.cookies(`${apiOrigin}/gallery`)).toEqual([]);
     expect(await audio.evaluate(element => element.muted)).toBe(true);
     process.stderr.write(JSON.stringify({browser:name, media:media.map(response=>({file:new URL(response.url).pathname.split('/').at(-1),status:response.status}))}) + '\n');
-    expect(media.some(response => response.url.endsWith('index.m3u8') && [200, 206].includes(response.status))).toBe(true);
-    expect(media.some(response => response.url.endsWith('seg-00001.m4s') && [200, 206].includes(response.status))).toBe(true);
+    expect(media.some(response => response.url.endsWith('.m4a') && [200, 206].includes(response.status))).toBe(true);
     expect(media.every(response => new URL(response.url).origin === apiOrigin && [200, 206].includes(response.status))).toBe(true);
-    const native = await audio.evaluate(element => element.canPlayType('application/vnd.apple.mpegurl') !== '');
     await page.reload();
     await page.locator('.track-play').first().click();
     await expect.poll(() => page.locator('#music-player audio').evaluate(element => element.currentTime), { timeout: 15000 }).toBeGreaterThan(0.5);
-    results.push({ browser: name, version: browser.version(), privacy, engine: native ? 'native HLS' : 'hls.js', playback: true, seeking: true, reload: true, cookie: 'host-only Secure HttpOnly SameSite=Strict Path=/music' });
+    results.push({ browser: name, version: browser.version(), privacy, engine: 'native AAC', playback: true, seeking: true, reload: true, cookie: 'host-only Secure HttpOnly SameSite=Strict Path=/music' });
     await context.close();
   } finally { await browser.close(); }
 }

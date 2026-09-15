@@ -46,11 +46,10 @@ for (const flag of ["Path=/music;", "Secure", "HttpOnly", "SameSite=Strict"]) as
 assert.ok(!session.includes("Domain="));
 const cookie = session.split(";")[0];
 const grant = JSON.parse(created.body.toString());
-const playlist = new URL(grant.playlistUrl);
-assert.equal(playlist.origin, origin);
+const mediaURL = new URL(grant.mediaUrl);
+assert.equal(mediaURL.origin, origin);
 let mediaBytes = 0;
-for (const name of ["index.m3u8", "init.mp4", "seg-00000.m4s"]) {
-  const path = new URL(name, playlist).pathname;
+for (const path of [mediaURL.pathname]) {
   assert.equal((await send(path)).status, 401);
   const media = await send(path, { headers: { Cookie: cookie, Origin: website } });
   assert.equal(media.status, 200);
@@ -60,7 +59,7 @@ for (const name of ["index.m3u8", "init.mp4", "seg-00000.m4s"]) {
   assert.ok(media.body.length > 0);
   mediaBytes += media.body.length;
 }
-const segment = new URL("seg-00000.m4s", playlist).pathname;
+const segment = mediaURL.pathname;
 const range = await send(segment, { headers: { Cookie: cookie, Range: "bytes=0-15" } });
 assert.equal(range.status, 206);
 assert.match(range.headers["content-range"], /^bytes 0-15\/[0-9]+$/);
@@ -77,15 +76,15 @@ const listeners = await Promise.all(Array.from({ length: 100 }, async () => {
   assert.equal(response.status, 201);
   const cookie = response.headers["set-cookie"][0].split(";")[0];
   const grant = JSON.parse(response.body.toString());
-  for (const name of ["index.m3u8", "init.mp4", "seg-00000.m4s", "seg-00001.m4s", "seg-00002.m4s"]) {
-    assert.equal((await send(new URL(name, grant.playlistUrl).pathname, { localAddress: "127.0.0.4", headers: { Cookie: cookie } })).status, 200);
+  for (let attempt = 0; attempt < 5; attempt++) {
+    assert.equal((await send(new URL(grant.mediaUrl).pathname, { localAddress: "127.0.0.4", headers: { Cookie: cookie } })).status, 200);
   }
   const renewed = await send(`${grantPath}/${grant.grantId}/expiration`, {
     ...creation, method: "PUT", localAddress: "127.0.0.4", headers: { ...creation.headers, Cookie: cookie },
     body: JSON.stringify({ expiresAt: new Date(Date.parse(grant.expiresAt) + 1).toISOString() }),
   });
   assert.equal(renewed.status, 200);
-  assert.equal(JSON.parse(renewed.body.toString()).playlistUrl, grant.playlistUrl);
+  assert.equal(JSON.parse(renewed.body.toString()).mediaUrl, grant.mediaUrl);
   return grant.grantId;
 }));
 assert.equal(new Set(listeners).size, 100);
@@ -127,4 +126,4 @@ for (const [path, body] of [["/gallery/readyz", "gallery-probe"], ["/auth/sessio
 assert.equal((await send(grantPath, { ...creation, localAddress: "127.0.0.3" })).status, 201, "A distinct real peer must have its own address limit");
 agent.destroy();
 process.stdout.write(JSON.stringify({ tls: "verified internal CA and declared hostname", mediaBytes, range: "206", revoked: "410", concurrentListeners: listeners.length,
-  renewal: "200 with unchanged playlist", rateLimit: { events, windowSeconds, exhausted: "429", forwardedHeaderBypass: false, distinctPeer: "201", unrelatedHandlers: "Gallery and auth probe upstreams remain available" } }) + "\n");
+  renewal: "200 with unchanged mediaURL", rateLimit: { events, windowSeconds, exhausted: "429", forwardedHeaderBypass: false, distinctPeer: "201", unrelatedHandlers: "Gallery and auth probe upstreams remain available" } }) + "\n");

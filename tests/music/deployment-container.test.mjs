@@ -19,7 +19,7 @@ test("the declared music image serves every recording without a volume after con
   const site = JSON.parse(await readFile("data/site.json", "utf8"));
   const tracks = site.music.items.flatMap(album => album.tracks);
   assert.equal(tracks.length, 50);
-  assert.ok(tracks.every(track => track.playback.kind === "hls"));
+  assert.ok(tracks.every(track => track.playback.kind === "file"));
   try {
     success(run(["build", "-q", "--platform", build.platforms[0], "-t", image, "-f", build.dockerfile, build.context]));
     for (let attempt = 0; attempt < 2; attempt++) {
@@ -43,17 +43,15 @@ test("the declared music image serves every recording without a volume after con
         const grant = await response.json();
         assert.equal(grant.durationMs, track.playback.durationMs);
         const cookie = response.headers.getSetCookie()[0].split(";")[0];
-        const path = new URL(grant.playlistUrl).pathname;
+        const path = new URL(grant.mediaUrl).pathname;
         assert.equal((await fetch(origin + path)).status, 401);
-        const playlist = await fetch(origin + path, { headers: { Cookie: cookie } });
-        assert.equal(playlist.status, 200);
-        const text = await playlist.text();
-        const segment = text.split("\n").find(line => line.endsWith(".m4s"));
-        assert.ok(segment);
-        const segmentPath = new URL(segment, grant.playlistUrl).pathname;
-        const audio = await fetch(origin + segmentPath, { headers: { Cookie: cookie } });
-        assert.equal(audio.status, 200);
-        assert.ok((await audio.arrayBuffer()).byteLength > 1000);
+        const audio = await fetch(origin + path, { headers: { Cookie: cookie, Range: "bytes=0-4095" } });
+        assert.equal(audio.status, 206);
+        assert.equal(audio.headers.get("content-type"), "audio/mp4");
+        assert.equal((await audio.arrayBuffer()).byteLength, 4096);
+        const head = await fetch(origin + path, { method: "HEAD", headers: { Cookie: cookie } });
+        assert.equal(head.status, 200);
+        assert.ok(Number(head.headers.get("content-length")) > 4096);
         const revoked = await fetch(origin + `/music/playback-grants/${grant.grantId}`, { method: "DELETE", headers: { Cookie: cookie, Origin: "https://tyemirov.net" } });
         assert.equal(revoked.status, 204);
       }

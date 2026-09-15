@@ -57,11 +57,11 @@ try {
   const sitePath = join(siteRoot, "data/site.json");
   const site = JSON.parse(await readFile(sitePath, "utf8"));
   for (const album of site.music.items) for (const track of album.tracks) {
-    track.playback = fixtureTracks.includes(track.id) ? { kind: "hls", durationMs: record.durationMs } : { kind: "external" };
+    track.playback = fixtureTracks.includes(track.id) ? { kind: "file", durationMs: record.durationMs } : { kind: "external" };
   }
   const index = join(temporary, "index.json"), allowlist = join(temporary, "allowlist.json");
   await writeFile(index, JSON.stringify({ tracks: Object.fromEntries(fixtureTracks.map((id) => [id, record])) }));
-  await writeFile(allowlist, JSON.stringify({ tracks: fixtureTracks.map((id) => ({ id, playback: { kind: "hls", durationMs: record.durationMs } })) }));
+  await writeFile(allowlist, JSON.stringify({ tracks: fixtureTracks.map((id) => ({ id, playback: { kind: "file", durationMs: record.durationMs } })) }));
   const certificate = join(temporary, "localhost.pem"), key = join(temporary, "localhost-key.pem");
   await run("openssl", ["req", "-x509", "-newkey", "rsa:2048", "-nodes", "-keyout", key, "-out", certificate, "-days", "1", "-subj", "/CN=localhost", "-addext", "subjectAltName=DNS:localhost,IP:127.0.0.1"]);
   const binary = join(temporary, "music-stream");
@@ -108,7 +108,7 @@ try {
     request.pipe(upstream);
   });
   api.listen(18444, '127.0.0.1'); await once(api, 'listening');
-  const html = `<!doctype html><html lang="en"><head><script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script><meta charset="utf-8"><title>Private HLS acceptance fixture</title><link rel="icon" href="/favicon.png"></head><body><main><h1>Private HLS acceptance fixture</h1><p>Generated 13-second test tone.</p><button id="play">Play test tone</button><button id="renew" disabled>Renew access</button><audio controls preload="none"></audio><p role="status">Ready</p><p>Engine: <output id="engine"></output></p><output id="playlist"></output></main><script type="module" src="/fixture.js"></script></body></html>`;
+  const html = `<!doctype html><html lang="en"><head><script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script><meta charset="utf-8"><title>Private audio acceptance fixture</title><link rel="icon" href="/favicon.png"></head><body><main><h1>Private audio acceptance fixture</h1><p>Generated 13-second test tone.</p><button id="play">Play test tone</button><button id="renew" disabled>Renew access</button><audio controls preload="none"></audio><p role="status">Ready</p><p>Engine: <output id="engine"></output></p><output id="mediaURL"></output></main><script type="module" src="/fixture.js"></script></body></html>`;
   const previousHomepage = structuredClone(site);
   previousHomepage.music.items.find(album => album.slug === "soliloquies-vol-ii").order = 60;
   let homepageCurrent = false;

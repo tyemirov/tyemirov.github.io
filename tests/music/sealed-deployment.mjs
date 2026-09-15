@@ -186,22 +186,18 @@ try {
   assert.equal((await send("/music/readyz")).status, 200);
   const siteCatalog = JSON.parse(await readFile(join(application, "data/site.json"), "utf8"));
   const tracks = siteCatalog.music.items.flatMap(album => album.tracks);
-  assert.ok(tracks.length > 0 && tracks.every(track => track.playback.kind === "hls"));
+  assert.ok(tracks.length > 0 && tracks.every(track => track.playback.kind === "file"));
   for (const track of tracks) {
     const response = await send("/music/playback-grants", { method: "POST", headers: { Origin: "https://tyemirov.net", "Content-Type": "application/json" }, body: JSON.stringify({ trackId: track.id }) });
     assert.equal(response.status, 201, track.id);
     const grant = JSON.parse(response.body);
     assert.equal(grant.durationMs, track.playback.durationMs);
     const cookie = response.headers["set-cookie"][0].split(";")[0];
-    const path = new URL(grant.playlistUrl).pathname;
+    const path = new URL(grant.mediaUrl).pathname;
     assert.equal((await send(path)).status, 401);
-    const playlist = await send(path, { headers: { Cookie: cookie } });
-    assert.equal(playlist.status, 200);
-    const segment = playlist.body.toString().split("\n").find(line => line.endsWith(".m4s"));
-    assert.ok(segment);
-    const audio = await send(new URL(segment, grant.playlistUrl).pathname, { headers: { Cookie: cookie } });
-    assert.equal(audio.status, 200);
-    assert.ok(audio.body.length > 1000);
+    const audio = await send(path, { headers: { Cookie: cookie, Range: "bytes=0-4095" } });
+    assert.equal(audio.status, 206);
+    assert.equal(audio.body.length, 4096);
     assert.equal((await send(`/music/playback-grants/${grant.grantId}`, { method: "DELETE", headers: { Cookie: cookie, Origin: "https://tyemirov.net" } })).status, 204);
   }
   const gallerySend = (path, options = {}) => send(path, options, galleryOrigin);

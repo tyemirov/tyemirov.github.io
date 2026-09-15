@@ -13,7 +13,7 @@ test("runtime generation connects published tracks to bundled audio and rejects 
     const site = JSON.parse(await readFile("data/site.json", "utf8"));
     const tracks = site.music.items.flatMap(album => album.tracks);
     assert.equal(tracks.length, 50);
-    assert.ok(tracks.every(track => track.playback.kind === "hls"), "Every published recording must be playable.");
+    assert.ok(tracks.every(track => track.playback.kind === "file"), "Every published recording must be playable.");
     const index = JSON.parse(await readFile("assets/music/catalog.json", "utf8"));
     const input = join(directory, "catalog.json"), output = join(directory, "runtime");
     await writeFile(input, JSON.stringify(index));
@@ -38,7 +38,7 @@ test("runtime generation connects published tracks to bundled audio and rejects 
   } finally { await rm(directory, { recursive: true, force: true }); }
 });
 
-test("the media CLI validates the bundled recordings and rejects a damaged package", async () => {
+test("the media CLI validates the bundled recordings and rejects a damaged recording", async () => {
   const directory = await mkdtemp(join(tmpdir(), "music-bundled-validation-"));
   try {
     const metadata = join(directory, "runtime");
@@ -52,13 +52,15 @@ test("the media CLI validates the bundled recordings and rejects a damaged packa
     assert.equal(valid.status, 0, valid.stderr);
     const index = JSON.parse(await readFile(join(metadata, "catalog.json"), "utf8"));
     const [id, record] = Object.entries(index.tracks)[0];
-    const packagePath = join("packages", record.assetId);
+    const packagePath = record.file;
     await cp(join("assets/music", packagePath), join(directory, packagePath), { recursive: true });
     await writeFile(join(metadata, "catalog.json"), JSON.stringify({ tracks: { [id]: record } }));
-    await writeFile(join(metadata, "allowlist.json"), JSON.stringify({ tracks: [{ id, playback: { kind: "hls", durationMs: record.durationMs } }] }));
-    await writeFile(join(directory, packagePath, "index.m3u8"), "damaged playlist");
+    await writeFile(join(metadata, "allowlist.json"), JSON.stringify({ tracks: [{ id, playback: { kind: "file", durationMs: record.durationMs } }] }));
+    const damaged = await readFile(join(directory, packagePath));
+    damaged[damaged.length - 1] ^= 1;
+    await writeFile(join(directory, packagePath), damaged);
     const rejected = validate(directory);
     assert.notEqual(rejected.status, 0);
-    assert.match(rejected.stderr, /validate index track/);
+    assert.match(rejected.stderr, /media checksum mismatch/);
   } finally { await rm(directory, { recursive: true, force: true }); }
 });

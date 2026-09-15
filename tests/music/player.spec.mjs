@@ -1,9 +1,7 @@
 // @ts-check
 import { test, expect } from "./test-fixtures.mjs";
-import { installCapabilityScenario } from "./browser-capabilities.mjs";
 
 test.beforeEach(async ({ context }, testInfo) => {
-  await installCapabilityScenario(context, testInfo);
   await context.addCookies([{ name: "music-fixture", value: "player", domain: "localhost", path: "/" }]);
   await context.route(/loopaware\.mprlab\.com/, (route) => route.abort());
 });
@@ -95,7 +93,7 @@ test("the bottom player stays pinned during scroll and leaves the footer accessi
 });
 
 test("cold playback starts within three seconds at 10 Mbps and 100 ms latency", async ({ page, context }, testInfo) => {
-  test.skip(testInfo.project.name !== "chromium-hls", "Chromium CDP qualifies the hls.js network path.");
+  test.skip(testInfo.project.name !== "chromium", "Chromium CDP qualifies native audio requests.");
   await page.goto("/music/soliloquies-vol-i/");
   await expect(page.locator(".track-play")).toHaveCount(2);
   const cdp = await context.newCDPSession(page);
@@ -122,7 +120,7 @@ test("cold playback starts within three seconds at 10 Mbps and 100 ms latency", 
   await expect.poll(() => page.evaluate(() => globalThis.musicStartup.elapsed)).toBeGreaterThan(0);
   const elapsed = await page.evaluate(() => globalThis.musicStartup.elapsed);
   expect(elapsed).toBeLessThan(3000);
-  expect(appliedRules.filter((id) => ruleIds.includes(id)).length).toBeGreaterThanOrEqual(4);
+  expect(appliedRules.filter((id) => ruleIds.includes(id)).length).toBeGreaterThanOrEqual(2);
   await expect.poll(() => page.locator("audio").evaluate((audio) => audio.currentTime)).toBeGreaterThan(0.2);
   testInfo.annotations.push({ type: "network-startup", description: JSON.stringify({ elapsedMs: elapsed, downloadMbps: 10, latencyMs: 100 }) });
   await cdp.detach();
@@ -146,13 +144,13 @@ test("a later track selection owns the player after a delayed grant response", a
   await expect(page.locator('.track-row[aria-current="true"] .track-title')).toHaveText("To be, or not to be (Hamlet)");
 });
 
-test("an invalid API playlist produces Retry before any media request", async ({ page, context }) => {
+test("an invalid API audio URL produces Retry before any media request", async ({ page, context }) => {
   let mediaRequests = 0;
-  page.on("request", (request) => { if (request.url().includes("/hls/")) mediaRequests++; });
+  page.on("request", (request) => { if (request.url().includes("/audio/")) mediaRequests++; });
   await context.route("**/music/playback-grants", async (route) => {
     const response = await route.fetch();
     const grant = await response.json();
-    grant.playlistUrl = "https://untrusted.example/index.m3u8";
+    grant.mediaUrl = "https://untrusted.example/audio.m4a";
     await route.fulfill({ response, json: grant });
   });
   await page.goto("/music/soliloquies-vol-i/");
@@ -224,7 +222,7 @@ test("Retry honors the server delay without an automatic request loop", async ({
 test("repeated authorization failure stops after one replacement", async ({ page, context }) => {
   let creations = 0;
   page.on("request", (request) => { if (request.method() === "POST" && request.url().endsWith("/music/playback-grants")) creations++; });
-  await context.route("**/hls/**", (route) => route.fulfill({ status: 410, headers: { "Access-Control-Allow-Origin": "https://localhost:18443", "Access-Control-Allow-Credentials": "true" }, json: { code: "grant_expired", message: "Expired.", requestId: "AAAAAAAAAAAAAAAA" } }));
+  await context.route("**/audio/**", (route) => route.fulfill({ status: 410, headers: { "Access-Control-Allow-Origin": "https://localhost:18443", "Access-Control-Allow-Credentials": "true" }, json: { code: "grant_expired", message: "Expired.", requestId: "AAAAAAAAAAAAAAAA" } }));
   await context.route("**/music/playback-grants/*", async (route) => {
     if (route.request().method() === "GET") await route.fulfill({ status: 410, json: { code: "grant_expired", message: "Expired.", requestId: "AAAAAAAAAAAAAAAA" } });
     else await route.continue();
@@ -307,7 +305,7 @@ test("two tabs recover from concurrent first-cookie creation", async ({ page, co
 
 test("a successful body with the wrong HTTP status is rejected", async ({ page, context }) => {
   let mediaRequests = 0;
-  page.on("request", (request) => { if (request.url().includes("/hls/")) mediaRequests++; });
+  page.on("request", (request) => { if (request.url().includes("/audio/")) mediaRequests++; });
   await context.route("**/music/playback-grants", async (route) => {
     const response = await route.fetch();
     await route.fulfill({ response, status: 202 });
@@ -432,38 +430,21 @@ test("persisted page transitions preserve track controls and later disposal", as
   await expect(page.locator("#music-player")).toHaveCount(0);
 });
 
-for (const resource of ["index.m3u8", "init.mp4", "seg-00000.m4s"]) {
-  test(`HLS rate limits on ${resource} preserve the server cooldown`, async ({ page, context }, testInfo) => {
-    test.skip(testInfo.project.name !== "chromium-hls", "The hls.js request adapter owns HTTP error details.");
-    let limitedRequests = 0, grantReads = 0;
-    page.on("request", (request) => { if (request.method() === "GET" && request.url().includes("/music/playback-grants/")) grantReads++; });
-    await context.route(`**/hls/**/${resource}`, async (route) => {
-      limitedRequests++;
-      await route.fulfill({ status: 429, headers: { "Retry-After": "60", "Access-Control-Expose-Headers": "Retry-After",
-        "Access-Control-Allow-Origin": "https://localhost:18443", "Access-Control-Allow-Credentials": "true" },
-      contentType: "text/plain", body: "Too Many Requests" });
-    });
-    await page.goto("/music/soliloquies-vol-i/");
-    await page.clock.install();
-    await page.locator(".track-play").first().click();
-    const player = page.locator("#music-player"), retry = player.getByRole("button", { name: "Retry", exact: true });
-    await expect(player.getByRole("alert")).toContainText("Try again in");
-    await expect(retry).toBeDisabled();
-    await page.clock.fastForward(59000);
-    await expect(retry).toBeDisabled();
-    expect(limitedRequests).toBe(1);
-    expect(grantReads).toBe(0);
-    await page.clock.fastForward(1000);
-    await expect(retry).toBeEnabled();
-    await context.unroute(`**/hls/**/${resource}`);
-    await retry.click();
-    await expect.poll(() => player.locator("audio").evaluate((audio) => audio.currentTime)).toBeGreaterThan(0.2);
-  });
-}
+test("an unavailable audio file shows Retry and can recover", async ({ page, context }) => {
+  await context.route("**/audio/**", route => route.fulfill({ status: 503,
+    headers: { "Access-Control-Allow-Origin": "https://localhost:18443", "Access-Control-Allow-Credentials": "true" }, body: "Unavailable" }));
+  await page.goto("/music/soliloquies-vol-i/");
+  await page.locator(".track-play").first().click();
+  const player = page.locator("#music-player");
+  await expect(player.getByRole("alert")).toBeVisible();
+  await context.unroute("**/audio/**");
+  await player.getByRole("button", { name: "Retry", exact: true }).click();
+  await expect.poll(() => player.locator("audio").evaluate(audio => audio.currentTime)).toBeGreaterThan(0.2);
+});
 
 test.describe("browser history cache", () => {
   test("a cached history return restores working playback controls", async ({ page, context }, testInfo) => {
-    test.skip(testInfo.project.name !== "chromium-hls", "Chromium qualifies an actual back-forward cache restore.");
+    test.skip(testInfo.project.name !== "chromium", "Chromium qualifies an actual back-forward cache restore.");
     await context.unrouteAll({ behavior: "wait" });
     await page.goto("/music/soliloquies-vol-i/");
     await expect(page.locator(".track-play").first()).toBeEnabled();

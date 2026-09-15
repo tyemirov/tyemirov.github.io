@@ -65,7 +65,7 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     ownsVolume = true;
     await reconcile("volume-create");
     const contract = JSON.parse(await readFile(selected, "utf8"));
-    // This generated-audio qualification supplies explicit HLS fixture metadata.
+    // This generated-audio qualification supplies explicit AAC fixture metadata.
     // The production image is tested separately without a media volume.
     const fixtureCommand = contract.service.command.map(value => value.replace("/assets/music", "/media"));
     assert.equal(contract.volume, volumeName);
@@ -88,7 +88,7 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     const receipt = JSON.parse(success(run(process.execPath, ["scripts/music/prepare.mjs", "--source", source, "--media-root", mediaRoot, "--track-id", "test-tone"])));
     const { trackId, ...record } = receipt;
     await writeFile(join(mediaRoot, "catalog.json"), JSON.stringify({ tracks: { [trackId]: record } }));
-    await writeFile(join(mediaRoot, "allowlist.json"), JSON.stringify({ tracks: [{ id: trackId, playback: { kind: "hls", durationMs: record.durationMs } }] }));
+    await writeFile(join(mediaRoot, "allowlist.json"), JSON.stringify({ tracks: [{ id: trackId, playback: { kind: "file", durationMs: record.durationMs } }] }));
     const mediaArchive = join(directory, "media.tar.gz");
     success(run("tar", ["-czf", mediaArchive, "-C", mediaRoot, "."]));
     const mount = ["--mount", `type=volume,src=${contract.volume},dst=/media`];
@@ -103,10 +103,9 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
       const response = await fetch(origin + '/music/playback-grants', {method:'POST', headers:{Origin:'https://tyemirov.net','Content-Type':'application/json','X-Forwarded-For':'203.0.113.1'}, body:JSON.stringify({trackId:'test-tone'})});
       check(response.status, 201);
       const cookie = response.headers.getSetCookie()[0].split(';')[0];
-      const grant = await response.json(), playlist = new URL(grant.playlistUrl);
-      if (playlist.origin !== 'https://api.tyemirov.net') throw new Error('Incorrect declared media origin');
-      for (const name of ['index.m3u8','init.mp4','seg-00000.m4s']) {
-        const path = new URL(name, playlist).pathname;
+      const grant = await response.json(), mediaURL = new URL(grant.mediaUrl);
+      if (mediaURL.origin !== 'https://api.tyemirov.net') throw new Error('Incorrect declared media origin');
+      for (const path of [mediaURL.pathname]) {
         check((await fetch(origin + path)).status, 401);
         const media = await fetch(origin + path, {headers:{Cookie:cookie}});
         check(media.status, 200);
@@ -151,7 +150,7 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     const catalogPath = join(siteDirectory, "data/site.json");
     const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
     const album = catalog.music.items.find(album => album.slug === "soliloquies-vol-i");
-    album.tracks = [{ ...album.tracks[0], id: trackId, playback: { kind: "hls", durationMs: record.durationMs } }];
+    album.tracks = [{ ...album.tracks[0], id: trackId, playback: { kind: "file", durationMs: record.durationMs } }];
     await writeFile(catalogPath, JSON.stringify(catalog));
     // Only the isolated Pages artifact fixture uses this extra server block.
     await appendFile(caddyConfig, "\ntyemirov.net {\n tls internal\n root * /data/site\n file_server\n}\n:18093 {\n bind 127.0.0.1\n respond \"gallery-probe\" 200\n}\n:18094 {\n bind 127.0.0.1\n respond \"auth-probe\" 200\n}\n");
@@ -184,7 +183,7 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     const proxyLogs = remoteDocker(["logs", proxyContainer]);
     assert.equal(proxyLogs.status, 0, proxyLogs.stderr);
     assert.ok(!(proxyLogs.stdout + proxyLogs.stderr).includes("__Secure-music-session="), "Proxy logs must exclude cookies");
-    assert.ok(!(proxyLogs.stdout + proxyLogs.stderr).includes("/hls/"), "Proxy logs must exclude authorized media URLs");
+    assert.ok(!(proxyLogs.stdout + proxyLogs.stderr).includes("/audio/"), "Proxy logs must exclude authorized media URLs");
     await writeFile(join(logs, "proxy.log"), proxyLogs.stdout + proxyLogs.stderr);
     const evidence = { passed: true, host, kernel: success(ssh("uname -srmo")), gateway: gatewayIdentity, serviceArchitecture: "amd64", source: "generated-tone",
       volumeCreation: "Gateway retained-volume task", mediaTransfer: "private archive over SSH", containerReplacement: "media retained", runtime: result, privateBackend: "external interface unreachable", browsers,

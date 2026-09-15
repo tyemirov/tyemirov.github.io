@@ -19,7 +19,7 @@ test("the Pages container exports public content without Gateway metadata", { ti
     const site = JSON.parse(await readFile(join(directory, "data/site.json"), "utf8"));
     assert.equal(site.music.items.length, 6);
     assert.equal(site.music.items.flatMap((album) => album.tracks).length, 50);
-    assert.ok(site.music.items.flatMap(album => album.tracks).every(track => track.playback.kind === "hls"));
+    assert.ok(site.music.items.flatMap(album => album.tracks).every(track => track.playback.kind === "file"));
     assert.equal((await readdir(join(directory, "assets"))).includes("music"), false);
     assert.match(await readFile(join(directory, "gallery/order/index.html"), "utf8"), /Your gallery order/);
     assert.deepEqual(JSON.parse(await readFile(join(directory, "config-site.json"), "utf8")), { apiOrigin: "https://api.tyemirov.net" });
@@ -38,7 +38,7 @@ test("the pinned Linux images prepare audio and serve authorized media", { timeo
     const receipt = JSON.parse(success(run(["run", "--rm", "--network", "none", ...mount, "music-prepare:f001-test", "--source", "/work/tone.wav", "--media-root", "/work/media", "--track-id", "test-tone"])));
     const { trackId, ...record } = receipt;
     await writeFile(join(directory, "index.json"), JSON.stringify({ tracks: { [trackId]: record } }));
-    await writeFile(join(directory, "allowlist.json"), JSON.stringify({ tracks: [{ id: trackId, playback: { kind: "hls", durationMs: record.durationMs } }] }));
+    await writeFile(join(directory, "allowlist.json"), JSON.stringify({ tracks: [{ id: trackId, playback: { kind: "file", durationMs: record.durationMs } }] }));
     const config = ["--media-root", "/work/media", "--index", "/work/index.json", "--allowlist", "/work/allowlist.json"];
     success(run(["run", "--rm", "--network", "none", ...mount, "--entrypoint", "/music-media", "music-stream:f001-test", "validate", ...config]));
     success(run(["run", "-d", "--name", name, "--read-only", "--mount", `type=bind,src=${directory},dst=/work,readonly`, "-p", "127.0.0.1::8092", "music-stream:f001-test", ...config, "--listen", "0.0.0.0:8092", "--public-origin", "https://audio.example.test", "--allowed-origins", "https://example.test"]));
@@ -58,13 +58,14 @@ test("the pinned Linux images prepare audio and serve authorized media", { timeo
     assert.equal(ready.status, 200);
     const response = await fetch(origin + "/music/playback-grants", { method: "POST", headers: { Origin: "https://example.test", "Content-Type": "application/json" }, body: JSON.stringify({ trackId }) });
     assert.equal(response.status, 201);
-    const grant = await response.json(), path = new URL(grant.playlistUrl).pathname;
+    const grant = await response.json(), path = new URL(grant.mediaUrl).pathname;
     const cookie = response.headers.getSetCookie()[0].split(";")[0];
     assert.equal((await fetch(origin + path)).status, 401);
     const media = await fetch(origin + path, { headers: { Cookie: cookie } });
     assert.equal(media.status, 200);
-    assert.match(await media.text(), /#EXT-X-ENDLIST/);
-    const segment = path.replace("index.m3u8", "seg-00000.m4s");
+    assert.equal(media.headers.get("content-type"), "audio/mp4");
+    assert.equal((await media.arrayBuffer()).byteLength, record.bytes);
+    const segment = path;
     const started = performance.now();
     const transfers = await Promise.all(Array.from({ length: 8 }, async () => {
       const response = await fetch(origin + segment, { headers: { Cookie: cookie } });

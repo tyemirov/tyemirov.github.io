@@ -1,7 +1,6 @@
 // @ts-check
 import { readFile } from "node:fs/promises";
 import { test, expect } from "./test-fixtures.mjs";
-import { installCapabilityScenario } from "./browser-capabilities.mjs";
 
 const catalog = JSON.parse(await readFile(new URL("../../data/site.json", import.meta.url), "utf8"));
 
@@ -61,7 +60,6 @@ for (const width of [390, 769, 1280]) {
   });
 
   test(`shared spacing keeps the real bottom player and footer accessible at ${width}px`, async ({ page, context }, testInfo) => {
-    await installCapabilityScenario(context, testInfo);
     await context.addCookies([{ name: "music-fixture", value: "player", domain: "localhost", path: "/" }]);
     await page.setViewportSize({ width, height: 844 });
     await page.goto("/music/soliloquies-vol-i/");

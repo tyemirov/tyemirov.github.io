@@ -12,7 +12,7 @@ function run(program, args) {
   return spawnSync(program, args, { encoding: "utf8", timeout: 30000 });
 }
 
-test("the preparation CLI creates an immutable, decodable private HLS package", async () => {
+test("the preparation CLI creates one decodable AAC file from the original source", async () => {
   const directory = await mkdtemp(join(tmpdir(), "music-package-test-"));
   try {
     const source = join(directory, "source.wav");
@@ -26,27 +26,22 @@ test("the preparation CLI creates an immutable, decodable private HLS package", 
     assert.match(receipt.assetId, /^[a-f0-9]{64}$/);
     assert.equal(receipt.trackId, "test-tone");
     assert.ok(Math.abs(receipt.durationMs - 13000) < 250);
-    const packageRoot = join(mediaRoot, "packages", receipt.assetId);
-    const playlist = await readFile(join(packageRoot, "index.m3u8"), "utf8");
-    assert.match(playlist, /#EXT-X-PLAYLIST-TYPE:VOD/);
-    assert.match(playlist, /#EXT-X-MAP:URI="init.mp4"/);
-    assert.match(playlist, /#EXT-X-ENDLIST/);
-    assert.equal(run("ffmpeg", ["-nostdin", "-v", "error", "-i", join(packageRoot, "index.m3u8"), "-f", "null", "-"]).status, 0);
-    const metadata = JSON.parse(await readFile(join(packageRoot, "package.json"), "utf8"));
-    assert.equal(metadata.preparation.sourceFormat, "wav");
-    assert.equal(metadata.preparation.sourceCodec, "pcm_s16le");
-    assert.equal(metadata.preparation.ffprobeVersion, "8.1.2");
-    assert.equal(metadata.codec, "mp4a.40.2");
-    assert.equal(metadata.sampleRateHz, 48000);
-    assert.equal(metadata.channels, 2);
-    assert.equal(metadata.files.length, 5);
-    assert.ok(metadata.peakBitrate > 0);
-    assert.ok(!JSON.stringify(metadata).includes(source));
+    assert.equal(receipt.file, "test-tone.m4a");
+    const audioPath = join(mediaRoot, receipt.file);
+    const bytes = await readFile(audioPath);
+    assert.equal(receipt.bytes, bytes.length);
+    assert.ok(bytes.indexOf(Buffer.from("moov")) < bytes.indexOf(Buffer.from("mdat")), "metadata precedes audio for progressive playback");
+    assert.equal(run("ffmpeg", ["-nostdin", "-v", "error", "-xerror", "-i", audioPath, "-f", "null", "-"]).status, 0);
+    const facts = JSON.parse(run("ffprobe", ["-v", "error", "-show_streams", "-of", "json", audioPath]).stdout).streams;
+    assert.equal(facts.length, 1);
+    assert.equal(facts[0].codec_name, "aac");
+    assert.equal(facts[0].profile, "LC");
+    assert.equal(facts[0].sample_rate, "48000");
+    assert.equal(facts[0].channels, 2);
+    assert.deepEqual(await readdir(mediaRoot), ["test-tone.m4a"]);
     const second = run(process.execPath, args);
     assert.equal(second.status, 0, second.stderr);
     assert.equal(JSON.parse(second.stdout).assetId, receipt.assetId);
-    assert.equal((await readdir(join(mediaRoot, "packages"))).length, 1);
-    assert.deepEqual(await readdir(join(mediaRoot, "staging")), []);
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
@@ -64,7 +59,7 @@ test("the preparation CLI rejects invalid track IDs before creating output", asy
   }
 });
 
-test("invalid and short audio leave no published package", async () => {
+test("invalid and short audio leave no published audio", async () => {
   const directory = await mkdtemp(join(tmpdir(), "music-source-invalid-"));
   try {
     const source = join(directory, "short.wav"), mediaRoot = join(directory, "media");

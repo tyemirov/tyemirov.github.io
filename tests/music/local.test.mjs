@@ -184,13 +184,13 @@ test("make up serves the site, private music, and persistent gallery; make down 
   assert.equal(grantResponse.status, 201, grantResponse.body);
   assert.equal(grantResponse.headers["access-control-allow-origin"], origin);
   const grant = JSON.parse(grantResponse.body);
-  assert.equal(new URL(grant.playlistUrl).origin, mediaOrigin);
-  assert.equal((await https(grant.playlistUrl)).status, 401);
+  assert.equal(new URL(grant.mediaUrl).origin, mediaOrigin);
+  assert.equal((await https(grant.mediaUrl)).status, 401);
   const cookie = grantResponse.headers["set-cookie"][0].split(";")[0];
-  const playlist = await https(grant.playlistUrl, { headers: { Cookie: cookie } });
+  const playlist = await https(grant.mediaUrl, { headers: { Cookie: cookie } });
   assert.equal(playlist.status, 200);
-  assert.match(playlist.body, /#EXT-X-ENDLIST/);
-  const segment = await https(grant.playlistUrl.replace("index.m3u8", "seg-00000.m4s"), { headers: { Cookie: cookie, Range: "bytes=0-31" } });
+  assert.equal(playlist.headers["content-type"], "audio/mp4");
+  const segment = await https(grant.mediaUrl, { headers: { Cookie: cookie, Range: "bytes=0-31" } });
   assert.equal(segment.status, 206);
   for (const engine of [chromium, webkit]) {
   const browser = await engine.launch({ headless: true });

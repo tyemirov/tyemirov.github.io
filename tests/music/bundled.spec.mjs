@@ -1,10 +1,8 @@
 // @ts-check
 import { test, expect } from "./test-fixtures.mjs";
-import { installCapabilityScenario } from "./browser-capabilities.mjs";
 
-test("every published recording plays from its bundled package", async ({ page, context }, testInfo) => {
+test("every published recording plays from its bundled audio file", async ({ page, context }, testInfo) => {
   test.setTimeout(180000);
-  await installCapabilityScenario(context, testInfo);
   await context.addCookies([{ name: "music-fixture", value: "recordings", domain: "localhost", path: "/" }]);
   await context.route(/loopaware\.mprlab\.com/, route => route.abort());
   const site = await (await context.request.get("/data/site.json")).json();

@@ -20,13 +20,13 @@ test("the load command exercises paced media, shared sessions, and seek bursts t
     assert.ok(evidence.durationMs >= 7000);
     assert.equal(evidence.requests.grant.count, 4);
     assert.equal(evidence.requests.revoke.count, 4);
-    assert.ok(evidence.requests.segment.count >= 8);
-    assert.ok(evidence.requests.seek.count >= 8);
+    assert.ok(evidence.requests.audio.count >= 8);
+    assert.ok(evidence.requests.seek.count >= 4);
     assert.ok(evidence.mediaBytes > 1000000);
     assert.equal(evidence.unexpectedResponses, 0);
     assert.equal(evidence.networkErrors, 0);
     assert.equal(evidence.source.kind, "generated-noise");
     assert.ok(evidence.source.durationMs >= 180000);
-    assert.doesNotMatch(JSON.stringify(evidence), /__Secure-music-session|\/hls\/|playlistUrl|grantId/);
+    assert.doesNotMatch(JSON.stringify(evidence), /__Secure-music-session|\/audio\/|mediaUrl|grantId/);
   } finally { await rm(directory, { recursive: true, force: true }); }
 });
