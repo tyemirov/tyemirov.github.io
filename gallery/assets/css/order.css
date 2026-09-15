@@ -1,0 +1,31 @@
+.buyer-order {
+  max-width: 760px;
+  min-height: 65vh;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  overflow-wrap: anywhere;
+}
+.buyer-order h1 { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; }
+.buyer-order [hidden] { display: none; }
+.order-number { color: var(--color-text-muted); font-size: .85rem; }
+.order-access { display: grid; gap: .75rem; max-width: 32rem; }
+.order-access p { margin: 0; color: var(--color-text-muted); }
+.order-access input { width: 100%; padding: .8rem; border: 1px solid var(--color-border); border-radius: .4rem; background: var(--color-panel); color: var(--color-text); font: inherit; }
+.order-access button { justify-self: start; }
+.buyer-order button:disabled { opacity: .55; cursor: wait; }
+.buyer-order [role=alert] { color: #ffb9a3; border-left: 3px solid currentColor; padding-left: .8rem; }
+.order-items { padding: 0; list-style: none; }
+.order-item { padding: 1.25rem; margin: 1rem 0; border: 1px solid var(--color-border); border-radius: .7rem; background: var(--color-panel); }
+.order-item h2 { font-family: Georgia, serif; font-weight: 400; margin-top: 0; }
+.order-item p { white-space: pre-wrap; }
+.order-file { color: var(--color-text-muted); }
+.order-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.5rem 0; }
+.order-receipt { color: var(--color-text-muted); font-size: .9rem; }
+@media (max-width: 500px) {
+  .order-actions > * { width: 100%; text-align: center; }
+  .buyer-order { padding-top: 1rem; }
+}
+#order-checkout > .link { display: inline-block; margin-top: 1.5rem; }
+#order-recovery { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
+#order-recovery h2 { margin: 0; }
+#order-recovery input[type=checkbox] { width: auto; accent-color: var(--color-accent); }
