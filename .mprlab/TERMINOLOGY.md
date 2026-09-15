@@ -106,17 +106,19 @@ Add repository-specific technical nouns below this line.
 - `DNS`: The system that resolves a public hostname to its network destination.
 - `reverse proxy`: A server that accepts client requests and forwards them to a backend service.
 - `migration`: A bounded change from an obsolete application contract to the current contract.
+- `M4A`: An MP4 container that stores one encoded audio recording.
+- `byte range`: A selected part of a file requested through the HTTP Range header.
 - `AAC-LC`: The audio codec profile selected for website music playback.
-- `asset ID`: The SHA-256 identity of one immutable media package.
+- `asset ID`: The SHA-256 identity of one encoded audio file.
 - `browser session`: An anonymous browser identity held in a cookie and server memory.
 - `CORS`: The browser protocol that controls access to responses from another origin.
 - `cookie`: A browser value that accompanies HTTP requests under specified scope rules.
-- `fMP4`: Fragmented MP4, the container format selected for audio segments.
-- `HLS`: HTTP Live Streaming, the protocol selected for website music playback.
-- `media index`: A private file that maps track IDs to validated media packages.
+- `fMP4`: Fragmented MP4, the container format used in historical audio segments.
+- `HLS`: HTTP Live Streaming, the protocol used before direct file playback.
+- `media index`: A private file that maps track IDs to validated audio files.
 - `media package`: One immutable set of audio segments, an initialization file, and an HLS playlist.
-- `media service`: The application that authorizes playback and sends audio segments.
-- `playback grant`: Temporary server authorization for one browser session and one media package.
+- `media service`: The application that authorizes playback and sends audio files.
+- `playback grant`: Temporary server authorization for one browser session and one audio file.
 - `rendition`: An encoded audio representation with a specified codec and bitrate.
 - `segment`: One bounded audio part referenced by an HLS playlist.
 - `track ID`: A permanent identifier for one catalog recording.
