@@ -1,11 +1,42 @@
-# Private HLS Implementation Validation
+# Music Implementation Validation
 
 The owner supplied the source recordings. F001 and B005 are closed based on implementation and required code validation.
 Production execution and public acceptance are separate operational concerns outside issue closure.
 The [implementation plan](private-hls-implementation.md) defines the scope.
-This record separates current B005 qualification from historical F001 evidence.
+The earlier sections record historical HLS qualification.
+The direct audio revision below defines the current playback contract.
 The [operations runbook](private-hls-operations.md) gives the current commands.
-## Current B005 Shared API Qualification
+## Direct Audio Revision On September 15, 2026
+
+The source share contains original recordings for all 50 catalog tracks.
+Source checksums matched all 50 existing preparation records before encoding.
+The preparation command encoded each original into a separate AAC-LC M4A file.
+The output uses 192 kbps, 48 kHz, and two channels.
+Each file passed a complete decode check.
+
+`assets/music` contains 50 audio files and one catalog, with approximately 219.5 MiB of audio.
+The revision removes the HLS packages and the `hls.js` dependency.
+The public catalog uses `playback.kind: "file"` and the encoded duration for each track.
+The grant representation provides `mediaUrl` for native audio playback.
+The service authorizes GET, HEAD, and byte range requests through the browser session.
+A catalog reload invalidates grants when the selected audio identity changes.
+
+The first preparation test failed because the command returned no direct audio filename.
+The first service test rejected the new audio record fields.
+After correction, preparation, media validation, API, artifact, and local preparation checks passed.
+The load test passed with shared sessions and byte range requests.
+All 50 recordings played in Chromium, Firefox, and WebKit.
+The focused player suite passed 83 cases and skipped four browser-specific cases.
+The declared AMD64 image served all tracks before and after container replacement without a media volume.
+The Pages container excluded the audio files.
+
+The full `make ci` check passed for this revision.
+The browser run passed 442 cases and skipped eight browser-specific cases.
+The Linux preparation and service container tests also passed.
+The current CI log is `output/playwright/direct-audio/ci.log`.
+Production deployment has not run for this revision.
+
+## Historical B005 Shared API Qualification
 
 The owner selected `api.tyemirov.net` for Gallery and music.
 The application uses one `apiOrigin` and has no separate streaming route.
