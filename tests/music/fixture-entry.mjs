@@ -24,8 +24,8 @@ play.addEventListener("click", async () => {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ trackId: "test-tone" }),
     });
     receivedAt = performance.now();
-    document.querySelector("#playlist").textContent = grant.playlistUrl;
-    await engine.load(grant.playlistUrl);
+    document.querySelector("#mediaURL").textContent = grant.mediaUrl;
+    await engine.load(grant.mediaUrl);
     await audio.play();
     status.textContent = "Playing";
     renew.disabled = false;
@@ -36,7 +36,7 @@ renew.addEventListener("click", async () => {
   try {
     const expiresAt = new Date(Date.parse(grant.serverTime) + performance.now() - receivedAt + Math.max(1800000, grant.durationMs + 900000)).toISOString();
     const renewed = await request(`/music/playback-grants/${grant.grantId}/expiration`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ expiresAt }) });
-    if (renewed.playlistUrl !== grant.playlistUrl) throw new Error("Renewal changed the playlist URL.");
+    if (renewed.mediaUrl !== grant.mediaUrl) throw new Error("Renewal changed the mediaURL URL.");
     grant = renewed;
     receivedAt = performance.now();
     status.textContent = "Access renewed";

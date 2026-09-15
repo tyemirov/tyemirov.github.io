@@ -22,4 +22,3 @@ await build({
 });
 await writeFile(join(output, "music/playback-allowlist.json"), JSON.stringify(playbackAllowlist(music), null, 2) + "\n");
 await copyFile(join(root, "music/player.css"), join(output, "music/player.css"));
-await copyFile(join(root, "node_modules/hls.js/LICENSE"), join(output, "music/dist/hls.LICENSE"));

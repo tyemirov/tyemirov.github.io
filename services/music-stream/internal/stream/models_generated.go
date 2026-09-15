@@ -12,12 +12,12 @@ type grantExpiration struct {
 }
 
 type grantResponse struct {
-	GrantID     string    `json:"grantId"`
-	TrackID     string    `json:"trackId"`
-	PlaylistURL string    `json:"playlistUrl"`
-	DurationMS  int64     `json:"durationMs"`
-	ServerTime  time.Time `json:"serverTime"`
-	ExpiresAt   time.Time `json:"expiresAt"`
+	GrantID    string    `json:"grantId"`
+	TrackID    string    `json:"trackId"`
+	MediaURL   string    `json:"mediaUrl"`
+	DurationMS int64     `json:"durationMs"`
+	ServerTime time.Time `json:"serverTime"`
+	ExpiresAt  time.Time `json:"expiresAt"`
 }
 
 var schemaNames = map[string]string{"grantInput": "grantInput", "grantExpiration": "expiration"}

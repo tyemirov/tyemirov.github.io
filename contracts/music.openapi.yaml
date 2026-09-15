@@ -6195,7 +6195,7 @@
         }
       }
     },
-    "/music/hls/{grantId}/{assetId}/{file}": {
+    "/music/audio/{grantId}/{assetId}.m4a": {
       "get": {
         "operationId": "readMedia",
         "security": [
@@ -6225,17 +6225,6 @@
               "maxLength": 64,
               "pattern": "^[a-f0-9]{64}$"
             }
-          },
-          {
-            "name": "file",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 100,
-              "pattern": "^(index\\.m3u8|init\\.mp4|seg-[0-9]{5}\\.m4s)$"
-            }
           }
         ],
         "responses": {
@@ -6262,12 +6251,6 @@
                   "type": "string",
                   "format": "binary"
                 }
-              },
-              "application/vnd.apple.mpegurl": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
               }
             }
           },
@@ -6290,12 +6273,6 @@
             },
             "content": {
               "audio/mp4": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
-              },
-              "application/vnd.apple.mpegurl": {
                 "schema": {
                   "type": "string",
                   "format": "binary"
@@ -6772,17 +6749,6 @@
               "maxLength": 64,
               "pattern": "^[a-f0-9]{64}$"
             }
-          },
-          {
-            "name": "file",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 100,
-              "pattern": "^(index\\.m3u8|init\\.mp4|seg-[0-9]{5}\\.m4s)$"
-            }
           }
         ],
         "responses": {
@@ -6999,7 +6965,7 @@
         }
       },
       "options": {
-        "operationId": "optionsMusicHlsGrantidAssetidFile",
+        "operationId": "optionsAudio",
         "security": [],
         "parameters": [
           {
@@ -7022,17 +6988,6 @@
               "minLength": 1,
               "maxLength": 64,
               "pattern": "^[a-f0-9]{64}$"
-            }
-          },
-          {
-            "name": "file",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 100,
-              "pattern": "^(index\\.m3u8|init\\.mp4|seg-[0-9]{5}\\.m4s)$"
             }
           },
           {

@@ -38,10 +38,6 @@ mprlab_resources:
             dockerfile: services/music-stream/Dockerfile
             platforms:
               - linux/amd64
-      volumes:
-        - id: media
-          name: tyemirov-site-music-media
-          retention: retain
       services:
         - id: stream
           image: service
@@ -52,19 +48,15 @@ mprlab_resources:
             - --listen
             - 0.0.0.0:8092
             - --media-root
-            - /media
+            - /assets/music
             - --index
-            - /runtime/music/catalog.json
+            - /assets/music/catalog.json
             - --allowlist
-            - /runtime/music/allowlist.json
+            - /assets/music/allowlist.json
             - --public-origin
             - https://api.tyemirov.net
             - --allowed-origins
             - https://tyemirov.net,https://www.tyemirov.net
-          mounts:
-            - volume: media
-              target: /media
-              read_only: true
           ports:
             - container_port: 8092
               host_port: 8092

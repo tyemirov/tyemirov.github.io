@@ -11,9 +11,9 @@ const GRANTS = "/music/playback-grants";
 const PUBLIC_ORIGIN = "https://music-load.example.invalid";
 const WEBSITE_ORIGIN = "https://website.example.invalid";
 const TRACK = "load-noise";
-const REQUEST_KINDS = ["grant", "playlist", "initialization", "segment", "seek", "revoke"];
+const REQUEST_KINDS = ["grant", "audio", "seek", "revoke"];
 /** @typedef {{cookie: string}} Session */
-/** @typedef {{session: Session, id: string, playlistPath: string, segments: Array<{path: string, seconds: number}>}} Listener */
+/** @typedef {{session: Session, id: string, mediaPath: string}} Listener */
 
 function run(program, args, cwd = resolve(".")) {
   const result = spawnSync(program, args, { cwd, encoding: "utf8", timeout: 60000, maxBuffer: 4000000 });
@@ -57,7 +57,7 @@ async function main() {
     const { trackId, ...record } = receipt;
     const index = join(directory, "index.json"), allowlist = join(directory, "allowlist.json"), binary = join(directory, "music-stream");
     await writeFile(index, JSON.stringify({ tracks: { [trackId]: record } }));
-    await writeFile(allowlist, JSON.stringify({ tracks: [{ id: trackId, playback: { kind: "hls", durationMs: record.durationMs } }] }));
+    await writeFile(allowlist, JSON.stringify({ tracks: [{ id: trackId, playback: { kind: "file", durationMs: record.durationMs } }] }));
     run("go", ["build", "-o", binary, "./cmd/music-stream"], resolve("services/music-stream"));
     service = spawn(binary, ["--listen", "127.0.0.1:0", "--media-root", mediaRoot, "--index", index, "--allowlist", allowlist,
       "--public-origin", PUBLIC_ORIGIN, "--allowed-origins", WEBSITE_ORIGIN],
@@ -83,28 +83,28 @@ async function main() {
     const statistics = Object.fromEntries(REQUEST_KINDS.map((kind) => [kind, { count: 0, statuses: {}, milliseconds: [] }]));
     let unexpectedResponses = 0, networkErrors = 0, mediaBytes = 0, completedListeners = 0;
     const failures = [];
-    async function request(kind, path, session, method = "GET", body) {
+    async function request(kind, path, session, method = "GET", body, range) {
       const stats = statistics[kind]; stats.count++;
       const started = performance.now();
       let response, bytes;
       try {
         response = await fetch(origin + path, { method, redirect: "error", signal: AbortSignal.timeout(10000),
           headers: { Origin: WEBSITE_ORIGIN, ...(session.cookie ? { Cookie: session.cookie } : {}),
-            ...(body ? { "Content-Type": "application/json" } : {}) }, ...(body ? { body: JSON.stringify(body) } : {}) });
+            ...(body ? { "Content-Type": "application/json" } : {}), ...(range ? { Range: range } : {}) }, ...(body ? { body: JSON.stringify(body) } : {}) });
         bytes = Buffer.from(await response.arrayBuffer());
       } catch {
         networkErrors++;
         throw new Error(`${kind} transport failed`);
       } finally { stats.milliseconds.push(performance.now() - started); }
       stats.statuses[response.status] = (stats.statuses[response.status] ?? 0) + 1;
-      const expected = kind === "grant" ? 201 : kind === "revoke" ? 204 : 200;
+      const expected = kind === "grant" ? 201 : kind === "revoke" ? 204 : 206;
       if (response.status !== expected) { unexpectedResponses++; throw new Error(`${kind} returned HTTP ${response.status}`); }
-      if (["initialization", "segment", "seek"].includes(kind)) mediaBytes += bytes.length;
+      if (["audio", "seek"].includes(kind)) mediaBytes += bytes.length;
       return { response, bytes };
     }
     function mediaPath(url) {
       const parsed = new URL(url);
-      if (parsed.origin !== PUBLIC_ORIGIN || parsed.search || parsed.hash || !/^\/music\/hls\/[A-Za-z0-9_-]{22}\/[a-f0-9]{64}\/(index\.m3u8|init\.mp4|seg-\d{5}\.m4s)$/.test(parsed.pathname)) throw new Error("Invalid load media reference");
+      if (parsed.origin !== PUBLIC_ORIGIN || parsed.search || parsed.hash || !/^\/music\/audio\/[A-Za-z0-9_-]{22}\/[a-f0-9]{64}\.m4a$/.test(parsed.pathname)) throw new Error("Invalid load media reference");
       return parsed.pathname;
     }
     /** @type {Listener[]} */
@@ -117,21 +117,10 @@ async function main() {
         session.cookie = cookies[0].split(";")[0];
       }
       const grant = JSON.parse(bytes.toString());
-      const playlistPath = mediaPath(grant.playlistUrl);
-      if (!/^[A-Za-z0-9_-]{22}$/.test(grant.grantId) || !playlistPath.startsWith(`/music/hls/${grant.grantId}/`)) throw new Error("Invalid load grant identity");
-      const listener = { session, id: grant.grantId, playlistPath, segments: [] };
-      active.push(listener);
-      const playlist = (await request("playlist", playlistPath, session)).bytes.toString();
-      const lines = playlist.trim().split(/\r?\n/);
-      if (!lines.includes('#EXT-X-MAP:URI="init.mp4"') || lines.at(-1) !== "#EXT-X-ENDLIST") throw new Error("Invalid load playlist");
-      for (let position = 0; position < lines.length; position++) {
-        if (!lines[position].startsWith("#EXTINF:")) continue;
-        const duration = Number(lines[position].slice(8).replace(/,$/, ""));
-        if (!Number.isFinite(duration) || duration <= 0 || duration > 7) throw new Error("Invalid load segment duration");
-        listener.segments.push({ path: mediaPath(new URL(lines[position + 1], grant.playlistUrl).href), seconds: duration });
-      }
-      if (!listener.segments.length) throw new Error("Load playlist has no segments");
-      await request("initialization", mediaPath(new URL("init.mp4", grant.playlistUrl).href), session);
+      const path = mediaPath(grant.mediaUrl);
+      if (!/^[A-Za-z0-9_-]{22}$/.test(grant.grantId) || !path.startsWith(`/music/audio/${grant.grantId}/`)) throw new Error("Invalid load grant identity");
+      active.push({ session, id: grant.grantId, mediaPath: path });
+      await request("audio", path, session, "GET", undefined, "bytes=0-4095");
     }
     const starts = await Promise.allSettled(Array.from({ length: listeners / 2 }, async (_, index) => {
       const session = { cookie: "" };
@@ -157,16 +146,17 @@ async function main() {
     if (!failures.length) {
       const runs = await Promise.allSettled(active.map(async (listener) => {
         let position = 0, due = started, nextSeek = started + seekEvery * 1000;
+        const chunkBytes = Math.ceil(record.bytes * 6000 / record.durationMs);
+        const rangeAt = offset => `bytes=${offset}-${Math.min(record.bytes - 1, offset + chunkBytes - 1)}`;
         while (performance.now() < end && !cancellation.signal.aborted) {
           if (performance.now() >= nextSeek) {
-            position = (position + Math.floor(listener.segments.length / 2)) % listener.segments.length;
-            await Promise.all([0, 1].map((offset) => request("seek", listener.segments[(position + offset) % listener.segments.length].path, listener.session)));
+            position = (position + Math.floor(record.bytes / 2)) % record.bytes;
+            await request("seek", listener.mediaPath, listener.session, "GET", undefined, rangeAt(position));
             nextSeek += seekEvery * 1000;
           }
-          const segment = listener.segments[position];
-          await request("segment", segment.path, listener.session);
-          position = (position + 1) % listener.segments.length;
-          due += segment.seconds * 1000;
+          await request("audio", listener.mediaPath, listener.session, "GET", undefined, rangeAt(position));
+          position = (position + chunkBytes) % record.bytes;
+          due += 6000;
           await sleep(Math.max(0, Math.min(due, end) - performance.now()), undefined, { signal: cancellation.signal });
         }
         if (cancellation.signal.aborted) throw new Error("Load run cancelled");
@@ -187,7 +177,7 @@ async function main() {
       peakRSSBytes: Math.max(...resourceSamples.map((sample) => sample.rssBytes)),
       diskReadBytes: last.diskReadBytes - first.diskReadBytes, diskWriteBytes: last.diskWriteBytes - first.diskWriteBytes } : null;
     const report = { passed: !failures.length && completedListeners === listeners && errorFraction < 0.001 && percentile(statistics.grant.milliseconds, 0.95) < 250,
-      host: { hostname: hostname(), platform: platform(), architecture: process.arch }, transport: "loopback-http", consumers: "simulated-segment-clients",
+      host: { hostname: hostname(), platform: platform(), architecture: process.arch }, transport: "loopback-http", consumers: "simulated-range-clients",
       source: { kind: "generated-noise", durationMs: record.durationMs, assetId: record.assetId }, listeners, sessions: listeners / 2, completedListeners,
       requestedSeconds: seconds, seekEverySeconds: seekEvery, durationMs, mediaBytes, meanMediaMbps: mediaBytes * 8 / durationMs / 1000,
       unexpectedResponses, networkErrors, errorFraction, failures: [...new Set(failures)], resources,

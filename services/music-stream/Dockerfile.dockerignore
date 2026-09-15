@@ -18,7 +18,4 @@ tools
 **/*.wav
 **/*.flac
 **/*.mp3
-**/*.m4a
-**/*.m3u8
-**/*.m4s
 **/__pycache__

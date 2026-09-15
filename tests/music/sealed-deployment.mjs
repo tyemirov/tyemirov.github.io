@@ -10,7 +10,6 @@ import { assertReleaseArtifacts, serviceImages } from "./release-contract.mjs";
 
 const application = "/selected-app", gateway = "/mprlab-gateway", evidence = "/evidence";
 const runtime = "/tmp/music-deployment-qualification";
-const volume = "tyemirov-site-music-media";
 const galleryVolume = "tyemirov-site-gallery-data";
 const gallerySigningKey = "gallery-deployment-fixture-signing-key-never-production";
 const galleryOrigin = "https://api.tyemirov.net";
@@ -137,7 +136,6 @@ try {
   const caddy = docker(["ps", "--quiet", "--filter", "label=com.docker.compose.project=mprlab-caddy"]);
   assert.match(caddy, /^[0-9a-f]+$/);
   await writeFile(join(application, ".mprlab/deploy/.env"), `GALLERY_TAUTH_SIGNING_KEY=${gallerySigningKey}\nGALLERY_GOOGLE_WEB_CLIENT_ID=fixture.apps.googleusercontent.com\n`);
-  assert.equal(docker(["volume", "ls", "--quiet", "--filter", `name=^${volume}$`]), "", "Deployment must create its own media storage.");
   const deploymentReceipts = [];
   const serviceIdentities = [];
   const desiredStates = [];
@@ -163,7 +161,7 @@ try {
   const inspection = JSON.parse(docker(["inspect", service]))[0];
   assert.equal(inspection.Config.Image, published.images.music);
   assert.equal(inspection.State.Running, true);
-  assert.equal(inspection.Mounts.find((mount) => mount.Destination === "/media").RW, false);
+  assert.equal(inspection.Mounts.length, 0, "Music must use the recordings in its image.");
   const galleryService = docker(["ps", "--quiet", "--filter", "label=com.mprlab.owner=tyemirov-site", "--filter", "label=com.mprlab.resource=gallery", "--filter", "label=com.docker.compose.service=api"]);
   assert.match(galleryService, /^[0-9a-f]+$/);
   const galleryInspection = JSON.parse(docker(["inspect", galleryService]))[0];
@@ -187,10 +185,21 @@ try {
   }
   assert.equal((await send("/music/readyz")).status, 200);
   const siteCatalog = JSON.parse(await readFile(join(application, "data/site.json"), "utf8"));
-  const externalTrack = siteCatalog.music.items.flatMap(album => album.tracks).find(track => track.playback.kind === "external");
-  assert.ok(externalTrack);
-  const externalGrant = await send("/music/playback-grants", { method: "POST", headers: { Origin: "https://tyemirov.net", "Content-Type": "application/json" }, body: JSON.stringify({ trackId: externalTrack.id }) });
-  assert.equal(externalGrant.status, 404);
+  const tracks = siteCatalog.music.items.flatMap(album => album.tracks);
+  assert.ok(tracks.length > 0 && tracks.every(track => track.playback.kind === "file"));
+  for (const track of tracks) {
+    const response = await send("/music/playback-grants", { method: "POST", headers: { Origin: "https://tyemirov.net", "Content-Type": "application/json" }, body: JSON.stringify({ trackId: track.id }) });
+    assert.equal(response.status, 201, track.id);
+    const grant = JSON.parse(response.body);
+    assert.equal(grant.durationMs, track.playback.durationMs);
+    const cookie = response.headers["set-cookie"][0].split(";")[0];
+    const path = new URL(grant.mediaUrl).pathname;
+    assert.equal((await send(path)).status, 401);
+    const audio = await send(path, { headers: { Cookie: cookie, Range: "bytes=0-4095" } });
+    assert.equal(audio.status, 206);
+    assert.equal(audio.body.length, 4096);
+    assert.equal((await send(`/music/playback-grants/${grant.grantId}`, { method: "DELETE", headers: { Cookie: cookie, Origin: "https://tyemirov.net" } })).status, 204);
+  }
   const gallerySend = (path, options = {}) => send(path, options, galleryOrigin);
   function ownerCookie(email) {
     const now = Math.floor(Date.now() / 1000);
@@ -231,7 +240,7 @@ try {
   const restoredArchive = await gallerySend(publication.archiveUrl, { headers: ownerHeaders });
   assert.equal(restoredArchive.status, 200);
   assert.equal(restoredArchive.body.equals(archive.body), true, "Restart and draft changes must preserve the publication archive.");
-  await writeFile(join(evidence, "http-results.json"), JSON.stringify({ tls: "verified internal CA and declared hostnames", music: { readiness: 200, initialStorage: "absent", externalGrant: 404 }, gallery: { readiness: 200, anonymousDraft: 401, otherOwner: 403, ownerDraft: 200, publishedCatalog: "matches deployed image", publication: 201, savedDraftAndArchive: "unchanged after restart", auth: "controlled TAuth claims; login not qualified" } }) + "\n");
+  await writeFile(join(evidence, "http-results.json"), JSON.stringify({ tls: "verified internal CA and declared hostnames", music: { readiness: 200, storage: "service image", playableTracks: tracks.length, grant: 201, anonymousPlaylist: 401, segment: 200 }, gallery: { readiness: 200, anonymousDraft: 401, otherOwner: 403, ownerDraft: 200, publishedCatalog: "matches deployed image", publication: 201, savedDraftAndArchive: "unchanged after restart", auth: "controlled TAuth claims; login not qualified" } }) + "\n");
   await writeFile(join(evidence, "service.log"), docker(["logs", service]));
   await writeFile(join(evidence, "gallery-service.log"), docker(["logs", galleryService]));
   await cp(lifecycle, join(evidence, "lifecycle"), { recursive: true });

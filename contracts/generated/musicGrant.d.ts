@@ -3,7 +3,7 @@
 export interface MusicGrant {
   grantId: string;
   trackId: string;
-  playlistUrl: string;
+  mediaUrl: string;
   durationMs: number;
   serverTime: string;
   expiresAt: string;

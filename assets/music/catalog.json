@@ -1,0 +1,454 @@
+{
+  "tracks": {
+    "egyptian-nights-01": {
+      "assetId": "a9df0168724c90bb3dc40573b89b8f83e5d2473bc751179a13fc7f2959cbf968",
+      "file": "egyptian-nights-01.m4a",
+      "bytes": 4645775,
+      "durationMs": 189600,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "egyptian-nights-02": {
+      "assetId": "540178079699965fa8f002f226e4b137faba36c489ab4d39dd0a54ed536081a4",
+      "file": "egyptian-nights-02.m4a",
+      "bytes": 3481968,
+      "durationMs": 140400,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "egyptian-nights-03": {
+      "assetId": "9205a4678f3e54b0a9098a0934b4904299bd50c2bbd7f6c40492d0d3dfe64024",
+      "file": "egyptian-nights-03.m4a",
+      "bytes": 5587163,
+      "durationMs": 229080,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "egyptian-nights-04": {
+      "assetId": "2d966a7fe39286f3d61c7acdfef15c7fcda68988e274e72e7b23e2a3cb2eab42",
+      "file": "egyptian-nights-04.m4a",
+      "bytes": 3850093,
+      "durationMs": 154840,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "egyptian-nights-05": {
+      "assetId": "da9af3a4a48fbf2e0fc021db993f629add82659c4b5293137eee484d11300d17",
+      "file": "egyptian-nights-05.m4a",
+      "bytes": 6027587,
+      "durationMs": 242720,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "egyptian-nights-06": {
+      "assetId": "3ab9d10ca110ce400fa5e0325d56414f0044d158c2c47eb395dc1be56117a20e",
+      "file": "egyptian-nights-06.m4a",
+      "bytes": 4152658,
+      "durationMs": 168400,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "egyptian-nights-07": {
+      "assetId": "a73acfa6cffcd1789f9897454c3c990a8692a87f068dea847c97ba5e2251d018",
+      "file": "egyptian-nights-07.m4a",
+      "bytes": 9118688,
+      "durationMs": 369920,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "egyptian-nights-08": {
+      "assetId": "a4ec590191365d850b207bd0c6baeed675a4f32dd8f445c2480e3c8763332f85",
+      "file": "egyptian-nights-08.m4a",
+      "bytes": 9385479,
+      "durationMs": 380920,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "february-get-ink-and-weep-01": {
+      "assetId": "c4364549e0850d5834fcaf2f94d7b392394d49ab0a440032688471b71a5ba2d0",
+      "file": "february-get-ink-and-weep-01.m4a",
+      "bytes": 2667809,
+      "durationMs": 106000,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "february-get-ink-and-weep-02": {
+      "assetId": "9121cae1be961c933ee72aa171567694c84ad10d275244975c2e11a1386c2c7b",
+      "file": "february-get-ink-and-weep-02.m4a",
+      "bytes": 2704697,
+      "durationMs": 108960,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "february-get-ink-and-weep-03": {
+      "assetId": "efb4d356d8240d719ae04094e60b7dd666ea3c93d252e9c68c6210bc6178571e",
+      "file": "february-get-ink-and-weep-03.m4a",
+      "bytes": 2883392,
+      "durationMs": 117000,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "february-get-ink-and-weep-04": {
+      "assetId": "85328d8912f0845cfa78b0b1cf729a4f9234b2c0c0a6c797e5c6a988caf1dc4e",
+      "file": "february-get-ink-and-weep-04.m4a",
+      "bytes": 1580241,
+      "durationMs": 63680,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "february-get-ink-and-weep-05": {
+      "assetId": "5a7deb6581133f6c80eee5f41d03aeff5e5b67db183c9f1b19a013551a790167",
+      "file": "february-get-ink-and-weep-05.m4a",
+      "bytes": 2576932,
+      "durationMs": 104000,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "february-get-ink-and-weep-06": {
+      "assetId": "5d58173481ccb28d44be0973bc9637ea22cb12d04831fde361e2237606beec0d",
+      "file": "february-get-ink-and-weep-06.m4a",
+      "bytes": 2935768,
+      "durationMs": 118520,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "february-get-ink-and-weep-07": {
+      "assetId": "d790f37fee64615cacf0bbc2a215fc8eef96d84c78df68b7db12648ce2770b8d",
+      "file": "february-get-ink-and-weep-07.m4a",
+      "bytes": 2476236,
+      "durationMs": 99840,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "february-get-ink-and-weep-08": {
+      "assetId": "460db05075bff0fe09d1a7ba943399044a016b8f4dcad16be1ae7307e7154c81",
+      "file": "february-get-ink-and-weep-08.m4a",
+      "bytes": 2722002,
+      "durationMs": 111200,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "february-get-ink-and-weep-09": {
+      "assetId": "559842dc7fbb9e58d2c878d662b92b6f8adcb2a979f2ab9b0510ef2692be4014",
+      "file": "february-get-ink-and-weep-09.m4a",
+      "bytes": 2431351,
+      "durationMs": 98640,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "singing-pasternak-01": {
+      "assetId": "e0f8c19b1b350c11567bac3e410eb6a1d48e16911a8d3f347a79f24ff8e01d4e",
+      "file": "singing-pasternak-01.m4a",
+      "bytes": 5034376,
+      "durationMs": 204800,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "singing-pasternak-02": {
+      "assetId": "f35fce8aba56d524706ec86debfdee6e4485c9e41115e94d068387d3643c0b92",
+      "file": "singing-pasternak-02.m4a",
+      "bytes": 5249648,
+      "durationMs": 213200,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "singing-pasternak-03": {
+      "assetId": "2ed69af4db533feebf79551b77fcae4d38d38316e96fff36c88324f6e2591663",
+      "file": "singing-pasternak-03.m4a",
+      "bytes": 1743652,
+      "durationMs": 71080,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "singing-pasternak-04": {
+      "assetId": "d781eb4ddbfbf5382ed143ef9ede04b856703e3d0bd964d7ea09b506ccd18a72",
+      "file": "singing-pasternak-04.m4a",
+      "bytes": 3571926,
+      "durationMs": 146200,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "singing-pasternak-05": {
+      "assetId": "fe40987b3f6eed5a4b7f85029c2cb394f7cd097ea72e0cdff415e323975338a7",
+      "file": "singing-pasternak-05.m4a",
+      "bytes": 4166646,
+      "durationMs": 170960,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "singing-pasternak-06": {
+      "assetId": "c4364549e0850d5834fcaf2f94d7b392394d49ab0a440032688471b71a5ba2d0",
+      "file": "singing-pasternak-06.m4a",
+      "bytes": 2667809,
+      "durationMs": 106000,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "singing-pasternak-07": {
+      "assetId": "79cf63b589f10c8b651cae6913a4675b569b236170f546dba1bdf598934aaf85",
+      "file": "singing-pasternak-07.m4a",
+      "bytes": 4243826,
+      "durationMs": 173160,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-i-01": {
+      "assetId": "af03dedb4bdad4ec386304c520266b8c46a7c0bcf5867e4047cf10862b7cf168",
+      "file": "soliloquies-vol-i-01.m4a",
+      "bytes": 4774032,
+      "durationMs": 194320,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-i-02": {
+      "assetId": "da5152b8b1da7da94b53d36c5ab0fb331b70fe90ec59f9d7665e40b3a9edea74",
+      "file": "soliloquies-vol-i-02.m4a",
+      "bytes": 7197970,
+      "durationMs": 289000,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-i-03": {
+      "assetId": "aa0dc5ab06c5c333180a125a3a93160e329b93f9f690f5df42725c20cbbc72aa",
+      "file": "soliloquies-vol-i-03.m4a",
+      "bytes": 3642964,
+      "durationMs": 148440,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-i-04": {
+      "assetId": "41fff8b1da58ad38f1df6e7fed4f3580c5d4175b71cd3cae70c79f91b128f284",
+      "file": "soliloquies-vol-i-04.m4a",
+      "bytes": 2238938,
+      "durationMs": 91400,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-i-05": {
+      "assetId": "7bf82e1afdd9ee1cd00a0e15da13c456aaf309cd92b602bd8b837112b2a645a3",
+      "file": "soliloquies-vol-i-05.m4a",
+      "bytes": 5536165,
+      "durationMs": 224720,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-i-06": {
+      "assetId": "9c807e363603dff9b7238c71883f5eb1d7bbb98cf946a9d760463d51150f62fe",
+      "file": "soliloquies-vol-i-06.m4a",
+      "bytes": 3795405,
+      "durationMs": 152640,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-i-07": {
+      "assetId": "87e81b3e07c4bcfd8f69c8860484417c30328c2c9f95b042d36cda21407d54be",
+      "file": "soliloquies-vol-i-07.m4a",
+      "bytes": 3384792,
+      "durationMs": 138360,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-i-08": {
+      "assetId": "550bda29c65d6af410bdcbb50bc9c9516fd0721e977eb0fc9b1a2a54ac8fa75d",
+      "file": "soliloquies-vol-i-08.m4a",
+      "bytes": 3817924,
+      "durationMs": 156880,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-ii-01": {
+      "assetId": "bcbc0682b182cd547f7ad5e6c791ba32baa8493352fd2c8bfd22b9659221f270",
+      "file": "soliloquies-vol-ii-01.m4a",
+      "bytes": 3644567,
+      "durationMs": 148440,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-ii-02": {
+      "assetId": "42b6bcbd612e620b9f4880f574cab58ec733df7498893022f8a228ea97a99fa6",
+      "file": "soliloquies-vol-ii-02.m4a",
+      "bytes": 8376891,
+      "durationMs": 339800,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-ii-03": {
+      "assetId": "28370459f6560fe75516f985c4434fbb6a5363d055fcaf00a1d4c321f1f10d4f",
+      "file": "soliloquies-vol-ii-03.m4a",
+      "bytes": 5674189,
+      "durationMs": 227480,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-ii-04": {
+      "assetId": "8c30de23cd12eb750e8941831d08c4542f8def641bc90d9d0318fa81b1302c30",
+      "file": "soliloquies-vol-ii-04.m4a",
+      "bytes": 5602649,
+      "durationMs": 223440,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-ii-05": {
+      "assetId": "a027e92f42d1ce6981b1cee0b2b14e85136178bbc5ef1e671491409f1f982218",
+      "file": "soliloquies-vol-ii-05.m4a",
+      "bytes": 5312355,
+      "durationMs": 214040,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-ii-06": {
+      "assetId": "e04ab15fa580e0a57e0da2347464edf79fdaf931e30b96a638f396e904a0c747",
+      "file": "soliloquies-vol-ii-06.m4a",
+      "bytes": 5079852,
+      "durationMs": 206840,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-ii-07": {
+      "assetId": "aa32ffa2489d3ca643127cbea28e779769eb9acdbdbb191907c8b64aabe29db0",
+      "file": "soliloquies-vol-ii-07.m4a",
+      "bytes": 5861912,
+      "durationMs": 235320,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-ii-08": {
+      "assetId": "dbef76cc826c4cfac0d8744890435be36303276dec75cc887a1f0d312cc0785a",
+      "file": "soliloquies-vol-ii-08.m4a",
+      "bytes": 5053900,
+      "durationMs": 203280,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "soliloquies-vol-ii-09": {
+      "assetId": "30d1641d7f8fba739a5218f39502ae3ce340262c9b8c31be2267906e7e085b7a",
+      "file": "soliloquies-vol-ii-09.m4a",
+      "bytes": 9253412,
+      "durationMs": 374280,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "songs-of-desire-01": {
+      "assetId": "1e77c10ca6c6758e21a7b3fff7abee8792eb4ba9b8338d0aa93cc86aac772537",
+      "file": "songs-of-desire-01.m4a",
+      "bytes": 7414103,
+      "durationMs": 299640,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "songs-of-desire-02": {
+      "assetId": "89452afdd94de2912eb253d932b37dbd4d19e14564876384be8a7cef508f0018",
+      "file": "songs-of-desire-02.m4a",
+      "bytes": 5939539,
+      "durationMs": 239120,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "songs-of-desire-03": {
+      "assetId": "9f185d70abd875fc60d9b59967a1b5a0b78157f009bd7f0ac8e702f3d7f9231c",
+      "file": "songs-of-desire-03.m4a",
+      "bytes": 4128734,
+      "durationMs": 166080,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "songs-of-desire-04": {
+      "assetId": "790a31733f48308fb3cb4385ce1eb1f72fc9979bf9734fff317b8e926b068edc",
+      "file": "songs-of-desire-04.m4a",
+      "bytes": 6539686,
+      "durationMs": 263080,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "songs-of-desire-05": {
+      "assetId": "e52217ec668f4c15718b42fc53e6c4df6d512414fbec25c757829a38c32eb924",
+      "file": "songs-of-desire-05.m4a",
+      "bytes": 3800924,
+      "durationMs": 154520,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "songs-of-desire-06": {
+      "assetId": "29dd8c24a598b0720d1549c9fa4fa6424ffab71c772d150248399e0b7807d917",
+      "file": "songs-of-desire-06.m4a",
+      "bytes": 5816788,
+      "durationMs": 237800,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "songs-of-desire-07": {
+      "assetId": "34586f28fe2ec8824df48af5a8df3bc11dba8270755084a9b746b5b681c1db21",
+      "file": "songs-of-desire-07.m4a",
+      "bytes": 4811893,
+      "durationMs": 194720,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "songs-of-desire-08": {
+      "assetId": "52e70d49a86c413ab8a5c7f5c7c8410b11ee771e0bad79fb6f3447027aeef967",
+      "file": "songs-of-desire-08.m4a",
+      "bytes": 4906726,
+      "durationMs": 199920,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "songs-of-desire-09": {
+      "assetId": "d27858132689be28f1087048633daae0f2501729c1aa111ac08751930ccf0b20",
+      "file": "songs-of-desire-09.m4a",
+      "bytes": 2680966,
+      "durationMs": 109840,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    }
+  }
+}

@@ -5,9 +5,6 @@
   "scripts": {
     "test:music": "playwright test --config tests/music/playwright.config.mjs"
   },
-  "dependencies": {
-    "hls.js": "1.7.2"
-  },
   "devDependencies": {
     "@apidevtools/swagger-parser": "13.0.0",
     "@playwright/test": "1.63.0",

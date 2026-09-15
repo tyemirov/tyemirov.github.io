@@ -33,8 +33,8 @@ function validateGrant(value, track, origin) {
   if (!musicGrant(value)) throw new PlaybackError("invalid_response");
   if (!GRANT_ID.test(value.grantId) || value.trackId !== track.id || !Number.isSafeInteger(value.durationMs) || value.durationMs < 1000 || value.durationMs > 7200250 || Math.abs(value.durationMs - track.playback.durationMs) > 250) throw new PlaybackError("invalid_response");
   let url;
-  try { url = new URL(value.playlistUrl); } catch { throw new PlaybackError("invalid_response"); }
-  const path = new RegExp(`^/music/hls/${value.grantId}/[a-f0-9]{64}/index\\.m3u8$`);
+  try { url = new URL(value.mediaUrl); } catch { throw new PlaybackError("invalid_response"); }
+  const path = new RegExp(`^/music/audio/${value.grantId}/[a-f0-9]{64}\\.m4a$`);
   if (url.origin !== origin || url.username || url.password || url.search || url.hash || !path.test(url.pathname)) throw new PlaybackError("invalid_response");
   const serverTimeMs = timestamp(value.serverTime), expiresAtMs = timestamp(value.expiresAt);
   const lifetime = Math.max(1800000, value.durationMs + 900000);
@@ -47,7 +47,7 @@ export function remainingLifetime(grant) {
 }
 
 function sameGrant(value, previous) {
-  if (value.grantId !== previous.grantId || value.playlistUrl !== previous.playlistUrl || value.durationMs !== previous.durationMs) throw new PlaybackError("invalid_response");
+  if (value.grantId !== previous.grantId || value.mediaUrl !== previous.mediaUrl || value.durationMs !== previous.durationMs) throw new PlaybackError("invalid_response");
   return value;
 }
 

@@ -13,8 +13,7 @@ export default defineConfig({
   reporter: [["list"], ["json", { outputFile: "../../output/playwright/music-results.json" }]],
   use: { headless: true, baseURL: "https://localhost:18443", ignoreHTTPSErrors: true, trace: "retain-on-failure" },
   projects: [
-    { name: "chromium", use: { browserName: "chromium" } },
-    { name: "chromium-hls", use: { browserName: "chromium", channel: "chromium", launchOptions: { ignoreDefaultArgs: ["--disable-back-forward-cache"] } }, metadata: { forceHls: true } },
+    { name: "chromium", use: { browserName: "chromium", channel: "chromium", launchOptions: { ignoreDefaultArgs: ["--disable-back-forward-cache"] } } },
     { name: "firefox", use: { browserName: "firefox" } },
     { name: "webkit", use: { browserName: "webkit" } },
   ],

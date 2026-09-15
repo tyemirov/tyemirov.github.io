@@ -142,63 +142,72 @@
             "id": "soliloquies-vol-ii-01",
             "title": "Meditations 2.1 (Marcus Aurelius)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 148440
             }
           },
           {
             "id": "soliloquies-vol-ii-02",
             "title": "Some things are in our power and others are not (Epictetus)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 339800
             }
           },
           {
             "id": "soliloquies-vol-ii-03",
             "title": "Of Anger (Seneca)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 227480
             }
           },
           {
             "id": "soliloquies-vol-ii-04",
             "title": "Hymn to Zeus (Cleanthes of Assos)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 223440
             }
           },
           {
             "id": "soliloquies-vol-ii-05",
             "title": "Meditations 5.2 (Marcus Aurelius)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 214040
             }
           },
           {
             "id": "soliloquies-vol-ii-06",
             "title": "All Is Dross That Is Not Helena (Marlowe)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 206840
             }
           },
           {
             "id": "soliloquies-vol-ii-07",
             "title": "The Most Terrible Grief Of All (Euripides)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 235320
             }
           },
           {
             "id": "soliloquies-vol-ii-08",
             "title": "I Freely Chose (Aeschylus)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 203280
             }
           },
           {
             "id": "soliloquies-vol-ii-09",
             "title": "For Whom the Bell Tolls (John Donne)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 374280
             }
           }
         ],
@@ -236,56 +245,64 @@
             "id": "soliloquies-vol-i-01",
             "title": "Inferno — Canto I",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 194320
             }
           },
           {
             "id": "soliloquies-vol-i-02",
             "title": "To be, or not to be (Hamlet)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 289000
             }
           },
           {
             "id": "soliloquies-vol-i-03",
             "title": "Meditations 2.1 (Marcus Aurelius)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 148440
             }
           },
           {
             "id": "soliloquies-vol-i-04",
             "title": "Stopping by Woods on a Snowy Evening (Frost)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 91400
             }
           },
           {
             "id": "soliloquies-vol-i-05",
             "title": "The Litany Against Fear (Dune)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 224720
             }
           },
           {
             "id": "soliloquies-vol-i-06",
             "title": "Peace",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 152640
             }
           },
           {
             "id": "soliloquies-vol-i-07",
             "title": "Dies Irae",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 138360
             }
           },
           {
             "id": "soliloquies-vol-i-08",
             "title": "Paradise Lost, Book I (Satan)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 156880
             }
           }
         ]
@@ -317,63 +334,72 @@
             "id": "songs-of-desire-01",
             "title": "WANT / WON’T (Hypnagogic Pop)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 299640
             }
           },
           {
             "id": "songs-of-desire-02",
             "title": "Sans mesure / Sans respect",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 239120
             }
           },
           {
             "id": "songs-of-desire-03",
             "title": "Hungarian baby vs Albanian baby",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 166080
             }
           },
           {
             "id": "songs-of-desire-04",
             "title": "Friday Night Burn",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 263080
             }
           },
           {
             "id": "songs-of-desire-05",
             "title": "Moonshot",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 154520
             }
           },
           {
             "id": "songs-of-desire-06",
             "title": "Bridge of Ice to Venus",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 237800
             }
           },
           {
             "id": "songs-of-desire-07",
             "title": "Reincarnated as an Imp",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 194720
             }
           },
           {
             "id": "songs-of-desire-08",
             "title": "Two Doors",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 199920
             }
           },
           {
             "id": "songs-of-desire-09",
             "title": "Lullaby I",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 109840
             }
           }
         ]
@@ -405,56 +431,64 @@
             "id": "egyptian-nights-01",
             "title": "Exhale / Inhale (smoking in the wind)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 189600
             }
           },
           {
             "id": "egyptian-nights-02",
             "title": "Brand New Tattoo",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 140400
             }
           },
           {
             "id": "egyptian-nights-03",
             "title": "Half a second",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 229080
             }
           },
           {
             "id": "egyptian-nights-04",
             "title": "I don't wanna rock",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 154840
             }
           },
           {
             "id": "egyptian-nights-05",
             "title": "$20 Tip",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 242720
             }
           },
           {
             "id": "egyptian-nights-06",
             "title": "Arguing in a restaurant",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 168400
             }
           },
           {
             "id": "egyptian-nights-07",
             "title": "Egyptian Nights",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 369920
             }
           },
           {
             "id": "egyptian-nights-08",
             "title": "The Sanitation of Cash (extra)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 380920
             }
           }
         ]
@@ -488,49 +522,56 @@
             "id": "singing-pasternak-01",
             "title": "На пароходе (On the Steamboat)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 204800
             }
           },
           {
             "id": "singing-pasternak-02",
             "title": "Вторая баллада (Second Ballad)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 213200
             }
           },
           {
             "id": "singing-pasternak-03",
             "title": "Любить иных — тяжелый крест (To love others is a heavy cross)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 71080
             }
           },
           {
             "id": "singing-pasternak-04",
             "title": "В низовьях (In the Lowlands)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 146200
             }
           },
           {
             "id": "singing-pasternak-05",
             "title": "Зимняя ночь (Winter Night)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 170960
             }
           },
           {
             "id": "singing-pasternak-06",
             "title": "Февраль (February)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 106000
             }
           },
           {
             "id": "singing-pasternak-07",
             "title": "Быть или не быть (To be or not to be)",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 173160
             }
           }
         ]
@@ -564,63 +605,72 @@
             "id": "february-get-ink-and-weep-01",
             "title": "Февраль [1]",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 106000
             }
           },
           {
             "id": "february-get-ink-and-weep-02",
             "title": "Февраль [2]",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 108960
             }
           },
           {
             "id": "february-get-ink-and-weep-03",
             "title": "Февраль [3]",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 117000
             }
           },
           {
             "id": "february-get-ink-and-weep-04",
             "title": "Февраль [4]",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 63680
             }
           },
           {
             "id": "february-get-ink-and-weep-05",
             "title": "Февраль [5]",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 104000
             }
           },
           {
             "id": "february-get-ink-and-weep-06",
             "title": "Февраль [6]",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 118520
             }
           },
           {
             "id": "february-get-ink-and-weep-07",
             "title": "Февраль [7]",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 99840
             }
           },
           {
             "id": "february-get-ink-and-weep-08",
             "title": "Февраль [8]",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 111200
             }
           },
           {
             "id": "february-get-ink-and-weep-09",
             "title": "Февраль [9]",
             "playback": {
-              "kind": "external"
+              "kind": "file",
+              "durationMs": 98640
             }
           }
         ]

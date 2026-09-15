@@ -1,5 +1,5 @@
 ---
-- name: Qualify the selected music volume through Gateway
+- name: Qualify an isolated media volume through Gateway
   hosts: localhost
   gather_facts: false
   vars_files:
@@ -9,7 +9,10 @@
     mprlab_compose_registry_resource:
       owner: "{{ mprlab_resources.owner }}"
       id: "{{ selected_project.id }}"
-    mprlab_retained_volume: "{{ selected_project.volumes | first }}"
+    mprlab_retained_volume:
+      id: media-fixture
+      name: "{{ expected_volume }}"
+      retention: retain
     mprlab_compose_target_host: fixture
     mprlab_compose_target_docker_cli: /usr/bin/docker
     selected_route: "{{ mprlab_resources.resources | selectattr('id', 'equalto', 'api-route') | first }}"

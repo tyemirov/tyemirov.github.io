@@ -2,7 +2,7 @@
 import { test, expect } from "./test-fixtures.mjs";
 
 test("a cached homepage return refreshes the published music catalog", async ({ page, context }, testInfo) => {
-  test.skip(testInfo.project.name !== "chromium-hls", "Chromium qualifies actual history and HTTP cache behavior.");
+  test.skip(testInfo.project.name !== "chromium", "Chromium qualifies actual history and HTTP cache behavior.");
   await context.unrouteAll({ behavior: "wait" });
   await context.addCookies([{ name: "homepage-fixture", value: "catalog", domain: "localhost", path: "/" }]);
   await context.request.post("/fixture-control/homepage/previous");

@@ -8,7 +8,7 @@ export interface MusicTrack {
         kind: "external";
       }
     | {
-        kind: "hls";
+        kind: "file";
         durationMs: number;
       };
 }

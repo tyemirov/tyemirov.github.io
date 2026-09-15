@@ -38,7 +38,7 @@ export interface MusicAlbum {
           kind: "external";
         }
       | {
-          kind: "hls";
+          kind: "file";
           durationMs: number;
         };
   }[];

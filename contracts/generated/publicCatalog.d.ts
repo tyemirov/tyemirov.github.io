@@ -142,7 +142,7 @@ export interface PublicCatalog {
               kind: "external";
             }
           | {
-              kind: "hls";
+              kind: "file";
               durationMs: number;
             };
       }[];

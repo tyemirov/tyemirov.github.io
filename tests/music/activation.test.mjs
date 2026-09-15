@@ -21,7 +21,7 @@ test("media activation validates a candidate and preserves the selected index on
     const receipt = JSON.parse(preparation.stdout);
     const receiptPath = join(directory, "receipt.json"), allowlist = join(directory, "allowlist.json"), index = join(directory, "catalog.json");
     await writeFile(receiptPath, preparation.stdout);
-    await writeFile(allowlist, JSON.stringify({ tracks: [{ id: receipt.trackId, playback: { kind: "hls", durationMs: receipt.durationMs } }] }));
+    await writeFile(allowlist, JSON.stringify({ tracks: [{ id: receipt.trackId, playback: { kind: "file", durationMs: receipt.durationMs } }] }));
     const common = ["--media-root", mediaRoot, "--allowlist", allowlist];
     const candidate = run(binary, ["candidate", ...common, "--receipt", receiptPath]);
     assert.equal(candidate.status, 0, candidate.stderr);
@@ -32,7 +32,7 @@ test("media activation validates a candidate and preserves the selected index on
     assert.equal(activated.status, 0, activated.stderr);
     const selected = await readFile(index, "utf8");
     assert.deepEqual(JSON.parse(selected).tracks[receipt.trackId], Object.fromEntries(Object.entries(receipt).filter(([key]) => key !== "trackId")));
-    const segment = join(mediaRoot, "packages", receipt.assetId, "seg-00000.m4s");
+    const segment = join(mediaRoot, receipt.file);
     const original = `${segment}.original`;
     await rename(segment, original);
     await symlink(original, segment);

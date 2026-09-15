@@ -262,15 +262,15 @@ export const routes = Object.freeze({
     },
     "readMedia": {
       "method": "GET",
-      "path": "/music/hls/{grantId}/{assetId}/{file}"
+      "path": "/music/audio/{grantId}/{assetId}.m4a"
     },
     "headReadMedia": {
       "method": "HEAD",
-      "path": "/music/hls/{grantId}/{assetId}/{file}"
+      "path": "/music/audio/{grantId}/{assetId}.m4a"
     },
-    "optionsMusicHlsGrantidAssetidFile": {
+    "optionsAudio": {
       "method": "OPTIONS",
-      "path": "/music/hls/{grantId}/{assetId}/{file}"
+      "path": "/music/audio/{grantId}/{assetId}.m4a"
     }
   }
 });

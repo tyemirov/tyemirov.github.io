@@ -3,7 +3,7 @@
 import { musicCatalog } from "../assets/js/generated/validators.js";
 export const PLATFORMS = Object.freeze({ spotify: "Spotify", apple: "Apple Music", youtube: "YouTube Music", amazon: "Amazon Music", suno: "Suno" });
 
-/** @typedef {{kind: "external"} | {kind: "hls", durationMs: number}} Playback */
+/** @typedef {{kind: "external"} | {kind: "file", durationMs: number}} Playback */
 /** @typedef {{id: string, title: string, playback: Playback}} Track */
 /** @typedef {import('../contracts/generated/musicCatalog').MusicCatalog} Music */
 /** @typedef {Music['items'][number]} Album */

@@ -43,7 +43,7 @@ type playbackGrant struct {
 	id      string
 	session [32]byte
 	trackID string
-	media   *validatedPackage
+	media   *validatedMedia
 	created time.Time
 	expires time.Time
 	revoked bool
@@ -55,7 +55,7 @@ type Service struct {
 	root      *os.Root
 	origins   map[string]bool
 	mu        sync.Mutex
-	tracks    map[string]*validatedPackage
+	tracks    map[string]*validatedMedia
 	sessions  map[[32]byte]*browserSession
 	grants    map[string]*playbackGrant
 	limits    Limits
@@ -223,7 +223,7 @@ func sendJSON(writer http.ResponseWriter, status int, value any) {
 	_ = json.NewEncoder(writer).Encode(value)
 }
 
-// ServeHTTP exposes the grant API and authorized HLS resources.
+// ServeHTTP exposes the grant API and authorized audio files.
 func (service *Service) ServeHTTP(output http.ResponseWriter, request *http.Request) {
 	writer := &responseWriter{ResponseWriter: output, cache: "no-store", head: request.Method == http.MethodHead}
 	started := time.Now()
@@ -307,7 +307,7 @@ func (service *Service) ServeHTTP(output http.ResponseWriter, request *http.Requ
 		service.grantResource(writer, request)
 		return
 	}
-	if strings.HasPrefix(route, "/music/hls/") {
+	if strings.HasPrefix(route, audioRoute) {
 		writer.cache = "private, no-store"
 		service.mediaResource(writer, request)
 		return
@@ -316,8 +316,8 @@ func (service *Service) ServeHTTP(output http.ResponseWriter, request *http.Requ
 }
 
 func routeTemplate(route string) string {
-	if strings.HasPrefix(route, "/music/hls/") {
-		return "/music/hls/{grantId}/{assetId}/{file}"
+	if strings.HasPrefix(route, audioRoute) {
+		return audioRoute + "{grantId}/{assetId}.m4a"
 	}
 	if strings.HasPrefix(route, grantRoute+"/") {
 		return grantRoute + "/{grantId}"
@@ -351,9 +351,9 @@ func (service *Service) preflight(writer http.ResponseWriter, request *http.Requ
 				allowed = "PUT, OPTIONS"
 			}
 		}
-	} else if strings.HasPrefix(request.URL.Path, "/music/hls/") {
-		parts := strings.Split(strings.TrimPrefix(request.URL.Path, "/music/hls/"), "/")
-		if len(parts) == 3 && len(parts[0]) == 22 && assetPattern.MatchString(parts[1]) {
+	} else if strings.HasPrefix(request.URL.Path, audioRoute) {
+		parts := strings.Split(strings.TrimPrefix(request.URL.Path, audioRoute), "/")
+		if len(parts) == 2 && len(parts[0]) == 22 && strings.HasSuffix(parts[1], ".m4a") && assetPattern.MatchString(strings.TrimSuffix(parts[1], ".m4a")) {
 			allowed = "GET, HEAD, OPTIONS"
 		}
 	} else if request.URL.Path == healthPath || request.URL.Path == readinessPath || request.URL.Path == schemaPath {
@@ -384,16 +384,14 @@ func (service *Service) ready() bool {
 	service.mu.Lock()
 	defer service.mu.Unlock()
 	for _, media := range service.tracks {
-		for _, file := range media.files {
-			opened, err := service.root.Open(packagePath(media.record.AssetID, file.Name))
-			if err != nil {
-				return false
-			}
-			info, err := opened.Stat()
-			opened.Close()
-			if err != nil || info.Size() != file.Bytes {
-				return false
-			}
+		opened, err := service.root.Open(media.record.File)
+		if err != nil {
+			return false
+		}
+		info, err := opened.Stat()
+		opened.Close()
+		if err != nil || info.Size() != media.record.Bytes {
+			return false
 		}
 	}
 	return true

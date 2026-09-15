@@ -22,7 +22,7 @@
           "additionalProperties": false,
           "properties": {
             "kind": {
-              "const": "hls"
+              "const": "file"
             },
             "durationMs": {
               "type": "integer",
@@ -342,7 +342,7 @@
           "maxLength": 100,
           "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
         },
-        "playlistUrl": {
+        "mediaUrl": {
           "type": "string",
           "minLength": 1,
           "maxLength": 4096,
@@ -368,7 +368,7 @@
       "required": [
         "grantId",
         "trackId",
-        "playlistUrl",
+        "mediaUrl",
         "durationMs",
         "serverTime",
         "expiresAt"

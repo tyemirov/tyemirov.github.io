@@ -31,8 +31,8 @@ func TestConfiguredCapacityPreservesExistingAccess(t *testing.T) {
 			t.Fatalf("capacity: got %d want %d", response.StatusCode, entry.status)
 		}
 	}
-	playlist, _ := url.Parse(grant.PlaylistURL)
-	if fixture.request(t, "GET", playlist.Path, nil, cookie, nil).StatusCode != 200 {
+	mediaURL, _ := url.Parse(grant.MediaURL)
+	if fixture.request(t, "GET", mediaURL.Path, nil, cookie, nil).StatusCode != 200 {
 		t.Fatal("capacity pressure invalidated a current grant")
 	}
 	fixture.now.Add(24 * 60 * 60)
@@ -68,8 +68,8 @@ func TestConcurrentMediaResponsesReleaseCapacity(t *testing.T) {
 			})
 			grant, cookie := fixture.create(t, nil)
 			other, otherCookie := fixture.create(t, nil)
-			playlist, _ := url.Parse(grant.PlaylistURL)
-			otherPlaylist, _ := url.Parse(other.PlaylistURL)
+			mediaURL, _ := url.Parse(grant.MediaURL)
+			otherMediaURL, _ := url.Parse(other.MediaURL)
 			entered, release := make(chan struct{}, 1), make(chan struct{})
 			released := false
 			defer func() {
@@ -87,7 +87,7 @@ func TestConcurrentMediaResponsesReleaseCapacity(t *testing.T) {
 			defer server.Close()
 			client := server.Client()
 			client.Timeout = 5 * time.Second
-			request, _ := http.NewRequest("GET", server.URL+playlist.Path, nil)
+			request, _ := http.NewRequest("GET", server.URL+mediaURL.Path, nil)
 			request.AddCookie(cookie)
 			request.Header.Set("X-Test-Hold", "yes")
 			done := make(chan error, 1)
@@ -104,9 +104,9 @@ func TestConcurrentMediaResponsesReleaseCapacity(t *testing.T) {
 			case <-time.After(3 * time.Second):
 				t.Fatal("response did not reach the injected slow output")
 			}
-			path, credential := playlist.Path, cookie
+			path, credential := mediaURL.Path, cookie
 			if boundary == "host" {
-				path, credential = otherPlaylist.Path, otherCookie
+				path, credential = otherMediaURL.Path, otherCookie
 			}
 			response := fixture.request(t, "GET", path, nil, credential, nil)
 			if response.StatusCode != 503 || response.Header.Get("Retry-After") != "" {

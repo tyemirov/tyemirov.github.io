@@ -5,7 +5,6 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { request } from "node:http";
 import { chromium, webkit, expect } from "@playwright/test";
 import { installSharedUIAssets } from "./shared-ui-assets.mjs";
-import { installCapabilityScenario } from "./browser-capabilities.mjs";
 
 const siteOrigin = `http://localhost:${process.env.UP_PORT}`;
 const mediaOrigin = `http://localhost:${process.env.API_PORT}`;
@@ -37,17 +36,16 @@ test("the local service plays all nine supplied Vol. II recordings with protecte
   assert.equal(served.tracks.length, 9);
   const selected = JSON.parse(await readFile(`${process.env.MUSIC_LOCAL_ROOT}/catalog.json`, "utf8"));
   for (const track of served.tracks) {
-    assert.equal(track.playback.kind, "hls");
+    assert.equal(track.playback.kind, "file");
     assert.equal(track.playback.durationMs, selected.tracks[track.id].durationMs);
     assert.ok(track.playback.durationMs > 13000, "The local catalog must contain the supplied recording, not the generated test tone.");
   }
   const results = [];
-  for (const [engine, browserType] of [["hls.js", chromium], ["native HLS", webkit]]) {
-    const browser = await browserType.launch({ headless: true, ...(engine === "hls.js" ? { channel: "chromium" } : {}) });
+  for (const [engine, browserType] of [["chromium", chromium], ["webkit", webkit]]) {
+    const browser = await browserType.launch({ headless: true, ...(engine === "chromium" ? { channel: "chromium" } : {}) });
     try {
       const context = await browser.newContext();
       await installSharedUIAssets(context);
-      await installCapabilityScenario(context, { project: { metadata: { forceHls: engine === "hls.js" } }, annotations: [] });
       await context.route(/loopaware\.mprlab\.com/, route => route.abort());
       await context.addInitScript(() => {
         const play = HTMLMediaElement.prototype.play;
@@ -71,14 +69,14 @@ test("the local service plays all nine supplied Vol. II recordings with protecte
         try {
           await expect.poll(() => audio.evaluate(element => element.currentTime)).toBeGreaterThan(3);
         } catch (error) {
-          console.error(JSON.stringify({ trackId: track.id, engine, player: await page.locator("#music-player").innerText(), audio: await audio.evaluate(element => ({ native: element.canPlayType("application/vnd.apple.mpegurl"), readyState: element.readyState, networkState: element.networkState, error: element.error?.message, paused: element.paused })) }));
+          console.error(JSON.stringify({ trackId: track.id, engine, player: await page.locator("#music-player").innerText(), audio: await audio.evaluate(element => ({ native: element.canPlayType('audio/mp4; codecs="mp4a.40.2"'), readyState: element.readyState, networkState: element.networkState, error: element.error?.message, paused: element.paused })) }));
           throw error;
         }
         const state = await audio.evaluate(element => ({ muted: element.muted, error: element.error, time: element.currentTime }));
         assert.equal(state.muted, true);
         assert.equal(state.error, null);
-        assert.equal(await audio.evaluate(element => element.currentSrc.startsWith("blob:")), engine === "hls.js");
-        assert.equal((await get(grant.playlistUrl)).status, 401);
+        assert.ok(await audio.evaluate(element => element.currentSrc.endsWith(".m4a")));
+        assert.equal((await get(grant.mediaUrl)).status, 401);
         results.push({ trackId: track.id, engine, seconds: state.time, anonymousPlaylistStatus: 401 });
         await page.getByRole("region", { name: "Music player" }).getByRole("button", { name: "Pause", exact: true }).click();
       }
