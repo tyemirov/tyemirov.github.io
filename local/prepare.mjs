@@ -24,20 +24,19 @@ sharedConfig.environments[0].auth.tauthUrl = apiOrigin;
 sharedConfig.environments[0].auth.tenantId = "tyemirov-gallery-development";
 const sitePath = "data/site.json";
 const indexName = "catalog.json";
-const packagesName = "packages";
 const site = JSON.parse(await readFile(join(publicSite, sitePath), "utf8"));
-/** @type {{ tracks: Record<string, { durationMs: number }> }} */
+/** @type {{ tracks: Record<string, { durationMs: number, file: string }> }} */
 const index = JSON.parse(await readFile(join(sourceMedia, indexName), "utf8"));
 for (const album of site.music.items) for (const track of album.tracks) {
   const record = index.tracks?.[track.id];
   if (!record) throw new Error(`Prepare track ${track.id}: missing local media in ${sourceMedia}.`);
-  track.playback = { kind: "hls", durationMs: record.durationMs };
+  track.playback = { kind: "file", durationMs: record.durationMs };
 }
 const music = validateMusic(site.music);
 const allowlist = JSON.stringify(playbackAllowlist(music), null, 2) + "\n";
 await mkdir(localSite, { recursive: true });
 await mkdir(localMedia, { recursive: true });
-await cp(join(sourceMedia, packagesName), join(localMedia, packagesName), { recursive: true });
+for (const record of Object.values(index.tracks)) await cp(join(sourceMedia, record.file), join(localMedia, record.file));
 for (const entry of await readdir(localSite)) await rm(join(localSite, entry), { recursive: true, force: true });
 await cp(publicSite, localSite, { recursive: true });
 await writeFile(join(localSite, "config-site.json"), JSON.stringify({ apiOrigin }) + "\n");
