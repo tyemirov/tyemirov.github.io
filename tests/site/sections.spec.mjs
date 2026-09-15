@@ -45,21 +45,32 @@ test('Articles contains every interactive tool and keeps topic filtering within 
 });
 
 for (const width of [390, 1280]) {
-  test(`Tools presents Platform and work-in-progress games at ${width}px`, async ({ page }) => {
+  test(`Tools presents similarly shaped adjacent cards for Platform and games at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/#tools');
     const tools = page.getByRole('region', { name: 'Tools', exact: true });
     await expect(tools.getByRole('heading', { name: 'Tools', exact: true })).toBeInViewport();
-    await expect(tools.getByRole('heading', { level: 3 })).toHaveText(['Platform', 'Games']);
+    const cards = tools.locator('.project-card');
+    await expect(cards).toHaveCount(4);
+    await expect(tools.locator('.tools-list')).toHaveCSS('display', 'grid');
+    await expect(cards.locator('h2')).toHaveText(['Platform', 'Hecate', 'Allergy Wheel', 'StackLab']);
     await expect(tools.getByRole('link', { name: 'Explore MPR Lab ↗', exact: true })).toHaveAttribute('href', 'https://mprlab.com/');
-    await expect(tools.locator('.game-card h4')).toHaveText(['Hecate', 'Allergy Wheel', 'StackLab']);
     await expect(tools.locator('.game-status')).toHaveText(['Work in progress', 'Work in progress', 'Work in progress']);
     for (const [name, href] of [['Hecate', 'https://hecate.mprlab.com/'], ['Allergy Wheel', 'https://allergy.mprlab.com/']]) {
       await expect(tools.getByRole('link', { name: `Try ${name} ↗`, exact: true })).toHaveAttribute('href', href);
     }
     const stackLab = tools.locator('.game-card').filter({ has: page.getByRole('heading', { name: 'StackLab', exact: true }) });
-    await expect(stackLab.locator('p.game-summary')).not.toBeEmpty();
+    await expect(stackLab.locator('p.card-body')).not.toBeEmpty();
     await expect(stackLab.getByRole('link')).toHaveCount(0);
+    const boxes = await cards.evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().toJSON()));
+    if (width >= 1000) {
+      expect(boxes[0].y).toBe(boxes[1].y);
+      expect(boxes[1].x).toBeGreaterThan(boxes[0].x);
+      expect(boxes[2].y).toBe(boxes[3].y);
+      expect(boxes[3].x).toBeGreaterThan(boxes[2].x);
+    } else {
+      expect(boxes[1].y).toBeGreaterThan(boxes[0].y);
+    }
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
   });
 }

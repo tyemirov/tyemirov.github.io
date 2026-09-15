@@ -13,6 +13,7 @@ test("the Pages artifact contains the player and rejects private audio", async (
     assert.equal(build.status, 0, build.stderr);
     const validate = () => spawnSync(process.execPath, ["scripts/music/validate-artifact.mjs", output], { encoding: "utf8", timeout: 10000 });
     const valid = validate(); assert.equal(valid.status, 0, valid.stderr);
+    assert.equal((await readdir(join(output, "assets"))).includes("music"), false, "Bundled audio and its index must not enter Pages.");
     const configPath = join(output, "config-site.json");
     const config = await readFile(configPath);
     for (const field of ["apiOrigin"]) {

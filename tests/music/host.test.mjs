@@ -10,7 +10,7 @@ const root = resolve(".");
 const serviceImage = "music-stream:f001-host";
 const preparationImage = "music-prepare:f001-host";
 const container = "music-host-qualification";
-const volumeName = "tyemirov-site-music-media";
+const volumeName = "music-host-fixture-media";
 const proxyContainer = "music-host-caddy";
 const proxyVolume = "music-host-caddy-data";
 const proxyImage = "docker.io/temirov/caddy-ratelimit@sha256:b45d6bea1555119a0d2e7f44d1e8ead45c22e5e2af22f328f5a843ec9084f5c9";
@@ -66,8 +66,8 @@ test("Gateway creates a retained volume and the declared AMD64 music service use
     await reconcile("volume-create");
     const contract = JSON.parse(await readFile(selected, "utf8"));
     // This generated-audio qualification supplies explicit HLS fixture metadata.
-    // The production command is tested separately with empty retained storage.
-    const fixtureCommand = contract.service.command.map(value => value === "/runtime/music/catalog.json" ? "/media/catalog.json" : value === "/runtime/music/allowlist.json" ? "/media/allowlist.json" : value);
+    // The production image is tested separately without a media volume.
+    const fixtureCommand = contract.service.command.map(value => value.replace("/assets/music", "/media"));
     assert.equal(contract.volume, volumeName);
     const volume = JSON.parse(success(remoteDocker(["volume", "inspect", contract.volume])))[0];
     assert.equal(volume.Labels["com.mprlab.owner"], contract.owner);

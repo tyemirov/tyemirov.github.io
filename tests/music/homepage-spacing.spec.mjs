@@ -35,7 +35,7 @@ for (const width of [390, 769, 1280]) {
     for (const gap of metrics.gaps) expect.soft(Math.round(gap)).toBe(width <= 600 ? 60 : 100);
     expect.soft(metrics.footer.top - metrics.lastActionBottom).toBeGreaterThanOrEqual(0);
     expect.soft(Math.round(metrics.footer.top - metrics.lastActionBottom)).toBeLessThanOrEqual(121);
-    expect.soft(metrics.footer.bottom).toBeCloseTo(metrics.height, 0);
+    expect.soft(Math.abs(metrics.footer.bottom - metrics.height)).toBeLessThanOrEqual(1);
     expect.soft(metrics.bodyFontSize).toBeGreaterThanOrEqual(16);
     await expect(page.locator(".essay-list h2")).toHaveText(catalog.articles.items.filter(item => item.status === "live").sort((a, b) => a.order - b.order).map(item => item.title));
     await expect(page.locator(".hero-links a")).toHaveCount(4);

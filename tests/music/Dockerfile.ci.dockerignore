@@ -54,3 +54,5 @@
 
 **/__pycache__
 **/node_modules
+!assets/music/packages/**/*.m3u8
+!assets/music/packages/**/*.m4s

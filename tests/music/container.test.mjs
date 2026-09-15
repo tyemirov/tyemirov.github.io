@@ -19,6 +19,8 @@ test("the Pages container exports public content without Gateway metadata", { ti
     const site = JSON.parse(await readFile(join(directory, "data/site.json"), "utf8"));
     assert.equal(site.music.items.length, 6);
     assert.equal(site.music.items.flatMap((album) => album.tracks).length, 50);
+    assert.ok(site.music.items.flatMap(album => album.tracks).every(track => track.playback.kind === "hls"));
+    assert.equal((await readdir(join(directory, "assets"))).includes("music"), false);
     assert.match(await readFile(join(directory, "gallery/order/index.html"), "utf8"), /Your gallery order/);
     assert.deepEqual(JSON.parse(await readFile(join(directory, "config-site.json"), "utf8")), { apiOrigin: "https://api.tyemirov.net" });
   } finally { await rm(directory, { recursive: true, force: true }); }
