@@ -6,7 +6,7 @@ import { mkdir, mkdtemp, rename, rm, stat } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { parseArgs } from "node:util";
 
-const FFMPEG_VERSION = "8.1.2";
+const FFMPEG_VERSIONS = ["8.1.2", "9.0.1"];
 const TRACK_ID = /^[a-z0-9][a-z0-9-]{0,79}$/;
 const CODEC = "mp4a.40.2";
 
@@ -35,9 +35,9 @@ async function prepare() {
   if (!values["track-id"] || !TRACK_ID.test(values["track-id"])) throw new Error("The track ID is invalid.");
   if (!values.source || !values["media-root"]) throw new Error("Supply --source and --media-root.");
   const version = execute("ffmpeg", ["-version"]).split("\n")[0];
-  if (!version.startsWith(`ffmpeg version ${FFMPEG_VERSION} `)) throw new Error(`Use FFmpeg ${FFMPEG_VERSION}.`);
+  if (!FFMPEG_VERSIONS.some(v => version.startsWith(`ffmpeg version ${v} `))) throw new Error(`Use FFmpeg ${FFMPEG_VERSIONS.join(" or ")}.`);
   const probeVersion = execute("ffprobe", ["-version"]).split("\n")[0];
-  if (!probeVersion.startsWith(`ffprobe version ${FFMPEG_VERSION} `)) throw new Error(`Use FFprobe ${FFMPEG_VERSION}.`);
+  if (!FFMPEG_VERSIONS.some(v => probeVersion.startsWith(`ffprobe version ${v} `))) throw new Error(`Use FFprobe ${FFMPEG_VERSIONS.join(" or ")}.`);
   const source = resolve(values.source);
   const sourceFacts = probe(source);
   const sourceDuration = Number(sourceFacts.format?.duration);
