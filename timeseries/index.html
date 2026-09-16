@@ -1,14 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Time Series and Thresholds</title>
+  <meta name="theme-color" content="#171411" />
+  <script>
+    if (window.location.pathname === "/timeseries") {
+      window.location.replace(`/timeseries/${window.location.search}${window.location.hash}`);
+    }
+  </script>
+  <title>Time Series and Thresholds — Process vs. Threshold Decision Model</title>
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta
+    name="description"
+    content="Distinguish between ongoing processes and one-off commitment decisions to prevent alarm fatigue and optimize systems monitoring."
+  />
+  <link rel="canonical" href="https://tyemirov.net/timeseries/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vadym Tyemirov" />
+  <meta property="og:title" content="Time Series and Thresholds — Process vs. Threshold Decision Model" />
+  <meta
+    property="og:description"
+    content="Distinguish between ongoing processes and one-off commitment decisions to prevent alarm fatigue and optimize systems monitoring."
+  />
+  <meta property="og:url" content="https://tyemirov.net/timeseries/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Time Series and Thresholds — Process vs. Threshold Decision Model" />
+  <meta
+    name="twitter:description"
+    content="Distinguish between ongoing processes and one-off commitment decisions to prevent alarm fatigue and optimize systems monitoring."
+  />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="/site.webmanifest" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Time Series and Thresholds",
+      "url": "https://tyemirov.net/timeseries/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "description": "Distinguish between ongoing processes and one-off commitment decisions to prevent alarm fatigue and optimize systems monitoring.",
+      "creator": {
+        "@type": "Person",
+        "name": "Vadym Tyemirov",
+        "url": "https://tyemirov.net/"
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.css" />
   <script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.js"></script>
     <style>
