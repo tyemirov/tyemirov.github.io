@@ -5,6 +5,8 @@ import * as yaml from 'js-yaml';
 import { validateSourceCatalog, publishCatalog } from '../../assets/js/catalog.js';
 import { siteRuntime } from '../../assets/js/generated/validators.js';
 import { renderMarkdown } from '../../assets/js/markdown.js';
+import { PLATFORMS } from '../../music/catalog.js';
+import { musicIcon } from '../../music/icons.js';
 
 const root = resolve(import.meta.dirname, '../..');
 const output = process.argv[2];
@@ -21,6 +23,7 @@ const uiConfig = JSON.parse(await readFile(join(root, 'config-ui.yaml'), 'utf8')
 const tenant = resources.find(resource => resource.kind === 'tauth_tenant' && resource.id === 'gallery-auth').tenant;
 if (uiConfig.environments.length !== 1 || uiConfig.environments[0].auth.tauthUrl !== config.apiOrigin || uiConfig.environments[0].auth.tenantId !== tenant.id || JSON.stringify(uiConfig.environments[0].origins) !== JSON.stringify(tenant.origins)) throw new Error('The shared authentication configuration must match the selected tenant and API origin.');
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+const serializeJsonLd = value => JSON.stringify(value, null, 2).replaceAll('<', '\\u003c');
 const routes = new Map();
 async function file(path, body) {
   await mkdir(resolve(output, path, '..'), { recursive: true });
@@ -56,7 +59,7 @@ function document(path, title, description, content, options = {}) {
   const imageTags = imageUrl
     ? `<meta property="og:image" content="${imageUrl}">\n<meta name="twitter:image" content="${imageUrl}">\n<meta name="twitter:card" content="summary_large_image">`
     : '<meta name="twitter:card" content="summary">';
-  const schemaTag = options.schema ? `\n<script type="application/ld+json">\n${JSON.stringify(options.schema, null, 2)}\n</script>` : '';
+  const schemaTag = options.schema ? `\n<script type="application/ld+json">\n${serializeJsonLd(options.schema)}\n</script>` : '';
 
   return `<!doctype html>
 <html lang="en"><head>
@@ -82,7 +85,22 @@ ${imageTags}
 <main id="main" class="article-shell">${content}</main>
 <mpr-footer sticky="false" id="site-footer" class="site-footer"></mpr-footer></body></html>\n`;
 }
-for (const path of ['/', '/music/', '/gallery/order/', '/gallery/studio/']) await page(path, await readFile(join(root, path, 'index.html'), 'utf8'));
+for (const path of ['/', '/gallery/order/', '/gallery/studio/']) await page(path, await readFile(join(root, path, 'index.html'), 'utf8'));
+const albumCards = [...site.music.items].sort((a, b) => a.order - b.order).map(album => {
+  const href = `/music/${album.slug}/`;
+  return `<article class="album-card">
+    <a class="album-cover" href="${escape(href)}" aria-label="Open ${escape(album.title)}">
+      <img src="${escape(album.coverImage)}" alt="${escape(album.title)} cover" loading="lazy">
+    </a>
+    <h2 class="album-title"><a href="${escape(href)}">${escape(album.displayTitle ?? album.title)}</a></h2>
+    ${album.translation ? `<p class="album-translation">${escape(album.translation)}</p>` : ''}
+    <p class="album-meta">${album.latest ? 'Latest Release • ' : ''}${escape(album.releaseDate.value)} • ${album.tracks.length} Tracks</p>
+    <p class="album-description">${escape(album.subtitle)}</p>
+    <div class="links-grid">${Object.entries(album.streamingLinks).map(([platform, href]) => `<a class="streaming-link" href="${escape(href)}" target="_blank" rel="noopener noreferrer" aria-label="${PLATFORMS[platform]}" title="${PLATFORMS[platform]}">${musicIcon(platform)}</a>`).join('')}</div>
+  </article>`;
+}).join('\n');
+const music = await readFile(join(root, 'music/index.html'), 'utf8');
+await page('/music/', music.replace('<div class="album-grid" id="album-grid"></div>', () => `<div class="album-grid" id="album-grid">${albumCards}</div>`));
 for (const project of site.projects.filter(project => project.kind === 'model')) await page(project.href, await readFile(join(root,project.href,'index.html'),'utf8'));
 const articles = source.articles.items.filter(item => item.status === 'live').sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));
 
@@ -252,7 +270,7 @@ for (const album of site.music.items) {
 <meta name="twitter:description" content="${escape(album.shortDescription)}">
 <meta name="twitter:image" content="${coverUrl}">
 <script type="application/ld+json">
-${JSON.stringify(albumSchema, null, 2)}
+${serializeJsonLd(albumSchema)}
 </script>`;
   await page(path, template.replace(/<title>[^<]*<\/title>/, albumHead));
   await access(join(root, album.coverImage));
@@ -264,37 +282,8 @@ await file('data/routes.json', JSON.stringify([...routes].map(([path, file]) => 
 await file('404.html', withNavigation('/404.html', document('/404.html', 'Page not found', 'The requested page does not exist.', '<h1>Page not found</h1>')));
 
 function lastmodFor(path) {
-  if (path.startsWith('/articles/')) {
-    const slug = path.split('/')[2];
-    if (!slug) {
-      const dates = articles.map(a => a.updatedAt || a.publishedAt).filter(Boolean);
-      return dates.length ? dates.sort().pop().slice(0, 10) : null;
-    }
-    const article = articles.find(a => a.slug === slug);
-    if (article) return (article.updatedAt || article.publishedAt || '').slice(0, 10) || null;
-  }
-  if (path.startsWith('/gallery/exhibits/')) {
-    const id = path.split('/')[3];
-    const exhibit = site.gallery.exhibits.find(e => e.id === id);
-    if (exhibit?.startDate) return exhibit.startDate;
-  }
-  if (path.startsWith('/gallery/artworks/')) {
-    const id = path.split('/')[3];
-    const artwork = site.gallery.artworks.find(a => a.id === id);
-    if (artwork?.year) return `${artwork.year}-01-01`;
-  }
-  if (path.startsWith('/gallery/collections/')) {
-    return '2025-10-01';
-  }
-  if (path.startsWith('/music/')) {
-    const slug = path.split('/')[2];
-    if (!slug) return '2026-01-01';
-    const album = site.music.items.find(a => a.slug === slug);
-    if (album?.releaseDate?.value) {
-      return album.releaseDate.value.length === 4 ? `${album.releaseDate.value}-01-01` : album.releaseDate.value;
-    }
-  }
-  return null;
+  const article = articles.find(article => path === `/articles/${article.slug}/`);
+  return article?.updatedAt?.slice(0, 10) ?? null;
 }
 
 await file('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + [...routes.keys()].filter(path=>!['/gallery/order/','/gallery/cart/','/gallery/studio/'].includes(path)).map(path=>{
