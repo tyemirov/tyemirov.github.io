@@ -28,15 +28,30 @@ test('generated article and gallery routes survive direct HTTP navigation', asyn
       assert.match(html, /<head>\s*<script defer src="https:\/\/loopaware/);
       assert.ok(html.length > article.body.text.length / 2);
       assert.ok(!html.includes('subscription-widget'));
+      assert.ok(html.includes('"@type": "Article"'));
+      assert.ok(html.includes('property="og:type" content="article"'));
+    }
+    const articlesIndex = await (await fetch(`${origin}/articles/`)).text();
+    for (const article of source.articles.items.filter(item => item.status === 'live')) {
+      assert.ok(articlesIndex.includes(`/articles/${article.slug}/`));
     }
     for (const kind of ['artworks', 'collections', 'exhibits']) {
       for (const item of source.gallery[kind]) assert.equal((await fetch(`${origin}/gallery/${kind}/${item.id}/`)).status, 200);
     }
     assert.equal((await fetch(`${origin}/articles/absent/`)).status, 404);
     const sitemap=readFileSync(join(output,'sitemap.xml'),'utf8');
-    for(const article of source.articles.items) assert.ok(sitemap.includes(`/articles/${article.slug}/`));
+    for(const article of source.articles.items) {
+      const expectedDate = (article.updatedAt || article.publishedAt).slice(0, 10);
+      assert.ok(sitemap.includes(`/articles/${article.slug}/`));
+      assert.ok(sitemap.includes(`<loc>https://tyemirov.net/articles/${article.slug}/</loc><lastmod>${expectedDate}</lastmod>`));
+    }
     assert.ok(!sitemap.includes('/gallery/order/'));
-    for(const project of source.projects.filter(project=>project.kind==='model')) assert.equal((await fetch(origin+project.href)).status,200);
+    for(const project of source.projects.filter(project=>project.kind==='model')) {
+      const projectRes = await fetch(origin+project.href);
+      assert.equal(projectRes.status, 200);
+      const projectHtml = await projectRes.text();
+      assert.ok(projectHtml.includes(`rel="canonical" href="https://tyemirov.net${project.href}"`));
+    }
     const publicSite = JSON.parse(readFileSync(join(output, 'data/site.json'), 'utf8'));
     assert.ok(publicSite.articles.items.every(item => !('body' in item)));
     assert.deepEqual(JSON.parse(readFileSync(join(output, 'config-site.json'), 'utf8')), { apiOrigin: 'https://api.tyemirov.net' });
