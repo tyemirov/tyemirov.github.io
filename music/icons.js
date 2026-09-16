@@ -11,6 +11,8 @@ const paths = {
   next: '<path d="M19 5v14M6 5l10 7-10 7Z"/>',
   retry: '<path d="M20 11a8 8 0 1 0-2 6M20 4v7h-7"/>',
   volume: '<path d="m11 5-6 4H2v6h3l6 4Z"/><path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>',
+  share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>',
+  check: '<polyline points="20 6 9 17 4 12"/>',
 };
 
 /** Return a decorative icon for an accessibly labeled music control.

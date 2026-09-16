@@ -4,7 +4,7 @@ import { musicCatalog } from "../assets/js/generated/validators.js";
 export const PLATFORMS = Object.freeze({ spotify: "Spotify", apple: "Apple Music", youtube: "YouTube Music", amazon: "Amazon Music", suno: "Suno" });
 
 /** @typedef {{kind: "external"} | {kind: "file", durationMs: number}} Playback */
-/** @typedef {{id: string, title: string, playback: Playback}} Track */
+/** @typedef {{id: string, slug: string, title: string, playback: Playback}} Track */
 /** @typedef {import('../contracts/generated/musicCatalog').MusicCatalog} Music */
 /** @typedef {Music['items'][number]} Album */
 
@@ -15,9 +15,12 @@ export function validateMusic(value) {
   for (const album of value.items) {
     if (slugs.has(album.slug)) throw new Error('Duplicate album slug.');
     slugs.add(album.slug);
+    const trackSlugs = new Set();
     for (const track of album.tracks) {
       if (tracks.has(track.id)) throw new Error('Duplicate track ID.');
       tracks.add(track.id);
+      if (trackSlugs.has(track.slug)) throw new Error(`Duplicate track slug: ${track.slug}`);
+      trackSlugs.add(track.slug);
     }
   }
   return value;

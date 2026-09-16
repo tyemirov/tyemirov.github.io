@@ -32,6 +32,7 @@ export interface MusicAlbum {
    */
   tracks: {
     id: string;
+    slug: string;
     title: string;
     playback:
       | {

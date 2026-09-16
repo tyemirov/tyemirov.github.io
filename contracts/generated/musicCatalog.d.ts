@@ -39,6 +39,7 @@ export interface MusicCatalog {
      */
     tracks: {
       id: string;
+      slug: string;
       title: string;
       playback:
         | {

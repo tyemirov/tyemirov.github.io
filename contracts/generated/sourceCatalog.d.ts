@@ -136,6 +136,7 @@ export interface SourceCatalog {
        */
       tracks: {
         id: string;
+        slug: string;
         title: string;
         playback:
           | {
