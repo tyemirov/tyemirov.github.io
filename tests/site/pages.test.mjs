@@ -41,7 +41,7 @@ test('generated article and gallery routes survive direct HTTP navigation', asyn
     assert.equal((await fetch(`${origin}/articles/absent/`)).status, 404);
     const sitemap=readFileSync(join(output,'sitemap.xml'),'utf8');
     for(const article of source.articles.items) {
-      const expectedDate = (article.updatedAt || article.publishedAt).slice(0, 10);
+      const expectedDate = article.updatedAt.slice(0, 10);
       assert.ok(sitemap.includes(`/articles/${article.slug}/`));
       assert.ok(sitemap.includes(`<loc>https://tyemirov.net/articles/${article.slug}/</loc><lastmod>${expectedDate}</lastmod>`));
     }
@@ -56,6 +56,26 @@ test('generated article and gallery routes survive direct HTTP navigation', asyn
     assert.ok(publicSite.articles.items.every(item => !('body' in item)));
     assert.deepEqual(JSON.parse(readFileSync(join(output, 'config-site.json'), 'utf8')), { apiOrigin: 'https://api.tyemirov.net' });
   } finally { await new Promise(resolve => server.close(resolve)); rmSync(output, { recursive: true, force: true }); }
+});
+
+test('sitemap dates use recorded content updates only', () => {
+  const output = mkdtempSync(join(tmpdir(), 'site-sitemap-'));
+  try {
+    const source = JSON.parse(readFileSync('data/site.json', 'utf8'));
+    source.articles.items[0].updatedAt = '2026-09-14T12:34:56Z';
+    source.articles.items[1].updatedAt = null;
+    const input = join(output, 'source.json');
+    writeFileSync(input, JSON.stringify(source));
+    execFileSync(process.execPath, ['scripts/site/build.mjs', output, input]);
+    const sitemap = readFileSync(join(output, 'sitemap.xml'), 'utf8');
+    const entries = [...sitemap.matchAll(/<url><loc>(.*?)<\/loc>(.*?)<\/url>/g)];
+    for (const [, url, metadata] of entries) {
+      const article = source.articles.items.find(article => url === new URL(`/articles/${article.slug}/`, source.site.canonical).href);
+      assert.equal(metadata, article?.updatedAt ? `<lastmod>${article.updatedAt.slice(0, 10)}</lastmod>` : '', url);
+    }
+    assert.ok(entries.some(([, url]) => url.endsWith('/music/')));
+    assert.ok(entries.some(([, url]) => url.includes('/gallery/collections/')));
+  } finally { rmSync(output, { recursive: true, force: true }); }
 });
 
 test('new catalog albums generate pages without a manually authored route file', () => {
