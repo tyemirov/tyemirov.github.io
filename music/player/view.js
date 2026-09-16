@@ -1,5 +1,6 @@
 // @ts-check
 import { musicIcon } from "../icons.js";
+import { shareTrack } from "../share.js";
 const formatTime = (seconds) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
 
 export function mountPlayerView(controller, audio) {
@@ -11,7 +12,7 @@ export function mountPlayerView(controller, audio) {
   region.setAttribute("aria-label", "Music player");
   region.hidden = true;
   region.innerHTML = `<div class="player-summary"><img class="player-cover" alt="Album cover"><div><strong class="player-track"></strong><p class="player-album"></p></div></div>
-    <div class="player-controls"><button type="button" data-action="previous" aria-label="Previous track" title="Previous track">${musicIcon("previous")}</button><button type="button" data-action="toggle" aria-label="Play" title="Play">${musicIcon("play")}</button><button type="button" data-action="next" aria-label="Next track" title="Next track">${musicIcon("next")}</button><button type="button" data-action="retry" aria-label="Retry" title="Retry" hidden>${musicIcon("retry")}</button></div>
+    <div class="player-controls"><button type="button" data-action="previous" aria-label="Previous track" title="Previous track">${musicIcon("previous")}</button><button type="button" data-action="toggle" aria-label="Play" title="Play">${musicIcon("play")}</button><button type="button" data-action="next" aria-label="Next track" title="Next track">${musicIcon("next")}</button><button type="button" data-action="share" aria-label="Share track" title="Share track">${musicIcon("share")}</button><button type="button" data-action="retry" aria-label="Retry" title="Retry" hidden>${musicIcon("retry")}</button></div>
     <div class="player-progress"><label class="player-sr-only" for="music-seek">Seek</label><input id="music-seek" type="range" min="0" max="1" step="1" value="0"><span class="player-time" aria-live="off"></span></div>
     <label class="player-volume" for="music-volume" title="Volume">${musicIcon("volume")}<span class="player-sr-only">Volume</span><input id="music-volume" type="range" min="0" max="1" step="0.05" value="1"></label>
     <p class="player-status player-sr-only" role="status" aria-live="polite"></p><p class="player-error" role="alert" hidden></p>`;
@@ -32,6 +33,10 @@ export function mountPlayerView(controller, audio) {
   const actions = {
     previous: () => controller.previous(), next: () => controller.next(), retry: () => controller.retry(),
     toggle: () => { if (["playing", "buffering"].includes(controller.phase)) controller.pause(); else void controller.resume(); },
+    share: () => {
+      const state = controller.snapshot();
+      if (state.track) void shareTrack(state.track, state.album, find('[data-action="share"]'));
+    },
   };
   region.addEventListener("click", (event) => {
     const button = event.target.closest("button[data-action]");
@@ -63,6 +68,7 @@ export function mountPlayerView(controller, audio) {
     toggle.disabled = busy || state.phase === "error";
     find('[data-action="previous"]').disabled = !state.previous;
     find('[data-action="next"]').disabled = !state.next;
+    find('[data-action="share"]').disabled = busy || state.phase === "error";
     retry.hidden = state.phase !== "error";
     retry.disabled = state.retryDelay > 0;
     find("#music-volume").value = String(state.volume);

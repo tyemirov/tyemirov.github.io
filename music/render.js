@@ -91,7 +91,9 @@ export function renderAlbumDetails(album) {
   const list = element("ol", "track-list");
   for (const track of album.tracks) {
     const row = element("li", "track-row");
+    row.id = track.slug;
     row.dataset.trackId = track.id;
+    row.dataset.trackSlug = track.slug;
     row.append(element("span", "track-title", track.title));
     if (track.playback.kind === "file") {
       const button = document.createElement("button");
@@ -114,6 +116,24 @@ export function renderAlbumDetails(album) {
   layout.append(sidebar, content);
   article.append(layout);
   document.querySelector("#album-container").replaceChildren(article);
+  applyTrackHash(album);
+  window.addEventListener("hashchange", () => applyTrackHash(album));
+}
+
+/** @param {import('./catalog.js').Album} album */
+function applyTrackHash(album) {
+  const hash = window.location.hash.replace(/^#/, "");
+  for (const row of document.querySelectorAll(".track-row")) {
+    row.classList.remove("is-highlighted");
+  }
+  if (!hash) return;
+  const track = album.tracks.find((item) => item.slug === hash || item.id === hash);
+  if (!track) return;
+  const row = document.querySelector(`.track-row[data-track-slug="${track.slug}"]`);
+  if (row) {
+    row.classList.add("is-highlighted");
+    row.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
 }
 
 export function renderMusicError(message) {
