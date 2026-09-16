@@ -136,6 +136,7 @@ export interface PublicCatalog {
        */
       tracks: {
         id: string;
+        slug: string;
         title: string;
         playback:
           | {

@@ -2,6 +2,7 @@
 
 export interface MusicTrack {
   id: string;
+  slug: string;
   title: string;
   playback:
     | {
