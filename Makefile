@@ -144,9 +144,12 @@ release publish deploy:
 	fi; \
 	exec "$(MPRLAB_GATEWAY_EXECUTABLE)" "app-$@" --app-root "$${application_root}"
 
-.PHONY: site-contract-test contracts-generate
+.PHONY: site-contract-test site-browser-test contracts-generate
 site-contract-test:
 	@node --test tests/site/*.test.mjs
+
+site-browser-test:
+	@npx playwright test --config tests/site/playwright.config.mjs $(SITE_BROWSER_ARGS)
 
 contracts-generate:
 	@node scripts/contracts/generate.mjs

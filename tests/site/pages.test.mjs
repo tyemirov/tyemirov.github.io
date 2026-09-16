@@ -41,11 +41,11 @@ test('generated article and gallery routes survive direct HTTP navigation', asyn
     assert.equal((await fetch(`${origin}/articles/absent/`)).status, 404);
     const sitemap=readFileSync(join(output,'sitemap.xml'),'utf8');
     for(const article of source.articles.items) {
-      const expectedDate = (article.updatedAt || article.publishedAt).slice(0, 10);
+      const expectedDate = article.updatedAt.slice(0, 10);
       assert.ok(sitemap.includes(`/articles/${article.slug}/`));
       assert.ok(sitemap.includes(`<loc>https://tyemirov.net/articles/${article.slug}/</loc><lastmod>${expectedDate}</lastmod>`));
     }
-    assert.ok(!sitemap.includes('/gallery/order/'));
+    assert.ok(!sitemap.includes('/gallery/'));
     for(const project of source.projects.filter(project=>project.kind==='model')) {
       const projectRes = await fetch(origin+project.href);
       assert.equal(projectRes.status, 200);
@@ -56,6 +56,34 @@ test('generated article and gallery routes survive direct HTTP navigation', asyn
     assert.ok(publicSite.articles.items.every(item => !('body' in item)));
     assert.deepEqual(JSON.parse(readFileSync(join(output, 'config-site.json'), 'utf8')), { apiOrigin: 'https://api.tyemirov.net' });
   } finally { await new Promise(resolve => server.close(resolve)); rmSync(output, { recursive: true, force: true }); }
+});
+
+test('sitemap covers articles, music, and tools without gallery', () => {
+  const output = mkdtempSync(join(tmpdir(), 'site-sitemap-'));
+  try {
+    const source = JSON.parse(readFileSync('data/site.json', 'utf8'));
+    source.articles.items[0].updatedAt = '2026-09-14T12:34:56Z';
+    source.articles.items[1].updatedAt = null;
+    const input = join(output, 'source.json');
+    writeFileSync(input, JSON.stringify(source));
+    execFileSync(process.execPath, ['scripts/site/build.mjs', output, input]);
+    const sitemap = readFileSync(join(output, 'sitemap.xml'), 'utf8');
+    const entries = [...sitemap.matchAll(/<url><loc>(.*?)<\/loc>(.*?)<\/url>/g)];
+    const byUrl = new Map(entries.map(([, url, metadata]) => [url, metadata]));
+    const loc = path => new URL(path, source.site.canonical).href;
+    for (const [, url] of entries) assert.ok(!new URL(url).pathname.startsWith('/gallery/'), url);
+    for (const article of source.articles.items.filter(item => item.status === 'live')) {
+      assert.equal(byUrl.get(loc(`/articles/${article.slug}/`)), article.updatedAt ? `<lastmod>${article.updatedAt.slice(0, 10)}</lastmod>` : '', article.slug);
+    }
+    for (const album of source.music.items.filter(item => item.status === 'live')) {
+      const expected = album.releaseDate.precision === 'year' ? `${album.releaseDate.value}-01-01` : album.releaseDate.value.slice(0, 10);
+      assert.equal(byUrl.get(loc(`/music/${album.slug}/`)), `<lastmod>${expected}</lastmod>`, album.slug);
+    }
+    for (const path of ['/', '/articles/', '/music/', ...source.projects.filter(project => project.kind === 'model' && project.status === 'live').map(project => project.href)]) {
+      assert.ok(byUrl.has(loc(path)), path);
+      assert.equal(byUrl.get(loc(path)), '', path);
+    }
+  } finally { rmSync(output, { recursive: true, force: true }); }
 });
 
 test('new catalog albums generate pages without a manually authored route file', () => {
