@@ -460,3 +460,48 @@ test.describe("browser history cache", () => {
     await expect.poll(() => page.locator("audio").evaluate((audio) => audio.currentTime)).toBeGreaterThan(0.2);
   });
 });
+
+test("track sharing copies the track anchor link from the player and landing with an anchor highlights the song", async ({ page }) => {
+  await page.addInitScript(() => {
+    /** @type {string[]} */
+    window.copiedLinks = [];
+    if ("share" in navigator) {
+      navigator.share = async (data) => { window.copiedLinks.push(data.url); };
+    }
+    Object.defineProperty(navigator, "clipboard", {
+      value: { writeText: async (text) => { window.copiedLinks.push(text); } },
+      configurable: true,
+    });
+  });
+  await page.goto("/music/soliloquies-vol-i/");
+  await expect(page.locator(".track-share")).toHaveCount(0);
+
+  const firstPlay = page.locator(".track-play").first();
+  await firstPlay.click();
+  const player = page.locator("#music-player");
+  await expect(player).toBeVisible();
+
+  const playerShare = player.locator('[data-action="share"]');
+  await expect(playerShare).toBeVisible();
+  await expect(playerShare).toHaveAttribute("aria-label", "Share track");
+
+  await playerShare.click();
+  await expect.poll(() => page.evaluate(() => window.copiedLinks)).toEqual([
+    page.url().split("#")[0] + "#inferno-canto-i"
+  ]);
+  await expect(playerShare).toHaveAttribute("aria-label", "Link copied");
+
+  await page.goto("/music/soliloquies-vol-i/#to-be-or-not-to-be");
+  const targetRow = page.locator('.track-row[data-track-slug="to-be-or-not-to-be"]');
+  await expect(targetRow).toHaveClass(/is-highlighted/);
+
+  const secondPlay = targetRow.locator(".track-play");
+  await secondPlay.click();
+  await expect(player).toBeVisible();
+  await expect(player.locator(".player-track")).toHaveText("To be, or not to be (Hamlet)");
+
+  await playerShare.click();
+  await expect.poll(() => page.evaluate(() => window.copiedLinks.at(-1))).toBe(
+    page.url().split("#")[0] + "#to-be-or-not-to-be"
+  );
+});
