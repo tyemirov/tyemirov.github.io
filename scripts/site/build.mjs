@@ -281,12 +281,18 @@ await file('config-ui.yaml', JSON.stringify(uiConfig, null, 2) + '\n');
 await file('data/routes.json', JSON.stringify([...routes].map(([path, file]) => ({ path, file, parent: parentFor(path) })), null, 2) + '\n');
 await file('404.html', withNavigation('/404.html', document('/404.html', 'Page not found', 'The requested page does not exist.', '<h1>Page not found</h1>')));
 
+// Sitemap scope: home, articles, music, and model project pages (tools). Gallery stays out for now.
+const inSitemapScope = path => path === '/' || path.startsWith('/articles/') || path.startsWith('/music/') || site.projects.some(project => project.kind === 'model' && project.href === path);
+
 function lastmodFor(path) {
   const article = articles.find(article => path === `/articles/${article.slug}/`);
-  return article?.updatedAt?.slice(0, 10) ?? null;
+  if (article) return article.updatedAt?.slice(0, 10) ?? null;
+  const album = site.music.items.find(album => path === `/music/${album.slug}/`);
+  if (album) return album.releaseDate.precision === 'year' ? `${album.releaseDate.value}-01-01` : album.releaseDate.value.slice(0, 10);
+  return null;
 }
 
-await file('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + [...routes.keys()].filter(path=>!['/gallery/order/','/gallery/cart/','/gallery/studio/'].includes(path)).map(path=>{
+await file('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + [...routes.keys()].filter(inSitemapScope).map(path=>{
   const lastmod = lastmodFor(path);
   return `  <url><loc>${escape(new URL(path,site.site.canonical).href)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}</url>`;
 }).join('\n') + '\n</urlset>\n');
