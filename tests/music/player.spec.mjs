@@ -465,7 +465,6 @@ test("track sharing copies the track anchor link from the player and landing wit
   await page.addInitScript(() => {
     /** @type {string[]} */
     window.copiedLinks = [];
-    Object.defineProperty(navigator, "share", { value: undefined, configurable: true });
     Object.defineProperty(navigator, "clipboard", {
       value: { writeText: async (text) => { window.copiedLinks.push(text); } },
       configurable: true,
