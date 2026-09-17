@@ -3,12 +3,10 @@ import { musicIcon } from "./icons.js";
 
 const feedbackLabels = {
   copied: "Link copied",
-  shared: "Link shared",
   copyFailed: "Could not copy link",
-  shareFailed: "Could not share link",
   unavailable: "Sharing unavailable",
 };
-/** @typedef {keyof typeof feedbackLabels | 'cancelled'} ShareOutcome */
+/** @typedef {keyof typeof feedbackLabels} ShareOutcome */
 /** @type {WeakMap<HTMLButtonElement, () => void>} */
 const pendingResets = new WeakMap();
 
@@ -34,11 +32,7 @@ function beginFeedback(button) {
   /** @param {ShareOutcome} outcome */
   return (outcome) => {
     if (pendingResets.get(button) !== restore) return;
-    if (outcome === "cancelled") {
-      restore();
-      return;
-    }
-    const success = outcome === "copied" || outcome === "shared";
+    const success = outcome === "copied";
     button.classList.toggle("is-copied", success);
     button.innerHTML = musicIcon(success ? "check" : "retry");
     button.setAttribute("aria-label", feedbackLabels[outcome]);
@@ -48,31 +42,25 @@ function beginFeedback(button) {
 }
 
 /**
- * Share a track with the Web Share API or copy its link to the clipboard.
+ * Copy a track link to the clipboard.
  * @param {import('./catalog.js').Track} track
  * @param {import('./catalog.js').Album} album
  * @param {HTMLButtonElement} [button]
  */
 export async function shareTrack(track, album, button) {
   const url = `${window.location.origin}/music/${album.slug}/#${track.slug}`;
-  const title = `${track.title} - ${album.displayTitle ?? album.title} | Vadym Tyemirov`;
   const feedback = button ? beginFeedback(button) : undefined;
-  const nativeShare = typeof navigator.share === "function";
   /** @type {ShareOutcome} */
   let outcome;
   try {
-    if (nativeShare) {
-      await navigator.share({ title, url });
-      outcome = "shared";
-    } else if (typeof navigator.clipboard?.writeText === "function") {
+    if (typeof navigator.clipboard?.writeText === "function") {
       await navigator.clipboard.writeText(url);
       outcome = "copied";
     } else {
       outcome = "unavailable";
     }
-  } catch (error) {
-    outcome = nativeShare ? "shareFailed" : "copyFailed";
-    if (nativeShare && error && typeof error === "object" && "name" in error && error.name === "AbortError") outcome = "cancelled";
+  } catch {
+    outcome = "copyFailed";
   }
   feedback?.(outcome);
 }
