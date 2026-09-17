@@ -110,16 +110,17 @@ async function supervise() {
       finish().then(() => connection.end("stopped"), (error) => connection.end(error.message));
     });
   });
+  // Orderly shutdown means every child has stopped, not that every child
+  // exited cleanly. Record unclean exits for ghttp.log and still report the
+  // stop as done, so `make down` cannot strand containers over an exit status.
   const finish = () => shutdown ??= (async () => {
-    const failures = [];
     for (const { child, exited } of [...children].reverse()) {
       if (child.exitCode === null && child.signalCode === null) child.kill("SIGTERM");
       const result = await exited;
-      if (result !== 0) failures.push(`gHTTP exited with status ${result}. See ${join(state, "ghttp.log")}.`);
+      if (typeof result === "number" && result !== 0) console.error(`A local gHTTP process exited with status ${result} during shutdown. See ${join(state, "ghttp.log")}.`);
     }
     server.close();
     await rm(socketPath, { force: true });
-    if (failures.length) throw new Error(failures.join("\n"));
   })();
   const start = async (args, url) => {
     const child = spawn(process.env.GHTTP, args, {
@@ -170,8 +171,11 @@ if (command === "supervise") {
 } else if (command === "receipts") {
   compose(["exec", "-T", "gallery-mail", "/gallery-mail-sink", "list", "--address=127.0.0.1:50051"]);
 } else if (command === "down") {
-  await stop();
-  compose(["down"]);
+  try {
+    await stop();
+  } finally {
+    compose(["down"]);
+  }
 } else if (command === "up") {
   await access(join(process.env.MUSIC_LOCAL_ROOT, "catalog.json"));
   execFileSync(process.env.GHTTP, ["--help"], { stdio: "ignore" });
