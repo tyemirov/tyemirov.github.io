@@ -24,7 +24,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 148440
-          }
+          },
+          "slug": "meditations-2-1"
         },
         {
           "id": "soliloquies-vol-ii-02",
@@ -32,7 +33,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 339800
-          }
+          },
+          "slug": "some-things-are-in-our-power"
         },
         {
           "id": "soliloquies-vol-ii-03",
@@ -40,7 +42,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 227480
-          }
+          },
+          "slug": "of-anger"
         },
         {
           "id": "soliloquies-vol-ii-04",
@@ -48,7 +51,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 223440
-          }
+          },
+          "slug": "hymn-to-zeus"
         },
         {
           "id": "soliloquies-vol-ii-05",
@@ -56,7 +60,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 214040
-          }
+          },
+          "slug": "meditations-5-2"
         },
         {
           "id": "soliloquies-vol-ii-06",
@@ -64,7 +69,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 206840
-          }
+          },
+          "slug": "all-is-dross-that-is-not-helena"
         },
         {
           "id": "soliloquies-vol-ii-07",
@@ -72,7 +78,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 235320
-          }
+          },
+          "slug": "the-most-terrible-grief-of-all"
         },
         {
           "id": "soliloquies-vol-ii-08",
@@ -80,7 +87,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 203280
-          }
+          },
+          "slug": "i-freely-chose"
         },
         {
           "id": "soliloquies-vol-ii-09",
@@ -88,7 +96,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 374280
-          }
+          },
+          "slug": "for-whom-the-bell-tolls"
         }
       ],
       "credits": "Vadym Tyemirov",
@@ -127,7 +136,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 194320
-          }
+          },
+          "slug": "inferno-canto-i"
         },
         {
           "id": "soliloquies-vol-i-02",
@@ -135,7 +145,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 289000
-          }
+          },
+          "slug": "to-be-or-not-to-be"
         },
         {
           "id": "soliloquies-vol-i-03",
@@ -143,7 +154,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 148440
-          }
+          },
+          "slug": "meditations-2-1"
         },
         {
           "id": "soliloquies-vol-i-04",
@@ -151,7 +163,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 91400
-          }
+          },
+          "slug": "stopping-by-woods-on-a-snowy-evening"
         },
         {
           "id": "soliloquies-vol-i-05",
@@ -159,7 +172,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 224720
-          }
+          },
+          "slug": "the-litany-against-fear"
         },
         {
           "id": "soliloquies-vol-i-06",
@@ -167,7 +181,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 152640
-          }
+          },
+          "slug": "peace"
         },
         {
           "id": "soliloquies-vol-i-07",
@@ -175,7 +190,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 138360
-          }
+          },
+          "slug": "dies-irae"
         },
         {
           "id": "soliloquies-vol-i-08",
@@ -183,7 +199,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 156880
-          }
+          },
+          "slug": "paradise-lost-book-i"
         }
       ]
     },
@@ -216,7 +233,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 299640
-          }
+          },
+          "slug": "want-wont"
         },
         {
           "id": "songs-of-desire-02",
@@ -224,7 +242,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 239120
-          }
+          },
+          "slug": "sans-mesure-sans-respect"
         },
         {
           "id": "songs-of-desire-03",
@@ -232,7 +251,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 166080
-          }
+          },
+          "slug": "hungarian-baby-vs-albanian-baby"
         },
         {
           "id": "songs-of-desire-04",
@@ -240,7 +260,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 263080
-          }
+          },
+          "slug": "friday-night-burn"
         },
         {
           "id": "songs-of-desire-05",
@@ -248,7 +269,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 154520
-          }
+          },
+          "slug": "moonshot"
         },
         {
           "id": "songs-of-desire-06",
@@ -256,7 +278,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 237800
-          }
+          },
+          "slug": "bridge-of-ice-to-venus"
         },
         {
           "id": "songs-of-desire-07",
@@ -264,7 +287,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 194720
-          }
+          },
+          "slug": "reincarnated-as-an-imp"
         },
         {
           "id": "songs-of-desire-08",
@@ -272,7 +296,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 199920
-          }
+          },
+          "slug": "two-doors"
         },
         {
           "id": "songs-of-desire-09",
@@ -280,7 +305,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 109840
-          }
+          },
+          "slug": "lullaby-i"
         }
       ]
     },
@@ -313,7 +339,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 189600
-          }
+          },
+          "slug": "exhale-inhale"
         },
         {
           "id": "egyptian-nights-02",
@@ -321,7 +348,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 140400
-          }
+          },
+          "slug": "brand-new-tattoo"
         },
         {
           "id": "egyptian-nights-03",
@@ -329,7 +357,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 229080
-          }
+          },
+          "slug": "half-a-second"
         },
         {
           "id": "egyptian-nights-04",
@@ -337,7 +366,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 154840
-          }
+          },
+          "slug": "i-dont-wanna-rock"
         },
         {
           "id": "egyptian-nights-05",
@@ -345,7 +375,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 242720
-          }
+          },
+          "slug": "20-tip"
         },
         {
           "id": "egyptian-nights-06",
@@ -353,7 +384,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 168400
-          }
+          },
+          "slug": "arguing-in-a-restaurant"
         },
         {
           "id": "egyptian-nights-07",
@@ -361,7 +393,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 369920
-          }
+          },
+          "slug": "egyptian-nights"
         },
         {
           "id": "egyptian-nights-08",
@@ -369,7 +402,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 380920
-          }
+          },
+          "slug": "the-sanitation-of-cash"
         }
       ]
     },
@@ -404,7 +438,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 204800
-          }
+          },
+          "slug": "on-the-steamboat"
         },
         {
           "id": "singing-pasternak-02",
@@ -412,7 +447,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 213200
-          }
+          },
+          "slug": "second-ballad"
         },
         {
           "id": "singing-pasternak-03",
@@ -420,7 +456,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 71080
-          }
+          },
+          "slug": "to-love-others-is-a-heavy-cross"
         },
         {
           "id": "singing-pasternak-04",
@@ -428,7 +465,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 146200
-          }
+          },
+          "slug": "in-the-lowlands"
         },
         {
           "id": "singing-pasternak-05",
@@ -436,7 +474,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 170960
-          }
+          },
+          "slug": "winter-night"
         },
         {
           "id": "singing-pasternak-06",
@@ -444,7 +483,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 106000
-          }
+          },
+          "slug": "february"
         },
         {
           "id": "singing-pasternak-07",
@@ -452,7 +492,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 173160
-          }
+          },
+          "slug": "to-be-or-not-to-be"
         }
       ]
     },
@@ -487,7 +528,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 106000
-          }
+          },
+          "slug": "february-1"
         },
         {
           "id": "february-get-ink-and-weep-02",
@@ -495,7 +537,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 108960
-          }
+          },
+          "slug": "february-2"
         },
         {
           "id": "february-get-ink-and-weep-03",
@@ -503,7 +546,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 117000
-          }
+          },
+          "slug": "february-3"
         },
         {
           "id": "february-get-ink-and-weep-04",
@@ -511,7 +555,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 63680
-          }
+          },
+          "slug": "february-4"
         },
         {
           "id": "february-get-ink-and-weep-05",
@@ -519,7 +564,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 104000
-          }
+          },
+          "slug": "february-5"
         },
         {
           "id": "february-get-ink-and-weep-06",
@@ -527,7 +573,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 118520
-          }
+          },
+          "slug": "february-6"
         },
         {
           "id": "february-get-ink-and-weep-07",
@@ -535,7 +582,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 99840
-          }
+          },
+          "slug": "february-7"
         },
         {
           "id": "february-get-ink-and-weep-08",
@@ -543,7 +591,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 111200
-          }
+          },
+          "slug": "february-8"
         },
         {
           "id": "february-get-ink-and-weep-09",
@@ -551,7 +600,8 @@
           "playback": {
             "kind": "file",
             "durationMs": 98640
-          }
+          },
+          "slug": "february-9"
         }
       ]
     }

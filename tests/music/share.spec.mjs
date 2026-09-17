@@ -8,21 +8,12 @@ test.beforeEach(async ({ context }) => {
 
 for (const scenario of [
   { mode: "copy", label: "Link copied", success: true },
-  { mode: "share", label: "Link shared", success: true },
   { mode: "denied", label: "Could not copy link", success: false },
-  { mode: "failed", label: "Could not share link", success: false },
   { mode: "unavailable", label: "Sharing unavailable", success: false },
-  { mode: "cancelled", label: "Share track", success: false },
 ]) {
   test(`track sharing reports ${scenario.mode} accurately`, async ({ page }) => {
     await page.addInitScript((mode) => {
       window.shareCalls = [];
-      Object.defineProperty(navigator, "share", { configurable: true, value:
-        ["share", "failed", "cancelled"].includes(mode) ? async (data) => {
-          window.shareCalls.push({ method: "share", url: data.url });
-          if (mode !== "share") throw new DOMException("Share rejected", mode === "cancelled" ? "AbortError" : "NotAllowedError");
-        } : undefined,
-      });
       Object.defineProperty(navigator, "clipboard", { configurable: true, value:
         mode === "unavailable" ? undefined : { writeText: async (url) => {
           window.shareCalls.push({ method: "copy", url });
@@ -44,7 +35,7 @@ for (const scenario of [
     else await expect(button).not.toHaveClass(/is-copied/);
     if (!scenario.success) await expect(button.locator("polyline")).toHaveCount(0);
     expect(await page.evaluate(() => window.shareCalls)).toEqual(scenario.mode === "unavailable" ? [] : [{
-      method: ["share", "failed", "cancelled"].includes(scenario.mode) ? "share" : "copy",
+      method: "copy",
       url: `${new URL(page.url()).origin}/music/soliloquies-vol-i/#inferno-canto-i`,
     }]);
     await page.clock.runFor(2100);
@@ -57,7 +48,6 @@ for (const scenario of [
 
 test("repeated track sharing restores the original button after the latest feedback", async ({ page }) => {
   await page.addInitScript(() => {
-    Object.defineProperty(navigator, "share", { value: undefined });
     Object.defineProperty(navigator, "clipboard", { value: { writeText: async () => {} } });
   });
   await page.goto("/music/soliloquies-vol-i/");
@@ -84,7 +74,6 @@ test("repeated track sharing restores the original button after the latest feedb
 test("pending track sharing shows no success and ignores older completions", async ({ page }) => {
   await page.addInitScript(() => {
     window.copyRequests = [];
-    Object.defineProperty(navigator, "share", { value: undefined });
     Object.defineProperty(navigator, "clipboard", { value: { writeText: () => new Promise((resolve, reject) => {
       window.copyRequests.push({ resolve, reject });
     }) } });

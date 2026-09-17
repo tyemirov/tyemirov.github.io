@@ -29,19 +29,25 @@ local-recordings-test:
 local-prepare-test:
 	@node --test tests/music/local-prepare.test.mjs
 
+local-shutdown-test:
+	@node --test tests/music/local-shutdown.test.mjs
+
 .PHONY: lifecycle-contract-test
 lifecycle-contract-test:
 	@MPRLAB_GATEWAY_EXECUTABLE="$(MPRLAB_GATEWAY_EXECUTABLE)" node --test tests/music/lifecycle.test.mjs
 
 .PHONY: ci pages-build loopaware-site-id-test release publish deploy
 
-.PHONY: music-package-test music-api-test music-browser-test music-check music-artifact-test music-container-test music-ci-container music-runtime-test music-deployment-container-test
+.PHONY: music-package-test music-api-test music-browser-test music-check music-artifact-test music-container-test music-ci-container music-runtime-test music-catalog-test music-deployment-container-test
 
 music-runtime-test:
 	@node --test tests/music/runtime-catalog.test.mjs
 
 music-deployment-container-test:
 	@node --test tests/music/deployment-container.test.mjs
+
+music-catalog-test:
+	@node --test tests/music/catalog.test.mjs
 
 music-package-test:
 	@node --test tests/music/package.test.mjs tests/music/activation.test.mjs
@@ -123,7 +129,7 @@ music-browser-test:
 music-check:
 	@cd services/music-stream && go vet ./...
 
-ci: site-contract-test pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-runtime-test local-prepare-test music-load-test music-browser-test gallery-api-test gallery-contract-test gallery-check
+ci: site-contract-test pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-runtime-test music-catalog-test local-prepare-test local-shutdown-test music-load-test music-browser-test gallery-api-test gallery-contract-test gallery-check
 
 pages-build:
 	@PAGES_DIST_DIR="$(PAGES_DIST_DIR)" ./scripts/build-pages-artifact.sh
