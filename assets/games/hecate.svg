@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<defs>
+<linearGradient id="brand-field" x2="0" y2="1"><stop stop-color="#0063b9"/><stop offset="1" stop-color="#009bd5"/></linearGradient>
+<filter id="brand-ink" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB"><feFlood flood-color="#ffd369"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+</defs>
+<rect width="512" height="512" fill="url(#brand-field)"/>
+<g filter="url(#brand-ink)"><svg width="512" height="512" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+  <title id="title">Hecate keyhole, torch and puzzle logo</title>
+  <path d="M86 119a61 61 0 1 1 84 0l32 112H54Z" fill="none" stroke="#000" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M128 114c-30-7-22-33-14-46 0 9 3 14 5 15 14-20-5-32 15-49-7 19 8 24 4 49 5-4 7-10 6-14 18 26 13 41-8 45 10-10 5-19-5-31-8 15-13 20-3 31Z" fill="#000"/>
+  <path d="M110 123h36v8h-5v7h-26v-7h-5ZM114 146h28v28h-28ZM84 178h28v28H84ZM146 178h28v28h-28ZM114 208h28v16h-28Z" fill="#000"/>
+</svg>
+</g>
+</svg>

@@ -211,3 +211,35 @@ test('Gallery offers shared sign-in and opens the authenticated Studio',async({p
  await expect(page.getByRole('button',{name:'Collections',exact:true})).toBeVisible();
  await expect(page.getByRole('button',{name:'Orders',exact:true})).toBeVisible();
 });
+
+test('Studio navigation preserves the player and asks before discarding unsaved edits', async ({ page, context }) => {
+  await context.route(/loopaware\.mprlab\.com/, route => route.abort());
+  await context.addCookies([{ name: 'music-fixture', value: 'player', domain: 'localhost', path: '/' }]);
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/music/soliloquies-vol-i/');
+  await page.locator('.track-play').first().click();
+  const audio = page.locator('#music-player audio');
+  await expect.poll(() => audio.evaluate(node => node.currentTime)).toBeGreaterThan(.2);
+  await audio.evaluate(node => { globalThis.navigationAudio = node; });
+  await page.getByRole('button', { name: 'Pause', exact: true }).click();
+  await prepare(context);
+  await page.getByRole('link', { name: 'Home', exact: true }).click();
+  await page.locator('a[href="/gallery/"]').first().click();
+  await page.getByRole('link', { name: 'Studio', exact: true }).click();
+  await page.getByRole('button', { name: 'Sign in with Google', exact: true }).click();
+  await expect(page.locator('#studio-workspace')).toBeVisible();
+  await page.getByRole('button', { name: /^Edit / }).first().click();
+  await page.getByLabel('Artwork title', { exact: true }).fill('Unsaved navigation test');
+  page.once('dialog', dialog => dialog.dismiss());
+  await page.getByRole('link', { name: 'Home', exact: true }).click();
+  await expect(page).toHaveURL(/\/gallery\/studio\/$/);
+  await expect(page.getByLabel('Artwork title', { exact: true })).toHaveValue('Unsaved navigation test');
+  page.once('dialog', dialog => dialog.accept());
+  await page.getByRole('link', { name: 'Home', exact: true }).click();
+  await expect(page.locator('.hero-copy h1')).toBeVisible();
+  expect(await audio.evaluate(node => node === globalThis.navigationAudio && node.paused)).toBe(true);
+  await page.getByRole('button', { name: 'Play', exact: true }).click();
+  await expect(audio).toHaveJSProperty('paused', false);
+  expect(errors).toEqual([]);
+});

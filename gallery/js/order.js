@@ -1,4 +1,6 @@
 // @ts-check
+import { initializePage } from "/assets/js/navigation.js";
+import { onPageLeave, pageEvents } from "/assets/js/navigation.js";
 import { createOrderClient, ORDER_ID, OrderClientError, OrderAPIError } from './core/orders.js';
 import { fetchGallerySnapshot } from './core/gateway.js';
 import { createCartManager } from './core/cart.js';
@@ -6,6 +8,9 @@ import { renderCheckout, returnToBasket } from './ui/checkoutView.js';
 import { ORDER_PAGE, CHECKOUT_QUERY } from './constants.js';
 import { renderOrder, PAYMENT_LABELS } from './ui/orderView.js';
 import { initializeSiteFooter } from '/assets/js/footer.js';
+
+export async function mountPage() {
+const navigationEvents = pageEvents();
 
 const form = document.getElementById('order-access');
 const input = document.getElementById('access-code');
@@ -55,7 +60,7 @@ async function initialize() {
  if (!selectedOrder || !ORDER_ID.test(selectedOrder)) { status.textContent = 'Open the complete order link from checkout or your receipt.'; return; }
  orderID = selectedOrder;
  const cancelled = parameters.get('cancelled') === '1';
- history.replaceState(null, '', `${ORDER_PAGE}?order=${orderID}${cancelled ? '&cancelled=1' : ''}`);
+ history.replaceState(history.state, '', `${ORDER_PAGE}?order=${orderID}${cancelled ? '&cancelled=1' : ''}`);
  document.getElementById('order-number').textContent = `Order ${orderID}`;
  status.textContent = cancelled ? 'Payment approval was cancelled. Enter your access code to check or cancel the order.' : 'Enter your access code to open this order.';
  try { const configured = await createOrderClient(controller.signal); if (current !== generation) return; client = configured; setBusy(false); }
@@ -128,7 +133,7 @@ async function initializeCheckout(current) {
     return;
    }
    orderID=created.order.id; secret=created.accessSecret;
-   history.replaceState(null,'',`${ORDER_PAGE}?order=${orderID}`);
+   history.replaceState(history.state,'',`${ORDER_PAGE}?order=${orderID}`);
    checkout.replaceChildren(); checkout.hidden=true;
    document.querySelector('.buyer-order h1').textContent='Your gallery order';
    document.getElementById('order-number').textContent=`Order ${orderID}`;
@@ -150,7 +155,11 @@ document.getElementById('save-order-access').addEventListener('click',()=>{
  if (!secret || !orderID) return;
  saveFile(new Blob([`Gallery order\n${location.origin}${ORDER_PAGE}?order=${orderID}\n\nAccess code: ${secret}\nKeep this code private.\n`],{type:'text/plain;charset=utf-8'}),`gallery-order-${orderID}.txt`);
 });
-window.addEventListener('popstate', () => void initialize());
-window.addEventListener('pagehide', () => { clearOrder(); status.textContent = 'Enter your access code to open this order.'; });
-window.addEventListener('pageshow', event => { if (event.persisted) void initialize(); });
-void initialize();
+window.addEventListener('popstate', () => void initialize(), navigationEvents);
+window.addEventListener('pagehide', () => { clearOrder(); status.textContent = 'Enter your access code to open this order.'; }, navigationEvents);
+window.addEventListener('pageshow', event => { if (event.persisted) void initialize(); }, navigationEvents);
+onPageLeave(clearOrder);
+await initialize();
+}
+
+initializePage(mountPage);

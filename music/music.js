@@ -1,3 +1,9 @@
 // @ts-check
+import { initializePage } from "/assets/js/navigation.js";
 import { hydrateMusicPage } from "../site.js";
-void hydrateMusicPage("index");
+
+export async function mountPage() {
+await hydrateMusicPage("index");
+}
+
+initializePage(mountPage);

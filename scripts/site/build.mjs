@@ -44,7 +44,7 @@ function withNavigation(path, html) {
     const companion = sourceLink && !html.replace(header,'').includes(sourceLink[1])
       ? `<a slot="nav-right" class="site-companion" href="${sourceLink[1]}" target="_blank" rel="noopener noreferrer">Read companion article</a>` : '';
     return header.replace('</mpr-header>',navigation+companion+'</mpr-header>');
-  }).replace('</head>', '<link rel="stylesheet" href="/assets/css/navigation.css">\n</head>');
+  }).replace('</head>', '<link rel="stylesheet" href="/assets/css/navigation.css">\n<link rel="stylesheet" href="/music/player.css">\n<script type="module" src="/assets/js/navigation.js"></script>\n</head>');
 }
 async function page(path, html) {
   if (routes.has(path)) throw new Error(`Duplicate page route: ${path}`);

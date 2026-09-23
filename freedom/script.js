@@ -1,3 +1,12 @@
+// @ts-check
+import { initializePage } from "/assets/js/navigation.js";
+import { pageEvents, onPageLeave } from "/assets/js/navigation.js";
+
+export async function mountPage() {
+const navigationEvents = pageEvents();
+onPageLeave(() => {
+  for (const chart of document.querySelectorAll(".js-plotly-plot")) Plotly.purge(chart);
+});
 const applicationState = { dataset: null, stateShapes: null, selectedJurisdictions: new Set() };
 
 const stateCodes = {
@@ -407,8 +416,8 @@ function recomputeAndRender(){
 async function loadDefaultDataset() {
   try {
     const [datasetRes, shapesRes] = await Promise.all([
-      fetch("full_states_dataset.json"),
-      fetch("state_shapes.json")
+      fetch("full_states_dataset.json", navigationEvents),
+      fetch("state_shapes.json", navigationEvents)
     ]);
     
     if (!datasetRes.ok) throw new Error("Could not load full_states_dataset.json");
@@ -429,6 +438,7 @@ async function loadDefaultDataset() {
     renderSelectionList();
     recomputeAndRender();
   } catch (error) {
+    if (navigationEvents.signal.aborted) return;
     console.error("Data load error:", error);
   }
 }
@@ -485,7 +495,10 @@ function wireEvents(){
   });
 }
 
-loadDefaultDataset();
+await loadDefaultDataset();
 wireEvents();
 setSliderLabels();
 recomputeAndRender();
+}
+
+initializePage(mountPage);

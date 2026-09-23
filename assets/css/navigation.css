@@ -13,3 +13,6 @@ mpr-header { --mpr-header-bg:var(--bg,#faf9f3); --mpr-color-text-primary:var(--i
 .gallery-header .gallery-nav { gap:14px; font-size:14px; flex-wrap:wrap; }
 .gallery-header .mpr-header__actions { order:initial; flex:0 0 auto; }
 .gallery-header .mpr-header__actions .mpr-auth-actions { inline-size:auto; }
+
+#site-navigation-error { position:sticky; top:0; z-index:10000; padding:12px 20px; background:var(--bg,#faf9f3); color:var(--ink,#384623); border-bottom:1px solid currentColor; }
+#site-navigation-error button { margin-left:8px; padding:6px 12px; font:inherit; }

@@ -28,7 +28,7 @@ test('section links open the complete catalog without a repeated section kicker'
  await page.locator('.hero-links').getByRole('link',{name:'Music',exact:true}).click();
  await expect(page).toHaveURL(/\/#music$/);
  await page.locator('#music .section-actions a').click();
- await expect(page.locator('.album-card')).toHaveCount(6);
+ await expect(page.locator('.album-card')).toHaveCount(7);
  await expect(page.getByRole('navigation',{name:'Page hierarchy'}).getByRole('link')).toHaveText(['^']);
  await page.goto('/articles/');
  await expect(page.getByRole('heading',{level:1})).toHaveText('Articles');

@@ -449,6 +449,96 @@
       "codec": "mp4a.40.2",
       "sampleRateHz": 48000,
       "channels": 2
+    },
+    "alpha-drift-01": {
+      "assetId": "e631945fa672bc5ed6195c80c6ec00c07a881e3a52e0ae1988242dc464411218",
+      "file": "alpha-drift-01.m4a",
+      "bytes": 5092402,
+      "durationMs": 209840,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "alpha-drift-02": {
+      "assetId": "f5de185c2b7d0da8d0173fd1c1204d8f5a3e28eb8615c81cb5d087ffd68f4291",
+      "file": "alpha-drift-02.m4a",
+      "bytes": 4384729,
+      "durationMs": 179760,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "alpha-drift-03": {
+      "assetId": "56e32d4976feba46e5877bf779afbd92f7f425e11cc19e0572f338843568427f",
+      "file": "alpha-drift-03.m4a",
+      "bytes": 5331679,
+      "durationMs": 218200,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "alpha-drift-04": {
+      "assetId": "eefa6e990a891b182cbac57aaaaff641a8eaa065380b5e962d437630ee211fe4",
+      "file": "alpha-drift-04.m4a",
+      "bytes": 3480049,
+      "durationMs": 142920,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "alpha-drift-05": {
+      "assetId": "1b8c5444b3e6f9e246cdc94e47f5fb01cc68e42957425ad6276e254591e1dbf2",
+      "file": "alpha-drift-05.m4a",
+      "bytes": 5752527,
+      "durationMs": 234520,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "alpha-drift-06": {
+      "assetId": "080d8118da404be69520775880bf26389eace0832cb40943a3f9724c6f6ea767",
+      "file": "alpha-drift-06.m4a",
+      "bytes": 4369985,
+      "durationMs": 179800,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "alpha-drift-07": {
+      "assetId": "b7defd2d2ac86fd1365f976c6c7aafefcd5dd5cbed36252a00b0194af18dee0c",
+      "file": "alpha-drift-07.m4a",
+      "bytes": 4280486,
+      "durationMs": 167400,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "alpha-drift-08": {
+      "assetId": "7539e02080750e6434acaff1187a44922ab6f9ecb8f0145d70a2088c2598821c",
+      "file": "alpha-drift-08.m4a",
+      "bytes": 11965471,
+      "durationMs": 479920,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "alpha-drift-09": {
+      "assetId": "74b23110d728a0d57257a325c1ccfe2998bb626f4ce5583ad025f62fd462be2b",
+      "file": "alpha-drift-09.m4a",
+      "bytes": 5356553,
+      "durationMs": 217880,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "alpha-drift-10": {
+      "assetId": "d29fb23ac27f64eb9a8817a5f38b303a4ceb1506efe0ac647afde58e0f30351c",
+      "file": "alpha-drift-10.m4a",
+      "bytes": 5639155,
+      "durationMs": 224760,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
     }
   }
 }

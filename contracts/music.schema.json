@@ -216,8 +216,7 @@
               "format": "uri"
             }
           },
-          "required": [],
-          "minProperties": 1
+          "required": []
         },
         "tracks": {
           "type": "array",

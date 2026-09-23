@@ -54,10 +54,11 @@ for (const width of [390, 1280]) {
     await expect(cards).toHaveCount(4);
     await expect(tools.locator('.tools-list')).toHaveCSS('display', 'grid');
     await expect(cards.locator('h2')).toHaveText(['Platform', 'Hecate', 'Allergy Wheel', 'StackLab']);
-    await expect(tools.getByRole('link', { name: 'Explore MPR Lab ↗', exact: true })).toHaveAttribute('href', 'https://mprlab.com/');
+    await expect(tools.locator('.button, .project-actions')).toHaveCount(0);
+    await expect(tools.getByRole('link', { name: 'Platform', exact: true })).toHaveAttribute('href', 'https://mprlab.com/');
     await expect(tools.locator('.game-status')).toHaveText(['Work in progress', 'Work in progress', 'Work in progress']);
     for (const [name, href] of [['Hecate', 'https://hecate.mprlab.com/'], ['Allergy Wheel', 'https://allergy.mprlab.com/']]) {
-      await expect(tools.getByRole('link', { name: `Try ${name} ↗`, exact: true })).toHaveAttribute('href', href);
+      await expect(tools.getByRole('link', { name, exact: true })).toHaveAttribute('href', href);
     }
     const stackLab = tools.locator('.game-card').filter({ has: page.getByRole('heading', { name: 'StackLab', exact: true }) });
     await expect(stackLab.locator('p.card-body')).not.toBeEmpty();

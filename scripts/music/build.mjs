@@ -17,6 +17,7 @@ await mkdir(join(output, "music/dist"), { recursive: true });
 await build({
   absWorkingDir: root,
   entryPoints: { site: "site.js", "music/music": "music/music.js", "music/album": "music/album.js", "articles/articles": "articles/articles.js" },
+  external: ["/assets/js/navigation.js"],
   outdir: output, bundle: true, splitting: true, format: "esm", target: ["es2022"],
   chunkNames: "music/dist/[name]-[hash]", minify: true, legalComments: "linked", logLevel: "silent",
 });

@@ -148,12 +148,13 @@ async function main() {
         let position = 0, due = started, nextSeek = started + seekEvery * 1000;
         const chunkBytes = Math.ceil(record.bytes * 6000 / record.durationMs);
         const rangeAt = offset => `bytes=${offset}-${Math.min(record.bytes - 1, offset + chunkBytes - 1)}`;
-        while (performance.now() < end && !cancellation.signal.aborted) {
-          if (performance.now() >= nextSeek) {
+        while (!cancellation.signal.aborted) {
+          while (nextSeek < end && performance.now() >= nextSeek) {
             position = (position + Math.floor(record.bytes / 2)) % record.bytes;
             await request("seek", listener.mediaPath, listener.session, "GET", undefined, rangeAt(position));
             nextSeek += seekEvery * 1000;
           }
+          if (performance.now() >= end) break;
           await request("audio", listener.mediaPath, listener.session, "GET", undefined, rangeAt(position));
           position = (position + chunkBytes) % record.bytes;
           due += 6000;

@@ -1,8 +1,13 @@
 // @ts-check
+import { initializePage } from "/assets/js/navigation.js";
+import { onPageLeave, pageEvents, beforeNavigate } from "/assets/js/navigation.js";
 import { galleryOrderStatuses } from '/assets/js/generated/routes.js';
 import { initializeSiteFooter } from '../../assets/js/footer.js';
 import { createStudioClient } from './core/studio.js';
 import { validatePublicCatalog } from '../../assets/js/catalog.js';
+
+export async function mountPage() {
+const navigationEvents = pageEvents();
 
 const host=document.querySelector('mpr-header');
 const workspace=document.querySelector('#studio-workspace');
@@ -77,12 +82,14 @@ document.addEventListener('mpr-ui:auth:authenticated',event=>{
   const user=event.detail.profile.user_id;
   if(active && activeUser===user)return;
   clear();activeUser=user;void openWorkspace();
-});
-document.addEventListener('mpr-ui:auth:unauthenticated',clear);
-document.addEventListener('mpr-ui:auth:error',()=>{if(!active)status.textContent='Sign-in is unavailable. Try the shared sign-in control again.';});
+}, navigationEvents);
+document.addEventListener('mpr-ui:auth:unauthenticated',clear, navigationEvents);
+document.addEventListener('mpr-ui:auth:error',()=>{if(!active)status.textContent='Sign-in is unavailable. Try the shared sign-in control again.';}, navigationEvents);
 void initializeSiteFooter({themeAttribute:'data-theme'});
-window.addEventListener('beforeunload',event=>{if(dirty || pendingEdits){event.preventDefault();event.returnValue='';}});
-window.addEventListener('pagehide',()=>session.abort());
+window.addEventListener('beforeunload',event=>{if(dirty || pendingEdits){event.preventDefault();event.returnValue='';}}, navigationEvents);
+window.addEventListener('pagehide',()=>session.abort(), navigationEvents);
+onPageLeave(clear);
+beforeNavigate(() => !(dirty || pendingEdits) || window.confirm('Discard your unsaved gallery edits?'));
 window.addEventListener('pageshow',event=>{if(event.persisted)void execute(async()=>{
   const snapshot=await globalThis.MPRUI.resolveAuthProfileSnapshot(host);
   if(snapshot.status!=='authenticated'){clear();return;}
@@ -91,7 +98,7 @@ window.addEventListener('pageshow',event=>{if(event.persisted)void execute(async
   if(currentDigest!==baseDigest){baseDigest=currentDigest;document.querySelector('#studio-reviewed').checked=false;}
   if(dirty || pendingEdits){status.textContent='Your unsaved edits remain here. Review the current catalog before publication.';return;}
   const result=await client.draft();draft=result.value;etag=result.etag;await renderArea();
-});});
+});}, navigationEvents);
 
 function beginEditor(form){editing=true;pendingEdits=false;form.addEventListener('input',()=>{pendingEdits=true;});form.addEventListener('change',()=>{pendingEdits=true;});}
 function leaveEditor(){return !pendingEdits || window.confirm('Discard the changes you have not applied to the draft?');}
@@ -299,3 +306,6 @@ document.querySelector('#studio-export').addEventListener('click',()=>void execu
     const {value}=await client.archive(publication.id);if(publicationURL)URL.revokeObjectURL(publicationURL);publicationURL=URL.createObjectURL(value);const anchor=element('a','Download publication',{href:publicationURL,download:`gallery-publication-${publication.id}.zip`});output.replaceChildren(anchor);anchor.click();
   }catch(error){output.textContent=error.message;throw error;}
 }));
+}
+
+initializePage(mountPage);

@@ -1,5 +1,11 @@
+// @ts-check
+import { initializePage } from "/assets/js/navigation.js";
+import { onPageLeave, pageEvents } from "/assets/js/navigation.js";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+export async function mountPage() {
+const navigationEvents = pageEvents();
 
 (function initializeDecisionCoachPage() {
   "use strict";
@@ -712,8 +718,8 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
             // Some browsers/trackpads can still emit wheel/touchmove gestures while the pointer is down.
             // Block those during an active drag so the page cannot scroll.
-            window.addEventListener("wheel", preventScrollDuringDrag, { passive: false });
-            window.addEventListener("touchmove", preventScrollDuringDrag, { passive: false });
+            window.addEventListener("wheel", preventScrollDuringDrag, { passive: false, ...navigationEvents });
+            window.addEventListener("touchmove", preventScrollDuringDrag, { passive: false, ...navigationEvents });
           })
           .on("drag", (event) => {
             preventScrollDuringDrag(event?.sourceEvent);
@@ -728,8 +734,8 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
             updatePointVisuals();
           })
           .on("end", (event) => {
-            window.removeEventListener("wheel", preventScrollDuringDrag, { passive: false });
-            window.removeEventListener("touchmove", preventScrollDuringDrag, { passive: false });
+            window.removeEventListener("wheel", preventScrollDuringDrag, { passive: false, ...navigationEvents });
+            window.removeEventListener("touchmove", preventScrollDuringDrag, { passive: false, ...navigationEvents });
             if (d3.dragEnable) d3.dragEnable(window, true);
 
             const draggedX = clampToDomain(xScale.invert(event.x));
@@ -744,6 +750,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
           updatePointVisuals();
         });
         resizeObserver.observe(hostElement);
+        onPageLeave(() => resizeObserver.disconnect());
 
         layoutChart();
         updatePointVisuals();
@@ -1278,12 +1285,24 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
         const resizeObserver = new ResizeObserver(() => resizeRendererToHost());
         resizeObserver.observe(hostElement);
+        onPageLeave(() => resizeObserver.disconnect());
         resizeRendererToHost();
 
+        let animationFrame;
+        onPageLeave(() => {
+          cancelAnimationFrame(animationFrame);
+          orbitControls.dispose();
+          scene.traverse(object => {
+            object.geometry?.dispose();
+            const materials = Array.isArray(object.material) ? object.material : [object.material];
+            materials.forEach(material => material?.dispose());
+          });
+          renderer.dispose();
+        });
         function animateFrame() {
           orbitControls.update();
           renderer.render(scene, camera);
-          requestAnimationFrame(animateFrame);
+          animationFrame = requestAnimationFrame(animateFrame);
         }
         animateFrame();
 
@@ -1976,3 +1995,6 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
       buildControls();
       synchronizeAllViews();
     })();
+}
+
+initializePage(mountPage);

@@ -48,7 +48,7 @@ They remain assumptions until the owner accepts this handoff for implementation.
 | Authorization | Opaque browser cookie plus one temporary playback grant per selected track |
 | Session storage | Bounded server memory, with expiration and explicit restart recovery |
 | Player | Native HLS where supported, otherwise the current supported hls.js engine |
-| Navigation | One player per document, with album queue support |
+| Navigation | One persistent player across site pages, with album queue support |
 | Production | Operator-controlled rollout after separate deployment readiness checks |
 
 The protection boundary is server authorization, rather than segment secrecy.
@@ -649,8 +649,21 @@ Update Media Session metadata when the browser supports that API.
 Connect available media actions to the same controller actions.
 Physical lock-screen testing is not feasible because mobile devices are unavailable.
 Exclude this test from completion gates, with no pending acceptance action.
-Playback can stop during full-page navigation in this first release.
-Continuous playback across all site routes requires a separate navigation architecture decision.
+B011 keeps one audio element connected during navigation between site pages.
+The navigation module loads the next HTML document and replaces the page content around the player.
+The player keeps its position, queue, volume, and pause state.
+An album visit changes the queue only after the visitor selects a track.
+
+Page entry scripts use external ES modules and export `mountPage`.
+The `initializePage` function starts each module on the initial document load.
+The navigation module calls `mountPage` on subsequent visits.
+Page modules use `onPageLeave` to remove listeners, timers, and pending requests.
+The navigation module imports page nodes into the active document and loads styles before it changes the content.
+
+Browser history restores the page and its scroll position.
+If a page request fails, the current page and player remain available.
+A retry control requests the page again.
+Silent headless Chromium, Firefox, and WebKit tests validate this behavior.
 
 ### Playback sequence and recovery
 

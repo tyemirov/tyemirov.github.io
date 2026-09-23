@@ -319,6 +319,7 @@ export interface PublicCatalog {
             order: number;
             target?: "_blank";
           };
+          icon: string;
         },
         ...{
           title: string;
@@ -331,6 +332,7 @@ export interface PublicCatalog {
             order: number;
             target?: "_blank";
           };
+          icon: string;
         }[]
       ];
     };
