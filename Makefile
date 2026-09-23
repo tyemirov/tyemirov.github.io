@@ -38,7 +38,7 @@ lifecycle-contract-test:
 
 .PHONY: ci pages-build loopaware-site-id-test release publish deploy
 
-.PHONY: music-package-test music-api-test music-browser-test music-check music-artifact-test music-container-test music-ci-container music-runtime-test music-catalog-test music-deployment-container-test
+.PHONY: music-package-test music-api-test music-browser-test music-browser-lock-test music-check music-artifact-test music-container-test music-ci-container music-runtime-test music-catalog-test music-deployment-container-test
 
 music-runtime-test:
 	@node --test tests/music/runtime-catalog.test.mjs
@@ -126,10 +126,13 @@ gallery-browser-test:
 music-browser-test:
 	@npm run test:music -- $(MUSIC_BROWSER_ARGS)
 
+music-browser-lock-test:
+	@node --test tests/music/browser-lock.test.mjs
+
 music-check:
 	@cd services/music-stream && go vet ./...
 
-ci: site-contract-test pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-runtime-test music-catalog-test local-prepare-test local-shutdown-test music-load-test music-browser-test gallery-api-test gallery-contract-test gallery-check
+ci: site-contract-test pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-runtime-test music-catalog-test local-prepare-test local-shutdown-test music-load-test music-browser-lock-test music-browser-test gallery-api-test gallery-contract-test gallery-check
 
 pages-build:
 	@PAGES_DIST_DIR="$(PAGES_DIST_DIR)" ./scripts/build-pages-artifact.sh
