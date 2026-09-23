@@ -5,7 +5,9 @@
 This record describes the working copy on September 10, 2026.
 The selected design is [Website And API Redesign](site-redesign.md).
 No release, publication, or production deployment occurred during this implementation.
-F002 still requires internal browser review, live provider qualification, and production acceptance.
+F002 closed for implementation on September 23, 2026, after the owner accepted the site design.
+Pending provider and production operations are in [Gallery Operations](gallery-operations.md).
+The earlier review blockers below are historical observations.
 
 ## Implemented Boundaries
 

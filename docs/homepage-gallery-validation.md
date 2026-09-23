@@ -1,5 +1,16 @@
 # Homepage And Gallery Validation
 
+## Current Acceptance — September 23, 2026
+
+The owner reviewed the site and stated: "i have reviewed the site and it looks great".
+I002, I003, I004, I005, and F002 are closed for implementation.
+The owner review satisfies the pending site design review requirement.
+Closure uses the recorded automated validation and this owner review.
+This documentation update did not repeat application tests or validate unrelated working-copy changes.
+The earlier internal-browser blockers below are historical records, superseded by the owner review.
+Pending provider and production operations are in [Gallery Operations](gallery-operations.md).
+The owner review does not establish live payment or email delivery.
+
 ## Scope
 
 The requested sequence is I002, I003, I004, F002, and I005.
