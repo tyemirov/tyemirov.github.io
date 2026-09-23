@@ -333,13 +333,6 @@ function createToolCard({ titleText, summaryText, tagText, tagClass, icon, link,
 
   card.append(title, summary);
 
-  if (link) {
-    const actions = document.createElement("div");
-    actions.className = "project-actions section-actions";
-    actions.append(createHeroLink(link));
-    card.append(actions);
-  }
-
   return card;
 }
 
