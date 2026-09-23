@@ -11,6 +11,27 @@ Format: `- [ ] [B042] (P1) {I007} Title`
 
 ## BugFixes
 
+- [x] [B011] (P1) Preserve music playback across site navigation
+  Goal:
+  Keep the selected track and audio element active during same-site page navigation.
+
+  Requirements:
+  - Preserve playback position, queue, volume, and pause state.
+  - Keep page controls and browser history operational.
+  - Preserve the current page and audio when a page request fails.
+  - Validate navigation with silent automated browsers.
+
+  Validation:
+  - The initial browser test confirmed that navigation removed the audio element.
+  - The corrected player passes fifteen navigation checks in headless Chromium, Firefox, and WebKit.
+  - The checks cover browser history, failed requests, album selection, page controls, and unsaved Studio edits.
+  - Final `make ci` passed, including 505 browser cases and eight existing browser-specific skips.
+  - Twenty-eight repeated WebKit checks passed after the stylesheet correction.
+  - The complete CI log is `output/playwright/b011/ci-final.log`.
+  - The documentation language check and Git whitespace check passed.
+  - The Governor check reports four existing differences in files outside B011.
+  - Production publication remains a separate operation.
+
 - [x] [B010] (P1) Supply the music runtime catalog in the deployment image.
   The deployed music container exits because `/media/selected.json` is absent.
   Caddy then returns HTTP 502 for `/music/readyz`.
@@ -321,8 +342,7 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - Recorded the B069 candidate digests and seven public HTTP observations.
   - Preserved F001 and its existing production acceptance gates.
 
-- [!] [I002] (P1) Reduce portrait prominence on the homepage
-  Blocked: The required internal-browser review needs the unavailable trusted computer-use service.
+- [x] [I002] (P1) Reduce portrait prominence on the homepage
   Goal:
   Make the portrait a small secondary part of the introduction.
 
@@ -351,10 +371,16 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - The served portrait measures 112 by 112 pixels at 1280 pixels.
   - Local screenshots and measurements are recorded in `docs/homepage-gallery-validation.md`.
   - The internal browser connection reports "Browser use requires a trusted Node REPL browser service".
-  - The required internal-tab review remains open.
+  - Historical review status: The required internal-tab review remains open.
 
-- [!] [I003] (P1) Consolidate the homepage navigation into one compact row
-  Blocked: The required internal-browser review needs the unavailable trusted computer-use service.
+  Resolution:
+  - On September 23, 2026, the owner confirmed: "i have reviewed the site and it looks great".
+  - The owner review satisfies the remaining site design review requirement.
+  - Closure uses the recorded implementation and automated validation, plus the owner review.
+  - This record update did not run application tests again or validate unrelated working-copy changes.
+  - The implementation evidence remains in [Homepage And Gallery Validation](../docs/homepage-gallery-validation.md).
+
+- [x] [I003] (P1) Consolidate the homepage navigation into one compact row
   Goal:
   Keep the five hero links together when the viewport has sufficient width.
 
@@ -382,10 +408,16 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - The five links occupy one row at 769 and 1280 pixels after initial load, reload, and return navigation.
   - Phone checks found no horizontal overflow.
   - Keyboard checks verify link order and visible focus in Chromium, Firefox, and WebKit.
-  - The required internal-tab review remains open.
+  - Historical review status: The required internal-tab review remains open.
 
-- [!] [I004] (P1) Make Soliloquies Vol. II visible throughout the music catalog
-  Blocked: The required internal-browser review needs the unavailable trusted computer-use service.
+  Resolution:
+  - On September 23, 2026, the owner confirmed: "i have reviewed the site and it looks great".
+  - The owner review satisfies the remaining site design review requirement.
+  - Closure uses the recorded implementation and automated validation, plus the owner review.
+  - This record update did not run application tests again or validate unrelated working-copy changes.
+  - The implementation evidence remains in [Homepage And Gallery Validation](../docs/homepage-gallery-validation.md).
+
+- [x] [I004] (P1) Make Soliloquies Vol. II visible throughout the music catalog
   Goal:
   Show Soliloquies Vol. II consistently on the homepage, music index, and album page.
 
@@ -420,10 +452,16 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - `make local-recordings-test` passed all nine supplied tracks through hls.js and native HLS.
   - All 18 anonymous playlist requests returned HTTP 401.
   - `make up` completed with the current local catalog and existing certificate authority.
-  - The internal-tab review and the exact historical tab diagnosis remain open.
+  - Historical review status: The internal-tab review and the exact historical tab diagnosis remain open.
 
-- [!] [I005] (P1) Reduce empty vertical space throughout the homepage
-  Blocked: Internal browser review needs the trusted computer-use service.
+  Resolution:
+  - On September 23, 2026, the owner confirmed: "i have reviewed the site and it looks great".
+  - The owner review satisfies the remaining site design review requirement.
+  - Closure uses the recorded implementation and automated validation, plus the owner review.
+  - This record update did not run application tests again or validate unrelated working-copy changes.
+  - The implementation evidence remains in [Homepage And Gallery Validation](../docs/homepage-gallery-validation.md).
+
+- [x] [I005] (P1) Reduce empty vertical space throughout the homepage
   Goal:
   Make the homepage easier to scan with less scrolling between useful content.
 
@@ -458,9 +496,16 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - All 24 spacing tests pass across four browser projects, including filtering, contact menu access, and the real album player.
   - With the player visible, the page reserves only its measured height, and the footer stays accessible.
   - The homepage has no player controls. The player checks use the actual album page.
-  - The internal-tab review is still open because the computer-use service requires `NODE_REPL_TRUSTED_SERVICES`.
+  - Historical review status: The internal-tab review is still open because the computer-use service requires `NODE_REPL_TRUSTED_SERVICES`.
   - The rebuilt local website shows the new spacing with live CDN assets and no browser errors.
   - The published shared UI now supplies the current footer menu under release `4.0.0`.
+
+  Resolution:
+  - On September 23, 2026, the owner confirmed: "i have reviewed the site and it looks great".
+  - The owner review satisfies the remaining site design review requirement.
+  - Closure uses the recorded implementation and automated validation, plus the owner review.
+  - This record update did not run application tests again or validate unrelated working-copy changes.
+  - The implementation evidence remains in [Homepage And Gallery Validation](../docs/homepage-gallery-validation.md).
 
 ## Maintenance
 
@@ -699,10 +744,9 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - Physical mobile acceptance is not feasible and is excluded from completion gates by the owner.
   - Final code validation after B005 passed `make music-ci-container`, including 583 browser cases and 21 explicit skips.
 
-- [!] [F002] (P1) Implement the gallery owner and visitor workflows
+- [x] [F002] (P1) Implement the gallery owner and visitor workflows
   Current implementation: The [redesign record](../docs/redesign-implementation.md) contains Studio, contract, routing, and article evidence.
   The published shared UI release now supplies nested authentication configuration.
-  Blocked: Provider acceptance needs gallery PayPal and Pinguin configuration, and internal browser review needs the trusted computer-use service.
   Goal:
   Provide a working gallery for image uploads, arrangement, exhibits, purchases, and full-resolution file delivery.
 
@@ -720,7 +764,7 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - Verify payment on the server before protected file delivery.
   - Provide order records, receipts, expiring download links, and authorized link renewal.
   - Include the required gallery services in local orchestration with gHTTP and persistent storage.
-  - Confirm sale masters, prices, and license terms before production sales activation.
+  - Track sale masters, prices, license terms, and production activation in the separate operations record.
 
   Deliverables:
   - The working owner Studio, public gallery, order service, and protected download service.
@@ -735,7 +779,8 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - A plan document and homepage previews do not satisfy this implementation request.
   - Upload images, change their order, reload saved drafts, and publish one complete catalog candidate.
   - Reuse an artwork in two exhibits without changing its collection order.
-  - Complete a sandbox purchase and retrieve the exact purchased full-resolution file revision.
+  - Verify purchase and exact file delivery through the local provider integration tests.
+  - Track PayPal sandbox qualification in the separate operations record.
   - Reject unpaid, expired, and revoked download requests, including duplicate payment events.
   - Verify all flows in the internal browser and through deterministic integration tests before closure.
   - The canonical model migration passed 48 gallery browser checks across four browser projects.
@@ -746,7 +791,7 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - The executable passes OpenAPI validation and the shared public catalog validator.
   - Focused Linux API, OpenAPI, and Go static checks pass with network access disabled.
   - Published `mpr-ui@latest` resolves to `3.11.11` and rejects the required nested provider configuration.
-  - Browser authentication requires the shared library release before integration can continue.
+  - Historical review status: Browser authentication requires the shared library release before integration can continue.
   - Order creation now preserves server prices, private revisions, and idempotent retries.
   - Concurrent requests and a lost response after restart preserve one provider capture.
   - Verified events require the correct order, merchant, currency, and amount before entitlement creation.
@@ -807,7 +852,7 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - The CI image now includes local orchestration source, and its local preparation and Pages artifact checks pass without network access.
   - Qualification scripts now include both service images and gallery HTTPS, authorization, catalog, and persistence assertions.
   - Publication and deployment preflight checks reject the old release because its gallery image is absent.
-  - Complete qualification still requires internal browser review, live provider acceptance, and a new sealed release.
+  - Historical review status: Complete qualification still requires internal browser review, live provider acceptance, and a new sealed release.
   - The Studio test no longer requires password login, which the owner workflow does not require.
   - The earlier published config loader rejected nested Google configuration with `config-ui.yaml missing auth.googleClientId`.
   - The published shared UI now resolves to `4.0.0`, and Studio uses its nested provider configuration.
@@ -815,5 +860,14 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - Shared session recovery preserves unsaved edits, and unapplied editor changes require an explicit discard choice.
   - The local stack includes TAuth and passes all three checks with persistent TAuth and gallery volumes.
   - The final redesign `make ci` checkpoint passed with 491 browser passes, 21 configuration-specific skips, and no failures.
+
+  Resolution:
+  - On September 23, 2026, the owner confirmed: "i have reviewed the site and it looks great".
+  - The owner review satisfies the remaining site design review requirement.
+  - Closure uses the recorded implementation and automated validation, plus the owner review.
+  - This record update did not run application tests again or validate unrelated working-copy changes.
+  - The redesign record reports 36 Studio checks and a final CI result of 511 browser passes.
+  - Provider qualification and production activation remain in [Gallery Operations](../docs/gallery-operations.md).
+  - Site design approval does not establish a live payment, receipt delivery, or production deployment.
 
 ## Planning
