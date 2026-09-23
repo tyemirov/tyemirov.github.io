@@ -1,4 +1,6 @@
 // @ts-check
+import { initializePage } from "/assets/js/navigation.js";
+import { onPageLeave, pageEvents } from "/assets/js/navigation.js";
 import { fetchGallery } from './core/gateway.js';
 import { createCartManager } from './core/cart.js';
 import { subscribe, routeHref } from './core/router.js';
@@ -10,6 +12,8 @@ import { renderCartView } from './ui/cartView.js';
 import { initLightbox } from './ui/lightbox.js';
 import { applyMetadata } from './ui/meta.js';
 import { element, showElement, hideElement } from './utils/dom.js';
+
+export async function mountPage() {
 
 const views = {
   home: document.getElementById('home-view'),
@@ -107,4 +111,9 @@ try {
   views.home.replaceChildren(notice); showElement(views.home);
   console.error('Load gallery:', error);
 } finally { hideElement(loading); }
-window.addEventListener('pagehide', event => { if (!event.persisted) disposers.forEach(dispose => dispose()); });
+const disposePage = () => disposers.splice(0).forEach(dispose => dispose());
+onPageLeave(disposePage);
+window.addEventListener('pagehide', event => { if (!event.persisted) disposePage(); }, pageEvents());
+}
+
+initializePage(mountPage);
