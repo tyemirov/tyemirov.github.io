@@ -76,14 +76,14 @@ async function hydrateHomePage() {
   try {
     siteData = await loadSite(request.signal);
     renderAll(siteData);
+    // Native fragment scrolling can stop before it reaches the section in WebKit.
+    window.addEventListener('hashchange', () => void restoreSectionScroll(request.signal), { signal: request.signal });
     await restoreSectionScroll(request.signal);
   } catch (error) {
     if (request.signal.aborted) return;
     renderMusicError("Music is unavailable. Please reload the page.");
     document.querySelector(".music-section").classList.remove("is-hidden");
     console.error("Site catalog failed.", error);
-  } finally {
-    if (homepageRequest === request) homepageRequest = null;
   }
 }
 
