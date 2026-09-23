@@ -990,12 +990,17 @@
         },
         "link": {
           "$ref": "#/$defs/link"
+        },
+        "icon": {
+          "type": "string",
+          "pattern": "^/assets/games/[a-z-]+\\.svg$"
         }
       },
       "required": [
         "title",
         "summary",
-        "status"
+        "status",
+        "icon"
       ]
     },
     "tools": {

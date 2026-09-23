@@ -323,6 +323,7 @@ export interface SourceCatalog {
             order: number;
             target?: "_blank";
           };
+          icon: string;
         },
         ...{
           title: string;
@@ -335,6 +336,7 @@ export interface SourceCatalog {
             order: number;
             target?: "_blank";
           };
+          icon: string;
         }[]
       ];
     };
