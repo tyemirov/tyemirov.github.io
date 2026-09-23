@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test:music": "playwright test --config tests/music/playwright.config.mjs"
+    "test:music": "bash scripts/music/with-browser-lock.sh node node_modules/@playwright/test/cli.js test --config tests/music/playwright.config.mjs"
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "13.0.0",
