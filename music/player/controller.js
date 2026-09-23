@@ -14,6 +14,7 @@ export class PlayerController extends EventTarget {
     this.audio = audio;
     this.api = api;
     this.album = album;
+    this.trackAlbums = new Map(album.tracks.map(track => [track.id, album]));
     this.queue = album.tracks.filter((track) => track.playback.kind === "file");
     this.track = null;
     this.grant = null;
@@ -90,6 +91,11 @@ export class PlayerController extends EventTarget {
   }
 
   async select(id) {
+    const album = this.trackAlbums.get(id);
+    if (album && album.slug !== this.album.slug) {
+      this.album = album;
+      this.queue = album.tracks.filter(track => track.playback.kind === "file");
+    }
     const track = this.queue.find((item) => item.id === id);
     if (!track) throw new Error("Selected track is outside the playable queue.");
     if (track === this.track && ["playing", "buffering"].includes(this.phase)) return;

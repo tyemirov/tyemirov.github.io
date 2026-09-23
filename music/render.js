@@ -73,9 +73,12 @@ export function renderAlbumDetails(album) {
   const article = element("article", "album-detail");
   const layout = element("div", "album-layout");
   const sidebar = element("aside", "album-sidebar");
-  const platforms = element("div", "streaming-links");
-  platforms.append(element("p", "links-label", "Listen on:"), platformLinks(album));
-  sidebar.append(cover(album, "album-cover-large"), platforms);
+  sidebar.append(cover(album, "album-cover-large"));
+  if (Object.keys(album.streamingLinks).length > 0) {
+    const platforms = element("div", "streaming-links");
+    platforms.append(element("p", "links-label", "Listen on:"), platformLinks(album));
+    sidebar.append(platforms);
+  }
   const content = element("div", "album-content");
   const header = element("header", "album-header");
   header.append(element("h1", "album-title-large", album.displayTitle ?? album.title));

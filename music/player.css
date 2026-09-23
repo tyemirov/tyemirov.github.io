@@ -1,5 +1,5 @@
 :root { --music-player-height: 0px; scroll-padding-bottom: var(--music-player-height); }
-body { padding-bottom: var(--music-player-height); }
+body:has(> .music-player:not([hidden])) { padding-bottom: var(--music-player-height); }
 .music-player {
   position: fixed;
   bottom: 0;
