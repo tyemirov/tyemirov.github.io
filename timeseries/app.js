@@ -1,3 +1,7 @@
+// @ts-check
+import { initializePage } from "/assets/js/navigation.js";
+
+export async function mountPage() {
 const modeDefinitions = {
   process: {
     label: "Observe a process",
@@ -246,3 +250,6 @@ subjectInput.oninput = (e) => state.subject = e.target.value;
 
 initializeCriteriaForMode(state.mode);
 renderAll();
+}
+
+initializePage(mountPage);
