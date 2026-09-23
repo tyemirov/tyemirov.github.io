@@ -1,8 +1,11 @@
 // @ts-check
+import { initializePage } from "/assets/js/navigation.js";
 import { validatePublicCatalog } from '../assets/js/catalog.js';
 import { initializeSiteFooter } from '../assets/js/footer.js';
 import { initializeTopics } from '../assets/js/topics.js';
 import { renderArticleIndex } from '../site.js';
+
+export async function mountPage() {
 
 const response = await fetch('/data/site.json', { cache: 'no-cache' });
 if (!response.ok) throw new Error('Personal catalog is unavailable.');
@@ -14,3 +17,6 @@ if (navigation) {
     renderArticleIndex(site, selected);
   }});
 }
+}
+
+initializePage(mountPage);
