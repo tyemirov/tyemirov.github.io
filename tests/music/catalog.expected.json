@@ -3,6 +3,118 @@
   "title": "Albums, song cycles, and vocal settings.",
   "items": [
     {
+      "slug": "alpha-drift",
+      "title": "Alpha Drift",
+      "subtitle": "Ten pieces, from Alpha to Kappa.",
+      "coverImage": "/music/covers/alpha-drift.png",
+      "releaseDate": {
+        "precision": "year",
+        "value": "2026"
+      },
+      "status": "live",
+      "shortDescription": "Ten tracks. Listen here, from Alpha to Kappa.",
+      "streamingLinks": {},
+      "credits": "Vadym Tyemirov",
+      "notes": {
+        "format": "commonmark",
+        "text": "Alpha Drift is available to listen to here. The ten tracks follow the Greek alphabet, from Alpha to Kappa."
+      },
+      "order": 0,
+      "tracks": [
+        {
+          "id": "alpha-drift-01",
+          "title": "Alpha",
+          "playback": {
+            "kind": "file",
+            "durationMs": 209840
+          },
+          "slug": "alpha"
+        },
+        {
+          "id": "alpha-drift-02",
+          "title": "Beta",
+          "playback": {
+            "kind": "file",
+            "durationMs": 179760
+          },
+          "slug": "beta"
+        },
+        {
+          "id": "alpha-drift-03",
+          "title": "Gamma",
+          "playback": {
+            "kind": "file",
+            "durationMs": 218200
+          },
+          "slug": "gamma"
+        },
+        {
+          "id": "alpha-drift-04",
+          "title": "Delta",
+          "playback": {
+            "kind": "file",
+            "durationMs": 142920
+          },
+          "slug": "delta"
+        },
+        {
+          "id": "alpha-drift-05",
+          "title": "Epsilon",
+          "playback": {
+            "kind": "file",
+            "durationMs": 234520
+          },
+          "slug": "epsilon"
+        },
+        {
+          "id": "alpha-drift-06",
+          "title": "Zeta",
+          "playback": {
+            "kind": "file",
+            "durationMs": 179800
+          },
+          "slug": "zeta"
+        },
+        {
+          "id": "alpha-drift-07",
+          "title": "Eta",
+          "playback": {
+            "kind": "file",
+            "durationMs": 167400
+          },
+          "slug": "eta"
+        },
+        {
+          "id": "alpha-drift-08",
+          "title": "Theta",
+          "playback": {
+            "kind": "file",
+            "durationMs": 479920
+          },
+          "slug": "theta"
+        },
+        {
+          "id": "alpha-drift-09",
+          "title": "Iota",
+          "playback": {
+            "kind": "file",
+            "durationMs": 217880
+          },
+          "slug": "iota"
+        },
+        {
+          "id": "alpha-drift-10",
+          "title": "Kappa",
+          "playback": {
+            "kind": "file",
+            "durationMs": 224760
+          },
+          "slug": "kappa"
+        }
+      ],
+      "latest": true
+    },
+    {
       "slug": "soliloquies-vol-ii",
       "title": "Soliloquies Vol. II",
       "subtitle": "Meditations",
@@ -12,9 +124,11 @@
         "value": "2026"
       },
       "status": "live",
-      "latest": true,
       "shortDescription": "Nine vocal settings of philosophy, drama, and poetry.",
       "streamingLinks": {
+        "spotify": "https://open.spotify.com/album/4YcRPfx5mAH3X0TrSeQtTZ",
+        "amazon": "https://music.amazon.com/albums/B0HK96CD5C",
+        "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_mZ-cKl_g3rI3W5iumTzDBH3kAE_-ugDvw",
         "suno": "https://suno.com/playlist/260e3808-961d-42e7-97d3-222770ae14ac"
       },
       "tracks": [

@@ -52,7 +52,7 @@ try {
   const mediaRoot = join(temporary, "media");
   await run("ffmpeg", ["-nostdin", "-v", "error", "-f", "lavfi", "-i", "sine=frequency=440:sample_rate=48000", "-t", "13", source]);
   const { trackId, ...record } = JSON.parse(await run(process.execPath, ["scripts/music/prepare.mjs", "--source", source, "--media-root", mediaRoot, "--track-id", "test-tone"]));
-  const fixtureTracks = [trackId, "soliloquies-vol-i-01", "soliloquies-vol-i-02"];
+  const fixtureTracks = [trackId, "soliloquies-vol-i-01", "soliloquies-vol-i-02", "soliloquies-vol-ii-01"];
   // Serve player fixtures without request interception during document navigation.
   const sitePath = join(siteRoot, "data/site.json");
   const site = JSON.parse(await readFile(sitePath, "utf8"));

@@ -17,8 +17,8 @@ test("the Pages container exports public content without Gateway metadata", { ti
     const files = await readdir(directory);
     for (const reserved of ["CNAME", ".nojekyll", ".mprlab-release.json", ".git", "node_modules", "services"]) assert.equal(files.includes(reserved), false, reserved);
     const site = JSON.parse(await readFile(join(directory, "data/site.json"), "utf8"));
-    assert.equal(site.music.items.length, 6);
-    assert.equal(site.music.items.flatMap((album) => album.tracks).length, 50);
+    assert.equal(site.music.items.length, 7);
+    assert.equal(site.music.items.flatMap((album) => album.tracks).length, 60);
     assert.ok(site.music.items.flatMap(album => album.tracks).every(track => track.playback.kind === "file"));
     assert.equal((await readdir(join(directory, "assets"))).includes("music"), false);
     assert.match(await readFile(join(directory, "gallery/order/index.html"), "utf8"), /Your gallery order/);

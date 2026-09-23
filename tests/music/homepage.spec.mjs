@@ -13,6 +13,9 @@ test("Soliloquies Vol. II is featured with its cover and nine recordings", async
   await expect(page.getByRole("heading", { name: "Soliloquies Vol. II", exact: true })).toBeVisible();
   await expect(page.locator(".track-title")).toHaveCount(9);
   await expect(page.getByRole("link", { name: "Suno", exact: true })).toHaveAttribute("href", "https://suno.com/playlist/260e3808-961d-42e7-97d3-222770ae14ac");
+  await expect(page.getByRole("link", { name: "Spotify", exact: true })).toHaveAttribute("href", "https://open.spotify.com/album/4YcRPfx5mAH3X0TrSeQtTZ");
+  await expect(page.getByRole("link", { name: "Amazon Music", exact: true })).toHaveAttribute("href", "https://music.amazon.com/albums/B0HK96CD5C");
+  await expect(page.getByRole("link", { name: "YouTube Music", exact: true })).toHaveAttribute("href", "https://www.youtube.com/playlist?list=OLAK5uy_mZ-cKl_g3rI3W5iumTzDBH3kAE_-ugDvw");
   await expect.poll(() => page.locator('img[src="/music/covers/soliloquies-vol-ii.jpg"]').evaluate(img => img.naturalWidth)).toBeGreaterThan(0);
 });
 
@@ -50,7 +53,7 @@ for (const width of [390, 769, 1280]) {
       if (visit === "reload") await page.reload();
       if (visit === "return") {
         await page.locator('#music .section-actions a').click();
-        await expect(page.locator(".album-card")).toHaveCount(6);
+        await expect(page.locator(".album-card")).toHaveCount(7);
         await page.goBack({ waitUntil: "commit" });
       }
       await expect(page.locator(".hero-links a")).toHaveCount(4);

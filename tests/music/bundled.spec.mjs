@@ -25,5 +25,5 @@ test("every published recording plays from its bundled audio file", async ({ pag
       played++;
     }
   }
-  expect(played).toBe(50);
+  expect(played).toBe(60);
 });
