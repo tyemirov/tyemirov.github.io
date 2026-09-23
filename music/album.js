@@ -1,0 +1,1 @@
+import{d as a}from"./dist/chunk-FCK4FBFE.js";import"./dist/chunk-UMGJDSIJ.js";import{initializePage as i}from"/assets/js/navigation.js";async function t(){await a("album")}i(t);export{t as mountPage};

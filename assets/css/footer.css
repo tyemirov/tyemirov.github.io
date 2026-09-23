@@ -1,0 +1,25 @@
+body:has(> .site-footer) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  box-sizing: border-box;
+}
+
+body:has(> .site-footer) > * {
+  flex-shrink: 0;
+}
+
+body > :where(main, .page-shell, .container) {
+  flex: 1 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  align-content: start;
+}
+
+.site-footer .site-footer__prefix {
+  display: none;
+}
+
+.site-footer .site-footer__inner {
+  box-sizing: border-box;
+}

@@ -1,0 +1,424 @@
+{
+  "tracks": [
+    {
+      "id": "alpha-drift-01",
+      "playback": {
+        "kind": "file",
+        "durationMs": 209840
+      }
+    },
+    {
+      "id": "alpha-drift-02",
+      "playback": {
+        "kind": "file",
+        "durationMs": 179760
+      }
+    },
+    {
+      "id": "alpha-drift-03",
+      "playback": {
+        "kind": "file",
+        "durationMs": 218200
+      }
+    },
+    {
+      "id": "alpha-drift-04",
+      "playback": {
+        "kind": "file",
+        "durationMs": 142920
+      }
+    },
+    {
+      "id": "alpha-drift-05",
+      "playback": {
+        "kind": "file",
+        "durationMs": 234520
+      }
+    },
+    {
+      "id": "alpha-drift-06",
+      "playback": {
+        "kind": "file",
+        "durationMs": 179800
+      }
+    },
+    {
+      "id": "alpha-drift-07",
+      "playback": {
+        "kind": "file",
+        "durationMs": 167400
+      }
+    },
+    {
+      "id": "alpha-drift-08",
+      "playback": {
+        "kind": "file",
+        "durationMs": 479920
+      }
+    },
+    {
+      "id": "alpha-drift-09",
+      "playback": {
+        "kind": "file",
+        "durationMs": 217880
+      }
+    },
+    {
+      "id": "alpha-drift-10",
+      "playback": {
+        "kind": "file",
+        "durationMs": 224760
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-01",
+      "playback": {
+        "kind": "file",
+        "durationMs": 148440
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-02",
+      "playback": {
+        "kind": "file",
+        "durationMs": 339800
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-03",
+      "playback": {
+        "kind": "file",
+        "durationMs": 227480
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-04",
+      "playback": {
+        "kind": "file",
+        "durationMs": 223440
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-05",
+      "playback": {
+        "kind": "file",
+        "durationMs": 214040
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-06",
+      "playback": {
+        "kind": "file",
+        "durationMs": 206840
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-07",
+      "playback": {
+        "kind": "file",
+        "durationMs": 235320
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-08",
+      "playback": {
+        "kind": "file",
+        "durationMs": 203280
+      }
+    },
+    {
+      "id": "soliloquies-vol-ii-09",
+      "playback": {
+        "kind": "file",
+        "durationMs": 374280
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-01",
+      "playback": {
+        "kind": "file",
+        "durationMs": 194320
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-02",
+      "playback": {
+        "kind": "file",
+        "durationMs": 289000
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-03",
+      "playback": {
+        "kind": "file",
+        "durationMs": 148440
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-04",
+      "playback": {
+        "kind": "file",
+        "durationMs": 91400
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-05",
+      "playback": {
+        "kind": "file",
+        "durationMs": 224720
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-06",
+      "playback": {
+        "kind": "file",
+        "durationMs": 152640
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-07",
+      "playback": {
+        "kind": "file",
+        "durationMs": 138360
+      }
+    },
+    {
+      "id": "soliloquies-vol-i-08",
+      "playback": {
+        "kind": "file",
+        "durationMs": 156880
+      }
+    },
+    {
+      "id": "songs-of-desire-01",
+      "playback": {
+        "kind": "file",
+        "durationMs": 299640
+      }
+    },
+    {
+      "id": "songs-of-desire-02",
+      "playback": {
+        "kind": "file",
+        "durationMs": 239120
+      }
+    },
+    {
+      "id": "songs-of-desire-03",
+      "playback": {
+        "kind": "file",
+        "durationMs": 166080
+      }
+    },
+    {
+      "id": "songs-of-desire-04",
+      "playback": {
+        "kind": "file",
+        "durationMs": 263080
+      }
+    },
+    {
+      "id": "songs-of-desire-05",
+      "playback": {
+        "kind": "file",
+        "durationMs": 154520
+      }
+    },
+    {
+      "id": "songs-of-desire-06",
+      "playback": {
+        "kind": "file",
+        "durationMs": 237800
+      }
+    },
+    {
+      "id": "songs-of-desire-07",
+      "playback": {
+        "kind": "file",
+        "durationMs": 194720
+      }
+    },
+    {
+      "id": "songs-of-desire-08",
+      "playback": {
+        "kind": "file",
+        "durationMs": 199920
+      }
+    },
+    {
+      "id": "songs-of-desire-09",
+      "playback": {
+        "kind": "file",
+        "durationMs": 109840
+      }
+    },
+    {
+      "id": "egyptian-nights-01",
+      "playback": {
+        "kind": "file",
+        "durationMs": 189600
+      }
+    },
+    {
+      "id": "egyptian-nights-02",
+      "playback": {
+        "kind": "file",
+        "durationMs": 140400
+      }
+    },
+    {
+      "id": "egyptian-nights-03",
+      "playback": {
+        "kind": "file",
+        "durationMs": 229080
+      }
+    },
+    {
+      "id": "egyptian-nights-04",
+      "playback": {
+        "kind": "file",
+        "durationMs": 154840
+      }
+    },
+    {
+      "id": "egyptian-nights-05",
+      "playback": {
+        "kind": "file",
+        "durationMs": 242720
+      }
+    },
+    {
+      "id": "egyptian-nights-06",
+      "playback": {
+        "kind": "file",
+        "durationMs": 168400
+      }
+    },
+    {
+      "id": "egyptian-nights-07",
+      "playback": {
+        "kind": "file",
+        "durationMs": 369920
+      }
+    },
+    {
+      "id": "egyptian-nights-08",
+      "playback": {
+        "kind": "file",
+        "durationMs": 380920
+      }
+    },
+    {
+      "id": "singing-pasternak-01",
+      "playback": {
+        "kind": "file",
+        "durationMs": 204800
+      }
+    },
+    {
+      "id": "singing-pasternak-02",
+      "playback": {
+        "kind": "file",
+        "durationMs": 213200
+      }
+    },
+    {
+      "id": "singing-pasternak-03",
+      "playback": {
+        "kind": "file",
+        "durationMs": 71080
+      }
+    },
+    {
+      "id": "singing-pasternak-04",
+      "playback": {
+        "kind": "file",
+        "durationMs": 146200
+      }
+    },
+    {
+      "id": "singing-pasternak-05",
+      "playback": {
+        "kind": "file",
+        "durationMs": 170960
+      }
+    },
+    {
+      "id": "singing-pasternak-06",
+      "playback": {
+        "kind": "file",
+        "durationMs": 106000
+      }
+    },
+    {
+      "id": "singing-pasternak-07",
+      "playback": {
+        "kind": "file",
+        "durationMs": 173160
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-01",
+      "playback": {
+        "kind": "file",
+        "durationMs": 106000
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-02",
+      "playback": {
+        "kind": "file",
+        "durationMs": 108960
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-03",
+      "playback": {
+        "kind": "file",
+        "durationMs": 117000
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-04",
+      "playback": {
+        "kind": "file",
+        "durationMs": 63680
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-05",
+      "playback": {
+        "kind": "file",
+        "durationMs": 104000
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-06",
+      "playback": {
+        "kind": "file",
+        "durationMs": 118520
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-07",
+      "playback": {
+        "kind": "file",
+        "durationMs": 99840
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-08",
+      "playback": {
+        "kind": "file",
+        "durationMs": 111200
+      }
+    },
+    {
+      "id": "february-get-ink-and-weep-09",
+      "playback": {
+        "kind": "file",
+        "durationMs": 98640
+      }
+    }
+  ]
+}
