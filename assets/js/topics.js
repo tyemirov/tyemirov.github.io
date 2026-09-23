@@ -1,4 +1,5 @@
 // @ts-check
+import { onPageLeave, pushPageURL } from "/assets/js/navigation.js";
 import { siteTopics } from './generated/routes.js';
 
 const TOPIC_QUERY = 'topic';
@@ -31,11 +32,12 @@ export function initializeTopics({ navigation, render }) {
     const url = new URL(location.href);
     if (selected === null) url.searchParams.delete(TOPIC_QUERY);
     else url.searchParams.set(TOPIC_QUERY, selected);
-    history.pushState(null, '', url);
+    pushPageURL(url);
     update(true);
   };
   const restore = () => { selected = readTopic(); update(true); };
   window.addEventListener('popstate', restore);
+  onPageLeave(() => window.removeEventListener('popstate', restore));
   update(false);
   return () => window.removeEventListener('popstate', restore);
 }
