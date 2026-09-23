@@ -1,3 +1,9 @@
+// @ts-check
+import { initializePage } from "/assets/js/navigation.js";
+import { pageEvents, onPageLeave } from "/assets/js/navigation.js";
+
+export async function mountPage() {
+const navigationEvents = pageEvents();
 "use strict";
 
 function deepCopyJson(valueToCopy) {
@@ -1146,6 +1152,8 @@ function enhanceNumericControls() {
       }
     }
 
+    onPageLeave(clearValueHideTimer);
+
     function showValueBadge() {
       clearValueHideTimer();
       valueElement.classList.add("is-visible");
@@ -1260,7 +1268,7 @@ function attachGlobalControlHandlers() {
 
   window.addEventListener("resize", () => {
     requestRerender();
-  });
+  }, navigationEvents);
 }
 
 function buildDomainControlsTable() {
@@ -1977,6 +1985,7 @@ function renderDependencyGraph(modelResult) {
     .force("center", d3.forceCenter(width / 2, height / 2))
     .force("collision", d3.forceCollide().radius((d) => (d.coreTotal > 0.01 ? radiusScale(d.coreTotal) + 10 : 20)));
 
+  onPageLeave(() => simulation.stop());
   simulation.on("tick", () => {
     linkSelection
       .attr("x1", (d) => d.source.x)
@@ -1993,10 +2002,11 @@ function requestRerender() {
     return;
   }
   rerenderScheduled = true;
-  window.requestAnimationFrame(() => {
+  const frame = window.requestAnimationFrame(() => {
     rerenderScheduled = false;
     renderEverything();
   });
+  onPageLeave(() => cancelAnimationFrame(frame));
 }
 
 function renderEverything() {
@@ -2025,3 +2035,6 @@ function initialize() {
 }
 
 initialize();
+}
+
+initializePage(mountPage);
