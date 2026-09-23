@@ -1,4 +1,5 @@
 // @ts-check
+import { navigate, initializePage, onPageLeave } from "/assets/js/navigation.js";
 import { initializeSiteFooter } from "./assets/js/footer.js";
 import { validatePublicCatalog } from "./assets/js/catalog.js";
 import { renderMusicIndex, renderAlbumDetails, renderMusicError, renderAlbumNotFound } from "./music/render.js";
@@ -12,15 +13,17 @@ let siteData = null;
 /** @type {AbortController | null} */
 let homepageRequest = null;
 
-document.addEventListener("DOMContentLoaded", () => {
-  if (!document.querySelector(".hero")) return;
-  void hydrateHomePage();
-  window.addEventListener("pageshow", event => {
-    if (event.persisted) void hydrateHomePage();
-  });
-  window.addEventListener("pagehide", event => {
-    if (!event.persisted) homepageRequest?.abort();
-  });
+export async function mountPage() {
+  if (!document.body.classList.contains("home")) return;
+  onPageLeave(() => homepageRequest?.abort());
+  await hydrateHomePage();
+}
+initializePage(mountPage);
+window.addEventListener("pageshow", event => {
+  if (event.persisted) void mountPage();
+});
+window.addEventListener("pagehide", event => {
+  if (!event.persisted) homepageRequest?.abort();
 });
 
 /** @param {AbortSignal} [signal] */
@@ -107,7 +110,7 @@ function renderAll(data) {
     if (!siteTopics.includes(topic)) throw new Error(`Unknown content topic: ${topic}`);
     const url = new URL('/articles/', location.origin);
     url.searchParams.set('topic', topic);
-    location.assign(url);
+    void navigate(url);
   };
   renderContent(data);
   void initializeSiteFooter({ contact: data.contact, themeAttribute: "data-theme" });
@@ -266,6 +269,7 @@ function renderTools(tools) {
       summaryText: game.summary,
       tagText: game.status,
       tagClass: "game-status",
+      icon: game.icon,
       link: game.link,
       extraCardClass: "game-card",
     })
@@ -281,13 +285,25 @@ function renderTools(tools) {
  *   summaryText?: string;
  *   tagText?: string;
  *   tagClass?: string;
+ *   icon?: string;
  *   link?: { label?: string; href?: string; target?: string; style?: "primary" | "secondary" };
  *   extraCardClass?: string;
  * }} options
  */
-function createToolCard({ titleText, summaryText, tagText, tagClass, link, extraCardClass }) {
+function createToolCard({ titleText, summaryText, tagText, tagClass, icon, link, extraCardClass }) {
   const card = document.createElement("article");
   card.className = `project-card tool-card${extraCardClass ? ` ${extraCardClass}` : ""}`;
+
+  if (icon) {
+    const image = document.createElement("img");
+    image.className = "game-icon";
+    image.src = icon;
+    image.alt = "";
+    image.width = 48;
+    image.height = 48;
+    image.loading = "lazy";
+    card.append(image);
+  }
 
   if (tagText) {
     const tags = document.createElement("div");
