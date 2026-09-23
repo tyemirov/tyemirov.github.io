@@ -74,14 +74,14 @@ a:hover {
 }
 
 /* Profile Photo Reveal */
-.profile-photo {
+.profile-photo, .game-icon {
   display: block;
   filter: grayscale(1) contrast(1.05) brightness(0.95);
   transition: filter 600ms cubic-bezier(0.16, 1, 0.3, 1);
   margin-bottom: 32px;
 }
 
-.profile-photo:hover {
+.profile-photo:hover, .game-card:hover .game-icon, .game-card:focus-within .game-icon {
   filter: grayscale(0) contrast(1) brightness(1);
 }
 
@@ -558,13 +558,41 @@ button.card-kicker-tag:hover {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .profile-photo, .music-card, .project-card, a, .button { transition: none; }
+  .profile-photo, .game-icon, .music-card, .project-card, a, .button { transition: none; }
 }
 
 main > section[id] { scroll-margin-top: 24px; }
 .essay-section .project-list { margin-top: 24px; }
 
 /* Tools */
+.game-card {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr auto;
+  column-gap: 20px;
+}
+
+.game-card .card-tags { grid-area: 1 / 2; }
+.game-card h2 { grid-area: 2 / 2; }
+.game-card .card-body { grid-area: 3 / 2; }
+.game-card .project-actions { grid-area: 4 / 2; }
+
+.game-icon {
+  grid-area: 2 / 1;
+  align-self: start;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  max-width: 100%;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .tool-card .button {
   white-space: normal;
+}
+
+@media (max-width: 600px) {
+  .game-card { grid-template-columns: 36px minmax(0, 1fr); column-gap: 14px; }
+  .game-icon { width: 36px; height: 36px; }
 }
