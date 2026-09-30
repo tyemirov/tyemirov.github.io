@@ -4,20 +4,20 @@ mprlab_resources:
   release:
     scheme: semver
   resources:
-    - kind: private_values
-      id: private
+    private:
+      kind: private_values
       bindings:
         gallery-tauth-signing-key: GALLERY_TAUTH_SIGNING_KEY
         gallery-google-web-client-id: GALLERY_GOOGLE_WEB_CLIENT_ID
-    - kind: tauth_tenant
-      id: gallery-auth
+    gallery-auth:
+      kind: tauth_tenant
       capability: tauth.tenants
       version: 1
       tenant:
         id: tyemirov-gallery
         display_name: Gallery Studio
         origins:
-          - https://tyemirov.net
+        - https://tyemirov.net
         google_web_client_id:
           resource: private
           output: gallery-google-web-client-id
@@ -28,37 +28,37 @@ mprlab_resources:
           domain: api.tyemirov.net
           session_name: tyemirov_gallery_session
           refresh_name: tyemirov_gallery_refresh
-    - kind: compose_project
-      id: music
+    music:
+      kind: compose_project
       images:
-        - id: service
+        service:
           repository: ghcr.io/tyemirov/personal-site-music
           build:
             context: .
             dockerfile: services/music-stream/Dockerfile
             platforms:
-              - linux/amd64
+            - linux/amd64
       services:
-        - id: stream
+        stream:
           image: service
           placement:
             group: computercat
             cardinality: one
           command:
-            - --listen
-            - 0.0.0.0:8092
-            - --media-root
-            - /assets/music
-            - --index
-            - /assets/music/catalog.json
-            - --allowlist
-            - /assets/music/allowlist.json
-            - --public-origin
-            - https://api.tyemirov.net
-            - --allowed-origins
-            - https://tyemirov.net,https://www.tyemirov.net
+            '0': --listen
+            '1': 0.0.0.0:8092
+            '2': --media-root
+            '3': /assets/music
+            '4': --index
+            '5': /assets/music/catalog.json
+            '6': --allowlist
+            '7': /assets/music/allowlist.json
+            '8': --public-origin
+            '9': https://api.tyemirov.net
+            '10': --allowed-origins
+            '11': https://tyemirov.net,https://www.tyemirov.net
           ports:
-            - container_port: 8092
+            '8092':
               host_port: 8092
               scope: private_lan
           readiness:
@@ -66,8 +66,8 @@ mprlab_resources:
             port: 8092
             path: /music/readyz
             expected_status: 200
-    - kind: runtime_capability
-      id: music-http
+    music-http:
+      kind: runtime_capability
       name: tyemirov-site.music-http
       version: 1
       project: music
@@ -80,13 +80,13 @@ mprlab_resources:
         protocol: http
         path: /music/readyz
         expected_status: 200
-    - kind: health_check
-      id: music-public
+    music-public:
+      kind: health_check
       protocol: http
       url: https://api.tyemirov.net/music/readyz
       expected_status: 200
-    - kind: github_pages
-      id: website
+    website:
+      kind: github_pages
       repository: tyemirov/tyemirov.github.io
       branch: gh-pages
       domain: tyemirov.net
@@ -97,45 +97,45 @@ mprlab_resources:
         dockerfile: Dockerfile.pages
       verification:
         path: /.mprlab-release.json
-    - kind: compose_project
-      id: gallery
+    gallery:
+      kind: compose_project
       images:
-        - id: service
+        service:
           repository: ghcr.io/tyemirov/personal-site-gallery
           build:
             context: .
             dockerfile: services/gallery/Dockerfile
             platforms:
-              - linux/amd64
+            - linux/amd64
       volumes:
-        - id: data
+        data:
           name: tyemirov-site-gallery-data
           retention: retain
       services:
-        - id: api
+        api:
           image: service
           placement:
             group: computercat
             cardinality: one
           command:
-            - --listen=0.0.0.0:8093
-            - --database=/data/gallery.db
-            - --public-root=/site
-            - --allowed-origin=https://tyemirov.net
-            - --tenant-id=tyemirov-gallery
-            - --owner-email=vadym@tyemirov.net
-            - --cookie-name=tyemirov_gallery_session
-            - --payments=disabled
-            - --receipts=disabled
+            '0': --listen=0.0.0.0:8093
+            '1': --database=/data/gallery.db
+            '2': --public-root=/site
+            '3': --allowed-origin=https://tyemirov.net
+            '4': --tenant-id=tyemirov-gallery
+            '5': --owner-email=vadym@tyemirov.net
+            '6': --cookie-name=tyemirov_gallery_session
+            '7': --payments=disabled
+            '8': --receipts=disabled
           environment:
             GALLERY_TAUTH_SIGNING_KEY:
               resource: private
               output: gallery-tauth-signing-key
           mounts:
-            - volume: data
-              target: /data
+            /data:
+              volume: data
           ports:
-            - container_port: 8093
+            '8093':
               host_port: 8093
               scope: private_lan
           readiness:
@@ -143,8 +143,8 @@ mprlab_resources:
             port: 8093
             path: /gallery/readyz
             expected_status: 200
-    - kind: runtime_capability
-      id: gallery-http
+    gallery-http:
+      kind: runtime_capability
       name: tyemirov-site.gallery-http
       version: 1
       project: gallery
@@ -157,17 +157,17 @@ mprlab_resources:
         protocol: http
         path: /gallery/readyz
         expected_status: 200
-    - kind: health_check
-      id: gallery-public
+    gallery-public:
+      kind: health_check
       protocol: http
       url: https://api.tyemirov.net/gallery/readyz
       expected_status: 200
-    - kind: caddy_route
-      id: api-route
+    api-route:
+      kind: caddy_route
       hostname: api.tyemirov.net
       listener: https
       handlers:
-        - id: music
+        music:
           path_prefix: /music
           upstream: tyemirov-site.music-http
           access:
@@ -176,13 +176,13 @@ mprlab_resources:
               window_seconds: 60
             browser:
               allowed_origins:
-                - https://tyemirov.net
-                - https://www.tyemirov.net
+              - https://tyemirov.net
+              - https://www.tyemirov.net
               allow_credentials: true
-        - id: gallery
+        gallery:
           path_prefix: /gallery
           upstream: tyemirov-site.gallery-http
-        - id: auth
+        auth:
           path_prefix: /auth
           upstream: tauth.http
       tls:
