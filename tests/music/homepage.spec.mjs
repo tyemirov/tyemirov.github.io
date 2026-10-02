@@ -12,7 +12,8 @@ test("Soliloquies Vol. II is featured with its cover and nine recordings", async
   await album.click();
   await expect(page.getByRole("heading", { name: "Soliloquies Vol. II", exact: true })).toBeVisible();
   await expect(page.locator(".track-title")).toHaveCount(9);
-  await expect(page.getByRole("link", { name: "Suno", exact: true })).toHaveAttribute("href", "https://suno.com/playlist/260e3808-961d-42e7-97d3-222770ae14ac");
+  await expect(page.getByRole("link", { name: "Suno", exact: true })).toHaveCount(0);
+  await expect(page.locator('a[href*="suno.ai"], a[href*="suno.com"]')).toHaveCount(0);
   await expect(page.getByRole("link", { name: "Spotify", exact: true })).toHaveAttribute("href", "https://open.spotify.com/album/4YcRPfx5mAH3X0TrSeQtTZ");
   await expect(page.getByRole("link", { name: "Amazon Music", exact: true })).toHaveAttribute("href", "https://music.amazon.com/albums/B0HK96CD5C");
   await expect(page.getByRole("link", { name: "YouTube Music", exact: true })).toHaveAttribute("href", "https://www.youtube.com/playlist?list=OLAK5uy_mZ-cKl_g3rI3W5iumTzDBH3kAE_-ugDvw");

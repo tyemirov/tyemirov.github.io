@@ -45,6 +45,7 @@ test('static music cards follow catalog publication, order, and text without Jav
   await page.goto('/music/');
   const cards = page.locator('#album-grid .album-card');
   await expect(cards.locator('.album-title')).toHaveText(albums.map(album => album.displayTitle ?? album.title));
+  await expect(page.locator('a[href*="suno.ai"], a[href*="suno.com"]')).toHaveCount(0);
   await expect(page.locator(`a[href="/music/${source.music.items[0].slug}/"]`)).toHaveCount(0);
   for (const [index, album] of albums.entries()) {
     const card = cards.nth(index);
