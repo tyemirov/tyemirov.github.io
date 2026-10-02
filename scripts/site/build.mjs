@@ -15,13 +15,13 @@ const source = validateSourceCatalog(JSON.parse(await readFile(process.argv[3] |
 const site = publishCatalog(source);
 const resources = yaml.load(await readFile(join(root, '.mprlab/deploy/resources.yml'), 'utf8')).mprlab_resources.resources;
 const capabilities = ['tyemirov-site.gallery-http', 'tyemirov-site.music-http'];
-const apiRoutes = resources.filter(resource => resource.kind === 'caddy_route' && resource.handlers.some(handler => capabilities.includes(handler.upstream)));
-if (apiRoutes.length !== 1 || !capabilities.every(capability => apiRoutes[0].handlers.some(handler => handler.upstream === capability))) throw new Error('Select one API route for Gallery and music.');
+const apiRoutes = Object.values(resources).filter(resource => resource.kind === 'caddy_route' && Object.values(resource.handlers).some(handler => capabilities.includes(handler.upstream)));
+if (apiRoutes.length !== 1 || !capabilities.every(capability => Object.values(apiRoutes[0].handlers).some(handler => handler.upstream === capability))) throw new Error('Select one API route for Gallery and music.');
 const config = { apiOrigin: `https://${apiRoutes[0].hostname}` };
 if (!siteRuntime(config)) throw new Error('Invalid generated public API origin.');
 const uiConfig = JSON.parse(await readFile(join(root, 'config-ui.yaml'), 'utf8'));
-const tenant = resources.find(resource => resource.kind === 'tauth_tenant' && resource.id === 'gallery-auth').tenant;
-if (uiConfig.environments.length !== 1 || uiConfig.environments[0].auth.tauthUrl !== config.apiOrigin || uiConfig.environments[0].auth.tenantId !== tenant.id || JSON.stringify(uiConfig.environments[0].origins) !== JSON.stringify(tenant.origins)) throw new Error('The shared authentication configuration must match the selected tenant and API origin.');
+const tenant = resources['gallery-auth'].tenant;
+if (uiConfig.environments.length !== 1 || uiConfig.environments[0].auth.tauthUrl !== config.apiOrigin || uiConfig.environments[0].auth.tenantId !== tenant.id || JSON.stringify([...uiConfig.environments[0].origins].sort()) !== JSON.stringify([...tenant.origins].sort())) throw new Error('The shared authentication configuration must match the selected tenant and API origin.');
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 const serializeJsonLd = value => JSON.stringify(value, null, 2).replaceAll('<', '\\u003c');
 const routes = new Map();

@@ -4,8 +4,10 @@
   gather_facts: false
   vars_files:
     - "{{ application_manifest }}"
+    - "{{ gateway_root }}/deploy/ansible/playbooks/vars/app-lifecycle-contract.yml"
   vars:
-    selected_project: "{{ mprlab_resources.resources | selectattr('id', 'equalto', 'music') | first }}"
+    compiled_manifest: "{{ mprlab_resources | mprlab_normalize_selected_manifest(mprlab_manifest_argument_spec, mprlab_resource_argument_specs) }}"
+    selected_project: "{{ compiled_manifest.resources | selectattr('id', 'equalto', 'music') | first }}"
     mprlab_compose_registry_resource:
       owner: "{{ mprlab_resources.owner }}"
       id: "{{ selected_project.id }}"
@@ -15,9 +17,9 @@
       retention: retain
     mprlab_compose_target_host: fixture
     mprlab_compose_target_docker_cli: /usr/bin/docker
-    selected_route: "{{ mprlab_resources.resources | selectattr('id', 'equalto', 'api-route') | first }}"
+    selected_route: "{{ compiled_manifest.resources | selectattr('id', 'equalto', 'api-route') | first }}"
     selected_handler: "{{ selected_route.handlers | selectattr('upstream', 'equalto', 'tyemirov-site.music-http') | first }}"
-    selected_capability: "{{ mprlab_resources.resources | selectattr('kind', 'equalto', 'runtime_capability') | first }}"
+    selected_capability: "{{ compiled_manifest.resources | selectattr('id', 'equalto', 'music-http') | first }}"
   tasks:
     - name: Require the preflighted test volume identity
       ansible.builtin.assert:
