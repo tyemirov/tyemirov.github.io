@@ -248,8 +248,7 @@
         "streamingLinks": {
           "spotify": "https://open.spotify.com/album/4YcRPfx5mAH3X0TrSeQtTZ",
           "amazon": "https://music.amazon.com/albums/B0HK96CD5C",
-          "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_mZ-cKl_g3rI3W5iumTzDBH3kAE_-ugDvw",
-          "suno": "https://suno.com/playlist/260e3808-961d-42e7-97d3-222770ae14ac"
+          "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_mZ-cKl_g3rI3W5iumTzDBH3kAE_-ugDvw"
         },
         "tracks": [
           {
