@@ -7,19 +7,20 @@ import { dirname, join, resolve } from "node:path";
 import { tmpdir } from "node:os";
 
 const applicationSource = resolve(".");
+const sourceBranch = "master";
 const gatewayCommand = process.env.MPRLAB_GATEWAY_EXECUTABLE || "mprlab-gateway";
 const run = (program, args, cwd, env = {}) => spawnSync(program, args, { cwd, env: { ...process.env, ...env }, encoding: "utf8", timeout: 180000, maxBuffer: 8000000 });
 function success(result) { assert.equal(result.status, 0, (result.stderr + result.stdout).slice(-6000)); return result.stdout; }
 
 async function initialize(root, origin, canonicalOrigin) {
-  success(run("git", ["init", "-q", "--initial-branch=main"], root));
+  success(run("git", ["init", "-q", `--initial-branch=${sourceBranch}`], root));
   for (const [name, value] of [["user.name", "Lifecycle Test"], ["user.email", "lifecycle@example.invalid"], ["commit.gpgsign", "false"]]) success(run("git", ["config", name, value], root));
   success(run("git", ["add", "."], root));
   success(run("git", ["commit", "-qm", "Test source snapshot"], root));
-  success(run("git", ["init", "-q", "--bare", "--initial-branch=main", origin], root));
+  success(run("git", ["init", "-q", "--bare", `--initial-branch=${sourceBranch}`, origin], root));
   success(run("git", ["remote", "add", "origin", origin], root));
-  success(run("git", ["push", "-q", "-u", "origin", "main"], root));
-  success(run("git", ["remote", "set-head", "origin", "main"], root));
+  success(run("git", ["push", "-q", "-u", "origin", sourceBranch], root));
+  success(run("git", ["remote", "set-head", "origin", sourceBranch], root));
   success(run("git", ["remote", "set-url", "origin", canonicalOrigin], root));
   success(run("git", ["config", `url.file://${origin}.insteadOf`, canonicalOrigin], root));
 }
@@ -65,13 +66,13 @@ test("the selected application plans through Gateway and its public lifecycle co
     for (const phase of ["release", "publish", "deploy"]) {
       const rejected = run("make", ["--no-print-directory", phase, `MPRLAB_GATEWAY_EXECUTABLE=${gateway}`], application, gatewayEnvironment);
       assert.notEqual(rejected.status, 0);
-      assert.match(rejected.stderr + rejected.stdout, /repository lifecycle source must be on default branch main/);
+      assert.ok((rejected.stderr + rejected.stdout).includes(`repository lifecycle source must be on ${sourceBranch}`), rejected.stderr + rejected.stdout);
       const missing = join(directory, "missing-gateway");
       const unavailable = run("make", ["--no-print-directory", phase, `MPRLAB_GATEWAY_EXECUTABLE=${missing}`], application, gatewayEnvironment);
       assert.notEqual(unavailable.status, 0);
       assert.ok((unavailable.stderr + unavailable.stdout).includes(`Gateway runtime is unavailable: ${missing}`));
     }
-    success(run("git", ["switch", "-q", "main"], application));
+    success(run("git", ["switch", "-q", sourceBranch], application));
     const logs = join(applicationSource, "output/playwright/lifecycle"); await mkdir(logs, { recursive: true });
     async function plan(target) {
       const result = run(gateway, [target, "--app-root", application], application, gatewayEnvironment);
