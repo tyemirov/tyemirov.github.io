@@ -6,7 +6,7 @@ import { mkdir, mkdtemp, rename, rm, stat } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { parseArgs } from "node:util";
 
-const FFMPEG_VERSIONS = ["8.1.2", "9.0.1"];
+const FFMPEG_VERSIONS = ["8.1.2", "9.0.2"];
 const TRACK_ID = /^[a-z0-9][a-z0-9-]{0,79}$/;
 const CODEC = "mp4a.40.2";
 
