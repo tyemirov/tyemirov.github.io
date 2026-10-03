@@ -33,7 +33,8 @@ make ci
 Install `mprlab-gateway` before native CI.
 Use `MPRLAB_GATEWAY_EXECUTABLE` to select an installed command by its absolute path.
 Separate host qualification tools use `ANSIBLE_PLAYBOOK`, `ANSIBLE_INVENTORY_BIN`, and a Gateway source checkout.
-The package tests require FFmpeg and FFprobe 8.1.2.
+The package tests use FFmpeg and FFprobe 8.1.2 in the CI container.
+Native tests use version 9.0.2.
 The Go tests require Go 1.26.5 and Node 26.5.1.
 
 Automated tests use Playwright-managed browser binaries with headless mode and muted audio.
