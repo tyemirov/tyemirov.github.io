@@ -1,6 +1,43 @@
 ---
 mprlab_resources:
   owner: tyemirov-site
+  ci:
+    enabled: true
+    command:
+      '0': make
+      '1': ci
+  defaults:
+    timeouts:
+      startup: 30s
+      completion: 30m
+      readiness: 2m
+      request: 15s
+      shutdown: 5s
+  operations:
+    app-plan-release:
+      polling: &lifecycle-polling
+        initial: 2s
+        maximum: 10s
+        increment: 1s
+        multiplier: 2
+        attempt_limit: 4
+    app-plan-publish:
+      polling: *lifecycle-polling
+    app-plan-deploy:
+      polling: *lifecycle-polling
+    app-release:
+      polling: *lifecycle-polling
+    app-publish:
+      polling: *lifecycle-polling
+    app-deploy:
+      polling: *lifecycle-polling
+    app_deploy.pages.deployment_status_poll:
+      polling:
+        initial: 1s
+        maximum: 10s
+        increment: 0s
+        multiplier: 2
+        attempt_limit: 120
   release:
     scheme: semver
   resources:
