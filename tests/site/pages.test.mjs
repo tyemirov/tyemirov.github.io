@@ -28,6 +28,7 @@ test('generated article and gallery routes survive direct HTTP navigation', asyn
       assert.match(html, /<head>\s*<script defer src="https:\/\/loopaware/);
       assert.ok(html.length > article.body.text.length / 2);
       assert.ok(!html.includes('subscription-widget'));
+      assert.doesNotMatch(html, /This Substack is reader-supported|consider becoming a free or paid subscriber/i, article.slug);
       assert.ok(html.includes('"@type": "Article"'));
       assert.ok(html.includes('property="og:type" content="article"'));
     }
