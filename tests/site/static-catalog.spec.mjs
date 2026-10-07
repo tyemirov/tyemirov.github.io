@@ -49,6 +49,16 @@ test('static music cards follow catalog publication, order, and text without Jav
   await expect(page.locator(`a[href="/music/${source.music.items[0].slug}/"]`)).toHaveCount(0);
   for (const [index, album] of albums.entries()) {
     const card = cards.nth(index);
+    const firstTrack = album.tracks.find(track => track.playback.kind === 'file');
+    const play = card.locator('.album-play');
+    if (firstTrack) {
+      await expect(play).toBeDisabled();
+      await expect(play).toHaveAttribute('data-first-track', firstTrack.id);
+      await expect(play).toHaveAttribute('data-play-album', album.slug);
+      await expect(play).toHaveAttribute('aria-label', `Play ${album.displayTitle ?? album.title}`);
+    } else {
+      await expect(play).toHaveCount(0);
+    }
     await expect(card.locator('.album-cover')).toHaveAttribute('href', `/music/${album.slug}/`);
     await expect(card.locator('img')).toHaveAttribute('src', album.coverImage);
     await expect(card.locator('.album-description')).toHaveText(album.subtitle);

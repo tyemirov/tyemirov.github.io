@@ -7,7 +7,7 @@ test.beforeEach(async ({ context }) => {
 
 test("Soliloquies Vol. II is featured with its cover and nine recordings", async ({ page }) => {
   await page.goto("/");
-  const album = page.locator('.music-list a[href="/music/soliloquies-vol-ii/"]').first();
+  const album = page.locator('.music-list .music-card-details[href="/music/soliloquies-vol-ii/"]').first();
   await expect(album).toBeVisible();
   await album.click();
   await expect(page.getByRole("heading", { name: "Soliloquies Vol. II", exact: true })).toBeVisible();

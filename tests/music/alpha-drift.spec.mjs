@@ -9,7 +9,7 @@ for (const width of [390, 1280]) {
     await context.addCookies([{ name: "music-fixture", value: "recordings", domain: "localhost", path: "/" }]);
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/");
-    await page.locator('.music-list a[href="/music/alpha-drift/"]').first().click();
+    await page.locator('.music-list .music-card-details[href="/music/alpha-drift/"]').first().click();
     await expect(page.getByRole("heading", { name: "Alpha Drift", exact: true })).toBeVisible();
     await expect(page.locator(".album-meta-large")).toHaveText("Latest Release • 2026 • 10 Tracks");
     await expect(page.locator(".track-title")).toHaveText(titles);

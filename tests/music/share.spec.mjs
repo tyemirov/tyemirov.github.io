@@ -1,7 +1,11 @@
 // @ts-check
 import { test, expect } from "./test-fixtures.mjs";
 
-test.beforeEach(async ({ context }) => {
+const CLOCK_START = new Date("2026-01-01T08:00:00Z");
+const CLOCK_PAUSE = new Date("2026-01-01T08:00:10Z");
+
+test.beforeEach(async ({ context, page }) => {
+  await page.clock.install({ time: CLOCK_START });
   await context.addCookies([{ name: "music-fixture", value: "player", domain: "localhost", path: "/" }]);
   await context.route(/loopaware\.mprlab\.com/, (route) => route.abort());
 });
@@ -26,8 +30,8 @@ for (const scenario of [
     const button = page.locator('#music-player [data-action="share"]');
     await expect(button).toBeEnabled();
     const original = await button.innerHTML();
-    await page.clock.install();
-    await page.clock.pauseAt(new Date());
+    await page.clock.setFixedTime(CLOCK_PAUSE);
+    await page.clock.pauseAt(CLOCK_PAUSE);
     await button.click();
     await expect(button).toHaveAttribute("aria-label", scenario.label);
     await expect(button).toHaveAttribute("title", scenario.label);
@@ -55,8 +59,8 @@ test("repeated track sharing restores the original button after the latest feedb
   const button = page.locator('#music-player [data-action="share"]');
   await expect(button).toBeEnabled();
   const original = await button.innerHTML();
-  await page.clock.install();
-  await page.clock.pauseAt(new Date());
+  await page.clock.setFixedTime(CLOCK_PAUSE);
+  await page.clock.pauseAt(CLOCK_PAUSE);
   await button.click();
   await expect(button).toHaveAttribute("aria-label", "Link copied");
   await page.clock.runFor(1000);
@@ -82,8 +86,8 @@ test("pending track sharing shows no success and ignores older completions", asy
   await page.locator(".track-play").first().click();
   const button = page.locator('#music-player [data-action="share"]');
   await expect(button).toBeEnabled();
-  await page.clock.install();
-  await page.clock.pauseAt(new Date());
+  await page.clock.setFixedTime(CLOCK_PAUSE);
+  await page.clock.pauseAt(CLOCK_PAUSE);
   await button.click();
   await expect(button).toHaveAttribute("aria-label", "Share track");
   await button.click();
