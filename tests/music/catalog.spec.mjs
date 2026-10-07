@@ -85,7 +85,7 @@ test("the built music pages preserve all seven albums and 60 track titles", asyn
   let titles = 0;
   for (const album of expected.items) {
     await page.goto("/music/");
-    await page.locator(`.album-card a[href="/music/${album.slug}/"]`).click();
+    await page.locator(`.album-card .album-title a[href$="/music/${album.slug}/"]`).click();
     await expect(page).toHaveURL(new RegExp(`/music/${album.slug}/$`));
     await expect(page.getByRole("heading", { level: 1, name: album.displayTitle || album.title, exact: true })).toBeVisible();
     const tracks = page.locator(".track-list > li");

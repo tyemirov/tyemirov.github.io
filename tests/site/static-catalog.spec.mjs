@@ -56,7 +56,7 @@ test('static music cards follow catalog publication, order, and text without Jav
     await expect(card.locator('.album-translation')).toHaveText(album.translation ? [album.translation] : []);
     expect(await card.locator('.streaming-link').evaluateAll(links => links.map(link => link.getAttribute('href')))).toEqual(Object.values(album.streamingLinks));
   }
-  await cards.first().locator('.album-cover').click();
+  await cards.first().locator('.album-cover').click({ position: { x: 10, y: 10 } });
   await expect(page).toHaveURL(/\/music\/new-album\/$/);
   await expect(page).toHaveTitle(`${text} | Vadym Tyemirov`);
 });
