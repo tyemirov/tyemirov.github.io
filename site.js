@@ -39,29 +39,27 @@ export async function hydrateMusicPage(kind) {
   try {
     const data = await loadSite();
     void initializeSiteFooter({ contact: data.contact, themeAttribute: "data-theme" });
+    const albums = kind === "index"
+      ? data.music.items.filter(album => album.status === "live")
+      : data.music.items.filter(album => album.slug === window.location.pathname.split("/").filter(Boolean).pop() && album.status === "live");
     if (kind === "index") renderMusicIndex(data.music, data.contact);
-    else {
-      const slug = window.location.pathname.split("/").filter(Boolean).pop();
-      const album = data.music.items.find((item) => item.slug === slug && item.status === "live");
-      if (album) {
-        renderAlbumDetails(album);
-        if (album.tracks.some((track) => track.playback.kind === "file")) {
-          try {
-            const { initializePlayer } = await import("./music/player/bootstrap.js");
-            await initializePlayer(album);
-          } catch (error) {
-            const notice = document.createElement("p");
-            notice.className = "music-error";
-            notice.setAttribute("role", "alert");
-            notice.textContent = error.code === "unsupported_browser"
-              ? "This browser cannot play these tracks. Use a streaming link."
-              : "Player is unavailable. Reload the page or use a streaming link.";
-            document.querySelector(".tracklist-section").prepend(notice);
-            console.error("Player startup failed.", error);
-          }
-        }
+    else if (albums.length) renderAlbumDetails(albums[0]);
+    else renderAlbumNotFound();
+    for (const album of albums.filter(album => album.tracks.some(track => track.playback.kind === "file"))) {
+      try {
+        const { initializePlayer } = await import("./music/player/bootstrap.js");
+        await initializePlayer(album);
+      } catch (error) {
+        const notice = document.createElement("p");
+        notice.className = "music-error";
+        notice.setAttribute("role", "alert");
+        notice.textContent = error.code === "unsupported_browser"
+          ? "This browser cannot play these tracks. Use a streaming link."
+          : "Player is unavailable. Reload the page or use a streaming link.";
+        document.querySelector(kind === "index" ? "#album-grid" : ".tracklist-section").prepend(notice);
+        console.error("Player startup failed.", error);
+        break;
       }
-      else renderAlbumNotFound();
     }
   } catch (error) {
     renderMusicError("Music is unavailable. Please reload the page.");
