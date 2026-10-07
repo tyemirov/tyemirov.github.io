@@ -52,7 +52,23 @@ export function renderMusicIndex(music, contact) {
     const title = element("h2", "album-title");
     const titleLink = document.createElement("a");
     titleLink.href = albumLink.href; titleLink.textContent = album.displayTitle ?? album.title;
-    title.append(titleLink); card.append(albumLink, title);
+    const artworkControls = element("div", "album-artwork");
+    artworkControls.append(albumLink);
+    const firstTrack = album.tracks.find(track => track.playback.kind === "file");
+    if (firstTrack) {
+      const play = document.createElement("button");
+      play.type = "button";
+      play.className = "album-play";
+      play.disabled = true;
+      play.dataset.playTrack = firstTrack.id;
+      play.dataset.playAlbum = album.slug;
+      play.dataset.albumTitle = album.displayTitle ?? album.title;
+      play.setAttribute("aria-label", `Play ${play.dataset.albumTitle}`);
+      play.title = `Play ${play.dataset.albumTitle}`;
+      play.innerHTML = musicIcon("play");
+      artworkControls.append(play);
+    }
+    title.append(titleLink); card.append(artworkControls, title);
     if (album.translation) card.append(element("p", "album-translation", album.translation));
     card.append(element("p", "album-meta", `${album.latest ? "Latest Release • " : ""}${album.releaseDate.value} • ${album.tracks.length} Tracks`));
     card.append(element("p", "album-description", album.subtitle));

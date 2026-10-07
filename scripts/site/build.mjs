@@ -88,10 +88,15 @@ ${imageTags}
 for (const path of ['/', '/gallery/order/', '/gallery/studio/']) await page(path, await readFile(join(root, path, 'index.html'), 'utf8'));
 const albumCards = [...site.music.items].sort((a, b) => a.order - b.order).map(album => {
   const href = `/music/${album.slug}/`;
+  const firstTrack = album.tracks.find(track => track.playback.kind === 'file');
+  const playLabel = `Play ${album.displayTitle ?? album.title}`;
   return `<article class="album-card">
+    <div class="album-artwork">
     <a class="album-cover" href="${escape(href)}" aria-label="Open ${escape(album.title)}">
       <img src="${escape(album.coverImage)}" alt="${escape(album.title)} cover" loading="lazy">
     </a>
+    ${firstTrack ? `<button type="button" class="album-play" disabled data-play-track="${escape(firstTrack.id)}" data-play-album="${escape(album.slug)}" data-album-title="${escape(album.displayTitle ?? album.title)}" aria-label="${escape(playLabel)}" title="${escape(playLabel)}">${musicIcon('play')}</button>` : ''}
+    </div>
     <h2 class="album-title"><a href="${escape(href)}">${escape(album.displayTitle ?? album.title)}</a></h2>
     ${album.translation ? `<p class="album-translation">${escape(album.translation)}</p>` : ''}
     <p class="album-meta">${album.latest ? 'Latest Release • ' : ''}${escape(album.releaseDate.value)} • ${album.tracks.length} Tracks</p>

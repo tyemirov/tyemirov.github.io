@@ -48,7 +48,7 @@ test('page requests fail safely and another album replaces the queue only when s
   expect(await audio.evaluate(node => node === globalThis.navigationAudio && !node.paused)).toBe(true);
   await page.getByRole('button', { name: 'Try again', exact: true }).click();
   await expect(page.locator('.album-card').first()).toBeVisible();
-  await page.locator('a.album-cover[href="/music/soliloquies-vol-ii/"]').click();
+  await page.locator('a.album-cover[href="/music/soliloquies-vol-ii/"]').click({ position: { x: 10, y: 10 } });
   await expect(page.locator('.track-play').first()).toBeEnabled();
   await expect(page.locator('.player-track')).toHaveText(track);
   await page.locator('.track-play').first().click();
