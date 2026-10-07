@@ -2,6 +2,7 @@
 import { PLATFORMS } from "./catalog.js";
 import { renderMarkdown } from "../assets/js/markdown.js";
 import { musicIcon } from "./icons.js";
+import { albumPlayMarkup } from "./album-play.js";
 
 /** @param {string} tag @param {string} className @param {string} [text] */
 function element(tag, className, text) {
@@ -54,20 +55,7 @@ export function renderMusicIndex(music, contact) {
     titleLink.href = albumLink.href; titleLink.textContent = album.displayTitle ?? album.title;
     const artworkControls = element("div", "album-artwork");
     artworkControls.append(albumLink);
-    const firstTrack = album.tracks.find(track => track.playback.kind === "file");
-    if (firstTrack) {
-      const play = document.createElement("button");
-      play.type = "button";
-      play.className = "album-play";
-      play.disabled = true;
-      play.dataset.playTrack = firstTrack.id;
-      play.dataset.playAlbum = album.slug;
-      play.dataset.albumTitle = album.displayTitle ?? album.title;
-      play.setAttribute("aria-label", `Play ${play.dataset.albumTitle}`);
-      play.title = `Play ${play.dataset.albumTitle}`;
-      play.innerHTML = musicIcon("play");
-      artworkControls.append(play);
-    }
+    artworkControls.insertAdjacentHTML("beforeend", albumPlayMarkup(album));
     title.append(titleLink); card.append(artworkControls, title);
     if (album.translation) card.append(element("p", "album-translation", album.translation));
     card.append(element("p", "album-meta", `${album.latest ? "Latest Release • " : ""}${album.releaseDate.value} • ${album.tracks.length} Tracks`));
@@ -89,7 +77,10 @@ export function renderAlbumDetails(album) {
   const article = element("article", "album-detail");
   const layout = element("div", "album-layout");
   const sidebar = element("aside", "album-sidebar");
-  sidebar.append(cover(album, "album-cover-large"));
+  const artwork = element("div", "album-artwork");
+  artwork.append(cover(album, "album-cover-large"));
+  artwork.insertAdjacentHTML("beforeend", albumPlayMarkup(album));
+  sidebar.append(artwork);
   if (Object.keys(album.streamingLinks).length > 0) {
     const platforms = element("div", "streaming-links");
     platforms.append(element("p", "links-label", "Listen on:"), platformLinks(album));

@@ -45,13 +45,13 @@ export function mountPlayerView(controller, audio) {
   seek.addEventListener("input", () => controller.seek(Number(seek.value)), options);
   find("#music-volume").addEventListener("input", (event) => controller.setVolume(Number(event.target.value)), options);
   document.addEventListener("click", (event) => {
-    const button = event.target.closest("button[data-play-track]");
+    const button = event.target.closest("button[data-play-track], button[data-play-album]");
     if (!button || button.disabled) return;
     if (button.dataset.playAlbum === controller.album.slug && controller.track) {
       if (["playing", "buffering"].includes(controller.phase)) { controller.pause(); return; }
       if (controller.phase === "paused") { void controller.resume(); return; }
     }
-    void controller.select(button.dataset.playTrack);
+    void controller.select(button.hasAttribute("data-play-album") ? button.dataset.firstTrack : button.dataset.playTrack);
   }, options);
 
   const render = () => {
@@ -61,7 +61,7 @@ export function mountPlayerView(controller, audio) {
       const selected = !!state.track && button.dataset.playAlbum === state.album.slug;
       const playing = selected && ["playing", "buffering"].includes(state.phase);
       const label = `${playing ? "Pause" : "Play"} ${button.dataset.albumTitle}`;
-      button.disabled = !controller.trackAlbums.has(button.dataset.playTrack) || (selected && ["authorizing", "loading"].includes(state.phase));
+      button.disabled = !controller.trackAlbums.has(button.dataset.firstTrack) || (selected && ["authorizing", "loading"].includes(state.phase));
       if (button.getAttribute("aria-label") !== label) {
         button.innerHTML = musicIcon(playing ? "pause" : "play");
         button.setAttribute("aria-label", label);
