@@ -9,7 +9,7 @@ export async function initializePlayer(album) {
   initialization ??= createPlayer(album);
   const controller = await initialization;
   for (const track of album.tracks) controller.trackAlbums.set(track.id, album);
-  for (const button of document.querySelectorAll("button[data-play-track]")) button.disabled = false;
+  for (const button of document.querySelectorAll("button[data-play-track]")) button.disabled = !controller.trackAlbums.has(button.dataset.playTrack);
   controller.changed();
 }
 
@@ -22,7 +22,6 @@ async function createPlayer(album) {
   const controller = new PlayerController(audio, api, album);
   const disposeView = mountPlayerView(controller, audio);
   const disposeMediaSession = connectMediaSession(controller);
-  for (const button of document.querySelectorAll("button[data-play-track]")) button.disabled = false;
   const pagehide = (event) => {
     if (event.persisted) return;
     window.removeEventListener("pagehide", pagehide);
