@@ -3,6 +3,7 @@ import { navigate, initializePage, onPageLeave } from "/assets/js/navigation.js"
 import { initializeSiteFooter } from "./assets/js/footer.js";
 import { validatePublicCatalog } from "./assets/js/catalog.js";
 import { renderMusicIndex, renderAlbumDetails, renderMusicError, renderAlbumNotFound } from "./music/render.js";
+import { albumPlayMarkup } from "./music/album-play.js";
 import { orderedArtworks } from "./gallery/js/core/catalog.js";
 
 import { siteTopics } from "./assets/js/generated/routes.js";
@@ -45,25 +46,30 @@ export async function hydrateMusicPage(kind) {
     if (kind === "index") renderMusicIndex(data.music, data.contact);
     else if (albums.length) renderAlbumDetails(albums[0]);
     else renderAlbumNotFound();
-    for (const album of albums.filter(album => album.tracks.some(track => track.playback.kind === "file"))) {
-      try {
-        const { initializePlayer } = await import("./music/player/bootstrap.js");
-        await initializePlayer(album);
-      } catch (error) {
-        const notice = document.createElement("p");
-        notice.className = "music-error";
-        notice.setAttribute("role", "alert");
-        notice.textContent = error.code === "unsupported_browser"
-          ? "This browser cannot play these tracks. Use a streaming link."
-          : "Player is unavailable. Reload the page or use a streaming link.";
-        document.querySelector(kind === "index" ? "#album-grid" : ".tracklist-section").prepend(notice);
-        console.error("Player startup failed.", error);
-        break;
-      }
-    }
+    await initializeAlbumPlayers(albums, document.querySelector(kind === "index" ? "#album-grid" : ".tracklist-section"));
   } catch (error) {
     renderMusicError("Music is unavailable. Please reload the page.");
     console.error("Music catalog failed.", error);
+  }
+}
+
+/** @param {import('./music/catalog.js').Album[]} albums @param {Element | null} container */
+async function initializeAlbumPlayers(albums, container) {
+  container?.querySelector(".music-error")?.remove();
+  const playable = albums.filter(album => album.tracks.some(track => track.playback.kind === "file"));
+  if (!playable.length) return;
+  try {
+    const { initializePlayer } = await import("./music/player/bootstrap.js");
+    for (const album of playable) await initializePlayer(album);
+  } catch (error) {
+    const notice = document.createElement("p");
+    notice.className = "music-error";
+    notice.setAttribute("role", "alert");
+    notice.textContent = error.code === "unsupported_browser"
+      ? "This browser cannot play these tracks. Use a streaming link."
+      : "Player is unavailable. Reload the page or use a streaming link.";
+    container.prepend(notice);
+    console.error("Player startup failed.", error);
   }
 }
 
@@ -74,6 +80,7 @@ async function hydrateHomePage() {
   try {
     siteData = await loadSite(request.signal);
     renderAll(siteData);
+    await initializeAlbumPlayers(siteData.music.items.filter(liveOnly).sort(byOrder).slice(0, 3), document.querySelector(".music-section"));
     // Native fragment scrolling can stop before it reaches the section in WebKit.
     window.addEventListener('hashchange', () => void restoreSectionScroll(request.signal), { signal: request.signal });
     await restoreSectionScroll(request.signal);
@@ -437,17 +444,27 @@ function createCardAction(label, href) {
 }
 
 function createMusicItem(item) {
-  const card = document.createElement("a");
+  const card = document.createElement("article");
   card.className = "article-card music-card";
-  card.href = `/music/${item.slug}/`;
+  const href = `/music/${item.slug}/`;
 
-  const cover = document.createElement("div");
+  const artwork = document.createElement("div");
+  artwork.className = "album-artwork";
+  const cover = document.createElement("a");
   cover.className = "music-card-cover";
+  cover.href = href;
+  cover.setAttribute("aria-label", `Open ${item.title}`);
   const img = document.createElement("img");
   img.src = item.coverImage;
   img.alt = `${item.title} cover`;
   img.loading = "lazy";
   cover.append(img);
+  artwork.append(cover);
+  artwork.insertAdjacentHTML("beforeend", albumPlayMarkup(item));
+
+  const details = document.createElement("a");
+  details.className = "music-card-details";
+  details.href = href;
 
   const meta = document.createElement("p");
   meta.className = "article-meta-tag";
@@ -462,7 +479,8 @@ function createMusicItem(item) {
   cta.className = "article-cta";
   cta.textContent = "View Album";
 
-  card.append(cover, meta, title, cta);
+  details.append(meta, title, cta);
+  card.append(artwork, details);
   return card;
 }
 
