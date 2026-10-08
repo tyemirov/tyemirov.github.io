@@ -53,7 +53,7 @@ test("the local service plays all nine supplied Vol. II recordings with protecte
       });
       const page = await context.newPage();
       await page.goto(siteOrigin + "/");
-      await expect(page.locator(`.music-list a[href="/music/${albumSlug}/"]`)).toBeVisible();
+      await expect(page.locator(`.music-list .music-card-details[href="/music/${albumSlug}/"]`)).toBeVisible();
       await page.goto(siteOrigin + "/music/");
       await expect(page.locator(".album-card")).toHaveCount(canonical.music.items.length);
       await page.locator(`.album-card .album-title a[href$="/music/${albumSlug}/"]`).click();

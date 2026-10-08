@@ -58,3 +58,11 @@ body:has(> .music-player:not([hidden])) { padding-bottom: var(--music-player-hei
 @media (prefers-reduced-motion: reduce) {
   .album-card, .listen-button, .streaming-link { transition: none; }
 }
+
+.album-artwork { position:relative; }
+.album-play { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; padding:0; border:1px solid rgba(255,255,255,.65); border-radius:50%; background:rgba(23,20,17,.8); color:#fff; box-shadow:0 4px 20px rgba(0,0,0,.25); cursor:pointer; transition:background 180ms ease; }
+.album-play svg { width:32px; height:32px; }
+.album-play:hover:not(:disabled) { background:rgba(23,20,17,.95); }
+.album-play:focus-visible { outline:3px solid #fff; outline-offset:4px; }
+.album-play:disabled { opacity:.5; cursor:default; }
+@media (prefers-reduced-motion: reduce) { .album-play { transition:none; } }

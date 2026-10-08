@@ -1,6 +1,47 @@
 // @ts-check
 import { test, expect } from './test-fixtures.mjs';
 
+for (const { path, fails } of [
+  { path: '/articles/', fails: false },
+  { path: '/gallery/', fails: false },
+  { path: '/articles/', fails: true },
+]) {
+  test(`Home from ${path} stays interactive during delayed player configuration${fails ? ' failure' : ''}`, async ({ page, context }) => {
+    await context.addCookies([{ name: 'music-fixture', value: 'player', domain: 'localhost', path: '/' }]);
+    await context.route(/loopaware\.mprlab\.com/, route => route.abort());
+    const errors = [];
+    page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
+    let releaseConfiguration;
+    const configurationGate = new Promise(resolve => { releaseConfiguration = resolve; });
+    await context.route('**/config-site.json', async route => {
+      await configurationGate;
+      if (fails) await route.fulfill({ status: 503, body: 'Unavailable' });
+      else await route.continue();
+    });
+    try {
+      await page.goto(path);
+      const configurationRequested = page.waitForRequest('**/config-site.json');
+      await page.getByRole('navigation', { name: 'Page hierarchy' }).getByRole('link', { name: 'Home', exact: true }).click();
+      await configurationRequested;
+      await expect(page.locator('.hero-copy h1')).toBeVisible();
+      await expect(page.locator('#music-player audio')).toHaveCount(0);
+      await page.locator('.hero-links').getByRole('link', { name: 'Music', exact: true }).click({ timeout: 3000 });
+      await expect(page).toHaveURL(/\/#music$/);
+      releaseConfiguration();
+      if (fails) {
+        await expect(page.locator('.music-section .music-error')).toHaveText('Player is unavailable. Reload the page or use a streaming link.');
+        await expect.poll(() => errors.some(message => message.includes('Player startup failed.'))).toBe(true);
+        await expect(page.locator('#music-player audio')).toHaveCount(0);
+      } else {
+        await expect(page.locator('#music-player audio')).toHaveCount(1);
+        await expect(page.locator('.music-list .album-play').first()).toBeEnabled();
+      }
+    } finally {
+      releaseConfiguration();
+    }
+  });
+}
+
 test('music continues in the same audio element across pages and browser history', async ({page,context}) => {
   await context.addCookies([{name:'music-fixture',value:'player',domain:'localhost',path:'/'}]);
   await context.route(/loopaware\.mprlab\.com/, route => route.abort());

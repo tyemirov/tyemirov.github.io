@@ -10,7 +10,7 @@ test("a cached homepage return refreshes the published music catalog", async ({ 
   await expect(page.locator(".arts-preview")).toHaveCount(4);
   await page.evaluate(() => document.fonts.ready);
   await expect(page.locator(".music-list .music-card")).toHaveCount(3);
-  const featured = page.locator('.music-list a[href="/music/soliloquies-vol-ii/"]');
+  const featured = page.locator('.music-list .music-card-details[href="/music/soliloquies-vol-ii/"]');
   await expect(featured).toHaveCount(0);
   await page.evaluate(() => {
     window.homepageRestored = false;
