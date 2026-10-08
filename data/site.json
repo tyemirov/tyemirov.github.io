@@ -1066,7 +1066,7 @@
       "summary": "The shared foundation behind MPR Lab’s software: services for AI, media creation, authentication, usage billing, messaging, and product feedback. Built to help small teams turn ideas into working products.",
       "link": {
         "label": "Explore MPR Lab ↗",
-        "href": "https://mprlab.com/",
+        "href": "https://mprlab.com/#platform",
         "style": "secondary",
         "order": 10,
         "target": "_blank"
