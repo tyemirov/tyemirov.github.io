@@ -80,7 +80,7 @@ async function hydrateHomePage() {
   try {
     siteData = await loadSite(request.signal);
     renderAll(siteData);
-    await initializeAlbumPlayers(siteData.music.items.filter(liveOnly).sort(byOrder).slice(0, 3), document.querySelector(".music-section"));
+    void initializeAlbumPlayers(siteData.music.items.filter(liveOnly).sort(byOrder).slice(0, 3), document.querySelector(".music-section"));
     // Native fragment scrolling can stop before it reaches the section in WebKit.
     window.addEventListener('hashchange', () => void restoreSectionScroll(request.signal), { signal: request.signal });
     await restoreSectionScroll(request.signal);
