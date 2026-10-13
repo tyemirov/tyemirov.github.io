@@ -112,7 +112,8 @@
           "slug": "kappa"
         }
       ],
-      "latest": true
+      "latest": true,
+      "visibility": "listed"
     },
     {
       "slug": "soliloquies-vol-ii",
@@ -218,7 +219,8 @@
         "format": "commonmark",
         "text": "The second volume brings together Marcus Aurelius, Epictetus, Seneca, Cleanthes, Marlowe, Euripides, Aeschylus, and John Donne."
       },
-      "order": 5
+      "order": 5,
+      "visibility": "listed"
     },
     {
       "slug": "soliloquies-vol-i",
@@ -315,7 +317,8 @@
           },
           "slug": "paradise-lost-book-i"
         }
-      ]
+      ],
+      "visibility": "listed"
     },
     {
       "slug": "songs-of-desire",
@@ -421,7 +424,8 @@
           },
           "slug": "lullaby-i"
         }
-      ]
+      ],
+      "visibility": "listed"
     },
     {
       "slug": "egyptian-nights",
@@ -518,7 +522,8 @@
           },
           "slug": "the-sanitation-of-cash"
         }
-      ]
+      ],
+      "visibility": "listed"
     },
     {
       "slug": "singing-pasternak",
@@ -608,7 +613,8 @@
           },
           "slug": "to-be-or-not-to-be"
         }
-      ]
+      ],
+      "visibility": "listed"
     },
     {
       "slug": "february-get-ink-and-weep",
@@ -715,6 +721,74 @@
             "durationMs": 98640
           },
           "slug": "february-9"
+        }
+      ],
+      "visibility": "listed"
+    },
+    {
+      "slug": "ostatki-sladki-7c9e2b18",
+      "title": "Остатки сладки",
+      "subtitle": "Five songs on poems by Kirill Reshetnikov.",
+      "coverImage": "/music/covers/ostatki-sladki.png",
+      "releaseDate": {
+        "precision": "year",
+        "value": "2026"
+      },
+      "status": "live",
+      "visibility": "unlisted",
+      "shortDescription": "Five musical settings of poems by Kirill Reshetnikov.",
+      "streamingLinks": {},
+      "credits": "Poems: Kirill Reshetnikov. Music and vocals created with generative AI by Vadym Tyemirov.",
+      "notes": {
+        "format": "commonmark",
+        "text": "A five-song album based on poems by Kirill Reshetnikov."
+      },
+      "order": 0,
+      "tracks": [
+        {
+          "id": "ostatki-sladki-01",
+          "slug": "vot-moya-stolitsa",
+          "title": "Вот моя столица",
+          "playback": {
+            "kind": "file",
+            "durationMs": 224720
+          }
+        },
+        {
+          "id": "ostatki-sladki-02",
+          "slug": "zeves-bolotny",
+          "title": "Зевес болотный",
+          "playback": {
+            "kind": "file",
+            "durationMs": 181120
+          }
+        },
+        {
+          "id": "ostatki-sladki-03",
+          "slug": "dukhovnaya-zhazhda",
+          "title": "Духовная жажда",
+          "playback": {
+            "kind": "file",
+            "durationMs": 131560
+          }
+        },
+        {
+          "id": "ostatki-sladki-04",
+          "slug": "mamka-atrubilas",
+          "title": "Мамка атрубилась",
+          "playback": {
+            "kind": "file",
+            "durationMs": 161040
+          }
+        },
+        {
+          "id": "ostatki-sladki-05",
+          "slug": "plenitelny-fevral",
+          "title": "Пленительный февраль",
+          "playback": {
+            "kind": "file",
+            "durationMs": 256800
+          }
         }
       ]
     }

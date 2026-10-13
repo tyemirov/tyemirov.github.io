@@ -1,5 +1,5 @@
 // @ts-check
-import { PLATFORMS } from "./catalog.js";
+import { PLATFORMS, isListedAlbum } from "./catalog.js";
 import { renderMarkdown } from "../assets/js/markdown.js";
 import { musicIcon } from "./icons.js";
 import { albumPlayMarkup } from "./album-play.js";
@@ -41,7 +41,7 @@ function platformLinks(album) {
 /** @param {import('./catalog.js').Music} music */
 export function renderMusicIndex(music, contact) {
   const grid = document.querySelector("#album-grid");
-  const albums = music.items.filter((album) => album.status === "live").sort((a, b) => a.order - b.order);
+  const albums = music.items.filter(isListedAlbum).sort((a, b) => a.order - b.order);
   grid.replaceChildren(...albums.map((album) => {
     const card = element("article", "album-card");
     const artwork = cover(album, "album-cover");

@@ -43,6 +43,13 @@ lifecycle-contract-test:
 music-runtime-test:
 	@node --test tests/music/runtime-catalog.test.mjs
 
+.PHONY: music-preview music-preview-test
+music-preview:
+	@node scripts/music/preview.mjs --album "$(ALBUM)"
+
+music-preview-test:
+	@node --test tests/music/preview.test.mjs
+
 music-deployment-container-test:
 	@node --test tests/music/deployment-container.test.mjs
 
@@ -84,20 +91,33 @@ music-artifact-test:
 	@node --test tests/music/artifact.test.mjs
 
 music-ci-container:
-	@docker build -q -t music-ci:local -f tests/music/Dockerfile.ci .
-	@mkdir -p output/playwright/linux
 	@set -eu; \
 	gateway_download="$$(mktemp -d)"; \
 	trap 'rm -rf "$$gateway_download"' EXIT; \
-	gateway_asset="mprlab-gateway-$(MPRLAB_GATEWAY_CI_VERSION)-linux-$$(docker image inspect music-ci:local --format '{{.Architecture}}').tar.gz"; \
+	gateway_asset="mprlab-gateway-$(MPRLAB_GATEWAY_CI_VERSION)-$$(docker version --format '{{.Server.Os}}-{{.Server.Arch}}').tar.gz"; \
 	gh release download "$(MPRLAB_GATEWAY_CI_VERSION)" --repo MarcoPoloResearchLab/mprlab-gateway --pattern "$$gateway_asset" --dir "$$gateway_download"; \
 	gateway_digest="$$(gh api "repos/MarcoPoloResearchLab/mprlab-gateway/releases/tags/$(MPRLAB_GATEWAY_CI_VERSION)" --jq ".assets[] | select(.name == \"$$gateway_asset\") | .digest")"; \
-	test "sha256:$$(shasum -a 256 "$$gateway_download/$$gateway_asset" | cut -d ' ' -f 1)" = "$$gateway_digest"; \
-	docker run --rm --init --shm-size=1g \
+	$(MAKE) music-ci-archive MPRLAB_GATEWAY_CI_ARCHIVE="$$gateway_download/$$gateway_asset" MPRLAB_GATEWAY_CI_DIGEST="$$gateway_digest"
+
+.PHONY: music-ci-archive
+music-ci-archive:
+	@test -n "$(MPRLAB_GATEWAY_CI_ARCHIVE)" || { echo "MPRLAB_GATEWAY_CI_ARCHIVE is required" >&2; exit 2; }
+	@test -n "$(MPRLAB_GATEWAY_CI_DIGEST)" || { echo "MPRLAB_GATEWAY_CI_DIGEST is required" >&2; exit 2; }
+	@set -eu; \
+	test "sha256:$$(shasum -a 256 "$(MPRLAB_GATEWAY_CI_ARCHIVE)" | cut -d ' ' -f 1)" = "$(MPRLAB_GATEWAY_CI_DIGEST)" || { echo "Gateway archive checksum mismatch" >&2; exit 2; }; \
+	ci_platform="$$(docker version --format '{{.Server.Os}}/{{.Server.Arch}}')"; \
+	ci_image="$$(docker build --platform "$$ci_platform" -q -f tests/music/Dockerfile.ci .)"; \
+	mkdir -p output/playwright/linux; \
+	ci_status=0; \
+	docker run --rm --init --platform "$$ci_platform" --shm-size=1g \
 		--env MPRLAB_GATEWAY_CI_VERSION="$(MPRLAB_GATEWAY_CI_VERSION)" \
-		--mount "type=bind,src=$$gateway_download/$$gateway_asset,dst=/gateway-runtime.tar.gz,readonly" \
+		--mount "type=bind,src=$(abspath $(MPRLAB_GATEWAY_CI_ARCHIVE)),dst=/gateway-runtime.tar.gz,readonly" \
 		--mount "type=bind,src=$(CURDIR)/output/playwright/linux,dst=/workspace/output/playwright" \
-		music-ci:local bash tests/music/run-ci.sh "$(MUSIC_CI_TARGET)"
+		"$$ci_image" bash tests/music/run-ci.sh "$(MUSIC_CI_TARGET)" || ci_status=$$?; \
+	docker run --rm --platform "$$ci_platform" \
+		--mount "type=bind,src=$(CURDIR)/output/playwright/linux,dst=/results" \
+		"$$ci_image" chown -R "$$(id -u):$$(id -g)" /results; \
+	exit "$$ci_status"
 
 music-container-test:
 	@node --test $(MUSIC_CONTAINER_ARGS) tests/music/container.test.mjs
@@ -132,7 +152,7 @@ music-browser-lock-test:
 music-check:
 	@cd services/music-stream && go vet ./...
 
-ci: site-contract-test pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-runtime-test music-catalog-test local-prepare-test local-shutdown-test music-load-test music-browser-lock-test music-browser-test gallery-api-test gallery-contract-test gallery-check
+ci: site-contract-test pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-runtime-test music-preview-test music-catalog-test local-prepare-test local-shutdown-test music-load-test music-browser-lock-test music-browser-test gallery-api-test gallery-contract-test gallery-check
 
 pages-build:
 	@PAGES_DIST_DIR="$(PAGES_DIST_DIR)" ./scripts/build-pages-artifact.sh

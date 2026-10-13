@@ -50,13 +50,13 @@ for (const width of [390, 1280]) {
   });
 }
 
-test('every published album has a cover control and plays its bundled recording', async ({ page, context }) => {
+test('every listed album has a cover control and plays its bundled recording', async ({ page, context }) => {
   await context.addCookies([{ name: 'music-fixture', value: 'recordings', domain: 'localhost', path: '/' }]);
   await context.route(/loopaware\.mprlab\.com/, route => route.abort());
   await page.setViewportSize({ width: 1345, height: 900 });
   await page.goto('/music/');
   const catalog = await (await page.request.get('/data/site.json')).json();
-  const albums = catalog.music.items;
+  const albums = catalog.music.items.filter(album => album.visibility === 'listed');
   await expect(page.locator('.album-play')).toHaveCount(albums.length);
   for (const album of albums) {
     await expect(page.getByRole('button', { name: `Play ${album.displayTitle ?? album.title}`, exact: true })).toBeEnabled();

@@ -6,7 +6,8 @@ import { playbackAllowlist, validateMusic } from "../../music/catalog.js";
 const [source, mediaIndex, output, ...extra] = process.argv.slice(2);
 if (!source || !mediaIndex || !output || extra.length) throw new Error("Supply the site catalog, prepared media index, and runtime output directory.");
 const site = JSON.parse(await readFile(source, "utf8"));
-const allowlist = playbackAllowlist(validateMusic(site.music));
+const music = validateMusic(site.music);
+const allowlist = playbackAllowlist({ ...music, items: music.items.filter(album => album.status === 'live') });
 const audioTracks = allowlist.tracks.filter(track => track.playback.kind === "file");
 const index = JSON.parse(await readFile(mediaIndex, "utf8"));
 if (!index || typeof index !== "object" || Object.keys(index).join() !== "tracks" || !index.tracks || typeof index.tracks !== "object" || Array.isArray(index.tracks)) {

@@ -121,6 +121,7 @@ export interface PublicCatalog {
             value: string;
           };
       status: "draft" | "live";
+      visibility: "listed" | "unlisted";
       latest?: boolean;
       shortDescription: string;
       streamingLinks: {

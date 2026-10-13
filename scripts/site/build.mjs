@@ -5,7 +5,7 @@ import * as yaml from 'js-yaml';
 import { validateSourceCatalog, publishCatalog } from '../../assets/js/catalog.js';
 import { siteRuntime } from '../../assets/js/generated/validators.js';
 import { renderMarkdown } from '../../assets/js/markdown.js';
-import { PLATFORMS } from '../../music/catalog.js';
+import { PLATFORMS, isListedAlbum } from '../../music/catalog.js';
 import { musicIcon } from '../../music/icons.js';
 import { albumPlayMarkup } from '../../music/album-play.js';
 
@@ -87,7 +87,7 @@ ${imageTags}
 <mpr-footer sticky="false" id="site-footer" class="site-footer"></mpr-footer></body></html>\n`;
 }
 for (const path of ['/', '/gallery/order/', '/gallery/studio/']) await page(path, await readFile(join(root, path, 'index.html'), 'utf8'));
-const albumCards = [...site.music.items].sort((a, b) => a.order - b.order).map(album => {
+const albumCards = site.music.items.filter(isListedAlbum).sort((a, b) => a.order - b.order).map(album => {
   const href = `/music/${album.slug}/`;
   return `<article class="album-card">
     <div class="album-artwork">
@@ -273,9 +273,9 @@ for (const album of site.music.items) {
 <meta name="twitter:title" content="${escape(album.title)} | Vadym Tyemirov">
 <meta name="twitter:description" content="${escape(album.shortDescription)}">
 <meta name="twitter:image" content="${coverUrl}">
-<script type="application/ld+json">
+${album.visibility === 'unlisted' ? '<meta name="robots" content="noindex">' : `<script type="application/ld+json">
 ${serializeJsonLd(albumSchema)}
-</script>`;
+</script>`}`;
   await page(path, template.replace(/<title>[^<]*<\/title>/, albumHead));
   await access(join(root, album.coverImage));
 }
@@ -286,7 +286,7 @@ await file('data/routes.json', JSON.stringify([...routes].map(([path, file]) => 
 await file('404.html', withNavigation('/404.html', document('/404.html', 'Page not found', 'The requested page does not exist.', '<h1>Page not found</h1>')));
 
 // Sitemap scope: home, articles, music, and model project pages (tools). Gallery stays out for now.
-const inSitemapScope = path => path === '/' || path.startsWith('/articles/') || path.startsWith('/music/') || site.projects.some(project => project.kind === 'model' && project.href === path);
+const inSitemapScope = path => path === '/' || path.startsWith('/articles/') || path === '/music/' || site.music.items.some(album => isListedAlbum(album) && path === `/music/${album.slug}/`) || site.projects.some(project => project.kind === 'model' && project.href === path);
 
 function lastmodFor(path) {
   const article = articles.find(article => path === `/articles/${article.slug}/`);

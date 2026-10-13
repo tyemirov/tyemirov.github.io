@@ -7,6 +7,7 @@ import { join } from "node:path";
 import { get, request } from "node:https";
 import { createHmac } from "node:crypto";
 import { assertReleaseArtifacts, serviceImages } from "./release-contract.mjs";
+import { publishCatalog, validateSourceCatalog } from "../../assets/js/catalog.js";
 
 const application = "/selected-app", gateway = "/mprlab-gateway", evidence = "/evidence";
 const runtime = "/tmp/music-deployment-qualification";
@@ -184,7 +185,7 @@ try {
     });
   }
   assert.equal((await send("/music/readyz")).status, 200);
-  const siteCatalog = JSON.parse(await readFile(join(application, "data/site.json"), "utf8"));
+  const siteCatalog = publishCatalog(validateSourceCatalog(JSON.parse(await readFile(join(application, "data/site.json"), "utf8"))));
   const tracks = siteCatalog.music.items.flatMap(album => album.tracks);
   assert.ok(tracks.length > 0 && tracks.every(track => track.playback.kind === "file"));
   for (const track of tracks) {

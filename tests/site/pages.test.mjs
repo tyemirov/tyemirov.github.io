@@ -76,7 +76,11 @@ test('sitemap covers articles, music, and tools without gallery', () => {
     for (const article of source.articles.items.filter(item => item.status === 'live')) {
       assert.equal(byUrl.get(loc(`/articles/${article.slug}/`)), article.updatedAt ? `<lastmod>${article.updatedAt.slice(0, 10)}</lastmod>` : '', article.slug);
     }
-    for (const album of source.music.items.filter(item => item.status === 'live')) {
+    for (const album of source.music.items) {
+      if (album.status !== 'live' || album.visibility !== 'listed') {
+        assert.ok(!byUrl.has(loc(`/music/${album.slug}/`)), album.slug);
+        continue;
+      }
       const expected = album.releaseDate.precision === 'year' ? `${album.releaseDate.value}-01-01` : album.releaseDate.value.slice(0, 10);
       assert.equal(byUrl.get(loc(`/music/${album.slug}/`)), `<lastmod>${expected}</lastmod>`, album.slug);
     }

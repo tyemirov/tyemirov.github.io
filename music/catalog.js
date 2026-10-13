@@ -8,6 +8,11 @@ export const PLATFORMS = Object.freeze({ spotify: "Spotify", apple: "Apple Music
 /** @typedef {import('../contracts/generated/musicCatalog').MusicCatalog} Music */
 /** @typedef {Music['items'][number]} Album */
 
+/** @param {Album} album */
+export function isListedAlbum(album) {
+  return album.status === "live" && album.visibility === "listed";
+}
+
 /** Validate the music transport boundary. @returns {Music} */
 export function validateMusic(value) {
   if (!musicCatalog(value)) throw new Error(`Validate music: ${JSON.stringify(musicCatalog.errors)}`);
