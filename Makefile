@@ -43,6 +43,13 @@ lifecycle-contract-test:
 music-runtime-test:
 	@node --test tests/music/runtime-catalog.test.mjs
 
+.PHONY: music-preview music-preview-test
+music-preview:
+	@node scripts/music/preview.mjs --album "$(ALBUM)"
+
+music-preview-test:
+	@node --test tests/music/preview.test.mjs
+
 music-deployment-container-test:
 	@node --test tests/music/deployment-container.test.mjs
 
@@ -132,7 +139,7 @@ music-browser-lock-test:
 music-check:
 	@cd services/music-stream && go vet ./...
 
-ci: site-contract-test pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-runtime-test music-catalog-test local-prepare-test local-shutdown-test music-load-test music-browser-lock-test music-browser-test gallery-api-test gallery-contract-test gallery-check
+ci: site-contract-test pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-runtime-test music-preview-test music-catalog-test local-prepare-test local-shutdown-test music-load-test music-browser-lock-test music-browser-test gallery-api-test gallery-contract-test gallery-check
 
 pages-build:
 	@PAGES_DIST_DIR="$(PAGES_DIST_DIR)" ./scripts/build-pages-artifact.sh
