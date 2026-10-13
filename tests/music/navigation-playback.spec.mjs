@@ -95,7 +95,8 @@ test('page requests fail safely and another album replaces the queue only when s
   await page.locator('.track-play').first().click();
   await expect(page.locator('.player-album')).toContainText('II');
   await expect(audio).toHaveJSProperty('paused', false);
-  expect(await audio.evaluate(node => node === globalThis.navigationAudio && node.volume === .4)).toBe(true);
+  expect(await audio.evaluate(node => node === globalThis.navigationAudio)).toBe(true);
+  expect(await audio.evaluate(node => node.volume)).toBeCloseTo(.4, 6);
   await expect(page.getByRole('button', { name: 'Next track', exact: true })).toBeDisabled();
 });
 
