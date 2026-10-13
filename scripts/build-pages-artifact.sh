@@ -40,6 +40,7 @@ mkdir -p "${output_dir}"
 cd "${repo_root}"
 while IFS= read -r -d '' relative_path; do
   [[ "${relative_path}" != assets/music/* ]] || continue
+  [[ "${relative_path}" != music/covers/* ]] || continue
   [[ -f "${relative_path}" ]] || continue
   mkdir -p "${output_dir}/$(dirname "${relative_path}")"
   cp "${relative_path}" "${output_dir}/${relative_path}"
