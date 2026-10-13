@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tyemirov-site-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  ci:
+    name: make ci
+    runs-on: [self-hosted, linux, x64, tyemirov-site-ci]
+    timeout-minutes: 60
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Run make ci in the CI container
+        env:
+          MPRLAB_GATEWAY_CI_DIGEST: sha256:52a04dd387a69bc476b68d8077461c050c91f63a124e4c46f7f483263732a073
+        run: |
+          make music-ci-archive MUSIC_CI_TARGET=ci \
+            MPRLAB_GATEWAY_CI_ARCHIVE="$HOME/.cache/tyemirov-site-ci/mprlab-gateway-v5.0.10-linux-amd64.tar.gz"
+
+      - name: Upload test results
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ci-results-${{ github.run_attempt }}
+          path: output/playwright/linux/
+          if-no-files-found: ignore
+          retention-days: 7
