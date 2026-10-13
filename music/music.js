@@ -1,0 +1,1 @@
+import{d as i}from"./dist/chunk-J3ZZ3I45.js";import"./dist/chunk-2XD4JMNJ.js";import{initializePage as a}from"/assets/js/navigation.js";async function t(){await i("index")}a(t);export{t as mountPage};
