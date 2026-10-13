@@ -4,6 +4,7 @@ import { initializeSiteFooter } from "./assets/js/footer.js";
 import { validatePublicCatalog } from "./assets/js/catalog.js";
 import { renderMusicIndex, renderAlbumDetails, renderMusicError, renderAlbumNotFound } from "./music/render.js";
 import { albumPlayMarkup } from "./music/album-play.js";
+import { isListedAlbum } from "./music/catalog.js";
 import { orderedArtworks } from "./gallery/js/core/catalog.js";
 
 import { siteTopics } from "./assets/js/generated/routes.js";
@@ -41,7 +42,7 @@ export async function hydrateMusicPage(kind) {
     const data = await loadSite();
     void initializeSiteFooter({ contact: data.contact, themeAttribute: "data-theme" });
     const albums = kind === "index"
-      ? data.music.items.filter(album => album.status === "live")
+      ? data.music.items.filter(isListedAlbum)
       : data.music.items.filter(album => album.slug === window.location.pathname.split("/").filter(Boolean).pop() && album.status === "live");
     if (kind === "index") renderMusicIndex(data.music, data.contact);
     else if (albums.length) renderAlbumDetails(albums[0]);
@@ -80,7 +81,7 @@ async function hydrateHomePage() {
   try {
     siteData = await loadSite(request.signal);
     renderAll(siteData);
-    void initializeAlbumPlayers(siteData.music.items.filter(liveOnly).sort(byOrder).slice(0, 3), document.querySelector(".music-section"));
+    void initializeAlbumPlayers(siteData.music.items.filter(isListedAlbum).sort(byOrder).slice(0, 3), document.querySelector(".music-section"));
     // Native fragment scrolling can stop before it reaches the section in WebKit.
     window.addEventListener('hashchange', () => void restoreSectionScroll(request.signal), { signal: request.signal });
     await restoreSectionScroll(request.signal);
@@ -201,7 +202,7 @@ function renderMusic(music) {
   const musicList = document.querySelector(".music-list");
   if (!musicSection || !musicList || !music) return;
 
-  const items = (music.items || []).filter(liveOnly).sort(byOrder).slice(0, 3);
+  const items = music.items.filter(isListedAlbum).sort(byOrder).slice(0, 3);
   
   updateText(".music-section .section-title", music.label);
   
