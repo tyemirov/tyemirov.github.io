@@ -539,6 +539,51 @@
       "codec": "mp4a.40.2",
       "sampleRateHz": 48000,
       "channels": 2
+    },
+    "ostatki-sladki-01": {
+      "assetId": "052bd37301a8918b70ee2b800d0276e1e752260c584f3369fcf405f9e653b1f6",
+      "file": "ostatki-sladki-01.m4a",
+      "bytes": 5556044,
+      "durationMs": 224720,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "ostatki-sladki-02": {
+      "assetId": "4edf4ee4130a2022eea82a63975428926004332a2d8b0086bb72b5234014fd86",
+      "file": "ostatki-sladki-02.m4a",
+      "bytes": 4466200,
+      "durationMs": 181120,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "ostatki-sladki-03": {
+      "assetId": "136a7ab25fa850954e0b019fcc72b3423da93ef989826573760bde00b8a0d752",
+      "file": "ostatki-sladki-03.m4a",
+      "bytes": 3240291,
+      "durationMs": 131560,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "ostatki-sladki-04": {
+      "assetId": "8e69bd387e57e7f48b9b56a8164e5d840211ca2d97789064626c2264bdf41aec",
+      "file": "ostatki-sladki-04.m4a",
+      "bytes": 3950074,
+      "durationMs": 161040,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
+    },
+    "ostatki-sladki-05": {
+      "assetId": "1f02be2b0cbb37a1bb5a77bc489af39e017ca77873fc769f864b04cdba1029e2",
+      "file": "ostatki-sladki-05.m4a",
+      "bytes": 6302994,
+      "durationMs": 256800,
+      "codec": "mp4a.40.2",
+      "sampleRateHz": 48000,
+      "channels": 2
     }
   }
 }
