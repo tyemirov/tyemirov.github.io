@@ -1,6 +1,6 @@
 // @ts-check
 import { spawn } from "node:child_process";
-import { mkdtemp, mkdir, readFile, writeFile, rm } from "node:fs/promises";
+import { mkdtemp, mkdir, readFile, writeFile, rm, cp } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { extname, join, resolve } from "node:path";
 import { createServer, get, request as proxyHTTPS } from "node:https";
@@ -53,6 +53,20 @@ try {
   await run("ffmpeg", ["-nostdin", "-v", "error", "-f", "lavfi", "-i", "sine=frequency=440:sample_rate=48000", "-t", "13", source]);
   const { trackId, ...record } = JSON.parse(await run(process.execPath, ["scripts/music/prepare.mjs", "--source", source, "--media-root", mediaRoot, "--track-id", "test-tone"]));
   const fixtureTracks = [trackId, "soliloquies-vol-i-01", "soliloquies-vol-i-02", "soliloquies-vol-ii-01"];
+  const previewRoot = join(temporary, 'unlisted');
+  const previewSource = JSON.parse(await readFile(join(root, 'data/site.json'), 'utf8'));
+  const previewAlbum = previewSource.music.items.find(album => album.status === 'draft' && album.visibility === 'unlisted');
+  previewAlbum.status = 'live';
+  fixtureTracks.push(...previewAlbum.tracks.map(track => track.id));
+  for (const album of previewSource.music.items) for (const track of album.tracks) {
+    track.playback = fixtureTracks.includes(track.id) ? { kind: 'file', durationMs: record.durationMs } : { kind: 'external' };
+  }
+  const previewInput = join(temporary, 'preview-source.json');
+  await writeFile(previewInput, JSON.stringify(previewSource));
+  await cp(siteRoot, previewRoot, { recursive: true });
+  await run(process.execPath, ['scripts/site/build.mjs', previewRoot, previewInput]);
+  await run(process.execPath, ['scripts/music/build.mjs', previewRoot]);
+  await writeFile(join(previewRoot, 'config-site.json'), JSON.stringify({ apiOrigin: 'https://localhost:18444' }));
   // Serve player fixtures without request interception during document navigation.
   const sitePath = join(siteRoot, "data/site.json");
   const site = JSON.parse(await readFile(sitePath, "utf8"));
@@ -143,8 +157,9 @@ try {
     if (request.url === "/fixture.js") { response.setHeader("Content-Type", "text/javascript"); response.end(bundle.outputFiles[0].contents); return; }
     if (request.url === "/fixture/") { response.setHeader("Content-Type", "text/html; charset=utf-8"); response.end(html); return; }
     const pathname = new URL(request.url, "https://localhost:18443").pathname;
-    const file = resolve(siteRoot, "." + pathname, extname(pathname) === "" ? "index.html" : "");
-    if (pathname.includes("%") || !file.startsWith(siteRoot + "/")) { response.writeHead(404); response.end(); return; }
+    const selectedRoot = request.headers.cookie?.split('; ').includes('music-fixture=unlisted') ? previewRoot : siteRoot;
+    const file = resolve(selectedRoot, "." + pathname, extname(pathname) === "" ? "index.html" : "");
+    if (pathname.includes("%") || !file.startsWith(selectedRoot + "/")) { response.writeHead(404); response.end(); return; }
     try {
       const bytes = await readFile(file);
       const type = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".css": "text/css", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".webp": "image/webp", ".ico": "image/x-icon" }[extname(file)];

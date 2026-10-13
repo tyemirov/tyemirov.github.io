@@ -26,7 +26,7 @@ test('catalog CLI validates the complete source and produces only public records
     const text = readFileSync(output, 'utf8'), published = JSON.parse(text);
     assert.equal(published.owner, 'vadym-tyemirov');
     assert.deepEqual(published.gallery, source.gallery);
-    assert.deepEqual(published.music, source.music);
+    assert.deepEqual(published.music, { ...source.music, items: source.music.items.filter(album => album.status === 'live') });
     assert.equal(published.articles.items.length, source.articles.items.length - 1);
     assert.ok(published.articles.items.every(article => !('body' in article)));
     assert.ok(!text.includes('PRIVATE_DRAFT_TEXT'));

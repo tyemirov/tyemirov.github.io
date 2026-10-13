@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import { load } from "js-yaml";
+import { publishCatalog, validateSourceCatalog } from "../../assets/js/catalog.js";
 
 const run = (args) => spawnSync("docker", args, { encoding: "utf8", timeout: 240000, maxBuffer: 8000000 });
 const success = (result) => { assert.equal(result.status, 0, result.stderr + result.stdout); return result.stdout.trim(); };
@@ -16,7 +17,7 @@ test("the declared music image serves every recording without a volume after con
   const build = project.images[service.image].build;
   const image = `music-deployment:b010-${process.pid}`;
   const name = `music-deployment-b010-${process.pid}`;
-  const site = JSON.parse(await readFile("data/site.json", "utf8"));
+  const site = publishCatalog(validateSourceCatalog(JSON.parse(await readFile("data/site.json", "utf8"))));
   const tracks = site.music.items.flatMap(album => album.tracks);
   assert.equal(tracks.length, 60);
   assert.ok(tracks.every(track => track.playback.kind === "file"));

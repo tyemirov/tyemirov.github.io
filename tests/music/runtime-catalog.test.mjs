@@ -11,7 +11,8 @@ test("runtime generation connects published tracks to bundled audio and rejects 
   const directory = await mkdtemp(join(tmpdir(), "music-runtime-catalog-"));
   try {
     const site = JSON.parse(await readFile("data/site.json", "utf8"));
-    const tracks = site.music.items.flatMap(album => album.tracks);
+    const publishedMusic = { ...site.music, items: site.music.items.filter(album => album.status === "live") };
+    const tracks = publishedMusic.items.flatMap(album => album.tracks);
     assert.equal(tracks.length, 60);
     assert.ok(tracks.every(track => track.playback.kind === "file"), "Every published recording must be playable.");
     const index = JSON.parse(await readFile("assets/music/catalog.json", "utf8"));
@@ -21,7 +22,7 @@ test("runtime generation connects published tracks to bundled audio and rejects 
     const result = generate();
     assert.equal(result.status, 0, result.stderr);
     assert.deepEqual(JSON.parse(await readFile(join(output, "catalog.json"), "utf8")), index);
-    assert.deepEqual(JSON.parse(await readFile(join(output, "allowlist.json"), "utf8")), playbackAllowlist(validateMusic(site.music)));
+    assert.deepEqual(JSON.parse(await readFile(join(output, "allowlist.json"), "utf8")), playbackAllowlist(validateMusic(publishedMusic)));
     delete index.tracks[tracks[0].id];
     await writeFile(input, JSON.stringify(index));
     const rejected = generate();

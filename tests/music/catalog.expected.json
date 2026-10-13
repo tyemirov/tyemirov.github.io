@@ -112,7 +112,8 @@
           "slug": "kappa"
         }
       ],
-      "latest": true
+      "latest": true,
+      "visibility": "listed"
     },
     {
       "slug": "soliloquies-vol-ii",
@@ -218,7 +219,8 @@
         "format": "commonmark",
         "text": "The second volume brings together Marcus Aurelius, Epictetus, Seneca, Cleanthes, Marlowe, Euripides, Aeschylus, and John Donne."
       },
-      "order": 5
+      "order": 5,
+      "visibility": "listed"
     },
     {
       "slug": "soliloquies-vol-i",
@@ -315,7 +317,8 @@
           },
           "slug": "paradise-lost-book-i"
         }
-      ]
+      ],
+      "visibility": "listed"
     },
     {
       "slug": "songs-of-desire",
@@ -421,7 +424,8 @@
           },
           "slug": "lullaby-i"
         }
-      ]
+      ],
+      "visibility": "listed"
     },
     {
       "slug": "egyptian-nights",
@@ -518,7 +522,8 @@
           },
           "slug": "the-sanitation-of-cash"
         }
-      ]
+      ],
+      "visibility": "listed"
     },
     {
       "slug": "singing-pasternak",
@@ -608,7 +613,8 @@
           },
           "slug": "to-be-or-not-to-be"
         }
-      ]
+      ],
+      "visibility": "listed"
     },
     {
       "slug": "february-get-ink-and-weep",
@@ -716,7 +722,8 @@
           },
           "slug": "february-9"
         }
-      ]
+      ],
+      "visibility": "listed"
     }
   ]
 }
