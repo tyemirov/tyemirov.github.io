@@ -19,7 +19,7 @@ test("the declared music image serves every recording without a volume after con
   const name = `music-deployment-b010-${process.pid}`;
   const site = publishCatalog(validateSourceCatalog(JSON.parse(await readFile("data/site.json", "utf8"))));
   const tracks = site.music.items.flatMap(album => album.tracks);
-  assert.equal(tracks.length, 60);
+  assert.equal(tracks.length, 65);
   assert.ok(tracks.every(track => track.playback.kind === "file"));
   try {
     success(run(["build", "-q", "--platform", [...build.platforms].sort()[0], "-t", image, "-f", build.dockerfile, build.context]));

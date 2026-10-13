@@ -25,7 +25,7 @@ test.beforeAll(() => {
   album.tracks.forEach((track, index) => { track.id = `new-album-${index + 1}`; });
   source.music.items.push(album);
   source.articles.items[0].summary = text;
-  albums = source.music.items.filter(album => album.status === 'live').sort((a, b) => a.order - b.order);
+  albums = source.music.items.filter(album => album.status === 'live' && album.visibility === 'listed').sort((a, b) => a.order - b.order);
   const input = join(output, 'source.json');
   writeFileSync(input, JSON.stringify(source));
   execFileSync(process.execPath, ['scripts/site/build.mjs', output, input]);

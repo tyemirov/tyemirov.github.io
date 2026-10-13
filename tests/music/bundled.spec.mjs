@@ -1,13 +1,13 @@
 // @ts-check
+import { readFileSync } from "node:fs";
 import { test, expect } from "./test-fixtures.mjs";
 
-test("every published recording plays from its bundled audio file", async ({ page, context }, testInfo) => {
-  test.setTimeout(180000);
-  await context.addCookies([{ name: "music-fixture", value: "recordings", domain: "localhost", path: "/" }]);
-  await context.route(/loopaware\.mprlab\.com/, route => route.abort());
-  const site = await (await context.request.get("/data/site.json")).json();
-  let played = 0;
-  for (const album of site.music.items) {
+const music = JSON.parse(readFileSync(new URL("./catalog.expected.json", import.meta.url), "utf8"));
+
+for (const album of music.items) {
+  test(`every recording on ${album.slug} plays from its bundled audio file`, async ({ page, context }) => {
+    await context.addCookies([{ name: "music-fixture", value: "recordings", domain: "localhost", path: "/" }]);
+    await context.route(/loopaware\.mprlab\.com/, route => route.abort());
     await page.goto(`/music/${album.slug}/`);
     await expect(page.locator("button[data-play-track]")).toHaveCount(album.tracks.length);
     for (const track of album.tracks) {
@@ -22,8 +22,6 @@ test("every published recording plays from its bundled audio file", async ({ pag
       await expect.poll(() => audio.evaluate(element => element.currentTime)).toBeGreaterThan(0.2);
       expect(await audio.evaluate(element => element.error)).toBeNull();
       await page.getByRole("region", { name: "Music player" }).getByRole("button", { name: "Pause", exact: true }).click();
-      played++;
     }
-  }
-  expect(played).toBe(60);
-});
+  });
+}

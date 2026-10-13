@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { test, expect } from "./test-fixtures.mjs";
 
 const expected = JSON.parse(readFileSync(new URL("./catalog.expected.json", import.meta.url), "utf8"));
+const listedAlbums = expected.items.filter(album => album.visibility === "listed");
 
 test("article topic filtering supports selection, clearing, and keyboard controls", async ({ page, context }) => {
   await context.route(/loopaware\.mprlab\.com/, route => route.abort());
@@ -75,15 +76,15 @@ test("invalid music content produces a visible error", async ({ page, context })
   await expect(page.locator(".album-card")).toHaveCount(0);
 });
 
-test("the built music pages preserve all seven albums and 60 track titles", async ({ page, context }) => {
+test("the built music pages list seven albums and 60 track titles", async ({ page, context }) => {
   await context.route(/loopaware\.mprlab\.com/, (route) => route.abort());
   await page.goto("/music/");
   await expect(page.locator(".album-card")).toHaveCount(7);
-  for (const album of expected.items) {
+  for (const album of listedAlbums) {
     await expect(page.getByRole("heading", { name: album.displayTitle || album.title, exact: true })).toBeVisible();
   }
   let titles = 0;
-  for (const album of expected.items) {
+  for (const album of listedAlbums) {
     await page.goto("/music/");
     await page.locator(`.album-card .album-title a[href$="/music/${album.slug}/"]`).click();
     await expect(page).toHaveURL(new RegExp(`/music/${album.slug}/$`));
@@ -114,7 +115,7 @@ test("the footer initializes when its library loads after the catalog", async ({
 test("album cards retain direct streaming links", async ({ page, context }) => {
   await context.route(/loopaware\.mprlab\.com/, (route) => route.abort());
   await page.goto("/music/");
-  for (const album of expected.items) {
+  for (const album of listedAlbums) {
     const card = page.locator(".album-card").filter({ has: page.getByRole("heading", { name: album.displayTitle || album.title, exact: true }) });
     for (const href of Object.values(album.streamingLinks)) await expect(card.locator(`a[href="${href}"]`)).toBeVisible();
   }

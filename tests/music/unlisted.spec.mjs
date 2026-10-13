@@ -3,21 +3,23 @@ import { readFile } from 'node:fs/promises';
 import { test, expect } from './test-fixtures.mjs';
 
 const source = JSON.parse(await readFile('data/site.json', 'utf8'));
-const album = source.music.items.find(album => album.status === 'draft' && album.visibility === 'unlisted');
+const album = source.music.items.find(album => album.slug === 'ostatki-sladki-7c9e2b18');
 const path = `/music/${album.slug}/`;
 
-test('production excludes the pending album and its playback authorization', async ({ request }) => {
-  expect((await request.get(path)).status()).toBe(404);
+test('production includes the unlisted album and its playback authorization', async ({ request }) => {
+  expect((await request.get(path)).status()).toBe(200);
   const catalog = await (await request.get('/data/site.json')).json();
-  expect(catalog.music.items.some(item => item.slug === album.slug)).toBe(false);
+  expect(catalog.music.items.find(item => item.slug === album.slug)).toMatchObject({ status: 'live', visibility: 'unlisted' });
   const allowlist = await (await request.get('/music/playback-allowlist.json')).json();
-  expect(allowlist.tracks.some(track => album.tracks.some(item => item.id === track.id))).toBe(false);
+  for (const track of album.tracks) {
+    expect(allowlist.tracks).toContainEqual({ id: track.id, playback: track.playback });
+  }
 });
 
 for (const width of [390, 1280]) {
-  test(`unlisted preview plays all five songs without discovery links at ${width}px`, async ({ page, context }) => {
+  test(`unlisted album plays all five recordings without discovery links at ${width}px`, async ({ page, context }) => {
     await context.route(/loopaware\.mprlab\.com/, route => route.abort());
-    await context.addCookies([{ name: 'music-fixture', value: 'unlisted', domain: 'localhost', path: '/' }]);
+    await context.addCookies([{ name: 'music-fixture', value: 'recordings', domain: 'localhost', path: '/' }]);
     await page.setViewportSize({ width, height: 900 });
     await page.goto(path);
     await expect(page.getByRole('heading', { name: album.title, exact: true })).toBeVisible();

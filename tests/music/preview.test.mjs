@@ -13,9 +13,11 @@ test('local album preview selects one draft, validates audio, and preserves prod
   const mediaOriginal = await readFile('assets/music/catalog.json', 'utf8');
   try {
     const source = JSON.parse(original);
-    const draft = source.music.items.find(album => album.status === 'draft' && album.visibility === 'unlisted');
-    assert.ok(draft, 'The five-song album stays draft until permission.');
-    assert.equal(draft.tracks.length, 5);
+    const draft = structuredClone(source.music.items.find(album => album.slug === 'ostatki-sladki-7c9e2b18'));
+    draft.slug = 'preview-test-album';
+    draft.status = 'draft';
+    draft.tracks.forEach((track, index) => { track.id = `preview-test-${index + 1}`; });
+    source.music.items.push(draft);
     const baseIndex = JSON.parse(mediaOriginal);
     const recording = Object.values(baseIndex.tracks)[0];
     const media = join(temporary, 'media');
