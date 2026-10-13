@@ -167,6 +167,13 @@
             "live"
           ]
         },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "listed",
+            "unlisted"
+          ]
+        },
         "latest": {
           "type": "boolean"
         },
@@ -264,6 +271,7 @@
         "coverImage",
         "releaseDate",
         "status",
+        "visibility",
         "shortDescription",
         "streamingLinks",
         "tracks",
