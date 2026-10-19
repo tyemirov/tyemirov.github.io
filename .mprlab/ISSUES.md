@@ -332,6 +332,14 @@ Format: `- [ ] [B042] (P1) {I007} Title`
 
 ## Improvements
 
+- [x] [I007] (P1) Update shared repository rules
+  Goal: Use the reviewed shared rules before production operations.
+  Requirements: Preserve local requirements, issue history, private inputs, and existing lifecycle records.
+  Deliverables: Update the approved managed guides and the current issue format.
+  Validation: Governor and Git diff checks passed. New local prose passed the scoped language checks.
+  Resolution: Updated the managed guides and preserved local rules. Production operations remain separate.
+
+
 - [x] [I006] (P1) {B012,B013,B014} Use the explicit shared theme control contract
   Goal: Complete the repository part of shared I010.
   Requirements: The conditional footer uses an ordered light and dark cycle. Other footer pages and the album template retain no picker.
