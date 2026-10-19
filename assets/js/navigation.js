@@ -179,14 +179,14 @@ export async function navigate(destination, options = {}) {
     for (const source of executable) await runScript(source, nextURL);
     const authHost = document.querySelector('mpr-header[data-config-url]');
     if (authHost) await globalThis.MPRUI.applyYamlConfig({ configUrl: authHost.getAttribute('data-config-url') });
-    for (const [node, inert] of pageElements) node.inert = inert;
-    const heading = document.querySelector('main h1, h1');
-    if (heading instanceof HTMLElement) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
     await new Promise(resolve => requestAnimationFrame(resolve));
     const anchor = nextURL.hash && document.getElementById(decodeURIComponent(nextURL.hash.slice(1)));
     const position = options.pop && positions.get(historyIndex);
-    if (anchor) anchor.scrollIntoView();
-    else window.scrollTo(position?.x || 0, position?.y || 0);
+    if (anchor) anchor.scrollIntoView({ behavior: 'instant' });
+    else window.scrollTo({ left: position?.x || 0, top: position?.y || 0, behavior: 'instant' });
+    for (const [node, inert] of pageElements) node.inert = inert;
+    const heading = document.querySelector('main h1, .page-shell h1, body > .container h1');
+    if (heading instanceof HTMLElement) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
   } catch (error) {
     if (operation.signal.aborted) return;
     if (options.pop && !committing) history.go(historyIndex - options.index);

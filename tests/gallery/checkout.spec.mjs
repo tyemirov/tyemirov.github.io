@@ -14,7 +14,9 @@ async function checkout(page) {
  await page.getByRole('button',{name:'Add to Basket',exact:true}).click();
  await page.getByRole('link',{name:/Basket/}).click();
  await page.getByRole('link',{name:'Checkout',exact:true}).click();
+ await expect(page).toHaveURL(/\/gallery\/order\/\?checkout=1$/);
  await expect(page.getByRole('heading',{name:'Checkout',exact:true})).toBeVisible();
+ await expect(page.locator('#order-main')).toHaveJSProperty('inert',false);
 }
 
 test('basket checkout creates a server-priced order and completes a locally approved payment',async({page,context})=>{

@@ -23,9 +23,9 @@ export async function initializeSiteFooter({ contact, themeAttribute } = {}) {
   footer.setAttribute("inner-class", "site-footer__inner");
   footer.setAttribute("wrapper-class", "site-footer__layout");
   if (themeAttribute) {
-    footer.setAttribute("theme-switcher", "button");
+    footer.setAttribute("theme-control", JSON.stringify({kind: "cycle", choices: ["light", "dark"]}));
     footer.setAttribute("theme-config", JSON.stringify({
-      attribute: themeAttribute, ariaLabel: "Toggle theme", modes: ["light", "dark"], initialMode: "light",
+      storageKey: "tyemirov:theme", attribute: themeAttribute, ariaLabel: "Toggle theme", modes: ["light", "dark"], initialMode: "light",
     }));
   }
 }

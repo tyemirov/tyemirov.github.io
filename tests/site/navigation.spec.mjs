@@ -55,3 +55,51 @@ test('album covers open albums and streaming services use labeled icons',async({
   await page.screenshot({path:`output/playwright/polish/album-${width}-${test.info().project.name}.png`,fullPage:true});
  }
 });
+
+
+test('destination controls stay inert until navigation scroll completes', async ({page,context}) => {
+ await context.route(/loopaware\.mprlab\.com/,route=>route.abort());
+ await page.setViewportSize({width:390,height:900});
+ await page.goto('/');
+ await expect(page.locator('#music .section-actions a')).toBeVisible();
+ await page.evaluate(() => {
+  window.scrollTo({top:document.body.scrollHeight,behavior:'instant'});
+  const requestFrame = window.requestAnimationFrame.bind(window);
+  window.requestAnimationFrame = callback => {
+   if (location.pathname === '/music/') {
+    globalThis.releaseNavigationFrame = () => {
+     window.requestAnimationFrame = requestFrame;
+     requestFrame(callback);
+    };
+    return 0;
+   }
+   return requestFrame(callback);
+  };
+ });
+ await page.locator('#music .section-actions a').click();
+ await expect(page).toHaveURL(/\/music\/$/);
+ await expect(page.locator('.album-grid')).toBeVisible();
+ await expect.poll(()=>page.evaluate(()=>typeof globalThis.releaseNavigationFrame)).toBe('function');
+ expect(await page.locator('.page-shell').evaluate(node=>node.inert)).toBe(true);
+ await page.evaluate(()=>globalThis.releaseNavigationFrame());
+ await expect(page.locator('.page-shell')).toHaveJSProperty('inert',false);
+ await expect(page.getByRole('heading',{level:1})).toBeFocused();
+ expect(await page.evaluate(()=>scrollY)).toBe(0);
+ await page.locator('.album-grid .album-title a[href$="/music/soliloquies-vol-i/"]').click();
+ await expect(page.locator('.album-title-large')).toHaveText('Soliloquies Vol. I');
+});
+
+
+for (const [pathname, heading] of [
+ ['/music/', 'Albums, song cycles, and vocal settings.'],
+ ['/gallery/', 'Virtual Gallery'],
+ ['/civilization/', 'Minimum Sustainable Modern Civilization'],
+]) {
+ test(`navigation focuses the page heading on ${pathname}`, async ({page,context}) => {
+  await context.route(/loopaware\.mprlab\.com/,route=>route.abort());
+  await page.goto('/');
+  await page.locator(`a[href="${pathname}"]`).first().click();
+  await expect(page).toHaveURL(new RegExp(`${pathname}$`));
+  await expect(page.getByRole('heading',{level:1,name:heading,exact:true})).toBeFocused();
+ });
+}
