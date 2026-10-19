@@ -2,10 +2,10 @@
 
 I001 prepares the personal website for central mpr-ui I009 publication.
 
-## Candidate
+## Historical I001 Candidate
 
-The browser tests use B069 revision `768f25936497c5aabd426197d21c2100b6e5d9a1`.
-The helper verifies all three shared candidate files before browser use.
+I001 used B069 revision `768f25936497c5aabd426197d21c2100b6e5d9a1`.
+Its browser helper verified all three shared candidate files before browser use.
 The public pages load the CSS and JavaScript bundle with literal `@latest` URLs.
 
 | File | SHA-256 |
@@ -25,14 +25,16 @@ The supporting pages retain their static footer placement and article links.
 The shared stylesheet hides the separate attribution prefix.
 The menu button retains that attribution.
 Consistent box sizing keeps footer padding within the page width.
-The homepage and music pages use shared theme configuration for the `data-theme` attribute.
+A footer has a theme control only when its initializer receives the `themeAttribute` option.
+The control uses an ordered light and dark cycle with the `tyemirov:theme` storage key.
+Other pages retain no picker.
 The shared component owns the theme state and color changes.
 
 The content catalog, gallery application, music player, and media service retain their existing contracts.
 The tracking pixel remains the first script in every affected page head.
 Automated music tests remain silent and headless.
 
-## Local Evidence
+## Historical I001 Evidence
 
 The initial browser checks failed because the current menu attribute was absent.
 The theme check failed because the current theme control was absent.
@@ -76,3 +78,11 @@ Central I009 retains these activation steps:
 6. Verify menus, contact links, theme changes, gallery navigation, and music behavior on the published website.
 
 F001 retains its existing music production acceptance gates.
+
+## I006 Theme Control
+
+The current footer uses the explicit `theme-control` contract.
+The browser helper selects one published shared-library version from `@latest`.
+It serves assets from that version and records their hashes.
+Central browser acceptance verified pointer selection, keyboard selection, and reload for each mode.
+Repository CI verifies the real pages, including pages without a theme control.

@@ -36,6 +36,7 @@ for (const width of [390, 1280]) {
 
 test("footer theme control changes the homepage colors", async ({ page }) => {
   await page.goto("/");
+  await expect(page.locator("#site-footer")).toHaveAttribute("theme-control", JSON.stringify({kind:"cycle",choices:["light","dark"]}));
   const before = await page.locator("body").evaluate(element => getComputedStyle(element).backgroundColor);
   await page.locator("#site-footer").getByRole("button", { name: /theme/i }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");

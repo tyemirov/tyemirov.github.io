@@ -57,8 +57,11 @@ for (const width of [390, 1280]) {
     await audio.evaluate(node => { globalThis.coverAudio = node; });
     const position = await audio.evaluate(node => node.currentTime);
     await page.locator('#music .section-actions a').click();
+    await expect(page).toHaveURL(/\/music\/$/);
+    await expect(page.locator('.album-grid')).toBeVisible();
+    await expect(page.locator('.page-shell')).toHaveJSProperty('inert', false);
     await expect(page.getByRole('button', { name: `Play ${albumTitle}`, exact: true })).toBeEnabled();
-    await page.locator('.album-title a[href$="/music/soliloquies-vol-i/"]').click();
+    await page.locator('.album-grid .album-title a[href$="/music/soliloquies-vol-i/"]').click();
     await expect(page.locator('.album-title-large')).toHaveText(albumTitle);
     await expect(page.getByRole('button', { name: `Play ${albumTitle}`, exact: true })).toBeEnabled();
     expect(await audio.evaluate(node => node === globalThis.coverAudio)).toBe(true);

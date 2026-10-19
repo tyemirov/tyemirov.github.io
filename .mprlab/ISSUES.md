@@ -11,6 +11,27 @@ Format: `- [ ] [B042] (P1) {I007} Title`
 
 ## BugFixes
 
+- [x] [B014] (P2) Wait for checkout interaction before browser test input
+  Goal: Enter the receipt email after checkout navigation completes.
+  Evidence: Chromium and WebKit filled the field while its parent was inert. The email remained empty and blocked order creation.
+  Requirements: Wait for the checkout URL and interactive destination before form input. Preserve checkout assertions and timeouts.
+  Validation: All 30 checkout cases passed across three browsers. Final CI passed with 604 browser cases and eight declared skips.
+  Resolution: The helper waits for the checkout URL and interactive destination before input.
+
+- [x] [B013] (P2) Focus the page heading after navigation
+  Goal: Put keyboard focus on the visible destination heading.
+  Evidence: The focus regression selected the hidden MPR settings modal heading.
+  Requirements: Select headings within page content. Preserve the navigation scroll and player.
+  Validation: All 42 navigation cases and nine layout focus cases passed. Final CI passed.
+  Resolution: Navigation selects the visible heading within page content.
+
+- [x] [B012] (P2) Complete navigation scroll before destination interaction
+  Goal: Keep a destination stable before its controls accept input.
+  Evidence: A Firefox album click occurred during navigation scroll. No album request followed.
+  Requirements: Keep destination controls inert through the final frame and instant scroll. Preserve heading focus and playback.
+  Validation: The controlled-frame regression reproduced interaction before navigation completed. Focused checks and final CI passed.
+  Resolution: The destination remains inert through the final frame and instant scroll.
+
 - [x] [B011] (P1) Preserve music playback across site navigation
   Goal:
   Keep the selected track and audio element active during same-site page navigation.
@@ -310,6 +331,15 @@ Format: `- [ ] [B042] (P1) {I007} Title`
   - All eight filter checks passed in the final headless Linux CI run.
 
 ## Improvements
+
+- [x] [I006] (P1) {B012,B013,B014} Use the explicit shared theme control contract
+  Goal: Complete the repository part of shared I010.
+  Requirements: The conditional footer uses an ordered light and dark cycle. Other footer pages and the album template retain no picker.
+  Deliverables: Replace obsolete selectors and declare `tyemirov:theme` as the application storage key.
+  Validation: `CI=1 make ci </dev/null` passed, including the load check and 604 browser cases.
+  Eight browser cases retained their declared skips.
+  Central browser acceptance verified pointer selection, keyboard selection, and reload for every mode.
+  Resolution: The ordered cycle preserves the button control. Pages without the initializer option have no picker.
 
 - [x] [I001] (P1) Prepare the current shared footer and theme contract
   Goal:
