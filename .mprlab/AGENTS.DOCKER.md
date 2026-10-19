@@ -21,7 +21,8 @@ Docker and container guidance for this repository. Use this guide only when Dock
 - MPR Lab has no current plan to put these contracts together.
 - Use the permanent versionless selected-manifest contract for production.
 - Reject a selected manifest that contains `schema_version`.
-- Each later gateway must accept every manifest that an earlier versionless gateway accepted.
+- Apply the current iOS baseline in `.mprlab/POLICY.md` before the manifest preservation rules.
+- For other manifest contracts, accept each manifest that an earlier versionless gateway accepted.
 - A field added to an existing shape must be optional and have one canonical default.
 - The gateway must normalize that default before manifest identity calculation.
 - Keep app-owned local orchestration during a versionless selected-manifest cutover.

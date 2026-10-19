@@ -41,6 +41,12 @@ Every HTML page created or modified in this repository MUST include the followin
 - The single source of truth for site content is `data/site.json`.
 - Articles/Essays that are part of a series should be elevated to a **Project Card** with a `parts` array in `site.json` to act as a hub.
 
+## Issue Identifier Allocation
+
+- Select each new issue ID from the identifiers absent from the active tracker and its archive.
+- After `999`, continue the search at `001`.
+- If all identifiers in a section are used, request an identifier decision.
+
 <!-- BEGIN MPRLAB-GOVERNANCE -->
 ## MPR Lab Governance
 
