@@ -10,45 +10,79 @@ I built School Atlas because I care about where a dollar buys the most. An expen
 
 School Atlas puts that comparison on a graph. Moving up means a better position in the selected publisher's school ranking. For public and private day schools, moving right means a higher Value index: more community quality relative to estimated annual family spending. School rank stays outside that index, so academic position and community value remain separate judgments. The graph lets a family examine both and decide what is worth paying for.
 
-## Start with the schools a child can attend
+## Admission comes before comparison
 
-Before comparing costs, a family needs to understand how a child can enter each school. Living nearby, entering a lottery, and applying for admission lead to different choices. School Atlas separates its schools into three groups, each with 100 entries. **Local public** contains schools with documented ordinary residential entry at high-school level, without a lottery or selective admission. **Lottery/selection** contains public schools with a lottery or selective entry route. **Private** contains campus-based private schools with application requirements and published cost evidence.
+A highly ranked school becomes a practical possibility only when a family understands how its child could attend. A residential entry route, a lottery, and selective admission give a family different things to plan around. Moving nearby and applying for a place involve different decisions. The ranking alone cannot tell a family which decision it faces.
 
-Each group contains the first 100 qualifying schools in rank order, with no school duplicated between groups. Online schools are excluded. The original publisher ranks remain visible, which explains why a local public school can have a national rank above 100. Schools ahead of it can belong to the lottery or selective group. The distinction is between the top 100 schools that meet a particular admission condition and the first 100 entries in an unfiltered ranking.
+School Atlas separates **Local public**, **Lottery/selection**, and **Private**, with 100 schools in each group. Local public schools offer documented ordinary residential entry at high-school level, without a lottery or selective admission. Lottery/selection schools have a lottery or selective public entry route. The private group contains schools with application requirements and published cost evidence. These categories make admission part of the comparison from the start.
 
-Public and private ranks also need to stay separate. Public-school positions come from the U.S. News 2026–2027 edition, while private schools use Niche's 2027 ranking. A private rank of 20 and a public rank of 20 describe different ranking populations. Exact public positions mainly use HighSchoolTrends' republication, with source links and admission evidence retained. Checking two presentations of that secondary source does not provide independent confirmation from the ranking publisher. The tool retains that limitation alongside the numbers.
+The ranking itself also needs context. A public rank of 20 and a private rank of 20 refer to different ranking populations. They cannot establish that the two schools hold equivalent positions in a common list. The catalog rules and source limitations appear below, so readers can examine what each number represents.
 
-## Build the comparison around the family bill
+## Housing is part of the school bill
 
-Once admission is understood, the next question is what the family would spend to make the choice work. A metropolitan price index can hide large differences in local housing costs, so the model begins with a concrete assumption: a three-bedroom rental. It uses the school campus ZIP and FY2027 HUD gross-rent benchmarks, including covered utilities. This gives the comparison a local housing basis. It does not establish an attendance boundary or show that a suitable rental is available today.
+For a public school, the housing bill can be central to what attendance would cost a family. A metropolitan price index can hide large differences in local housing costs. School Atlas begins with something more concrete: a three-bedroom rental, with the campus ZIP and FY2027 HUD gross-rent benchmarks. Covered utilities are included.
 
-For public and private day schools, the annual estimate adds twelve months of that rent to other household spending and school costs. Tuition and known school fees scale with the selected number of children, while known household school fees are added once. Private tuition belongs in this total because a low rent cannot erase a large school bill. The model uses sourced tuition and known required fees before financial aid. Published tuition years and unresolved charges remain visible in each school card.
+That assumption gives the comparison a local basis, with limits that matter before anyone considers a move. A campus ZIP does not establish an attendance boundary. A rent benchmark does not establish that a suitable home is available today. The estimate helps a family identify a place worth investigating. An actual address still needs checking.
 
-Other household spending starts at $52,956 per year, derived from BLS 2024 spending for three-person households. Shelter and covered utilities are removed before local rent is added. Education, cash contributions, and personal insurance and pensions are also excluded. Food, transportation, health and vehicle insurance, phone and internet, and household goods remain in the benchmark at national 2024 prices. This is a common basis for comparison, rather than a researched bill for a particular family. Readers can change the assumptions and the number of children.
+For public and private day schools, the annual estimate combines twelve months of rent, other household spending, and school costs. Private tuition belongs in that same total. A place with low rent can still require a large annual commitment once tuition and known required fees are included. Those costs are counted before financial aid, with tuition years and unresolved charges visible in each school card.
 
-Boarding requires a different calculation because the family can remain at its current home. The model adds the boarding package and known travel to a default home-spending benchmark of $74,326 per year. It does not automatically reduce food or utility spending while a child boards. Campus rent is excluded, and the campus community score does not represent the family's home. Boarding uses an annual-cost comparison, with lower estimated family cost toward the right of the graph, rather than a family Value index.
+Other household spending begins at $52,956 a year, derived from BLS 2024 spending for three-person households. It supplies a common basis for comparison, with the detailed inclusions and exclusions below. Readers can change the assumptions and the number of children. A family's actual spending remains something to bring to the comparison.
 
-The private catalog keeps day and boarding as separate alternatives. Its 100 unique schools provide 96 priced day alternatives and 32 priced boarding alternatives. Some schools offer both, but those alternatives do not turn one school into two schools. Separating the arrangements lets a reader compare the cost of attending as a day student with the different household assumptions behind boarding.
+## Boarding changes whose home matters
 
-## Relate the bill to what the community offers
+Boarding changes the decision because the family can remain at its current home. Pricing a rental near the school would describe a household arrangement the family may never need. Likewise, the campus community score cannot stand in for the community where the family continues to live.
 
-The annual estimate answers the cost question, but a family also needs to consider what that spending buys. For public and private day schools, the Value index relates that cost to an equal-weight average of six AARP categories. Those categories are housing, neighborhood, transportation, environment, health, and engagement. Together they provide a community proxy, not a school quality score.
+The boarding estimate adds the boarding package and known travel to a default home-spending benchmark of $74,326 a year. It excludes campus rent and makes no automatic reduction for food or utilities while a child boards. These assumptions keep the continuing household bill visible alongside the boarding expense.
+
+On the graph, boarding uses annual family cost, with lower estimated cost toward the right. It has no family Value index. Day and boarding options remain separate alternatives, including when the same school offers both. A family can then examine the financial consequences of each arrangement.
+
+## Put the price beside what it buys
+
+A lower bill matters, but it is only part of the judgment. For public and private day schools, School Atlas relates estimated spending to six AARP community categories: housing, neighborhood, transportation, environment, health, and engagement. Their equal-weight average supplies a community proxy. School quality remains outside it.
+
+Consider a hypothetical comparison in which two places have the same community score of 60. At an estimated annual family cost of $100,000, the Value index is 38.9. At $80,000, it is 48.7. In this example, measured community quality stays the same while the estimated bill falls by $20,000 a year. That difference leaves money available for other family priorities.
+
+The formula makes this judgment explicit:
 
 **Value index = community score × 64,877 ÷ estimated annual family cost**
 
-The fixed factor puts the ratio on a readable scale without changing the order of places. The result has no dollar unit and is neither a percentile nor a score out of 100. For example, a community score of 60 and an annual family cost of $100,000 produce an index of 38.9. At $80,000, the same community score produces an index of 48.7. The community quality has not changed, but the estimated spending needed to obtain it is lower.
+Affordability receives additional weight here. The AARP score already includes affordability measures, and dividing by family cost emphasizes affordability again. Readers need that limitation when interpreting the result. The community inputs also combine different years and geographic areas.
 
-This choice also gives affordability additional weight. The AARP community score already includes affordability measures, and dividing by family cost emphasizes affordability again. That is a limitation a reader needs to understand when interpreting the result. The community inputs also combine different years and geographic areas. The index offers a way to examine the relationship between those inputs and spending, with school rank still available as a separate judgment.
+The index helps a family examine what the estimated spending buys. School rank remains a separate judgment, and the family still decides how much weight each deserves.
 
-## Keep the uncertainty in the picture
+## Let an unfinished price stay unfinished
 
-A useful comparison must distinguish an estimate from a complete price. School Atlas uses **≈** for estimates and hollow points for unpriced costs. For day schools, missing required charges create a Value index ceiling, marked **≤**, because additional spending can reduce the final value. For boarding, they create a known cost floor, marked **≥**, because the final bill can be higher. Unknown travel is not treated as a verified zero. Published cost ranges and five-day boarding arrangements remain visible, too.
+A comparison becomes misleading if an unknown charge quietly disappears from the bill. School Atlas keeps estimates, unpriced costs, and incomplete totals visible. Missing required charges can lower a day school's eventual Value index or raise a boarding school's final bill. Unknown travel is never treated as a verified zero.
 
-These details affect how a family can use the result. Financial aid, moving costs, and optional charges can change the actual total. A campus ZIP still needs an address check, an admission route still needs confirmation, and a published fee still needs a current school quote. The graph helps identify places worth examining more closely. A reader can then select a school, inspect its costs and sources, and examine the assumptions against the family's plans.
+The graph identifies places for closer examination. Financial aid, moving costs, and optional charges can change the total. A family can select a school, inspect its costs and sources, and test the assumptions against its plans. That work includes confirming the admission route, checking an address, and obtaining a current school quote.
 
-That brings the search back to the question that started it. A school ranking is one part of a family decision whose costs extend well beyond the school itself. School Atlas puts more of that decision in view, while keeping the evidence and its limits available for inspection. The goal is to find places where the family's dollar buys more of the life it wants.
+A family may decide that a higher-ranked school is worth a larger bill. It may find that another place offers enough of what it values while leaving more money for the rest of its life. School Atlas makes those tradeoffs easier to examine, with the assumptions and gaps still visible. I built it to help make that choice with a clearer sense of what each dollar buys.
 
 [Open School Atlas](https://tyemirov.net/school-atlas/).
+
+## What goes into the comparison
+
+### School groups and ranking evidence
+
+Each group contains the first 100 qualifying schools in rank order, with no school duplicated between groups. Online schools are excluded. The private group contains campus-based schools with application requirements and published cost evidence.
+
+The original publisher ranks remain visible. A local public school can have a national rank above 100. Schools ahead of it can belong to the lottery or selective group. Each group represents the top 100 schools meeting its admission condition. It does not represent the first 100 entries in an unfiltered ranking.
+
+Public-school positions come from the U.S. News 2026–2027 edition, while private schools use Niche's 2027 ranking. Exact public positions mainly use HighSchoolTrends' republication, with source links and admission evidence retained. Checking two presentations of that secondary source does not provide independent confirmation from the ranking publisher. The tool retains that limitation alongside the numbers.
+
+### Household costs and attendance arrangements
+
+The $52,956 annual household benchmark removes shelter and covered utilities from BLS 2024 spending for three-person households before local rent is added. Education, cash contributions, and personal insurance and pensions are also excluded. Food, transportation, health and vehicle insurance, phone and internet, and household goods remain at national 2024 prices. These figures provide a common comparison basis rather than a researched bill for a particular family.
+
+Tuition and known school fees scale with the selected number of children. Known household school fees are added once. The model uses sourced tuition and known required fees before financial aid. Published tuition years and unresolved charges remain visible in each school card.
+
+The private catalog contains 100 unique schools, with 96 priced day alternatives and 32 priced boarding alternatives. Some schools offer both. Offering two attendance arrangements does not count one school twice. Keeping those arrangements separate lets readers compare day attendance with boarding's different household assumptions.
+
+### The index scale and incomplete prices
+
+The fixed factor of 64,877 puts the Value index on a readable scale without changing the order of places. The result has no dollar unit. It is neither a percentile nor a score out of 100.
+
+School Atlas uses **≈** for estimates and hollow points for unpriced costs. For day schools, missing required charges create a Value index ceiling, marked **≤**. Additional spending can reduce the final value. For boarding, missing required charges create a known cost floor, marked **≥**, because the final bill can be higher. Published cost ranges and five-day boarding arrangements remain visible.
 
 ## Sources and method
 
