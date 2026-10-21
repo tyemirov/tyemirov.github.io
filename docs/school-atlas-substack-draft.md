@@ -1,14 +1,14 @@
-# Where a Family’s Dollar Buys More
+# What the School Ranking Leaves Out
 
-*A school ranking tells you where a school stands. A family also needs to know what life around it will cost.*
+*I built School Atlas to compare schools with the cost of family life around them and see where a dollar buys more.*
 
 Editorial draft for Substack. The publication and final article URL have not been selected.
 
-A school search can begin with a ranking and quickly become a question about the rest of a family's life. A higher-ranked school may look like the obvious choice until rent, tuition, and daily travel enter the picture. The surrounding community matters, too. A family needs to decide whether the whole arrangement offers enough to justify what it will spend.
+The school near the top of a ranking has an obvious appeal. The harder judgment is whether the life around it is worth what a family would have to spend. Rent, tuition, and daily travel keep showing up long after the school search is over. A higher position on a list needs to be considered alongside that recurring bill. The community the family would call home matters, too.
 
-That is the question behind School Atlas: where does a family's dollar buy more of the life it wants? An expensive place can have excellent schools, but school rank alone cannot establish its value for a family. I built the tool to bring school rank, community quality, and estimated family costs into the same comparison. The aim is to make that larger decision easier to examine.
+I built School Atlas because I care about where a dollar buys the most. An expensive place may offer excellent schools and a great deal besides. I want to understand what a family gets for that expense, and whether another place offers more for its money. That requires putting school rank, community quality, and estimated family costs into the same comparison. Those measures can pull in different directions.
 
-The graph keeps the two judgments separate. Moving up means a better position in the selected publisher's school ranking. For public and private day schools, moving right means a higher Value index: more community quality relative to estimated annual family spending. School rank does not enter that index. A reader can consider academic position and community value together without treating them as the same measure.
+School Atlas puts that comparison on a graph. Moving up means a better position in the selected publisher's school ranking. For public and private day schools, moving right means a higher Value index: more community quality relative to estimated annual family spending. School rank stays outside that index, so academic position and community value remain separate judgments. The graph lets a family examine both and decide what is worth paying for.
 
 ## Start with the schools a child can attend
 
