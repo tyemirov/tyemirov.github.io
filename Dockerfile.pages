@@ -20,6 +20,7 @@ COPY gallery/order ./gallery/order
 COPY gallery/studio ./gallery/studio
 COPY gallery/js ./gallery/js
 COPY music ./music
+COPY school-atlas ./school-atlas
 COPY timeseries ./timeseries
 COPY scripts/build-pages-artifact.sh ./scripts/
 COPY scripts/music/build.mjs scripts/music/validate-artifact.mjs ./scripts/music/

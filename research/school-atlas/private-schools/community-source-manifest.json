@@ -1,0 +1,372 @@
+[
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/2501430/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/2501430.json",
+    "sha256": "06e13ed467dc609890f3414d1584724065bbbbbea83c0fbea8912b8e9b44c499"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/2527445/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/2527445.json",
+    "sha256": "9a4a87b887076fcc6fa7cbf6073ce2884fe822be915db515f28f8cedd7b6bc4a"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3325300/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3325300.json",
+    "sha256": "bf10e9122fd1d056d95413d2c219021b22b0c849b1465921693d3ce3aec3ea43"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3439570/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3439570.json",
+    "sha256": "f9e74452ad658847df1ec0fb9b28518a686772ff4da8b61b06eeff96c1f0c5f1"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3651000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3651000.json",
+    "sha256": "c19e2b075744ff4734cc0a31ca6d2783eec8eb9956af2ab91de10224189f312c"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0644000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0644000.json",
+    "sha256": "610fb650047061e290abefd2469c297b02ee52a15db13ae09bb34f69753ea3db"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3651000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3651000.json",
+    "sha256": "c19e2b075744ff4734cc0a31ca6d2783eec8eb9956af2ab91de10224189f312c"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3314200/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3314200.json",
+    "sha256": "202f116602e9c6edbd5a27a5015fb06f1f463880b6a07677c83c4f035bd96c42"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3460900/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3460900.json",
+    "sha256": "39f6f3712d7fa94ac0d50404bc296ac0020cee8411caa3264eb59c9ebfde7a69"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/2516530/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/2516530.json",
+    "sha256": "6c8123f68d199b757c64e5982ddca895345b79fc0e0e4dd900f296b9b053b747"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0611446/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0611446.json",
+    "sha256": "b5ed0a1a13ee300d0ab09d15b0428d2e0c55be37713b4ab63ebbc9cefaf8bf82"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0653000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0653000.json",
+    "sha256": "b98373a64fff120dd7d9d9653da00adaeb56da871e73a443076c3863618f15b5"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3664309/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3664309.json",
+    "sha256": "27b0666050cfe4c190b6c65e48b0fbc006fac305693d57593b335661743ea67d"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1047030/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/1047030.json",
+    "sha256": "8497a81caafeb4d14361c8fe934952c935fe9ba818e8e646606dfd058bca08d0"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/2507000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/2507000.json",
+    "sha256": "7b3a1629b15a087958ac27987c37dbee05901d3a28cc9c8f806ba79fb254434f"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3651000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3651000.json",
+    "sha256": "c19e2b075744ff4734cc0a31ca6d2783eec8eb9956af2ab91de10224189f312c"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/4835000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/4835000.json",
+    "sha256": "e2a854f02b431b86bb36fa21e9842dbe3a482fbd9682a98adffb38627e4365d2"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0653000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0653000.json",
+    "sha256": "b98373a64fff120dd7d9d9653da00adaeb56da871e73a443076c3863618f15b5"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/5166672/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/5166672.json",
+    "sha256": "9124db13cd4f2e04eb0399942828921810d7f9a44e4e69fcff0c4df341e84b40"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1150000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/1150000.json",
+    "sha256": "ebaa91bdbba9e1dd28195c7d8bcfc87a572aefc72eca49e868bfaf131e94ead7"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/2507000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/2507000.json",
+    "sha256": "7b3a1629b15a087958ac27987c37dbee05901d3a28cc9c8f806ba79fb254434f"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3651000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3651000.json",
+    "sha256": "c19e2b075744ff4734cc0a31ca6d2783eec8eb9956af2ab91de10224189f312c"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0667000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0667000.json",
+    "sha256": "8b5197ec167b7629399eee31dfa43df6406fac2d50df203311afe557c6d6d8c1"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3651000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3651000.json",
+    "sha256": "c19e2b075744ff4734cc0a31ca6d2783eec8eb9956af2ab91de10224189f312c"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/5103000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/5103000.json",
+    "sha256": "857d9af43e0af959c52088162b02223878ae50acb6cecdacac350944c36b640d"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/2541725/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/2541725.json",
+    "sha256": "7301c431b97333f1e16d9abb7975c4e1c69e251a95cf0dca30a10d78c987a67d"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0952000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0952000.json",
+    "sha256": "6b3c803e7ff0d5fb221796396d19570ea6885bd817bbea2923c5213684865369"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3651000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3651000.json",
+    "sha256": "c19e2b075744ff4734cc0a31ca6d2783eec8eb9956af2ab91de10224189f312c"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1245000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/1245000.json",
+    "sha256": "38f9d1f3cf5148aeb8c1d8d6de5e2409247447189406f297f8acbbaab3447e96"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3431620/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3431620.json",
+    "sha256": "fd680da1d96fe1823c6fa857e3a5743518eb4ee2c00ff1e3087956a92869b4df"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0620018/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0620018.json",
+    "sha256": "19d8f512694da4df07a76d53fd9b6c15b1873c63b7bcf0b5ddef2a5c739aedb9"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0633798/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0633798.json",
+    "sha256": "ee60056b72b36f826febdf4fa46dd5ef754f3277940dc212d5ed7522e80079a2"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0644000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0644000.json",
+    "sha256": "610fb650047061e290abefd2469c297b02ee52a15db13ae09bb34f69753ea3db"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/4835000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/4835000.json",
+    "sha256": "e2a854f02b431b86bb36fa21e9842dbe3a482fbd9682a98adffb38627e4365d2"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1216475/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/1216475.json",
+    "sha256": "440fac1059ca173f27fba8c698974c431e1dcca8628e14351e4b7a21217ce771"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1150000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/1150000.json",
+    "sha256": "ebaa91bdbba9e1dd28195c7d8bcfc87a572aefc72eca49e868bfaf131e94ead7"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/2609180/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/2609180.json",
+    "sha256": "e9624f848bb0706530eeb07562a23734e63b9b6001bbd9f36078877f05630eee"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/4819000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/4819000.json",
+    "sha256": "a8a90329e6e4279983c3948ce9108dd8da8e22a55e50a12e2bb577d16423e64a"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1271000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/1271000.json",
+    "sha256": "e0e8f8f4e0220ab1219a30a3325ab2ad17a91ed90a6e8acc3dd1bfa8555bc548"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3651000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3651000.json",
+    "sha256": "c19e2b075744ff4734cc0a31ca6d2783eec8eb9956af2ab91de10224189f312c"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3651000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3651000.json",
+    "sha256": "c19e2b075744ff4734cc0a31ca6d2783eec8eb9956af2ab91de10224189f312c"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0644000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0644000.json",
+    "sha256": "610fb650047061e290abefd2469c297b02ee52a15db13ae09bb34f69753ea3db"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0644000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0644000.json",
+    "sha256": "610fb650047061e290abefd2469c297b02ee52a15db13ae09bb34f69753ea3db"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3432910/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3432910.json",
+    "sha256": "b7f28a3b86f05091ef067ac892354f3400db65b7abcce64e0dcfbf9fe8c7efcd"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0603092/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0603092.json",
+    "sha256": "d74b68cea2d364e6f6490963287cae04e165c1ef5c6bac93306cf86ac49ffd45"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1714000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/1714000.json",
+    "sha256": "958990b1989de0c36df88c89a67ad424d6be45f6877cbcf207d36b65a539f995"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/5307380/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/5307380.json",
+    "sha256": "cc7df7091ed2d24dd6970b731bf63f4d4875f7c8dadca053fedbb6176a337d06"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1304000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/1304000.json",
+    "sha256": "98c9008a3b0a5baee920b2aeec4603d54239b1f0671c8d934268543157e10bec"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3460900/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3460900.json",
+    "sha256": "39f6f3712d7fa94ac0d50404bc296ac0020cee8411caa3264eb59c9ebfde7a69"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3651000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3651000.json",
+    "sha256": "c19e2b075744ff4734cc0a31ca6d2783eec8eb9956af2ab91de10224189f312c"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/4805000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/4805000.json",
+    "sha256": "d69263b6a77065b657c44214e073192f260a7da03afc4b23b2ded6e5c460e562"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/4835000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/4835000.json",
+    "sha256": "e2a854f02b431b86bb36fa21e9842dbe3a482fbd9682a98adffb38627e4365d2"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0633798/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0633798.json",
+    "sha256": "ee60056b72b36f826febdf4fa46dd5ef754f3277940dc212d5ed7522e80079a2"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3448300/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3448300.json",
+    "sha256": "9cccd96a4d71d68b5abfba90a122ba858a37699caf34b05c03a5d4bb8de3220f"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0662980/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0662980.json",
+    "sha256": "a1cb94807ad9ba38136069da895f1706a005590c07eac581999281be2a82ef99"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0670000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0670000.json",
+    "sha256": "0156f8ef9e00ea2ad486a91a61025e5ba55952dfafeb83e13e24b29896b3968f"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3406130/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3406130.json",
+    "sha256": "b18ab77d4ed6b3b64726b7ac8fbd7c81fa6f073ade60135cd449ac6fe3f712d0"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3719000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3719000.json",
+    "sha256": "cd27eb4af5326086ced3c1604fae1df8d17c0a0cc563da75a816979f84076586"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/2404000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/2404000.json",
+    "sha256": "c0a8577f1644a7d9d517b408de11ff1779718d741ad8489a0e6887e11197642b"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/2965000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/2965000.json",
+    "sha256": "2e07445083e81822efd615ce4950560585c02df1b2cc3b754959e38ca4a6fea0"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/5357535/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/5357535.json",
+    "sha256": "c8311482f6b476673d6d30f60697bc3b81afa8c8e8603e2c0659b005bbfa3614"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3673176/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3673176.json",
+    "sha256": "013a93366dc66d2b22c106560ee75f927126936f16b9fc127419440eb774e79f"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/4262416/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/4262416.json",
+    "sha256": "763be7a22c718127a9520264460b3b3c30ab5dcf88da764920c1fd09add5e543"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/4872656/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/4872656.json",
+    "sha256": "16fb81baf6e9c52b175b1da39d81e5d871a1bf6a2e98337bdf50d0058e21284b"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/5335940/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/5335940.json",
+    "sha256": "1628856c86085c9d4a4135e71d14878f699e6e5d4daab056045eb8d91a67c33a"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/2507000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/2507000.json",
+    "sha256": "7b3a1629b15a087958ac27987c37dbee05901d3a28cc9c8f806ba79fb254434f"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3644831/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/3644831.json",
+    "sha256": "0d5e756792e37cca8585381b53b711a55bef876d731066f7f1e60d449c34155d"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/4819000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/4819000.json",
+    "sha256": "a8a90329e6e4279983c3948ce9108dd8da8e22a55e50a12e2bb577d16423e64a"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/4837000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/4837000.json",
+    "sha256": "d0e571451ee7ca32897ef4b28b0168f3b407195d33a061eee63d33ef45742f7e"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1150000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/1150000.json",
+    "sha256": "ebaa91bdbba9e1dd28195c7d8bcfc87a572aefc72eca49e868bfaf131e94ead7"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0656000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0656000.json",
+    "sha256": "9c31f9110ee71e68b585515a80f254be6813d85f3949b6dcf9b0e9a29f9c2db7"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/4248704/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/4248704.json",
+    "sha256": "0b52e296f1144ae9cca0f25ccc15d041180db971e527f5cd1a9d78b136e8e2fc"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0656000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/0656000.json",
+    "sha256": "9c31f9110ee71e68b585515a80f254be6813d85f3949b6dcf9b0e9a29f9c2db7"
+  },
+  {
+    "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1224000/scores",
+    "snapshot": "research/school-atlas/admission-options/aarp-snapshots/1224000.json",
+    "sha256": "92bf30cf3f0b9fc05e77c7c16a537f04fcbaf18096a702b5110039702838a69e"
+  }
+]

@@ -1,0 +1,470 @@
+[
+  {
+    "rank": 5,
+    "school_id": "private:choate-rosemary-hall-wallingford-ct",
+    "community": "Wallingford town",
+    "kind": "subdiv",
+    "geoid": "0917078740",
+    "county": "09170",
+    "address": "333 Christian Street, Wallingford, CT 06492",
+    "school_url": "https://www.choate.edu/admission/tuition-and-financial-aid",
+    "evidence_urls": [
+      "https://www.choate.edu/admission/tuition-and-financial-aid"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 7,
+    "school_id": "private:harvard-westlake-school-studio-city-ca",
+    "community": "Los Angeles city",
+    "kind": "local",
+    "geoid": "0644000",
+    "county": "06037",
+    "address": "3700 Coldwater Canyon Avenue, Studio City, CA 91604",
+    "school_url": "https://www.hw.com/life-at-hw/",
+    "evidence_urls": [
+      "https://www.hw.com/life-at-hw/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 8,
+    "school_id": "private:horace-mann-school-bronx-ny",
+    "community": "Bronx County",
+    "kind": "county",
+    "geoid": "36005",
+    "county": "36005",
+    "address": "231 West 246th Street, Bronx, NY 10471",
+    "school_url": "https://www.horacemann.org/admissions/tuition-financial-aid",
+    "evidence_urls": [
+      "https://www.horacemann.org/admissions/tuition-financial-aid"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. County proxy covers the listed New York City borough; it is broader than the campus neighborhood. "
+  },
+  {
+    "rank": 9,
+    "school_id": "private:the-hotchkiss-school-lakeville-ct",
+    "community": "Salisbury town",
+    "kind": "subdiv",
+    "geoid": "0916066420",
+    "county": "09160",
+    "address": "11 Interlaken Road, Lakeville, CT 06039",
+    "school_url": "https://www.hotchkiss.org/parents/payment-options-financial-forms",
+    "evidence_urls": [
+      "https://www.hotchkiss.org/parents/payment-options-financial-forms"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 12,
+    "school_id": "private:st-pauls-school-concord-nh",
+    "community": "Concord city",
+    "kind": "local",
+    "geoid": "3314200",
+    "county": "33013",
+    "address": "325 Pleasant Street, Concord, NH 03301",
+    "school_url": "https://www.sps.edu/",
+    "evidence_urls": [
+      "https://www.sps.edu/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 14,
+    "school_id": "private:deerfield-academy-deerfield-ma",
+    "community": "Deerfield town",
+    "kind": "subdiv",
+    "geoid": "2501116670",
+    "county": "25011",
+    "address": "7 Boyden Lane, Deerfield, MA 01342",
+    "school_url": "https://deerfield.edu/admission/financial-aid",
+    "evidence_urls": [
+      "https://deerfield.edu/admission/financial-aid"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 15,
+    "school_id": "private:riverdale-country-school-bronx-ny",
+    "community": "Bronx County",
+    "kind": "county",
+    "geoid": "36005",
+    "county": "36005",
+    "address": "5250 Fieldston Road, Bronx, NY 10471",
+    "school_url": "https://www.riverdale.edu/admission/financial-aid/",
+    "evidence_urls": [
+      "https://www.riverdale.edu/admission/financial-aid/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. County proxy covers the listed New York City borough; it is broader than the campus neighborhood. "
+  },
+  {
+    "rank": 19,
+    "school_id": "private:the-loomis-chaffee-school-windsor-ct",
+    "community": "Windsor town",
+    "kind": "subdiv",
+    "geoid": "0911087000",
+    "county": "09110",
+    "address": "4 Batchelder Road, Windsor, CT 06095",
+    "school_url": "https://www.loomischaffee.org/admission/tuition-financial-aid",
+    "evidence_urls": [
+      "https://www.loomischaffee.org/admission/tuition-financial-aid"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 24,
+    "school_id": "private:basis-independent-brooklyn-brooklyn-ny",
+    "community": "Kings County (Brooklyn)",
+    "kind": "county",
+    "geoid": "36047",
+    "county": "36047",
+    "address": "556 Columbia Street, Brooklyn, NY 11231",
+    "school_url": "https://brooklyn.basisindependent.com/",
+    "evidence_urls": [
+      "https://brooklyn.basisindependent.com/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. County proxy covers the listed New York City borough; it is broader than the campus neighborhood. "
+  },
+  {
+    "rank": 38,
+    "school_id": "private:hopkins-school-new-haven-ct",
+    "community": "New Haven city",
+    "kind": "local",
+    "geoid": "0952000",
+    "county": "09170",
+    "address": "986 Forest Road, New Haven, CT 06515",
+    "school_url": "https://www.hopkins.edu/admission/applying-to-hopkins/affording-hopkins",
+    "evidence_urls": [
+      "https://www.hopkins.edu/admission/applying-to-hopkins/affording-hopkins"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 39,
+    "school_id": "private:the-taft-school-watertown-ct",
+    "community": "Watertown town",
+    "kind": "subdiv",
+    "geoid": "0914080490",
+    "county": "09140",
+    "address": "110 Woodbury Road, Watertown, CT 06795",
+    "school_url": "https://www.taftschool.org/admission/affording-taft/tuition-and-fees",
+    "evidence_urls": [
+      "https://www.taftschool.org/admission/affording-taft/tuition-and-fees"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 40,
+    "school_id": "private:the-bishops-school-la-jolla-ca",
+    "community": "San Diego city",
+    "kind": "local",
+    "geoid": "0666000",
+    "county": "06073",
+    "address": "7607 La Jolla Boulevard, La Jolla, CA 92037",
+    "school_url": "https://www.bishops.com/",
+    "evidence_urls": [
+      "https://www.bishops.com/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. ",
+    "school_snapshot_url": "https://www.bishops.com/admissions/affording-bishops"
+  },
+  {
+    "rank": 42,
+    "school_id": "private:ransom-everglades-school-coconut-grove-fl",
+    "community": "Miami city",
+    "kind": "local",
+    "geoid": "1245000",
+    "county": "12086",
+    "address": "3575 Main Highway, Coconut Grove, FL 33133",
+    "school_url": "https://www.ransomeverglades.org/admission/affording-re",
+    "evidence_urls": [
+      "https://www.ransomeverglades.org/admission/affording-re"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 44,
+    "school_id": "private:american-heritage-schools-broward-campus-plantation-fl",
+    "community": "Plantation city (Broward County)",
+    "kind": "local",
+    "geoid": "1257425",
+    "county": "12011",
+    "address": "12200 West Broward Boulevard, Plantation, FL 33325",
+    "school_url": "https://www.ahschool.com/broward-campus/admissions/tuition-aid-fees",
+    "evidence_urls": [
+      "https://www.ahschool.com/broward-campus/admissions/tuition-aid-fees"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 45,
+    "school_id": "private:concord-academy-concord-ma",
+    "community": "Concord town",
+    "kind": "subdiv",
+    "geoid": "2501715060",
+    "county": "25017",
+    "address": "166 Main Street, Concord, MA 01742",
+    "school_url": "https://concordacademy.org/admissions/tuition-financial-aid/",
+    "evidence_urls": [
+      "https://concordacademy.org/admissions/tuition-financial-aid/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 47,
+    "school_id": "private:middlesex-school-concord-ma",
+    "community": "Concord town",
+    "kind": "subdiv",
+    "geoid": "2501715060",
+    "county": "25017",
+    "address": "1400 Lowell Road, Concord, MA 01742",
+    "school_url": "https://www.mxschool.edu/admissions/affording-mx",
+    "evidence_urls": [
+      "https://www.mxschool.edu/admissions/affording-mx"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 53,
+    "school_id": "private:newark-academy-livingston-nj",
+    "community": "Livingston township",
+    "kind": "subdiv",
+    "geoid": "3401340890",
+    "county": "34013",
+    "address": "91 South Orange Avenue, Livingston, NJ 07039",
+    "school_url": "https://www.newarka.edu/admission/tuition-and-financial-aid",
+    "evidence_urls": [
+      "https://www.newarka.edu/admission/tuition-and-financial-aid"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 67,
+    "school_id": "private:miss-porters-school-farmington-ct",
+    "community": "Farmington town",
+    "kind": "subdiv",
+    "geoid": "0911027600",
+    "county": "09110",
+    "address": "60 Main Street, Farmington, CT 06032",
+    "school_url": "https://www.porters.org/tuition-and-financial-aid/",
+    "evidence_urls": [
+      "https://www.porters.org/tuition-and-financial-aid/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 73,
+    "school_id": "private:ethical-culture-fieldston-school-bronx-ny",
+    "community": "Bronx County",
+    "kind": "county",
+    "geoid": "36005",
+    "county": "36005",
+    "address": "3901 Fieldston Road, Bronx, NY 10471",
+    "school_url": "https://www.ecfs.org/admissions/tuition-and-financial-aid/",
+    "evidence_urls": [
+      "https://www.ecfs.org/admissions/tuition-and-financial-aid/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. County proxy covers the listed New York City borough; it is broader than the campus neighborhood. "
+  },
+  {
+    "rank": 79,
+    "school_id": "private:united-world-college-usa-montezuma-nm",
+    "community": "San Miguel County",
+    "kind": "county",
+    "geoid": "35047",
+    "county": "35047",
+    "address": "400 State Route 65, Montezuma, NM 87731",
+    "school_url": "https://www.uwc-usa.org/admissions/scholarships-fees/",
+    "evidence_urls": [
+      "https://www.uwc-usa.org/admissions/scholarships-fees/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. San Miguel County is a broad county proxy for Montezuma, not a neighborhood score. "
+  },
+  {
+    "rank": 82,
+    "school_id": "private:the-pingry-school-basking-ridge-nj",
+    "community": "Bernards township",
+    "kind": "subdiv",
+    "geoid": "3403505560",
+    "county": "34035",
+    "address": "131 Martinsville Road, Basking Ridge, NJ 07920",
+    "school_url": "https://www.pingry.org/apply/affordingpingry",
+    "evidence_urls": [
+      "https://www.pingry.org/apply/affordingpingry"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Basking Ridge is the postal locality; the Census campus address is in Bernards township (Liberty Corner CDP). "
+  },
+  {
+    "rank": 86,
+    "school_id": "private:durham-academy-durham-nc",
+    "community": "Durham city",
+    "kind": "local",
+    "geoid": "3719000",
+    "county": "37063",
+    "address": "3601 Ridge Road, Durham, NC 27705",
+    "school_url": "https://www.da.org/admissions/affording-da",
+    "evidence_urls": [
+      "https://www.da.org/admissions/affording-da"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 90,
+    "school_id": "private:st-marks-school-southborough-ma",
+    "community": "Southborough town",
+    "kind": "subdiv",
+    "geoid": "2502763165",
+    "county": "25027",
+    "address": "25 Marlboro Road, Southborough, MA 01772",
+    "school_url": "https://www.stmarksschool.org/admission/tuition-and-financial-aid",
+    "evidence_urls": [
+      "https://www.stmarksschool.org/admission/tuition-and-financial-aid"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 93,
+    "school_id": "private:saint-anns-school-brooklyn-ny",
+    "community": "Kings County (Brooklyn)",
+    "kind": "county",
+    "geoid": "36047",
+    "county": "36047",
+    "address": "129 Pierrepont Street, Brooklyn, NY 11201",
+    "school_url": "https://saintannsny.org/admissions/tuition/",
+    "evidence_urls": [
+      "https://saintannsny.org/admissions/tuition/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. County proxy covers the listed New York City borough; it is broader than the campus neighborhood. "
+  },
+  {
+    "rank": 96,
+    "school_id": "private:woodberry-forest-school-woodberry-forest-va",
+    "community": "Madison County",
+    "kind": "county",
+    "geoid": "51113",
+    "county": "51113",
+    "address": "898 Woodberry Forest Road, Woodberry Forest, VA 22989",
+    "school_url": "https://www.woodberry.org/admission/tuition-and-tuition-assistance",
+    "evidence_urls": [
+      "https://www.woodberry.org/admission/tuition-and-tuition-assistance",
+      "https://mccmeetings.blob.core.usgovcloudapi.net/madcova-pubu/MEET-Packet-32aba4a68805400d8ecbddcb51da5506.pdf"
+    ],
+    "note": "School official site gives Woodberry Forest VA; Madison County government planning evidence places the Woodberry campus in Madison County. County proxy is broad, not a neighborhood score. Census street-address lookup did not return a match. "
+  },
+  {
+    "rank": 97,
+    "school_id": "private:the-roxbury-latin-school-west-roxbury-ma",
+    "community": "Boston city",
+    "kind": "local",
+    "geoid": "2507000",
+    "county": "25025",
+    "address": "101 Saint Theresa Avenue, West Roxbury, MA 02132",
+    "school_url": "https://www.roxburylatin.org/admission/tuition/",
+    "evidence_urls": [
+      "https://www.roxburylatin.org/admission/tuition/",
+      "https://www.boston.gov/neighborhood/west-roxbury"
+    ],
+    "note": "Official school address is West Roxbury; Boston government identifies West Roxbury as a Boston neighborhood. Boston city is a broad municipal proxy, not a West Roxbury neighborhood score. Census street-address lookup did not return a match. "
+  },
+  {
+    "rank": 101,
+    "school_id": "private:georgetown-day-school-washington-dc",
+    "community": "Washington city",
+    "kind": "local",
+    "geoid": "1150000",
+    "county": "11001",
+    "address": "4200 Davenport Street NW, Washington, DC 20016",
+    "school_url": "https://www.gds.org/",
+    "evidence_urls": [
+      "https://www.gds.org/",
+      "https://summer.gds.org/directions/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 102,
+    "school_id": "private:friends-academy-locust-valley-ny",
+    "community": "Glen Cove city",
+    "kind": "local",
+    "geoid": "3629113",
+    "county": "36059",
+    "address": "270 Duck Pond Road, Locust Valley, NY 11560",
+    "school_url": "https://www.friendsacademy.org/",
+    "evidence_urls": [
+      "https://www.friendsacademy.org/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Locust Valley is the postal locality; the Census campus address lies in Glen Cove city, not Locust Valley CDP. "
+  },
+  {
+    "rank": 103,
+    "school_id": "private:north-shore-country-day-winnetka-il",
+    "community": "Winnetka village",
+    "kind": "local",
+    "geoid": "1782530",
+    "county": "17031",
+    "address": "310 Green Bay Road, Winnetka, IL 60093",
+    "school_url": "https://www.nscds.org/",
+    "evidence_urls": [
+      "https://www.nscds.org/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 104,
+    "school_id": "private:polytechnic-school-pasadena-ca",
+    "community": "Pasadena city",
+    "kind": "local",
+    "geoid": "0656000",
+    "county": "06037",
+    "address": "1030 East California Boulevard, Pasadena, CA 91106",
+    "school_url": "https://www.polytechnic.org/",
+    "evidence_urls": [
+      "https://www.polytechnic.org/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 105,
+    "school_id": "private:mercersburg-academy-mercersburg-pa",
+    "community": "Mercersburg borough",
+    "kind": "local",
+    "geoid": "4248704",
+    "county": "42055",
+    "address": "100 Academy Drive, Mercersburg, PA 17236",
+    "school_url": "https://www.mercersburg.edu/",
+    "evidence_urls": [
+      "https://www.mercersburg.edu/",
+      "https://mercersburg.org/notices/notice-detail/?notice_item=133",
+      "https://jsg.legis.state.pa.us/resources/documents/ftp/publications/2016-12-29%20PDF%20WEBSITE%20Version%20SR255%20Services%20to%20Veterans%20final%20Report%201.3.17.pdf"
+    ],
+    "note": "Official school and borough financing notice identify the campus at 100 Academy Drive, Mercersburg. Mercersburg borough is the named locality proxy; this is not a claim that every campus parcel lies within borough limits. Census current-address lookup returned no match for 100 Academy Drive; legacy campus access address 300 East Seminary Street matches Mercersburg borough and Franklin County. "
+  },
+  {
+    "rank": 106,
+    "school_id": "private:westridge-school-pasadena-ca",
+    "community": "Pasadena city",
+    "kind": "local",
+    "geoid": "0656000",
+    "county": "06037",
+    "address": "324 Madeline Drive, Pasadena, CA 91105",
+    "school_url": "https://www.westridge.org/",
+    "evidence_urls": [
+      "https://www.westridge.org/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  },
+  {
+    "rank": 107,
+    "school_id": "private:pine-crest-school-fort-lauderdale-campus-fort-lauderdale-fl",
+    "community": "Fort Lauderdale city",
+    "kind": "local",
+    "geoid": "1224000",
+    "county": "12011",
+    "address": "1501 NE 62nd Street, Fort Lauderdale, FL 33334",
+    "school_url": "https://www.pinecrest.edu/",
+    "evidence_urls": [
+      "https://www.pinecrest.edu/"
+    ],
+    "note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. "
+  }
+]

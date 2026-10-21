@@ -1,0 +1,87 @@
+Tuition & Fees (https://admission.sjs.org/affording-st-johns/tuition--fees)
+【turn810394view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://admission.sjs.org/affording-st-johns/tuition--fees","lineno":null}); Total lines: 84
+L0:   * 【0†Admission Office】
+L1:   * 【1†FAQ】
+L2:   * 【2†Open Houses & Tours】
+L3:   * 【3†APPLY†sjs.myschoolapp.com】
+L4: 
+L5: [Input: Search][Input]
+L6: 
+L7:   * 【4†Admission†sjs.myschoolapp.com】
+L8: 
+L9:   * 【5†Lower School】
+L10: 
+L11:     * 【6†Future Kindergarten Inquiry】
+L12:     * 【7†Kindergarten】
+L13:     * 【8†Class 1】
+L14:     * 【9†Classes 2-4】
+L15:     * 【10†Class 5】
+L16: Lower School is part of the 13-year sequence offering a college preparatory education to students. Our well‑rounded program includes skills, strategies, and enriched academics while fostering aesthetic appreciation, moral values, physical development, and sound emotional growth. To learn more about the Admission process for Lower School, please select a class level.
+L17: 
+L18:   * 【11†Middle School】
+L19:   * 【12†Upper School】
+L20:   * 【13†Virtual Tour】
+L21:   * 【14†Affording St. John's】
+L22:     * 【14†Tuition & Fees】
+L23:     * 【15†Financial Aid】
+L24:     * 【16†Tuition Payment Plans】
+L25: 
+L26: Learn more about tuition, fees, financial aid, and tuition payment plans for St. John's School.
+L27: 
+L28:   * 【14†Tuition & Fees】
+L29:   * 【15†Financial Aid】
+L30:   * 【16†Tuition Payment Plans】
+L31: 
+L32:   *     * 【17†Image†bbk12e1-cdn.myschoolcdn.com】
+L33: ### List of 8 items.
+L34: 
+L35:   * #### 【18†2026-2027 Tuition】
+L36: 
+L37: Lower School: $32,125
+L38: Middle School: $36,370
+L39: Upper School: $38,530
+L40: 【15†Click here】 to read about our financial aid program.
+L41: 
+L42:   * #### 【18†New Student Fee (This fee and a deposit are due upon enrollment in the spring.)】
+L43: 
+L44: Lower School: $2,000
+L45: Middle School: $1,500
+L46: Upper School: $1,000
+L47: 
+L48:   * #### 【18†Textbooks & Supplies】
+L49: Classes 4-5: $250-$290
+L50: Classes 6-8: $750 to $1,000 depending on grade and course selection
+L51: Classes 9-12: $750 to $1,200 depending on grade and course selection
+L52: 
+L53:   * #### 【18†Trips】
+L54: 
+L55: Class 5 T Bar M Ranch Trip: $475
+L56: Class 6 Stoney Creek Trip: $350
+L57: Class 7 Texas Tour: $425
+L58: Class 8 Western Adventure: $1800
+L59: Class 9 Trip: $375
+L60: Departmental Field Trips (Classes 9-12): Varies depending on type of trip
+L61: 
+L62:   * #### 【18†Athletics】
+L63: 
+L64:   * #### 【18†Fine Arts】
+L65: 
+L66:   * #### 【18†Testing】
+L67: Advanced Placement Testing Fee: $99 per test
+L68: PSAT Testing: $18
+L69: 
+L70:   * #### 【18†Private Music Lessons】
+L71: 
+L72: Flute, Piano, Trumpet and Violin — Contact Anthony Leakey (aleakey@sjs.org), 713-850-0222 x 605.
+L73: 
+L74:   *   *   *   * 【19†Directions |†www.sjs.org】
+L75:   * 【20†SJS At A Glance |†www.sjs.org】
+L76:   * 【21†Faculty & Staff†www.sjs.org】
+L77: ## St. John's School
+L78: 
+L79: |   【22†2401 Claremont Lane Houston, TX 77019†www.google.com】   |   713-850-0222
+L80: 
+L81: © 2018 St. John’s School. All Rights Reserved.
+L82: 
+L83: 【18†+ Open Sitemap】
+

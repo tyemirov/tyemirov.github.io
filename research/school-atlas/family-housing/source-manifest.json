@@ -1,0 +1,1246 @@
+[
+  {
+    "path": "research/school-atlas/family-housing/sources/FY27_safmrs.xlsx",
+    "sha256": "532d862a0a95ebb6ef7ff35a9a12924d2451a5fc985ca57a83fc334f229f0a8a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-1.json",
+    "sha256": "ebc9e8c465ff6a581dae96e4f1279f6523829339a7a3cbba663006091f41abed"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-10.json",
+    "sha256": "fe95ee6cec3c39f390f81c93395b3384d72c076a5f69cbbca92ddcb97bbe47cc"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-100.json",
+    "sha256": "0caf8af13bbfe4df4f91857fadb0369fb5f887b58b4b36822b5295fd53b823cb"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-101.json",
+    "sha256": "cba0802744efb1f7fdf20609dbab2bd4ed9196bfcd0c594f07e5c18cd497e9aa"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-102.json",
+    "sha256": "454fd2dea8117dba362ca115b7d3deb906fa3a6248b8727525b513805ca08826"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-103.json",
+    "sha256": "5b08a120e89d4eb8d5d071e5ad1cbdb24a6cae86e9810f0b1df095c914d437c3"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-11.json",
+    "sha256": "bad1dcc1d2e0d39e7285e126701ec6437eee041025f3408c6d3593ebcfb10c57"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-12.json",
+    "sha256": "f5987645a02211879ce3f8d8206e33f923cec7f88c373b6492fd664589c428fd"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-123.json",
+    "sha256": "557cc147218f552827317604fa203adeb7cf6aa46d533d4a98269ec06c21496d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-13.json",
+    "sha256": "83f11d6d11e19fbb5921b2ecfb9d5805570760e6846fe562ae0d8b5b34e0f03d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-134.json",
+    "sha256": "0f29a5c71ef2442dcb700d68eb4083a4e8c72ece06570e1d575d643140ce4667"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-135.json",
+    "sha256": "f2470e7c16e8d62992beadfad3241d3d0b6c60183f2b81e9c28eec7cd3058c01"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-138.json",
+    "sha256": "06e13e8d9a109d7c15e72a34e1a77f8aecaf5c904691d474039e9f244bc6f9b5"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-14.json",
+    "sha256": "9b7057d48b2b85a457b1b898c59c6bc67bde1a89f83e50bd5b80737ae0150a2b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-141.json",
+    "sha256": "83acdfefd4583f3c9cad14a3b755dcddd254b5946b003fc3dd1b74a885cefff2"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-15.json",
+    "sha256": "3f3ddc4b00f66092b714c792383f8e0f46be0da293f6c24adf7a7a328eb90239"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-159.json",
+    "sha256": "2422395fb54d55e1d44b3846d0b3bd26b988e501a70cb423b2e6432d2cfc82ac"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-16.json",
+    "sha256": "c5961c558f243f21d19ce1753946e972e77d9beeb6852f8f7e651a54729afc51"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-161.json",
+    "sha256": "7a0656d0f7fd83e7d973b6a20f1199c0deae78a5b97fd567e7d578f919c92ded"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-164.json",
+    "sha256": "3dae6432bc8d823e38b58087f720ae1c3df553f02c4b456500e963d5d38a0ee4"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-165.json",
+    "sha256": "499f77d746c97ab891f45c272a14569ecc8dd835358ca1fbb74f6038ddd8de8b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-167.json",
+    "sha256": "cc3bed78f382e6155c4ee7742aa074fc4e371dd86cd30cf373c5f2fbe9c3c862"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-17.json",
+    "sha256": "e1afb43aa6d828d1548dc5f3fb43c596478bb8397fd8caac7221efda16a9a02d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-170.json",
+    "sha256": "40299a8e9d3ad97b20bb0e5c8a654cac0f72a093a8f8fe796404d9c27add89ab"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-171.json",
+    "sha256": "6f394edcd44bade7a56c5e911162f62925a71ab6140863592fd297cbcdfa0693"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-172.json",
+    "sha256": "10ae018d259319ef6d424ac65c352d762b7bd23506c26bba8f43a080d576e056"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-174.json",
+    "sha256": "8d216bec82326edc1ec9dbec4d0c3f86c4ab267b6dc86fb00d69cc2d24589aa3"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-178.json",
+    "sha256": "16247f155650deec0efee9f174baa0e437d411b4618caf5bae49aadf970c0bb9"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-180.json",
+    "sha256": "2f8e0a264e65acf3960c0f31198331a911fcafcea27608289aa55973488ee19d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-182.json",
+    "sha256": "bb5b27833cc0ff0506c647f1eca679fb9fefc2d21ef29c090134e31c73d636a9"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-186.json",
+    "sha256": "1f54d35b46413351d2eae47ca95b48e9018f0f9069fcfc676c4b2c17c9e162cb"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-188.json",
+    "sha256": "98772d14415ea668327bb003127f584bca4858e1f878ca6c0ef7bd0db4ade806"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-19.json",
+    "sha256": "7a7cd868ec3b875c5b358c5fa589e9dcb6d21777c2d305f7988e9918de9a5701"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-190.json",
+    "sha256": "ac21d43765c12cd5591b1b0215f15808212949fc69d37096f0aeb1488cbc995b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-194.json",
+    "sha256": "84ae0cf13c5e49469f5fd1f4133261b73931367100b30fef6a536df5f4d88bc8"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-195.json",
+    "sha256": "aa05f2c50da9ec029a1505b216f8c8d7297964f42c4db7e73d263f5132763d7d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-197.json",
+    "sha256": "4338f907bab70b55ec489b835481cdceb2fdb5ba6d50eb507a218489679cbc68"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-2.json",
+    "sha256": "60f1319dda1197836523cde5904734f8bdfc518ff4d3b60a3d94d51990a49bf5"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-20.json",
+    "sha256": "8eb1519d25bfb6a1ed5d582df2a8ce80b00bded343f681958ad4cfa3a0ea8990"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-200.json",
+    "sha256": "da45cb964f2e66402af8520031ad93204698fe4c64175e4eb22c173975877f2a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-202.json",
+    "sha256": "4da6e0d49dca24235e1e5b10983b350f55dc77e93b44f1601a4ea166389e9bf4"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-205.json",
+    "sha256": "a665c812af99536a53197cd2970b65586b8e934fdf6a3a0abffbfa237aa4428f"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-207.json",
+    "sha256": "f1bd85f5a84f3f90a620f149a69460faa0bb8c9f2b968eb42b0bf895f06ff3ca"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-208.json",
+    "sha256": "6515ce103d0e649aeb9868d807164aebe8b78d3f0a3168d2e047c9aad383ddda"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-21.json",
+    "sha256": "347d9888b8bf533beb9d74d9c5feb04cbba6c1c5db3075472eee182d180fe1ef"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-211.json",
+    "sha256": "5aa801b138246944d322c1dae2392bbc51f2400e1e4524237da830a61c44286e"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-212.json",
+    "sha256": "149041e297f87b47afae1024289f70e11f947e440a330792374ac3bb981c6468"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-215.json",
+    "sha256": "752670ba1283c20874891c866855297c6e9098f54a8625f2704e741fcb5d1cf7"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-216.json",
+    "sha256": "f58ec781d4aa007b774a8d7ab81d4361be3501412caa6d3bb6118ceb1600c720"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-22.json",
+    "sha256": "f24ba2cbbd6cbda0f844e8c3713741e2a3652cc2f9474faa6139ff8f6331484e"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-220.json",
+    "sha256": "b4a5a24540b89160be97c56e949051cadf01ec8ae8e7a5bb461f909e7e61fc19"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-222.json",
+    "sha256": "0c6946e04bd50f38ae51449d10de842a568566ada3ca5854dd0a8a356fb730bb"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-223.json",
+    "sha256": "f1840b57742c0a8cee8c175019bb517f836b145d3ee682bb3e67bfb3e31356ce"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-228.json",
+    "sha256": "4ad18795210377e81b5045e7d5f58b8867c54923cfa0adc230946719a11542e5"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-23.json",
+    "sha256": "fc2142d60c760b8689b7ac242f59a445d017a2d66cd2bdc28a82190cca14244a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-230.json",
+    "sha256": "847fdf15d4774a6f2ca9c121cf4fb6ad739be59ef9e88d3ec11b82eb25a401ba"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-231.json",
+    "sha256": "13a5f036577aa4829d1c8af7c58019e99ba8b965c178e2d76e3824b1c7310d39"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-235.json",
+    "sha256": "00d031ca9bf08e42a4c203eab31ef49e4052470f3b232c235654beb9b4ea5b0c"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-236.json",
+    "sha256": "78909de657ed501e7ad6b62d23d53b689f953a1a0df0863b7dcd730e1e04eb61"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-237.json",
+    "sha256": "1533aba9fa14ce332498ebda3950efaf89af114ea4041fe2caddcc13bc2d8b52"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-238.json",
+    "sha256": "66b0e3fc3d908962fbb509d8f3443b3533e1a8a597bf3342134234fbb8e8e3e8"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-24.json",
+    "sha256": "118db5c539041f67f1d2713480773cd8892fdeb5bdddce28f9f763980597014a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-241.json",
+    "sha256": "06f7a297aa943196c174e4040c87e8d0206d4a0b6e6038614e9c5deadd42191f"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-243.json",
+    "sha256": "7a76f9a6507fe5b4e69c90360a216f13180f5c7deb2cc98e680d7c4d5e1ded19"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-246.json",
+    "sha256": "cda5e77570cd3ecaa0962d06af77dfd73d7c7973f9855141666ddcf44c5b282f"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-249.json",
+    "sha256": "4911f8664d8069b15a3e05b7499aede6f39573dd909473c6a2feb71da4ee4563"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-25.json",
+    "sha256": "3ac700ffdc9e0ff380a1a8133fff4d6d654c1f3c0f7d63e999d308f4f8828c01"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-254.json",
+    "sha256": "31fd2a8763a54f74065ac477b2c2c4d075efb1a87436623e10232de9b48caf89"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-256.json",
+    "sha256": "3e143c31eb61686832a2b703f51f5e6e832f52367fcf44cd80ee708fe10cd10c"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-259.json",
+    "sha256": "a5a8d5b54c19a687ca29184672e4d1f2f90ef7b159901ab1a56f72975bef83d6"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-26.json",
+    "sha256": "fca13efba1a6edcdb890c6174aee3b0fd74a649c15bb1ccd0a824c5bc9c77120"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-260.json",
+    "sha256": "a909b8bc8cbdd2278c0309ac082c261f6bba5684f21a434c9b2215747502a1bd"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-262.json",
+    "sha256": "d4b3d566d48218682d3f7757ebdc1470919573bfdae7d4a8ffaeb806848564ef"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-263.json",
+    "sha256": "d8e2aea036013b820c2c8e5fd3f9c98c1458f7eb001316637ea16cf10215f1c1"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-265.json",
+    "sha256": "c39001a7ab4b0765becad938982a9650c8071ab0efd6f153254f5d8d7e25a5fb"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-270.json",
+    "sha256": "507d989511839f5ff3d8b1422e80caf30d0a00b1557332514a6b10fccb054dd5"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-276.json",
+    "sha256": "55fc3fa4d334a7d0383524295f91dab9a1668ee77ab5397ced4bfc41ac9f2937"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-277.json",
+    "sha256": "98fa33271cdfcbaa4181d6eb113a2df9077a88aa79dc4481f1d90c26c6ad67d8"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-278.json",
+    "sha256": "7c214e24163b547f17e89bb4cb1bad916b22e5170bdd06fe3819af132ea2b33e"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-28.json",
+    "sha256": "f9f1942787716350ffd4b98bb952458b5a373be4fe3ee6ba8e9d64c1c7a6f3b3"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-280.json",
+    "sha256": "57a438c85792d77bc6831d47df81333e4de5b105c94ff1aa9f450a169524a0dc"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-281.json",
+    "sha256": "6249c7c6412d58c15f019e6e3e036e41e5b54f863c913c65de3b1ac698eda8bd"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-283.json",
+    "sha256": "b7bed4dddda9618a90079e4eb28285fe2bab6572902f78f3d9a21c4a98c209b1"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-284.json",
+    "sha256": "9a8ec4afa4afe9f6d4fce85d4d57e8e8d78a37fa1eab3dbad26ae5142a81a84f"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-29.json",
+    "sha256": "238bf87ad371dff05134288001c837bba4fa3f5a7a85c3e8b50fb50d1f17045f"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-290.json",
+    "sha256": "17972884ea8a23baf155ffd414b4fc738dc4cc45d4023933de145a97e44a4d5e"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-291.json",
+    "sha256": "54319e003935520b32adf02ca3bdfa2f76d3256a877dabeb1036f71ae18f160d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-294.json",
+    "sha256": "c33a0943e05cfdaa1378996cf063aa127cb6eee0572eb14347dd1fcc652e81ef"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-295.json",
+    "sha256": "75c8c8bcbd56b2af12d377eb31c03f748376d095ec231f7440ac29d8b62724ce"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-296.json",
+    "sha256": "20cd1e2a50f2f0ae3c9ea28e4eab079b8ad7e64efe25d61957b06ce90e0df8eb"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-297.json",
+    "sha256": "08d26c6a86e4eda0c8f8deb55ff20e882a92c654f03822754adb25ab0b2e6fb8"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-299.json",
+    "sha256": "d543a130767caa886e8e8f2e254b3bc1d88978b312cf28d78cba8f3950aa22ba"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-3.json",
+    "sha256": "acebf5c3fbfeb166ce679c30a40f7c419c4df810c95a6073f37686c310d20aec"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-30.json",
+    "sha256": "c5463d202907eb584c93c837f447eba6a5d08440899709849819928c5bd56843"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-300.json",
+    "sha256": "d78334096a75a4b03d18eea2e4e42ce6557536cc19abff39da5adce8bf845bce"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-303.json",
+    "sha256": "2f0a85a851a500b73df5103c69149e311ff7d1b16099c345b6f1362347d67de1"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-308.json",
+    "sha256": "013a8e14b6756e3cd92bcd0a7adb2ab87711a73ae1060bdcf6c80abc80bafe7b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-309.json",
+    "sha256": "be436890bb53491753eae84794895d7372274c3ba8ef105c3dece63c0978cf19"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-31.json",
+    "sha256": "a21e7bcb8444f2a412d814ad5dac8553468c063e8cb3ec7edcbdc9467abb98fc"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-310.json",
+    "sha256": "cfa3a64ce502e89cfa59b5e042941200ca0a949cdde046e8d03614a25da0ac64"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-311.json",
+    "sha256": "e947824a542f63f825d9ca7657519d7bee585234923a64cb72517b873ab29cc8"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-314.json",
+    "sha256": "137ab50430c02b50cc60b1f219c4301aedf562bfe465778338f5b134b2ddbfd0"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-316.json",
+    "sha256": "36321ae40dd6e2ae081618b3ba3934b4fd48482cfa46cd42f2241286f04a13a6"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-317.json",
+    "sha256": "aeff044e9471be1581fbdf95eb38cb17625f214fe882c4aa0764c5c6b3fd7a1c"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-318.json",
+    "sha256": "a9fa165d4ccb698f3efc18e13088bbb8dfc6c542098a7d249d100b4d2b63301b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-32.json",
+    "sha256": "7fbf2d5433fe63f0c33d322a6128574a36c7b04d687f9eb89e3cc9f506a215bf"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-320.json",
+    "sha256": "b8956b8c7ebf53993142a31c39642d967024adbcc85f5521977ee88e4553445d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-321.json",
+    "sha256": "b01bcc9a1bb5ef0c43da86a82452e3d4d445c3e66f62ff3340033eaccce3b8f1"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-324.json",
+    "sha256": "555f9e4df5518907d5ada4974ab67a195ab0d817b5ec9b6847ad7ba36b5630fd"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-325.json",
+    "sha256": "8dcb2c9ed468f967f5fa02cd24af95960c16e0d179916a2328151afa10a36ddf"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-327.json",
+    "sha256": "720b7a64207a2d37ebd6e8a41d9a54abf0e2526ab2558d2bc3b586aa90944235"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-328.json",
+    "sha256": "65e39f350a9a16ebbf7750203d322295ca82257605ed6572598a0986e7e6b939"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-329.json",
+    "sha256": "ad820d1da9a6cb55b4ff256c2fca9597727a11fd3598617114fce1ef666b893b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-330.json",
+    "sha256": "b997a6fdf475774d24ab3c6eddc879d2373378e2e676ef43e052a56cffd79c68"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-331.json",
+    "sha256": "756a2ce1a81b15c2bc3f042fbe7640c8fd22dc4197a57b2bd09674569aeb30c5"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-336.json",
+    "sha256": "0b6372a42d8da65db379f2cea4cfc921b89c324a2558b8086f610019eb7eb409"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-339.json",
+    "sha256": "251f2cbd2fc8064649bfdf83d16e2db20a06305b53fcd2fca95ebf141164a0d5"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-34.json",
+    "sha256": "e8590dfe4e9a3ce0011e092d355b3710e3579fed027b0eadb58b6bdb0bdb7c61"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-341.json",
+    "sha256": "cff680737c270b25c64d9f0b58a375b0b9d7e591dd70e61a1ca5a86b556f50a5"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-343.json",
+    "sha256": "25fd3c049dab4f2521e0094cbf7137beb8f566f503e35e85d0ef022a8c61890a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-345.json",
+    "sha256": "405c1dff7a7d0bc3d9e309bd547adbcf3610504617a0fe6677ace5078574e4e1"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-346.json",
+    "sha256": "7864ae3f1abae924d9e4367c27bcb10730fb7cce9370f138fd1821a08abd53ea"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-349.json",
+    "sha256": "d8691cb0d41f1a013693ad05be763cd807d25959421c6c78c7c0956d0d39b894"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-35.json",
+    "sha256": "2040309c12934359b9b0acf7286bfc045782fd33486c0f92591be1493d5a17a3"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-351.json",
+    "sha256": "4c899a3a9a8cb19ad87144baea410dd0fd255a456a953fd424b328ed5683a756"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-353.json",
+    "sha256": "195eaa258c39e05980e3d7b8a27f55e780622d4681390d47ce3da7905d8b6451"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-36.json",
+    "sha256": "2b92ee164d9f0308a41fd2a2f41bc655fc9e83707f4414169ecda1d6cd7ec369"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-37.json",
+    "sha256": "fe46b7a8f67a8197f4459acc6d4e5a5810ea89d0871571eea65817cc33f8090d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-38.json",
+    "sha256": "9df04dcc6523db64dc1d1c8a52a87a24eb0e6dd03d679dff52f2ae92e4ac17e8"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-39.json",
+    "sha256": "853156276295574609aa2aa44ec64c502ce2b6598b9ab3d00d37ba2e3d688dc2"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-4.json",
+    "sha256": "4988982f129e147e269bb5de73fe16d005b651cef7496af479ac8b141bb7ba71"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-40.json",
+    "sha256": "5f5057562694eac0ce33010e32cd5a1bdc161dcdf4cea9eafaa71bafcd177b39"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-41.json",
+    "sha256": "283ccd5d2057d6f0db4d1e1dd41543d7ab17b2b8f0c5ea112a3ebc997e4bff07"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-42.json",
+    "sha256": "f38d1bb6708d2c427f00c52c5213287e9ecd2ef30f06b31c161f4d5293d41cdc"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-43.json",
+    "sha256": "9224a92f7a676411b1af92ae3f9fd999c8fd81a557f276b2e9da7bace924508c"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-44.json",
+    "sha256": "06c8b347ea51380019bea3a89e0b87eed89d5589747392a3fa7633cc64f09359"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-45.json",
+    "sha256": "4d0a7ff49f5dbfd7aa9d3bf715c7f9a02da253f6ad93d4e591cf8c03a930c519"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-46.json",
+    "sha256": "dfb90123ba3ceda1b1251f8c4911ce9f7d1fa0fffb1e9b41b92a9a7a64e348ba"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-47.json",
+    "sha256": "0013f2e74e0c436ab2df273b121059c59ebc6ce19708bb9065abba1e6db84597"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-48.json",
+    "sha256": "862ad15030a6ff24546685fcd132d614b9feb69b284c68b6fb0508467b3f7951"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-49.json",
+    "sha256": "2b92ee164d9f0308a41fd2a2f41bc655fc9e83707f4414169ecda1d6cd7ec369"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-5.json",
+    "sha256": "100c2c6eb5c2ed0d89625ee81b29718d916de6ce937de8b249059895487fc59b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-50.json",
+    "sha256": "21360e1459360cc7255dd78b89754aa7d513785269de1940dabd7e9a36dba4be"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-51.json",
+    "sha256": "cbd846768b8cc5f19d0d1ad95bdbb4061f9363822b942abd0e9d74c5a4ca740f"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-52.json",
+    "sha256": "de397dbb192451c219d11aaceedc2a892c92b109b81cdf6cdb537b11624d0593"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-53.json",
+    "sha256": "c2946a51bc8d6b120f615ac49ec908a2e53c6ecfd26f4d4846a0bd5bfa38f7b1"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-54.json",
+    "sha256": "e56dc976813f5e1bb1b4ef605e260aa63d1239924e7751c918e68b23a96829bc"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-55.json",
+    "sha256": "db205f2161c1eb54ddafb77c1ec7ebed80cd0075185943720b9bfb63bb356016"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-56.json",
+    "sha256": "ed03b5e68948e339fe6e4a4ab415b581de00d47faa32ff32849f935ce129fe76"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-57.json",
+    "sha256": "372eebfcb67faf2a66e18d5519048363357dffccacfa2ecfac2fdb9a82739524"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-58.json",
+    "sha256": "dd8b9bf8ed749acb867c445a401ac0b05e2cd4179c74e8f03a49149145464415"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-59.json",
+    "sha256": "68a48a6f9350b39dc38c4a0d3f81e8093bbdd7d7f677bb523fa0684006d42ae7"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-6.json",
+    "sha256": "1990c4c59f11040163bfbe8225b5a81d7b8f7bdf7bd4e033b87bc0c321d5ff73"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-60.json",
+    "sha256": "1d5546c8733330750943b1951e538b7e9b3a171cbab70954769b3273c344c538"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-61.json",
+    "sha256": "cdd0d7e0955902beab49a28d3784916762ad51dc37200650a9399c60ff96d260"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-62.json",
+    "sha256": "998bc3015bac562acd9bb3ac308ee19bee1fdfb5fe1d41d722053dbafa98af40"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-63.json",
+    "sha256": "26e0eefa998cff36937f6f1eb6acfe8e97842f7c275bd0c437f54165ea5c7084"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-64.json",
+    "sha256": "6b07d278590f96866589db642f4e7945699bd11b72a9be54815db271a5f30298"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-65.json",
+    "sha256": "c9b58c2cbd9a39e7017eb5175e5c298ebc1a51536ed8076a96f912c196d5701f"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-66.json",
+    "sha256": "1f640589b48dc666bc981413939f161c521145ad5436413112fbc58586a4867b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-67.json",
+    "sha256": "2b5820ada3ee48f50768c7980360fbac1dda58de87be2813128ab65ffaa42e5c"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-68.json",
+    "sha256": "4b26aee3b7c316d728ebac56d53056dd863123c73c5cf94c9e5c2a86d485060b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-69.json",
+    "sha256": "9032f6c16141992c144d15d3fdbade8d40d4eef05a69def396dea0323540399a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-7.json",
+    "sha256": "bdab5d15f7331e7b33dc884b265bfca270495943bfe7f0cda06a717db3c6b8fb"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-70.json",
+    "sha256": "ed52466377d53e30027e7147d5591312893b3f953906bb99bc916a98affdd3e0"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-71.json",
+    "sha256": "2a1f828b2bff110217424710f8790ef3c2b825274882aa369b79d4deaff63f5e"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-72.json",
+    "sha256": "fc47322df5580c8212dd53678d319b2ddbfbdec1a05b78dab84ee7aafc5a85ff"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-73.json",
+    "sha256": "dcf1072785e6b89451e11632cb293b6931aaa054f56062967f2bf02b030e154e"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-74.json",
+    "sha256": "4a0687a4faee110984ab05ba936af0e1345ced5e85c84a6f6711e713055f4fa7"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-75.json",
+    "sha256": "f68e466b11678736f9021016ac89358cfc0e163d01e751310c47f5b40319f1f4"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-76.json",
+    "sha256": "9654fa8fa402c881ae719bf27753484bcddc3a82769daab0976c76c09080ffe4"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-77.json",
+    "sha256": "608894610855cabb7bb9835a0859a11f475500eb2934c5c12a2dc7b72994d476"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-78.json",
+    "sha256": "a14450e9b82c88d6b3f9c078ddfd9d16c15826d063cfa8809208d3a368c0ab43"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-79.json",
+    "sha256": "57d6f307e5dc89d68adf364ece3621e3a99554e7e2f45a6957c3f7ddfb4bc988"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-8.json",
+    "sha256": "2b92ee164d9f0308a41fd2a2f41bc655fc9e83707f4414169ecda1d6cd7ec369"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-80.json",
+    "sha256": "8106dd50f83bb00de912fa32bc4f3adabceec2ff1b8c739ddf87b31ec4984cbd"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-81.json",
+    "sha256": "cebcd1c44f614bbece30e7f1dbb36c006d1a1218c41271e7a084c6d6c1a0a110"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-82.json",
+    "sha256": "0add7f6c6e28d93040c2f85699e7c451ee7037797cf510f2a0edeeffe339dc4f"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-83.json",
+    "sha256": "3ae2fc08a9a4287bbec426bdb935fa65bb51c7f48a3d75c0c49b3375c3574ff9"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-84.json",
+    "sha256": "053da78343b1740d7e490a7c8e749138a49840b698da87e380f26e649781fa23"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-85.json",
+    "sha256": "56d833790bfa533b4678f65252c4fe354ffc867bb54c1665ea793e0327beda7a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-86.json",
+    "sha256": "c395ddbcacefe7f251699c27bd14bea264e57e9625ad2488313c3166bc6e81a8"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-87.json",
+    "sha256": "79df0e342005c3cd4fa136bb65626b1146614b78fc9d6db3d3138bf4f426f682"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-89.json",
+    "sha256": "1482d42f9d61bfc5eaf10c8d320362596a4283b6290cad28cbe4bde76d3cdd5d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-9.json",
+    "sha256": "bce7df3e7dbabe134dc40a6bf19473bf47e2ddb6ec26b3d2631cba15b2e124c5"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-90.json",
+    "sha256": "9f31882d67f7e8b01a2a3d26d74c9f4250113120b8bf1dc0ace2d3a8b84df8f8"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-91.json",
+    "sha256": "af727a7e007a474b3d561f35c3a29eabad99c5add0b55f557bb22e67df03f0d9"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-92.json",
+    "sha256": "f59b320bce813a6ca5334d88afff987645df3f291575876cae2d3f6a476dbb04"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-93.json",
+    "sha256": "18cfe60b52e76346a0901adcb92c47758a6046827c6bbe8d8e1cc43b65a350d4"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-94.json",
+    "sha256": "52f354b82819fe9a4af4f7fb1472bb7b4af7479829d5b3f32014ae547acffdfa"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-95.json",
+    "sha256": "f358f2a58795e8cccda89cc331f3bd0ce372746a157109d5cc3d7505da1be1cd"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-96.json",
+    "sha256": "ee36a9c09831a6b26cdd37812ce2962b67e6f371be689eff72686a7238c6faac"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-97.json",
+    "sha256": "3c6de84ffa615a1f5c3f00d37dcdfcc3fbfaed17063b83aba841565d41b57086"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-98.json",
+    "sha256": "5b5dc490b83a5f7aae34115b62c594c2f83dd09b64ea7f14bf94f6ff11800b9c"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/geocoder-public-99.json",
+    "sha256": "60c9fd148d0b9c6d1cb3cf3f876fc1397072bdee5e0f45d1a075bb34c31c880a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-private-CA-0.json",
+    "sha256": "b89b3370c6e1c50a37e00e6537b57ad9c232222c025ab89927ef52a3d73cfe90"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-private-CA-2000.json",
+    "sha256": "ef0d23d27ea63ab840c748ecddb3e2e268e85e6d2737099eac1a5ebeb187e33b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-private-FL-0.json",
+    "sha256": "6a2f34cffae16e228d5d6c65599881ce6fe20815f9abf4c472c1df01157673d0"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-private-FL-2000.json",
+    "sha256": "7ce47eb82fae85957e2b098d0dfdca021891739bea37ddeb68cbf58bf9087e74"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-private-IL-0.json",
+    "sha256": "fa0c6e5719a16c017d75fc05338df655e34c6effbced282657034edb84438c73"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-private-MA-0.json",
+    "sha256": "4b04656c3ac7972419e2d5f4801a3395f66ec7486f8cf779d937380f98d2c18e"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-private-MD-0.json",
+    "sha256": "08147c13537414d86c3645b7d80f9e0476f157c4fd7e1ce982ab39d6185fc8cd"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-private-NJ-0.json",
+    "sha256": "6451ffad888bbd3452db015551f5773bc516d19c732f397e8bf7ccd90ebef3cb"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-private-NY-0.json",
+    "sha256": "401715486285e9cbade2f157a5dcce0f1801b52e9c38e6c92176c15212e38e71"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-private-TX-0.json",
+    "sha256": "6659aaf2ac89cafd2b6e8c0406277aac1be58af97b2128b1ab501a654bffb843"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-private-VA-0.json",
+    "sha256": "28337472023f7cc65f47b0da72d0ee179352d60013d7feb1104b45194e71b731"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-private-WA-0.json",
+    "sha256": "15abeda005a9b52828e679b4e80064cfe82e0afa0487d4ed7870104b2ab28687"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-AR-0.json",
+    "sha256": "cbeb60ef2698a5520b846264369ad040fb3543735252335d769ce0286bc372c3"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-AZ-0.json",
+    "sha256": "5f828a7f85a69ddebe2928f7ac35c198a6b1e9397d67070874ba812afe0b66c0"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-AZ-2000.json",
+    "sha256": "87b10c7c49eee817c0d7e697c1595f7f6fa8a7e167bf59cada22c7996a104f78"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-CA-0.json",
+    "sha256": "14dee433d4ac6c16ceb86a25fa87b7631a4bf116cd4c0ad4d5f9868834e0710a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-CA-10000.json",
+    "sha256": "fed9786535f311e236bae513475a4d16c16841fac88f0b5f3e1be429c9546890"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-CA-2000.json",
+    "sha256": "1032c007350204d76dbb1528912cc09fc7a8c415013eac6153876717d1bca14f"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-CA-4000.json",
+    "sha256": "9c3d9209513a1734476dd859fa206e14ffc5cfc2490a30073f4c94d60d154353"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-CA-6000.json",
+    "sha256": "e2087e086bd75c4c18ad2952f4ddeacdc05851df0a04176c6f752dbabdef5962"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-CA-8000.json",
+    "sha256": "1cd0982c45a02171bf71887fb05063395117c5fd784e1175d40d73466b38ac22"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-DE-0.json",
+    "sha256": "c18a2b48b1223ae7bb06a77dd2d591d3cf7331c20ee0db4c4ddc6a52de0cd394"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-FL-0.json",
+    "sha256": "c3f8eec30c97ec5c62b6f05495c2a30835f13090c064654e907f431f0aee83f9"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-FL-2000.json",
+    "sha256": "75c0419c977bcca6f96675bf4e7984e3e2e05433a5a14954e4eda0e6b335201c"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-FL-4000.json",
+    "sha256": "96650642f7b08ee4553fea0528661b922d1491652ec2f3cb97f614ca9d989fb3"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-GA-0.json",
+    "sha256": "d57222c14d9052bf136b2b756c426f5dcf4a5a113d75edcf6940d6465e6d16ea"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-GA-2000.json",
+    "sha256": "665c856e6d60a79fbd76b0098c14d9d40f448492fc2d6b8c8481203dc48bb6da"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-IL-0.json",
+    "sha256": "92dd79979c866c9767d637c618648ddc270a4e54481ac4ecc314f4cc27d8c08f"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-IL-2000.json",
+    "sha256": "a933513dbec3e4669671f504f7676d22db3fc167825116a6c979111e79cf3bbc"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-IL-4000.json",
+    "sha256": "3f3b2dc1803fcd9aae0079251afbd7ef71979e92c36329aaa59c81c623d8ff5d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-IN-0.json",
+    "sha256": "61572c92c383e3c41d822d8a0efbb39cfc5d2b90e8e3e5b32bfd974948499174"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-LA-0.json",
+    "sha256": "5a46ecf833b110681eb7da580a818be755f19c3c683077ba2f3052a4ddc8f949"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-MD-0.json",
+    "sha256": "4a29fcb3ddfa7f302124e154a2946a93c4ff281b867eb21e25a6eb15880bc7a6"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-MO-0.json",
+    "sha256": "f6a3a42d693ba097d93347b4bc243efa02d07d1c8596e06be703efc405944e9b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-MO-2000.json",
+    "sha256": "de8a9041b1f22c77c12b58fcb3d71f71e8ed33e3a62164a70c2cd275a728e49a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-NE-0.json",
+    "sha256": "7fb3383a52d7e29bb74714ac6467887ba9e37996e4dda0ceab990bb9a41b76f6"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-NJ-0.json",
+    "sha256": "aa5d084a6dbfee5055e30d0c172fdd301d7291587db8860f86bb88efb3c01b61"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-NJ-2000.json",
+    "sha256": "f578bef2bac2455efb1902cd352f67080e648674044d0f8d086aa684d04fabe1"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-NV-0.json",
+    "sha256": "13d1702b008eac44f1364b3cb23f554ad2d100854815379821226d300d77aaa9"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-PA-0.json",
+    "sha256": "b0b760567185b0c969d1fbecb4d6d9a66c5be30375a744bff5fe810c6cb9bf2a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-PA-2000.json",
+    "sha256": "cdb91492deee4ee75735ff19de0f04618bf23e42778652866809d64e10b70f87"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-SC-0.json",
+    "sha256": "6a55776aabdde23b43aeb101bac19f1759b15a95087cf54a56e944eb94b4213d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-TN-0.json",
+    "sha256": "4f875756da9b04613b8619a45550a7af691907dc2605db6d35a6b7b78e535f94"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-TX-0.json",
+    "sha256": "676ffb23289661757ec97d10be7485462df4dc57fcc2cb84cdd460b6e08a1fdb"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-TX-2000.json",
+    "sha256": "43d8b9505a6283c00fa0f77dd7e629e6ba29bb99f4b5fed2c0b4c91179ed7d19"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-TX-4000.json",
+    "sha256": "4aae3d1f4ac0637024e9201d8b9ff6665fd43e3c0a85bfae13ae0ec9ca52192a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-TX-6000.json",
+    "sha256": "47a359a59b8fbf5b2264036a284dc4ab52648ede55df995892bc7d1d51750eea"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-TX-8000.json",
+    "sha256": "fef40ff55af171ad0b6214e6042b1e7b1fef08a692b9bd1f67592fa3038f4992"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-VA-0.json",
+    "sha256": "e5b481f6413f7f443a222bd374e2bf1da72dda86d9fb40df534f7152fb3f3e78"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/nces-public-VA-2000.json",
+    "sha256": "9a1f71f3528f8ed6eca5509a86f8ac6c575870723e27b2ee5de2b64cb15caff9"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/official-address-1.html",
+    "sha256": "b249ca26c13eaecbe789643353b7bc06ee96b2726f85eb0a41ad1ad0c1f19780"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-001.html",
+    "sha256": "3dac2304e7f6f3f53dd83c6234a480b7908c499743ec32477a0975a032486608"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-002.html",
+    "sha256": "2bc1a0348834e272240c278abbf3450a18fae9d3e11a4eb0008782f1b0ed9f10"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-003.html",
+    "sha256": "6f8e62ead137082311c2687397f897c0a83b6bdf6dca8dc3058a3772fcc62541"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-004.html",
+    "sha256": "5f119aa3201638abc576f1fdd89a550b22ee2414725081bf0c4d41ef16d4dd8b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-006.html",
+    "sha256": "f0fb18d1248dbd525b19506634c3238fc1c588782309ba73701b25f34fbedcb7"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-011.html",
+    "sha256": "e52dc36ff0192ec796de94f989f0ccd9f3ce15d8d19cffaad82758c474b60bc5"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-016.html",
+    "sha256": "88cdc2f1083685058da0afd1a773a2f3808f3954ec84abb39822d4fd5ce4ca89"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-017.html",
+    "sha256": "3fa327183eee2555065256f66348248d4dde72c952006d80c7fab9698a839cb6"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-020.html",
+    "sha256": "9aae18e0334c73b386cebe28f21ba48d5e0d7cee64f569aff19ca017d5523d98"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-021.html",
+    "sha256": "60a33cdb8b9ef579305052a08147f596751792053722d673ba9a4748f13d8bf6"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-022.html",
+    "sha256": "1db271f027a4429527836c32eeaff6fd46202546dbdd4489a78a2f4635f9e0fe"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-025.html",
+    "sha256": "59c451eda7d61a02a8f2142b1af1dc3fef5ba6296ea011723f887c6b2fc77b86"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-026.html",
+    "sha256": "f0a65ec37080cf2d7107f69f2574984b16f20bff41ec26ef12c0c00393d586fc"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-027.html",
+    "sha256": "d8319ee5991c84c61a95051d08b2b75efe9eedb6c88983485a8680b6d0b6e559"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-028.html",
+    "sha256": "55f8ddb44f6055a75724f00969f1402773cf0541ad6bf707d567fef512c40c19"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-029.html",
+    "sha256": "861e56fbc918e1203b59ecbc74ec4b355ab7d8a06e048050920631d0a26e4b8a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-030.html",
+    "sha256": "3012aeb3d3d715ea5d61da2788d46821f6b17b64bfda0017234fb744c8f0926d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-031.html",
+    "sha256": "45438a1da5e98965fbbe83def319050a46ab2bae28b401fda9ba3eed59b1645f"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-032.html",
+    "sha256": "3f5c31d6e18ec8ba85ffe232fe3940c1f7c0c822af219bcedd88fadaa14be46b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-033.html",
+    "sha256": "e6800202b798d9580cbbcd96783e318c80ec29810df60838b37d40faead5d33e"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-034.html",
+    "sha256": "a6f48cd8db1c2795e5a94f870db0e05cd3c0351b11252013737427ec06f5c239"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-035.html",
+    "sha256": "223426818ceb2a65395b58472d19a5e20c0d477678f04a80c242d885197f1861"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-036.html",
+    "sha256": "41a9ee84d82fae746c7056944f4b38c0dd76a602d80c4e0e892d84e06528afa9"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-037.html",
+    "sha256": "4d1ddfb8c6cbe4beef40fe17e1a32743556c45c7cfa9a658f0f6040464c69a46"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-041.html",
+    "sha256": "5c253edc9bd7e1b39849f23bf634a0085fa04d796a8732f2bbdd4a9e19b02bf4"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-043.html",
+    "sha256": "49043e7033795d5bd83060aed0bd40b6d3e26a9dfc9f5ef73c007de24b1dd4e1"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-046.html",
+    "sha256": "34ab47cf3aa35904533705581b78723078ad2f179b340ed193b5d5b53d144105"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-048.html",
+    "sha256": "bcab2011844c475b5d0f30984cee8ad6d63767253763d5b2cf6719ac079364c0"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-049.html",
+    "sha256": "885614f51b51f221ef7044d8f75f75b5c81ab4d0601c66839ca1d54671b83595"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-051.html",
+    "sha256": "a4dbb500617f3ab5e2f4e2a949bc31605a836a1bd6797f8a4e0924b91756d94a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-052.html",
+    "sha256": "714d00b169eb205991dce4eb199a7ff1aaa59bf85f1560505bf7f93e17f0293e"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-055.html",
+    "sha256": "0f9aab63a50a212692760e1338b809220c1cc4203d838c30352708c63deaa637"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-056.html",
+    "sha256": "da227002a7ab773e878d60bfdafbdbdd19a636e86401e414f916cc6fcfca364e"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-057.html",
+    "sha256": "ad5843769cda17309d0f295018eb3ead5e0123de574af1f3438cdcc4180b68a4"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-058.html",
+    "sha256": "ed90f8e30c472e7a7c1a1f4b04a032165f31d504f445aaeeb0bade2ae908e1dd"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-059.html",
+    "sha256": "8fa11ee7be08525f2ee02c871ef093aca6cb43600f5ab6b0833aabbaa869bdc0"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-060.html",
+    "sha256": "2bc6094e501af5a4622b58878c237ac0cc7d73fa49aa5f41c06fba70b2081677"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-061.html",
+    "sha256": "3487d7c52adcf17700bb1d9c7f04f31b9ea50e6bf5ee79dd2b3fdd1bd1aab43d"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-062.html",
+    "sha256": "7efa06264608a29d136d57f29be7a1c3b979ca354e7042e7ab890e923f6b054a"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-063.html",
+    "sha256": "95b05af69dbb1aecbe4eb9807168fbb0373275dacacceaa717f3cfb0b228b9f6"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-064.html",
+    "sha256": "eff513ef88f4a3f60d602f4a09c77cc853bfaa1272d0bcda9634fa2a8a22ea3c"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-065.html",
+    "sha256": "3ab54dcc2fb299b03f37fb0e19ec9d64bafbeb38dfa0410b28d9b16133eae3e8"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-066.html",
+    "sha256": "23a964983192743bbb0f9b7e31d668c30c8a963fed8b8f4cc3ff98b0f1057765"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-069.html",
+    "sha256": "ca28abc91c611f5af85db55e5838cbfa24ecf257912592d97b399ee1ae522221"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-070.html",
+    "sha256": "ae781539d9103ff7a6653b84a41c4e97dfc2812071d3541101449d149d747654"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-072.html",
+    "sha256": "edd94c5a83944a9123fdeef824914db7604c9ad6e85451dfc40cc2437ec419a7"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-074.html",
+    "sha256": "aaf84bf58716bed2ab41548a3ad7bcef10889fbc05264e978005484ce1c3f111"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-076.html",
+    "sha256": "b3be8d951b822679633b3059718b24349b5407eaa3d6e24b8b49b758de87f999"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-077.html",
+    "sha256": "0d46a0aaaf9ce6383be6ab2ca4c1883800eebaffef615bffccad788d1f215606"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-078.html",
+    "sha256": "69d32404de8572a3dfedc48a2e25ad9b401a2f3e5cde2bf8ed39e25fba557f0b"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-080.html",
+    "sha256": "486f83c0025eedb4b80b605dd13c91cdaeb6ea2eae1a589751d12cf01a422a9e"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-081.html",
+    "sha256": "c28bc36f046349e0e3ddc97180c130d593e9660c3aecadcf1669d2c6c6ffd241"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-083.html",
+    "sha256": "b784b1dfe4d6e396b47d2d8731530ac16b699d2d4666b6b1f50e45ab83464ddb"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-084.html",
+    "sha256": "8484dde4715c0fc312badf4cfd17c521eacab0b018256711d88c29fc22e814ea"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-087.html",
+    "sha256": "b1f659ca38900bf55cb69cb9e1d9aadc3362a8fda87f817e1b424084798c4027"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-088.html",
+    "sha256": "f3d06244b1a49c4560de6a85569d15f80af334130d408dd57c005e4e505ca34c"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-089.html",
+    "sha256": "b00323ff5a693dce03fd9bd43fbbf3e661db1384525e79f9a754dabd9afc8199"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-091.html",
+    "sha256": "09e7f7becef6e706a854383aaf6d78464c9d22e9e34e65525a32e2b1d04f73a8"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-092.html",
+    "sha256": "465effa3858537700b5770ffb2f5e8ba85097f1646e6c6709398b3f3d97f2a38"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-094.html",
+    "sha256": "8bc67f7afa20151660cdea174dec018ef906e793c8527bad0c77ba1e9359af96"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-095.html",
+    "sha256": "7d22671f11ba4e337853726b711851f1dbc0dc3772be699a43aea015fb6b2dfe"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-098.html",
+    "sha256": "703fdedf25d5f8d9ac3ae09fb1f2cebe580d4bc22936d06a8628043ca823e6ea"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-099.html",
+    "sha256": "649fad500f71aafd742c6f0793c469d223d77da79ce51dc446751e533362e797"
+  },
+  {
+    "path": "research/school-atlas/family-housing/sources/private-100.html",
+    "sha256": "b438b71ffc28cec00a1702db86955eb10fb44a88f22cf68383def995ae634704"
+  }
+]

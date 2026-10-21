@@ -1,0 +1,246 @@
+Castilleja Tuition & Affordability - Castilleja School (https://www.castilleja.org/admission/tuition-and-affordability)
+【turn644185view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.castilleja.org/admission/tuition-and-affordability","lineno":null}); Total lines: 243
+L0: 【0†iframe†www.googletagmanager.com】
+L1: 
+L2: [Button: Close Menu ]
+L3: 
+L4: Search
+L5: 
+L6: [Input: Search Terms...] Clear
+L7: 
+L8: [Button: Search]
+L9: 
+L10:   * 【1†About】
+L11:   * 【2†Admission】
+L12:   * 【3†Learning & Leading】
+L13:   * 【4†Athletics】
+L14:   * 【5†Arts】
+L15:   * 【6†Alumnae†alum.castilleja.org】
+L16:   * 【7†Giving at Castilleja】
+L17: 
+L18:   * 【8†Employee Directory】
+L19:   * 【9†My Portal】
+L20:   * 【10†Search】
+L21: 
+L22: Search
+L23: 
+L24: [Input: Search Terms...] Clear
+L25: 
+L26: [Button: Search]
+L27: 
+L28: [Button: Menu ]
+L29: 
+L30: 【11†Home】
+L31: 
+L32:   * 【8†Employee Directory】
+L33:   * 【9†My Portal】
+L34:   * 【10†Search】
+L35: 
+L36:   * 【1†About】
+L37:     * 【12†Head of School Welcome】
+L38:     * 【13†Mission and Values】
+L39:     * 【1†In the Company of Girls】
+L40:     * 【14†Diversity, Equity, Inclusion, Justice, and Belonging】
+L41:     * 【15†School Leadership】
+L42:     * 【16†Campus Modernization Project】
+L43:     * 【17†Our News】
+L44:     * 【18†Careers(opens in new window/tab)】
+L45:     * 【19†Neighborhood News】
+L46:     * 【20†Getting Here】
+L47:     * 【21†Student Experience】
+L48:     * 【22†Equity & Social Impact】
+L49:     * 【23†Our Traditions】
+L50:     * 【24†Conduct and Safety】
+L51: 
+L52:   * 【2†Admission】
+L53:     * 【2†Welcome】
+L54:     * 【25†Request Admission Information】
+L55:     * 【26†Applying to Castilleja】
+L56:     * 【27†Discover Castilleja】
+L57:     * 【28†Visit Castilleja】
+L58:     * 【29†Tuition & Affordability】
+L59:     * 【30†Frequently Asked Questions】
+L60:     * 【31†Transportation Options】
+L61:     * 【32†Information for Families Relocating to the Bay Area】
+L62: 
+L63:   * 【3†Learning & Leading】
+L64:     * 【3†Our Program】
+L65:     * 【33†Our Departments】
+L66:     * 【34†Learning to Lead】
+L67:     * 【35†Teaching and Learning Antiracism】
+L68:     * 【36†Experiential Learning】
+L69:     * 【37†Student Wellness】
+L70:     * 【38†Learning Support】
+L71:     * 【39†College Counseling】
+L72:     * 【40†Portrait of an Alum】
+L73:     * 【41†Deans and Advisors】
+L74: 
+L75:   * 【4†Athletics】
+L76: 
+L77:     * 【4†Welcome】
+L78:     * 【42†Schedules】
+L79:     * 【43†Sports Performance】
+L80:     * 【44†Alumnae Athletes】
+L81:     * 【45†Teams】
+L82: 
+L83:   * 【5†Arts】
+L84:     * 【5†Welcome】
+L85:     * 【46†Visual Art】
+L86:     * 【47†Theatre】
+L87:     * 【48†Dance】
+L88:     * 【49†Music】
+L89: 
+L90:   * 【6†Alumnae†alum.castilleja.org】
+L91:   * 【7†Giving at Castilleja】
+L92: 
+L93:     * 【7†Giving at Castilleja】
+L94:     * 【50†View360】
+L95:     * 【51†Make a Gift】
+L96:     * 【52†Make a Pledge】
+L97:     * 【53†Tuition Assistance】
+L98:     * 【54†Ways to Give】
+L99:     * 【55†Meet the Team】
+L100: 
+L101:   * 【2†Admission】 /
+L102:   * Tuition & Affordability
+L103: ## In This Section
+L104: 
+L105:   * 【2†Welcome】
+L106:   * 【25†Request Admission Information】
+L107:   * 【26†Applying to Castilleja】
+L108:   * 【27†Discover Castilleja】
+L109:   * 【28†Visit Castilleja】
+L110:   * 【29†Tuition & Affordability】
+L111:   * 【30†Frequently Asked Questions】
+L112:   * 【31†Transportation Options】
+L113:   * 【32†Information for Families Relocating to the Bay Area】
+L114: 
+L115: # Tuition & Affordability
+L116: 
+L117: * * *
+L118: ## We encourage all interested families to apply.
+L119: 
+L120: * * *
+L121: 
+L122: We recognize that an independent school education is a significant financial commitment, an investment that lasts a lifetime. To ensure that Castilleja is affordable for all admitted students, we offer a robust Tuition Assistance program that meets the needs of a wide range of financial circumstances.
+L123: ## Tuition Assistance
+L124: 
+L125: Our goal is to support families who cannot pay for the full tuition at Castilleja. Through an annual budget of over $4 million, 1 in 5 students receives tuition assistance. It is important to know that applying for tuition assistance has absolutely no impact on admission decisions.
+L126: By determining what each family can contribute to tuition, the Committee allocates awards ranging from $4,490 to $67,700, depending on each applicant's financial situation. Recipients of Tuition Assistance represent a broad range of income levels.
+L127: 
+L128: To learn more, please register on 【56†Ravenna†www.ravenna-hub.com】 for the Tuition Assistance information sessions in November 2026.
+L129: 
+L130: November 11, 2026 (6:30-7:30 pm)  Spanish Tuition Assistance Information Session (on Zoom)
+L131: November 12, 2026 (6:30-7:30 pm)  Tuition Assistance Information Session (on Zoom)
+L132: ## More about Tuition Assistance
+L133: 
+L134:   * 【57†Application Process】
+L135:   * 【58†Applying Online】
+L136:   * 【59†Case Studies】
+L137:   * 【60†Policies and Principles】
+L138:   * 【61†Confidentiality Statement】
+L139: ## 【57†Application Process】
+L140: 
+L141: Our Tuition Assistance Committee reviews all completed tuition assistance files and makes decisions based upon each family’s demonstrated need using calculations from the tuition assistance application hosted by 【62†Clarity Tuition†app.clarityapp.com】. The Committee may require additional documentation, such as bank statements and monthly budgets, if more information is needed in order to understand a family’s financial situation.
+L142: A family needs to submit an tuition assistance application and required documentation to 【62†Clarity Tuition†app.clarityapp.com】 (more information below) by the deadlines listed below:
+L143: 
+L144:   * November 2, 2026 - Current Families
+L145:   * January 5, 2027 - Applicant Families
+L146: 
+L147: If the $65 application fee presents a financial hardship for your family, please don’t hesitate to email tuitionassistance@castilleja.org or call Laura Martinez at (650) 470–7732 to request a fee waiver.
+L148: To learn more, please register on 【56†Ravenna†www.ravenna-hub.com】 for the Tuition Assistance information session in November 2026. Sessions will be offered in English and Spanish.
+L149: Clarity Family Information Webinars
+L150: Clarity hosts several Application Info Webinars for families. All families who may be applying to any Clarity school are welcome to attend any of the webinars. During the live session, they will go over some key aspects of the application, things to look out for, materials to gather, how to get help, how the tax verification process works, and a Q&A.
+L151: Please click on the links below to register:
+L152: 【63†Tuesday, September 29, 10pm ET†d2v5j804.na1.hubspotlinks.com】
+L153: 【64†Wednesday, September 30, 6pm ET†d2v5j804.na1.hubspotlinks.com】
+L154: 【65†Tuesday, October 27, 10pm ET†d2v5j804.na1.hubspotlinks.com】
+L155: 【66†Wednesday, October 28, 6pm ET†d2v5j804.na1.hubspotlinks.com】
+L156: 【67†Tuesday, December 8, 8:30pm ET†d2v5j804.na1.hubspotlinks.com】
+L157: For your reference here is a link to the 【68†Clarity Application Guide†www.clarityschools.com】.
+L158: ## 【58†Applying Online】
+L159: 
+L160: Tuition Assistance applications open early August.  To begin your tuition assistance application on Clarity, visit 【62†https://auth.clarityapp.com/en/signup/ †app.clarityapp.com】
+L161: 
+L162: Please note:
+L163: - Families who have several children applying to Castilleja only have to complete one tuition assistance application.
+L164: - In cases of separated or divorced parents, each parent needs to complete a tuition assistance application and send their own set of required documents.
+L165: Clarity Customer Support:
+L166: For questions please contact Clarity Tuition Family Support (English or Spanish):  suppport@clarity.com or (206) 210-3752.
+L167: 
+L168: Frequently Asked Questions
+L169: 
+L170: Will I still need to apply every year?
+L171: Yes, you will need to submit a Clarity application each year in order to qualify for financial aid; however, Clarity retains your information from previous applications, so it will be even easier to reapply.
+L172: Can I complete my Clarity application on my phone or tablet?
+L173: Yes! Clarity’s application is fully mobile-friendly so you have access wherever you are.
+L174: 
+L175: When do I need to apply?
+L176: A family needs to submit an tuition assistance application and required documentation to 【62†Clarity Tuition†app.clarityapp.com】 by the deadlines listed below:
+L177: -November 2, 2026 - Current Families
+L178: -January 5, 2027 - Applicant Families
+L179: ## 【59†Case Studies】
+L180: 
+L181: Castilleja’s tuition assistance recipients represent a broad range of income levels, and we recognize that each family has a unique financial situation. The following case studies are presented for illustrative purposes only and are meant to encourage families from a wide range of financial circumstances to apply.
+L182:    | Case 1  | Case 2  | Case 3
+L183: Parents Employed  | One Parent Employed  | Single Parent Employed  | Two Parents Employed
+L184: Number of Children  | 1 in private school  | 1 in private school  | 2 in private school
+L185: Total Income  | $334,000  | $100,000  | $275,000
+L186: Net Worth - Home Equity - Savings/
+L187: Investments  |   $660,000 $12,000  |   $0 $5,000  |   $1,700,000 $1,460,000
+L188: Tuition Award  | $47,450  | $67,075  | $38,615
+L189: Parent Payment  | $20,325  | $675  | $29,135
+L190: ## 【60†Policies and Principles】
+L191: 
+L192: Castilleja considers tuition assistance to be the single most important vehicle to maintain an economically diverse student population. We recognize the increasing burden tuition places on families and the tuition assistance committee works to ensure that Castilleja is an affordable option.
+L193:   * Tuition Assistance is distributed to qualifying families of students in grades 6-12. The School strives to meet a family's need as determined by 【62†Clarity Tuition†app.clarityapp.com】 and all other supporting documentation.
+L194:   * Tuition Assistance awards do not require repayment. However, recipients must reapply for tuition assistance each year. If a family's financial situation hasn't changed the percentage of tuition covered by the award remains at the same level from year to year, and the payment amount adjusts to reflect the annual increase in tuition. Only in a few cases, when a family experiences a significant change in financial circumstances, will the percentage of tuition assistance be adjusted.
+L195:   * A supplemental student activity and support budget exists to enable students to participate in all aspects of school life on an equitable basis.
+L196: 
+L197:   * Castilleja will give priority to families who have previously received aid prior to making any new commitments.
+L198: 
+L199:   * When a parent does not work and there are no preschool children or aging parents at home, the school will impute an annual income of at least $30,000 to the non-working parent/guardian.
+L200:   * Parents with legal parental rights must submit all of the required financial aid application documents in order for their child to be considered for a tuition grant.
+L201: ## 【61†Confidentiality Statement】
+L202: 
+L203: Families can be assured that all information concerning financial aid is held in the strictest of confidence by Castilleja School. Only those persons directly involved in the financial aid decision-making process or in its administration will review this information.
+L204: ## In This Section
+L205: 
+L206:   * 【2†Welcome】
+L207:   * 【25†Request Admission Information】
+L208:   * 【26†Applying to Castilleja】
+L209:   * 【27†Discover Castilleja】
+L210:   * 【28†Visit Castilleja】
+L211:   * 【29†Tuition & Affordability】
+L212:   * 【30†Frequently Asked Questions】
+L213:   * 【31†Transportation Options】
+L214:   * 【32†Information for Families Relocating to the Bay Area】
+L215: 
+L216: 2026-27 TUITION
+L217: 
+L218: 6th to 12th Grade Tuition & Fees are $67,750
+L219: 
+L220: Additional Expenses:
+L221: 
+L222:   * Books & Uniforms (new or used):
+L223: $650–$1,100
+L224:   * Laptop: $1,500–2,000
+L225: ## Contact Us
+L226: 
+L227: We're happy to answer any questions you may have.
+L228: Contact us at:
+L229: (650) 470-7733 or
+L230: admission@castilleja.org ( admission@castilleja.org)
+L231: 
+L232:   * 1310 Bryant Street, Palo Alto, CA 94301
+L233:   * (650) 328-3160
+L234: 
+L235:   * 【69†Facebook(opens in new window/tab)†www.facebook.com】
+L236:   * 【70†Instagram(opens in new window/tab)†www.instagram.com】
+L237:   * 【71†LinkedIn(opens in new window/tab)†www.linkedin.com】
+L238:   * 【26†Become a Student(opens in new window/tab)】
+L239:   * 【18†Careers】
+L240:   * 【72†Contact Us】
+L241:   * 【73†Media Inquiries】
+L242:   * 【74†Privacy Policy】
+

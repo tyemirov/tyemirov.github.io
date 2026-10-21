@@ -1,0 +1,853 @@
+{
+  "retrieved_date": "2026-10-20",
+  "sources": [
+    {
+      "file": "snapshots/AL.html",
+      "url": "https://highschooltrends.org/schools/by-state/AL",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "daec8503f62f5b2ab518a340d35406ba67016e37d561d823c252f07075cbc47a"
+    },
+    {
+      "file": "snapshots/AL.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/AL?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "139d84d8753d80b7d7d45897f0395fccd6bf5cbabb214f1fd89868cf4a14fc59"
+    },
+    {
+      "file": "snapshots/AK.html",
+      "url": "https://highschooltrends.org/schools/by-state/AK",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "cd866896dc57b59c73ce26a266f45ec7f5e0feb7e03060e87128afc969f083d0"
+    },
+    {
+      "file": "snapshots/AK.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/AK?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "705951d10b8e0e7d6a0c558e656f7e3aa3df23030c01171d6052e5e0a4416527"
+    },
+    {
+      "file": "snapshots/AZ.html",
+      "url": "https://highschooltrends.org/schools/by-state/AZ",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "cb3e8c5069d9c6558414758e67d3d1e9da13877ac7d9332434de61e102debd7e"
+    },
+    {
+      "file": "snapshots/AZ.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/AZ?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "e64bd4625da2265f9f91409b107c6ceb3c73aa7f147ec115b517a8b941eb9198"
+    },
+    {
+      "file": "snapshots/AR.html",
+      "url": "https://highschooltrends.org/schools/by-state/AR",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "e2eb78cd5c11134d61821be4bd419b70010e29b473e485fb30da55a0630a313f"
+    },
+    {
+      "file": "snapshots/AR.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/AR?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "b9f40f421a1e3f8fd7720b82386cda87160cc97eb5df6e36e41684d720f0bc6e"
+    },
+    {
+      "file": "snapshots/CA.html",
+      "url": "https://highschooltrends.org/schools/by-state/CA",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "98eaa094a9f66c923edf4a374eea84271859505630f0f97280ba1e8e6c86559d"
+    },
+    {
+      "file": "snapshots/CA.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/CA?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "84bd8c8b0c633caa030aadda1e9b66b3603913645bbc0f7dc8b6e0e1638be08c"
+    },
+    {
+      "file": "snapshots/CO.html",
+      "url": "https://highschooltrends.org/schools/by-state/CO",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "16bf35719b4da7e3de580e90ae5a51651733f803b7c146c23481d4b9dbda2186"
+    },
+    {
+      "file": "snapshots/CO.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/CO?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "a74bc45e17766e70dde07a2b066c0b93f9d8a58afa16094c78d7ca393c458f0f"
+    },
+    {
+      "file": "snapshots/CT.html",
+      "url": "https://highschooltrends.org/schools/by-state/CT",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "40fe3ee4640729af7774c33229e883593959f9e38045795ed7fb463c0272da2b"
+    },
+    {
+      "file": "snapshots/CT.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/CT?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "66fa82eb5b0342a92b88eaa67d974a36f80508186d21a19767cf243153f5844a"
+    },
+    {
+      "file": "snapshots/DE.html",
+      "url": "https://highschooltrends.org/schools/by-state/DE",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "db23286ed04395303df9c75af16128469a4845821a05db7ccf1e71d933cd95c0"
+    },
+    {
+      "file": "snapshots/DE.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/DE?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "3d58fe6f56f121c9d929e796b32184b19ca1b2fdc24f1afa8d482e7b0e08d264"
+    },
+    {
+      "file": "snapshots/DC.html",
+      "url": "https://highschooltrends.org/schools/by-state/DC",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "b10a0697b740d19f1127591caf2e6eabd988f3463e8a65ccaf039fdc259921b8"
+    },
+    {
+      "file": "snapshots/DC.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/DC?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "94949a894b254653bcd471216216329287a818358486a5f22fcd00878c3389a6"
+    },
+    {
+      "file": "snapshots/FL.html",
+      "url": "https://highschooltrends.org/schools/by-state/FL",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "db436e7e955f534f5f63a8f960a8d9d80d7ad745417f3783ae7c2e349d3f37f6"
+    },
+    {
+      "file": "snapshots/FL.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/FL?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "0990ec0382efc38511f709b0f3c9a322826da77365fee71087a8d81889f42f4d"
+    },
+    {
+      "file": "snapshots/GA.html",
+      "url": "https://highschooltrends.org/schools/by-state/GA",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "3f2e6e77c2b762e0dbb95b7bf1319a72de579ab2f0ed3732694988e53c81152b"
+    },
+    {
+      "file": "snapshots/GA.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/GA?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "a0c9afaedbab66e8667cbe09c1bdd471ec0c19d7aca5cebf655161900fbb4494"
+    },
+    {
+      "file": "snapshots/HI.html",
+      "url": "https://highschooltrends.org/schools/by-state/HI",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "b10f766428ed584fc1f0906343c0436d6d2366c326987f3f81d0bda20600a27e"
+    },
+    {
+      "file": "snapshots/HI.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/HI?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "974ec243071b760a6cba8b7f741e74802928452eb8faa23b2d63d438d796a419"
+    },
+    {
+      "file": "snapshots/ID.html",
+      "url": "https://highschooltrends.org/schools/by-state/ID",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "ded2baabf0f454e185af06ce007851cc25d3b67f9dc13c89c7c4802461bd1dc1"
+    },
+    {
+      "file": "snapshots/ID.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/ID?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "895a00375d8f064b5f5bc89f83bfb8a5ae70f2dfda13537810e6d78714f59006"
+    },
+    {
+      "file": "snapshots/IL.html",
+      "url": "https://highschooltrends.org/schools/by-state/IL",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "7a27bdc83bba606c5a1e4f5ad285533ae4d444738e63af1655eceea23d1f4328"
+    },
+    {
+      "file": "snapshots/IL.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/IL?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "a2697010c28c0bf217602e30449f5410ed0a247138c2b3bff35cd11d0ec7ca6e"
+    },
+    {
+      "file": "snapshots/IN.html",
+      "url": "https://highschooltrends.org/schools/by-state/IN",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "9df1c0dc42df69ec958966ac8579c1635183957a1172c75185fefd3c54113f87"
+    },
+    {
+      "file": "snapshots/IN.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/IN?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "f503ff81f729729014d63e4b33998475350a1218725be9d8e6b21af317516084"
+    },
+    {
+      "file": "snapshots/IA.html",
+      "url": "https://highschooltrends.org/schools/by-state/IA",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "256b4c5d064fa374a7b039e33f9aebf5bd0754b6f6d22c867899b7fa2d62cbd7"
+    },
+    {
+      "file": "snapshots/IA.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/IA?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "96bd9087fc0928f2a2b5ef6025093958a2d4462ff7860a4c13f9d93648b8579c"
+    },
+    {
+      "file": "snapshots/KS.html",
+      "url": "https://highschooltrends.org/schools/by-state/KS",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "95dafbb33616ef3e0606a47a16e1359c5cd24bf1483205b2f2c6f74b85b28a89"
+    },
+    {
+      "file": "snapshots/KS.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/KS?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "29fde73b04e55deebd001489fe7af3a9209c8769a967219876e945a002dd5d68"
+    },
+    {
+      "file": "snapshots/KY.html",
+      "url": "https://highschooltrends.org/schools/by-state/KY",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "640017d0bb44d104101e65edeabeb02c274d0666280ed6f8c1cf904adb8d635d"
+    },
+    {
+      "file": "snapshots/KY.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/KY?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "fc5b499b79457463dd76908d2d94340f58acba6cd1f00e0337224b5427e0355f"
+    },
+    {
+      "file": "snapshots/LA.html",
+      "url": "https://highschooltrends.org/schools/by-state/LA",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "f9396e84e0e21a48954dfcf9ddeb90b6dc5d662f2c2f2669fb21191434f673f4"
+    },
+    {
+      "file": "snapshots/LA.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/LA?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "75044c7c3a16bef189e46b494c5e5bb7a07b90f10c1e403265de59238ba02907"
+    },
+    {
+      "file": "snapshots/ME.html",
+      "url": "https://highschooltrends.org/schools/by-state/ME",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "05c48d3ec4359e75b7037d498bcee731a9990b41d187a20a34d26ca6371aab2d"
+    },
+    {
+      "file": "snapshots/ME.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/ME?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "5ed7e928014314b74c3a41b75e1f3c3cc94ed2a8439a387c0d4e2d891b154305"
+    },
+    {
+      "file": "snapshots/MD.html",
+      "url": "https://highschooltrends.org/schools/by-state/MD",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "c82729e3fcd2c4602d1682f5745739a773bb09fd08b508f8a24272fb4faacba7"
+    },
+    {
+      "file": "snapshots/MD.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/MD?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "a8ee91a17bf462f914dfda0f4779df7917a7d34fa6543ff63b7056aedf17d9ac"
+    },
+    {
+      "file": "snapshots/MA.html",
+      "url": "https://highschooltrends.org/schools/by-state/MA",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "b3b2d4eb736617da18d29bd795b5cb353f08226642e38084681ca6d26078bbb9"
+    },
+    {
+      "file": "snapshots/MA.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/MA?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "546a6fd71a7c1a524bdc9a381aafc4d2848471d61528da99c3cb390443a2ed5e"
+    },
+    {
+      "file": "snapshots/MI.html",
+      "url": "https://highschooltrends.org/schools/by-state/MI",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "c81b5b7cd80c8b0e6c36ba91dc9dc91427ca2540fd186c3ea0727fdb423768e6"
+    },
+    {
+      "file": "snapshots/MI.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/MI?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "b1a24487cbd3b75d31d034a3d1c8da6c4db3d5adc9de1ce1db0394b2a2c09079"
+    },
+    {
+      "file": "snapshots/MN.html",
+      "url": "https://highschooltrends.org/schools/by-state/MN",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "796a32524d6f208ea0bace3597922d59b9de82a65fdef9762ef7b6cf16aea8e5"
+    },
+    {
+      "file": "snapshots/MN.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/MN?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "ad257882dbabb49b30a4e03d6bde674fcd206fa2d795f0501a624773c83b17ca"
+    },
+    {
+      "file": "snapshots/MS.html",
+      "url": "https://highschooltrends.org/schools/by-state/MS",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "34fb5f107ac994c82e8d4b6010378d4580f276348902547e166b76c2260785ff"
+    },
+    {
+      "file": "snapshots/MS.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/MS?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "f1ab686b1b5a855a82abeb4e826a09be80a471e8efe9cc1d9468489447abc252"
+    },
+    {
+      "file": "snapshots/MO.html",
+      "url": "https://highschooltrends.org/schools/by-state/MO",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "577d3eb98e9592866ea6f616eca53b93960de13942dba137ff25687827b23ffd"
+    },
+    {
+      "file": "snapshots/MO.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/MO?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "2604c4f47c108abb631c5f150c8b2c6d8e9832578287b4d6cfe70a72ace16943"
+    },
+    {
+      "file": "snapshots/MT.html",
+      "url": "https://highschooltrends.org/schools/by-state/MT",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "5b20035094f76ddfcd64b832ca4c130d01737ff879b2d502bd790883cbdebcf2"
+    },
+    {
+      "file": "snapshots/MT.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/MT?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "880e4cc0911a8ae94aaddecbfa39c2632227924044d224a028f75cfbe68defa3"
+    },
+    {
+      "file": "snapshots/NE.html",
+      "url": "https://highschooltrends.org/schools/by-state/NE",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "9f0279bc7cc5ae16cc15f77edcc3767dd5370246fbef9650d5824a2b96567575"
+    },
+    {
+      "file": "snapshots/NE.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/NE?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "b46f056cf46198712b74de2ab3c80a901124a0fd09f3f535b0e2c532b53fed02"
+    },
+    {
+      "file": "snapshots/NV.html",
+      "url": "https://highschooltrends.org/schools/by-state/NV",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "a3ae71cbcae350b41cd59cc56f4cfe15aad31e311a638feca7641ceb96652401"
+    },
+    {
+      "file": "snapshots/NV.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/NV?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "d94f9ef5f3f2dfa8062e32910c5d2347358232569f49a0480cf581c4013d754e"
+    },
+    {
+      "file": "snapshots/NH.html",
+      "url": "https://highschooltrends.org/schools/by-state/NH",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "a852d7a8e33fd1e7301cb885fd10547a58867a340ea6212bacfa4733fa27f10d"
+    },
+    {
+      "file": "snapshots/NH.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/NH?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "a00db7a65560cfb8e65ff68e95472e5a4dc4059701325d4c96c08dc0e3afaed0"
+    },
+    {
+      "file": "snapshots/NJ.html",
+      "url": "https://highschooltrends.org/schools/by-state/NJ",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "a2f6969ed3b532719bea7228d2102356d60410c92063f49a80ecf6bc886d0873"
+    },
+    {
+      "file": "snapshots/NJ.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/NJ?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "44bedd379d0ec17c7bb76195ae1b848e892e646f88792c5969b5713c35144b19"
+    },
+    {
+      "file": "snapshots/NM.html",
+      "url": "https://highschooltrends.org/schools/by-state/NM",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "a31160c0c485b57fb3ef2d9a8925f4fcfbeb2acfccba64344b61a6d5be9f97f1"
+    },
+    {
+      "file": "snapshots/NM.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/NM?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "233c297559eb35dac851eb2c1ec1f9a5a652de7c096f8fc8cf20af0650c37e19"
+    },
+    {
+      "file": "snapshots/NY.html",
+      "url": "https://highschooltrends.org/schools/by-state/NY",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "57120f8111b0a0fa73d91fd07effd205cfc00e6e54e8aed78ae55df5d076ea82"
+    },
+    {
+      "file": "snapshots/NY.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/NY?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "fbf125a5b238f35c001278a7dccdacd140a0224dbb892132c18ab3724baa42e5"
+    },
+    {
+      "file": "snapshots/NC.html",
+      "url": "https://highschooltrends.org/schools/by-state/NC",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "f7d070d95d14a6cc7c6375c9a18a992c61ab70df930983ecf00cb980a876fa22"
+    },
+    {
+      "file": "snapshots/NC.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/NC?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "cb395b76bad9ff2a71c7f462d6bfab5a2718ce0a52af94e3cdb9329a36b7e287"
+    },
+    {
+      "file": "snapshots/ND.html",
+      "url": "https://highschooltrends.org/schools/by-state/ND",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "8bc7e72f8fb6c8391e528e755e8a4fe4aa5f970ba290f36fa6063ef04401138d"
+    },
+    {
+      "file": "snapshots/ND.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/ND?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "7c2d665f67d918d39237d9317cf7ed51638ed1d5c1722bd8887792572a7db70d"
+    },
+    {
+      "file": "snapshots/OH.html",
+      "url": "https://highschooltrends.org/schools/by-state/OH",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "748b43186c7a48f19486b563c2d5f1a65e96fa87962afe77d91fd25143e83196"
+    },
+    {
+      "file": "snapshots/OH.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/OH?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "4e8a1c1227a5899f939338bd5f80712e5dbfa98afdf90f5c7fe64c8e4e8b8211"
+    },
+    {
+      "file": "snapshots/OK.html",
+      "url": "https://highschooltrends.org/schools/by-state/OK",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "21cc34dde20b178f20e1081c52173bcbc3a51b69b1faa411617d34fc6f3f80ee"
+    },
+    {
+      "file": "snapshots/OK.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/OK?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "ce41f9bcb388a18eb5e2cdeeafa5b90405338401ed14d8cb7db33d7bf6d615c2"
+    },
+    {
+      "file": "snapshots/OR.html",
+      "url": "https://highschooltrends.org/schools/by-state/OR",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "bf3d644745f46f29213dc159fd793d129baac831a7ec84ce05661b3f11d70abc"
+    },
+    {
+      "file": "snapshots/OR.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/OR?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "808b0d7df0ff09168367740193923e976c4db74e4771571478d11aec79f011d6"
+    },
+    {
+      "file": "snapshots/PA.html",
+      "url": "https://highschooltrends.org/schools/by-state/PA",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "5acc41a5d6dc8b42729d185d2c7e13cbc350edd067eebbe54391f48c02c55a8a"
+    },
+    {
+      "file": "snapshots/PA.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/PA?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "73f541e8020414df6cb5609687173adb29518a590f8b3f70396e99c1c74ec683"
+    },
+    {
+      "file": "snapshots/RI.html",
+      "url": "https://highschooltrends.org/schools/by-state/RI",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "cfb09b00d54bc71bea87d72e67190300493ed8edde2a1714592bca10251adbaf"
+    },
+    {
+      "file": "snapshots/RI.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/RI?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "583d8930ecfb98a9e7f64476d839368a2971f496159c8aad437ee6198d2d9b39"
+    },
+    {
+      "file": "snapshots/SC.html",
+      "url": "https://highschooltrends.org/schools/by-state/SC",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "7843190fb77e9ee0b272b4b2e7aaefba5550e89fd262064de77d31b1fcfe8d8b"
+    },
+    {
+      "file": "snapshots/SC.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/SC?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "b5d2b4cb71eec2d74398c47a9c5cb5f1e9250eb93efced34f8c8d3ad202c880d"
+    },
+    {
+      "file": "snapshots/SD.html",
+      "url": "https://highschooltrends.org/schools/by-state/SD",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "c1da6b2150dea4d60824ce0cab28a1a460e156867a6d108131228056a35c8e57"
+    },
+    {
+      "file": "snapshots/SD.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/SD?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "13fe84340f3726674d4f8f99a2c3eb546d59748c54f27bb623c38b8443867bef"
+    },
+    {
+      "file": "snapshots/TN.html",
+      "url": "https://highschooltrends.org/schools/by-state/TN",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "5410b594af05b2f8463c2e689def5d31fa092fbef70a603505afcd45d9fa14a7"
+    },
+    {
+      "file": "snapshots/TN.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/TN?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "c408b3b10c1d3d8fc59a9764de35814afb1e157056c35778cc734c8b64403e5d"
+    },
+    {
+      "file": "snapshots/TX.html",
+      "url": "https://highschooltrends.org/schools/by-state/TX",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "5b4d4eb8d8e52824bac46025aa75ffeb9ad4960eeadda702f94bfadb63ad2874"
+    },
+    {
+      "file": "snapshots/TX.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/TX?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "2027e53e224ec5ddd6fc8d3cbbd6a167cb4b8834710a12195f26f5445f6a57f9"
+    },
+    {
+      "file": "snapshots/UT.html",
+      "url": "https://highschooltrends.org/schools/by-state/UT",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "73ed96eb5161e20c055fddd49d726819d900504770ba9c16b7244f390fc2b59f"
+    },
+    {
+      "file": "snapshots/UT.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/UT?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "0e10e66665218c4da4a3ac08655b321f06af1c990c5e0aa5fd594d000560c299"
+    },
+    {
+      "file": "snapshots/VT.html",
+      "url": "https://highschooltrends.org/schools/by-state/VT",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "903e1f08a0a795a77c9869d38c2f8c8a1a5271b48b4f74e8f7cff6ca79826a6d"
+    },
+    {
+      "file": "snapshots/VT.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/VT?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "1078c637f423b903e6760fcdc6028608eadbd48c51f81d8a2d256fbf885c5663"
+    },
+    {
+      "file": "snapshots/VA.html",
+      "url": "https://highschooltrends.org/schools/by-state/VA",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "7a0515a9c4d04d1958094603db2b2bf151ac6fb0bc3d3ed35401c5c4d8f5c894"
+    },
+    {
+      "file": "snapshots/VA.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/VA?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "2dbc48652b75aa318c8b0361197f95d9bbadef2c7a57dcb302f64b905e2bf0e7"
+    },
+    {
+      "file": "snapshots/WA.html",
+      "url": "https://highschooltrends.org/schools/by-state/WA",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "a00241bbc7c0a2211d777046f39c711a2537ffa489269ba9f80816d3bb60b84d"
+    },
+    {
+      "file": "snapshots/WA.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/WA?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "47b6ecbed15dbc80a6d39d2012593a48ebbccdc5b2fb31268be84a2abc7dd288"
+    },
+    {
+      "file": "snapshots/WV.html",
+      "url": "https://highschooltrends.org/schools/by-state/WV",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "2459103e61b02abc4d13f551b10ffb81ea3bce1d358b15465a2cdd95f3ff4a32"
+    },
+    {
+      "file": "snapshots/WV.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/WV?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "8e3f2b041d4f223fdc8ab2b1525408b11b4d2688f11c4a465a316d4174bcec49"
+    },
+    {
+      "file": "snapshots/WI.html",
+      "url": "https://highschooltrends.org/schools/by-state/WI",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "4d3147883f10780343b679caf3fb7af507018132492e27195a10cc269f4dc233"
+    },
+    {
+      "file": "snapshots/WI.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/WI?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "f145b1e7db3d75c7b6dd6a64d5e0391707896da3d0bea2b056dcc3694e3874af"
+    },
+    {
+      "file": "snapshots/WY.html",
+      "url": "https://highschooltrends.org/schools/by-state/WY",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "ef13f806233c08dfa9c4d44228326b9c22210e5fd5cc5833fe21a9fd78442ac2"
+    },
+    {
+      "file": "snapshots/WY.json",
+      "url": "https://unified-api-production-691b.up.railway.app/api/schools/by-state/WY?limit=200",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "a2a346dca9d37796289f32501ee63726f0dd28e41b756af6fb75e91d700d0de3"
+    },
+    {
+      "file": "snapshots/rankings.html",
+      "url": "https://highschooltrends.org/rankings",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "b36eb4bee66e7147f90f9ad57767ba80213e3d7049f5f443742ed8da1ac729fd"
+    },
+    {
+      "file": "snapshots/atlas.html",
+      "url": "https://highschooltrends.org/atlas",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "70f17bd12c94fdb76ab8e1fac3b4b244a79f3915bc9f0e6985584a44db8703c1"
+    },
+    {
+      "file": "snapshots/usnews-national.html",
+      "url": "https://www.usnews.com/education/best-high-schools/national-rankings",
+      "http_status": 0,
+      "curl_exit_code": 92,
+      "transport_error": "HTTP/2 stream transport failed",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "snapshots/StateSchoolsPage.tsx-BsgUe-Ny.js",
+      "url": "https://highschooltrends.org/assets/StateSchoolsPage.tsx-BsgUe-Ny.js",
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "transport_error": "",
+      "sha256": "510eebcd4b29edee22f105a75762103b7d995ae34694ade88835c6baff69b0fd"
+    }
+  ]
+}

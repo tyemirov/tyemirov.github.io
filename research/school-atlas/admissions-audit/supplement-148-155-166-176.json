@@ -1,0 +1,71 @@
+{
+  "checked_date": "2026-10-20",
+  "scope": "Supplement for primary-agent integration; shared admissions-101-200.json was not edited.",
+  "schools": [
+    {
+      "national_rank": 148,
+      "school": "Wake NCSU STEM Early College High School",
+      "state": "NC",
+      "status": "excluded",
+      "reason": "Application scoring and randomized selection; no ordinary resident admission route to this early college.",
+      "admissions_source_urls": [
+        "https://www.wcpss.net/enrollment-resources/~board/enrollment-resources/post/early-college-application-selection-and-prioritization",
+        "https://www.wcpss.net/enroll/early-colleges"
+      ],
+      "evidence_summary": "The district early-college page identifies Wake STEM among its early colleges and requires a separate application with essays, recommendations, academic records and assessment scores. Its linked selection policy explicitly names Wake STEM in sibling priority, which itself requires an application score of at least 70. Remaining priority groups are application scores 90-100, 80-89 and 70-79, with selection by assigned random number within each group. Residence/base-school enrollment does not provide admission to this same institution.",
+      "capacity_caveat": "Limited seats and a waiting pool; random selection remains disqualifying even if a particular year does not exhaust capacity."
+    },
+    {
+      "national_rank": 155,
+      "school": "Hector J. Garcia Early College High School",
+      "state": "TX",
+      "status": "unresolved",
+      "reason": "Current selection rules remain unverified; historical weighted lottery alone is insufficient for current exclusion.",
+      "admissions_source_urls": [
+        "https://s3.amazonaws.com/tea-apps/echs-archive/17-18/240901/240901008.pdf",
+        "https://www.laredoisd.org/o/hjgechs/",
+        "https://acrobat.adobe.com/id/urn:aaid:sc:US:aac914be-8b5c-4caa-bd34-9b011d393fa7",
+        "https://www.laredoisd.org/o/hjgechs/live-feed?page_no=4",
+        "https://sites.google.com/laredoisd.org/gechscounselorscorner/counselors-corner",
+        "https://www.texasstudentdatasystem.org/tsds/teds/2025-2026-ECHS-P-TECH-schools.pdf",
+        "https://texasccrsm.org/school-locator/",
+        "https://tea.texas.gov/student-readiness-and-high-school/college-career-and-military-prep/early-college-high-school-echs",
+        "https://texasccrsm.org/wp-content/uploads/2024/07/ECHS-BP_-June-2026-Accesible.pdf"
+      ],
+      "evidence_summary": "The school-authored TEA 2017-18 ECHS designation application explicitly describes a weighted lottery using a district-approved rubric, a 500-word essay, a 15-minute interview, ranking by weighted points, invitations to the first 120 applicants after approval, and a waitlist for remaining applicants. It also describes an application review committee and advisory-board review. The current official school homepage links a 2026-27 waitlist application and the current live feed advertises waitlist applications. The downloaded school-linked form requires grades, assessment results and counselor verification, but does not state how applicants are selected. Collection of these documents alone is not treated as proof of selective admission.",
+      "evidence_limit": "The explicit policy is dated 2017-18. The 2026-27 application retains a May 2024 priority deadline, indicating a reused template. The counselor Google Site redirects to authentication. A current rubric, lottery policy, or ordinary resident admission guarantee was not publicly verified.",
+      "capacity_caveat": "Historic policy limits invitations to 120 and waitlists remaining applicants; current school communications confirm a waitlist but not current selection rules.",
+      "current_designation_check": "The official 2025-26 TSDS CCRSM PEIMS list has no Hector/Garcia/campus240901008 entry. Its Laredo ISD entries identify Cantu and Perez early colleges instead. The TEA-linked current CCRSM locator likewise has no Hector/Garcia entry. The 2026 Blueprint section3.4 requires an oversubscription lottery, but current designation for this exact school was not established, so that rule is not applied solely from its name. The guessed 2026-27 TSDS PDF URL could not be fetched. Absence from these lists is not itself proof of any admission rule."
+    },
+    {
+      "national_rank": 166,
+      "school": "Little Chute Career Pathways Academy",
+      "state": "WI",
+      "status": "excluded",
+      "reason": "Charter contract requires an admission lottery when applications exceed available seats; district residency does not exempt applicants.",
+      "admissions_source_urls": [
+        "https://www.littlechute.k12.wi.us/schools/careerpathwaysacademy/",
+        "https://sites.google.com/littlechute.k12.wi.us/lcasdschoolboard/governing-council",
+        "https://drive.google.com/file/d/110wbgEE7f9sEAWn2Lf4G4StoSOLXBaWD/view"
+      ],
+      "evidence_summary": "The school's official navigation links the charter schools' Governing Council site, which links this document specifically as the LCCPA Charter School Contract. The contract cover and opening identify its fourth five-year term beginning July 1, 2026. Enrollment is open to district residents and Wisconsin open-enrollment applicants, but section (3), page 9, requires an application and a Governance Council lottery when applications exceed open seats. Exceptions apply to continuing/admitted students, their siblings, and teachers' children, rather than ordinary new resident applicants. Page 9 also explicitly bars the district from placing students into this academy. Page 10 distinguishes the resident alternative of Little Chute High School, a different institution.",
+      "source_quote": "then a lottery shall be conducted by the Governance Council",
+      "source_page": 9,
+      "retrieval_note": "Official school pages retrieved with a browser user agent. The school-linked 21-page contract is scanned; page 9 was OCR-extracted and visually checked against the original rendered page.",
+      "capacity_caveat": "Oversubscription lottery is required by contract even when an individual year has spare seats. The nearby ordinary high school route is not a route into the ranked charter."
+    },
+    {
+      "national_rank": 176,
+      "school": "J. Graham Brown School",
+      "state": "KY",
+      "status": "excluded",
+      "reason": "Criteria-based grades 6-12 admission requires academic thresholds, recommendations, ranked review and an interview.",
+      "admissions_source_urls": [
+        "https://www.jefferson.kyschools.us/o/brown/page/middlehigh-admissions",
+        "https://sites.google.com/jefferson.kyschools.us/brownadmissions/Brown-MS-HS-Admissions"
+      ],
+      "evidence_summary": "The official school admissions page embeds a link to its Brown admissions Google Site in Apptegy hydration data. The linked site explicitly describes 2027-28 grades 6-12 criteria-based admission. Applicants must meet a GPA/test combination: GPA 3.0 plus specified proficient/percentile results; GPA 3.2 plus another stated test threshold; or GPA 3.5 without testing. Two teacher recommendations must predominantly rate the student above average. Qualified applicants complete a self-directed-learning disposition survey and writing task, are ranked within grade and diversity category, and selected applicants receive an admissions-committee interview. Invitations are tied to anticipated openings; more students are interviewed than seats available.",
+      "capacity_caveat": "Meeting initial academic criteria does not guarantee admission; ranked selection, interview and available openings remain."
+    }
+  ]
+}

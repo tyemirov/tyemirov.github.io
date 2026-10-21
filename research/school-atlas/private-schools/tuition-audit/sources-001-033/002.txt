@@ -1,0 +1,628 @@
+Fast Facts - Groton School (https://www.groton.org/about/fast-facts)
+【turn947566view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.groton.org/about/fast-facts","lineno":null}); Total lines: 625
+L0: 【0†iframe†www.googletagmanager.com】 【1†iframe†www.googletagmanager.com】 【2†Skip To Main Content】
+L1: 
+L2: Close Menu
+L3: 
+L4: Search
+L5: 
+L6: [Input: search for something...] Clear
+L7: 
+L8: [Button: Search]
+L9: 
+L10:   * 【3†About】
+L11: 
+L12:     * 【4†Fast Facts】
+L13:     * 【5†Our Headmaster】
+L14:     * 【6†Inclusion, Affordability & Belonging】
+L15:     * 【7†Board of Trustees】
+L16:     * 【8†Sustainability】
+L17:     * 【9†History】
+L18:     * 【10†Media】
+L19:     * 【11†Working at Groton】
+L20:     * 【12†Our Campus】
+L21: 
+L22:   * 【13†Admission】
+L23:     * 【14†How to Visit, Interview & Apply】
+L24:     * 【15†Tuition & Affordability】
+L25:     * 【16†Inquire(opens in new window/tab)†admission.groton.org】
+L26:     * 【17†Athletics Interest Form(opens in new window/tab)†admission.groton.org】
+L27:     * 【18†Performing Arts Interest Form(opens in new window/tab)†admission.groton.org】
+L28:     * 【19†Application Portal(opens in new window/tab)†admission.groton.org】
+L29: 
+L30:   * 【20†Academics】
+L31: 
+L32:     * 【21†Curriculum】
+L33:       * 【22†Classics】
+L34:       * 【23†English】
+L35:       * 【24†History and Social Science】
+L36:       * 【25†Mathematics and Computer Science】
+L37:       * 【26†Music】
+L38:       * 【27†Religious Studies and Philosophy】
+L39:       * 【28†Science】
+L40:       * 【29†Theater and Dance】
+L41:       * 【30†Visual Arts】
+L42:       * 【31†World Language and Culture】
+L43: 
+L44:     * 【32†Global Education】
+L45: 
+L46:       * 【33†GEO Blogs】
+L47:         * 【34†Greece Blog】
+L48:         * 【35†Scotland Blog】
+L49:         * 【36†Peru Blog】
+L50:         * 【37†Music Blog】
+L51:         * 【38†India Blog】
+L52:         * 【39†Indonesia Blog】
+L53:         * 【40†Tanzania Blog】
+L54:         * 【41†Black Heritage Blog】
+L55: 
+L56:     * 【42†College Counseling】
+L57:     * 【43†Library】
+L58:     * 【44†GRACE Summer Program】
+L59:     * 【45†Academic Technology】
+L60:     * 【46†Academic Skills】
+L61:     * 【47†Teaching Chairs】
+L62: 
+L63:   * 【48†Arts】
+L64:     * 【49†Theater】
+L65:     * 【50†Music】
+L66:     * 【51†Visual Art】
+L67:     * 【52†Dance】
+L68:     * 【53†Galleries】
+L69:     * 【18†Performing Arts Interest Form(opens in new window/tab)†admission.groton.org】
+L70: 
+L71:   * 【54†Athletics】
+L72: 
+L73:     * 【55†Teams】
+L74:       * 【56†Boys Cross Country - Varsity】
+L75:       * 【57†Boys Cross Country - JV】
+L76:       * 【58†Girls Cross Country - Varsity】
+L77:       * 【59†Girls Cross Country - JV】
+L78:       * 【60†Field Hockey - Varsity】
+L79:       * 【61†Field Hockey - JV】
+L80:       * 【62†Football - Varsity】
+L81:       * 【63†Football - JV】
+L82:       * 【64†Boys Soccer - Varsity】
+L83:       * 【65†Boys Soccer - JV】
+L84:       * 【66†Boys Soccer - Thirds】
+L85:       * 【67†Girls Soccer - Varsity】
+L86:       * 【68†Girls Soccer - JV】
+L87:       * 【69†Volleyball - Varsity】
+L88:       * 【70†Volleyball - JV】
+L89:       * 【71†Boys Basketball - Varsity】
+L90:       * 【72†Boys Basketball - JV】
+L91:       * 【73†Boys Basketball - Thirds】
+L92:       * 【74†Girls Basketball - Varsity】
+L93:       * 【75†Girls Basketball - JV】
+L94:       * 【76†Boys Ice Hockey - Varsity】
+L95:       * 【77†Boys Ice Hockey - JV】
+L96:       * 【78†Girls Ice Hockey - Varsity】
+L97:       * 【79†Girls Ice Hockey - JV】
+L98:       * 【80†Boys Squash - Varsity】
+L99:       * 【81†Boys Squash - JV】
+L100:       * 【82†Boys Squash - Thirds】
+L101:       * 【83†Girls Squash - Varsity】
+L102:       * 【84†Girls Squash - JV】
+L103:       * 【85†Girls Squash - Thirds】
+L104:       * 【86†Swimming】
+L105:       * 【87†Baseball - Varsity】
+L106:       * 【88†Baseball - JV】
+L107:       * 【89†Boys Crew - Varsity】
+L108:       * 【90†Boys Crew - JV】
+L109:       * 【91†Girls Crew - Varsity】
+L110:       * 【92†Girls Crew - JV】
+L111:       * 【93†Boys Lacrosse - Varsity】
+L112:       * 【94†Boys Lacrosse - JV】
+L113:       * 【95†Girls Lacrosse - Varsity】
+L114:       * 【96†Girls Lacrosse - JV】
+L115:       * 【97†Boys Tennis - Varsity】
+L116:       * 【98†Boys Tennis - JV】
+L117:       * 【99†Girls Tennis - Varsity】
+L118:       * 【100†Girls Tennis - JV】
+L119:       * 【101†Track and Field】
+L120:       * 【102†Tennis - Thirds】
+L121:     * 【103†Athletic Facilities】
+L122:     * 【104†Calendar & Scores】
+L123:     * 【105†Athletic Hall of Fame】
+L124:     * 【106†Livestreams(opens in new window/tab)†sportsengineplay.com】
+L125:     * 【17†Athletics Interest Form(opens in new window/tab)†admission.groton.org】
+L126:     * 【107†Athletes in College】
+L127: 
+L128:   * 【108†Student Life】
+L129:     * 【109†Residential Life】
+L130:     * 【110†Advising】
+L131:     * 【111†Community Engagement】
+L132:     * 【112†Leadership】
+L133:     * 【113†Spiritual Life】
+L134:     * 【114†Counseling】
+L135:     * 【115†Clubs & Organizations】
+L136:     * 【116†Zebra Tales: Our Student Blog】
+L137: 
+L138:       * 【117†Ava '26】
+L139:       * 【118†Cedar '26】
+L140:       * 【119†Susan '28】
+L141:       * 【120†William '27】
+L142:       * 【121†Mia '28】
+L143:       * 【122†Aaron '28】
+L144:       * 【123†Rowan '27】
+L145:       * 【124†Charlie '26】
+L146:       * 【125†Zebra Tales 2025-26】
+L147:         * 【126†Ava '26】
+L148:         * 【127†Cedar '26】
+L149:         * 【128†Charlie '26】
+L150:         * 【129†Aaron '28】
+L151:         * 【130†Rowan '27】
+L152:         * 【131†Susan '28】
+L153:         * 【132†William '27】
+L154:         * 【133†Mia '28】
+L155: 
+L156:       * 【134†Zebra Tales 2024-25】
+L157: 
+L158:         * 【135†Sophie '25】
+L159:         * 【136†Charlie '26】
+L160:         * 【137†Edward '25】
+L161:         * 【138†Ava '26】
+L162:         * 【139†Arthur '26】
+L163:         * 【140†Sara '25】
+L164:         * 【141†Maddie '25】
+L165:         * 【142†Mateo '26】
+L166: 
+L167:   * 【143†Giving】
+L168:     * 【144†Give Online(opens in new window/tab)†www.givecampus.com】
+L169:     * 【145†Groton Fund】
+L170:     * 【146†Planned Giving(opens in new window/tab)†legacy.groton.org】
+L171:     * 【147†Alumni】
+L172:     * 【148†Parents】
+L173: 
+L174:   * 【149†News】
+L175:   * 【147†Alumni】
+L176: 
+L177:     * 【150†Alumni Events】
+L178:     * 【151†Reunion】
+L179:     * 【152†Groton Connect(opens in new window/tab)†grotonalumni.network】
+L180:     * 【153†Volunteering】
+L181:     * 【154†Awards】
+L182:     * 【143†Giving(opens in new window/tab)】
+L183:     * 【155†CoEd at 50】
+L184: 
+L185:   * 【148†Parents】
+L186:     * 【156†Prize Day】
+L187:     * 【157†Parents Weekend】
+L188:     * 【143†Giving】
+L189: 
+L190:   * 【158†Calendar】
+L191:   * 【159†myGroton(opens in new window/tab)†portals.groton.org】
+L192: 
+L193:   * 【149†News】
+L194:   * 【147†Alumni】
+L195: 
+L196:     * 【150†Alumni Events】
+L197:     * 【151†Reunion】
+L198:     * 【152†Groton Connect(opens in new window/tab)†grotonalumni.network】
+L199:     * 【153†Volunteering】
+L200:     * 【154†Awards】
+L201:     * 【143†Giving(opens in new window/tab)】
+L202:     * 【155†CoEd at 50】
+L203: 
+L204:   * 【148†Parents】
+L205: 
+L206:     * 【156†Prize Day】
+L207:     * 【157†Parents Weekend】
+L208:     * 【143†Giving】
+L209:   * 【158†Calendar】
+L210:   * 【159†myGroton(opens in new window/tab)†portals.groton.org】
+L211: 
+L212: Search
+L213: 
+L214: [Input: search for something...] Clear
+L215: 
+L216: [Button: Search]
+L217: 
+L218: Open Search
+L219: 
+L220: Open Menu
+L221: 
+L222:   * 【3†About】
+L223: 
+L224: 【160†What Makes Groton Different】
+L225: 
+L226:     * 【4†Fast Facts】
+L227:     * 【5†Our Headmaster】
+L228:     * 【6†Inclusion, Affordability & Belonging】
+L229:     * 【7†Board of Trustees】
+L230:     * 【8†Sustainability】
+L231:     * 【9†History】
+L232:     * 【10†Media】
+L233:     * 【11†Working at Groton】
+L234:     * 【12†Our Campus】
+L235: 
+L236:   * 【13†Admission】
+L237: 
+L238: 【161†Applying to Groton】
+L239:     * 【14†How to Visit, Interview & Apply】
+L240:     * 【15†Tuition & Affordability】
+L241:     * 【16†Inquire(opens in new window/tab)†admission.groton.org】
+L242:     * 【17†Athletics Interest Form(opens in new window/tab)†admission.groton.org】
+L243:     * 【18†Performing Arts Interest Form(opens in new window/tab)†admission.groton.org】
+L244:     * 【19†Application Portal(opens in new window/tab)†admission.groton.org】
+L245: 
+L246:   * 【20†Academics】
+L247: 
+L248: 【162†Learn】
+L249:     * 【21†Curriculum】
+L250:     * 【32†Global Education】
+L251:     * 【42†College Counseling】
+L252:     * 【43†Library】
+L253:     * 【44†GRACE Summer Program】
+L254:     * 【45†Academic Technology】
+L255:     * 【46†Academic Skills】
+L256:     * 【47†Teaching Chairs】
+L257: 
+L258:   * 【48†Arts】
+L259: 
+L260: 【163†Explore the Arts】
+L261: 
+L262:     * 【49†Theater】
+L263:     * 【50†Music】
+L264:     * 【51†Visual Art】
+L265:     * 【52†Dance】
+L266:     * 【53†Galleries】
+L267:     * 【18†Performing Arts Interest Form(opens in new window/tab)†admission.groton.org】
+L268: 
+L269:   * 【54†Athletics】
+L270: 
+L271: 【164†Go Zebras!】
+L272:     * 【55†Teams】
+L273:     * 【103†Athletic Facilities】
+L274:     * 【104†Calendar & Scores】
+L275:     * 【105†Athletic Hall of Fame】
+L276:     * 【106†Livestreams(opens in new window/tab)†sportsengineplay.com】
+L277:     * 【17†Athletics Interest Form(opens in new window/tab)†admission.groton.org】
+L278:     * 【107†Athletes in College】
+L279: 
+L280:   * 【108†Student Life】
+L281: 
+L282: 【165†Life at Groton】
+L283:     * 【109†Residential Life】
+L284:     * 【110†Advising】
+L285:     * 【111†Community Engagement】
+L286:     * 【112†Leadership】
+L287:     * 【113†Spiritual Life】
+L288:     * 【114†Counseling】
+L289:     * 【115†Clubs & Organizations】
+L290:     * 【116†Zebra Tales: Our Student Blog】
+L291: 
+L292:   * 【143†Giving】
+L293: 
+L294: 【166†Support Groton】
+L295: 
+L296:     * 【144†Give Online(opens in new window/tab)†www.givecampus.com】
+L297:     * 【145†Groton Fund】
+L298:     * 【146†Planned Giving(opens in new window/tab)†legacy.groton.org】
+L299:     * 【147†Alumni】
+L300:     * 【148†Parents】
+L301:   * 【4†Fast Facts】
+L302:   * 【5†Our Headmaster】
+L303:   * 【6†Inclusion, Affordability & Belonging】
+L304:   * 【7†Board of Trustees】
+L305:   * 【8†Sustainability】
+L306:   * 【9†History】
+L307:   * 【10†Media】
+L308:   * 【11†Working at Groton】
+L309:   * 【12†Our Campus】
+L310: ## In this Section...
+L311: 
+L312:   * 【3†About】
+L313: 
+L314:     * 【4†Fast Facts】
+L315:     * 【5†Our Headmaster】
+L316:     * 【6†Inclusion, Affordability & Belonging】
+L317:     * 【7†Board of Trustees】
+L318:     * 【8†Sustainability】
+L319:     * 【9†History】
+L320:     * 【10†Media】
+L321:     * 【11†Working at Groton】
+L322:     * 【12†Our Campus】
+L323: 
+L324:   * 【13†Admission】
+L325:     * 【14†How to Visit, Interview & Apply】
+L326:     * 【15†Tuition & Affordability】
+L327:     * 【16†Inquire(opens in new window/tab)†admission.groton.org】
+L328:     * 【17†Athletics Interest Form(opens in new window/tab)†admission.groton.org】
+L329:     * 【18†Performing Arts Interest Form(opens in new window/tab)†admission.groton.org】
+L330:     * 【19†Application Portal(opens in new window/tab)†admission.groton.org】
+L331: 
+L332:   * 【20†Academics】
+L333: 
+L334:     * 【21†Curriculum】
+L335:       * 【22†Classics】
+L336:       * 【23†English】
+L337:       * 【24†History and Social Science】
+L338:       * 【25†Mathematics and Computer Science】
+L339:       * 【26†Music】
+L340:       * 【27†Religious Studies and Philosophy】
+L341:       * 【28†Science】
+L342:       * 【29†Theater and Dance】
+L343:       * 【30†Visual Arts】
+L344:       * 【31†World Language and Culture】
+L345: 
+L346:     * 【32†Global Education】
+L347: 
+L348:       * 【33†GEO Blogs】
+L349:         * 【34†Greece Blog】
+L350:         * 【35†Scotland Blog】
+L351:         * 【36†Peru Blog】
+L352:         * 【37†Music Blog】
+L353:         * 【38†India Blog】
+L354:         * 【39†Indonesia Blog】
+L355:         * 【40†Tanzania Blog】
+L356:         * 【41†Black Heritage Blog】
+L357: 
+L358:     * 【42†College Counseling】
+L359:     * 【43†Library】
+L360:     * 【44†GRACE Summer Program】
+L361:     * 【45†Academic Technology】
+L362:     * 【46†Academic Skills】
+L363:     * 【47†Teaching Chairs】
+L364: 
+L365:   * 【48†Arts】
+L366:     * 【49†Theater】
+L367:     * 【50†Music】
+L368:     * 【51†Visual Art】
+L369:     * 【52†Dance】
+L370:     * 【53†Galleries】
+L371:     * 【18†Performing Arts Interest Form(opens in new window/tab)†admission.groton.org】
+L372: 
+L373:   * 【54†Athletics】
+L374: 
+L375:     * 【55†Teams】
+L376:       * 【56†Boys Cross Country - Varsity】
+L377:       * 【57†Boys Cross Country - JV】
+L378:       * 【58†Girls Cross Country - Varsity】
+L379:       * 【59†Girls Cross Country - JV】
+L380:       * 【60†Field Hockey - Varsity】
+L381:       * 【61†Field Hockey - JV】
+L382:       * 【62†Football - Varsity】
+L383:       * 【63†Football - JV】
+L384:       * 【64†Boys Soccer - Varsity】
+L385:       * 【65†Boys Soccer - JV】
+L386:       * 【66†Boys Soccer - Thirds】
+L387:       * 【67†Girls Soccer - Varsity】
+L388:       * 【68†Girls Soccer - JV】
+L389:       * 【69†Volleyball - Varsity】
+L390:       * 【70†Volleyball - JV】
+L391:       * 【71†Boys Basketball - Varsity】
+L392:       * 【72†Boys Basketball - JV】
+L393:       * 【73†Boys Basketball - Thirds】
+L394:       * 【74†Girls Basketball - Varsity】
+L395:       * 【75†Girls Basketball - JV】
+L396:       * 【76†Boys Ice Hockey - Varsity】
+L397:       * 【77†Boys Ice Hockey - JV】
+L398:       * 【78†Girls Ice Hockey - Varsity】
+L399:       * 【79†Girls Ice Hockey - JV】
+L400:       * 【80†Boys Squash - Varsity】
+L401:       * 【81†Boys Squash - JV】
+L402:       * 【82†Boys Squash - Thirds】
+L403:       * 【83†Girls Squash - Varsity】
+L404:       * 【84†Girls Squash - JV】
+L405:       * 【85†Girls Squash - Thirds】
+L406:       * 【86†Swimming】
+L407:       * 【87†Baseball - Varsity】
+L408:       * 【88†Baseball - JV】
+L409:       * 【89†Boys Crew - Varsity】
+L410:       * 【90†Boys Crew - JV】
+L411:       * 【91†Girls Crew - Varsity】
+L412:       * 【92†Girls Crew - JV】
+L413:       * 【93†Boys Lacrosse - Varsity】
+L414:       * 【94†Boys Lacrosse - JV】
+L415:       * 【95†Girls Lacrosse - Varsity】
+L416:       * 【96†Girls Lacrosse - JV】
+L417:       * 【97†Boys Tennis - Varsity】
+L418:       * 【98†Boys Tennis - JV】
+L419:       * 【99†Girls Tennis - Varsity】
+L420:       * 【100†Girls Tennis - JV】
+L421:       * 【101†Track and Field】
+L422:       * 【102†Tennis - Thirds】
+L423:     * 【103†Athletic Facilities】
+L424:     * 【104†Calendar & Scores】
+L425:     * 【105†Athletic Hall of Fame】
+L426:     * 【106†Livestreams(opens in new window/tab)†sportsengineplay.com】
+L427:     * 【17†Athletics Interest Form(opens in new window/tab)†admission.groton.org】
+L428:     * 【107†Athletes in College】
+L429: 
+L430:   * 【108†Student Life】
+L431:     * 【109†Residential Life】
+L432:     * 【110†Advising】
+L433:     * 【111†Community Engagement】
+L434:     * 【112†Leadership】
+L435:     * 【113†Spiritual Life】
+L436:     * 【114†Counseling】
+L437:     * 【115†Clubs & Organizations】
+L438:     * 【116†Zebra Tales: Our Student Blog】
+L439: 
+L440:       * 【117†Ava '26】
+L441:       * 【118†Cedar '26】
+L442:       * 【119†Susan '28】
+L443:       * 【120†William '27】
+L444:       * 【121†Mia '28】
+L445:       * 【122†Aaron '28】
+L446:       * 【123†Rowan '27】
+L447:       * 【124†Charlie '26】
+L448:       * 【125†Zebra Tales 2025-26】
+L449:         * 【126†Ava '26】
+L450:         * 【127†Cedar '26】
+L451:         * 【128†Charlie '26】
+L452:         * 【129†Aaron '28】
+L453:         * 【130†Rowan '27】
+L454:         * 【131†Susan '28】
+L455:         * 【132†William '27】
+L456:         * 【133†Mia '28】
+L457: 
+L458:       * 【134†Zebra Tales 2024-25】
+L459: 
+L460:         * 【135†Sophie '25】
+L461:         * 【136†Charlie '26】
+L462:         * 【137†Edward '25】
+L463:         * 【138†Ava '26】
+L464:         * 【139†Arthur '26】
+L465:         * 【140†Sara '25】
+L466:         * 【141†Maddie '25】
+L467:         * 【142†Mateo '26】
+L468: 
+L469:   * 【143†Giving】
+L470:     * 【144†Give Online(opens in new window/tab)†www.givecampus.com】
+L471:     * 【145†Groton Fund】
+L472:     * 【146†Planned Giving(opens in new window/tab)†legacy.groton.org】
+L473:     * 【147†Alumni】
+L474:     * 【148†Parents】
+L475: # Fast Facts
+L476: 
+L477: ## 380
+L478: 
+L479: Students
+L480: 
+L481: ## 90
+L482: 
+L483: Faculty
+L484: 
+L485: ## 84%
+L486: 
+L487: Boarding Students
+L488: 
+L489: ## 16%
+L490: 
+L491: Day Students
+L492: 
+L493: ## 11
+L494: 
+L495: Average Class Size
+L496: 
+L497: ## 480
+L498: 
+L499: Acres of Campus
+L500: 
+L501: ## $611M
+L502: 
+L503: Endowment
+L504: 
+L505: ## $1.5M
+L506: 
+L507: Net Endowment Per Student
+L508: 
+L509: ## 32
+L510: 
+L511: States Represented
+L512: 
+L513: ## 24
+L514: 
+L515: Countries Represented
+L516: 
+L517: ## 56%
+L518: 
+L519: Students of Color
+L520: 
+L521: ## 16%
+L522: 
+L523: International Students
+L524: 
+L525: ## 4:1
+L526: 
+L527: Student-Faculty ratio
+L528: 
+L529: ## 76%
+L530: 
+L531: Faculty with Advanced Degrees
+L532: 
+L533: ### Tuition & Fees
+L534: 
+L535: ## $62,740
+L536: 
+L537: 2026–27 Boarding Tuition
+L538: 
+L539: ## $48,850
+L540: 
+L541: 2026–27 Day Tuition
+L542: 
+L543: ## $600
+L544: 
+L545: Technology Fee
+L546: ## $400
+L547: 
+L548: Health Fee (Boarding Only)
+L549: 
+L550: ### Financial Aid
+L551: 
+L552: ## 40%
+L553: 
+L554: Students on Financial Aid
+L555: 
+L556: ## $52,639
+L557: 
+L558: Average Boarding Grant
+L559: 
+L560: ## $36,892
+L561: 
+L562: Average Day Grant
+L563: 
+L564: ## $7.6M
+L565: 
+L566: Financial Aid Budget
+L567: 
+L568: ### AP Tests
+L569: 
+L570: ## 531
+L571: 
+L572: Total AP Exams (Form of 2027)
+L573: 
+L574: ## 99%
+L575: 
+L576: Students with Scores of 3, 4, or 5
+L577: 
+L578: ## 92%
+L579: 
+L580: Students with Scores of 4 or 5
+L581: 
+L582: ### Average Standardized Test Scores, Form of 2026
+L583: 
+L584: ## 34
+L585: 
+L586: ACT Composite
+L587: 
+L588: ## 1470
+L589: 
+L590: SAT Composite
+L591: 
+L592: Groton_ParentsWeekend_Friday_Richins_102122_165308_10mb_6217_CROP.jpg
+L593: ## Groton School Mission:
+L594: 
+L595: To inspire lives of character, scholarship, leadership, and service
+L596: within a diverse, inclusive, and close-knit community.
+L597: ## Contact Us
+L598: 
+L599: 282 Farmers Row
+L600: 
+L601: Groton
+L602: 
+L603: MA
+L604: 
+L605: 01450
+L606: 
+L607: 978-448-3363
+L608: 
+L609:   * 【167†Instagram(opens in new window/tab)†www.instagram.com】
+L610:   * 【168†Facebook(opens in new window/tab)†www.facebook.com】
+L611:   * 【169†Twitter(opens in new window/tab)†twitter.com】
+L612:   * 【170†Flickr(opens in new window/tab)†www.flickr.com】
+L613:   * 【171†YouTube(opens in new window/tab)†www.youtube.com】
+L614: 
+L615:   * 【172†School Store(opens in new window/tab)†store.groton.org】
+L616:   * 【11†Careers】
+L617:   * 【173†Privacy Policy】
+L618:   * 【174†Terms of Use】
+L619:   * 【175†Sitemap】
+L620: ## Groton School
+L621: 
+L622: example-photo-06.jpg
+L623: 
+L624: 【176†Find Us†maps.app.goo.gl】
+

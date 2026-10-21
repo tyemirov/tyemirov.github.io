@@ -1,0 +1,5 @@
+# Preserve the reviewed research bytes, including source whitespace and line endings.
+research/school-atlas/** -text -whitespace
+research/school-atlas/**/*.py whitespace=blank-at-eol,blank-at-eof,space-before-tab
+research/school-atlas/**/*.mjs whitespace=blank-at-eol,blank-at-eof,space-before-tab
+research/school-atlas/README.md whitespace=blank-at-eol,blank-at-eof,space-before-tab

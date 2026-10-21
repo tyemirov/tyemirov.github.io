@@ -1,0 +1,543 @@
+Financial Aid – Deerfield Academy (https://deerfield.edu/admission/financial-aid)
+【turn866902view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://deerfield.edu/admission/financial-aid","lineno":null}); Total lines: 540
+L0:   * 【0†Deerfield】
+L1:     * 【0†About】
+L2:     * 【1†Campus Life】
+L3:     * 【2†Head of School】
+L4:       * 【3†A Framework for Schools】
+L5:     * 【4†Leadership and Operations】
+L6:       * 【5†Board of Trustees】
+L7:       * 【6†Academic Affairs】
+L8:       * 【7†College Advising】
+L9:       * 【8†Communications】
+L10:       * 【9†Dean of Faculty】
+L11:       * 【10†Finance Office】
+L12:       * 【11†Human Resources】
+L13:       * 【12†Information Technology Services】
+L14:       * 【13†Physical Plant】
+L15:         * 【14†Environmental Sustainability】
+L16:         * 【15†Shipping & Receiving】
+L17:       * 【16†Safety & Security】
+L18:       * 【17†Student Life】
+L19:     * 【18†History and Tradition】
+L20:       * 【19†Academy Archives】
+L21:     * 【20†Places and Spaces】
+L22:       * 【21†Academics】
+L23:       * 【22†Athletics】
+L24:       * 【23†Common】
+L25:       * 【24†Dormitories】
+L26:     * 【25†Visit】
+L27:       * 【26†Campus Map】
+L28:       * 【27†Lodging】
+L29:       * 【28†Dining】
+L30:       * 【29†Attractions/Services】
+L31:     * 【30†Contact & Directory】
+L32:     * 【31†Campus Stores】
+L33:     * 【32†Careers】
+L34:   * 【33†Programs】
+L35:     * 【33†About】
+L36:     * 【34†Academics】
+L37:       * 【35†Academic Affairs】
+L38:       * 【36†Course Catalog】
+L39:       * 【37†Arts】
+L40:       * 【38†English】
+L41:       * 【39†History and Social Science】
+L42:       * 【40†Language】
+L43:       * 【41†Math】
+L44:       * 【42†Philosophy and Religion】
+L45:       * 【43†Science and Computer Science】
+L46:       * 【44†Faculty】
+L47:     * 【37†Arts】
+L48:       * 【45†Prospective Student Questionnaire†deerfield.schooladminonline.com】
+L49:       * 【46†Architecture】
+L50:       * 【47†Dance】
+L51:       * 【48†Film & Video】
+L52:       * 【49†Music at Deerfield】
+L53:       * 【50†Photography】
+L54:       * 【51†Studio Art】
+L55:         * 【52†von Auersperg Gallery】
+L56:       * 【53†Theater】
+L57:     * 【54†Athletics】
+L58:       * 【45†Prospective Student Questionnaire†deerfield.schooladminonline.com】
+L59:       * 【55†Sports and Teams】
+L60:       * 【56†Schedule of Events】
+L61:       * 【57†Livestreams】
+L62:       * 【58†News】
+L63:       * 【59†Varsity Coach Directory】
+L64:       * 【60†LEAD Program】
+L65:     * 【61†Center for Global and Civic Engagement】
+L66:       * 【62†Community Service】
+L67:       * 【63†Travel】
+L68:     * 【64†Alternate/Directed Studies】
+L69:     * 【65†College Advising】
+L70:     * 【66†Early Learning Center】
+L71:     * 【67†Summer】
+L72:       * 【68†DASAC】
+L73:       * 【69†EXP】
+L74:   * 【70†Admission】
+L75:     * 【70†About】
+L76:     * 【71†How to Apply】
+L77:     * 【72†Financial Aid】
+L78:     * 【73†Open House】
+L79:     * 【74†Events & Fairs】
+L80:     * 【75†Meet the Office】
+L81:   * 【76†Menu Item】
+L82:   * 【77†Students】
+L83:     * 【78†Students Bulletin】
+L84:     * 【17†Student Life】
+L85:     * 【79†Rules and Expectations】
+L86:     * 【80†Boyden Library】
+L87:     * 【81†Support and Resources】
+L88:       * 【82†Academic Support】
+L89:       * 【83†Grants】
+L90:       * 【84†Health and Wellness】
+L91:         * 【85†Health Classes】
+L92:         * 【84†Health Center】
+L93:         * 【86†Counseling Center】
+L94:         * 【87†Fitness Center】
+L95:         * 【88†Peer Counselors】
+L96:       * 【89†ITS Help Desk】
+L97:     * 【90†Course Planning】
+L98:     * 【65†College Advising】
+L99:   * 【91†Families】
+L100:     * 【91†Welcome and Family Resources】
+L101:     * 【92†Calendars and Important Dates】
+L102:     * 【93†Family Events】
+L103:     * 【94†Giving to Deerfield】
+L104:     * 【95†Deerfield Parents Network】
+L105:     * 【96†Access DAInfo†dainfo.deerfield.edu】
+L106:   * 【97†Alumni】
+L107:     * 【98†Connect】
+L108:       * 【99†Class Notes】
+L109:       * 【100†Alumni Network】
+L110:       * 【101†Update Your Records】
+L111:       * 【102†Deerfield Magazine】
+L112:     * 【103†Support Deerfield】
+L113:       * 【104†Make a Gift】
+L114:       * 【105†Ways to Give】
+L115:       * 【106†50th Reunion Giving】
+L116:       * 【107†Deerfield Fund】
+L117:       * 【108†Capital Giving】
+L118:       * 【109†Gift Planning】
+L119:       * 【110†Recognition Societies】
+L120:       * 【111†Giving Terminology】
+L121:     * 【112†Reunions】
+L122:     * 【113†Events】
+L123:     * 【114†Alumni Association】
+L124:       * 【115†Alumni Awards】
+L125:     * 【116†Office of Advancement】
+L126:   * 【32†Careers】
+L127:     * 【32†Join our Community】
+L128:     * 【117†Current Employees】
+L129:       * 【117†Employee Bulletin】
+L130:       * 【118†Human Resources】
+L131:       * 【119†Benefits】
+L132:       * 【120†Handbooks】
+L133:       * 【121†Holiday Calendar】
+L134:       * 【122†UKG Login†deerfield.ultipro.com】
+L135:       * 【89†ITS Help Desk】
+L136:       * 【123†Procedures/Forms】
+L137:   * 【0†Deerfield】
+L138:     * 【0†About】
+L139:     * 【1†Campus Life】
+L140:     * 【2†Head of School】
+L141:       * 【3†A Framework for Schools】
+L142:     * 【4†Leadership and Operations】
+L143:       * 【5†Board of Trustees】
+L144:       * 【6†Academic Affairs】
+L145:       * 【7†College Advising】
+L146:       * 【8†Communications】
+L147:       * 【9†Dean of Faculty】
+L148:       * 【10†Finance Office】
+L149:       * 【11†Human Resources】
+L150:       * 【12†Information Technology Services】
+L151:       * 【13†Physical Plant】
+L152:         * 【14†Environmental Sustainability】
+L153:         * 【15†Shipping & Receiving】
+L154:       * 【16†Safety & Security】
+L155:       * 【17†Student Life】
+L156:     * 【18†History and Tradition】
+L157:       * 【19†Academy Archives】
+L158:     * 【20†Places and Spaces】
+L159:       * 【21†Academics】
+L160:       * 【22†Athletics】
+L161:       * 【23†Common】
+L162:       * 【24†Dormitories】
+L163:     * 【25†Visit】
+L164:       * 【26†Campus Map】
+L165:       * 【27†Lodging】
+L166:       * 【28†Dining】
+L167:       * 【29†Attractions/Services】
+L168:     * 【30†Contact & Directory】
+L169:     * 【31†Campus Stores】
+L170:     * 【32†Careers】
+L171:   * 【33†Programs】
+L172:     * 【33†About】
+L173:     * 【34†Academics】
+L174:       * 【35†Academic Affairs】
+L175:       * 【36†Course Catalog】
+L176:       * 【37†Arts】
+L177:       * 【38†English】
+L178:       * 【39†History and Social Science】
+L179:       * 【40†Language】
+L180:       * 【41†Math】
+L181:       * 【42†Philosophy and Religion】
+L182:       * 【43†Science and Computer Science】
+L183:       * 【44†Faculty】
+L184:     * 【37†Arts】
+L185:       * 【45†Prospective Student Questionnaire†deerfield.schooladminonline.com】
+L186:       * 【46†Architecture】
+L187:       * 【47†Dance】
+L188:       * 【48†Film & Video】
+L189:       * 【49†Music at Deerfield】
+L190:       * 【50†Photography】
+L191:       * 【51†Studio Art】
+L192:         * 【52†von Auersperg Gallery】
+L193:       * 【53†Theater】
+L194:     * 【54†Athletics】
+L195:       * 【45†Prospective Student Questionnaire†deerfield.schooladminonline.com】
+L196:       * 【55†Sports and Teams】
+L197:       * 【56†Schedule of Events】
+L198:       * 【57†Livestreams】
+L199:       * 【58†News】
+L200:       * 【59†Varsity Coach Directory】
+L201:       * 【60†LEAD Program】
+L202:     * 【61†Center for Global and Civic Engagement】
+L203:       * 【62†Community Service】
+L204:       * 【63†Travel】
+L205:     * 【64†Alternate/Directed Studies】
+L206:     * 【65†College Advising】
+L207:     * 【66†Early Learning Center】
+L208:     * 【67†Summer】
+L209:       * 【68†DASAC】
+L210:       * 【69†EXP】
+L211:   * 【70†Admission】
+L212:     * 【70†About】
+L213:     * 【71†How to Apply】
+L214:     * 【72†Financial Aid】
+L215:     * 【73†Open House】
+L216:     * 【74†Events & Fairs】
+L217:     * 【75†Meet the Office】
+L218:   * 【76†Menu Item】
+L219:   * 【77†Students】
+L220:     * 【78†Students Bulletin】
+L221:     * 【17†Student Life】
+L222:     * 【79†Rules and Expectations】
+L223:     * 【80†Boyden Library】
+L224:     * 【81†Support and Resources】
+L225:       * 【82†Academic Support】
+L226:       * 【83†Grants】
+L227:       * 【84†Health and Wellness】
+L228:         * 【85†Health Classes】
+L229:         * 【84†Health Center】
+L230:         * 【86†Counseling Center】
+L231:         * 【87†Fitness Center】
+L232:         * 【88†Peer Counselors】
+L233:       * 【89†ITS Help Desk】
+L234:     * 【90†Course Planning】
+L235:     * 【65†College Advising】
+L236:   * 【91†Families】
+L237:     * 【91†Welcome and Family Resources】
+L238:     * 【92†Calendars and Important Dates】
+L239:     * 【93†Family Events】
+L240:     * 【94†Giving to Deerfield】
+L241:     * 【95†Deerfield Parents Network】
+L242:     * 【96†Access DAInfo†dainfo.deerfield.edu】
+L243:   * 【97†Alumni】
+L244:     * 【98†Connect】
+L245:       * 【99†Class Notes】
+L246:       * 【100†Alumni Network】
+L247:       * 【101†Update Your Records】
+L248:       * 【102†Deerfield Magazine】
+L249:     * 【103†Support Deerfield】
+L250:       * 【104†Make a Gift】
+L251:       * 【105†Ways to Give】
+L252:       * 【106†50th Reunion Giving】
+L253:       * 【107†Deerfield Fund】
+L254:       * 【108†Capital Giving】
+L255:       * 【109†Gift Planning】
+L256:       * 【110†Recognition Societies】
+L257:       * 【111†Giving Terminology】
+L258:     * 【112†Reunions】
+L259:     * 【113†Events】
+L260:     * 【114†Alumni Association】
+L261:       * 【115†Alumni Awards】
+L262:     * 【116†Office of Advancement】
+L263:   * 【32†Careers】
+L264:     * 【32†Join our Community】
+L265:     * 【117†Current Employees】
+L266:       * 【117†Employee Bulletin】
+L267:       * 【118†Human Resources】
+L268:       * 【119†Benefits】
+L269:       * 【120†Handbooks】
+L270:       * 【121†Holiday Calendar】
+L271:       * 【122†UKG Login†deerfield.ultipro.com】
+L272:       * 【89†ITS Help Desk】
+L273:       * 【123†Procedures/Forms】
+L274: Search [Input: Search...]
+L275: # Financial Aid
+L276: 
+L277: ## Cost should never be a barrier to a Deerfield education.
+L278: ### “Deerfield’s commitment to affordability and access in the form of need-based financial aid is historic, deep, and central to its educational mission. It is founded on the idea—beautifully articulated over a century ago when Frank L. Boyden asked families to ‘pay what you can’—that the Deerfield Experience should be accessible to all young people of promise regardless of means.”—Head of School Dr. John Austin
+L279: For more than 40 percent of prospective families, applying to Deerfield Academy also means applying for financial aid. Our Financial Aid Office works with families throughout the application process and, for those who enroll, throughout their Deerfield Experience. We strive to make the process simple, streamlined, and completely confidential.
+L280: ## Deerfield is a possibility for you
+L281: 
+L282: For all qualifying and admitted students, we provide generous grants and meet 100% of demonstrated need.
+L283: 
+L284: Current Program: 2026 – 2027
+L285: 
+L286:   * 38% of all current families receive financial aid
+L287:   * 35% of our financial aid recipients pay -0-
+L288:   * Average boarding grant: $68,235
+L289:   * 14% of currently funded students are international
+L290:   * The majority of families are eligible for our Financial Aid Initiative:
+L291: 
+L292: Domestic families making
+L293: up to $150,000 will pay
+L294: 
+L295: $ 0
+L296: Domestic families making above $150,000 will pay no more than
+L297: 
+L298: 0 %
+L299: 
+L300: of their total income
+L301: for tuition and fees
+L302: 
+L303: (per student)
+L304: Qualifying families must complete a financial aid application during the admission process. Families must live and work in the U.S. and have two years of verifiable W-2 (only) income with assets consistent with their income profile.
+L305: All families, including International and non-W-2 income earners, are eligible to receive need-based aid, and if admitted will receive 100% of demonstrated need.
+L306: ## Frequently Asked Questions
+L307: 
+L308: How much assistance will my family receive?
+L309: 
+L310: All families, both domestic and international, are eligible to receive up to 100% assistance.
+L311: 
+L312: Do you provide performance-based aid?
+L313: 
+L314: Deerfield provides grants based on financial need only. We do not offer financial aid on the basis of athletic and academic performance or any other merits.
+L315: 
+L316: What if my family's financial situation changes?
+L317: Financial Aid grants are reviewed annually. Once admitted, we strive to assist a family at a consistent level throughout their time at the Academy. If things change and a family has an unexpected circumstance (job loss, divorce, death in the family, etc.) we review each case on an individual basis and, budget permitting, adjust accordingly. Likewise, we will decrease grants when families have a change in circumstance that allows for an increase in their contribution amount.
+L318: Will applying for financial aid affect my admission to Deerfield?
+L319: 
+L320: Possibly. Deerfield has a very generous financial aid budget. However, it is limited, and therefore we cannot always accept all admissible financial aid applicants.
+L321: 
+L322: Will Deerfield require a family to take out loans?
+L323: 
+L324: No. Deerfield grants are outright awards based on financial need. There is no repayment required.
+L325: 
+L326: Does Deerfield provide financial aid for International Students?
+L327: Yes. If admitted we meet the full demonstrated need of international students, up to 100% of tuition.
+L328: 
+L329: Does Deerfield provide assistance beyond tuition grants?
+L330: 
+L331: Yes. Some students receive assistance with additional expenses such as airfare, health insurance, music and dance lessons as well as athletics and global studies travel.
+L332: 
+L333: What does Tuition include?
+L334: At Deerfield, tuition includes the cost of attending the Academy (room and board), textbooks, use of a MacBook Air, and use of the Academy’s health center.
+L335: 
+L336: My family owns a business and we do not have W-2 income, are we still eligible for financial aid?
+L337: 
+L338: Yes. All families are eligible for financial aid and can apply through Clarity Financial Aid.
+L339: 
+L340: Are all parents required to submit a financial aid application?
+L341: Yes. All legal parents/guardians, including step-parents must complete a financial aid application.  We understand each family’s situation is unique.  Please reach out if you have specific questions about your situation.
+L342: ## The Cost of Applying to Deerfield
+L343: 
+L344: ### Admission Application
+L345: 
+L346: Domestic: $60
+L347: International: $125
+L348: 
+L349: ### Application Fee waiver:
+L350: 
+L351: Fee waivers are granted on the basis of financial need. In order to be considered for a waiver, the Candidate Profile must be completed.
+L352: 
+L353:   * 【124†Request an Application Fee waiver.】
+L354: 
+L355: ### Testing: SSAT Upper Level (Domestic)
+L356: 
+L357: Standard or school Flex: $165
+L358: Prometric SSAT: $235
+L359: Flex with an educational consultant: $240
+L360: SSAT at Home: $255
+L361: ### Testing: SSAT Upper Level (International)
+L362: 
+L363: SSAT Upper Level (International)
+L364: Paper-based Testing $320
+L365: Flex Testing $320
+L366: SSAT at Prometric Test Centers $320
+L367: 
+L368: ISEE Testing Options and Pricing can be found 【125†here†www.erblearn.org】.
+L369: ### Financial Aid application
+L370: 
+L371: Domestic/International: $65
+L372: 
+L373: Clarity Financial Aid has established its own Fee Waiver Guidelines for financial aid applications. They will automatically grant a Waiver if you fall within their qualifying income guidelines. Deerfield does not provide Fee Waivers for the Clarity application.
+L374: 
+L375: ## The Cost of Attending Deerfield
+L376: 
+L377: ## 2026-2027 Tuition
+L378: 
+L379: ## Boarding
+L380: 
+L381: $ 79940
+L382: 
+L383: ## Day
+L384: 
+L385: $ 57850
+L386: 
+L387: Laptop, Textbooks, and Health Center Services are included in our tuition.
+L388: ### Payment Options
+L389: 
+L390: When a student is accepted at Deerfield, families will be asked to confirm enrollment by signing their Enrollment Contract and, if applicable, making their Tuition Deposit. Deposits are non-refundable and will be credited to the first tuition bill.
+L391: The Academy offers three tuition payment options, one installment due August 1, two installments due August 1 and December 1, or a monthly payment plan with various due date options for a small fee. All student billing is administered through FACTS Management.
+L392: ## New Student Applications
+L393: #### Instructions
+L394: 
+L395: All new financial aid applicants must submit their application(s) to the Clarity Financial Aid platform: 【126†https://auth.clarityapp.com/en/signup/†auth.clarityapp.com】
+L396: 
+L397: U.S. Tax Filers Only: As part of the Clarity Financial Aid application process (with authorization using the IRS 4506C tax release document), Clarity will pull your 2025 1040 tax return and 2025 W2s directly from the IRS and import the documents directly into your application.
+L398: All applicants must use the exact same name that they use on their admission application.  Please do not use nicknames.
+L399: 
+L400: More information about how to apply through Clarity may be 【127†found here†drive.google.com】.
+L401: ### Documents to Upload to Clarity:
+L402: 
+L403:   * U.S. Applicants: All 2026 W-2’s must be manually uploaded by February 15, 2027
+L404:   * Canadian Applicants: 2025 T-4 Slip and Canadian Tax Return must be uploaded by January 15, 2027
+L405:   * International (Non-Canadian) Applicants: Current Bank Statement, Salary Verification or Non-U.S. Tax Filing must be uploaded by January 15, 2027
+L406: #### Key Dates
+L407: 
+L408: September 1, 2026: Clarity Financial Aid begins to accept applications.
+L409: 
+L410: January 15, 2027: All applications must be submitted to Clarity.
+L411: 
+L412: February 15, 2027: All U.S. tax filers with W-2 income must upload those documents to their application.
+L413: 
+L414: March 10, 2027: Financial aid decisions are emailed with acceptances to admitted students.
+L415: April 10, 2027: Deadline for parental acceptance of the financial aid grant offer. After April 10, 2027, financial aid grants will be made on a funds-available basis.
+L416: ## Returning Student Applications
+L417: 
+L418: All students receiving financial aid must submit a financial aid application annually. Please follow the key dates and instructions listed below.
+L419: #### Instructions
+L420: 
+L421: All returning financial aid applicants must submit an application to the Clarity Financial Aid platform: 【126†https://auth.clarityapp.com/en/signup/†auth.clarityapp.com】
+L422: 
+L423: U.S. Tax Filers Only: As part of the Clarity Financial Aid application process (with authorization using the IRS 4506C tax release document), Clarity will pull your 2025 1040 tax return 2025 W2s directly from the IRS and import the documents directly into your application.
+L424: More information about how to apply through Clarity may be  【127†found here†drive.google.com】.
+L425: ### Documents to Upload:
+L426: 
+L427:   * U.S. Applicants: All 2026 W-2’s must be manually uploaded by February 15, 2027 (You will submit your application by December 1 and add these in February).
+L428:   * Canadian Applicants: 2025 T-4 Slip and Canadian Tax Return must be uploaded by December 1, 2026
+L429:   * International (Non-Canadian) Applicants: Current Bank Statement, Salary Verification or Non-U.S. Tax Filing must be uploaded by December 1, 2026
+L430: Note: If you are a family that does not currently receive financial aid and wish to apply for financial aid, you must first reach out to Melissa Persons to review eligibility. Only families who have experienced a significant and unpreventable financial change will be permitted to apply.
+L431: #### Key Dates
+L432: 
+L433: December 1, 2026: All returning financial aid students must submit their application(s) to Clarity Financial Aid.
+L434: 
+L435: February 2, 2027: Financial aid grants are emailed along with re-enrollment documents.
+L436: 
+L437: February 20, 2027: Deadline for parental acceptance of the financial aid grant offer.
+L438: ## Questions?
+L439: 
+L440: If you have any questions about the financial aid process or affording a Deerfield education, please do not hesitate to reach out.
+L441: 
+L442: 【128†Image】
+L443: 
+L444: Melissa Persons
+L445: Dean of Financial Aid and Enrollment
+L446: 
+L447:   * Email mpersons@deerfield.edu
+L448:   * Phone 413-774-1568
+L449: Melissa Persons P ’16, ’19, ’21, is the Dean of Financial Aid and Enrollment at Deerfield Academy. Melissa attended Miss Porter’s School and graduated from St. Michael’s College with a degree in Business Administration. Her experience in finance began at Walt Disney World and also includes time at Blue Cross BlueShield of New Hampshire. She has been at Deerfield since 2008.
+L450: ## Frequently Asked Questions
+L451: 
+L452: In what grade can I start my application?
+L453: 
+L454: Deerfield welcomes applications for students currently in 8th-12th grade who are applying to grades 9th-12th or a postgraduate year for the following academic year.
+L455: 
+L456: What can I do if I am not in 8th grade yet?
+L457: 
+L458: Current 6th graders and beyond may 【45†request our viewbook†deerfield.schooladminonline.com】 to be entered into our system for future application years.
+L459: Prior to 6th grade, we encourage you to explore our website to familiarize yourself with Deerfield and all it has to offer.
+L460: 
+L461: When can I visit campus?
+L462: 
+L463: 7th graders can visit campus April-August. Dates may vary, but traditionally these appointments are offered on weekdays.
+L464: 
+L465: Over the summer, our office provides Tour and Interview appointments for 8th grade families and above who are applying for the upcoming fall.
+L466: 
+L467: Academic year appointments are for application eligible students only.
+L468: What address for Deerfield works for my GPS?
+L469: 
+L470: In GPS systems, you can use: 7 Old Main Street, 1 Albany Road, or 1 Academy Lane in Deerfield, MA.
+L471: 
+L472: Are interviews required for prospective students?
+L473: 
+L474: An interview is an important part of Deerfield’s holistic application process. As space becomes limited in December and January, we highly recommend that you book your interview appointment early.
+L475: 
+L476: Do you admit midyear applicants?
+L477: 
+L478: No, Deerfield does not admit students in the middle of the academic year.
+L479: Do you allow applicants to repeat their current grade?
+L480: 
+L481: Yes. If you are thinking of repeating your current grade, we encourage you to discuss this with your admission officer during your interview. This process is also called reclassifying.
+L482: 
+L483: I am in the process of submitting materials on Gateway to Prep Schools website. What if I am not currently taking an English or Math class?
+L484: You should make the recommendation request through Gateway to Prep Schools with your English or Math teacher from last year and inform our office of your situation.
+L485: 
+L486: What standardized tests are required for application to Deerfield?
+L487: 
+L488: Deerfield requires all candidates to submit standardized testing as part of our holistic admission process. Please review our 【71†testing requirements for the current admission cycle.】
+L489: 
+L490: Does Deerfield have Saturday classes?
+L491: Deerfield does not hold academic classes on Saturdays; instead many of our students participate in co-curricular activities.
+L492: 
+L493: Is there a dress code at Deerfield?
+L494: 
+L495: Yes, Deerfield has an academic dress code policy. The dress code is a shared experience and an everyday practice that signals seriousness of purpose and mutual respect within our community.  You can view our dress code policy 【129†HERE】.
+L496: 
+L497: Do you provide application fee waivers?
+L498: Deerfield does provide application fee waivers for qualifying families. To be considered for a fee waiver, applicants who have completed their Candidate Profile must submit our 【124†Fee Waiver Request Form】. This is a financial need based process.
+L499: 
+L500: What financial aid does Deerfield offer?
+L501: Deerfield’s financial aid program is a need-based program that supports 100% of demonstrated need. The program is comprehensive and may cover up to 100% of the total cost of tuition. We also support additional expenses such as travel and health insurance for a portion of our community.
+L502: 
+L503: What is the deadline to apply for financial aid?
+L504: 
+L505: Our financial aid deadline is January 15.  You can find more information on financial aid 【72†HERE】.
+L506: 
+L507: When will we be notified if we received a financial aid award?
+L508: Financial aid awards are sent on March 10.
+L509: 
+L510: What is your policy on late applications?
+L511: 
+L512: Deerfield accepts students for September enrollment only. Our priority application deadline for September enrollment is January 15. We will make every effort to fully consider applications completed (including testing) after January 15, however we cannot guarantee a March 10 notification.
+L513: Admission opportunities for late candidates, who do not receive a March 10 notification, is limited by the number of spaces available after April 10. The Admission Committee meets periodically throughout the spring to make decisions on this group of candidates.
+L514: ## Contact Admission Office
+L515: 
+L516: admission@deerfield.edu
+L517: 413-774-1400
+L518: Fax 413-772-1129
+L519: 
+L520: Main School Building
+L521: Mon-Fri, 8:00am–4:30pm
+L522: 
+L523: 7 Boyden Lane, PO Box 65
+L524: Deerfield, MA 01342
+L525: 
+L526: 【130†Image】
+L527: 
+L528: Be Worthy: A Campaign for Deerfield is an invitation to Deerfield’s global community to renew the promise that has defined this school for more than two centuries: that each generation enriches the Academy for the next, leaving Deerfield stronger, more deeply Deerfield, and more worthy than they found it.
+L529: 【131†Learn more†beworthy.deerfield.edu】
+L530: 
+L531:   *   *   *   *   *   * 【25†Visit】
+L532: 
+L533: 【71†Apply】
+L534: 
+L535: 【104†MAKE A GIFT】
+L536: 
+L537:  7 Boyden Lane, PO Box 87, Deerfield, MA 01342
+L538: NOTICE OF NONDISCRIMINATORY POLICY AS TO STUDENTS: Deerfield Academy admits students of any race, color, national and ethnic origin to all the rights, privileges, programs, and activities generally accorded or made available to students at the school. It does not discriminate on the basis of race, color, national and ethnic origin in administration of its educational policies, admissions policies, scholarship and loan programs, and athletic and other school-administered programs.
+L539: © Copyright 2026 The Trustees of Deerfield Academy. Designed and developed by 【132†Underscorefunk Design†underscorefunk.com】 in partnership with Deerfield Academy.
+

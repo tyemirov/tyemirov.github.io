@@ -1,0 +1,32 @@
+{
+  "checked_on": "2026-10-20",
+  "schools": [
+    {
+      "national_rank": 305,
+      "school": "Compton Early College High School",
+      "recommended_status": "excluded",
+      "reason": "Evaluative school admissions review",
+      "admissions_source_urls": [
+        "https://earlycollegehs.compton.k12.ca.us/",
+        "https://forms.gle/H5kL1fMsVzzxaBYb9",
+        "https://docs.google.com/forms/d/e/1FAIpQLSfYGeMlD9bLIn01xHaYKG1g9OeZC1RDhCp5pK2XqnSIYl4hrg/viewform?usp=send_form"
+      ],
+      "evidence_summary": "Official school homepage links the2027-28 confidential teacher recommendation form. Its first page explains that recommendations assess academic habits, independence, perseverance, communication, collaboration, responsibility, and readiness for rigorous early-college study and go directly to the CEC Admissions Review Panel as one component of overall application review. Form footer confirms creation inside Compton Unified School District.",
+      "source_quote": "Your recommendation is one component of the overall application review.",
+      "evidence_limit": "Main2027-28 application returned HTTP401. Public recommendation introduction establishes evaluative panel review, but full admission rubric and seat-allocation mechanism were not accessible.",
+      "retrieval_note": "Read official homepage and public recommendation first page via Python urllib. No form was submitted."
+    },
+    {
+      "national_rank": 322,
+      "school": "Sato Academy of Mathematics and Science",
+      "recommended_status": "excluded",
+      "reason": "GPA, course, and test-score criteria; oversubscription selection by GPA",
+      "admissions_source_urls": [
+        "https://sato.lbschools.net/the-clubs/engineering-and-biomedical",
+        "https://www.lbschools.net/departments/high-schools/school-choice"
+      ],
+      "evidence_summary": "Official school Engineering and Biomedical pathway page establishes minimum3.0GPA for grades6+7; Algebra I in8th for two semesters; minimum seventh-grade SBAC ELA2552 and Math2567. Qualified applicants selected by school rank choice, and when applicants exceed seats selection uses GPA. Both school pathways covered; district choice page confirms placement based on established criteria and available space.",
+      "source_quote": "If there are more applicants than spots available, students are selected based on GPA."
+    }
+  ]
+}

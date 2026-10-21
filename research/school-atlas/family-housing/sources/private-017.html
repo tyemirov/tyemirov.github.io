@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+	<head><META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.5",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),this},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||!t.src||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e=window){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();
+</script>
+	    <title>Investing in a Cate Education - Cate School</title>
+<link data-rocket-prefetch href="https://www.googletagmanager.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://connect.facebook.net" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://www.google-analytics.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://use.typekit.net" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://use.fontawesome.com" rel="dns-prefetch"><link rel="preload" data-rocket-preload as="image" href="https://www.cate.org/wp-content/uploads/2026/01/DSC00335-1280x800.jpg" fetchpriority="high">
+		<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v28.7 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<link rel="canonical" href="https://www.cate.org/admission/financial-assistance/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Investing in a Cate Education - Cate School" />
+	<meta property="og:description" content="Financial Assistance Beyond their intellect, Cate students are distinguished by their curiosity, their compassion, and their kindness. Cate students come from every corner of the world, and every kind of community, which attests to the fact that these qualities know no boundaries. Accordingly, Cate’s need-based financial assistance program works to ensure that the cost of ..." />
+	<meta property="og:url" content="https://www.cate.org/admission/financial-assistance/" />
+	<meta property="og:site_name" content="Cate School" />
+	<meta property="article:modified_time" content="2026-10-06T21:24:45+00:00" />
+	<meta property="og:image" content="https://www.cate.org/wp-content/uploads/2021/08/cate-og-share.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="4 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/www.cate.org\/admission\/financial-assistance\/","url":"https:\/\/www.cate.org\/admission\/financial-assistance\/","name":"Investing in a Cate Education - Cate School","isPartOf":{"@id":"https:\/\/www.cate.org\/#website"},"datePublished":"2016-08-19T05:33:54+00:00","dateModified":"2026-10-06T21:24:45+00:00","breadcrumb":{"@id":"https:\/\/www.cate.org\/admission\/financial-assistance\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/www.cate.org\/admission\/financial-assistance\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/www.cate.org\/admission\/financial-assistance\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/www.cate.org\/"},{"@type":"ListItem","position":2,"name":"Admission","item":"https:\/\/www.cate.org\/admission\/"},{"@type":"ListItem","position":3,"name":"Investing in a Cate Education"}]},{"@type":"WebSite","@id":"https:\/\/www.cate.org\/#website","url":"https:\/\/www.cate.org\/","name":"Cate School","description":"Boarding School in California","publisher":{"@id":"https:\/\/www.cate.org\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.cate.org\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/www.cate.org\/#organization","name":"Cate School","url":"https:\/\/www.cate.org\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/www.cate.org\/#\/schema\/logo\/image\/","url":"https:\/\/www.cate.org\/wp-content\/uploads\/2021\/07\/logo.svg","contentUrl":"https:\/\/www.cate.org\/wp-content\/uploads\/2021\/07\/logo.svg","width":195,"height":40,"caption":"Cate School"},"image":{"@id":"https:\/\/www.cate.org\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/www.instagram.com\/cate_school\/?hl=en"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.cate.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.cate.org%2Fadmission%2Ffinancial-assistance%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.cate.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.cate.org%2Fadmission%2Ffinancial-assistance%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<link rel='stylesheet' id='metaslider-blocks-editor-css-css' href='https://www.cate.org/wp-content/plugins/ml-slider/admin/assets/dist/css/editor-block.css?ver=3.113.1' media='all' property='stylesheet' />
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='slb_core-css' href='https://www.cate.org/wp-content/plugins/simple-lightbox/client/css/app.css?ver=2.9.5' media='all' />
+<style id="rocket-lazyload-inline-css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:var(--wpr-bg-0f89ba09-4420-4f20-a0ea-3e79df8865dd) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+/*# sourceURL=rocket-lazyload-inline-css */
+</style>
+<script id="jquery-core-js" src="https://www.cate.org/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" data-rocket-defer defer></script>
+<script id="jquery-migrate-js" src="https://www.cate.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" data-rocket-defer defer></script>
+<link rel="https://api.w.org/" href="https://www.cate.org/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.cate.org/wp-json/wp/v2/pages/380" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.cate.org/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://www.cate.org/?p=380' />
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://www.cate.org/wp-content/cache/background-css/1/www.cate.org/wp-content/themes/cateschool/style.css?v=3.2&wpr_t=1792496560" media="screen" />
+	<link rel="stylesheet" type="text/css" href="https://use.typekit.net/xub2xbh.css" media="all" /> 
+    <script type="text/rocketlazyloadscript" defer data-rocket-src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>  
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.cate.org/wp-content/themes/cateschool/img/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.cate.org/wp-content/themes/cateschool/img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.cate.org/wp-content/themes/cateschool/img/favicon-16x16.png">
+	<link rel="manifest" href="https://www.cate.org/site.webmanifest">
+	<link rel="mask-icon" href="https://www.cate.org/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">  
+	 <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-1881178-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- Facebook Pixel Code -->
+<script type="text/rocketlazyloadscript">
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1420873894639245');
+fbq('track', 'PageView'); fbq('track', 'ViewContent', {content_name: 'cate_school'});
+</script>
+<noscript>
+<img height="1" width="1" src="https://www.facebook.com/tr?id=1420873894639245&ev=PageView&noscript=1" />
+</noscript>
+<!-- End Facebook Pixel Code -->
+<style type="text/css">
+.page-id-54705 h1 {visibility:hidden;}
+</style>
+<style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><style id="wp-custom-css">
+recruitment-current-openings {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript> 
+	<style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">input[type=search]{--wpr-bg-f42d3e63-81d1-46c6-b813-1db0d8ae46ae: url('https://www.cate.org/wp-content/themes/cateschool/img/search-icon.png');}input.error404--form__field[type=search]{--wpr-bg-3d43a144-9dab-4447-af5f-88f7d0b60370: url('https://www.cate.org/wp-content/themes/cateschool/img/search-icon.png');}.ug-gallery-wrapper .ug-preloader-trans{--wpr-bg-514f258e-f527-4b21-ba09-725c9b5171aa: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader_skype_trans.gif');}.ug-slider-preloader.ug-loader1{--wpr-bg-c29cd428-ddea-4b5e-b416-bb70413b4621: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-white1.gif');}.ug-slider-preloader.ug-loader1.ug-loader-black{--wpr-bg-de46cdf2-3992-4e8a-95fc-8b5ae7ec54a9: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-black1.gif');}.ug-slider-preloader.ug-loader2{--wpr-bg-c5e2699f-e355-4d05-a4a8-268b0182811d: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-white2.gif');}.ug-slider-preloader.ug-loader2.ug-loader-black{--wpr-bg-c9f45d21-6fdf-4bde-b0de-9dc2ac239847: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-black2.gif');}.ug-slider-preloader.ug-loader3{--wpr-bg-71558397-ad3d-4f68-8884-ece2b94ee138: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-white3.gif');}.ug-slider-preloader.ug-loader3.ug-loader-black{--wpr-bg-5028926d-b08c-405a-836e-71a9201547f0: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-black3.gif');}.ug-slider-preloader.ug-loader4{--wpr-bg-9aa1c31f-4f16-4465-8a58-070b3aefe17d: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-white4.gif');}.ug-slider-preloader.ug-loader4.ug-loader-black{--wpr-bg-8a5330d3-96e8-404f-bdeb-966bab68eaef: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-black4.gif');}.ug-slider-preloader.ug-loader5{--wpr-bg-534608b3-c92f-4a97-b3b1-974f7ce8c549: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-white5.gif');}.ug-slider-preloader.ug-loader5.ug-loader-black{--wpr-bg-4b96a168-2fed-4bfa-aa34-334e1a986f3d: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-black5.gif');}.ug-slider-preloader.ug-loader6{--wpr-bg-ebefb6a8-81d4-444b-a9be-9cedbcfa68b4: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-white6.gif');}.ug-slider-preloader.ug-loader6.ug-loader-black{--wpr-bg-33a3632a-64e4-4900-9f0d-d4b63d2c6ad2: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-black6.gif');}.ug-slider-preloader.ug-loader7{--wpr-bg-016a92b2-de5c-4d22-a6ed-a1263ef85d4f: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-white7.gif');}.ug-slider-preloader.ug-loader7.ug-loader-black{--wpr-bg-22819489-4407-46aa-b317-b89a114a9eff: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-black7.gif');}.ug-slider-wrapper .ug-button-videoplay.ug-type-square{--wpr-bg-0dd4204a-53e3-4f7d-825d-17df141cc49e: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/play-button-square.png');}.ug-slider-wrapper .ug-button-videoplay.ug-type-round{--wpr-bg-386fa261-f67a-4401-bd6a-55bffb6ffd27: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/play-button-round.png');}.ug-gallery-wrapper .ug-videoplayer{--wpr-bg-1c8bfbb3-2a12-4501-b6ac-6c0ce7991ccf: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-black1.gif');}.ug-videoplayer .ug-videoplayer-wrapper{--wpr-bg-6c56113a-ea37-45b9-8033-8ac1ffce42df: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader-black1.gif');}.ug-videoplayer .ug-videoplayer-button-close{--wpr-bg-6de91bf6-78a1-4f4a-bce6-fac237896722: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/button-close.png');}.ug-thumb-wrapper.ug-thumb-generated .ug-thumb-loader-dark{--wpr-bg-70f5323d-7fa2-447d-8b97-7dff186df7ca: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader.gif');}.ug-thumb-wrapper.ug-thumb-generated .ug-thumb-loader-bright{--wpr-bg-2331e0da-e26d-42ef-9b03-77dbe7417c63: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/loader_bright.gif');}.ug-thumb-wrapper.ug-thumb-generated .ug-thumb-error{--wpr-bg-50938435-9ed8-47af-bf6e-4968d755e1e6: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/not_loaded.png');}.ug-gallery-wrapper .ug-overlay-disabled{--wpr-bg-f035cd37-f820-457b-95f8-ac7516d572f5: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/cover-grid.png');}.ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-link{--wpr-bg-db85e259-2364-48c5-9236-8ab012b32d8b: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/icon-link32.png');}.ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-zoom{--wpr-bg-818d2e37-6b5d-4992-afbf-2bd0c8e0db3c: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/icon-zoom32.png');}.ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-play{--wpr-bg-0b7f39f6-09b0-4c9d-9536-20c9f8bf835c: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/icon-play32.png');}.ug-lightbox .ug-lightbox-arrow-left,
+.ug-lightbox .ug-lightbox-arrow-right{--wpr-bg-75192883-1e5f-436f-94b4-236bea123d35: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/lightbox-arrow-left.png');}.ug-lightbox .ug-lightbox-arrow-right{--wpr-bg-8c0db92c-e7f0-4dac-8bf6-0b830ce0ba5e: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/lightbox-arrow-right.png');}.ug-lightbox .ug-lightbox-button-close{--wpr-bg-2f4a0597-d70f-4b73-85ff-79972bbe180d: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/lightbox-icon-close.png');}.ug-lightbox-compact .ug-lightbox-button-close{--wpr-bg-e8928c78-e399-4d0d-8751-5092ee17b6d0: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/images/lightbox-icon-close-compact2.png');}.ug-arrow-left.ug-skin-default,
+.ug-arrow-right.ug-skin-default{--wpr-bg-1270c73b-9e8e-43de-86e5-b9ea8d38dfb6: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/slider_arrow_left.png');}.ug-arrow-right.ug-skin-default{--wpr-bg-e299542b-0e3f-42b4-a2ba-12bff910f1db: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/slider_arrow_right.png');}.ug-bullets.ug-skin-default .ug-bullet{--wpr-bg-7946457a-96f1-4e7c-9157-92f655eb6f9c: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/slider_bullets.png');}.ug-bullets.ug-skin-default.ug-bullets-gray .ug-bullet{--wpr-bg-cf82b754-1a2e-4d7f-abf3-cd56195a3d73: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/tile_bullets_gray.png');}.ug-bullets.ug-skin-default.ug-bullets-blue .ug-bullet{--wpr-bg-e7f7aee2-0580-4462-8094-40c720e65ec8: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/tile_bullets_blue.png');}.ug-bullets.ug-skin-default.ug-bullets-brown .ug-bullet{--wpr-bg-b93a5d84-4ebe-41aa-87c8-78d89a579504: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/tile_bullets_brown.png');}.ug-bullets.ug-skin-default.ug-bullets-green .ug-bullet{--wpr-bg-b8b622ae-9c20-4ce9-a106-0662432b1266: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/tile_bullets_green.png');}.ug-bullets.ug-skin-default.ug-bullets-red .ug-bullet{--wpr-bg-38329fd2-bdde-4320-902c-03e206340832: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/tile_bullets_red.png');}.ug-button-tile-navigation.ug-button-tile-left{--wpr-bg-1129b30f-c602-42a4-83f2-5db60a9d951a: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/tile_button_left.png');}.ug-button-tile-navigation.ug-button-tile-right{--wpr-bg-cd4c6514-9312-4af1-8878-7a5e7c0af798: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/tile_button_right.png');}.ug-button-tile-navigation.ug-button-tile-play{--wpr-bg-b7c998fc-5b2f-4b9a-bc34-dabaa07c3bf5: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/tile_button_play_pause.png');}.ug-button-play.ug-skin-default{--wpr-bg-6a55c43f-cb27-494b-b6d5-84d082757358: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/button_playpause.png');}.ug-button-fullscreen.ug-skin-default{--wpr-bg-56369f0b-432a-4356-bf8c-42a938de5553: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/button_fullscreen.png');}.ug-zoompanel.ug-skin-default .ug-zoompanel-plus{--wpr-bg-fa84c1e4-fbdc-4d76-a189-e95365af4a5d: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/icon_zoom_plus.png');}.ug-zoompanel.ug-skin-default .ug-zoompanel-minus{--wpr-bg-f569b494-4c31-40a8-b064-5d20176c2e40: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/icon_zoom_minus.png');}.ug-zoompanel.ug-skin-default .ug-zoompanel-return{--wpr-bg-26b2b37e-d628-4aca-b833-8673b4a02522: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/icon_zoom_back.png');}.ug-gallery-wrapper .ug-grid-panel .grid-arrow-down.ug-skin-default{--wpr-bg-e54cfd76-f5ce-4fb8-a726-c9b8cf7c1d7b: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/arrow_grid_down.png');}.ug-gallery-wrapper .ug-grid-panel .grid-arrow-up.ug-skin-default{--wpr-bg-fd4cc4bb-ba0c-4eb7-8432-f46d71e19de7: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/arrow_grid_up.png');}.ug-gallery-wrapper .ug-grid-panel .grid-arrow-left.ug-skin-default{--wpr-bg-cc362d78-ae1a-4f3f-84e1-ac3fc21e3b42: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/grid_arrow_left.png');}.ug-gallery-wrapper .ug-grid-panel .grid-arrow-right.ug-skin-default{--wpr-bg-d6a638a7-6189-425c-849f-244dd76419a1: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/grid_arrow_right.png');}.ug-gallery-wrapper .ug-grid-panel .grid-arrow-left-hortype.ug-skin-default{--wpr-bg-a4f09a57-e02f-421b-884c-1c9137036304: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/slider_arrow_left.png');}.ug-gallery-wrapper .ug-grid-panel .grid-arrow-right-hortype.ug-skin-default{--wpr-bg-d1587a64-0628-4b52-99b4-4a5ddd902e54: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/slider_arrow_right.png');}.ug-strip-panel .ug-strip-arrow-left.ug-skin-default .ug-strip-arrow-tip{--wpr-bg-ddfa4cdb-9219-4655-a1d7-bbfefdab0418: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/arrows_strip_left.png');}.ug-strip-panel .ug-strip-arrow-right.ug-skin-default .ug-strip-arrow-tip{--wpr-bg-4cf8601d-154a-40e0-b6b0-f75739d84437: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/arrows_strip_right.png');}.ug-strip-panel .ug-strip-arrow-up.ug-skin-default .ug-strip-arrow-tip{--wpr-bg-79b10919-ab42-4f3b-9f59-e83e2a3a7f10: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/arrows_strip_up.png');}.ug-strip-panel .ug-strip-arrow-down.ug-skin-default .ug-strip-arrow-tip{--wpr-bg-29b0995b-20e3-42d5-a317-92965ef8d68c: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/arrows_strip_down.png');}.ug-gallery-wrapper .ug-handle-tip-left.ug-skin-default,
+.ug-gallery-wrapper .ug-handle-tip-right.ug-skin-default{--wpr-bg-7591f8b0-31e5-4a6a-a41b-846f6a5f2500: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/grid_handle_black_left.png');}.ug-gallery-wrapper .ug-handle-tip-right.ug-skin-default{--wpr-bg-eab32d0f-54de-4edd-83a2-5694a2ea37b0: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/grid_handle_black_right.png');}.ug-gallery-wrapper .ug-handle-tip-top.ug-skin-default,
+.ug-gallery-wrapper .ug-handle-tip-bottom.ug-skin-default{--wpr-bg-6d65d9d6-c413-4a14-a915-293c4b92ff37: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/grid_handle_black_top.png');}.ug-gallery-wrapper .ug-handle-tip-bottom.ug-skin-default{--wpr-bg-8745425f-7b4e-4d72-8e5e-2aeb887ac077: url('https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/skins/default/grid_handle_black_bottom.png');}.select-css, .sidebar select{--wpr-bg-ba830b5c-87c1-4cad-bafa-7eb0da71ada8: url('https://www.cate.org/wp-content/themes/cateschool/img/chevron-down-solid.svg');}.rll-youtube-player .play{--wpr-bg-0f89ba09-4420-4f20-a0ea-3e79df8865dd: url('https://www.cate.org/wp-content/plugins/wp-rocket/assets/img/youtube.png');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":"input[type=search]","style":"input[type=search]{--wpr-bg-f42d3e63-81d1-46c6-b813-1db0d8ae46ae: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/img\/search-icon.png');}","hash":"f42d3e63-81d1-46c6-b813-1db0d8ae46ae","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/img\/search-icon.png"},{"selector":"input.error404--form__field[type=search]","style":"input.error404--form__field[type=search]{--wpr-bg-3d43a144-9dab-4447-af5f-88f7d0b60370: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/img\/search-icon.png');}","hash":"3d43a144-9dab-4447-af5f-88f7d0b60370","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/img\/search-icon.png"},{"selector":".ug-gallery-wrapper .ug-preloader-trans","style":".ug-gallery-wrapper .ug-preloader-trans{--wpr-bg-514f258e-f527-4b21-ba09-725c9b5171aa: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader_skype_trans.gif');}","hash":"514f258e-f527-4b21-ba09-725c9b5171aa","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader_skype_trans.gif"},{"selector":".ug-slider-preloader.ug-loader1","style":".ug-slider-preloader.ug-loader1{--wpr-bg-c29cd428-ddea-4b5e-b416-bb70413b4621: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white1.gif');}","hash":"c29cd428-ddea-4b5e-b416-bb70413b4621","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white1.gif"},{"selector":".ug-slider-preloader.ug-loader1.ug-loader-black","style":".ug-slider-preloader.ug-loader1.ug-loader-black{--wpr-bg-de46cdf2-3992-4e8a-95fc-8b5ae7ec54a9: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black1.gif');}","hash":"de46cdf2-3992-4e8a-95fc-8b5ae7ec54a9","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black1.gif"},{"selector":".ug-slider-preloader.ug-loader2","style":".ug-slider-preloader.ug-loader2{--wpr-bg-c5e2699f-e355-4d05-a4a8-268b0182811d: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white2.gif');}","hash":"c5e2699f-e355-4d05-a4a8-268b0182811d","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white2.gif"},{"selector":".ug-slider-preloader.ug-loader2.ug-loader-black","style":".ug-slider-preloader.ug-loader2.ug-loader-black{--wpr-bg-c9f45d21-6fdf-4bde-b0de-9dc2ac239847: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black2.gif');}","hash":"c9f45d21-6fdf-4bde-b0de-9dc2ac239847","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black2.gif"},{"selector":".ug-slider-preloader.ug-loader3","style":".ug-slider-preloader.ug-loader3{--wpr-bg-71558397-ad3d-4f68-8884-ece2b94ee138: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white3.gif');}","hash":"71558397-ad3d-4f68-8884-ece2b94ee138","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white3.gif"},{"selector":".ug-slider-preloader.ug-loader3.ug-loader-black","style":".ug-slider-preloader.ug-loader3.ug-loader-black{--wpr-bg-5028926d-b08c-405a-836e-71a9201547f0: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black3.gif');}","hash":"5028926d-b08c-405a-836e-71a9201547f0","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black3.gif"},{"selector":".ug-slider-preloader.ug-loader4","style":".ug-slider-preloader.ug-loader4{--wpr-bg-9aa1c31f-4f16-4465-8a58-070b3aefe17d: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white4.gif');}","hash":"9aa1c31f-4f16-4465-8a58-070b3aefe17d","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white4.gif"},{"selector":".ug-slider-preloader.ug-loader4.ug-loader-black","style":".ug-slider-preloader.ug-loader4.ug-loader-black{--wpr-bg-8a5330d3-96e8-404f-bdeb-966bab68eaef: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black4.gif');}","hash":"8a5330d3-96e8-404f-bdeb-966bab68eaef","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black4.gif"},{"selector":".ug-slider-preloader.ug-loader5","style":".ug-slider-preloader.ug-loader5{--wpr-bg-534608b3-c92f-4a97-b3b1-974f7ce8c549: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white5.gif');}","hash":"534608b3-c92f-4a97-b3b1-974f7ce8c549","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white5.gif"},{"selector":".ug-slider-preloader.ug-loader5.ug-loader-black","style":".ug-slider-preloader.ug-loader5.ug-loader-black{--wpr-bg-4b96a168-2fed-4bfa-aa34-334e1a986f3d: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black5.gif');}","hash":"4b96a168-2fed-4bfa-aa34-334e1a986f3d","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black5.gif"},{"selector":".ug-slider-preloader.ug-loader6","style":".ug-slider-preloader.ug-loader6{--wpr-bg-ebefb6a8-81d4-444b-a9be-9cedbcfa68b4: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white6.gif');}","hash":"ebefb6a8-81d4-444b-a9be-9cedbcfa68b4","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white6.gif"},{"selector":".ug-slider-preloader.ug-loader6.ug-loader-black","style":".ug-slider-preloader.ug-loader6.ug-loader-black{--wpr-bg-33a3632a-64e4-4900-9f0d-d4b63d2c6ad2: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black6.gif');}","hash":"33a3632a-64e4-4900-9f0d-d4b63d2c6ad2","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black6.gif"},{"selector":".ug-slider-preloader.ug-loader7","style":".ug-slider-preloader.ug-loader7{--wpr-bg-016a92b2-de5c-4d22-a6ed-a1263ef85d4f: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white7.gif');}","hash":"016a92b2-de5c-4d22-a6ed-a1263ef85d4f","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-white7.gif"},{"selector":".ug-slider-preloader.ug-loader7.ug-loader-black","style":".ug-slider-preloader.ug-loader7.ug-loader-black{--wpr-bg-22819489-4407-46aa-b317-b89a114a9eff: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black7.gif');}","hash":"22819489-4407-46aa-b317-b89a114a9eff","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black7.gif"},{"selector":".ug-slider-wrapper .ug-button-videoplay.ug-type-square","style":".ug-slider-wrapper .ug-button-videoplay.ug-type-square{--wpr-bg-0dd4204a-53e3-4f7d-825d-17df141cc49e: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/play-button-square.png');}","hash":"0dd4204a-53e3-4f7d-825d-17df141cc49e","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/play-button-square.png"},{"selector":".ug-slider-wrapper .ug-button-videoplay.ug-type-round","style":".ug-slider-wrapper .ug-button-videoplay.ug-type-round{--wpr-bg-386fa261-f67a-4401-bd6a-55bffb6ffd27: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/play-button-round.png');}","hash":"386fa261-f67a-4401-bd6a-55bffb6ffd27","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/play-button-round.png"},{"selector":".ug-gallery-wrapper .ug-videoplayer","style":".ug-gallery-wrapper .ug-videoplayer{--wpr-bg-1c8bfbb3-2a12-4501-b6ac-6c0ce7991ccf: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black1.gif');}","hash":"1c8bfbb3-2a12-4501-b6ac-6c0ce7991ccf","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black1.gif"},{"selector":".ug-videoplayer .ug-videoplayer-wrapper","style":".ug-videoplayer .ug-videoplayer-wrapper{--wpr-bg-6c56113a-ea37-45b9-8033-8ac1ffce42df: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black1.gif');}","hash":"6c56113a-ea37-45b9-8033-8ac1ffce42df","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader-black1.gif"},{"selector":".ug-videoplayer .ug-videoplayer-button-close","style":".ug-videoplayer .ug-videoplayer-button-close{--wpr-bg-6de91bf6-78a1-4f4a-bce6-fac237896722: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/button-close.png');}","hash":"6de91bf6-78a1-4f4a-bce6-fac237896722","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/button-close.png"},{"selector":".ug-thumb-wrapper.ug-thumb-generated .ug-thumb-loader-dark","style":".ug-thumb-wrapper.ug-thumb-generated .ug-thumb-loader-dark{--wpr-bg-70f5323d-7fa2-447d-8b97-7dff186df7ca: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader.gif');}","hash":"70f5323d-7fa2-447d-8b97-7dff186df7ca","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader.gif"},{"selector":".ug-thumb-wrapper.ug-thumb-generated .ug-thumb-loader-bright","style":".ug-thumb-wrapper.ug-thumb-generated .ug-thumb-loader-bright{--wpr-bg-2331e0da-e26d-42ef-9b03-77dbe7417c63: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader_bright.gif');}","hash":"2331e0da-e26d-42ef-9b03-77dbe7417c63","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/loader_bright.gif"},{"selector":".ug-thumb-wrapper.ug-thumb-generated .ug-thumb-error","style":".ug-thumb-wrapper.ug-thumb-generated .ug-thumb-error{--wpr-bg-50938435-9ed8-47af-bf6e-4968d755e1e6: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/not_loaded.png');}","hash":"50938435-9ed8-47af-bf6e-4968d755e1e6","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/not_loaded.png"},{"selector":".ug-gallery-wrapper .ug-overlay-disabled","style":".ug-gallery-wrapper .ug-overlay-disabled{--wpr-bg-f035cd37-f820-457b-95f8-ac7516d572f5: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/cover-grid.png');}","hash":"f035cd37-f820-457b-95f8-ac7516d572f5","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/cover-grid.png"},{"selector":".ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-link","style":".ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-link{--wpr-bg-db85e259-2364-48c5-9236-8ab012b32d8b: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/icon-link32.png');}","hash":"db85e259-2364-48c5-9236-8ab012b32d8b","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/icon-link32.png"},{"selector":".ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-zoom","style":".ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-zoom{--wpr-bg-818d2e37-6b5d-4992-afbf-2bd0c8e0db3c: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/icon-zoom32.png');}","hash":"818d2e37-6b5d-4992-afbf-2bd0c8e0db3c","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/icon-zoom32.png"},{"selector":".ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-play","style":".ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-play{--wpr-bg-0b7f39f6-09b0-4c9d-9536-20c9f8bf835c: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/icon-play32.png');}","hash":"0b7f39f6-09b0-4c9d-9536-20c9f8bf835c","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/icon-play32.png"},{"selector":".ug-lightbox .ug-lightbox-arrow-left,\n.ug-lightbox .ug-lightbox-arrow-right","style":".ug-lightbox .ug-lightbox-arrow-left,\n.ug-lightbox .ug-lightbox-arrow-right{--wpr-bg-75192883-1e5f-436f-94b4-236bea123d35: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/lightbox-arrow-left.png');}","hash":"75192883-1e5f-436f-94b4-236bea123d35","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/lightbox-arrow-left.png"},{"selector":".ug-lightbox .ug-lightbox-arrow-right","style":".ug-lightbox .ug-lightbox-arrow-right{--wpr-bg-8c0db92c-e7f0-4dac-8bf6-0b830ce0ba5e: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/lightbox-arrow-right.png');}","hash":"8c0db92c-e7f0-4dac-8bf6-0b830ce0ba5e","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/lightbox-arrow-right.png"},{"selector":".ug-lightbox .ug-lightbox-button-close","style":".ug-lightbox .ug-lightbox-button-close{--wpr-bg-2f4a0597-d70f-4b73-85ff-79972bbe180d: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/lightbox-icon-close.png');}","hash":"2f4a0597-d70f-4b73-85ff-79972bbe180d","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/lightbox-icon-close.png"},{"selector":".ug-lightbox-compact .ug-lightbox-button-close","style":".ug-lightbox-compact .ug-lightbox-button-close{--wpr-bg-e8928c78-e399-4d0d-8751-5092ee17b6d0: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/lightbox-icon-close-compact2.png');}","hash":"e8928c78-e399-4d0d-8751-5092ee17b6d0","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/images\/lightbox-icon-close-compact2.png"},{"selector":".ug-arrow-left.ug-skin-default,\n.ug-arrow-right.ug-skin-default","style":".ug-arrow-left.ug-skin-default,\n.ug-arrow-right.ug-skin-default{--wpr-bg-1270c73b-9e8e-43de-86e5-b9ea8d38dfb6: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/slider_arrow_left.png');}","hash":"1270c73b-9e8e-43de-86e5-b9ea8d38dfb6","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/slider_arrow_left.png"},{"selector":".ug-arrow-right.ug-skin-default","style":".ug-arrow-right.ug-skin-default{--wpr-bg-e299542b-0e3f-42b4-a2ba-12bff910f1db: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/slider_arrow_right.png');}","hash":"e299542b-0e3f-42b4-a2ba-12bff910f1db","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/slider_arrow_right.png"},{"selector":".ug-bullets.ug-skin-default .ug-bullet","style":".ug-bullets.ug-skin-default .ug-bullet{--wpr-bg-7946457a-96f1-4e7c-9157-92f655eb6f9c: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/slider_bullets.png');}","hash":"7946457a-96f1-4e7c-9157-92f655eb6f9c","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/slider_bullets.png"},{"selector":".ug-bullets.ug-skin-default.ug-bullets-gray .ug-bullet","style":".ug-bullets.ug-skin-default.ug-bullets-gray .ug-bullet{--wpr-bg-cf82b754-1a2e-4d7f-abf3-cd56195a3d73: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_bullets_gray.png');}","hash":"cf82b754-1a2e-4d7f-abf3-cd56195a3d73","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_bullets_gray.png"},{"selector":".ug-bullets.ug-skin-default.ug-bullets-blue .ug-bullet","style":".ug-bullets.ug-skin-default.ug-bullets-blue .ug-bullet{--wpr-bg-e7f7aee2-0580-4462-8094-40c720e65ec8: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_bullets_blue.png');}","hash":"e7f7aee2-0580-4462-8094-40c720e65ec8","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_bullets_blue.png"},{"selector":".ug-bullets.ug-skin-default.ug-bullets-brown .ug-bullet","style":".ug-bullets.ug-skin-default.ug-bullets-brown .ug-bullet{--wpr-bg-b93a5d84-4ebe-41aa-87c8-78d89a579504: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_bullets_brown.png');}","hash":"b93a5d84-4ebe-41aa-87c8-78d89a579504","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_bullets_brown.png"},{"selector":".ug-bullets.ug-skin-default.ug-bullets-green .ug-bullet","style":".ug-bullets.ug-skin-default.ug-bullets-green .ug-bullet{--wpr-bg-b8b622ae-9c20-4ce9-a106-0662432b1266: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_bullets_green.png');}","hash":"b8b622ae-9c20-4ce9-a106-0662432b1266","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_bullets_green.png"},{"selector":".ug-bullets.ug-skin-default.ug-bullets-red .ug-bullet","style":".ug-bullets.ug-skin-default.ug-bullets-red .ug-bullet{--wpr-bg-38329fd2-bdde-4320-902c-03e206340832: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_bullets_red.png');}","hash":"38329fd2-bdde-4320-902c-03e206340832","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_bullets_red.png"},{"selector":".ug-button-tile-navigation.ug-button-tile-left","style":".ug-button-tile-navigation.ug-button-tile-left{--wpr-bg-1129b30f-c602-42a4-83f2-5db60a9d951a: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_button_left.png');}","hash":"1129b30f-c602-42a4-83f2-5db60a9d951a","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_button_left.png"},{"selector":".ug-button-tile-navigation.ug-button-tile-right","style":".ug-button-tile-navigation.ug-button-tile-right{--wpr-bg-cd4c6514-9312-4af1-8878-7a5e7c0af798: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_button_right.png');}","hash":"cd4c6514-9312-4af1-8878-7a5e7c0af798","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_button_right.png"},{"selector":".ug-button-tile-navigation.ug-button-tile-play","style":".ug-button-tile-navigation.ug-button-tile-play{--wpr-bg-b7c998fc-5b2f-4b9a-bc34-dabaa07c3bf5: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_button_play_pause.png');}","hash":"b7c998fc-5b2f-4b9a-bc34-dabaa07c3bf5","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/tile_button_play_pause.png"},{"selector":".ug-button-play.ug-skin-default","style":".ug-button-play.ug-skin-default{--wpr-bg-6a55c43f-cb27-494b-b6d5-84d082757358: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/button_playpause.png');}","hash":"6a55c43f-cb27-494b-b6d5-84d082757358","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/button_playpause.png"},{"selector":".ug-button-fullscreen.ug-skin-default","style":".ug-button-fullscreen.ug-skin-default{--wpr-bg-56369f0b-432a-4356-bf8c-42a938de5553: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/button_fullscreen.png');}","hash":"56369f0b-432a-4356-bf8c-42a938de5553","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/button_fullscreen.png"},{"selector":".ug-zoompanel.ug-skin-default .ug-zoompanel-plus","style":".ug-zoompanel.ug-skin-default .ug-zoompanel-plus{--wpr-bg-fa84c1e4-fbdc-4d76-a189-e95365af4a5d: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/icon_zoom_plus.png');}","hash":"fa84c1e4-fbdc-4d76-a189-e95365af4a5d","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/icon_zoom_plus.png"},{"selector":".ug-zoompanel.ug-skin-default .ug-zoompanel-minus","style":".ug-zoompanel.ug-skin-default .ug-zoompanel-minus{--wpr-bg-f569b494-4c31-40a8-b064-5d20176c2e40: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/icon_zoom_minus.png');}","hash":"f569b494-4c31-40a8-b064-5d20176c2e40","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/icon_zoom_minus.png"},{"selector":".ug-zoompanel.ug-skin-default .ug-zoompanel-return","style":".ug-zoompanel.ug-skin-default .ug-zoompanel-return{--wpr-bg-26b2b37e-d628-4aca-b833-8673b4a02522: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/icon_zoom_back.png');}","hash":"26b2b37e-d628-4aca-b833-8673b4a02522","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/icon_zoom_back.png"},{"selector":".ug-gallery-wrapper .ug-grid-panel .grid-arrow-down.ug-skin-default","style":".ug-gallery-wrapper .ug-grid-panel .grid-arrow-down.ug-skin-default{--wpr-bg-e54cfd76-f5ce-4fb8-a726-c9b8cf7c1d7b: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/arrow_grid_down.png');}","hash":"e54cfd76-f5ce-4fb8-a726-c9b8cf7c1d7b","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/arrow_grid_down.png"},{"selector":".ug-gallery-wrapper .ug-grid-panel .grid-arrow-up.ug-skin-default","style":".ug-gallery-wrapper .ug-grid-panel .grid-arrow-up.ug-skin-default{--wpr-bg-fd4cc4bb-ba0c-4eb7-8432-f46d71e19de7: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/arrow_grid_up.png');}","hash":"fd4cc4bb-ba0c-4eb7-8432-f46d71e19de7","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/arrow_grid_up.png"},{"selector":".ug-gallery-wrapper .ug-grid-panel .grid-arrow-left.ug-skin-default","style":".ug-gallery-wrapper .ug-grid-panel .grid-arrow-left.ug-skin-default{--wpr-bg-cc362d78-ae1a-4f3f-84e1-ac3fc21e3b42: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/grid_arrow_left.png');}","hash":"cc362d78-ae1a-4f3f-84e1-ac3fc21e3b42","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/grid_arrow_left.png"},{"selector":".ug-gallery-wrapper .ug-grid-panel .grid-arrow-right.ug-skin-default","style":".ug-gallery-wrapper .ug-grid-panel .grid-arrow-right.ug-skin-default{--wpr-bg-d6a638a7-6189-425c-849f-244dd76419a1: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/grid_arrow_right.png');}","hash":"d6a638a7-6189-425c-849f-244dd76419a1","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/grid_arrow_right.png"},{"selector":".ug-gallery-wrapper .ug-grid-panel .grid-arrow-left-hortype.ug-skin-default","style":".ug-gallery-wrapper .ug-grid-panel .grid-arrow-left-hortype.ug-skin-default{--wpr-bg-a4f09a57-e02f-421b-884c-1c9137036304: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/slider_arrow_left.png');}","hash":"a4f09a57-e02f-421b-884c-1c9137036304","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/slider_arrow_left.png"},{"selector":".ug-gallery-wrapper .ug-grid-panel .grid-arrow-right-hortype.ug-skin-default","style":".ug-gallery-wrapper .ug-grid-panel .grid-arrow-right-hortype.ug-skin-default{--wpr-bg-d1587a64-0628-4b52-99b4-4a5ddd902e54: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/slider_arrow_right.png');}","hash":"d1587a64-0628-4b52-99b4-4a5ddd902e54","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/slider_arrow_right.png"},{"selector":".ug-strip-panel .ug-strip-arrow-left.ug-skin-default .ug-strip-arrow-tip","style":".ug-strip-panel .ug-strip-arrow-left.ug-skin-default .ug-strip-arrow-tip{--wpr-bg-ddfa4cdb-9219-4655-a1d7-bbfefdab0418: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/arrows_strip_left.png');}","hash":"ddfa4cdb-9219-4655-a1d7-bbfefdab0418","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/arrows_strip_left.png"},{"selector":".ug-strip-panel .ug-strip-arrow-right.ug-skin-default .ug-strip-arrow-tip","style":".ug-strip-panel .ug-strip-arrow-right.ug-skin-default .ug-strip-arrow-tip{--wpr-bg-4cf8601d-154a-40e0-b6b0-f75739d84437: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/arrows_strip_right.png');}","hash":"4cf8601d-154a-40e0-b6b0-f75739d84437","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/arrows_strip_right.png"},{"selector":".ug-strip-panel .ug-strip-arrow-up.ug-skin-default .ug-strip-arrow-tip","style":".ug-strip-panel .ug-strip-arrow-up.ug-skin-default .ug-strip-arrow-tip{--wpr-bg-79b10919-ab42-4f3b-9f59-e83e2a3a7f10: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/arrows_strip_up.png');}","hash":"79b10919-ab42-4f3b-9f59-e83e2a3a7f10","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/arrows_strip_up.png"},{"selector":".ug-strip-panel .ug-strip-arrow-down.ug-skin-default .ug-strip-arrow-tip","style":".ug-strip-panel .ug-strip-arrow-down.ug-skin-default .ug-strip-arrow-tip{--wpr-bg-29b0995b-20e3-42d5-a317-92965ef8d68c: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/arrows_strip_down.png');}","hash":"29b0995b-20e3-42d5-a317-92965ef8d68c","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/arrows_strip_down.png"},{"selector":".ug-gallery-wrapper .ug-handle-tip-left.ug-skin-default,\n.ug-gallery-wrapper .ug-handle-tip-right.ug-skin-default","style":".ug-gallery-wrapper .ug-handle-tip-left.ug-skin-default,\n.ug-gallery-wrapper .ug-handle-tip-right.ug-skin-default{--wpr-bg-7591f8b0-31e5-4a6a-a41b-846f6a5f2500: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/grid_handle_black_left.png');}","hash":"7591f8b0-31e5-4a6a-a41b-846f6a5f2500","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/grid_handle_black_left.png"},{"selector":".ug-gallery-wrapper .ug-handle-tip-right.ug-skin-default","style":".ug-gallery-wrapper .ug-handle-tip-right.ug-skin-default{--wpr-bg-eab32d0f-54de-4edd-83a2-5694a2ea37b0: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/grid_handle_black_right.png');}","hash":"eab32d0f-54de-4edd-83a2-5694a2ea37b0","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/grid_handle_black_right.png"},{"selector":".ug-gallery-wrapper .ug-handle-tip-top.ug-skin-default,\n.ug-gallery-wrapper .ug-handle-tip-bottom.ug-skin-default","style":".ug-gallery-wrapper .ug-handle-tip-top.ug-skin-default,\n.ug-gallery-wrapper .ug-handle-tip-bottom.ug-skin-default{--wpr-bg-6d65d9d6-c413-4a14-a915-293c4b92ff37: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/grid_handle_black_top.png');}","hash":"6d65d9d6-c413-4a14-a915-293c4b92ff37","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/grid_handle_black_top.png"},{"selector":".ug-gallery-wrapper .ug-handle-tip-bottom.ug-skin-default","style":".ug-gallery-wrapper .ug-handle-tip-bottom.ug-skin-default{--wpr-bg-8745425f-7b4e-4d72-8e5e-2aeb887ac077: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/grid_handle_black_bottom.png');}","hash":"8745425f-7b4e-4d72-8e5e-2aeb887ac077","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/css\/unitegallery\/skins\/default\/grid_handle_black_bottom.png"},{"selector":".select-css, .sidebar select","style":".select-css, .sidebar select{--wpr-bg-ba830b5c-87c1-4cad-bafa-7eb0da71ada8: url('https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/img\/chevron-down-solid.svg');}","hash":"ba830b5c-87c1-4cad-bafa-7eb0da71ada8","url":"https:\/\/www.cate.org\/wp-content\/themes\/cateschool\/img\/chevron-down-solid.svg"},{"selector":".rll-youtube-player .play","style":".rll-youtube-player .play{--wpr-bg-0f89ba09-4420-4f20-a0ea-3e79df8865dd: url('https:\/\/www.cate.org\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png');}","hash":"0f89ba09-4420-4f20-a0ea-3e79df8865dd","url":"https:\/\/www.cate.org\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png"}]; const rocket_excluded_pairs = [];</script><meta name="generator" content="WP Rocket 3.23.5.1" data-wpr-features="wpr_lazyload_css_bg_img wpr_delay_js wpr_defer_js wpr_lazyload_images wpr_lazyload_iframes wpr_preconnect_external_domains wpr_automatic_lazy_rendering wpr_oci wpr_image_dimensions wpr_cdn wpr_preload_links wpr_desktop" /></head>
+	<body class="wp-singular page-template-default page page-id-380 page-child parent-pageid-26 wp-theme-cateschool metaslider-plugin">
+		<div  class="frame">
+			<div  class="skip-link screen-reader-text"><a href="#main-content" title="Skip to content">Skip to content</a></div>
+			<div  class="header-container"></div>
+			<header  class="header fixed-top white">
+				<div  class="container-fluid pl-3 pr-3 pl-lg-5 pr-lg-5">
+					<div class="menu">
+						<div class="row">
+							<div class="col-6 col-lg-3 left align-self-center">
+																	<a href="https://www.cate.org" aria-label="Cate Homepage">
+																					<img src="https://www.cate.org/wp-content/uploads/2021/08/Logos-Masterfile_Cate-School-Wordmark.png" class="" width="195" height="40" alt="Cate School" />
+																			</a>
+															</div>
+							<div class="col-6 col-lg-4 offset-lg-5 align-right align-self-center">
+								<form role="search" method="get" class="search-form d-inline-block mr-lg-1" action="https://www.cate.org/">
+									<label class="mb-0">
+										<span class="screen-reader-text d-none">Search for:</span>
+										<input type="search" class="search-field" value="" name="s" placeholder="Search" title="Search for:" />
+									</label>
+								</form>
+								<div class="navbar-header fixed-bars d-inline-block">
+						        	<button class="navbar-toggler p-0 d-flex align-items-center" type="button" data-toggle="collapse" data-target="#cate-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						        		<span class="menu-label d-none mr-2 d-lg-inline-block">MENU</span>
+										<span class="navbar-toggler-icon d-inline-flex align-items-center"><span data-toggle="tooltip" data-placement="top" title="Menu"><span class="fa-bars active"></span><span class="fa-times"></span></span></span>
+									</button>
+						        </div>
+							</div>
+							<div class="main-menu h-100">
+						    	<nav class="yamm navbar-expand h-100 full-menu-first-level" role="navigation">							
+																			<div class="collapse navbar-collapse h-100 justify-content-center" id="cate-menu">
+											<div class="menu-frame">
+																														<li class="menu-level-0" id="menu-299">
+																									<a class="d-inline-block nav-link menu-expand menu-link menu-link-297">About</a>
+																								</li>
+																																																																																																																																																																																																																													<li class="menu-level-0" id="menu-86">
+																									<a class="d-inline-block nav-link menu-expand menu-link menu-link-26">Admission</a>
+																								</li>
+																																																																																																																																																																																					<li class="menu-level-0" id="menu-41">
+																									<a class="d-inline-block nav-link menu-expand menu-link menu-link-20">Academics</a>
+																								</li>
+																																																																																																																																													<li class="menu-level-0" id="menu-40">
+																									<a class="d-inline-block nav-link menu-expand menu-link menu-link-22">Life at Cate</a>
+																								</li>
+																																																																																																																																																																																					<li class="menu-level-0" id="menu-447">
+																									<a class="d-inline-block nav-link menu-expand menu-link menu-link-407">Arts</a>
+																								</li>
+																																																																																																																																																																																																																																																																					<li class="menu-level-0" id="menu-39">
+																									<a class="d-inline-block nav-link" href="https://www.cate.org/athletics/">Athletics</a>
+																							</li>
+																																									<li class="menu-level-0" id="menu-55491">
+																									<a class="d-inline-block nav-link" href="https://www.cate.org/outdoors/">Outdoors</a>
+																							</li>
+																																									<li class="menu-level-0" id="menu-20372">
+																									<a class="d-inline-block nav-link" href="/news">News</a>
+																							</li>
+																																									<li class="menu-level-0" id="menu-119">
+																									<a class="d-inline-block nav-link" href="http://cateschool.smugmug.com/">Weekly Photos</a>
+																							</li>
+																																									<li class="menu-level-0" id="menu-48895">
+																									<a class="d-inline-block nav-link" href="https://www.cate.org/summer/">Summer Programs</a>
+																							</li>
+																																									<li class="menu-level-0" id="menu-84">
+																									<a class="d-inline-block nav-link menu-expand menu-link menu-link-30">Alumni</a>
+																								</li>
+																																																																																																																																																																																					<li class="menu-level-0" id="menu-47412">
+																									<a class="d-inline-block nav-link menu-expand menu-link menu-link-">Giving</a>
+																								</li>
+																																																																																																																																																						</div>
+									</div>
+								</nav>
+							</div>
+							<div class="sub-menu blue h-100">
+																	<nav class="yamm navbar-expand h-100 full-menu-second-level" id="sub-menu-299" role="navigation">
+										<div class="collapse navbar-collapse h-100 justify-content-center">
+											<div class="menu-frame">
+												<div class="col-12 menu-back"><p class="small"><img width="30" height="20" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2020'%3E%3C/svg%3E" class="d-inline-block mr-3" alt="Back" data-lazy-src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg"><noscript><img width="30" height="20" src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg" class="d-inline-block mr-3" alt="Back"></noscript>Back</p></div>
+												
+																																							<li class="sub-menu-level-header" id="sub-header-menu-299">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/about/">About</a>
+														</li>
+																																								</li>
+																																																				<li class="menu-level-1" id="menu-55235">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/why-cate/">Why Cate?</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-49768">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/about/head-of-school/">From the Head of School</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45419">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/about/trustees-leadership/">Leadership &#038; Trustees</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45413">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/about/inclusion/">Inclusion at Cate</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45412">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/about/quick-facts/">Quick Facts</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45415">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/about/campus-facilities/">Campus Facilities</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45421">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/about/sustainability/">Sustainability</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45420">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/about/partners-accreditations/">Partners & Accreditations</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-54233">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/investigation/">Commitment to Community Care</a>
+																													</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																			</div>
+										</div>
+									</nav>
+																	<nav class="yamm navbar-expand h-100 full-menu-second-level" id="sub-menu-86" role="navigation">
+										<div class="collapse navbar-collapse h-100 justify-content-center">
+											<div class="menu-frame">
+												<div class="col-12 menu-back"><p class="small"><img width="30" height="20" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2020'%3E%3C/svg%3E" class="d-inline-block mr-3" alt="Back" data-lazy-src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg"><noscript><img width="30" height="20" src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg" class="d-inline-block mr-3" alt="Back"></noscript>Back</p></div>
+												
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																							<li class="sub-menu-level-header" id="sub-header-menu-86">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/admission/">Admission</a>
+														</li>
+																																								</li>
+																																																				<li class="menu-level-1" id="menu-45428">
+															<a class="d-inline-block nav-link submenu-link" href="https://forms.veracross.com/Forms/cate/PreApplication/Inquiry.aspx" target="_blank">Inquire Now</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45432">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/admission/apply/">Application Process</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-53845">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/admission/day-student-applicants/">Day Student Applicants</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45434">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/admission/financial-assistance/">Investing in a Cate Education</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-48466">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/admission/on-the-road/">Travel and Events</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45436">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/admission/the-office/">Meet the A-Team</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45437">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/admission/downloads/">Resources</a>
+																													</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																			</div>
+										</div>
+									</nav>
+																	<nav class="yamm navbar-expand h-100 full-menu-second-level" id="sub-menu-41" role="navigation">
+										<div class="collapse navbar-collapse h-100 justify-content-center">
+											<div class="menu-frame">
+												<div class="col-12 menu-back"><p class="small"><img width="30" height="20" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2020'%3E%3C/svg%3E" class="d-inline-block mr-3" alt="Back" data-lazy-src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg"><noscript><img width="30" height="20" src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg" class="d-inline-block mr-3" alt="Back"></noscript>Back</p></div>
+												
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																							<li class="sub-menu-level-header" id="sub-header-menu-41">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/academics/">Academics</a>
+														</li>
+																																								</li>
+																																																				<li class="menu-level-1" id="menu-45441">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/academics/all-courses/">Departments</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45439">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/academics/cates-culture-of-inquiry/">Culture of Inquiry</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45443">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/academics/college-counseling/">College Counseling</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45444">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/academics/academic-support/">Academic Advising &#038; Support</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45442">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/academics/library/">Library</a>
+																													</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																			</div>
+										</div>
+									</nav>
+																	<nav class="yamm navbar-expand h-100 full-menu-second-level" id="sub-menu-40" role="navigation">
+										<div class="collapse navbar-collapse h-100 justify-content-center">
+											<div class="menu-frame">
+												<div class="col-12 menu-back"><p class="small"><img width="30" height="20" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2020'%3E%3C/svg%3E" class="d-inline-block mr-3" alt="Back" data-lazy-src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg"><noscript><img width="30" height="20" src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg" class="d-inline-block mr-3" alt="Back"></noscript>Back</p></div>
+												
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																							<li class="sub-menu-level-header" id="sub-header-menu-40">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/life-at-cate/">Life at Cate</a>
+														</li>
+																																								</li>
+																																																				<li class="menu-level-1" id="menu-45450">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/life-at-cate/service/">Servons</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45448">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/life-at-cate/beyond-the-classroom/">Residential Experience</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-55506">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/admission/day-student-applicants/">Day Students</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-50777">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/health-wellness/">Health &#038; Wellness</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-55961">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/life-at-cate/parent-engagement/">Parent Engagement at Cate</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45451">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/life-at-cate/community-traditions">Community Traditions</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45457">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/life-at-cate/beyond-the-classroom/activities-clubs/">Activities &#038; Clubs</a>
+																													</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																			</div>
+										</div>
+									</nav>
+																	<nav class="yamm navbar-expand h-100 full-menu-second-level" id="sub-menu-447" role="navigation">
+										<div class="collapse navbar-collapse h-100 justify-content-center">
+											<div class="menu-frame">
+												<div class="col-12 menu-back"><p class="small"><img width="30" height="20" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2020'%3E%3C/svg%3E" class="d-inline-block mr-3" alt="Back" data-lazy-src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg"><noscript><img width="30" height="20" src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg" class="d-inline-block mr-3" alt="Back"></noscript>Back</p></div>
+												
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																							<li class="sub-menu-level-header" id="sub-header-menu-447">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/arts/">Arts</a>
+														</li>
+																																								</li>
+																																																				<li class="menu-level-1" id="menu-45459">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/arts/inquiry-in-the-arts/">Inquiry in the Arts</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45460">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/arts/let-your-creative-juices-flow/">Arts Courses</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-54123">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/academics/arts/">Arts Faculty</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45461">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/arts/introductory-arts-courses/">Foundation Arts</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45462">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/arts/ceramics/">Ceramics & Sculpture</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45463">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/arts/photography/">Photography</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45465">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/arts/choralecamerata/">Chorale/Camerata</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45466">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/arts/theater/">Theater</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45467">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/arts/orchestra/">Orchestra</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45468">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/arts/jazz-band/">Jazz Ensemble</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45469">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/arts/dance/">Dance</a>
+																													</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																			</div>
+										</div>
+									</nav>
+																	<nav class="yamm navbar-expand h-100 full-menu-second-level" id="sub-menu-84" role="navigation">
+										<div class="collapse navbar-collapse h-100 justify-content-center">
+											<div class="menu-frame">
+												<div class="col-12 menu-back"><p class="small"><img width="30" height="20" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2020'%3E%3C/svg%3E" class="d-inline-block mr-3" alt="Back" data-lazy-src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg"><noscript><img width="30" height="20" src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg" class="d-inline-block mr-3" alt="Back"></noscript>Back</p></div>
+												
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																							<li class="sub-menu-level-header" id="sub-header-menu-84">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/alumni/">Alumni</a>
+														</li>
+																																								</li>
+																																																				<li class="menu-level-1" id="menu-45473">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/alumni/cate-alumni-council/">Alumni Community</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45474">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/donate">Donate</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45475">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/alumni/alumni-calendar/">Events</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45476">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/alumni/bulletin/">Bulletin</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-48919">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/alumni/alumni-dispatches/">Alumni News</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-45477">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/alumni-portal/">Alumni Portal</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-51704">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/alumni/cate-connect/">Cate Connect</a>
+																													</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																			</div>
+										</div>
+									</nav>
+																	<nav class="yamm navbar-expand h-100 full-menu-second-level" id="sub-menu-47412" role="navigation">
+										<div class="collapse navbar-collapse h-100 justify-content-center">
+											<div class="menu-frame">
+												<div class="col-12 menu-back"><p class="small"><img width="30" height="20" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2020'%3E%3C/svg%3E" class="d-inline-block mr-3" alt="Back" data-lazy-src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg"><noscript><img width="30" height="20" src="https://www.cate.org/wp-content/themes/cateschool/img/left-arrow.svg" class="d-inline-block mr-3" alt="Back"></noscript>Back</p></div>
+												
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																																				</li>
+																																							<li class="sub-menu-level-header" id="sub-header-menu-47412">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/giving/">Giving</a>
+														</li>
+																																								</li>
+																																																				<li class="menu-level-1" id="menu-47431">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/giving/ways-to-give/">Ways to Give</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-47434">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/giving/meet-the-department/">Meet the Advancement Team</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-47433">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/giving/cate-fund/">Cate Fund</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-47429">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/giving/endowment-capital-gifts/">Endowment Funds</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-56714">
+															<a class="d-inline-block nav-link submenu-link" href="https://www.cate.org/giving/plannedgiving/">Planned Giving</a>
+																													</li>
+																																																				<li class="menu-level-1" id="menu-57265">
+															<a class="d-inline-block nav-link submenu-link" href="https://catephilanthropy.org/25-26-home/">2025-2026 Report on Philanthropy</a>
+																													</li>
+																																			</div>
+										</div>
+									</nav>
+															</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<div  id="main-content"></div>	<main >
+						<div  class="hero bg pt-5 vh-100 position-relative" style="background-image:linear-gradient(89deg, rgba(101,108,115,0.33), rgba(255,255,255,0.93)), url(https://www.cate.org/wp-content/uploads/2026/01/DSC00335-1280x800.jpg);background-blend-mode:multiply;">
+			<div class="container pt-5">
+				<div class="row">
+					<div class="col-lg-8 pt-5">
+												<h1 class="mb-0 left">Investing in a Cate Education</h1>
+											</div>
+				</div>
+				<div class="keep-scrolling position-absolute row">
+					<div class="col-12 left"><i class="fas fa-arrow-down mr-3"></i> Keep Scrolling</div>
+				</div>
+			</div>
+		</div>
+					
+							<div  class="breadcrumbs pt-3 pb-3">
+			<div  class="container">
+				<div class="row">
+					<div class="col-12">
+						<p class="mb-0" id="breadcrumbs"><span><span><a href="https://www.cate.org/">Home</a></span> &gt; <span><a href="https://www.cate.org/admission/">Admission</a></span> &gt; <span class="breadcrumb_last" aria-current="page">Investing in a Cate Education</span></span></p>					</div>
+				</div>
+			</div>
+		</div>
+		<div  class="sections">
+		<div id="section-1" class="section pt-5 pb-5 grid-rows clear">
+    <div class="container">
+        <div class="row">
+				<div class="col-12"><h2>2026-27 Tuition</h2>
+<h4><span style="font-weight: 400;">Understanding the true value of private school education and what sets an independent school experience apart is key to determining whether it is the right choice for your family.</span></h4>
+</div>
+				</div>
+    </div>
+</div><div id="section-2" class="section pt-5 pb-5 stats clear">
+    <div class="container">
+                 
+        <div class="row justify-content-center">
+                        <div class="stat-container mr-4 d-block d-lg-inline-block center mb-5">
+                <div class="stat">$87,340</div>
+                <div class="stat-description">Boarding Students</div>
+            </div>
+                        <div class="stat-container mr-4 d-block d-lg-inline-block center mb-5">
+                <div class="stat"></div>
+                <div class="stat-description"></div>
+            </div>
+                        <div class="stat-container mr-4 d-block d-lg-inline-block center mb-5">
+                <div class="stat">$70,990 </div>
+                <div class="stat-description">Day Students</div>
+            </div>
+                        <div class="stat-container mr-4 d-block d-lg-inline-block center mb-5">
+                <div class="stat"></div>
+                <div class="stat-description"></div>
+            </div>
+                        <div class="stat-container mr-4 d-block d-lg-inline-block center mb-5">
+                <div class="stat">$5.4M</div>
+                <div class="stat-description">Financial Assistance Budget</div>
+            </div>
+                        <div class="stat-container mr-4 d-block d-lg-inline-block center mb-5">
+                <div class="stat">24.6%</div>
+                <div class="stat-description">of students receive Financial Assistance</div>
+            </div>
+                    </div>
+            </div>
+</div><div id="section-3" class="section pt-5 pb-5 grid-rows clear">
+    <div class="container">
+        <div class="row">
+				<div class="col-12"><div class="embed-container mb-4"><iframe loading="lazy" title="Financial Assistance Process Explained" src="about:blank" width="500" height="281" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" data-rocket-lazyload="fitvidscompatible" data-lazy-src="https://player.vimeo.com/video/1094442732?h=8b1875692e&#038;dnt=1&#038;app_id=122963"></iframe><noscript><iframe title="Financial Assistance Process Explained" src="https://player.vimeo.com/video/1094442732?h=8b1875692e&amp;dnt=1&amp;app_id=122963" width="500" height="281" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe></noscript></div>
+<p><strong>About Vanessa Cruz Santana &#8217;06, Director of Financial Assistance</strong></p>
+<p>Vanessa Cruz Santana &#8217;06 knows firsthand what it means to invest in a Cate education. An alumna of the school, Vanessa arrived to the Mesa in 9th grade through the <a href="https://www.cate.org/abetterchance/">A Better Chance program</a>. Since starting her career in admissions in 2010, Vanessa has been committed to helping families navigate the process of financial assistance with a balance of clarity and care, and believes deeply in Cate’s commitment to making this opportunity accessible.</p>
+</div>
+				</div>
+    </div>
+</div><div id="section-4" class="section pt-5 pb-5 expanders clear" aria-label="Accordion Control Group Buttons">
+    <div class="container">
+                                            <div class="row">
+                <div class="col-12 mb-2"><h3 class="mb-0"><button class="expander-link" aria-controls="expander-text-4-1" aria-expanded="false">How Awards are Calculated <span class="expander-icon plus ml-lg-3"><i class="fas fa-plus"></i></span><span class="expander-icon minus ml-lg-3"><i class="fas fa-minus"></i></span></button></h3></div>
+                <div class="col-12 expander-text" id="expander-text-4-1">
+                    <div>
+                        <div class="row">
+				<div class="col-12"><p>Our financial assistance committee administers need-based awards and follows the guidelines of the National Association of Independent Schools (NAIS). Financial assistance decisions are based on a family’s ability to finance their child’s education as demonstrated by the methodology of <a href="https://app.clarityapp.com/sign-up">Clarity</a>. Within the limitations of our budget, and according to our own financial assistance policies, Cate uses Clarity recommendations as a guideline in determining individual awards.</p>
+<p><em><strong>Although the admission and financial assistance programs at Cate are separate processes</strong> and an applicant must first be admitted to Cate and only then be considered for financial assistance. We notify all new students and their families of our financial assistance decisions at the same time that we notify them of our admission decisions.</em></p>
+</div>
+				</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-12"><hr></div>
+            </div>
+                    <div class="row">
+                <div class="col-12 mb-2"><h3 class="mb-0"><button class="expander-link" aria-controls="expander-text-4-2" aria-expanded="false">Steps to Apply for Financial Assistance <span class="expander-icon plus ml-lg-3"><i class="fas fa-plus"></i></span><span class="expander-icon minus ml-lg-3"><i class="fas fa-minus"></i></span></button></h3></div>
+                <div class="col-12 expander-text" id="expander-text-4-2">
+                    <div>
+                        <div class="row">
+				<div class="col-12"><ul>
+<li style="list-style-type: none;">
+<ul>
+<li>Apply to Cate for the 2027-28 school year. A student should apply to Cate before starting the FA process. These are two separate processes, and each one must be thoroughly completed to be considered for admission and assistance. <a href="https://www.cate.org/admission/apply/">Click here</a> for steps on how to apply to Cate.</li>
+<li>Visit the <a href="https://app.clarityapp.com/sign-up">Clarity</a> website to complete the Financial Assistance application.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li style="list-style-type: none;"></li>
+</ul>
+</div>
+				</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-12"><hr></div>
+            </div>
+                    <div class="row">
+                <div class="col-12 mb-2"><h3 class="mb-0"><button class="expander-link" aria-controls="expander-text-4-3" aria-expanded="false">Domestic Applicants: Filling Out The Clarity Application <span class="expander-icon plus ml-lg-3"><i class="fas fa-plus"></i></span><span class="expander-icon minus ml-lg-3"><i class="fas fa-minus"></i></span></button></h3></div>
+                <div class="col-12 expander-text" id="expander-text-4-3">
+                    <div>
+                        <div class="row">
+				<div class="col-12"><p>Clarity is a comprehensive online form that allows Cate to estimate the amount your family can contribute towards your child’s tuition.  Clarity reports that estimate to any school or schools you indicate on your application. If your child is applying to more than one school, you only need to fill out your Clarity application once. If you have multiple children applying, only one application is needed for all schools for all of your children. The application itself is also fully translated into Spanish.</p>
+<p>The Clarity application is <strong>due December 1, 2026,</strong> for returning families and is <strong>due February 1, 2027</strong> for new prospective families. To begin your financial assistance application for the coming school year, please follow these steps:</p>
+<p>1. Visit the <a href="https://app.clarityapp.com/sign-up">Clarity</a> website.</p>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><strong>A login and password</strong> are required to complete the application. If you are a first-time user, you will be asked to create an account.</li>
+<li>Begin your application for the 2027-28 academic school year.</li>
+<li>The application typically takes less than 30 minutes to complete. The Clarity Application is also mobile-friendly so you can complete it from anywhere.</li>
+<li>You can log out of the Clarity website at any time and return later to complete the application.</li>
+</ul>
+</li>
+</ul>
+<p>2. Submit your completed Clarity application.</p>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li>Please note that there is a non-refundable processing fee. <strong>If you qualify for a fee waiver, you will be automatically notified on the processing fee page.</strong></li>
+</ul>
+</li>
+</ul>
+<p>3. Upload required documents in the “Document Requests” section of your Clarity dashboard. Required documentation includes:</p>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li>A copy of all 2026 W2 Forms as soon as available</li>
+<li><a href="https://www.cate.org/wp-content/uploads/2026/10/FARF-Returning-Families.pdf">Cate School FA Request Form Returning Families</a></li>
+<li><a href="https://www.cate.org/wp-content/uploads/2026/10/FARF-New-Families.pdf">Cate School FA Request Form New Prospective Families</a></li>
+<li><a href="https://www.cate.org/wp-content/uploads/2026/10/2026-NonCustodial-Parent-Form.pdf">(If applicable) NonCustodial Parent Form</a> for families with a single parent household</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+</div>
+				</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-12"><hr></div>
+            </div>
+                    <div class="row">
+                <div class="col-12 mb-2"><h3 class="mb-0"><button class="expander-link" aria-controls="expander-text-4-4" aria-expanded="false">International Applicants: Filling Out The Clarity Application <span class="expander-icon plus ml-lg-3"><i class="fas fa-plus"></i></span><span class="expander-icon minus ml-lg-3"><i class="fas fa-minus"></i></span></button></h3></div>
+                <div class="col-12 expander-text" id="expander-text-4-4">
+                    <div>
+                        <div class="row">
+				<div class="col-12"><p>We offer need-based financial assistance for international families and not scholarships. There is limited funding available.</p>
+<p>Clarity is a comprehensive online form that allows Cate to estimate the amount your family can contribute towards your child’s tuition.  Clarity reports that estimate to any school or schools you indicate on your application. If your child is applying to more than one school, you only need to fill out your Clarity application once. If you have multiple children applying, only one application is needed for all schools for all of your children. The application itself is also fully translated into Spanish.</p>
+<p>The Clarity application is <strong>due December 1, 2026,</strong> for returning families and <strong>due February 1, 2027</strong> for new prospective families. To begin your financial assistance application for the coming school year, please follow these steps:</p>
+<p>1. Visit the <a href="https://app.clarityapp.com/sign-up">Clarity</a> website.</p>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li><strong>A login and password</strong> are required to complete the application. If you are a first-time user, you will be asked to create an account.</li>
+<li>Begin your application for the 2027-28 academic school year.</li>
+<li>The application typically takes less than 30 minutes to complete. The Clarity Application is also mobile-friendly so you can complete it from anywhere.</li>
+<li>You can log out of the Clarity website anytime and return later to complete the application.</li>
+</ul>
+</li>
+</ul>
+<p>2. Submit your completed Clarity application.</p>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li>Please note that there is a non-refundable processing fee. <strong>If you qualify for a fee waiver, you will be automatically notified on the processing fee page.</strong></li>
+</ul>
+</li>
+</ul>
+<p>3. In lieu of a copy of your 2025 tax return (IRS Form 1040) and a copy of all 2026 W2 Forms, Cate School requires documents in the “Document Requests” section of your Clarity dashboard. Required documentation includes:</p>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li>If you are a family living and working abroad who <strong>does not file</strong> United States taxes, we need income verification in lieu of a US tax return. Examples of acceptable documents are your residing country’s tax returns, an authorized letter from an employer, or an end-of-year pay stub.</li>
+<li><a href="https://www.cate.org/wp-content/uploads/2026/10/FARF-New-Families.pdf">Cate School FA Request Form New Prospective Families</a></li>
+<li><a href="https://www.cate.org/wp-content/uploads/2026/10/FARF-Returning-Families.pdf">Cate School FA Request Form Returning Families</a></li>
+<li><a href="https://www.cate.org/wp-content/uploads/2023/10/International-Student-Form-2024-25-Fillable.pdf">International Student Form</a> in addition to the Clarity application, all international applicants must also complete and upload this worksheet.</li>
+<li><a href="https://www.cate.org/wp-content/uploads/2026/10/2026-NonCustodial-Parent-Form.pdf">(If applicable) NonCustodial Parent Form</a> for families with a single parent household</li>
+</ul>
+</li>
+</ul>
+</div>
+				</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-12"><hr></div>
+            </div>
+                    <div class="row">
+                <div class="col-12 mb-2"><h3 class="mb-0"><button class="expander-link" aria-controls="expander-text-4-5" aria-expanded="false">Additional Information <span class="expander-icon plus ml-lg-3"><i class="fas fa-plus"></i></span><span class="expander-icon minus ml-lg-3"><i class="fas fa-minus"></i></span></button></h3></div>
+                <div class="col-12 expander-text" id="expander-text-4-5">
+                    <div>
+                        <div class="row">
+				<div class="col-12"><p><a href="https://www.cate.org/wp-content/uploads/2023/09/Clarity-Quick-Reference-Guide.pdf">Clarity Quick Reference Guide</a></p>
+<p><a href="https://www.cate.org/wp-content/uploads/2023/09/Clarity-Quick-Reference-Guide-Spanish.pdf">Clarity Quick Reference Guide-Spanish</a></p>
+<p>If you need support during the process of completing your application, there is in-app support available through the “Help” button in the bottom left of the screen, as well as email and phone support at <u>support@clarityapp.com</u> or 206-210-3752, in both English and Spanish. The application itself is also fully translated into Spanish.</p>
+<p>For all questions related to Cate’s Financial Assistance Program contact Vanessa Cruz-Santana ’06, Director of Financial Assistance at <a href="mailto:vanessa_cruzsantana@cate.org">vanessa_cruzsantana@cate.org</a>.</p>
+</div>
+				</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-12"><hr></div>
+            </div>
+                    </div>
+</div>	</div>
+	</main>
+
+
+			<footer data-wpr-lazyrender="1" class="footer blue pt-5 pb-4">
+				<div  class="container-fluid pl-5 pr-5">
+					<div class="footer-top row">
+						<div class="col-lg-2 left">
+														<img width="310" height="314" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20310%20314'%3E%3C/svg%3E" class="footer-logo mb-3 mb-lg-0" alt="" data-lazy-src="https://www.cate.org/wp-content/uploads/2025/08/white-footer-logo.svg"><noscript><img width="310" height="314" src="https://www.cate.org/wp-content/uploads/2025/08/white-footer-logo.svg" class="footer-logo mb-3 mb-lg-0" alt=""></noscript>
+													</div>
+						<div class="col-lg-5 left">
+														<h6>At Cate School, the “spirit of this place” is rooted in the full recognition of each person&#8217;s dignity. We are dedicated to creating a community that is inclusive, welcoming, and fosters a sense of belonging for all individuals. To uphold these values, Cate School does not discriminate on the basis of race, color, religion, gender, gender identity or expression, sexual orientation, disability, national or ethnic origin, or any other basis protected by law. This policy applies to all areas of the school, including admissions, educational policies, financial assistance, and athletic or school-administered programs, ensuring that every member of the Cate community can achieve their greatest growth possible.</h6>
+								<p><a class="btn mb-0" href="https://giving.veracross.com/cate/give/donate#gift-amount-step" target="_blank">Give Now</a></p>
+																				</div>
+						<div class="col-lg-3 col-xl-4 mb-3 mb-lg-0 right">
+							<div class="row">
+								<div class="col-12">
+									<nav class="yamm navbar-expand d-inline-block footer-menu mb-lg-4 w-100" role="navigation"><ul class="nav navbar-nav"><li class="yamm-fw align-items-center d-lg-flex pb-lg-0 menu-level-0 menu-parent-portal"><a class="dropdown-toggle nav-link" href="https://accounts.veracross.com/cate/portals/login">Parent Portal</a></li>
+<li class="yamm-fw align-items-center d-lg-flex pb-lg-0 menu-level-0 menu-alumni-events"><a class="dropdown-toggle nav-link" href="https://www.cate.org/alumni/alumni-calendar/">Alumni Events</a></li>
+<li class="yamm-fw align-items-center d-lg-flex pb-lg-0 menu-level-0 menu-employment"><a class="dropdown-toggle nav-link" href="https://www.cate.org/employment/">Employment</a></li>
+<li class="yamm-fw align-items-center d-lg-flex pb-lg-0 menu-level-0 menu-giving"><a class="dropdown-toggle nav-link" href="https://www.cate.org/giving/">Giving</a></li>
+</ul></nav>
+																				<a href="https://www.facebook.com/cateschool/" target="_blank" class="social-media-icon"><i class="fab fa-facebook-f"></i><span class="sr-only">Like us on Facebook</span></a>
+																					<a href="https://vimeo.com/cateschool" target="_blank" class="social-media-icon"><i class="fab fa-vimeo-v"></i><span class="sr-only">Follow us on Vimeo</span></a>
+																					<a href="https://www.instagram.com/cate_school/" target="_blank" class="social-media-icon"><i class="fab fa-instagram"></i><span class="sr-only">Follow us on Instagram</span></a>
+																					<a href="https://www.youtube.com/user/cateschool" target="_blank" class="social-media-icon"><i class="fab fa-youtube"></i><span class="sr-only">Follow us on Youtube</span></a>
+																		</div>
+							</div>
+						</div>
+					</div>
+					<div class="subfooter">
+						<div class="row">
+							<div class="col-lg-5 align-self-center left"><p class="small mb-lg-0">1960 Cate Mesa Road, Carpinteria, California 93013</p></div>
+							<div class="col-lg-5 offset-lg-2 subfooter-menu align-self-center right">
+								<nav class="yamm navbar-expand d-inline-block" role="navigation"><ul class="nav navbar-nav"><li class="yamm-fw align-items-center d-lg-flex pb-lg-0 menu-level-0 menu-school-store"><a class="dropdown-toggle nav-link" href="https://www.cate.org/alumni/blue-ewe/">School Store</a></li>
+<li class="yamm-fw align-items-center d-lg-flex pb-lg-0 menu-level-0 menu-campus-map"><a class="dropdown-toggle nav-link" target="_blank" href="https://www.cate.org/wp-content/uploads/2024/09/2024-Map-scaled.jpg">Campus Map</a></li>
+<li class="yamm-fw align-items-center d-lg-flex pb-lg-0 menu-level-0 menu-directory"><a class="dropdown-toggle nav-link" href="https://www.cate.org/directory/">Directory</a></li>
+<li class="yamm-fw align-items-center d-lg-flex pb-lg-0 menu-level-0 menu-general-inquiries"><a class="dropdown-toggle nav-link" href="mailto:info@cate.org">General Inquiries</a></li>
+<li class="yamm-fw align-items-center d-lg-flex pb-lg-0 menu-level-0 menu-privacy"><a class="dropdown-toggle nav-link" href="https://www.cate.org/about/privacy-policy/">Privacy</a></li>
+</ul></nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<div data-wpr-lazyrender="1" class="back-to-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 pt-3 pb-3 center"><a href="#main-content"><i class="fas fa-arrow-up mr-3"></i> Back to Top</a></div>
+					</div>
+				</div>
+			</div>
+						<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/cateschool/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+	jQuery(function($) {
+        if ( $('#homepage-video').length ) {				
+            $('[data-youtube]').youtube_background();
+        }
+		$(".fixed-bars").click(function() {
+			if ( $( ".sub-menu" ).hasClass( "showing" ) ) {
+				$(".main-menu").removeClass('showing');
+				$(".sub-menu").removeClass('showing');
+			} else {
+								var id = $(".menu-link-26").parent().attr('id');
+				if (id) {
+					$(".sub-menu").toggleClass('showing');
+					var submenu = $("#sub-" + id);
+					$('.full-menu-second-level').not(submenu).hide();
+					submenu.show();
+					if ( $( ".main-menu" ).hasClass( "showing" ) ) {
+						$(".main-menu").removeClass('showing');
+						$(".sub-menu").removeClass('showing');
+					}
+				} else {
+					$(".main-menu").toggleClass('showing');
+				}
+							}
+			$(".fa-bars, .fa-times").toggleClass('active');
+		});
+	});
+});</script>
+<script type="text/rocketlazyloadscript">
+		var dropdown = document.getElementById("cat");
+    function onCatChange() {
+        if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
+            location.href = "https://www.cate.org/?cat="+dropdown.options[dropdown.selectedIndex].value;
+        }
+    }
+    if (dropdown) {
+    	dropdown.onchange = onCatChange;
+    }
+</script>
+<script type="text/rocketlazyloadscript">
+	var relevanssi_rt_regex = /(&|\?)_(rt|rt_nonce)=(\w+)/g
+	var newUrl = window.location.search.replace(relevanssi_rt_regex, '')
+	if (newUrl.substr(0, 1) == '&') {
+		newUrl = '?' + newUrl.substr(1)
+	}
+	history.replaceState(null, null, window.location.pathname + newUrl + window.location.hash)
+</script>
+<script type="text/rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://www.cate.org","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script id="rocket_lazyload_css-js-extra">
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+</script>
+<script id="rocket_lazyload_css-js-after">
+!function o(n,a,c){function l(t,e){if(!a[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(u)return u(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=a[t]={exports:{}},n[t][0].call(r.exports,function(e){return l(n[t][1][e]||e)},r,r.exports,o,n,a,c)}return a[t].exports}for(var u="function"==typeof require&&require,e=0;e<c.length;e++)l(c[e]);return l}({1:[function(e,t,r){{let r="undefined"==typeof rocket_pairs?[]:rocket_pairs,o=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var a=rocket_lazyload_css_data.threshold||300;let n=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&r.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,o.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{n.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:a+"px"});function c(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&r.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(n.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}c(),(()=>{let r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}})()(document.querySelector("body"),c)}},{}]},{},[1]);
+//# sourceURL=rocket_lazyload_css-js-after
+</script>
+<script type="text/rocketlazyloadscript" data-wp-strategy="defer" defer id="popper.min-js" data-rocket-src="https://www.cate.org/wp-content/themes/cateschool/css/js/popper.min.js?ver=7.1.3"></script>
+<script type="text/rocketlazyloadscript" data-wp-strategy="defer" defer id="bootstrap.min-js" data-rocket-src="https://www.cate.org/wp-content/themes/cateschool/css/js/bootstrap.min.js?ver=7.1.3"></script>
+<script data-wp-strategy="defer" defer id="jquery.cycle2.min-js" src="https://www.cate.org/wp-content/themes/cateschool/css/js/jquery.cycle2.min.js?ver=7.1.3"></script>
+<script data-wp-strategy="defer" defer id="jquery.cycle2.carousel.min-js" src="https://www.cate.org/wp-content/themes/cateschool/css/js/jquery.cycle2.carousel.min.js?ver=7.1.3"></script>
+<script data-wp-strategy="defer" defer id="jquery.cycle2.swipe.min.js-js" src="https://www.cate.org/wp-content/themes/cateschool/css/js/jquery.cycle2.swipe.min.js?ver=7.1.3"></script>
+<script type="text/rocketlazyloadscript" data-wp-strategy="defer" defer id="fancybox-js" data-rocket-src="https://www.cate.org/wp-content/themes/cateschool/css/js/fancybox.min.js?ver=7.1.3"></script>
+<script type="text/rocketlazyloadscript" data-wp-strategy="defer" defer id="unitegallery.min-js" data-rocket-src="https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/js/unitegallery.min.js?ver=7.1.3"></script>
+<script type="text/rocketlazyloadscript" data-wp-strategy="defer" defer id="ug-theme-default-js" data-rocket-src="https://www.cate.org/wp-content/themes/cateschool/css/unitegallery/themes/default/ug-theme-default.js?ver=7.1.3"></script>
+<script type="text/rocketlazyloadscript" data-wp-strategy="defer" defer id="slick-slider-js" data-rocket-src="https://www.cate.org/wp-content/themes/cateschool/css/js/slick.min.js?ver=7.1.3"></script>
+<script type="text/rocketlazyloadscript" data-wp-strategy="defer" defer id="dgtlnk-scripts-js" data-rocket-src="https://www.cate.org/wp-content/themes/cateschool/css/js/main.js?ver=7.1.3"></script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" id="slb_context">window.addEventListener('DOMContentLoaded', function() {/* <![CDATA[ */if ( !!window.jQuery ) {(function($){$(document).ready(function(){if ( !!window.SLB ) { {$.extend(SLB, {"context":["public","user_guest"]});} }})})(jQuery);}/* ]]> */});</script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.cate.org/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadImg(id,l){var s='https://i.ytimg.com/vi/ID/hqdefault.jpg'.replace("ID",id),img=document.createElement("img");if(true&&!l&&false){img.setAttribute("loading","lazy");img.setAttribute("src",s);}else if(true&&!l&&!false){img.setAttribute("data-lazy-src",s);}else{img.setAttribute("src",s);}img.setAttribute("width","480");img.setAttribute("height","360");return img;}function lazyLoadThumb(id,alt,l){if(!/^[A-Za-z0-9_-]{11}$/.test(id)){return null;}var frag=document.createDocumentFragment(),img=lazyLoadImg(id,l);img.setAttribute("alt",alt);frag.appendChild(img);var btn=document.createElement("button");btn.setAttribute("class","play");btn.setAttribute("aria-label","Play Youtube video");frag.appendChild(btn);return frag;}function lazyLoadYoutubeIframe(){var src=this.parentNode.dataset.src,url;try{url=new URL(src,"https://www.youtube.com");}catch(err){return;}if("https:"!==url.protocol&&"http:"!==url.protocol){return;}if(["youtube.com","www.youtube.com","youtube-nocookie.com","www.youtube-nocookie.com"].indexOf(url.hostname)===-1){return;}if(url.username||url.password||url.port){return;}if(!/^\/embed\/[A-Za-z0-9_-]{11}\/?$/.test(url.pathname)){return;}url=new URL("https://"+url.hostname+url.pathname.replace(/\/$/,""));var query=this.parentNode.dataset.query||"";new URLSearchParams(query).forEach(function(v,k){url.searchParams.set(k,v);});url.searchParams.set("autoplay","1");var e=document.createElement("iframe");e.setAttribute("src",url.href);e.setAttribute("frameborder","0");e.setAttribute("allowfullscreen","1");e.setAttribute("allow","accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture");this.parentNode.parentNode.replaceChild(e,this.parentNode);}document.addEventListener("DOMContentLoaded",function(){var exclusions=[];var e,t,frag,u,l,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++){u='https://i.ytimg.com/vi/ID/hqdefault.jpg'.replace("ID",a[t].dataset.id);l=exclusions.some(function(exclusion){return u.indexOf(exclusion)!==-1;});e=document.createElement("div");e.setAttribute("data-id",a[t].dataset.id);e.setAttribute("data-query",a[t].dataset.query);e.setAttribute("data-src",a[t].dataset.src);frag=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt,l);if(!frag){continue;}e.appendChild(frag);a[t].appendChild(e);e.querySelector(".play").onclick=lazyLoadYoutubeIframe;}});</script>		</div> <!--frame-->
+	<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4da43e559a5cb96',t:'MTc5MjUyMjgyNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->

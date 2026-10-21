@@ -1,0 +1,246 @@
+{
+  "checked_on": "2026-10-20",
+  "basis": "Published official school boarding prices, before aid; separate attendance alternatives, not replacement day rates. First 20 prices supplied by the primary official-source research audit; final three supported by cached tuition evidence.",
+  "schools": [
+    {
+      "school_id": "private:phillips-academy-andover-andover-ma",
+      "tuition_usd": 79800,
+      "year": "2026-2027",
+      "source_url": "https://www.andover.edu/admission/tuition-and-financial-aid",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:groton-school-groton-ma",
+      "tuition_usd": 62740,
+      "year": "2026-2027",
+      "source_url": "https://www.groton.org/admission/tuition-affordability",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:phillips-exeter-academy-exeter-nh",
+      "tuition_usd": 71797,
+      "year": "2026-2027",
+      "source_url": "https://exeter.edu/admissions/financial-aid/tuition-costs/",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:the-lawrenceville-school-lawrenceville-nj",
+      "tuition_usd": 82710,
+      "year": "2026-2027",
+      "source_url": "https://www.lawrenceville.org/admission/tuition-aid",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:choate-rosemary-hall-wallingford-ct",
+      "tuition_usd": 73530,
+      "year": "2026-2027",
+      "source_url": "https://www.choate.edu/admission/tuition-and-financial-aid",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:the-hotchkiss-school-lakeville-ct",
+      "tuition_usd": 79350,
+      "year": "2026-2027",
+      "source_url": "https://www.hotchkiss.org/parents/payment-options-financial-forms",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:deerfield-academy-deerfield-ma",
+      "tuition_usd": 79940,
+      "year": "2026-2027",
+      "source_url": "https://deerfield.edu/admission/financial-aid",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:cate-school-carpinteria-ca",
+      "tuition_usd": 87340,
+      "year": "2026-2027",
+      "source_url": "https://www.cate.org/admission/financial-assistance/",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:the-loomis-chaffee-school-windsor-ct",
+      "tuition_usd": 77340,
+      "year": "2026-2027",
+      "source_url": "https://www.loomischaffee.org/admission/tuition-financial-aid",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:the-taft-school-watertown-ct",
+      "tuition_usd": 81400,
+      "year": "2026-2027",
+      "source_url": "https://www.taftschool.org/admission/affording-taft/tuition-and-fees",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:middlesex-school-concord-ma",
+      "tuition_usd": 82575,
+      "year": "2026-2027",
+      "source_url": "https://www.mxschool.edu/admissions/affording-mx",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:the-peddie-school-hightstown-nj",
+      "tuition_usd": 81000,
+      "year": "2026-2027",
+      "source_url": "https://peddie.org/admission/tuition-and-affordability/",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:miss-porters-school-farmington-ct",
+      "tuition_usd": 79900,
+      "year": "2026-2027",
+      "source_url": "https://www.porters.org/tuition-and-financial-aid/",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:concord-academy-concord-ma",
+      "tuition_usd": 84410,
+      "year": "2026-2027",
+      "source_url": "https://concordacademy.org/admissions/tuition-financial-aid/",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:milton-academy-milton-ma",
+      "tuition_usd": 79900,
+      "year": "2026-2027",
+      "source_url": "https://www.milton.edu/admission/tuition-and-financial-aid",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:lake-forest-academy-lake-forest-il",
+      "tuition_usd": 79775,
+      "year": "2026-2027",
+      "source_url": "https://www.lfanet.org/admissions/tuition-and-aid",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:blair-academy-blairstown-nj",
+      "tuition_usd": 81950,
+      "year": "2026-2027",
+      "source_url": "https://www.blair.edu/admission/tuition-financial-aid/tuition",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:the-hill-school-pottstown-pa",
+      "tuition_usd": 81040,
+      "year": "2026-2027",
+      "source_url": "https://www.thehill.org/admission/tuition-and-financial-aid",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:st-marks-school-southborough-ma",
+      "tuition_usd": 82300,
+      "year": "2026-2027",
+      "source_url": "https://www.stmarksschool.org/admission/tuition-and-financial-aid",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:mercersburg-academy-mercersburg-pa",
+      "tuition_usd": 81600,
+      "year": "2026-2027",
+      "source_url": "https://www.mercersburg.edu/admission/tuition-and-financial-aid",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null
+    },
+    {
+      "school_id": "private:noble-and-greenough-school-dedham-ma",
+      "tuition_usd": 74800,
+      "year": "2026-2027",
+      "source_url": "https://www.nobles.edu/admission/tuition-financial-aid/",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": "5-day",
+      "source_audit_file": "research/school-atlas/private-schools/tuition-audit/sources-001-033/016.txt",
+      "note": "Published five-day boarding tuition; mandatory boarding charges not fully priced; travel not included. Family home retained for weekends and holidays."
+    },
+    {
+      "school_id": "private:hackley-school-tarrytown-ny",
+      "tuition_usd": 80800,
+      "year": "2026-2027",
+      "source_url": "https://www.hackleyschool.org/admissions/affording-hackley",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": "5-day",
+      "source_audit_file": "research/school-atlas/private-schools/tuition-audit/sources-067-100/091.txt",
+      "note": "Published upper-school tuition $61,895 plus five-day boarding $18,905. Mandatory boarding charges not fully priced; travel not included. Family home retained for weekends and holidays."
+    },
+    {
+      "school_id": "private:washington-preparatory-school-bothell-wa",
+      "tuition_usd": 55385,
+      "year": "2027-2028",
+      "source_url": "https://waprep.org/tuition-and-fees-copy/",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null,
+      "source_audit_file": "research/school-atlas/private-schools/tuition-audit/sources-067-100/068.txt",
+      "note": "Official local-student total cost with optional boarding $55,385 for 2027-2028. Published total includes tuition, materials, transport/activity and yearbook components; no extra copying of day fees. Mandatory boarding charges not fully audited; travel not included; schedule not stated."
+    },
+    {
+      "year": null,
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null,
+      "school_id": "private:elite-preparatory-academy-hopatcong-nj",
+      "tuition_usd": 73000,
+      "annual_school_cost_low_usd": 73000,
+      "annual_school_cost_high_usd": 84000,
+      "source_url": "https://eliteprepacademy.org/admission/",
+      "note": "Official grade 12 tuition $49,000 plus room/board $24,000\u2013$35,000 by occupancy: published package $73,000\u2013$84,000. School year unspecified. Mandatory fees remain unpriced, so $73,000 is a spending floor; $84,000 is not a complete-cost ceiling. Travel not included; schedule not stated."
+    },
+    {
+      "year": "2026-2027",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null,
+      "school_id": "private:cranbrook-schools-bloomfield-hills-mi",
+      "tuition_usd": 63000,
+      "source_url": "https://schools.cranbrook.edu/admissions/affording-cranbrook/affording-cranbrook",
+      "note": "Official 2026\u201327 upper-school table: boarding $63,000. Mandatory boarding charges not fully priced; travel not included; schedule not stated."
+    },
+    {
+      "year": "2026-2027",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null,
+      "school_id": "private:st-stephens-episcopal-school-austin-tx",
+      "tuition_usd": 81750,
+      "source_url": "https://www.sstx.org/admission/tuition-affordability",
+      "note": "Official 2026\u201327 domestic upper-school boarding total $81,750 includes $41,500 tuition, $34,250 boarding supplement, $5,000 food and $1,000 facilities. Additional textbooks/supplies estimated $500\u2013$800. Mandatory boarding charges not fully audited; travel not included; schedule not stated."
+    },
+    {
+      "year": "2026-2027",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": null,
+      "school_id": "private:princeton-international-school-of-math-and-science-princeton-nj",
+      "tuition_usd": 70000,
+      "source_url": "https://prismsus.org/admissions/tuition",
+      "note": "Official indexed legacy page states 2026/27 tuition and fees $70,000 boarding versus $51,000 day. Direct legacy page returned 404 during this audit; current Fall 2027 affordability page has no tuition table. Mandatory boarding charges not fully priced; travel not included; schedule not stated."
+    },
+    {
+      "year": "2026-2027",
+      "verified_on": "2026-10-20",
+      "boarding_schedule": "7-day",
+      "school_id": "private:the-village-school-houston-tx",
+      "tuition_usd": 86230,
+      "mandatory_annual_fees_usd": 8750,
+      "source_url": "https://www.nordangliaeducation.com/village-houston/admissions/boarding-fees",
+      "boarding_alternative_5_day_tuition_usd": 68984,
+      "boarding_alternative_5_day_mandatory_annual_fees_usd": 8750,
+      "note": "Official 2026\u201327 seven-day boarding tuition $86,230 plus $7,500 student fee; grade 12 graduation fee $1,250 also required and excluded from boarding package. Package includes room, meals, insurance, laundry, uniforms, textbooks and airport transport. Five-day alternative tuition $68,984 plus $7,500 student fee and $1,250 graduation fee; excludes uniforms/textbooks, breaks/weekends and airport transport. Specialty/athletic fees may be extra; complete mandatory total unresolved. Travel beyond included airport transport not priced."
+    }
+  ]
+}

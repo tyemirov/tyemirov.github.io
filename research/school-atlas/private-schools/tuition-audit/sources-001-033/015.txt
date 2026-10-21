@@ -1,0 +1,176 @@
+Tuition and Financial Aid - Riverdale Country School (https://www.riverdale.edu/admission/financial-aid/)
+【turn329157view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.riverdale.edu/admission/financial-aid/","lineno":null}); Total lines: 173
+L0: [Input: Search]
+L1:   * 【0†About】
+L2:     * 【0†About Overview】
+L3:     * 【1†Our Legacy】
+L4:     * 【2†Head of School】
+L5:     * 【3†Leadership and Administrative Team】
+L6:     * 【4†Core Values】
+L7:   * 【5†Academics】
+L8:     * 【5†Academics Overview】
+L9:     * 【6†College Office】
+L10:     * 【7†Lower School (PK-5)】
+L11:     * 【8†Middle School (6-8)】
+L12:     * 【9†Upper School (9-12)】
+L13:   * 【10†Co-Curriculars】
+L14:     * 【10†Co-Curriculars Overview】
+L15:     * 【11†Lower School After-School】
+L16:     * 【12†Athletics】
+L17:     * 【13†Clubs & Activities】
+L18:     * 【14†Affinity Program】
+L19:     * 【15†Experiential Education】
+L20:   * 【16†Summer Programs】
+L21:     * 【16†Summer Programs Overview】
+L22:     * 【17†Riverdale Summer Experiences】
+L23:     * 【18†ESF Summer Camp】
+L24:   * 【19†Campus】
+L25:     * 【19†Campus Overview】
+L26:     * 【20†Hill Campus (6-12)】
+L27:     * 【21†River Campus (PK-5)】
+L28:   * 【22†Admission】
+L29:   * 【23†Alumni】
+L30:   * 【24†Support】
+L31:   * 【25†Careers】
+L32: 
+L33: 【26†Portals】
+L34: 
+L35:   * 【27†Parents†portals.veracross.com】
+L36:   * 【27†Students†portals.veracross.com】
+L37:   * 【27†Staff†portals.veracross.com】
+L38:   * 【28†Alumni†accounts.veracross.com】
+L39: 
+L40: 【26†Resources】
+L41: 
+L42:   * 【29†Penn Fellows】
+L43:   * 【30†2026-2027 Calendar】
+L44:   * 【25†Careers】
+L45:   * 【31†Athletics】
+L46:   * 【32†Contact】
+L47:   * 【33†Stories】
+L48:   * 【0†About】
+L49:     * 【0†About Overview】
+L50:     * 【1†Our Legacy】
+L51:     * 【2†Head of School】
+L52:     * 【3†Leadership and Administrative Team】
+L53:     * 【4†Core Values】
+L54:   * 【5†Academics】
+L55:     * 【5†Academics Overview】
+L56:     * 【6†College Office】
+L57:     * 【7†Lower School (PK-5)】
+L58:     * 【8†Middle School (6-8)】
+L59:     * 【9†Upper School (9-12)】
+L60:   * 【10†Co-Curriculars】
+L61:     * 【10†Co-Curriculars Overview】
+L62:     * 【11†Lower School After-School】
+L63:     * 【12†Athletics】
+L64:     * 【13†Clubs & Activities】
+L65:     * 【14†Affinity Program】
+L66:     * 【15†Experiential Education】
+L67:   * 【16†Summer Programs】
+L68:     * 【16†Summer Programs Overview】
+L69:     * 【17†Riverdale Summer Experiences】
+L70:     * 【18†ESF Summer Camp】
+L71:   * 【19†Campus】
+L72:     * 【19†Campus Overview】
+L73:     * 【20†Hill Campus (6-12)】
+L74:     * 【21†River Campus (PK-5)】
+L75:   * 【22†Admission】
+L76:   * 【23†Alumni】
+L77:   * 【24†Support】
+L78:   * 【25†Careers】
+L79:   * 【0†About】
+L80:     * 【0†About Overview】
+L81:     * 【1†Our Legacy】
+L82:     * 【2†Head of School】
+L83:     * 【3†Leadership and Administrative Team】
+L84:     * 【4†Core Values】
+L85:   * 【5†Academics】
+L86:     * 【5†Academics Overview】
+L87:     * 【6†College Office】
+L88:     * 【7†Lower School (PK-5)】
+L89:     * 【8†Middle School (6-8)】
+L90:     * 【9†Upper School (9-12)】
+L91:   * 【10†Co-Curriculars】
+L92:     * 【10†Co-Curriculars Overview】
+L93:     * 【11†Lower School After-School】
+L94:     * 【12†Athletics】
+L95:     * 【13†Clubs & Activities】
+L96:     * 【14†Affinity Program】
+L97:     * 【15†Experiential Education】
+L98:   * 【16†Summer Programs】
+L99:     * 【16†Summer Programs Overview】
+L100:     * 【17†Riverdale Summer Experiences】
+L101:     * 【18†ESF Summer Camp】
+L102:   * 【19†Campus】
+L103:     * 【19†Campus Overview】
+L104:     * 【20†Hill Campus (6-12)】
+L105:     * 【21†River Campus (PK-5)】
+L106:   * 【22†Admission】
+L107:   * 【23†Alumni】
+L108:   * 【24†Support】
+L109:   * 【25†Careers】
+L110: # 【22†Admission】
+L111: 
+L112: 【26†Tuition and Financial Aid】
+L113: 
+L114:   * 【34†Admissions Process】
+L115:   * 【35†Tuition and Financial Aid】
+L116:   * 【36†Admission Events】
+L117:   * 【37†Meet the Admission Team】
+L118: 
+L119: 【38†Image: Riverdale provides financial aid based on demonstrated need to families who complete the financial aid process.】Riverdale provides financial aid based on demonstrated need to families who complete the financial aid process.
+L120: 
+L121: * * *
+L122: ## Total Educational Costs for 2026-27
+L123: 
+L124: Tuition for the 2026-27 school year is $71,350. Lunch, books, and required activities are included in the total educational costs. Families should budget for after-school care for Lower School students and transportation.
+L125: 
+L126: * * *
+L127: ## Educational Access
+L128: 
+L129: Riverdale has a $13 million financial aid budget. Financial aid allows us to have socio-economic diversity throughout the school and to support students who are the best fit for our community. We expect families to use all resources at their disposal, including employment potential, to contribute towards tuition, and we then aim to meet 100% of demonstrated need. We offer payment plans to assist with tuition payment.
+L130: Financial aid is also available for some co-curricular programs, including, but not limited to, after-school and summer programs, global studies trips, and athletic, artistic, and service-learning activities. For more information, contact the financial aid team, JP Jacquet and Gabe Rotman, at financialaid@riverdale.edu. During a student’s senior year, we counsel families through the college financial aid application process.
+L131: 
+L132: * * *
+L133: ## A Fair and Equitable Process
+L134: We offer need-based grants to families who demonstrate need through our financial aid application process. Financial aid applicants must submit the financial aid application and their previous year’s complete federal tax return. Each application is assessed individually, and applications for continued assistance are filed annually. The application process takes into account many aspects of a family’s finances, including expenses, assets, debts, and income.
+L135: There is no income cutoff for families receiving financial aid. Decisions about admission and financial aid are made separately, but information about your financial aid application will accompany your acceptance letter. After receiving your financial aid notification, you may contact the Financial Aid Office at financialaid@riverdale.edu with questions.
+L136: * * *
+L137: ## How to Apply
+L138: Riverdale partners with Clarity’s software platform to facilitate the financial aid application process. Please 【39†click here†app.clarityapp.com】 to learn how to start an account with Clarity, complete the financial aid application, upload the necessary supporting documents, pay and submit your application. Please note our Clarity School Code is 5250. The financial aid application deadline is December 15, 2026, for prospective Riverdale families.
+L139: The financial aid application deadline is December 1, 2026, for current Riverdale families. If you are a current parent of a Riverdale student(s) and plan to apply for a sibling, please complete your financial aid application for all children by December 1, 2026. To complete your application on the Clarity platform, you will need your 2025 tax documents and documentation about your current income and household expenses.
+L140: You may also submit an additional statement through the Clarity platform to explain your family’s financial situation to the Riverdale Financial Aid Committee.
+L141: ## Get in touch with Financial Aid:
+L142: 
+L143: 【32†contact us】
+L144: 
+L145: Resources
+L146: 
+L147:   * 【29†Penn Fellows】
+L148:   * 【30†2026-2027 Calendar】
+L149:   * 【25†Careers】
+L150:   * 【31†Athletics】
+L151:   * 【32†Contact】
+L152:   * 【33†Stories】
+L153: 
+L154: Portals
+L155: 
+L156:   * 【27†Parents†portals.veracross.com】
+L157:   * 【27†Students†portals.veracross.com】
+L158:   * 【27†Staff†portals.veracross.com】
+L159:   * 【28†Alumni†accounts.veracross.com】
+L160: 
+L161: Lower School
+L162: 
+L163: (718) 549-7780
+L164: 1 Spaulding Lane
+L165: Bronx, NY 10471
+L166: 
+L167: Middle & Upper School
+L168: 
+L169: (718) 549-8810
+L170: 5250 Fieldston Road
+L171: Bronx, NY 10471
+L172: © 2026 Riverdale Country School | 【40†Privacy Policy】
+

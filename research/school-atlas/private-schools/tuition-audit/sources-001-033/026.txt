@@ -1,0 +1,218 @@
+Tuition and Financial Aid (https://www.spenceschool.org/admissions/tuition-and-financial-aid)
+【turn889240view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.spenceschool.org/admissions/tuition-and-financial-aid","lineno":null}); Total lines: 215
+L0:   * 【0†Back to Top】
+L1: 
+L2:   * 【1†Apply】
+L3:   * 【2†Login†spenceschool.myschoolapp.com】
+L4: 
+L5:   * 【3†Menu】
+L6: 
+L7:     * 【4†Contact Us】
+L8:     * 【5†Employment at Spence】
+L9:     * 【6†Make a Gift】
+L10:     * 【1†Apply】
+L11:     * 【7†About Spence】
+L12:       * 【8†Welcome】
+L13:       * 【9†Mission, Philosophy, Core Values】
+L14:       * 【10†Our History】
+L15:       * 【11†Diversity and Equity】
+L16:       * 【12†Campus Facilities】
+L17:       * 【13†At a Glance】
+L18:       * 【14†News and Stories】
+L19:       * 【4†Contact Us】
+L20:       * 【5†Employment】
+L21:       * 【15†Board of Trustees】
+L22:       * 【16†Strategic Plan】
+L23:     * 【17†Alumnae】
+L24:       * 【18†Alumnae Home】
+L25:       * 【19†Alumnae Profiles】
+L26:       * 【20†Reunion】
+L27:     * 【21†Giving】
+L28:       * 【22†Support】
+L29:       * 【23†Annual Fund】
+L30:       * 【24†Planned Giving】
+L31:       * 【25†Endowment】
+L32:       * 【6†Give to Spence】
+L33:     * 【26†Image†bbk12e1-cdn.myschoolcdn.com】
+L34: 
+L35: [Input: What can we help you find?][Input]
+L36:     * 【27†Admissions】
+L37:       * 【28†Admissions Overview】
+L38:       * 【29†Why Spence】
+L39:       * 【1†Application Process】
+L40:       * 【30†Tuition and Financial Aid】
+L41:       * 【31†Admissions Events】
+L42:       * 【32†Inquire】
+L43:     * 【33†Academic Program】
+L44:       * 【34†K-12 Academic Program】
+L45:       * 【35†Lower School】
+L46:         * 【36†Kindergarten】
+L47:         * 【37†Grade 1】
+L48:         * 【38†Grade 2】
+L49:         * 【39†Grade 3】
+L50:         * 【40†Grade 4】
+L51:       * 【41†Middle School】
+L52:         * 【42†English and World Literature】
+L53:         * 【43†History】
+L54:         * 【44†Mathematics】
+L55:         * 【45†Science】
+L56:         * 【46†Modern and Classical Languages】
+L57:         * 【47†Visual Arts】
+L58:         * 【48†Performing Arts】
+L59:         * 【49†Physical Education】
+L60:         * 【50†Computer Science】
+L61:         * 【51†Health Education】
+L62:         * 【52†Resource Center & Reading Specialists】
+L63:         * 【53†Ethics】
+L64:         * 【54†Grade 8 Capstone Project】
+L65:       * 【55†Upper School】
+L66:         * 【56†English and World Literature】
+L67:         * 【57†History】
+L68:         * 【58†Mathematics】
+L69:         * 【59†Science】
+L70:         * 【60†Modern and Classical Languages】
+L71:         * 【61†Visual Arts】
+L72:         * 【62†Performing Arts】
+L73:         * 【63†Physical Education】
+L74:         * 【64†Computer Science】
+L75:         * 【65†Health Education】
+L76:         * 【66†Resource Center & Reading Specialists】
+L77:       * 【67†College Counseling】
+L78:       * 【68†Library】
+L79:     * 【69†Student Experience】
+L80:       * 【70†Begin Your Journey】
+L81:       * 【71†Clubs and Organizations】
+L82:       * 【72†Student Leadership】
+L83:       * 【73†After-School Second Act】
+L84:       * 【74†Lectures and Conferences】
+L85:       * 【75†Fellowships and Internships】
+L86:       * 【76†Summer at Spence】
+L87:     * 【77†Athletics】
+L88:       * 【78†Athletics Program】
+L89:       * 【79†Athletics Teams】
+L90:       * 【80†Home of the Sabers】
+L91:       * 【81†Athletics Philosophy】
+L92:       * 【82†Athletics News】
+L93:       * 【83†Athletics Livestream】
+L94: ## Explore SPENCE
+L95: 
+L96:     * 【29†Why Spence】
+L97:     * 【11†Diversity and Equity】
+L98:     * 【9†Mission, Philosophy, Core Values】
+L99:     * 【14†Our Stories】
+L100: 
+L101:     * 【84†Back to Home】
+L102: 
+L103:   * 【85†Image†bbk12e1-cdn.myschoolcdn.com】
+L104: 
+L105: Admissions
+L106: # Tuition and Financial Aid
+L107: 
+L108:   * 【28†Admissions Overview】
+L109:   * 【29†Why Spence】
+L110:   * 【1†Application Process】
+L111:   * 【30†Tuition and Financial Aid】
+L112:   * 【31†Admissions Events】
+L113:   * 【32†Inquire】
+L114: 
+L115: The Spence School has a strong and longstanding commitment to enroll students with great potential regardless of their family’s financial circumstances.
+L116: Tuition for the 2026-2027 school year is $71,185.00. Tuition includes all program costs, including books, class trips, and meal services. Currently, one in five Spence students receive Financial Aid, and the School allocates $8.5 million annually to need-based Financial Aid to make Spence accessible to a range of families.
+L117: ## Tuition 2026-2027
+L118: 
+L119: $71,185
+L120: 
+L121: The tuition is inclusive of all program costs, including books, class trips, and meal services. The only exceptions are nominal fees:
+L122: 
+L123: Parents’ Association Dues (per family): $50
+L124: 
+L125: Class Dues (per child): $75
+L126: 
+L127: Registration Fee: $75
+L128: 
+L129: Payment Options
+L130: 
+L131: After the Initial Deposit of 20%
+L132: 
+L133: Annual: June 1st 80% Tuition
+L134: 
+L135: Semi-Annual: June 1st 70%, November 1st 10%
+L136: 
+L137: Monthly - May: December over 8 months (80%)
+L138: ## Questions?
+L139: 
+L140: We would be delighted to speak with you to answer any questions about Financial Aid or how to proceed with Clarity. Please contact us anytime at 212-710-8140 or via email: msanchez@spenceschool.org
+L141: 
+L142:   * 【86†Apply†spenceschool.fsenrollment.com】
+L143: 
+L144:   * 【31†Visit】
+L145: 
+L146:   * 【32†Inquire】
+L147: ### List of 3 items.
+L148: 
+L149:   * #### $8.5 million
+L150: 
+L151: is allocated annually in Financial Aid
+L152: 
+L153:   * #### One in Five
+L154: 
+L155: students receive Financial Aid
+L156: 
+L157:   * #### Average financial grant:
+L158: 
+L159:  $54,979
+L160: GRANT RANGE: $9,696-$70,508
+L161: Spence processes its financial aid application through Clarity. 【87†Clarity†app.clarityapp.com】’s application is available in both English and Spanish. The application takes less than 30 minutes to complete and is mobile-friendly. The application fee is $65, and you may share your application with additional schools that accept Clarity at no additional charge.
+L162: Clarity offers a 【88†step-by-step guide†www.clarityschools.com】 to support families through the process, and you may email questions to support@claritytuition.com in both English and Spanish.
+L163: Learn how to get started with the Clarity Quick Reference Guide in 【89†English†spenceschool.myschoolapp.com】 and 【90†Spanish†spenceschool.myschoolapp.com】.
+L164: The deadline for the financial aid application is December 1, 2026.
+L165: ### List of 2 items.
+L166: 
+L167:   * #### 【91†New Families - Financial Aid Application】
+L168: 
+L169:     1. Complete the application through 【87†Clarity†app.clarityapp.com】 between September 1 and December 1, 2026.
+L170: 
+L171:     2. Once accepted, submit the following to Clarity by June 1
+L172: 
+L173:        * A copy of this year’s W-2 and/or 1099 tax forms
+L174: 
+L175:        * A copy of this year’s U.S. Individual or Joint Tax Return (Form 1040) including all schedules
+L176: 
+L177:   * #### 【91†Current Families - Annual Renewal】
+L178:     1. Complete and submit your Parents' Financial Statement (PFS) by November 13.
+L179: 
+L180:     2. Submit the required supporting documents to 【87†Clarity†app.clarityapp.com】 by November 13 at 11:00 a.m.
+L181: 
+L182: More About Financial Aid at Spence
+L183: To learn more about matters that the Financial Aid Committee takes into consideration in establishing financial assistance for families and about expenses (incidentals) that are included in your financial aid package, please use the following link: 【92†Financial Aid Policy and Procedures†spenceschool.myschoolapp.com】.
+L184: 
+L185: Explore Spence
+L186:   * 【29†Why Spence】
+L187:   * 【9†Our Mission, Philosophy, Core Values】
+L188:   * 【34†K-12 Academic Program】
+L189:   * 【35†Lower School】
+L190:   * 【41†Middle School】
+L191:   * 【55†Upper School】
+L192:   * 【70†Student Experience】
+L193:   * 【78†Athletics】
+L194: ## Middle & Upper School
+L195: 
+L196: 【93†22 East 91st StreetNew York, NY 10128†www.google.com】
+L197: 
+L198: ## Lower School
+L199: 
+L200: 【94†56 East 93rd StreetNew York, NY 10128†www.google.com】
+L201: ## Athletic & Educational Facility
+L202: 
+L203: 【95†412 East 90th StreetNew York, NY 10128†www.google.com】
+L204: 
+L205: A K-12 independent school in New York City, The Spence School prepares a diverse community of girls and young women for the demands of academic excellence and responsible citizenship.
+L206: 212-289-5940
+L207: © 2025 Spence School
+L208: 
+L209:   * 【5†Employment at Spence】
+L210:   * 【96†412 Squash Association†www.412squash.org】
+L211: 
+L212:   *   * [Input: What can we help you find?][Input]
+L213: 
+L214:   * 【97†Open Sitemap】
+

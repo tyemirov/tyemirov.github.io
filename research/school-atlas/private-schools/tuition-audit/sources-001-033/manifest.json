@@ -1,0 +1,332 @@
+[
+  {
+    "rank": 1,
+    "school": "Phillips Academy Andover",
+    "url": "https://www.andover.edu/admission/tuition-and-financial-aid",
+    "title": "Tuition and Financial Aid",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/001.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": "https://d2e3a5v56wj8r4.cloudfront.net/files/ADM/HOS_Letter2026.pdf"
+  },
+  {
+    "rank": 2,
+    "school": "Groton School",
+    "url": "https://www.groton.org/about/fast-facts",
+    "title": "Fast Facts - Groton School",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/002.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 3,
+    "school": "Phillips Exeter Academy",
+    "url": "https://exeter.edu/admissions/financial-aid/tuition-costs/",
+    "title": "Tuition & Costs - Phillips Exeter Academy",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/003.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 4,
+    "school": "The Lawrenceville School",
+    "url": "https://www.lawrenceville.org/admission/tuition-aid",
+    "title": "Tuition, Costs, & Affordability - The Lawrenceville School",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/004.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 5,
+    "school": "Choate Rosemary Hall",
+    "url": "https://www.choate.edu/admission/tuition-and-financial-aid",
+    "title": "Tuition and Financial Aid at Choate Rosemary Hall",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/005.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 6,
+    "school": "The Chapin School",
+    "url": "https://www.chapin.edu/admissions/tuitionfinancial-aid",
+    "title": "Tuition at Chapin",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/006.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 7,
+    "school": "Harvard-Westlake School",
+    "url": "https://www.hw.com/admission/Tuition-and-Financial-Aid",
+    "title": "Tuition and Financial Aid",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/007.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 8,
+    "school": "Horace Mann School",
+    "url": "https://www.horacemann.org/admissions/tuition-financial-aid",
+    "title": "Affording Horace Mann School - Horace Mann School",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/008.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 9,
+    "school": "The Hotchkiss School",
+    "url": "https://www.hotchkiss.org/parents/payment-options-financial-forms",
+    "title": "Payment Options & Financial Forms - The Hotchkiss School | An independent boarding school for grades 9 through 12.",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/009.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 10,
+    "school": "Stanford Online High School",
+    "url": "https://ohs.stanford.edu/admissions/tuition",
+    "title": "Tuition & Fees | Stanford Online High School",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/010.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 11,
+    "school": "BASIS Independent Manhattan",
+    "url": "https://info.basisindependent.com/hubfs/E%2026-27%20BIMN%209-12%20Standard%20Tuition%20Schedule.pdf",
+    "title": "Official tuition schedule PDF",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/011.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 12,
+    "school": "St. Paul's School",
+    "url": "https://www.sps.edu/",
+    "title": "St. Paul's School",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/012.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": "https://www.sps.edu/admissions/tuition-financial-aid"
+  },
+  {
+    "rank": 13,
+    "school": "Princeton International School of Math and Science",
+    "url": "https://prismsus.org/admissions/tuition",
+    "title": "Tuition & Fees | PRISMS",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/013-indexed.txt",
+    "access": "Official indexed school-page rendering retrieved; direct open returned 404. Snapshot includes indexed result and retrieval limitation.",
+    "supporting_url": null
+  },
+  {
+    "rank": 14,
+    "school": "Deerfield Academy",
+    "url": "https://deerfield.edu/admission/financial-aid",
+    "title": "Financial Aid – Deerfield Academy",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/014.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 15,
+    "school": "Riverdale Country School",
+    "url": "https://www.riverdale.edu/admission/financial-aid/",
+    "title": "Tuition and Financial Aid - Riverdale Country School",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/015.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 16,
+    "school": "Noble and Greenough School",
+    "url": "https://www.nobles.edu/admission/tuition-financial-aid/",
+    "title": "Tuition and Financial Aid - Noble & Greenough School",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/016.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 17,
+    "school": "Cate School",
+    "url": "https://www.cate.org/admission/financial-assistance/",
+    "title": "Investing in a Cate Education - Cate School",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/017.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 18,
+    "school": "Dwight Global Online School",
+    "url": "https://www.dwight.edu/dwight-global-online-school/admissions/tuition-financial-aid",
+    "title": "Tuition and Financial Aid | Dwight Global",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/018.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 19,
+    "school": "The Loomis Chaffee School",
+    "url": "https://www.loomischaffee.org/admission/tuition-financial-aid",
+    "title": "Tuition & Financial Aid",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/019.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 20,
+    "school": "The College Preparatory School",
+    "url": "https://www.college-prep.org/admission/tuition-and-fees",
+    "title": "Tuition & Fees",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/020.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 21,
+    "school": "Rye Country Day School",
+    "url": "https://www.ryecountryday.org/admissions/tuition-financial-aid",
+    "title": "Tuition & Financial Aid - Rye Country Day School",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/021.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 22,
+    "school": "St. Andrew's School",
+    "url": "https://www.standrews-de.org/admission/tuition-financial-aid",
+    "title": "Tuition & Financial Aid - St. Andrew's School - Delaware",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/022.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": "https://www.standrews-de.org/athletics/scores/detail/~occur-id/559244"
+  },
+  {
+    "rank": 23,
+    "school": "Crimson Global Academy, USA",
+    "url": "https://www.crimsonglobalacademy.school/us/admissions/fees-and-scholarships/",
+    "title": "Fees and Scholarships | CGA USA",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/023.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 24,
+    "school": "BASIS Independent Brooklyn",
+    "url": "https://info.basisindependent.com/hubfs/E%2026-27%20BIB%201-12%20Standard%20Tuition%20Schedule.pdf",
+    "title": "Official tuition schedule PDF",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/024.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 25,
+    "school": "Boston University Academy",
+    "url": "https://www.buacademy.org/admission/tuition-and-financial-aid/",
+    "title": "Tuition and Financial Aid | Boston University Academy",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/025.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 26,
+    "school": "The Spence School",
+    "url": "https://www.spenceschool.org/admissions/tuition-and-financial-aid",
+    "title": "Tuition and Financial Aid",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/026.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 27,
+    "school": "St. John's School",
+    "url": "https://admission.sjs.org/affording-st-johns/tuition--fees",
+    "title": "Tuition & Fees",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/027.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 28,
+    "school": "Head-Royce School",
+    "url": "https://www.headroyce.org/admissions/afford-hrs",
+    "title": "Affording Head-Royce School | Head-Royce School",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/028.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 29,
+    "school": "Ideaventions Academy for Math and Science",
+    "url": "https://www.ideaventionsacademy.org/tuition.html",
+    "title": "Tuition",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/029.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 30,
+    "school": "British International School of Washington",
+    "url": "https://www.nordangliaeducation.com/bisw-washington/admissions/tuition-fees",
+    "title": "Tuition Fees | British International School of Washington",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/030.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 31,
+    "school": "Commonwealth School",
+    "url": "https://www.commschool.org/admissions-aid/financial-aid",
+    "title": "Need-Based Private High School Financial Aid - Commonwealth School",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/031.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 32,
+    "school": "Castilleja School",
+    "url": "https://www.castilleja.org/admission/tuition-and-affordability",
+    "title": "Castilleja Tuition & Affordability - Castilleja School",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/032.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  },
+  {
+    "rank": 33,
+    "school": "Regis High School",
+    "url": "https://www.regis.org/",
+    "title": "Regis High School - A Catholic, Jesuit School for Boys in New York City",
+    "retrieved_on": "2026-10-20",
+    "snapshot": "sources-001-033/033.txt",
+    "access": "Official page opened through public web rendering.",
+    "supporting_url": null
+  }
+]

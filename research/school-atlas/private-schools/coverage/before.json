@@ -1,0 +1,807 @@
+{
+  "checked_on": "2026-10-20",
+  "plotted": 57,
+  "missing": 43,
+  "schools": [
+    {
+      "rank": 1,
+      "school_id": "private:phillips-academy-andover-andover-ma",
+      "school": "Phillips Academy Andover",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 2,
+      "school_id": "private:groton-school-groton-ma",
+      "school": "Groton School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 3,
+      "school_id": "private:phillips-exeter-academy-exeter-nh",
+      "school": "Phillips Exeter Academy",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 4,
+      "school_id": "private:the-lawrenceville-school-lawrenceville-nj",
+      "school": "The Lawrenceville School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 5,
+      "school_id": "private:choate-rosemary-hall-wallingford-ct",
+      "school": "Choate Rosemary Hall",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 6,
+      "school_id": "private:the-chapin-school-new-york-ny",
+      "school": "The Chapin School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 7,
+      "school_id": "private:harvard-westlake-school-studio-city-ca",
+      "school": "Harvard-Westlake School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 8,
+      "school_id": "private:horace-mann-school-bronx-ny",
+      "school": "Horace Mann School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 9,
+      "school_id": "private:the-hotchkiss-school-lakeville-ct",
+      "school": "The Hotchkiss School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 10,
+      "school_id": "private:stanford-online-high-school-redwood-city-ca",
+      "school": "Stanford Online High School",
+      "delivery_mode": "online",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 11,
+      "school_id": "private:basis-independent-manhattan-new-york-ny",
+      "school": "BASIS Independent Manhattan",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 12,
+      "school_id": "private:st-pauls-school-concord-nh",
+      "school": "St. Paul's School",
+      "delivery_mode": "campus",
+      "missing": "No day program; outside this cost model. Regional living prices are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 13,
+      "school_id": "private:princeton-international-school-of-math-and-science-princeton-nj",
+      "school": "Princeton International School of Math and Science",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 14,
+      "school_id": "private:deerfield-academy-deerfield-ma",
+      "school": "Deerfield Academy",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 15,
+      "school_id": "private:riverdale-country-school-bronx-ny",
+      "school": "Riverdale Country School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 16,
+      "school_id": "private:noble-and-greenough-school-dedham-ma",
+      "school": "Noble and Greenough School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 17,
+      "school_id": "private:cate-school-carpinteria-ca",
+      "school": "Cate School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 18,
+      "school_id": "private:dwight-global-online-school-west-palm-beach-fl",
+      "school": "Dwight Global Online School",
+      "delivery_mode": "online",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 19,
+      "school_id": "private:the-loomis-chaffee-school-windsor-ct",
+      "school": "The Loomis Chaffee School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 20,
+      "school_id": "private:the-college-preparatory-school-oakland-ca",
+      "school": "The College Preparatory School",
+      "delivery_mode": "campus",
+      "missing": "A required annual fee has no verified amount",
+      "plotted": false
+    },
+    {
+      "rank": 21,
+      "school_id": "private:rye-country-day-school-rye-ny",
+      "school": "Rye Country Day School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 22,
+      "school_id": "private:st-andrews-school-middletown-de",
+      "school": "St. Andrew's School",
+      "delivery_mode": "campus",
+      "missing": "No day program; outside this cost model",
+      "plotted": false
+    },
+    {
+      "rank": 23,
+      "school_id": "private:crimson-global-academy-usa-orlando-fl",
+      "school": "Crimson Global Academy, USA",
+      "delivery_mode": "online",
+      "missing": "Annual day tuition is unverified. Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 24,
+      "school_id": "private:basis-independent-brooklyn-brooklyn-ny",
+      "school": "BASIS Independent Brooklyn",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 25,
+      "school_id": "private:boston-university-academy-boston-ma",
+      "school": "Boston University Academy",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 26,
+      "school_id": "private:the-spence-school-new-york-ny",
+      "school": "The Spence School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 27,
+      "school_id": "private:st-johns-school-houston-tx",
+      "school": "St. John's School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 28,
+      "school_id": "private:head-royce-school-oakland-ca",
+      "school": "Head-Royce School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 29,
+      "school_id": "private:ideaventions-academy-for-math-and-science-reston-va",
+      "school": "Ideaventions Academy for Math and Science",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 30,
+      "school_id": "private:british-international-school-of-washington-washington-dc",
+      "school": "British International School of Washington",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 31,
+      "school_id": "private:commonwealth-school-boston-ma",
+      "school": "Commonwealth School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 32,
+      "school_id": "private:castilleja-school-palo-alto-ca",
+      "school": "Castilleja School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 33,
+      "school_id": "private:regis-high-school-new-york-ny",
+      "school": "Regis High School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 34,
+      "school_id": "private:lick-wilmerding-high-school-san-francisco-ca",
+      "school": "Lick-Wilmerding High School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 35,
+      "school_id": "private:avenues-the-world-school-new-york-ny",
+      "school": "Avenues The World School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 36,
+      "school_id": "private:veritas-collegiate-academy-arlington-va",
+      "school": "Veritas Collegiate Academy",
+      "delivery_mode": "campus",
+      "missing": "Annual day tuition is unverified",
+      "plotted": false
+    },
+    {
+      "rank": 37,
+      "school_id": "private:milton-academy-milton-ma",
+      "school": "Milton Academy",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 38,
+      "school_id": "private:hopkins-school-new-haven-ct",
+      "school": "Hopkins School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 39,
+      "school_id": "private:the-taft-school-watertown-ct",
+      "school": "The Taft School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 40,
+      "school_id": "private:the-bishops-school-la-jolla-ca",
+      "school": "The Bishop's School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 41,
+      "school_id": "private:the-nightingale-bamford-school-new-york-ny",
+      "school": "The Nightingale-Bamford School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 42,
+      "school_id": "private:ransom-everglades-school-coconut-grove-fl",
+      "school": "Ransom Everglades School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 43,
+      "school_id": "private:the-peddie-school-hightstown-nj",
+      "school": "The Peddie School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 44,
+      "school_id": "private:american-heritage-schools-broward-campus-plantation-fl",
+      "school": "American Heritage Schools, Broward Campus",
+      "delivery_mode": "campus",
+      "missing": "A required annual fee has no verified amount. Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 45,
+      "school_id": "private:concord-academy-concord-ma",
+      "school": "Concord Academy",
+      "delivery_mode": "campus",
+      "missing": "A required annual fee has no verified amount. Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 46,
+      "school_id": "private:the-quarry-lane-school-dublin-ca",
+      "school": "The Quarry Lane School",
+      "delivery_mode": "campus",
+      "missing": "A required annual fee has no verified amount",
+      "plotted": false
+    },
+    {
+      "rank": 47,
+      "school_id": "private:middlesex-school-concord-ma",
+      "school": "Middlesex School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 48,
+      "school_id": "private:the-nueva-school-hillsborough-ca",
+      "school": "The Nueva School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 49,
+      "school_id": "private:marlborough-school-los-angeles-ca",
+      "school": "Marlborough School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 50,
+      "school_id": "private:gravitas-a-global-extension-of-the-stony-brook-school-stony-brook-ny",
+      "school": "Gravitas: A Global Extension of The Stony Brook School",
+      "delivery_mode": "online",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 51,
+      "school_id": "private:lake-forest-academy-lake-forest-il",
+      "school": "Lake Forest Academy",
+      "delivery_mode": "campus",
+      "missing": "A required annual fee has no verified amount",
+      "plotted": false
+    },
+    {
+      "rank": 52,
+      "school_id": "private:the-village-school-houston-tx",
+      "school": "The Village School",
+      "delivery_mode": "campus",
+      "missing": "A required annual fee has no verified amount",
+      "plotted": false
+    },
+    {
+      "rank": 53,
+      "school_id": "private:newark-academy-livingston-nj",
+      "school": "Newark Academy",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 54,
+      "school_id": "private:posnack-jewish-day-school-davie-fl",
+      "school": "Posnack Jewish Day School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 55,
+      "school_id": "private:sidwell-friends-school-washington-dc",
+      "school": "Sidwell Friends School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 56,
+      "school_id": "private:pierrepont-school-westport-ct",
+      "school": "Pierrepont School",
+      "delivery_mode": "campus",
+      "missing": "Annual day tuition is unverified",
+      "plotted": false
+    },
+    {
+      "rank": 57,
+      "school_id": "private:cranbrook-schools-bloomfield-hills-mi",
+      "school": "Cranbrook Schools",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 58,
+      "school_id": "private:the-hockaday-school-dallas-tx",
+      "school": "The Hockaday School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 59,
+      "school_id": "private:berkeley-preparatory-school-tampa-fl",
+      "school": "Berkeley Preparatory School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 60,
+      "school_id": "private:the-dalton-school-new-york-ny",
+      "school": "The Dalton School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 61,
+      "school_id": "private:convent-of-the-sacred-heart-new-york-ny",
+      "school": "Convent of the Sacred Heart",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 62,
+      "school_id": "private:brentwood-school-los-angeles-ca",
+      "school": "Brentwood School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 63,
+      "school_id": "private:windward-school-los-angeles-ca",
+      "school": "Windward School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 64,
+      "school_id": "private:elite-preparatory-academy-hopatcong-nj",
+      "school": "Elite Preparatory Academy",
+      "delivery_mode": "campus",
+      "missing": "Annual day tuition is unverified",
+      "plotted": false
+    },
+    {
+      "rank": 65,
+      "school_id": "private:menlo-school-atherton-ca",
+      "school": "Menlo School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 66,
+      "school_id": "private:british-international-school-of-chicago-south-loop-chicago-il-a0501514",
+      "school": "British International School of Chicago, South Loop",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 67,
+      "school_id": "private:miss-porters-school-farmington-ct",
+      "school": "Miss Porter's School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 68,
+      "school_id": "private:washington-preparatory-school-bothell-wa",
+      "school": "Washington Preparatory School",
+      "delivery_mode": "campus",
+      "missing": "A required annual fee has no verified amount",
+      "plotted": false
+    },
+    {
+      "rank": 69,
+      "school_id": "private:the-westminster-schools-atlanta-ga",
+      "school": "The Westminster Schools",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 70,
+      "school_id": "private:princeton-day-school-princeton-nj",
+      "school": "Princeton Day School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 71,
+      "school_id": "private:davidson-academy-online-nv",
+      "school": "Davidson Academy",
+      "delivery_mode": "online",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 72,
+      "school_id": "private:basis-independent-mclean-mclean-va",
+      "school": "BASIS Independent McLean",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 73,
+      "school_id": "private:ethical-culture-fieldston-school-bronx-ny",
+      "school": "Ethical Culture Fieldston School",
+      "delivery_mode": "campus",
+      "missing": "A required annual fee has no verified amount. Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 74,
+      "school_id": "private:collegiate-school-new-york-ny",
+      "school": "Collegiate School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 75,
+      "school_id": "private:aeon-school-new-york-ny",
+      "school": "Aeon School",
+      "delivery_mode": "online",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 76,
+      "school_id": "private:st-stephens-episcopal-school-austin-tx",
+      "school": "St. Stephen's Episcopal School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 77,
+      "school_id": "private:the-awty-international-school-houston-tx",
+      "school": "The Awty International School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 78,
+      "school_id": "private:crystal-springs-uplands-school-hillsborough-ca",
+      "school": "Crystal Springs Uplands School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 79,
+      "school_id": "private:united-world-college-usa-montezuma-nm",
+      "school": "United World College-USA",
+      "delivery_mode": "campus",
+      "missing": "No day program; outside this cost model. Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 80,
+      "school_id": "private:delbarton-school-morristown-nj",
+      "school": "Delbarton School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 81,
+      "school_id": "private:the-branson-school-ross-ca",
+      "school": "The Branson School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 82,
+      "school_id": "private:the-pingry-school-basking-ridge-nj",
+      "school": "The Pingry School",
+      "delivery_mode": "campus",
+      "missing": "Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 83,
+      "school_id": "private:crossroads-school-for-arts--and--sciences-santa-monica-ca",
+      "school": "Crossroads School for Arts & Sciences",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 84,
+      "school_id": "private:blair-academy-blairstown-nj",
+      "school": "Blair Academy",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 85,
+      "school_id": "private:tcs-austin-tx",
+      "school": "TCS",
+      "delivery_mode": "online",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 86,
+      "school_id": "private:durham-academy-durham-nc",
+      "school": "Durham Academy",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 87,
+      "school_id": "private:the-bryn-mawr-school-baltimore-md",
+      "school": "The Bryn Mawr School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 88,
+      "school_id": "private:john-burroughs-school-st-louis-mo",
+      "school": "John Burroughs School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 89,
+      "school_id": "private:the-overlake-school-redmond-wa",
+      "school": "The Overlake School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 90,
+      "school_id": "private:st-marks-school-southborough-ma",
+      "school": "St. Mark's School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 91,
+      "school_id": "private:hackley-school-tarrytown-ny",
+      "school": "Hackley School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 92,
+      "school_id": "private:the-hill-school-pottstown-pa",
+      "school": "The Hill School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 93,
+      "school_id": "private:saint-anns-school-brooklyn-ny",
+      "school": "Saint Ann's School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 94,
+      "school_id": "private:the-john-cooper-school-the-woodlands-tx",
+      "school": "The John Cooper School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 95,
+      "school_id": "private:eastside-preparatory-school-kirkland-wa",
+      "school": "Eastside Preparatory School",
+      "delivery_mode": "campus",
+      "missing": "A required annual fee has no verified amount",
+      "plotted": false
+    },
+    {
+      "rank": 96,
+      "school_id": "private:woodberry-forest-school-woodberry-forest-va",
+      "school": "Woodberry Forest School",
+      "delivery_mode": "campus",
+      "missing": "No day program; outside this cost model. Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 97,
+      "school_id": "private:the-roxbury-latin-school-west-roxbury-ma",
+      "school": "The Roxbury Latin School",
+      "delivery_mode": "campus",
+      "missing": "Regional living prices are unavailable. Community quality-of-life data are unavailable",
+      "plotted": false
+    },
+    {
+      "rank": 98,
+      "school_id": "private:french-american-school-of-new-york-mamaroneck-ny-a0701614",
+      "school": "French-American School of New York",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 99,
+      "school_id": "private:st-marks-school-of-texas-dallas-tx",
+      "school": "St. Mark's School of Texas",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    },
+    {
+      "rank": 100,
+      "school_id": "private:cistercian-preparatory-school-irving-tx",
+      "school": "Cistercian Preparatory School",
+      "delivery_mode": "campus",
+      "missing": "",
+      "plotted": true
+    }
+  ]
+}

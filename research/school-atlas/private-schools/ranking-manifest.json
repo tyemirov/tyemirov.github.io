@@ -1,0 +1,28 @@
+{
+  "source": "Official Niche ranking pages and linked Niche school profile pages",
+  "retrieved_on": "2026-10-20",
+  "ranking_scope": "Top 100 by displayed 2027 Niche rank in category Best Private High Schools in America",
+  "ranking_methodology_url": "https://www.niche.com/about/niche-releases-2027-best-schools-and-districts-rankings/",
+  "ranking_page_template": "https://www.niche.com/k12/search/best-private-high-schools/?page={1..4}",
+  "page_ranges": {
+    "1": "ranks 1-25",
+    "2": "ranks 26-50",
+    "3": "ranks 51-75",
+    "4": "ranks 76-100"
+  },
+  "selection": "Ranks 1 through 100 in Niche's private-high-school category, including rows labeled Online School. Niche rank is preserved in private_rank; national_rank is null because it belongs to a separate publisher's ranking system.",
+  "methodology_summary": "Niche states its 2027 private high school ranking draws on U.S. Department of Education data, Niche users, and schools; factors include colleges students consider, student-teacher ratio, private school ratings, and more. It says SAT/ACT scores have been removed for the 2027 ranking.",
+  "limitations": [
+    "This is Niche's ranking, distinct from U.S. News; the two ordinal scales must not be treated as the same ranking.",
+    "Niche direct HTTP retrieval returned a 403 anti-bot page in this environment. Public web-indexed page rendering exposed all ranks 1-100 in page views, and linked official Niche profiles were opened for profile URLs.",
+    "The result count was observed as 8,744 on one page render and 8,747 on another. The first 100 ordinal rows were continuous, but total result count appears to have changed or been cached differently during retrieval.",
+    "Rank 71 is an online school with Nevada state label but no city shown in the ranking; city is intentionally null. Other online offerings are retained with mode=online."
+  ],
+  "validation": {
+    "rank_count": 100,
+    "continuous_ranks": true,
+    "distinct_profile_urls": 100,
+    "all_profiles_have_state": true,
+    "all_profiles_have_canonical_slug_id": true
+  }
+}

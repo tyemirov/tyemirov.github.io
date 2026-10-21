@@ -1,0 +1,608 @@
+Tuition and Financial Aid (https://www.hw.com/admission/Tuition-and-Financial-Aid)
+【turn902674view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.hw.com/admission/Tuition-and-Financial-Aid","lineno":null}); Total lines: 605
+L0: [Input] [Input] [Input]
+L1: 
+L2: [Input] [Input] [Input]
+L3: 
+L4: 【0†Harvard-Westlake School】
+L5: 
+L6: Portals
+L7: 
+L8:   * 【1†Students】
+L9:   * 【2†Parents】
+L10:   * 【3†Alumni】
+L11:   * 【4†Fac/Staff†facstaff.hw.com】
+L12: 
+L13: 【5†Calendar】 Menu Close
+L14: 
+L15: [Input: Search]
+L16: 
+L17: 【0†Home】
+L18: 
+L19: 【6†About】
+L20: 
+L21: 【6†Admission】
+L22: 
+L23: 【6†Academics】
+L24: 
+L25: 【6†Arts】
+L26: 
+L27: 【6†Athletics】
+L28: 
+L29: 【6†Life @ HW】
+L30: 
+L31: 【6†Summer】
+L32: 
+L33: 【6†Giving】
+L34: 
+L35: 【5†Calendar】
+L36: 
+L37: 【7†Welcome to Harvard-Westlake】
+L38: 
+L39: 【8†HW at a Glance】
+L40: 
+L41: 【9†History】
+L42: 
+L43: 【10†Diversity, Equity & Inclusion】
+L44: 
+L45: 【11†Leadership】
+L46: 
+L47: 【12†AI at HW】
+L48: 
+L49: 【13†Career Opportunities】
+L50: 【14†Faculty/Staff Directory】
+L51: 
+L52: 【15†Contact Us】
+L53: 
+L54: 【16†Welcome】
+L55: 
+L56: 【17†How to Apply】
+L57: 
+L58: 【18†Visit Harvard-Westlake】
+L59: 
+L60: 【19†Discover Harvard-Westlake】
+L61: 
+L62: 【20†Tuition and Financial Aid】
+L63: 
+L64: 【21†Frequently Asked Questions】
+L65: 
+L66: 【22†Contact the Admission Team】
+L67: 
+L68: 【23†En Español】
+L69: 
+L70: 【24†About the Curriculum】
+L71: 
+L72: 【25†Departments】
+L73: 
+L74: 【26†The Kutler Center for Interdisciplinary Studies & Independent Research†academics.hw.com】
+L75: 
+L76: 【27†Academic Counseling and Support】
+L77: 
+L78: 【28†Experiential Learning & Global Education Programs】
+L79: 
+L80: 【29†Libraries】
+L81: 【30†Arts at HW】
+L82: 
+L83: 【31†Performing Arts】
+L84: 
+L85: 【32†Visual Arts】
+L86: 
+L87: 【33†Westflix Film Festival】
+L88: 
+L89: 【34†Box Office†harvardwestlake.na.ticketsearch.com】
+L90: 
+L91: 【35†Athletics Home】
+L92: 
+L93: 【36†Teams】
+L94: 
+L95: 【37†Schedules】
+L96: 
+L97: 【38†Athletic Facilities & Locations】
+L98: 
+L99: 【39†Athletic Tradition】
+L100: 
+L101: 【40†Principles】
+L102: 
+L103: 【41†Administration & Program Heads】
+L104: 
+L105: 【42†Sports Science & Medicine】
+L106: 
+L107: 【43†Student Athlete Leadership Council】
+L108: 
+L109: 【44†Elite 8 Water Polo Tournament】
+L110: 
+L111: 【45†Welcome】
+L112: 
+L113: 【46†Student Clubs & Activities】
+L114: 
+L115: 【47†Speech & Debate】
+L116: 【48†Student Media†media.hw.com】
+L117: 
+L118: 【49†Traditions】
+L119: 
+L120: 【50†HW Life Magazine】
+L121: 
+L122: 【51†Health & Wellness】
+L123: 
+L124: 【52†The Supporting Cast】
+L125: 
+L126: 【53†Bookstores】
+L127: 
+L128: 【54†Summer Home】
+L129: 
+L130: 【55†About Us】
+L131: 
+L132: 【56†Summer Enrichment Program】
+L133: 
+L134: 【57†SoCal Summer and Auxiliary Leaders Workshop】
+L135: 
+L136: 【58†FAQs】
+L137: 
+L138: 【59†Stay Updated】
+L139: 
+L140: 【60†Welcome】
+L141: 
+L142: 【61†Make a Gift Now】
+L143: 
+L144: 【62†Giving Circles】
+L145: 
+L146: 【63†Giving Societies】
+L147: 
+L148: 【64†Institutional Priorities】
+L149: 
+L150: 【65†Ways to Give】
+L151: 
+L152: 【66†Meet the Office】
+L153: 
+L154: 【67†Calendar】
+L155: 
+L156: 【10†Diversity, Equity & Inclusion】
+L157: 
+L158: 【68†Affinity Groups】
+L159: 【69†Brochure†issuu.com】
+L160: 
+L161: 【70†Commitments】
+L162: 
+L163: 【71†Initiatives】
+L164: 
+L165: 【72†Team】
+L166: 
+L167: 【73†Diversity, Equity, and Inclusion in Action】
+L168: 
+L169: 【27†Academic Counseling and Support】
+L170: 
+L171: 【74†Middle School Learning Center】
+L172: 
+L173: 【75†Upper School Learning Center】
+L174: 
+L175: 【76†Peer Tutoring Program】
+L176: 
+L177: 【31†Performing Arts】
+L178: 
+L179: 【77†Performing Arts Calendar】
+L180: 
+L181: 【78†Middle School Choral Music】
+L182: 
+L183: 【79†Upper School Choral Music】
+L184: 
+L185: 【80†Middle School Dance】
+L186: 
+L187: 【81†Upper School Dance】
+L188: 
+L189: 【82†Middle School Instrumental Music】
+L190: 
+L191: 【83†Upper School Instrumental Music】
+L192: 【84†Middle School Theater】
+L193: 
+L194: 【85†Upper School Theater】
+L195: 
+L196: 【36†Teams】
+L197: 
+L198: 【86†Baseball】
+L199: 
+L200: 【87†Boys Basketball】
+L201: 
+L202: 【88†Girls Basketball】
+L203: 
+L204: 【89†Girls Beach Volleyball】
+L205: 
+L206: 【90†Cheerleading】
+L207: 
+L208: 【91†Boys/Girls Cross Country】
+L209: 
+L210: 【92†Equestrian】
+L211: 
+L212: 【93†Fencing】
+L213: 
+L214: 【94†Field Hockey】
+L215: 
+L216: 【95†Girls Flag Football】
+L217: 
+L218: 【96†Football】
+L219: 
+L220: 【97†Boys Golf】
+L221: 
+L222: 【98†Girls Golf】
+L223: 
+L224: 【99†Boys Lacrosse】
+L225: 
+L226: 【100†Girls Lacrosse】
+L227: 
+L228: 【101†Robotics】
+L229: 
+L230: 【102†Boys Soccer】
+L231: 
+L232: 【103†Girls Soccer】
+L233: 
+L234: 【104†Softball】
+L235: 
+L236: 【105†Boys/Girls Swimming & Diving】
+L237: 
+L238: 【106†Boys Tennis】
+L239: 【107†Girls Tennis】
+L240: 
+L241: 【108†Boys/Girls Track & Field】
+L242: 
+L243: 【109†Boys Volleyball】
+L244: 
+L245: 【110†Girls Volleyball】
+L246: 
+L247: 【111†Boys Water Polo】
+L248: 
+L249: 【112†Girls Water Polo】
+L250: 
+L251: 【113†Wrestling】
+L252: 
+L253: 【39†Athletic Tradition】
+L254: 
+L255: 【114†Championships】
+L256: 
+L257: 【115†Hall of Fame】
+L258: 
+L259: 【116†Athletic Department Awards】
+L260: 
+L261: 【117†Wolverines Playing in College】
+L262: 
+L263: 【43†Student Athlete Leadership Council】
+L264: 
+L265: 【118†SALC Mission Statement】
+L266: 
+L267: 【119†SALC Selection Process】
+L268: 
+L269: 【44†Elite 8 Water Polo Tournament】
+L270: 
+L271: 【120†Schedule】
+L272: 
+L273: 【121†Teams】
+L274: 
+L275: 【65†Ways to Give】
+L276: 
+L277: 【61†Online Gifts】
+L278: 【122†Stock Gifts】
+L279: 
+L280: 【123†Mutual Fund Gifts】
+L281: 
+L282: 【124†Make A Pledge】
+L283: 
+L284: 【125†Gift Planning†giftplanning.hw.com】
+L285: 
+L286: 【126†Recurring Gifts】
+L287: 
+L288: 【127†Gift Matching†ww2.matchinggifts.com】
+L289: 
+L290: 【48†HW Media+†media.hw.com】
+L291: 
+L292: 【128†Image: HW Media+】
+L293: 
+L294: HW Media+
+L295: 
+L296: 【129†Wolverine Store†store.hw.com】
+L297: 
+L298: 【130†Image: Wolverine Store】
+L299: 
+L300: Wolverine Store
+L301: 
+L302: 【131†Give】
+L303: 
+L304: 【132†Image: Give】
+L305: 
+L306: Give
+L307: 
+L308: 【133†River Park】
+L309: 
+L310: 【134†Image: River Park】
+L311: 
+L312: River Park
+L313: 
+L314: 【135†Chronicle†hwchronicle.com】
+L315: 
+L316: 【136†Image: Chronicle】
+L317: 
+L318: Chronicle
+L319: 
+L320: 【137†Image】
+L321: # Tuition and Financial Aid
+L322: 
+L323: Go to next section
+L324: 
+L325: 【138†Image】
+L326: 
+L327: ### Tuition and Fees for 2026-2027
+L328: 
+L329: Tuition$54,900
+L330: 
+L331: New Student Fee$2,500
+L332: 
+L333: Bus Service (optional)$3,800 - $4,000
+L334: 
+L335: Middle School and Upper School service. Upper School receives a 50% fee credit subsidy.
+L336: 
+L337: Other Estimated Costs$2,500 - $3,500
+L338: 
+L339: Books, meals, activities, etc. Typical, but subject to variation.
+L340: ## Financial Aid
+L341: 
+L342: Financial aid at Harvard-Westlake exists to attract and enroll the best students in Los Angeles regardless of their financial profile. Every grant is need-based and customized to the circumstances of each family.
+L343: 
+L344: ## By the Numbers
+L345: 
+L346: 21^{%}
+L347: 
+L348: of the student body receives financial aid
+L349: 
+L350: 71^{%}
+L351: 
+L352: average amount of tuition covered by financial aid grant
+L353: 
+L354: Average family tuition responsibility: $16,000
+L355: ## Every Grant Includes
+L356: 
+L357: New student orientation
+L358: 
+L359: $1,500 draw account for cafeteria and school store
+L360: 
+L361: $1,500 computer stipend
+L362: 
+L363: Class retreats
+L364: 
+L365: Books and course-related materials
+L366: 
+L367: Help with SAT/ACT test prep
+L368: 
+L369: Reduced school transportation cost
+L370: 
+L371: Club and student group equipment/clothing
+L372: 
+L373: Required athletic uniforms and equipment
+L374: 
+L375: Yearbooks
+L376: 
+L377: School special events
+L378: 
+L379: Leadership program opportunities
+L380: 
+L381: Study-travel opportunities
+L382: 
+L383: Summer program opportunities
+L384: 
+L385: Course- and athletics-required trips
+L386: ## Financial Aid at Harvard-Westlake
+L387: 
+L388: ### How We Have Grown
+L389: 
+L390: Total Aid Offered
+L391: 
+L392: 1995–1996 $
+L393: 
+L394: $2 Million
+L395: 
+L396: 13^{%} of the student body receives financial aid
+L397: 
+L398: 197 students receiving financial aid
+L399: 
+L400: 2011–2012 $
+L401: 
+L402: $8 Million
+L403: 
+L404: 17^{%} of the student body receives financial aid
+L405: 
+L406: 279 students receiving financial aid
+L407: 
+L408: 2026–2027 $
+L409: 
+L410: $16.8 Million
+L411: 
+L412: 21^{%} of the student body receives financial aid
+L413: 
+L414: 340 students receiving financial aid
+L415: 
+L416: 【139†Image: HOW TO APPLY FOR FINANCIAL AID】
+L417: 
+L418: HOW TO APPLY FOR FINANCIAL AID
+L419: ### HOW TO APPLY FOR FINANCIAL AID
+L420: 
+L421: Harvard-Westlake partners with Clarity Financial Aid to process financial aid applications. When you click the link below, you will be prompted to create an account. After that, you will fill in your information and an evaluation will be made. Although Clarity collects information and documents, grants and eligibility are determined by the Financial Aid Committee here at Harvard-Westlake.
+L422: 
+L423: 【140†Apply for Financial Aid†app.clarityapp.com】
+L424: 【141†2025 Financial Aid Webinar†vimeo.com】
+L425: 
+L426: CLARITY RESOURCES
+L427: 
+L428: Clarity offers several resources to help with the application process.
+L429: 
+L430: If you have questions at any point, you can email Clarity (support@clarityapp.com) at any time or call Clarity at 206-210-3752.
+L431:   * 【142†Clarity 2025-26 Academic Year Family Application Guide†clarityschools.com】
+L432:   * 【143†Clarity Quick Reference Guide†clarityschools.com】
+L433:   * 【144†Video Introduction to Clarity for Families†drive.google.com】
+L434:   * 【145†Captioned Video Introduction to Clarity for Families†drive.google.com】
+L435: 
+L436: RECURSOS DE CLARITY EN ESPAÑOL
+L437: 
+L438: Clarity ofrece varios recursos en español.
+L439: 
+L440:   * 【146†Guía para la aplicación de ayuda financiera†clarityschools.com】
+L441:   * 【147†Guía rápida para aplicar†clarityschools.com】
+L442: Puede enviar un correo electrónico a support@clarityapp.com. También puede enviar un correo electrónico a financialaid@hw.com.
+L443: 
+L444: 【148†Image: Financial Aid Important Dates】
+L445: 
+L446: Financial Aid Important Dates
+L447: ### Financial Aid Important Dates
+L448: 
+L449: August 24, 2026 All families
+L450: 
+L451: Financial aid applications open for applicants and returning families. Please click the link to start the application process 【140†Clarity (clarityapp.com)†app.clarityapp.com】
+L452: 
+L453: August 25, 2026, 6 pm Enrolled families
+L454: 
+L455: Financial Aid Online Parent Orientation for Newly Enrolled Families
+L456: 
+L457: November 20, 2026 Enrolled families
+L458: 
+L459: Financial aid application deadline for returning families
+L460: 
+L461: December 16, 2026, 6 pm Prospective families
+L462: Financial Aid Online Workshop for Applicant Families
+L463: 
+L464: January 15, 2027 All families
+L465: 
+L466: Financial aid application deadline for applicant families. (Admission application deadline also January 15)
+L467: 
+L468: March 12, 2027 All families
+L469: 
+L470: Admission and financial aid decisions posted online
+L471: 
+L472: 【149†Image: TUITION PAYMENT PLANS】
+L473: 
+L474: TUITION PAYMENT PLANS
+L475: ### TUITION PAYMENT PLANS
+L476: 
+L477: Harvard-Westlake offers the following payment plans for families:
+L478: 
+L479:   * Annual: Pay in one installment, due on July 1, 2026
+L480:   * Semiannual:  Pay in two installments, due on July 1, 2026 and January 1, 2026
+L481:   * Quarterly: Pay in four installments, due on July 1, 2026; October 1, 2026; January 1, 2027; and April 1, 2027
+L482:   * Monthly: Pay in 10 monthly installments, commencing July 1, 2026 and concluding April 1, 2027
+L483: Please contact Student Billing at studentbilling@hw.com or 818-487-5426 if you have any questions.
+L484: 
+L485: 【150†Image: Financial Aid Estimator】
+L486: 
+L487: Financial Aid Estimator
+L488: ### Financial Aid Estimator
+L489: 
+L490: This estimator may help you get an idea of what tuition might be for your family. We work in partnership with applicants to tailor financial aid packages that are fair and reasonable for each family and for the school. The financial aid office makes the ultimate decision on eligibility and grants. If you have specific questions, please contact our office; we look forward to working with you!
+L491: 
+L492: Select your taxable household income. [Select]
+L493: 
+L494: Select an income range.
+L495: Indicate the number of children in your household that attend tuition-charging schools. [Select]
+L496: 
+L497: Select number of children.
+L498: 
+L499: Estimate
+L500: ### ESTIMATE
+L501: 
+L502: ### Financial Aid Team
+L503: ###
+L504: 
+L505: 【151†Image】
+L506: 
+L507: Greg Gonzalez
+L508: 
+L509: Director of Financial Aid 818-487-6607
+L510: 
+L511: Send Message (ggonzalez@hw.com)
+L512: 
+L513: 【151†Image】
+L514: 
+L515: Greg Gonzalez
+L516: 
+L517: * * *
+L518: 
+L519: Director of Financial Aid
+L520: 
+L521: 818-487-6607
+L522: 
+L523: Send An Email (ggonzalez@hw.com)
+L524: Greg joined Harvard-Westlake in 1994 and has worn many hats during his time at the school. He currently serves as Director of Financial Aid, teaches 10th grade Art History, and advises sophomores. Over the years, you might also have found him in the Dean’s Office, on the football field as a coach, or even on the pool deck as manager of the girls water polo team. A native of Boyle Heights in Los Angeles, Greg earned his undergraduate and graduate degrees from Columbia University in History and Journalism.
+L525: Outside of school, Greg enjoys playing tennis, swimming with the Los Angeles Masters Swim Club, and cooking for his family.
+L526: 【152†Image】
+L527: 
+L528: Citlaly Madrid
+L529: 
+L530: Assistant Director of Financial Aid 818-487-6605
+L531: 
+L532: Send Message (cmadrid@hw.com)
+L533: 
+L534: 【152†Image】
+L535: 
+L536: Citlaly Madrid
+L537: 
+L538: * * *
+L539: 
+L540: Assistant Director of Financial Aid
+L541: 
+L542: 818-487-6605
+L543: 
+L544: Send An Email (cmadrid@hw.com)
+L545: Citlaly joined Harvard-Westlake in 2022 and spent her first four years working with the Admission Office and the Diversity, Equity and Inclusion Team. She now serves as Assistant Director of Financial Aid and is happy to help families navigate an important part of their journey to HW. Before coming to Harvard-Westlake, Citlaly was a high school Spanish teacher in East Los Angeles. She earned her B.A. in Latino/a & Latin American Studies from Occidental College and is currently pursuing her M.A.
+L546: in Equity, Education and Social Justice at Cal State Long Beach. Outside of work, Citlaly enjoys running and exploring new trails, visiting coffee shops, and spending time with friends. And if you have thoughts on the best matcha in town, she’s always happy to compare notes!
+L547: In Admission
+L548: 
+L549:   * 【153†Welcome】
+L550: 
+L551:   * 【17†How to Apply】
+L552: 
+L553:   * 【18†Visit Harvard-Westlake】
+L554: 
+L555:   * 【19†Discover Harvard-Westlake】
+L556: 
+L557:   * 【20†Tuition and Financial Aid】
+L558: 
+L559:   * 【21†Frequently Asked Questions】
+L560: 
+L561:   * 【22†Contact the Admission Team】
+L562: 
+L563:   * 【23†En Español】
+L564: 
+L565: 【154†Image】
+L566: ## Discover Harvard-Westlake
+L567: 
+L568: 【155†#HWDISCOVER†www.instagram.com】
+L569: 
+L570: 【156†Contact】 【18†Visit】 【157†Apply】
+L571: 
+L572: Middle School Campus
+L573: 
+L574: 【158†700 North Faring Road Los Angeles, CA 90077†maps.app.goo.gl】
+L575: 
+L576: 310-274-7281
+L577: 
+L578: Upper School Campus
+L579: 
+L580: 【159†3700 Coldwater Canyon Studio City, CA 91604†maps.app.goo.gl】
+L581: 
+L582: 818-980-6692
+L583: 
+L584: Key Links
+L585: 
+L586: 【14†Faculty/Staff Directory】
+L587: 
+L588: 【156†Directions & Maps】
+L589: 
+L590: @HWSchool
+L591: 
+L592: 【160†Non-discrimination policy】
+L593: 
+L594: 【161†Legal notices】
+L595: 
+L596: 【162†Privacy】
+L597: 
+L598: 【163†Site Translation】
+L599: Harvard-Westlake School does not discriminate on the basis of race, color, national or ethnic origin, disability, gender, gender identity, gender expression, religion, or sexual orientation in the administration of its educational policies, financial aid programs, and athletic or other school-administered programs. This policy applies to all rights, privileges, programs, and activities, including applications and admissions, generally accorded or made available to students at the school.
+L600: 【164†#SchoolWebsite Design†www.interactiveschools.com】 by 【165†Interactive Schools†www.interactiveschools.com】
+L601: 
+L602: Go back to top
+L603: 
+L604: [Input] [Input] [Input]
+

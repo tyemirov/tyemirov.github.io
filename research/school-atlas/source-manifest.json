@@ -1,0 +1,40 @@
+{
+  "retrieved_date": "2026-10-20",
+  "sources": [
+    {
+      "file": "MARPP.zip",
+      "url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+      "sha256": "5dbf2e6ac2af222cc9abc205586c9b480344d89392752eb689c3ec823a34c83e"
+    },
+    {
+      "file": "national_place2020.txt",
+      "url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+      "sha256": "302ff3cf031217aca032d89f42c0dd93611a76d72ab2036944fa40d5c23c6613"
+    },
+    {
+      "file": "list1_2023.xlsx",
+      "url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+      "sha256": "952c4b1e78acbb54e6ec9412434b7602fedacbf021736351a63c181bdb753629"
+    },
+    {
+      "file": "2025_Gaz_cousubs_national.zip",
+      "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+      "sha256": "5e498edbf27e2426ec6661415851ea42c6a635f3cc3a2b79eccc2c3c19b2892e"
+    },
+    {
+      "file": "ct-0933690.json",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/30/query?where=GEOID%3D%270933690%27&outFields=GEOID%2CNAME&returnGeometry=true&outSR=4326&f=json",
+      "sha256": "51a7f0ec980d53e22e59f67c5ea15770abc52eaac2df4c13b8bb22e4d30abe68"
+    },
+    {
+      "file": "ct-0950576.json",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/30/query?where=GEOID%3D%270950576%27&outFields=GEOID%2CNAME&returnGeometry=true&outSR=4326&f=json",
+      "sha256": "bc0504434e189c00bc063c5a86c73bf6e82fecc158f10e2e911561876dc67be7"
+    },
+    {
+      "file": "ct-0983360.json",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/30/query?where=GEOID%3D%270983360%27&outFields=GEOID%2CNAME&returnGeometry=true&outSR=4326&f=json",
+      "sha256": "63f6f88917ef45647b6b0032b345bdb410f90c48a7267678c763df9466885460"
+    }
+  ]
+}

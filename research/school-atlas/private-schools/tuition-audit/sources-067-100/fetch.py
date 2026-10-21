@@ -1,0 +1,15 @@
+import urllib.request,concurrent.futures,pathlib,json,re,html
+base=pathlib.Path(__file__).parent
+u={67:'https://www.porters.org/tuition-and-financial-aid/',68:'https://waprep.org/tuition-and-fees-copy/',69:'https://www.westminster.net/admissions/tuition-and-financial-assistance',70:'https://www.pds.org/admission/tuition-and-financial-aid',71:'https://www.davidsononline.org/admissions/tuition-and-aid/',72:'https://basisindependent.com/mclean/tuition-and-fees',73:'https://www.ecfs.org/admissions/',74:'https://www.collegiateschool.org/admissions/tuition-and-financial-aid',75:'https://www.aeonschool.org/tuition-and-affordability',76:'https://www.sstx.org/admission/tuition-affordability',77:'https://www.awty.org/admissions/tuition',78:'https://www.crystal.org/admission/tuition-and-tuition-assistance',79:'https://www.uwc-usa.org/admissions/scholarships-fees/',80:'https://www.delbarton.org/admissions/tuition-and-financial-aid',81:'https://www.branson.org/admissions/affording-branson',82:'https://www.pingry.org/apply/affordingpingry',83:'https://www.xrds.org/admission-and-affordability/affording-crossroads/tuition--fees',84:'https://www.blair.edu/admission/tuition-financial-aid/tuition',86:'https://www.da.org/admissions/affording-da',87:'https://www.brynmawrschool.org/admissions/tuition-affordability',88:'https://www.jburroughs.org/admissions/tuition-affordability',89:'https://www.overlake.org/admissions/affording-overlake',90:'https://www.stmarksschool.org/admission/tuition-and-financial-aid',91:'https://www.hackleyschool.org/admissions/affording-hackley',92:'https://www.thehill.org/admission/tuition-and-financial-aid',93:'https://saintannsny.org/divisions-and-offices/tuition-financial-aid/tuition/',94:'https://www.johncooper.org/admission/tuition-and-financial-aid',95:'https://www.eastsideprep.org/prospective-families/tuition-financial-aid/tuition-other-costs/',96:'https://www.woodberry.org/admission/tuition-and-tuition-assistance',98:'https://www.fasny.org/admissions/tuition',99:'https://www.smtexas.org/admission/tuition-and-financial-aid',100:'https://school.cistercian.org/admissions/tuition-fees/'}
+def f(kv):
+ k,url=kv
+ try:
+  r=urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'}),timeout=35);b=r.read();h=b.decode('utf-8','replace');h=re.sub(r'<(script|style)\b[^>]*>.*?</\1>','',h,flags=re.S|re.I);t=html.unescape(re.sub('<[^>]+>','\n',h));t='\n'.join(l.strip() for l in t.splitlines() if l.strip());(base/f'{k:03}.txt').write_text(t);(base/f'{k:03}.html').write_bytes(b);return {'rank':k,'url':url,'final_url':r.url,'status':r.status,'retrieved_on':'2026-10-20'}
+ except Exception as e:return {'rank':k,'url':url,'error':str(e)}
+a=list(concurrent.futures.ThreadPoolExecutor(max_workers=12).map(f,u.items()));(base/'manifest.json').write_text(json.dumps(a,indent=2))
+for x in a:
+ t=(base/f"{x['rank']:03}.txt").read_text() if (base/f"{x['rank']:03}.txt").exists() else ''
+ lines=t.splitlines();out=[]
+ for i,l in enumerate(lines):
+  if '$' in l and any(c.isdigit() for c in l):out.append(' | '.join(lines[max(0,i-2):i+2]))
+ print(x['rank'],x.get('status'),out[:20])

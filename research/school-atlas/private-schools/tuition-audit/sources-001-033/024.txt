@@ -1,0 +1,87 @@
+ (https://info.basisindependent.com/hubfs/E%2026-27%20BIB%201-12%20Standard%20Tuition%20Schedule.pdf)
+【turn297285view0】 [wordlim: 200] Crawled: today; Content type: application/pdf; Number of pages: 2; Source: open({"ref_id":"https://info.basisindependent.com/hubfs/E%2026-27%20BIB%201-12%20Standard%20Tuition%20Schedule.pdf","lineno":null}); Total lines: 84
+L0@P0: 2026-2027 SCHOOL YEAR
+L1@P0: Tuition & Fees Schedule
+L2@P0: PreK–Grade 2: 405 Gold Street, Brooklyn, NY 11201 | Grades 3–12: 556 Columbia Street, Brooklyn, NY 11231
+L3@P0: 917 473 1615 | brooklyn.basisindependent.com
+L4@P0: 1-12 STANDARD (Grades 1-12)
+L5@P0: Annual Tuition: 2026-27 Annual Tuition for 1-12 Standard (Grades 1-12) is $44,720.
+L6@P0: Sibling Discount: 2026-27 Annual Tuition is reduced by $5,000 for each additional child enrolled. The
+L7@P0: Sibling Discount is applied to each younger student and is only applicable when more than one child in the
+L8@P0: same family is enrolled during the same School Year.
+L9@P0: Late Enrollment/Re-Enrollment: If a family enrolls after May 1st, 2026 on Payment Plan C, they will be
+L10@P0: responsible for all tuition payments that had been scheduled up to the time of enrollment. These payments
+L11@P0: need to be made within 30 days.
+L12@P0: Credit Card Fee: There is a 2.85% surcharge on all payments made by Credit Card. There is no additional
+L13@P0: charge for paying by eCheck.
+L14@P0: First Child Each Additional Child Due Date
+L15@P0: eCheck Credit Card1 eCheck Credit Card1
+L16@P0: Non-Refundable Enrollment Deposit $5,000.00 $5,142.50 $5,000.00 $5,142.50 Due Upon Enrollment
+L17@P0: Annual Tuition $44,720.00 $45,994.52 $44,720.00 $45,994.52
+L18@P0: Less Sibling Discount n/a n/a ($5,000.00) ($5,000.00)
+L19@P0: Annual Tuition2 $44,720.00 $45,994.52 $39,720.00 $40,994.52
+L20@P0: (After Applicable Discounts)
+L21@P0: Less Enrollment Deposit Paid ($5,000.00) ($5,142.50) ($5,000.00) ($5,142.50)
+L22@P0: Remaining Annual Tuition $39,720.00 $40,852.02 $34,720.00 $35,852.02 Due Per Payment Plan
+L23@P0: Technology & Capital Improvement Fee3 $510.00 $524.54 $510.00 $524.54 Due Per Payment Plan
+L24@P0: Activities Fee4 $350.00 $359.98 $350.00 $359.98 Due Per Payment Plan
+L25@P0: New Student Fee5 $200.00 $205.70 $200.00 $205.70 Due Per Payment Plan
+L26@P0: Tuition Refund Plan (TRP)6 $1,590.00 $1,635.32 $1,390.00 $1,429.62 Due Per Payment Plan
+L27@P0: Processing Fee (Payment Plan C)7 $650.00 $668.53 $650.00 $668.53 Due Per Payment Plan
+L28@P0: 1 There is a 2.85% surcharge on all payments made by Credit Card. There is no additional charge for paying by eCheck.
+L29@P0: 2 The Annual Tuition covers the core instructional program. It does not include books, supplies, transportation, and
+L30@P0: customized student interests, such as after-school activities, sports, and trips, which are all in addition to the Annual
+L31@P0: Tuition.
+L32@P0: 3 The Technology & Capital Improvement Fee ensures our technology infrastructure and facility remain modern and highly
+L33@P0: functional for our community.
+L34@P0: 4 The Activities Fee combines mandatory fees for payment convenience, such as term project week, certain field trips
+L35@P0: and/or events, the Communication Journal (CJ), and other costs.
+L36@P0: 5 The New Student Fee is a one-time administrative fee that covers the cost of setting up new students in our systems.
+L37@P0: 6 TRP is 4% of Remaining Annual Tuition (Annual Tuition less the Enrollment Deposit).
+L38@P0: 7 The Processing Fee applies to families on Payment Plan C (the 10 payment plan); it is an additional charge for the
+L39@P0-1: administrative cost of processing payments on a monthly basis.2026-2027 SCHOOL YEAR
+L40@P1: Tuition & Fees Schedule
+L41@P1: PreK–Grade 2: 405 Gold Street, Brooklyn, NY 11201 | Grades 3–12: 556 Columbia Street, Brooklyn, NY 11231
+L42@P1: 917 473 1615 | brooklyn.basisindependent.com
+L43@P1: Payment Plan A (1 Payment)
+L44@P1: Description First Child Each Additional Child Due Date
+L45@P1: eCheck Credit Card eCheck Credit Card
+L46@P1: Enrollment Deposit $5,000.00 $5,142.50 $5,000.00 $5,142.50 Due Upon Enrollment
+L47@P1: Remaining Annual Tuition $39,720.00 $40,852.02 $34,720.00 $35,852.02
+L48@P1: Technology & Capital Improvement Fee $510.00 $524.54 $510.00 $524.54
+L49@P1: Activities Fee $350.00 $359.98 $350.00 $359.98
+L50@P1: New Student Fee $200.00 $205.70 $200.00 $205.70
+L51@P1: $40,780.00 $41,942.23 $35,780.00 $36,942.23 May 1, 2026
+L52@P1: TRP (optional) $1,590.00 $1,635.32 $1,390.00 $1,429.62 May 1, 2026 – Optional
+L53@P1: Payment Plan B (2 Payments)
+L54@P1: Description First Child Each Additional Child Due Date
+L55@P1: eCheck Credit Card eCheck Credit Card
+L56@P1: Enrollment Deposit $5,000.00 $5,142.50 $5,000.00 $5,142.50 Due Upon Enrollment
+L57@P1: 1/2 Remaining Annual Tuition $19,860.00 $20,426.01 $17,360.00 $17,926.01
+L58@P1: Technology & Capital Improvement Fee $510.00 $524.54 $510.00 $524.54
+L59@P1: Activities Fee $350.00 $359.98 $350.00 $359.98
+L60@P1: New Student Fee $200.00 $205.70 $200.00 $205.70
+L61@P1: TRP (required) $1,590.00 $1,635.32 $1,390.00 $1,429.62
+L62@P1: $22,510.00 $23,151.54 $19,810.00 $20,445.84 May 1, 2026
+L63@P1: 1/2 Remaining Annual Tuition $19,860.00 $20,426.01 $17,360.00 $17,926.01 December 1, 2026
+L64@P1: Payment Plan C (10 Payments)
+L65@P1: Description First Child Each Additional Child Due Date
+L66@P1: eCheck Credit Card eCheck Credit Card
+L67@P1: Enrollment Deposit $5,000.00 $5,142.50 $5,000.00 $5,142.50 Due Upon Enrollment
+L68@P1: 1/10 Remaining Annual Tuition $3,972.00 $4,085.20 $3,472.00 $3,585.20
+L69@P1: Technology & Capital Improvement Fee $510.00 $524.54 $510.00 $524.54
+L70@P1: Activities Fee $350.00 $359.98 $350.00 $359.98
+L71@P1: New Student Fee $200.00 $205.70 $200.00 $205.70
+L72@P1: TRP (required) $1,590.00 $1,635.32 $1,390.00 $1,429.62
+L73@P1: Processing Fee $650.00 $668.53 $650.00 $668.53
+L74@P1: $7,272.00 $7,479.25 $6,572.00 $6,773.55 May 1, 2026
+L75@P1: 1/10 Remaining Annual Tuition $3,972.00 $4,085.20 $3,472.00 $3,585.20 June 1, 2026
+L76@P1: 1/10 Remaining Annual Tuition $3,972.00 $4,085.20 $3,472.00 $3,585.20 July 1, 2026
+L77@P1: 1/10 Remaining Annual Tuition $3,972.00 $4,085.20 $3,472.00 $3,585.20 August 1, 2026
+L78@P1: 1/10 Remaining Annual Tuition $3,972.00 $4,085.20 $3,472.00 $3,585.20 September 1, 2026
+L79@P1: 1/10 Remaining Annual Tuition $3,972.00 $4,085.20 $3,472.00 $3,585.20 October 1, 2026
+L80@P1: 1/10 Remaining Annual Tuition $3,972.00 $4,085.20 $3,472.00 $3,585.20 November 1, 2026
+L81@P1: 1/10 Remaining Annual Tuition $3,972.00 $4,085.20 $3,472.00 $3,585.20 December 1, 2026
+L82@P1: 1/10 Remaining Annual Tuition $3,972.00 $4,085.20 $3,472.00 $3,585.20 January 1, 2027
+L83@P1: 1/10 Remaining Annual Tuition $3,972.00 $4,085.20 $3,472.00 $3,585.20 February 1, 2027
+

@@ -1,0 +1,29 @@
+{
+  "formula_version": "local-family-rent-school-v3",
+  "default_non_housing_budget_usd": 52956,
+  "default_home_budget_usd": 74326,
+  "default_boarding_travel_usd": null,
+  "default_students": 1,
+  "household_benchmark": "BLS 2024 three-person consumer units; national average, not a particular family or exactly two adults and one child",
+  "budget_source_url": "https://www.bls.gov/cex/tables/calendar-year/mean-item-share-average-standard-error/cu-size-2024.xlsx",
+  "budget_source_title": "BLS 2024 consumer expenditures by consumer-unit size, three persons",
+  "budget_year": 2024,
+  "source_total_expenditures_usd": 92205,
+  "excluded_categories_usd": {
+    "education": 2585,
+    "cash_contributions": 1992,
+    "personal_insurance_and_pensions": 13302
+  },
+  "replaced_housing_components_usd": {
+    "all_shelter": 17555,
+    "natural_gas": 571,
+    "electricity": 2137,
+    "fuel_oil_other_fuels": 135,
+    "water_other_public_services": 972
+  },
+  "reference_scale_usd": 64877,
+  "formula": "Day/public value = six-category community score * 64877 / (12 * local 3-bedroom HUD gross rent + other annual household spending + enrolled children * annual school cost + household school fees). Boarding compares annual cost only: current-home annual spending + boarding package and fees + known travel.",
+  "budget_note": "Other household spending retains food, transportation, health and vehicle insurance, phone/internet and household goods; primary shelter and HUD-covered utilities are removed before adding local gross rent. The residual is held at national 2024 prices, not scaled by an all-items regional index. Housing estimates use their stated source year. These are planning benchmarks, not actual bills; adjust household spending and tuition/aid with official sources.",
+  "school_cost_basis": "Day and boarding are separately sourced attendance scenarios under one school ID. Published costs and known mandatory fees before aid; unknown mandatory charges retain cost floors. Boarding retains the family at its current home, represented by an editable national three-person benchmark until personalized. No automatic savings while a child boards; current-home spending may overlap meals provided at school. Travel starts unpriced. Five-day boarding requires home-weekend arrangements. Campus community quality of life is not used to rank family value for boarding.",
+  "checked_on": "2026-10-20"
+}

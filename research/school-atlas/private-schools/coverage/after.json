@@ -1,0 +1,9 @@
+{
+  "schools": 100,
+  "day_options": 96,
+  "boarding_options": 32,
+  "day_values": 96,
+  "boarding_costs": 32,
+  "private_housing_inputs": 100,
+  "all_housing_inputs": 300
+}

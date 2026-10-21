@@ -1,0 +1,1839 @@
+{
+  "checked_on": "2026-10-20",
+  "methodology": "Reviewed campus locality/borough/county proxies; current Census address geography and 2025 county subdivisions; AARP 2025 six-category mean; 2024 BEA metro RPP or explicitly labeled state fallback. County and broad municipal scores do not measure campus-neighborhood conditions.",
+  "schools": {
+    "private:choate-rosemary-hall-wallingford-ct": {
+      "aarp_housing": 47.0,
+      "aarp_neighborhood": 52.0,
+      "aarp_transportation": 60.0,
+      "aarp_environment": 51.0,
+      "aarp_health": 63.0,
+      "aarp_engagement": 41.0,
+      "aarp_opportunity_excluded": 59.0,
+      "community": "Wallingford town",
+      "community_geography_type": "subdiv",
+      "community_geoid": "0917078740",
+      "quality_of_life_proxy": 52.333333333333336,
+      "quality_of_life_display": 52.3,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=0917078740",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/0917078740/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.choate.edu/admission/tuition-and-financial-aid"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 104.559,
+        "housing_price_index": 124.293,
+        "metro_code": "35300",
+        "metro_name": "New Haven, CT",
+        "price_basis": "metro",
+        "price_geoid": "35300",
+        "price_geography": "New Haven, CT",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 09170 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "09170"
+      },
+      "price_basis": "metro"
+    },
+    "private:harvard-westlake-school-studio-city-ca": {
+      "aarp_housing": 48.0,
+      "aarp_neighborhood": 68.0,
+      "aarp_transportation": 53.0,
+      "aarp_environment": 27.0,
+      "aarp_health": 61.0,
+      "aarp_engagement": 56.0,
+      "aarp_opportunity_excluded": 50.0,
+      "community": "Los Angeles city",
+      "community_geography_type": "local",
+      "community_geoid": "0644000",
+      "quality_of_life_proxy": 52.166666666666664,
+      "quality_of_life_display": 52.2,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=0644000",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/0644000/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.hw.com/life-at-hw/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 113.566,
+        "housing_price_index": 170.433,
+        "metro_code": "31080",
+        "metro_name": "Los Angeles-Long Beach-Anaheim, CA",
+        "price_basis": "metro",
+        "price_geoid": "31080",
+        "price_geography": "Los Angeles-Long Beach-Anaheim, CA",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 06037 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "06037"
+      },
+      "price_basis": "metro"
+    },
+    "private:horace-mann-school-bronx-ny": {
+      "aarp_housing": 62.0,
+      "aarp_neighborhood": 88.0,
+      "aarp_transportation": 86.0,
+      "aarp_environment": 60.0,
+      "aarp_health": 41.0,
+      "aarp_engagement": 42.0,
+      "aarp_opportunity_excluded": 42.0,
+      "community": "Bronx County",
+      "community_geography_type": "county",
+      "community_geoid": "36005",
+      "quality_of_life_proxy": 63.166666666666664,
+      "quality_of_life_display": 63.2,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=36005",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/county/36005/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. County proxy covers the listed New York City borough; it is broader than the campus neighborhood. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.horacemann.org/admissions/tuition-financial-aid"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 112.563,
+        "housing_price_index": 148.616,
+        "metro_code": "35620",
+        "metro_name": "New York-Newark-Jersey City, NY-NJ",
+        "price_basis": "metro",
+        "price_geoid": "35620",
+        "price_geography": "New York-Newark-Jersey City, NY-NJ",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 36005 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "36005"
+      },
+      "price_basis": "metro"
+    },
+    "private:the-hotchkiss-school-lakeville-ct": {
+      "aarp_housing": 47.0,
+      "aarp_neighborhood": 27.0,
+      "aarp_transportation": 40.0,
+      "aarp_environment": 62.0,
+      "aarp_health": 64.0,
+      "aarp_engagement": 72.0,
+      "aarp_opportunity_excluded": 34.0,
+      "community": "Salisbury town",
+      "community_geography_type": "subdiv",
+      "community_geoid": "0916066420",
+      "quality_of_life_proxy": 52.0,
+      "quality_of_life_display": 52.0,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=0916066420",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/0916066420/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.hotchkiss.org/parents/payment-options-financial-forms"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 103.61,
+        "housing_price_index": 117.048,
+        "metro_code": "",
+        "metro_name": "",
+        "price_basis": "state",
+        "price_geoid": "09000",
+        "price_geography": "Connecticut",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/SARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county 09160 has no metropolitan-area entry in July 2023 Census delineation. Explicit broad state RPP fallback: Connecticut 2024 BEA all-items; this is not a local or nonmetropolitan-only price estimate.",
+        "county_geoid": "09160"
+      },
+      "price_basis": "state"
+    },
+    "private:st-pauls-school-concord-nh": {
+      "aarp_housing": 55.0,
+      "aarp_neighborhood": 50.0,
+      "aarp_transportation": 56.0,
+      "aarp_environment": 60.0,
+      "aarp_health": 57.0,
+      "aarp_engagement": 71.0,
+      "aarp_opportunity_excluded": 66.0,
+      "community": "Concord city",
+      "community_geography_type": "local",
+      "community_geoid": "3314200",
+      "quality_of_life_proxy": 58.166666666666664,
+      "quality_of_life_display": 58.2,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=3314200",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/3314200/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.sps.edu/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 104.165,
+        "housing_price_index": 114.947,
+        "metro_code": "",
+        "metro_name": "",
+        "price_basis": "state",
+        "price_geoid": "33000",
+        "price_geography": "New Hampshire",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/SARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county 33013 has no metropolitan-area entry in July 2023 Census delineation. Explicit broad state RPP fallback: New Hampshire 2024 BEA all-items; this is not a local or nonmetropolitan-only price estimate.",
+        "county_geoid": "33013"
+      },
+      "price_basis": "state"
+    },
+    "private:deerfield-academy-deerfield-ma": {
+      "aarp_housing": 46.0,
+      "aarp_neighborhood": 46.0,
+      "aarp_transportation": 51.0,
+      "aarp_environment": 62.0,
+      "aarp_health": 54.0,
+      "aarp_engagement": 57.0,
+      "aarp_opportunity_excluded": 42.0,
+      "community": "Deerfield town",
+      "community_geography_type": "subdiv",
+      "community_geoid": "2501116670",
+      "quality_of_life_proxy": 52.666666666666664,
+      "quality_of_life_display": 52.7,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=2501116670",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/2501116670/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://deerfield.edu/admission/financial-aid"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 105.757,
+        "housing_price_index": 128.068,
+        "metro_code": "",
+        "metro_name": "",
+        "price_basis": "state",
+        "price_geoid": "25000",
+        "price_geography": "Massachusetts",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/SARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county 25011 has no metropolitan-area entry in July 2023 Census delineation. Explicit broad state RPP fallback: Massachusetts 2024 BEA all-items; this is not a local or nonmetropolitan-only price estimate.",
+        "county_geoid": "25011"
+      },
+      "price_basis": "state"
+    },
+    "private:riverdale-country-school-bronx-ny": {
+      "aarp_housing": 62.0,
+      "aarp_neighborhood": 88.0,
+      "aarp_transportation": 86.0,
+      "aarp_environment": 60.0,
+      "aarp_health": 41.0,
+      "aarp_engagement": 42.0,
+      "aarp_opportunity_excluded": 42.0,
+      "community": "Bronx County",
+      "community_geography_type": "county",
+      "community_geoid": "36005",
+      "quality_of_life_proxy": 63.166666666666664,
+      "quality_of_life_display": 63.2,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=36005",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/county/36005/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. County proxy covers the listed New York City borough; it is broader than the campus neighborhood. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.riverdale.edu/admission/financial-aid/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 112.563,
+        "housing_price_index": 148.616,
+        "metro_code": "35620",
+        "metro_name": "New York-Newark-Jersey City, NY-NJ",
+        "price_basis": "metro",
+        "price_geoid": "35620",
+        "price_geography": "New York-Newark-Jersey City, NY-NJ",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 36005 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "36005"
+      },
+      "price_basis": "metro"
+    },
+    "private:the-loomis-chaffee-school-windsor-ct": {
+      "aarp_housing": 32.0,
+      "aarp_neighborhood": 57.0,
+      "aarp_transportation": 53.0,
+      "aarp_environment": 53.0,
+      "aarp_health": 58.0,
+      "aarp_engagement": 56.0,
+      "aarp_opportunity_excluded": 56.0,
+      "community": "Windsor town",
+      "community_geography_type": "subdiv",
+      "community_geoid": "0911087000",
+      "quality_of_life_proxy": 51.5,
+      "quality_of_life_display": 51.5,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=0911087000",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/0911087000/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.loomischaffee.org/admission/tuition-financial-aid"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 102.746,
+        "housing_price_index": 110.234,
+        "metro_code": "25540",
+        "metro_name": "Hartford-West Hartford-East Hartford, CT",
+        "price_basis": "metro",
+        "price_geoid": "25540",
+        "price_geography": "Hartford-West Hartford-East Hartford, CT",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 09110 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "09110"
+      },
+      "price_basis": "metro"
+    },
+    "private:basis-independent-brooklyn-brooklyn-ny": {
+      "aarp_housing": 52.0,
+      "aarp_neighborhood": 85.0,
+      "aarp_transportation": 90.0,
+      "aarp_environment": 68.0,
+      "aarp_health": 55.0,
+      "aarp_engagement": 55.0,
+      "aarp_opportunity_excluded": 39.0,
+      "community": "Kings County (Brooklyn)",
+      "community_geography_type": "county",
+      "community_geoid": "36047",
+      "quality_of_life_proxy": 67.5,
+      "quality_of_life_display": 67.5,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=36047",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/county/36047/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. County proxy covers the listed New York City borough; it is broader than the campus neighborhood. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://brooklyn.basisindependent.com/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 112.563,
+        "housing_price_index": 148.616,
+        "metro_code": "35620",
+        "metro_name": "New York-Newark-Jersey City, NY-NJ",
+        "price_basis": "metro",
+        "price_geoid": "35620",
+        "price_geography": "New York-Newark-Jersey City, NY-NJ",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 36047 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "36047"
+      },
+      "price_basis": "metro"
+    },
+    "private:hopkins-school-new-haven-ct": {
+      "aarp_housing": 62.0,
+      "aarp_neighborhood": 67.0,
+      "aarp_transportation": 79.0,
+      "aarp_environment": 54.0,
+      "aarp_health": 47.0,
+      "aarp_engagement": 45.0,
+      "aarp_opportunity_excluded": 40.0,
+      "community": "New Haven city",
+      "community_geography_type": "local",
+      "community_geoid": "0952000",
+      "quality_of_life_proxy": 59.0,
+      "quality_of_life_display": 59.0,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=0952000",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/0952000/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.hopkins.edu/admission/applying-to-hopkins/affording-hopkins"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 104.559,
+        "housing_price_index": 124.293,
+        "metro_code": "35300",
+        "metro_name": "New Haven, CT",
+        "price_basis": "metro",
+        "price_geoid": "35300",
+        "price_geography": "New Haven, CT",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 09170 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "09170"
+      },
+      "price_basis": "metro"
+    },
+    "private:the-taft-school-watertown-ct": {
+      "aarp_housing": 47.0,
+      "aarp_neighborhood": 50.0,
+      "aarp_transportation": 55.0,
+      "aarp_environment": 62.0,
+      "aarp_health": 50.0,
+      "aarp_engagement": 50.0,
+      "aarp_opportunity_excluded": 44.0,
+      "community": "Watertown town",
+      "community_geography_type": "subdiv",
+      "community_geoid": "0914080490",
+      "quality_of_life_proxy": 52.333333333333336,
+      "quality_of_life_display": 52.3,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=0914080490",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/0914080490/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.taftschool.org/admission/affording-taft/tuition-and-fees"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 99.778,
+        "housing_price_index": 89.111,
+        "metro_code": "47930",
+        "metro_name": "Waterbury-Shelton, CT",
+        "price_basis": "metro",
+        "price_geoid": "47930",
+        "price_geography": "Waterbury-Shelton, CT",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 09140 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "09140"
+      },
+      "price_basis": "metro"
+    },
+    "private:the-bishops-school-la-jolla-ca": {
+      "aarp_housing": 45.0,
+      "aarp_neighborhood": 65.0,
+      "aarp_transportation": 46.0,
+      "aarp_environment": 33.0,
+      "aarp_health": 73.0,
+      "aarp_engagement": 59.0,
+      "aarp_opportunity_excluded": 54.0,
+      "community": "San Diego city",
+      "community_geography_type": "local",
+      "community_geoid": "0666000",
+      "quality_of_life_proxy": 53.5,
+      "quality_of_life_display": 53.5,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=0666000",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/0666000/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.bishops.com/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 111.887,
+        "housing_price_index": 179.267,
+        "metro_code": "41740",
+        "metro_name": "San Diego-Chula Vista-Carlsbad, CA",
+        "price_basis": "metro",
+        "price_geoid": "41740",
+        "price_geography": "San Diego-Chula Vista-Carlsbad, CA",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 06073 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "06073"
+      },
+      "price_basis": "metro"
+    },
+    "private:ransom-everglades-school-coconut-grove-fl": {
+      "aarp_housing": 64.0,
+      "aarp_neighborhood": 69.0,
+      "aarp_transportation": 67.0,
+      "aarp_environment": 56.0,
+      "aarp_health": 46.0,
+      "aarp_engagement": 64.0,
+      "aarp_opportunity_excluded": 40.0,
+      "community": "Miami city",
+      "community_geography_type": "local",
+      "community_geoid": "1245000",
+      "quality_of_life_proxy": 61.0,
+      "quality_of_life_display": 61.0,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=1245000",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/1245000/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.ransomeverglades.org/admission/affording-re"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 114.155,
+        "housing_price_index": 155.551,
+        "metro_code": "33100",
+        "metro_name": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "price_basis": "metro",
+        "price_geoid": "33100",
+        "price_geography": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 12086 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "12086"
+      },
+      "price_basis": "metro"
+    },
+    "private:american-heritage-schools-broward-campus-plantation-fl": {
+      "aarp_housing": 52.0,
+      "aarp_neighborhood": 60.0,
+      "aarp_transportation": 53.0,
+      "aarp_environment": 44.0,
+      "aarp_health": 47.0,
+      "aarp_engagement": 60.0,
+      "aarp_opportunity_excluded": 49.0,
+      "community": "Plantation city (Broward County)",
+      "community_geography_type": "local",
+      "community_geoid": "1257425",
+      "quality_of_life_proxy": 52.666666666666664,
+      "quality_of_life_display": 52.7,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=1257425",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/1257425/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.ahschool.com/broward-campus/admissions/tuition-aid-fees"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 114.155,
+        "housing_price_index": 155.551,
+        "metro_code": "33100",
+        "metro_name": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "price_basis": "metro",
+        "price_geoid": "33100",
+        "price_geography": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 12011 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "12011"
+      },
+      "price_basis": "metro"
+    },
+    "private:concord-academy-concord-ma": {
+      "aarp_housing": 28.0,
+      "aarp_neighborhood": 60.0,
+      "aarp_transportation": 59.0,
+      "aarp_environment": 54.0,
+      "aarp_health": 73.0,
+      "aarp_engagement": 61.0,
+      "aarp_opportunity_excluded": 74.0,
+      "community": "Concord town",
+      "community_geography_type": "subdiv",
+      "community_geoid": "2501715060",
+      "quality_of_life_proxy": 55.833333333333336,
+      "quality_of_life_display": 55.8,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=2501715060",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/2501715060/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://concordacademy.org/admissions/tuition-financial-aid/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 108.266,
+        "housing_price_index": 148.424,
+        "metro_code": "14460",
+        "metro_name": "Boston-Cambridge-Newton, MA-NH",
+        "price_basis": "metro",
+        "price_geoid": "14460",
+        "price_geography": "Boston-Cambridge-Newton, MA-NH",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 25017 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "25017"
+      },
+      "price_basis": "metro"
+    },
+    "private:middlesex-school-concord-ma": {
+      "aarp_housing": 28.0,
+      "aarp_neighborhood": 60.0,
+      "aarp_transportation": 59.0,
+      "aarp_environment": 54.0,
+      "aarp_health": 73.0,
+      "aarp_engagement": 61.0,
+      "aarp_opportunity_excluded": 74.0,
+      "community": "Concord town",
+      "community_geography_type": "subdiv",
+      "community_geoid": "2501715060",
+      "quality_of_life_proxy": 55.833333333333336,
+      "quality_of_life_display": 55.8,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=2501715060",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/2501715060/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.mxschool.edu/admissions/affording-mx"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 108.266,
+        "housing_price_index": 148.424,
+        "metro_code": "14460",
+        "metro_name": "Boston-Cambridge-Newton, MA-NH",
+        "price_basis": "metro",
+        "price_geoid": "14460",
+        "price_geography": "Boston-Cambridge-Newton, MA-NH",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 25017 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "25017"
+      },
+      "price_basis": "metro"
+    },
+    "private:newark-academy-livingston-nj": {
+      "aarp_housing": 24.0,
+      "aarp_neighborhood": 62.0,
+      "aarp_transportation": 63.0,
+      "aarp_environment": 48.0,
+      "aarp_health": 75.0,
+      "aarp_engagement": 49.0,
+      "aarp_opportunity_excluded": 51.0,
+      "community": "Livingston township",
+      "community_geography_type": "subdiv",
+      "community_geoid": "3401340890",
+      "quality_of_life_proxy": 53.5,
+      "quality_of_life_display": 53.5,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=3401340890",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/3401340890/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.newarka.edu/admission/tuition-and-financial-aid"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 112.563,
+        "housing_price_index": 148.616,
+        "metro_code": "35620",
+        "metro_name": "New York-Newark-Jersey City, NY-NJ",
+        "price_basis": "metro",
+        "price_geoid": "35620",
+        "price_geography": "New York-Newark-Jersey City, NY-NJ",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 34013 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "34013"
+      },
+      "price_basis": "metro"
+    },
+    "private:miss-porters-school-farmington-ct": {
+      "aarp_housing": 36.0,
+      "aarp_neighborhood": 53.0,
+      "aarp_transportation": 57.0,
+      "aarp_environment": 60.0,
+      "aarp_health": 63.0,
+      "aarp_engagement": 51.0,
+      "aarp_opportunity_excluded": 73.0,
+      "community": "Farmington town",
+      "community_geography_type": "subdiv",
+      "community_geoid": "0911027600",
+      "quality_of_life_proxy": 53.333333333333336,
+      "quality_of_life_display": 53.3,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=0911027600",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/0911027600/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.porters.org/tuition-and-financial-aid/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 102.746,
+        "housing_price_index": 110.234,
+        "metro_code": "25540",
+        "metro_name": "Hartford-West Hartford-East Hartford, CT",
+        "price_basis": "metro",
+        "price_geoid": "25540",
+        "price_geography": "Hartford-West Hartford-East Hartford, CT",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 09110 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "09110"
+      },
+      "price_basis": "metro"
+    },
+    "private:ethical-culture-fieldston-school-bronx-ny": {
+      "aarp_housing": 62.0,
+      "aarp_neighborhood": 88.0,
+      "aarp_transportation": 86.0,
+      "aarp_environment": 60.0,
+      "aarp_health": 41.0,
+      "aarp_engagement": 42.0,
+      "aarp_opportunity_excluded": 42.0,
+      "community": "Bronx County",
+      "community_geography_type": "county",
+      "community_geoid": "36005",
+      "quality_of_life_proxy": 63.166666666666664,
+      "quality_of_life_display": 63.2,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=36005",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/county/36005/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. County proxy covers the listed New York City borough; it is broader than the campus neighborhood. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.ecfs.org/admissions/tuition-and-financial-aid/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 112.563,
+        "housing_price_index": 148.616,
+        "metro_code": "35620",
+        "metro_name": "New York-Newark-Jersey City, NY-NJ",
+        "price_basis": "metro",
+        "price_geoid": "35620",
+        "price_geography": "New York-Newark-Jersey City, NY-NJ",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 36005 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "36005"
+      },
+      "price_basis": "metro"
+    },
+    "private:united-world-college-usa-montezuma-nm": {
+      "aarp_housing": 62.0,
+      "aarp_neighborhood": 32.0,
+      "aarp_transportation": 50.0,
+      "aarp_environment": 34.0,
+      "aarp_health": 42.0,
+      "aarp_engagement": 27.0,
+      "aarp_opportunity_excluded": 23.0,
+      "community": "San Miguel County",
+      "community_geography_type": "county",
+      "community_geoid": "35047",
+      "quality_of_life_proxy": 41.166666666666664,
+      "quality_of_life_display": 41.2,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=35047",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/county/35047/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. San Miguel County is a broad county proxy for Montezuma, not a neighborhood score. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.uwc-usa.org/admissions/scholarships-fees/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 92.212,
+        "housing_price_index": 73.611,
+        "metro_code": "",
+        "metro_name": "",
+        "price_basis": "state",
+        "price_geoid": "35000",
+        "price_geography": "New Mexico",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/SARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county 35047 has no metropolitan-area entry in July 2023 Census delineation. Explicit broad state RPP fallback: New Mexico 2024 BEA all-items; this is not a local or nonmetropolitan-only price estimate.",
+        "county_geoid": "35047"
+      },
+      "price_basis": "state"
+    },
+    "private:the-pingry-school-basking-ridge-nj": {
+      "aarp_housing": 37.0,
+      "aarp_neighborhood": 55.0,
+      "aarp_transportation": 51.0,
+      "aarp_environment": 45.0,
+      "aarp_health": 76.0,
+      "aarp_engagement": 54.0,
+      "aarp_opportunity_excluded": 60.0,
+      "community": "Bernards township",
+      "community_geography_type": "subdiv",
+      "community_geoid": "3403505560",
+      "quality_of_life_proxy": 53.0,
+      "quality_of_life_display": 53.0,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=3403505560",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/3403505560/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Basking Ridge is the postal locality; the Census campus address is in Bernards township (Liberty Corner CDP). Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.pingry.org/apply/affordingpingry"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 112.563,
+        "housing_price_index": 148.616,
+        "metro_code": "35620",
+        "metro_name": "New York-Newark-Jersey City, NY-NJ",
+        "price_basis": "metro",
+        "price_geoid": "35620",
+        "price_geography": "New York-Newark-Jersey City, NY-NJ",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 34035 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "34035"
+      },
+      "price_basis": "metro"
+    },
+    "private:durham-academy-durham-nc": {
+      "aarp_housing": 55.0,
+      "aarp_neighborhood": 54.0,
+      "aarp_transportation": 58.0,
+      "aarp_environment": 69.0,
+      "aarp_health": 62.0,
+      "aarp_engagement": 80.0,
+      "aarp_opportunity_excluded": 59.0,
+      "community": "Durham city",
+      "community_geography_type": "local",
+      "community_geoid": "3719000",
+      "quality_of_life_proxy": 63.0,
+      "quality_of_life_display": 63.0,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=3719000",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/3719000/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.da.org/admissions/affording-da"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 97.572,
+        "housing_price_index": 98.934,
+        "metro_code": "20500",
+        "metro_name": "Durham-Chapel Hill, NC",
+        "price_basis": "metro",
+        "price_geoid": "20500",
+        "price_geography": "Durham-Chapel Hill, NC",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 37063 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "37063"
+      },
+      "price_basis": "metro"
+    },
+    "private:st-marks-school-southborough-ma": {
+      "aarp_housing": 30.0,
+      "aarp_neighborhood": 52.0,
+      "aarp_transportation": 55.0,
+      "aarp_environment": 48.0,
+      "aarp_health": 59.0,
+      "aarp_engagement": 48.0,
+      "aarp_opportunity_excluded": 65.0,
+      "community": "Southborough town",
+      "community_geography_type": "subdiv",
+      "community_geoid": "2502763165",
+      "quality_of_life_proxy": 48.666666666666664,
+      "quality_of_life_display": 48.7,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=2502763165",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/2502763165/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.stmarksschool.org/admission/tuition-and-financial-aid"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 102.523,
+        "housing_price_index": 113.001,
+        "metro_code": "49340",
+        "metro_name": "Worcester, MA",
+        "price_basis": "metro",
+        "price_geoid": "49340",
+        "price_geography": "Worcester, MA",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 25027 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "25027"
+      },
+      "price_basis": "metro"
+    },
+    "private:saint-anns-school-brooklyn-ny": {
+      "aarp_housing": 52.0,
+      "aarp_neighborhood": 85.0,
+      "aarp_transportation": 90.0,
+      "aarp_environment": 68.0,
+      "aarp_health": 55.0,
+      "aarp_engagement": 55.0,
+      "aarp_opportunity_excluded": 39.0,
+      "community": "Kings County (Brooklyn)",
+      "community_geography_type": "county",
+      "community_geoid": "36047",
+      "quality_of_life_proxy": 67.5,
+      "quality_of_life_display": 67.5,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=36047",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/county/36047/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. County proxy covers the listed New York City borough; it is broader than the campus neighborhood. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://saintannsny.org/admissions/tuition/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 112.563,
+        "housing_price_index": 148.616,
+        "metro_code": "35620",
+        "metro_name": "New York-Newark-Jersey City, NY-NJ",
+        "price_basis": "metro",
+        "price_geoid": "35620",
+        "price_geography": "New York-Newark-Jersey City, NY-NJ",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 36047 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "36047"
+      },
+      "price_basis": "metro"
+    },
+    "private:woodberry-forest-school-woodberry-forest-va": {
+      "aarp_housing": 51.0,
+      "aarp_neighborhood": 31.0,
+      "aarp_transportation": 34.0,
+      "aarp_environment": 56.0,
+      "aarp_health": 41.0,
+      "aarp_engagement": 61.0,
+      "aarp_opportunity_excluded": 61.0,
+      "community": "Madison County",
+      "community_geography_type": "county",
+      "community_geoid": "51113",
+      "quality_of_life_proxy": 45.666666666666664,
+      "quality_of_life_display": 45.7,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=51113",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/county/51113/scores",
+      "community_mapping_note": "School official site gives Woodberry Forest VA; Madison County government planning evidence places the Woodberry campus in Madison County. County proxy is broad, not a neighborhood score. Census street-address lookup did not return a match. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.woodberry.org/admission/tuition-and-tuition-assistance",
+        "https://mccmeetings.blob.core.usgovcloudapi.net/madcova-pubu/MEET-Packet-32aba4a68805400d8ecbddcb51da5506.pdf"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 101.104,
+        "housing_price_index": 106.799,
+        "metro_code": "",
+        "metro_name": "",
+        "price_basis": "state",
+        "price_geoid": "51000",
+        "price_geography": "Virginia",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/SARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county 51113 has no metropolitan-area entry in July 2023 Census delineation. Explicit broad state RPP fallback: Virginia 2024 BEA all-items; this is not a local or nonmetropolitan-only price estimate.",
+        "county_geoid": "51113"
+      },
+      "price_basis": "state"
+    },
+    "private:the-roxbury-latin-school-west-roxbury-ma": {
+      "aarp_housing": 55.0,
+      "aarp_neighborhood": 76.0,
+      "aarp_transportation": 85.0,
+      "aarp_environment": 62.0,
+      "aarp_health": 69.0,
+      "aarp_engagement": 55.0,
+      "aarp_opportunity_excluded": 36.0,
+      "community": "Boston city",
+      "community_geography_type": "local",
+      "community_geoid": "2507000",
+      "quality_of_life_proxy": 67.0,
+      "quality_of_life_display": 67.0,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=2507000",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/2507000/scores",
+      "community_mapping_note": "Official school address is West Roxbury; Boston government identifies West Roxbury as a Boston neighborhood. Boston city is a broad municipal proxy, not a West Roxbury neighborhood score. Census street-address lookup did not return a match. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.roxburylatin.org/admission/tuition/",
+        "https://www.boston.gov/neighborhood/west-roxbury"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 108.266,
+        "housing_price_index": 148.424,
+        "metro_code": "14460",
+        "metro_name": "Boston-Cambridge-Newton, MA-NH",
+        "price_basis": "metro",
+        "price_geoid": "14460",
+        "price_geography": "Boston-Cambridge-Newton, MA-NH",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 25025 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "25025"
+      },
+      "price_basis": "metro"
+    },
+    "private:georgetown-day-school-washington-dc": {
+      "aarp_housing": 60.0,
+      "aarp_neighborhood": 71.0,
+      "aarp_transportation": 88.0,
+      "aarp_environment": 52.0,
+      "aarp_health": 58.0,
+      "aarp_engagement": 73.0,
+      "aarp_opportunity_excluded": 26.0,
+      "community": "Washington city",
+      "community_geography_type": "local",
+      "community_geoid": "1150000",
+      "quality_of_life_proxy": 67.0,
+      "quality_of_life_display": 67.0,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=1150000",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/1150000/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.gds.org/",
+        "https://summer.gds.org/directions/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 108.884,
+        "housing_price_index": 151.134,
+        "metro_code": "47900",
+        "metro_name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+        "price_basis": "metro",
+        "price_geoid": "47900",
+        "price_geography": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 11001 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "11001"
+      },
+      "price_basis": "metro"
+    },
+    "private:friends-academy-locust-valley-ny": {
+      "aarp_housing": 42.0,
+      "aarp_neighborhood": 68.0,
+      "aarp_transportation": 67.0,
+      "aarp_environment": 74.0,
+      "aarp_health": 69.0,
+      "aarp_engagement": 61.0,
+      "aarp_opportunity_excluded": 57.0,
+      "community": "Glen Cove city",
+      "community_geography_type": "local",
+      "community_geoid": "3629113",
+      "quality_of_life_proxy": 63.5,
+      "quality_of_life_display": 63.5,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=3629113",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/3629113/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Locust Valley is the postal locality; the Census campus address lies in Glen Cove city, not Locust Valley CDP. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.friendsacademy.org/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 112.563,
+        "housing_price_index": 148.616,
+        "metro_code": "35620",
+        "metro_name": "New York-Newark-Jersey City, NY-NJ",
+        "price_basis": "metro",
+        "price_geoid": "35620",
+        "price_geography": "New York-Newark-Jersey City, NY-NJ",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 36059 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "36059"
+      },
+      "price_basis": "metro"
+    },
+    "private:north-shore-country-day-winnetka-il": {
+      "aarp_housing": 11.0,
+      "aarp_neighborhood": 63.0,
+      "aarp_transportation": 65.0,
+      "aarp_environment": 50.0,
+      "aarp_health": 65.0,
+      "aarp_engagement": 54.0,
+      "aarp_opportunity_excluded": 53.0,
+      "community": "Winnetka village",
+      "community_geography_type": "local",
+      "community_geoid": "1782530",
+      "quality_of_life_proxy": 51.333333333333336,
+      "quality_of_life_display": 51.3,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=1782530",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/1782530/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.nscds.org/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 103.595,
+        "housing_price_index": 112.01,
+        "metro_code": "16980",
+        "metro_name": "Chicago-Naperville-Elgin, IL-IN",
+        "price_basis": "metro",
+        "price_geoid": "16980",
+        "price_geography": "Chicago-Naperville-Elgin, IL-IN",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 17031 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "17031"
+      },
+      "price_basis": "metro"
+    },
+    "private:polytechnic-school-pasadena-ca": {
+      "aarp_housing": 44.0,
+      "aarp_neighborhood": 68.0,
+      "aarp_transportation": 56.0,
+      "aarp_environment": 31.0,
+      "aarp_health": 72.0,
+      "aarp_engagement": 55.0,
+      "aarp_opportunity_excluded": 51.0,
+      "community": "Pasadena city",
+      "community_geography_type": "local",
+      "community_geoid": "0656000",
+      "quality_of_life_proxy": 54.333333333333336,
+      "quality_of_life_display": 54.3,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=0656000",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/0656000/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.polytechnic.org/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 113.566,
+        "housing_price_index": 170.433,
+        "metro_code": "31080",
+        "metro_name": "Los Angeles-Long Beach-Anaheim, CA",
+        "price_basis": "metro",
+        "price_geoid": "31080",
+        "price_geography": "Los Angeles-Long Beach-Anaheim, CA",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 06037 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "06037"
+      },
+      "price_basis": "metro"
+    },
+    "private:mercersburg-academy-mercersburg-pa": {
+      "aarp_housing": 65.0,
+      "aarp_neighborhood": 43.0,
+      "aarp_transportation": 51.0,
+      "aarp_environment": 66.0,
+      "aarp_health": 41.0,
+      "aarp_engagement": 60.0,
+      "aarp_opportunity_excluded": 55.0,
+      "community": "Mercersburg borough",
+      "community_geography_type": "local",
+      "community_geoid": "4248704",
+      "quality_of_life_proxy": 54.333333333333336,
+      "quality_of_life_display": 54.3,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=4248704",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/4248704/scores",
+      "community_mapping_note": "Official school and borough financing notice identify the campus at 100 Academy Drive, Mercersburg. Mercersburg borough is the named locality proxy; this is not a claim that every campus parcel lies within borough limits. Census current-address lookup returned no match for 100 Academy Drive; legacy campus access address 300 East Seminary Street matches Mercersburg borough and Franklin County. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.mercersburg.edu/",
+        "https://mercersburg.org/notices/notice-detail/?notice_item=133",
+        "https://jsg.legis.state.pa.us/resources/documents/ftp/publications/2016-12-29%20PDF%20WEBSITE%20Version%20SR255%20Services%20to%20Veterans%20final%20Report%201.3.17.pdf"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 94.642,
+        "housing_price_index": 71.914,
+        "metro_code": "16540",
+        "metro_name": "Chambersburg, PA",
+        "price_basis": "metro",
+        "price_geoid": "16540",
+        "price_geography": "Chambersburg, PA",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 42055 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "42055"
+      },
+      "price_basis": "metro"
+    },
+    "private:westridge-school-pasadena-ca": {
+      "aarp_housing": 44.0,
+      "aarp_neighborhood": 68.0,
+      "aarp_transportation": 56.0,
+      "aarp_environment": 31.0,
+      "aarp_health": 72.0,
+      "aarp_engagement": 55.0,
+      "aarp_opportunity_excluded": 51.0,
+      "community": "Pasadena city",
+      "community_geography_type": "local",
+      "community_geoid": "0656000",
+      "quality_of_life_proxy": 54.333333333333336,
+      "quality_of_life_display": 54.3,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=0656000",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/0656000/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.westridge.org/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 113.566,
+        "housing_price_index": 170.433,
+        "metro_code": "31080",
+        "metro_name": "Los Angeles-Long Beach-Anaheim, CA",
+        "price_basis": "metro",
+        "price_geoid": "31080",
+        "price_geography": "Los Angeles-Long Beach-Anaheim, CA",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 06037 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "06037"
+      },
+      "price_basis": "metro"
+    },
+    "private:pine-crest-school-fort-lauderdale-campus-fort-lauderdale-fl": {
+      "aarp_housing": 58.0,
+      "aarp_neighborhood": 64.0,
+      "aarp_transportation": 55.0,
+      "aarp_environment": 45.0,
+      "aarp_health": 44.0,
+      "aarp_engagement": 67.0,
+      "aarp_opportunity_excluded": 53.0,
+      "community": "Fort Lauderdale city",
+      "community_geography_type": "local",
+      "community_geoid": "1224000",
+      "quality_of_life_proxy": 55.5,
+      "quality_of_life_display": 55.5,
+      "aarp_edition": "2025",
+      "aarp_overall_for_reference": null,
+      "community_source_url": "https://livabilityindex.aarp.org/search?geoid=1224000",
+      "community_api_url": "https://api.livabilityindex.aarp.org/api/features/local/1224000/scores",
+      "community_mapping_note": "Campus mailing address verified on the official school website; Census Current geocoder identifies the containing municipality/subdivision and county. Six-category arithmetic mean uses rounded AARP 2025 scores; opportunity is excluded. Locality is a community proxy, not an attendance boundary, admission guarantee, or family residence.",
+      "community_evidence_urls": [
+        "https://www.pinecrest.edu/"
+      ],
+      "locality_override": true,
+      "cost": {
+        "price_index": 114.155,
+        "housing_price_index": 155.551,
+        "metro_code": "33100",
+        "metro_name": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "price_basis": "metro",
+        "price_geoid": "33100",
+        "price_geography": "Miami-Fort Lauderdale-West Palm Beach, FL",
+        "year": 2024,
+        "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+        "mapping_source_url": "https://geocoding.geo.census.gov/geocoder/",
+        "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+        "mapping_note": "Verified campus county-equivalent 12011 joins directly to July 2023 Census metropolitan delineation; 2024 BEA all-items RPP.",
+        "county_geoid": "12011"
+      },
+      "price_basis": "metro"
+    }
+  },
+  "summary": {
+    "schools": 33,
+    "livability_available": 33,
+    "price_available": 33,
+    "price_basis_counts": {
+      "metro": 28,
+      "state": 5
+    },
+    "geography_type_counts": {
+      "local": 15,
+      "subdiv": 11,
+      "county": 7
+    }
+  },
+  "sources": [
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-subdiv-0917078740.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/0917078740/scores",
+      "sha256": "7543b9f223b1628960af0a193cedda53c215d5554a8c40463f58d11df8b0e2bd"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-005.html",
+      "source_url": "https://www.choate.edu/admission/tuition-and-financial-aid",
+      "sha256": "31c596f2802be8338a485218bf08702b1d7776ff913232a943d1b6ab34ce2294"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-005.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=333+Christian+Street%2C+Wallingford%2C+CT+06492&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "41f6b3a4f1a60b4a0ab39c13443ec3a5bd2fbf9317c5a46c4769ea0abb2e7704"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-0644000.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0644000/scores",
+      "sha256": "68c3cbaa2b0b2511286f69d10eff2f55e997329129d31917aebac210a31a5d75"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-007.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=3700+Coldwater+Canyon+Avenue%2C+Studio+City%2C+CA+91604&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "80fdf11622ab594efad716b14a47e130e04fe6ccc5e50396bc9ea9ffe3d5bc4e"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-county-36005.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/county/36005/scores",
+      "sha256": "55a997cf2cc80c750f8641558ecb39a88ec05e2b5220065c64a9eb4d995a455f"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-008.html",
+      "source_url": "https://www.horacemann.org/admissions/tuition-financial-aid",
+      "sha256": "fa9c2e489a9191af22d88f1f8f86b2b7a3a2b01935397e65a913e823a13ab4e2"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-008.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=231+West+246th+Street%2C+Bronx%2C+NY+10471&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "a8e1e3434a4aa15eb390e202096cb5e1f0281ca81936c20e1eb788de565e7827"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-subdiv-0916066420.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/0916066420/scores",
+      "sha256": "4f561b5974e31c2f5cd9bdb81266448b6f8f3b05508f1c9e9d215810187896f1"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-009.html",
+      "source_url": "https://www.hotchkiss.org/parents/payment-options-financial-forms",
+      "sha256": "8f543f1957997f9d760843a8184e42fc15943518e55bfce783e06089d8c22c24"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-009.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=11+Interlaken+Road%2C+Lakeville%2C+CT+06039&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "5e6fda4249254fdb4409f10c107c88bcd3657a2059ee421f1e64dd1db22cce89"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-3314200.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3314200/scores",
+      "sha256": "7efb45359ff90c7547e7d8f3e9393a10bdb6f27df9e1f018ead11bb0ab44b2e0"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-012.html",
+      "source_url": "https://www.sps.edu/",
+      "sha256": "6a6030bc376e6a75c8caabc0a3c4d7ed78ecf4272d3b6d1113e0d5151db21b3c"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-012.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=325+Pleasant+Street%2C+Concord%2C+NH+03301&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "b14ebc065fc00fedbd05918fd3e877daf7bea62d8d37e6f669144e64890801b1"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-subdiv-2501116670.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/2501116670/scores",
+      "sha256": "a704e7579012d948448187fa63d3999822a8f541db1cf7ce2bda1a681217e71d"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-014.html",
+      "source_url": "https://deerfield.edu/admission/financial-aid",
+      "sha256": "f1eb10606c83fdb438e56fcc62818749e2386d4ff40ecf046ad042ddf25c36b0"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-014.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=7+Boyden+Lane%2C+Deerfield%2C+MA+01342&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "92c5a1c8fc9236452b1e73d8700da943f043a039d5a64c1318e7342594a2b312"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-015.html",
+      "source_url": "https://www.riverdale.edu/admission/financial-aid/",
+      "sha256": "038fafcba3fd7c525af0bc963af4331700b4649b201a12c86e2394a6c4cc9ab8"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-015.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=5250+Fieldston+Road%2C+Bronx%2C+NY+10471&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "e685368aa7197526e91ed3ef145bd8a8ad54e4e13c77667b7bce2114b7747e41"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-subdiv-0911087000.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/0911087000/scores",
+      "sha256": "9571350ab26b123c3cf4687343be95ca62907a666ba8f786eb0bfd0535281785"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-019.html",
+      "source_url": "https://www.loomischaffee.org/admission/tuition-financial-aid",
+      "sha256": "1f5cd6cbed9cfdc64525e212f39e75957a26f306fa3b999844d019bf2976e2b7"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-019.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=4+Batchelder+Road%2C+Windsor%2C+CT+06095&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "83efbd212cad1c42150413ce5b01faae9e88a79b58294244f85746f22a57e5e3"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-county-36047.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/county/36047/scores",
+      "sha256": "601d84111bbc30a6776ad3b5d46b18125d9ef606649d9f4e2fc1f6097e5c0423"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-024.html",
+      "source_url": "https://brooklyn.basisindependent.com/",
+      "sha256": "76e99bdfc17a38e15ab6a7b7e4441855acaf85ef2289f13a600fd9554d4ff2a0"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-024.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=556+Columbia+Street%2C+Brooklyn%2C+NY+11231&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "8c9aa7ef522747ff2ff864ec4f7a8660537cfc5aee503e9f99f52a796028a64d"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-0952000.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0952000/scores",
+      "sha256": "361d2916ae22dce4ccdbf7590e339181d777f3d564b1f26ee9854dc49b998c14"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-038.html",
+      "source_url": "https://www.hopkins.edu/admission/applying-to-hopkins/affording-hopkins",
+      "sha256": "bb480089a382da8dee84211da9ee9ba9e899be91068226f54dcefd93cc18426f"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-038.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=986+Forest+Road%2C+New+Haven%2C+CT+06515&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "9d0a4311785d57cb90dcb6df999f1596464f68cbb1ea58ab99f3426e39009f07"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-subdiv-0914080490.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/0914080490/scores",
+      "sha256": "837f5d00d7a852852c43e3bd63dcad8d2934b844dec5f80fb2e9bdb43e4152df"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-039.html",
+      "source_url": "https://www.taftschool.org/admission/affording-taft/tuition-and-fees",
+      "sha256": "2689cf0523f65df6246ef41c806703ff532a55fe949720b272a70748fa666d53"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-039.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=110+Woodbury+Road%2C+Watertown%2C+CT+06795&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "e02481893935715895a6c2671b3f8b1b364fd32231c5290b9a789636b03d0ece"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-0666000.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0666000/scores",
+      "sha256": "48e684e653297ebb43655834b5ffcc43706b7a50ab5687af58a5e2f783ab2912"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-040.html",
+      "source_url": "https://www.bishops.com/admissions/affording-bishops",
+      "sha256": "e5caa46083f1cd9800b9c1611fb4b562e76b8a6092b18dbc27a0a0e43a3e158e"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-040.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=7607+La+Jolla+Boulevard%2C+La+Jolla%2C+CA+92037&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "e5387e5c8ea1119a128869c92dfe3145f9e66cfa20afc71fe1e1f29d54bbb1ea"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-1245000.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1245000/scores",
+      "sha256": "e69cb3469ddd9b93e989ebbb26b8e24eacff11049ec4c6cbb144f5ffa8cd19d5"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-042.html",
+      "source_url": "https://www.ransomeverglades.org/admission/affording-re",
+      "sha256": "10e5c702f2fa6c5b28aa977d1faa2826424e1078555eb25d36bae00600414fb3"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-042.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=3575+Main+Highway%2C+Coconut+Grove%2C+FL+33133&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "8e981d3e2ac37abfe734bc8e00cc0e8893edaf77a45d3a17f47f3a35a908b0db"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-1257425.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1257425/scores",
+      "sha256": "bb1c97caa3e1fc8a3d1326b863d2d33f21f574e1606009ca42b1157ab53c63e5"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-044.html",
+      "source_url": "https://www.ahschool.com/broward-campus/admissions/tuition-aid-fees",
+      "sha256": "e741a5ecc155a246113808941785b5da798541089d8fbb6c8eab0c6a37cc7f26"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-044.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=12200+West+Broward+Boulevard%2C+Plantation%2C+FL+33325&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "7349e04d0d6629a365c70c8c8e960936d21d8367c14e3ec166035e3b27ccbac0"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-subdiv-2501715060.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/2501715060/scores",
+      "sha256": "5c03f27d9a52a0152b5cf11138d8dc99f0278e4f200d60c7e45c725bce1fbf77"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-045.html",
+      "source_url": "https://concordacademy.org/admissions/tuition-financial-aid/",
+      "sha256": "cde8116e0f5115c8889cbd8b09b51a105f413e8c2920bca7a4cfec65c8af3520"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-045.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=166+Main+Street%2C+Concord%2C+MA+01742&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "1497ae8177b0ded806264ea7a0f54c4c2c3e40e99253f20958afa49049395a4b"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-047.html",
+      "source_url": "https://www.mxschool.edu/admissions/affording-mx",
+      "sha256": "debf91321a87f038b237b7da0deb516176ce4836c8f08f0b5c236e84ad8e30c0"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-047.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=1400+Lowell+Road%2C+Concord%2C+MA+01742&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "03ab79fd3e17962688229dcdd9c8c9a00de7f0eefaee141966b6498a546ee6fb"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-subdiv-3401340890.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/3401340890/scores",
+      "sha256": "ccdb13d9d7cc930ab1c5453ee07ef130abf6fe538cbf33377d8889245ad64d89"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-053.html",
+      "source_url": "https://www.newarka.edu/admission/tuition-and-financial-aid",
+      "sha256": "9ab846d12fad5fd717d68de43582c089a9bb43689971a94cf935e8114b3c6286"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-053.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=91+South+Orange+Avenue%2C+Livingston%2C+NJ+07039&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "b88e13530c5cecca531eadef9f8a528328706cdd0587529ee26af572078cb85f"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-subdiv-0911027600.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/0911027600/scores",
+      "sha256": "92febb5a43584a59c0ea49f8afec60a0b70ee4225f757e2225a34e40d9a964da"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-067.html",
+      "source_url": "https://www.porters.org/tuition-and-financial-aid/",
+      "sha256": "a8503e0de7a6a3bf013e4413865b0276bf40b7bca970a3559460b8abfd7aead5"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-067.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=60+Main+Street%2C+Farmington%2C+CT+06032&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "cce3ab57446bf1b1393ade76a85ad0239281106aebfe8fdd45881c8ad053fd11"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-073.html",
+      "source_url": "https://www.ecfs.org/admissions/tuition-and-financial-aid/",
+      "sha256": "cb9df1d8311c417d9a9cecaee31f13617f96ac0405a909dcb29f972736a8372c"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-073.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=3901+Fieldston+Road%2C+Bronx%2C+NY+10471&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "338c6d76d2805beb60b1d9112914025811c1e0939dc9a1d1ac0c6374c83d0885"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-county-35047.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/county/35047/scores",
+      "sha256": "107e4ed6f59dc7c129ee26472a116643f40efee36ba1d0b6a52761ab100a5b52"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-079.html",
+      "source_url": "https://www.uwc-usa.org/admissions/scholarships-fees/",
+      "sha256": "eb225fd66718144e925bffa908638d81cd59399e9e5c4c7200bb43c9c802d524"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-079.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=400+State+Route+65%2C+Montezuma%2C+NM+87731&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "84e5e9c6a761fff07067b25bd8fc21ed13d951d92fadc1133d30569a79d4c29b"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-subdiv-3403505560.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/3403505560/scores",
+      "sha256": "7ab75ebda2103c20969c52ff9f6585e468fe545d2bf9c492ff7f6297d89fe129"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-082.html",
+      "source_url": "https://www.pingry.org/apply/affordingpingry",
+      "sha256": "2ad59f782484215963ce0bafb8ac64c8940d70435d595d68997e2912a1c4bcb2"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-082.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=131+Martinsville+Road%2C+Basking+Ridge%2C+NJ+07920&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "439a47ebf182bb0e80c15fa13c725acd19475d8e96921081d611fd49b6e70b17"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-3719000.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3719000/scores",
+      "sha256": "fa6050d81ba5906669540e32122c8ed2503d2f01f87a3f9c8a7c05a70d5787d7"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-086.html",
+      "source_url": "https://www.da.org/admissions/affording-da",
+      "sha256": "e1432ec453436d5c57d2459a0b3cb5d50e2bf99121bdcf5dfd38e07bc710632d"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-086.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=3601+Ridge+Road%2C+Durham%2C+NC+27705&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "6120988f9458e2bbad9759e9cfb23278226a5c86dc771eca2862e4a7fceb4111"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-subdiv-2502763165.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/subdiv/2502763165/scores",
+      "sha256": "3ee5bb9aa616bba3113062baf4ce8ccbabd2feb8ed872f68f7ee0ec46e37f5ea"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-090.html",
+      "source_url": "https://www.stmarksschool.org/admission/tuition-and-financial-aid",
+      "sha256": "b8a560af44b1cdb4b8956ac955fff02c45d01b13cc42ff457e9224fad62c1d0e"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-090.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=25+Marlboro+Road%2C+Southborough%2C+MA+01772&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "9fbed2afed04fb618e7587c29c50450a627952bc97fd0263045c3d754d4c49b9"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-093.html",
+      "source_url": "https://saintannsny.org/admissions/tuition/",
+      "sha256": "dd063e8d2308e9ee13d885d982fa0ccfd030f5eabcbda40d06bfae81e37b2b85"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-093.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=129+Pierrepont+Street%2C+Brooklyn%2C+NY+11201&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "d00e5bbff5d2bd234cd434eb2563349109727691a60870e73178e588694bdfdc"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-county-51113.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/county/51113/scores",
+      "sha256": "cb7738f52f5cd8b040dea7d174599adb18ece1cb0d03139fe6edb64e8b3b8efc"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-096.html",
+      "source_url": "https://www.woodberry.org/admission/tuition-and-tuition-assistance",
+      "sha256": "9555b83d7475647ab2f20276dcfd4b7b8716da9413d07c8ecc780c46e058e20c"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-096.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=898+Woodberry+Forest+Road%2C+Woodberry+Forest%2C+VA+22989&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "5c140f3fced5b2681fc1ed018d306c8f64696903f2b238d00c1eb73b84019136"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-2507000.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/2507000/scores",
+      "sha256": "1726d07cbf4121b2feae853890a7e36c317a83eafd017b6c19d5c5e1e58a9136"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-097.html",
+      "source_url": "https://www.roxburylatin.org/admission/tuition/",
+      "sha256": "c3cd75c52cb9aa8a6c37bf97199b6ae352228415e0d99490d15b12e184677d36"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-097.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=101+Saint+Theresa+Avenue%2C+West+Roxbury%2C+MA+02132&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "e1087bc2f5eeceb7564e9f57d4bc3667fe4656b47f79f199b08f4ff7ce72f154"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-1150000.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1150000/scores",
+      "sha256": "feb41e36732f9ffca40ac71684cabf27d029b3baea3e685806473afd797a30cc"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-101.html",
+      "source_url": "https://www.gds.org/",
+      "sha256": "73ef1dfcda60400fc63f01fed641622566c29cc8cc7c4082341418c2ad3b40b1"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-101.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=4200+Davenport+Street+NW%2C+Washington%2C+DC+20016&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "0a1ce10f04e9517baf26f7ddbb95b3de08d1f7a7521333c5cdc457eba958f4ef"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-3629113.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/3629113/scores",
+      "sha256": "a08f93f338dc5fe5d795e319651727b0da2eb0ff3e16e8043a13c5648d6c8fe9"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-102.html",
+      "source_url": "https://www.friendsacademy.org/",
+      "sha256": "84218412ad54bd666a11b1b7caf5de75bf0e750b1724c8d61bb808d13b2f6c89"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-102.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=270+Duck+Pond+Road%2C+Locust+Valley%2C+NY+11560&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "7b378d793641bcfd9be97dd50f05b4fcb672e6add94590b9b623e81bb3d7758e"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-1782530.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1782530/scores",
+      "sha256": "a19c26ee3fa94ebf10e398f7ff302b332d14c53d537988a66724e7655cf9b57f"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-103.html",
+      "source_url": "https://www.nscds.org/",
+      "sha256": "c345f7b92aea6904acc8d87375473a8e9785f4a821ff68f91b6a1a850a6e750e"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-103.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=310+Green+Bay+Road%2C+Winnetka%2C+IL+60093&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "9ecfe921c69d113862e99e91207cb5ca47ffb3fef27607a989ab839c405f57a6"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-0656000.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/0656000/scores",
+      "sha256": "4cc838662937ab063f0516e8bf73f8737c98af8e9292f767215525e9f907b3e4"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-104.html",
+      "source_url": "https://www.polytechnic.org/",
+      "sha256": "e45e6e41a8495b544addce7f43eab08952c2fefbd1d9d476550bbc635afdd42c"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-104.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=1030+East+California+Boulevard%2C+Pasadena%2C+CA+91106&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "9972d2c4faf0249c22164f5c3d0bc441ae99c88f3d7b5cf226f35ad81311cdc0"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-4248704.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/4248704/scores",
+      "sha256": "843419efee922069b6ce25738ba12d45345a50cd522e98c9f2372d6c05534c47"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-105.html",
+      "source_url": "https://www.mercersburg.edu/",
+      "sha256": "57ae296fa37b152997ae9b36e0d6234a30f0537a57d42dc5f8bbf5c8c846018a"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-105.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=100+Academy+Drive%2C+Mercersburg%2C+PA+17236&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "d2c4bd6206785eeb819037af5d2605992868ee148dc1073dd4113c3ee1a56845"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-106.html",
+      "source_url": "https://www.westridge.org/",
+      "sha256": "3a5a52f09f34a5b404e8b34470a262c36da710aaaeafe29e54d514d22c00d747"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-106.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=324+Madeline+Drive%2C+Pasadena%2C+CA+91105&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "d9495b3c548a0b577bbbf18eb936e4c49cc3afd017e0b541867174dcce6b96a7"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/aarp-local-1224000.json",
+      "source_url": "https://api.livabilityindex.aarp.org/api/features/local/1224000/scores",
+      "sha256": "0044ef5c689d24cd64ea349108aee880c45490bd870b0abd3fd10add98250d9c"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-107.html",
+      "source_url": "https://www.pinecrest.edu/",
+      "sha256": "30182e23fa56165e874036d61ecd3df06732eeebc41b20828bbed5bca45bf025"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-107.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=1501+NE+62nd+Street%2C+Fort+Lauderdale%2C+FL+33334&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "dcbb630d1dee3e319e26bce80db51535776f324b9b8ec73f1fa4107af2a9a118"
+    },
+    {
+      "path": "research/school-atlas/list1_2023.xlsx",
+      "source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+      "sha256": "952c4b1e78acbb54e6ec9412434b7602fedacbf021736351a63c181bdb753629"
+    },
+    {
+      "path": "research/school-atlas/MARPP.zip",
+      "source_url": "https://apps.bea.gov/regional/zip/MARPP.zip",
+      "sha256": "5dbf2e6ac2af222cc9abc205586c9b480344d89392752eb689c3ec823a34c83e"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/SARPP.zip",
+      "source_url": "https://apps.bea.gov/regional/zip/SARPP.zip",
+      "sha256": "38713c6224c4c26ae020ffecd4549b82dca84f43d34f93dfdb43f4070cf011da"
+    },
+    {
+      "path": "research/school-atlas/2025_Gaz_cousubs_national.zip",
+      "source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+      "sha256": "5e498edbf27e2426ec6661415851ea42c6a635f3cc3a2b79eccc2c3c19b2892e"
+    },
+    {
+      "path": "research/school-atlas/national_place2020.txt",
+      "source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+      "sha256": "302ff3cf031217aca032d89f42c0dd93611a76d72ab2036944fa40d5c23c6613"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/census-address-105-legacy.json",
+      "source_url": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=300+East+Seminary+Street%2C+Mercersburg%2C+PA+17236&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+      "sha256": "14ad2114b073976d677e8d65b91229883f304de2bdc9c8b9a036fd2a2d26396d"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/school-101-directions.html",
+      "source_url": "https://summer.gds.org/directions/",
+      "sha256": "e2a0921c6d3746e31fbe94b76288488cbf45e73a2857f312041ad4178cc68cff"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/madison-county-planning-2022.pdf",
+      "source_url": "https://mccmeetings.blob.core.usgovcloudapi.net/madcova-pubu/MEET-Packet-32aba4a68805400d8ecbddcb51da5506.pdf",
+      "sha256": "e48eeda0ebe43ebfef3ec8563cbb63fa0c59c8f3ba85ebe9ac000d660b5a934d"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/official-location-readback.json",
+      "source_url": "https://www.hw.com/life-at-hw/",
+      "sha256": "84191b9f673d2a7c8a67b6018dd298201f46de85261eaf556725a5645ef6a6b9"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/official-location-readback.json",
+      "source_url": "https://www.bishops.com/",
+      "sha256": "84191b9f673d2a7c8a67b6018dd298201f46de85261eaf556725a5645ef6a6b9"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/official-location-readback.json",
+      "source_url": "https://www.boston.gov/neighborhood/west-roxbury",
+      "sha256": "84191b9f673d2a7c8a67b6018dd298201f46de85261eaf556725a5645ef6a6b9"
+    },
+    {
+      "path": "research/school-atlas/private-schools/coverage/sources-community/official-location-readback.json",
+      "source_url": "https://mccmeetings.blob.core.usgovcloudapi.net/madcova-pubu/MEET-Packet-32aba4a68805400d8ecbddcb51da5506.pdf",
+      "sha256": "84191b9f673d2a7c8a67b6018dd298201f46de85261eaf556725a5645ef6a6b9"
+    }
+  ]
+}

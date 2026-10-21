@@ -1,0 +1,173 @@
+Fees and Scholarships | CGA USA (https://www.crimsonglobalacademy.school/us/admissions/fees-and-scholarships/)
+【turn479983view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.crimsonglobalacademy.school/us/admissions/fees-and-scholarships/","lineno":null}); Redirected to URL: https://www.crimsonglobalacademy.school/us/admissions/fees-and-scholarships; Total lines: 170
+L0: Fees and Scholarships
+L1: 
+L2: As a global online private school, our fees reflect the value of a comprehensive and quality education, extending far beyond the limits of a traditional classroom.
+L3: # World-class Schooling, Online
+L4: 
+L5: Crimson Global Academy offers full-time pathways for both U.S. and British curriculums. Students can learn in small group classes or one-on-one, depending on the year level and subject.
+L6: 
+L7: We welcome applicants from all backgrounds who demonstrate academic excellence, impressive extracurricular achievements, or leadership qualities, and encourage them to discuss financial aid and scholarship opportunities with us.
+L8: Speak to an academic advisor to explore your options and create a personalized financial plan.
+L9: 
+L10: 【0†Enroll Today】
+L11: 
+L12: 【1†Image: laptop-girl†a.storyblok.com】
+L13: ### Full Time Enrollment Fees: US Curriculum
+L14: 
+L15: Grade  | Mode of Learning  | Age  | Price Full Time (USD)  | No. of Credits/Subjects
+L16: --- | --- | --- | --- | ---
+L17: Grades 1-5 (EMI by CGA)  | Group & 1:1  | 6-11  | $18,000  | 5 Classes
+L18: Grades 6-8 (US Jr High School)  | Group or 1:1  | 11-14  | $18,800  | 4.5 credits
+L19: Grades 9-12 (High School/AP Program)  | Group or 1:1  | 14-18  | $22,375- $25,500*  | 4.5 - 6 credits*
+L20: *Cost is calculated based on Group classes only. Flex and 1:1 classes are available. Speak with one of our Admissions Officers about your exact courseload and tuition cost.
+L21: 
+L22: 【2†Speak to us about 1:1 Classes】
+L23: ### Part Time Enrollment Fees: US Curriculum
+L24: 
+L25: Grade  | Mode of Learning  | Age  | Price Full Time (USD)  | No. of Credits/Subjects
+L26: --- | --- | --- | --- | ---
+L27: Grades 1-5 (EMI by CGA)  | Group & 1:1  | 8-11  | $3,600 per subject  | Up to 4 Classes
+L28: Grades 6-8 (US Jr High School)  | Group or 1:1  | 11-14  | $1,700 - $3,400  | Up to 4 Classes
+L29: Grades 9-12 (High School/AP Program)  | Group or 1:1  | 14-18  | $2,200 - $4,800  | Up to 4 Classes
+L30: *Cost is calculated based on Group classes only. Flex and 1:1 classes are available. Speak with one of our Admissions Officers about your exact courseload and tuition cost.
+L31: ### Full Time Enrollment Fees: British Curriculum
+L32: 
+L33: Year Level  | Mode of Learning  | Age  | Price Full Time (USD)
+L34: --- | --- | --- | ---
+L35: Year 7-9  | Group (1:1/DaVinci Price Varies)  | 11-14  | $17,100
+L36: Year 10 &11  | Group (1:1/DaVinci Price Varies)  | 14-16  | $17,875
+L37: Year 12 & 13  | Group (1:1/DaVinci Price Varies)  | 16-18  | $18,000
+L38: 
+L39: *Prices listed for Years 7–13 are for group classes. 1:1 Da Vinci classes are also available for these year levels and are priced separately. Speak to us to learn more.
+L40: ### Part Time Enrollment Fees: British Curriculum
+L41: 
+L42: Year Level  | Mode of Learning  | Age  | Price Per Subject (USD)
+L43: --- | --- | --- | ---
+L44: Year 7-9  | Group (1:1/DaVinci Price Varies)  | 11-14  | $3,100
+L45: Year 10 & 11  | Group (1:1/DaVinci Price Varies)  | 14-16  | $3,225
+L46: Year 12 & 13  | Group (1:1/DaVinci Price Varies)  | 16-18  | $4,800
+L47: 
+L48: *Students who wish to join CGA part-time will still need to continue to go to a school full-time to receive a high school diploma.
+L49: ## Your Extraordinary Future Starts Here
+L50: 
+L51: Please provide the information below and an academic advisor will be in touch to explore your finance options.
+L52: 
+L53: [Input][Input]
+L54: 
+L55: Are you a student or a guardian?
+L56: 
+L57: [Input]Student[Input]Guardian
+L58: 
+L59: First Name[Input: Enter your first name]
+L60: 
+L61: Last Name[Input: Enter your last name]
+L62: 
+L63: Email[Input: Enter your email]
+L64: 
+L65: What is your phone number?
+L66: 
+L67: Country Code
+L68: 
+L69: [Input]
+L70: 
+L71: [Input: 01234567]
+L72: 
+L73: What country do you live in?
+L74: 
+L75: Enter the country you live in
+L76: 
+L77: [Input]
+L78: What courses are you interested in?[Select]
+L79: 
+L80: [Input]I want to receive study pathways, free resources and admissions guidance from Crimson Education Group.
+L81: 
+L82: [Input]I agree to the 【3†privacy policy】
+L83: 
+L84: [Button: Submit]
+L85: 
+L86: Next Steps
+L87: 
+L88: Enrollment begins with a discovery call with one of our expert academic advisors. Not quite ready? Explore our virtual school tour, or join a real trial class.
+L89: ### Speak to An Advisor
+L90: 
+L91: Discuss your child's unique goals, explore enrollment options, and get your questions answered. Take the first step towards transforming your child's education.
+L92: 
+L93: 【4†Image: CGA Advisor†a.storyblok.com】
+L94: 
+L95: 【0†Speak To Us>】
+L96: 
+L97: ### Check Out Our Events
+L98: 
+L99: Discover our online school through a virtual tour or have all your questions answered about online schooling in our free upcoming webinars and events.
+L100: 
+L101: 【5†Image: Studying-boi-1†a.storyblok.com】
+L102: 
+L103: 【6†Register Now>】
+L104: ### Watch The Tour
+L105: 
+L106: Join CGA students on a behind-the-scenes tour of a typical school day, as they participate in classes, make the most of their flexible timetables, and connect with their peers.
+L107: 
+L108: 【7†Image: Studying-boi-1†a.storyblok.com】
+L109: 
+L110: 【8†Watch The Tour>】
+L111: 
+L112: ## Frequently Asked Questions
+L113: 
+L114: ### How Much Does Crimson Global Academy Tuition Cost Per Year?
+L115: 
+L116: ### What Do Crimson Global Academy Fees Include?
+L117: 
+L118: ### Why Chose CGA?
+L119: 
+L120: ### What Are The Payment Options for CGA Fees?
+L121: 
+L122: ### Are Scholarships Available?
+L123: ### What additional costs should I expect?
+L124: 
+L125: ## Our School
+L126: 
+L127:   * 【9†Welcome From Our Principals】
+L128:   * 【10†Our Leadership Team】
+L129:   * 【11†Student Life & Testimonials】
+L130:   * 【12†Careers†careers.crimsoneducation.org】
+L131: 
+L132: ## Our Program
+L133: 
+L134:   * 【13†Course Catalog】
+L135:   * 【14†Benefits of an Online Education】
+L136:   * 【15†Request a Prospectus†pages.crimsoneducation.org】
+L137:   * 【16†US High School Diploma】
+L138:   * 【17†Advanced Placement (AP™) Courses】
+L139:   * 【18†1-1 Da Vinci Programme】
+L140:   * 【19†US Junior High School】
+L141:   * 【20†Academic Curricula】
+L142: ## Admissions
+L143: 
+L144:   * 【21†Admission Criteria & Process】
+L145:   * 【22†Fees】
+L146:   * 【23†University Admissions & Crimson Student Outcomes】
+L147: 
+L148: ## Blog & Community
+L149: 
+L150:   * 【24†Blog & Community】
+L151:   * 【25†Pastoral Care and Community】
+L152:   * 【26†Extracurricular & Leadership】
+L153: 
+L154: ## FAQs
+L155: 
+L156:   * 【27†FAQs】
+L157: ## Information
+L158: 
+L159:   * 【3†Privacy Policy】
+L160:   * 【28†Terms of Use】
+L161:   * 【29†COPPA Disclosure】
+L162:   * 【30†School Policies】
+L163:   * [Button: Cookie Preferences]
+L164: 
+L165:   *   *   *   * USA
+L166: 
+L167: Copyright © 2026 Crimson Global Academy – All Rights Reserved
+L168: 
+L169: 【31†Image†px.ads.linkedin.com】
+

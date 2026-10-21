@@ -1,0 +1,69 @@
+{
+  "count": 100,
+  "unique_cities": 83,
+  "with_livability": 90,
+  "with_price": 89,
+  "with_both": 89,
+  "unavailable": [
+    {
+      "rank": 10,
+      "city": "North Hollywood",
+      "state": "CA",
+      "note": "No unique exact Census place match for listed city/state (0 matches); metrics unavailable. Listed city is a locality label, not an attendance boundary."
+    },
+    {
+      "rank": 21,
+      "city": "Clinton Twp",
+      "state": "MI",
+      "note": "No unique exact Census place match for listed city/state (0 matches); metrics unavailable. Listed city is a locality label, not an attendance boundary."
+    },
+    {
+      "rank": 22,
+      "city": "St Louis",
+      "state": "MO",
+      "note": "No unique exact Census place match for listed city/state (0 matches); metrics unavailable. Listed city is a locality label, not an attendance boundary."
+    },
+    {
+      "rank": 24,
+      "city": "Wilmington",
+      "state": "CA",
+      "note": "No unique exact Census place match for listed city/state (0 matches); metrics unavailable. Listed city is a locality label, not an attendance boundary."
+    },
+    {
+      "rank": 32,
+      "city": "Nashville",
+      "state": "TN",
+      "note": "No unique exact Census place match for listed city/state (0 matches); metrics unavailable. Listed city is a locality label, not an attendance boundary."
+    },
+    {
+      "rank": 40,
+      "city": "Edison",
+      "state": "NJ",
+      "note": "No unique exact Census place match for listed city/state (0 matches); metrics unavailable. Listed city is a locality label, not an attendance boundary."
+    },
+    {
+      "rank": 59,
+      "city": "Scotch Plains",
+      "state": "NJ",
+      "note": "No unique exact Census place match for listed city/state (0 matches); metrics unavailable. Listed city is a locality label, not an attendance boundary."
+    },
+    {
+      "rank": 73,
+      "city": "Brooklyn",
+      "state": "NY",
+      "note": "No unique exact Census place match for listed city/state (0 matches); metrics unavailable. Listed city is a locality label, not an attendance boundary."
+    },
+    {
+      "rank": 83,
+      "city": "Scotch Plains",
+      "state": "NJ",
+      "note": "No unique exact Census place match for listed city/state (0 matches); metrics unavailable. Listed city is a locality label, not an attendance boundary."
+    },
+    {
+      "rank": 85,
+      "city": "Nashville",
+      "state": "TN",
+      "note": "No unique exact Census place match for listed city/state (0 matches); metrics unavailable. Listed city is a locality label, not an attendance boundary."
+    }
+  ]
+}
