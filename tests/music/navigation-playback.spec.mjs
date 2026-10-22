@@ -102,6 +102,8 @@ test('page requests fail safely and another album replaces the queue only when s
 
 test('article filters, gallery controls, and model controls work when revisited with a persistent player', async ({ page, context }) => {
   test.setTimeout(60000);
+  const site = await (await page.request.get('/data/site.json')).json();
+  const modelingCount = site.projects.filter(project => project.kicker === 'Modeling').length;
   await context.addCookies([{ name: 'music-fixture', value: 'player', domain: 'localhost', path: '/' }]);
   await context.route(/loopaware\.mprlab\.com/, route => route.abort());
   const errors = [];
@@ -120,7 +122,7 @@ test('article filters, gallery controls, and model controls work when revisited 
     await home();
     await page.locator('a[href="/articles/"]').first().click();
     await page.locator('#article-filters').getByRole('button', { name: 'Modeling', exact: true }).click();
-    await expect(page.locator('#article-list .project-card')).toHaveCount(3);
+    await expect(page.locator('#article-list .project-card')).toHaveCount(modelingCount);
     await page.locator('#article-list a[href="/timeseries/"]').first().click();
     await page.locator('#example-button').click();
     await page.locator('#compute-button').click();
