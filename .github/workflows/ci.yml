@@ -6,6 +6,11 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
+    inputs:
+      capture_assets:
+        description: Capture public browser dependency fixtures
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -16,6 +21,7 @@ concurrency:
 
 jobs:
   ci:
+    if: ${{ !inputs.capture_assets }}
     name: make ci
     runs-on: [self-hosted, linux, x64, tyemirov-site-ci]
     timeout-minutes: 60
@@ -39,4 +45,25 @@ jobs:
           name: ci-results-${{ github.run_attempt }}
           path: output/playwright/linux/
           if-no-files-found: ignore
+          retention-days: 7
+
+  capture-browser-assets:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.capture_assets }}
+    name: Capture browser dependency snapshots
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    container: node:26.5.1-bookworm-slim@sha256:9e6f9357d371591e32ab6f2d8a26d63bdd0d17c29eee3f4f3e7e454d9634bf73
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Capture version-selected public assets
+        run: node tests/music/capture-browser-assets.mjs
+      - name: Upload browser dependency snapshots
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: browser-assets-${{ github.sha }}
+          path: tests/music/fixtures/browser-assets/
+          if-no-files-found: error
           retention-days: 7
