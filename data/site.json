@@ -104,6 +104,20 @@
       "owner": "vadym-tyemirov"
     },
     {
+      "slug": "school-atlas",
+      "title": "School Atlas",
+      "kicker": "Modeling",
+      "summary": "Compare school rankings, admission routes, and estimated family costs to see where a dollar buys more.",
+      "href": "/school-atlas/",
+      "theme": "teal",
+      "order": 40,
+      "status": "live",
+      "id": "school-atlas",
+      "kind": "model",
+      "sourceUrl": "https://vadymtyemirov1.substack.com/p/what-the-school-ranking-leaves-out",
+      "owner": "vadym-tyemirov"
+    },
+    {
       "slug": "timeseries",
       "title": "Time Series and Thresholds",
       "kicker": "Modeling",

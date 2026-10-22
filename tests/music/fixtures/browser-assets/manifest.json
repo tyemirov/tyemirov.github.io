@@ -355,6 +355,28 @@
       "contentType": "font/woff2",
       "sha256": "0640890476fc1198ab4de571fb658de443c4d85b66466ec09534a8737ab1ce9d",
       "retrievedAt": "2026-10-22T00:15:12.619Z"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",
+      "file": "libraries/bootstrap.min.css",
+      "contentType": "text/css; charset=utf-8",
+      "sha256": "3c8f27e6009ccfd710a905e6dcf12d0ee3c6f2ac7da05b0572d3e0d12e736fc8",
+      "retrievedAt": "2026-10-22T04:10:24.788721+00:00"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js",
+      "file": "libraries/bootstrap.bundle.min.js",
+      "contentType": "application/javascript; charset=utf-8",
+      "sha256": "0833b2e9c3a26c258476c46266e6877fc75218625162e0460be9a3a098a61c6c",
+      "retrievedAt": "2026-10-22T04:10:24.874270+00:00"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js",
+      "file": "libraries/d3.min.js",
+      "contentType": "application/javascript; charset=utf-8",
+      "sha256": "f2094bbf6141b359722c4fe454eb6c4b0f0e42cc10cc7af921fc158fceb86539",
+      "retrievedAt": "2026-10-22T04:10:24.986506+00:00",
+      "pattern": "https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"
     }
   ],
   "licenses": [
@@ -399,6 +421,20 @@
       "contentType": "text/plain; charset=utf-8",
       "sha256": "dd6369e5e35e4ecdd7a5229508b956270b2c779c000a1787a3bade37a5e49bab",
       "retrievedAt": "2026-10-22T00:15:12.808Z"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/LICENSE",
+      "file": "licenses/bootstrap-LICENSE",
+      "contentType": "text/plain; charset=utf-8",
+      "sha256": "8c14611ae41ac6fd543c13349f22188eb12c69b3e59105c5eca3925a8e4eca3e",
+      "retrievedAt": "2026-10-22T04:10:25.064313+00:00"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/d3@7.9.0/LICENSE",
+      "file": "licenses/d3-LICENSE",
+      "contentType": "text/plain; charset=utf-8",
+      "sha256": "3e6849627f74ff73c257a3ae1efb574015d94fc1035c05ec3c15805165efcbc4",
+      "retrievedAt": "2026-10-22T04:10:25.160687+00:00"
     }
   ]
 }

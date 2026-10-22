@@ -10,7 +10,7 @@ let preparation;
 /** Only the captured browser dependencies belong to this fixture. */
 export function isBrowserDependency(url) {
   return ['fonts.googleapis.com', 'fonts.gstatic.com'].includes(url.hostname)
-    || (url.hostname === 'cdn.jsdelivr.net' && /^\/(?:gh\/MarcoPoloResearchLab\/mpr-ui@|npm\/js-yaml(?:@|\/))/.test(url.pathname));
+    || (url.hostname === 'cdn.jsdelivr.net' && /^\/(?:gh\/MarcoPoloResearchLab\/mpr-ui@|npm\/(?:js-yaml|bootstrap|d3)(?:@|\/))/.test(url.pathname));
 }
 
 async function readCapturedFile(asset) {
@@ -41,8 +41,10 @@ export async function installBrowserAssets(context) {
     throw new Error(`uncaptured_browser_dependency:${route.request().url()}`);
   });
   for (const asset of assets) {
-    await context.route(asset.pattern || (url => url.href === asset.url), route => route.fulfill({
+    const fulfill = route => route.fulfill({
       body: asset.body, contentType: asset.contentType, headers: { 'Access-Control-Allow-Origin': '*' },
-    }));
+    });
+    await context.route(url => url.href === asset.url, fulfill);
+    if (asset.pattern) await context.route(asset.pattern, fulfill);
   }
 }

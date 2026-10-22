@@ -1,8 +1,10 @@
 # Browser dependency snapshots
 
-The routine browser suite uses the real MPR UI 4.3.7 implementation and captured Google Fonts responses. The manifest records source URLs, capture dates, the user agent, versions, and SHA-256 hashes. It includes all font files that the captured stylesheets reference and the upstream licenses.
+The browser suite uses real MPR UI 4.3.7, Bootstrap 5.3.3, and D3 7.9.0 code. It uses captured Google Fonts responses. The manifest records source URLs, capture dates, the user agent, versions, and SHA-256 hashes. It includes all font files that the captured stylesheets reference and the upstream licenses.
 
-`browser-assets.mjs` verifies file hashes before installation. It serves captured responses at their original browser URLs. Uncaptured UI, parser, and font requests fail explicitly. The YAML parser comes from the repository's pinned `js-yaml` package. The local Google sign-in protocol fixture supports authentication against the real test service.
+`browser-assets.mjs` verifies file hashes before installation. It serves captured responses at their original browser URLs. Uncaptured UI, chart, parser, and font requests fail explicitly. The YAML parser comes from the repository's pinned `js-yaml` package. The local Google sign-in protocol fixture supports authentication against the real test service.
+
+The shared fixture aborts requests to the analytics origin. Production pages keep their required pixel declaration and site ID.
 
 The live qualification installer remains in `shared-ui-assets.mjs`. Routine browser results qualify the captured dependency versions.
 

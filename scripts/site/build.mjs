@@ -41,9 +41,9 @@ function withNavigation(path, html) {
   const parent = parentFor(path);
   const navigation = `<nav slot="brand" class="site-navigation" aria-label="Page hierarchy"><a href="/" aria-label="Home" title="Home">^</a>${parent ? `<a href="${parent.path}">${parent.label}</a>` : ''}</nav>`;
   return html.replace(/<mpr-header\b[^>]*>[\s\S]*?<\/mpr-header>/, header => {
-    const sourceLink = header.match(/brand-href="(https:[^"]+)"/);
-    const companion = sourceLink && !html.replace(header,'').includes(sourceLink[1])
-      ? `<a slot="nav-right" class="site-companion" href="${sourceLink[1]}" target="_blank" rel="noopener noreferrer">Read companion article</a>` : '';
+    const sourceLink = site.projects.find(project => project.href === path)?.sourceUrl;
+    const companion = sourceLink && !html.replace(header,'').includes(sourceLink)
+      ? `<a slot="nav-right" class="site-companion" href="${escape(sourceLink)}" target="_blank" rel="noopener noreferrer">Read companion article</a>` : '';
     return header.replace('</mpr-header>',navigation+companion+'</mpr-header>');
   }).replace('</head>', '<link rel="stylesheet" href="/assets/css/navigation.css">\n<link rel="stylesheet" href="/music/player.css">\n<script type="module" src="/assets/js/navigation.js"></script>\n</head>');
 }

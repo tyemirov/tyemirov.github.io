@@ -23,7 +23,8 @@ test('homepage points to local articles and has no catalog validation error', as
   await page.goto('/');
   await expect(page.getByRole('link', { name: 'Articles', exact: true })).toHaveAttribute('href', '#articles');
   await expect(page.locator('.essay-list article')).toHaveCount(4);
-  await expect(page.locator('.project-list article')).toHaveCount(4);
+  const site = await (await page.request.get('/data/site.json')).json();
+  await expect(page.locator('.project-list article')).toHaveCount(site.projects.length);
   await page.locator('.essay-list h2 a').first().click();
   await expect(page).toHaveURL(/\/articles\/the-human-act-of-making-things-exist\/$/);
 });

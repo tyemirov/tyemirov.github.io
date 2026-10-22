@@ -48,35 +48,30 @@ Build the Pages container to verify its separate source allowlist.
 Inspect the container output for the application, data modules, and evidence pages.
 Verify that research snapshots are absent from that output.
 
-## Companion article dependency
+## Companion article
 
-The companion article draft is `docs/school-atlas-substack-draft.md`.
-The user has not supplied a publication or an assigned Substack article URL.
-The draft has not been published.
+The repository draft is `docs/school-atlas-substack-draft.md`.
+The confirmed article permalink is <https://vadymtyemirov1.substack.com/p/what-the-school-ranking-leaves-out>.
+Substack draft `221580779` supplies this URL.
+The article can remain unpublished while the site uses its confirmed permalink.
+Article publication remains a separate operator action.
 
-The current model catalog requires `sourceUrl`.
-Root `AGENTS.md` also requires a Substack companion link on each supporting page.
-The migration does not invent a URL or change that contract.
-Catalog registration and companion links remain pre-merge requirements.
+The catalog entry in `data/site.json` stores this permalink as `sourceUrl`.
+The shared page builder supplies the application companion link from that entry.
+Both audit generators read the same entry and preserve the companion links during regeneration.
+Original source hashes and the seven frozen data payloads remain unchanged.
+The import manifest records the updated hashes for the two maintained generators.
 
-Before merge:
-
-1. Review the article draft with the user.
-2. Create the Substack draft in the selected publication.
-3. Record the actual article permalink assigned by Substack.
-4. Add the model entry to `data/site.json` with that `sourceUrl`.
-5. Add the companion link to the application and both evidence pages.
-6. Update the evidence generators to preserve that link.
-7. Verify catalog filters, page navigation, and sitemap registration.
-8. Repeat the affected checks and final repository CI.
-
-Use the `Modeling` category, `teal` theme, and `vadym-tyemirov` owner for the model entry.
-The model title is `School Atlas`, and its canonical route is `/school-atlas/`.
+The model uses the `Modeling` category, `teal` theme, and `vadym-tyemirov` owner.
+Its title is `School Atlas`, and its canonical route is `/school-atlas/`.
+The catalog entry supplies the homepage card, article collection, route manifest, and sitemap entry.
+The application uses the shared Home and Articles hierarchy.
 
 ## Operator cutover
 
 The current PR prepares source and validation only.
-Production activation remains an operator action after merge and the companion requirements above.
+Production activation remains an operator action after merge.
+Publish the companion article as part of the coordinated launch.
 
 Use the existing lifecycle:
 
