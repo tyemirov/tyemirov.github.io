@@ -3,3 +3,7 @@ research/school-atlas/** -text -whitespace
 research/school-atlas/**/*.py whitespace=blank-at-eol,blank-at-eof,space-before-tab
 research/school-atlas/**/*.mjs whitespace=blank-at-eol,blank-at-eof,space-before-tab
 research/school-atlas/README.md whitespace=blank-at-eol,blank-at-eof,space-before-tab
+# Preserve the qualified browser dependency bytes and upstream source formatting.
+tests/music/fixtures/browser-assets/** -text -whitespace
+tests/music/fixtures/browser-assets/README.md whitespace=blank-at-eol,blank-at-eof,space-before-tab
+tests/music/fixtures/browser-assets/manifest.json whitespace=blank-at-eol,blank-at-eof,space-before-tab

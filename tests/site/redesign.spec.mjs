@@ -1,5 +1,5 @@
 // @ts-check
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../music/test-fixtures.mjs';
 
 test('full article is readable after direct navigation and reload', async ({ page }) => {
   await page.goto('/articles/the-wittgenstein-mirror/');
