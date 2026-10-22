@@ -25,7 +25,45 @@ jobs:
     name: make ci
     runs-on: [self-hosted, linux, x64, tyemirov-site-ci]
     timeout-minutes: 60
+    env:
+      CI_RESULTS_IMAGE: node:26.5.1-bookworm-slim@sha256:9e6f9357d371591e32ab6f2d8a26d63bdd0d17c29eee3f4f3e7e454d9634bf73
     steps:
+      - name: Recover CI result ownership before checkout
+        timeout-minutes: 2
+        run: |
+          results_dir="$GITHUB_WORKSPACE/output/playwright/linux"
+          if [ ! -d "$results_dir" ]; then
+            exit 0
+          fi
+          containers=$(docker ps -q --filter volume=/workspace/output/playwright)
+          for container_id in $containers; do
+            if ! info=$(docker inspect --format '{{range .Mounts}}{{if eq .Destination "/workspace/output/playwright"}}{{.Source}}{{end}}{{end}}|{{join .Config.Cmd " "}}' "$container_id"); then
+              remaining=$(docker ps -aq --filter "id=$container_id")
+              if [ -n "$remaining" ]; then
+                exit 1
+              fi
+              continue
+            fi
+            source=${info%%|*}
+            command=${info#*|}
+            if [ "$source" != "$results_dir" ]; then
+              continue
+            fi
+            if [ "$command" != 'bash tests/music/run-ci.sh ci' ]; then
+              echo "Unexpected container uses CI results: $container_id" >&2
+              exit 1
+            fi
+            if ! docker stop --timeout 10 "$container_id"; then
+              remaining=$(docker ps -aq --filter "id=$container_id")
+              if [ -n "$remaining" ]; then
+                exit 1
+              fi
+            fi
+          done
+          docker run --rm --user 0:0 \
+            --mount "type=bind,src=$results_dir,dst=/results" \
+            "$CI_RESULTS_IMAGE" chown -R "$(id -u):$(id -g)" /results
+
       - name: Check out source
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -37,6 +75,43 @@ jobs:
         run: |
           make music-ci-archive MUSIC_CI_TARGET=ci \
             MPRLAB_GATEWAY_CI_ARCHIVE="$HOME/.cache/tyemirov-site-ci/mprlab-gateway-v5.0.10-linux-amd64.tar.gz"
+
+      - name: Restore CI result ownership
+        if: ${{ always() }}
+        timeout-minutes: 2
+        run: |
+          results_dir="$GITHUB_WORKSPACE/output/playwright/linux"
+          if [ ! -d "$results_dir" ]; then
+            exit 0
+          fi
+          containers=$(docker ps -q --filter volume=/workspace/output/playwright)
+          for container_id in $containers; do
+            if ! info=$(docker inspect --format '{{range .Mounts}}{{if eq .Destination "/workspace/output/playwright"}}{{.Source}}{{end}}{{end}}|{{join .Config.Cmd " "}}' "$container_id"); then
+              remaining=$(docker ps -aq --filter "id=$container_id")
+              if [ -n "$remaining" ]; then
+                exit 1
+              fi
+              continue
+            fi
+            source=${info%%|*}
+            command=${info#*|}
+            if [ "$source" != "$results_dir" ]; then
+              continue
+            fi
+            if [ "$command" != 'bash tests/music/run-ci.sh ci' ]; then
+              echo "Unexpected container uses CI results: $container_id" >&2
+              exit 1
+            fi
+            if ! docker stop --timeout 10 "$container_id"; then
+              remaining=$(docker ps -aq --filter "id=$container_id")
+              if [ -n "$remaining" ]; then
+                exit 1
+              fi
+            fi
+          done
+          docker run --rm --user 0:0 \
+            --mount "type=bind,src=$results_dir,dst=/results" \
+            "$CI_RESULTS_IMAGE" chown -R "$(id -u):$(id -g)" /results
 
       - name: Upload test results
         if: ${{ !cancelled() }}
