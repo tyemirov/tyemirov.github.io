@@ -1,0 +1,246 @@
+Tuition & Costs - Phillips Exeter Academy (https://exeter.edu/admissions/financial-aid/tuition-costs/)
+【turn242472view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://exeter.edu/admissions/financial-aid/tuition-costs/","lineno":null}); Total lines: 243
+L0: 【0†iframe†www.googletagmanager.com】
+L1: 
+L2: 【1†Phillips Exeter Academy】
+L3: 
+L4: Menu
+L5: 
+L6: Search
+L7: 
+L8: 【1†Phillips Exeter Academy】
+L9: 
+L10:   * 【2†Visit Exeter】
+L11:   * 【3†How to Apply】
+L12:   * 【4†Give】
+L13:   * 【5†Contact Us】
+L14: 
+L15:   * 【6†About Exeter†www.exeter.edu】
+L16: 
+L17:     * 【7†Our Campus & Facilities†www.exeter.edu】
+L18:     * 【8†Mission & Values†www.exeter.edu】
+L19:     * 【9†Leadership】
+L20:     * 【10†Equity & Inclusion†www.exeter.edu】
+L21:     * 【11†Sustainability†www.exeter.edu】
+L22:     * 【12†Careers at Exeter†www.exeter.edu】
+L23:   * 【13†Academics†www.exeter.edu】
+L24:     * 【14†Harkness†www.exeter.edu】
+L25:     * 【15†Departments†www.exeter.edu】
+L26:     * 【16†Courses†www.exeter.edu】
+L27:     * 【17†Our Faculty†www.exeter.edu】
+L28:     * 【18†College Counseling†www.exeter.edu】
+L29:     * 【19†Global Opportunities†www.exeter.edu】
+L30:     * 【20†Academy Library†library.exeter.edu】
+L31:   * 【21†Student Life†www.exeter.edu】
+L32:     * 【22†Athletics†www.exeter.edu】
+L33:     * 【23†The Arts†www.exeter.edu】
+L34:     * 【24†Clubs & Activities†www.exeter.edu】
+L35:     * 【25†Dining†www.exeter.edu】
+L36:     * 【26†Dorm Life†www.exeter.edu】
+L37:     * 【27†Religious & Spiritual Life†www.exeter.edu】
+L38:     * 【28†Serving Others†www.exeter.edu】
+L39:     * 【29†Student Wellness†www.exeter.edu】
+L40:   * 【30†Just For You】
+L41:     * 【31†For Parents†www.exeter.edu】
+L42:     * 【32†For Current Students†exeter.myschoolapp.com】
+L43:     * 【32†For Faculty†exeter.myschoolapp.com】
+L44:     * 【33†For Staff†phillipsexeteracademy.sharepoint.com】
+L45:     * 【34†For the Community†www.exeter.edu】
+L46:   * 【35†Admissions†www.exeter.edu】
+L47:     * 【36†Financial Aid & Tuition†www.exeter.edu】
+L48:     * 【37†How to Apply†www.exeter.edu】
+L49:     * 【38†Visit Exeter†www.exeter.edu】
+L50:     * 【39†Admissions Events†www.exeter.edu】
+L51:     * 【40†Virtual Tour†www.youvisit.com】
+L52:   * 【41†Alumni†www.exeter.edu】
+L53: 
+L54:     * 【42†Alumni Directory†securelb.imodules.com】
+L55:     * 【43†Alumni Events†www.exonians.exeter.edu】
+L56:     * 【44†Reunions†www.exeter.edu】
+L57:     * 【45†Giving†www.exeter.edu】
+L58:   * 【46†News†www.exeter.edu】
+L59:     * 【46†Exeter Today†www.exeter.edu】
+L60:     * 【47†The Exeter Bulletin†bulletin.exeter.edu】
+L61:     * 【48†Stream Athletic Events†sportsengineplay.com】
+L62:     * 【49†Stream School Events†sportsengineplay.com】
+L63:   * 【30†More to Explore】
+L64: 
+L65:     * 【50†Exeter Summer†www.exeter.edu】
+L66:     * 【51†Lamont Gallery†www.exeter.edu】
+L67:     * 【52†Programs for Educators†www.exeter.edu】
+L68:   *     *     * Phillips Exeter Academy
+L69: 20 Main Street
+L70: Exeter
+L71: NH 03833-2460
+L72:     * 603-772-4311
+L73: 
+L74: Search Exeter [Input: What are you looking for?] [Input]
+L75:   * 【37†02 How do I apply?†www.exeter.edu】
+L76:   * 【36†03 Can I get financial aid?†www.exeter.edu】
+L77:   * 【14†04 What is Harkness?†www.exeter.edu】
+L78:   * 【22†05 Athletics†www.exeter.edu】
+L79:   * 【7†06 Campus map†www.exeter.edu】
+L80:   * 【26†07 What's dorm life like?†www.exeter.edu】
+L81: 
+L82: 【1†Phillips Exeter Academy】
+L83: 
+L84:   * 【2†Visit Exeter】
+L85:   * 【3†How to Apply】
+L86:   * 【4†Give】
+L87:   * 【5†Contact Us】
+L88: 
+L89:   * 【6†About Exeter†www.exeter.edu】
+L90:     * 【7†Our Campus & Facilities†www.exeter.edu】
+L91:     * 【8†Mission & Values†www.exeter.edu】
+L92:     * 【9†Leadership】
+L93:     * 【10†Equity & Inclusion†www.exeter.edu】
+L94:     * 【11†Sustainability†www.exeter.edu】
+L95:     * 【12†Careers at Exeter†www.exeter.edu】
+L96:   * 【13†Academics†www.exeter.edu】
+L97:     * 【14†Harkness†www.exeter.edu】
+L98:     * 【15†Departments†www.exeter.edu】
+L99:     * 【16†Courses†www.exeter.edu】
+L100:     * 【17†Our Faculty†www.exeter.edu】
+L101:     * 【18†College Counseling†www.exeter.edu】
+L102:     * 【19†Global Opportunities†www.exeter.edu】
+L103:     * 【20†Academy Library†library.exeter.edu】
+L104:   * 【21†Student Life†www.exeter.edu】
+L105:     * 【22†Athletics†www.exeter.edu】
+L106:     * 【23†The Arts†www.exeter.edu】
+L107:     * 【24†Clubs & Activities†www.exeter.edu】
+L108:     * 【25†Dining†www.exeter.edu】
+L109:     * 【26†Dorm Life†www.exeter.edu】
+L110:     * 【27†Religious & Spiritual Life†www.exeter.edu】
+L111:     * 【28†Serving Others†www.exeter.edu】
+L112:     * 【29†Student Wellness†www.exeter.edu】
+L113:   * 【30†Just For You】
+L114:     * 【31†For Parents†www.exeter.edu】
+L115:     * 【32†For Current Students†exeter.myschoolapp.com】
+L116:     * 【32†For Faculty†exeter.myschoolapp.com】
+L117:     * 【33†For Staff†phillipsexeteracademy.sharepoint.com】
+L118:     * 【34†For the Community†www.exeter.edu】
+L119:   * 【35†Admissions†www.exeter.edu】
+L120:     * 【36†Financial Aid & Tuition†www.exeter.edu】
+L121:     * 【37†How to Apply†www.exeter.edu】
+L122:     * 【38†Visit Exeter†www.exeter.edu】
+L123:     * 【39†Admissions Events†www.exeter.edu】
+L124:     * 【40†Virtual Tour†www.youvisit.com】
+L125:   * 【41†Alumni†www.exeter.edu】
+L126: 
+L127:     * 【42†Alumni Directory†securelb.imodules.com】
+L128:     * 【43†Alumni Events†www.exonians.exeter.edu】
+L129:     * 【44†Reunions†www.exeter.edu】
+L130:     * 【45†Giving†www.exeter.edu】
+L131:   * 【46†News†www.exeter.edu】
+L132:     * 【46†Exeter Today†www.exeter.edu】
+L133:     * 【47†The Exeter Bulletin†bulletin.exeter.edu】
+L134:     * 【48†Stream Athletic Events†sportsengineplay.com】
+L135:     * 【49†Stream School Events†sportsengineplay.com】
+L136:   * 【30†More to Explore】
+L137: 
+L138:     * 【50†Exeter Summer†www.exeter.edu】
+L139:     * 【51†Lamont Gallery†www.exeter.edu】
+L140:     * 【52†Programs for Educators†www.exeter.edu】
+L141:   *     *     * Phillips Exeter Academy
+L142: 20 Main Street
+L143: Exeter
+L144: NH 03833-2460
+L145:     * 603-772-4311
+L146: # Tuition & Costs
+L147: 
+L148: [Button: More in this Section]
+L149: 
+L150:   * 【35†Admissions†www.exeter.edu】
+L151:   * 【36†Financial Aid & Tuition†www.exeter.edu】
+L152:   * 【53†Tuition & Costs†www.exeter.edu】
+L153:   * 【54†Financial Aid Calculators†www.exeter.edu】
+L154:   * 【55†Apply for Financial Aid†www.exeter.edu】
+L155:   * 【56†E2: Explore Exeter】
+L156:   * 【57†How to Apply†www.exeter.edu】
+L157:   * 【38†Visit Exeter†www.exeter.edu】
+L158:   * 【39†Admissions Events†www.exeter.edu】
+L159:   * 【58†Admissions Team†www.exeter.edu】
+L160: We never stop working to make Exeter as affordable as possible.
+L161: 
+L162: Our tuition is significantly lower than peer schools. We achieve this by limiting tuition growth and supplementing tuition dollars with annual fundraising and endowment revenues. Approximately half of our students receive assistance each year.
+L163: 
+L164: Costs 2026-2027
+L165: ---
+L166:  | Boarding  | Day  |
+L167: Tuition  | $71,797  | $56,077  |
+L168: Books and supplies (estimated)  | $900  | $900  |
+L169:  |  |  |
+L170: #### Should I Apply for Aid?
+L171: 
+L172: Our answer is simple: If you feel that you’ll need assistance to attend Exeter, we encourage you to apply.
+L173: 
+L174: We know that some families hesitate to apply for various reasons, including the paperwork involved in the process, or fear that a child’s hopes will be raised but no aid offered. We encourage you to apply, and we’re here to support you throughout the process. 【55†Learn how to apply for financial aid†www.exeter.edu】.
+L175: Families who anticipate needing financial aid at any time during their child’s years at Exeter should request aid when they apply. Financial aid may not be available in subsequent years unless there’s been a significant change in a family’s financial circumstances.
+L176: 
+L177: 【1†Phillips Exeter Academy】
+L178: 
+L179:   * 【2†Visit Exeter】
+L180:   * 【3†How to Apply】
+L181:   * 【4†Give】
+L182:   * 【5†Contact Us】
+L183: 
+L184:   * 【6†About Exeter†www.exeter.edu】
+L185:     * 【7†Our Campus & Facilities†www.exeter.edu】
+L186:     * 【8†Mission & Values†www.exeter.edu】
+L187:     * 【9†Leadership】
+L188:     * 【10†Equity & Inclusion†www.exeter.edu】
+L189:     * 【11†Sustainability†www.exeter.edu】
+L190:     * 【12†Careers at Exeter†www.exeter.edu】
+L191:   * 【13†Academics†www.exeter.edu】
+L192:     * 【14†Harkness†www.exeter.edu】
+L193:     * 【15†Departments†www.exeter.edu】
+L194:     * 【16†Courses†www.exeter.edu】
+L195:     * 【17†Our Faculty†www.exeter.edu】
+L196:     * 【18†College Counseling†www.exeter.edu】
+L197:     * 【19†Global Opportunities†www.exeter.edu】
+L198:     * 【20†Academy Library†library.exeter.edu】
+L199:   * 【21†Student Life†www.exeter.edu】
+L200:     * 【22†Athletics†www.exeter.edu】
+L201:     * 【23†The Arts†www.exeter.edu】
+L202:     * 【24†Clubs & Activities†www.exeter.edu】
+L203:     * 【25†Dining†www.exeter.edu】
+L204:     * 【26†Dorm Life†www.exeter.edu】
+L205:     * 【27†Religious & Spiritual Life†www.exeter.edu】
+L206:     * 【28†Serving Others†www.exeter.edu】
+L207:     * 【29†Student Wellness†www.exeter.edu】
+L208:   * 【30†Just For You】
+L209:     * 【31†For Parents†www.exeter.edu】
+L210:     * 【32†For Current Students†exeter.myschoolapp.com】
+L211:     * 【32†For Faculty†exeter.myschoolapp.com】
+L212:     * 【33†For Staff†phillipsexeteracademy.sharepoint.com】
+L213:     * 【34†For the Community†www.exeter.edu】
+L214:   * 【35†Admissions†www.exeter.edu】
+L215:     * 【36†Financial Aid & Tuition†www.exeter.edu】
+L216:     * 【37†How to Apply†www.exeter.edu】
+L217:     * 【38†Visit Exeter†www.exeter.edu】
+L218:     * 【39†Admissions Events†www.exeter.edu】
+L219:     * 【40†Virtual Tour†www.youvisit.com】
+L220:   * 【41†Alumni†www.exeter.edu】
+L221: 
+L222:     * 【42†Alumni Directory†securelb.imodules.com】
+L223:     * 【43†Alumni Events†www.exonians.exeter.edu】
+L224:     * 【44†Reunions†www.exeter.edu】
+L225:     * 【45†Giving†www.exeter.edu】
+L226:   * 【46†News†www.exeter.edu】
+L227:     * 【46†Exeter Today†www.exeter.edu】
+L228:     * 【47†The Exeter Bulletin†bulletin.exeter.edu】
+L229:     * 【48†Stream Athletic Events†sportsengineplay.com】
+L230:     * 【49†Stream School Events†sportsengineplay.com】
+L231:   * 【30†More to Explore】
+L232: 
+L233:     * 【50†Exeter Summer†www.exeter.edu】
+L234:     * 【51†Lamont Gallery†www.exeter.edu】
+L235:     * 【52†Programs for Educators†www.exeter.edu】
+L236:   *     *     * Phillips Exeter Academy
+L237: 20 Main Street
+L238: Exeter
+L239: NH 03833-2460
+L240:     * 603-772-4311
+L241:   * 【59†Terms of Use】
+L242:   * 【60†Privacy Policy】
+

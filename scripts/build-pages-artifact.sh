@@ -24,6 +24,7 @@ source_paths=(
   index.html
   music
   robots.txt
+  school-atlas
   site.js
   site.webmanifest
   styles.css

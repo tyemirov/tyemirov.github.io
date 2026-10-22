@@ -1,0 +1,167 @@
+Tuition (https://www.ideaventionsacademy.org/tuition.html)
+【turn353363view0】 [wordlim: 200] Crawled: last week; Content type: text/html; Source: open({"ref_id":"https://www.ideaventionsacademy.org/tuition.html","lineno":null}); Total lines: 164
+L0: ​
+L1: 
+L2:   IDEAVENTIONS ACADEMY
+L3: 
+L4:   * 【0†Our School】
+L5: 
+L6:     * 【1†Who are we?】
+L7:     * 【2†Faculty】
+L8:     * 【3†Careers >】
+L9: 
+L10:       * 【4†Open Positions】
+L11: 
+L12:     * 【5†In the News】
+L13:     * 【6†Blog】
+L14: 
+L15:   * 【7†Admissions】
+L16: 
+L17:     * 【8†Events】
+L18:     * 【9†Criteria & Testing】
+L19:     * 【10†Application Steps】
+L20:     * 【11†Tuition】
+L21:     * 【12†FAQs】
+L22:     * 【13†Contact Us】
+L23: 
+L24:   * 【14†Academics】
+L25: 
+L26:     * 【15†Lower School - Fast Facts >】
+L27: 
+L28:       * 【16†Lower Elementary】
+L29:       * 【17†Upper Elementary】
+L30: 
+L31:     * 【18†Middle School - Fast Facts >】
+L32:       * 【19†Middle School】
+L33: 
+L34:     * 【20†Upper School >】
+L35: 
+L36:       * 【21†Curriculum】
+L37:       * 【22†Workload】
+L38:       * 【23†College Counseling】
+L39:       * 【24†Graduation Requirements】
+L40: 
+L41:     * 【25†Calendar】
+L42: 
+L43:   * 【26†Community】
+L44: 
+L45:     * 【27†Arts & Theatre】
+L46:     * 【28†Clubs】
+L47:     * 【29†Teams】
+L48:     * 【30†Trips & Events】
+L49:     * 【31†Traditions】
+L50: 
+L51:   * 【32†Summer】
+L52: 
+L53:     * 【33†Elementary Summer Programs】
+L54:     * 【34†Middle School Summer Programs】
+L55:     * 【35†Summer Contact】
+L56: ## Tuition
+L57: 
+L58: Tuition reflects small classes, expert faculty, and an individualized approach for intellectually curious students with growth mindsets.
+L59: 
+L60: * * *
+L61: 
+L62: Sibling Discount
+L63: We believe in family and support keeping siblings together. We offer a sibling discount for families with more than one student at the school. ​Tuition will be reduced by:
+L64: 
+L65:   * 10% for the second (younger) child
+L66:   * 20% for third and additional younger children enrolled
+L67: ​
+L68: ## 2026-2027 tuition:
+L69: ​1st - 3rd Grades:     $26,750
+L70: 4th - 8th Grades:   $30,750
+L71: ​9th - 12th Grades:  $32,750
+L72: ​
+L73: 
+L74: * * *
+L75: 
+L76: Tuition FAQs:
+L77: What does tuition include?
+L78: 
+L79:   * ​Small classes
+L80:   * Expert faculty
+L81:   * Hands-on activities
+L82:   * Engineering
+L83:   * Computer Science
+L84:   * After-school activity period from 4:15-5:15pm
+L85:   * Field trips
+L86:   * Technology (Windows laptops for Upper Elementary to Upper School). Students may also bring their own device.
+L87: 
+L88: How often do you raise tuition? ​
+L89:   * ​We strive to keep tuition increases modest and predictable for our families. For historical reference, the tuition when we opened in the 2015-2016 academic year was $24,500 for 4th-7th grade.
+L90: ​
+L91: Do you offer financial aid?
+L92: 
+L93:   * ​We are evaluating implementing a needs-based financial aid program for future years to help families.
+L94: ​
+L95: ​Do you have payment plans or fees?
+L96:   * Yes, parents may pay in one lump sum, 2 equal payments, or 10 installments.
+L97:   * There is a $250 fee for the 2-payment plan and $500 for the 10-payment plan.
+L98: ​​
+L99: 
+L100: * * *
+L101: 
+L102: 【36†Fast Facts】  | 【2†Faculty】  | 【23†Outcomes】
+L103: 
+L104: * * *
+L105: 
+L106: 【37†Image: Picture】
+L107: 
+L108: Copyright © 2010-2026. 12340 Pinecrest Road, Reston, Virginia 20191 | 703-860-0211 | 【38†[email protected]】 | Tax ID 27-2420631 | CEEB Code 470033
+L109: Ideaventions Academy admits students of any race, color, national and ethnic origin and all the rights, privileges, programs, and activities generally accorded to or made available to students at the school.
+L110: ​Ideaventions® is a registered servicemark of Ideaventions, LLC. All rights reserved.
+L111:  | 【39†Image: Picture】  | 【40†Image: Picture】  | 【41†Image: Picture】  | 【42†Image: Picture】
+L112: 
+L113:   * 【0†Our School】
+L114: 
+L115:     * 【1†Who are we?】
+L116:     * 【2†Faculty】
+L117:     * 【3†Careers >】
+L118: 
+L119:       * 【4†Open Positions】
+L120:     * 【5†In the News】
+L121:     * 【6†Blog】
+L122: 
+L123:   * 【7†Admissions】
+L124: 
+L125:     * 【8†Events】
+L126:     * 【9†Criteria & Testing】
+L127:     * 【10†Application Steps】
+L128:     * 【11†Tuition】
+L129:     * 【12†FAQs】
+L130:     * 【13†Contact Us】
+L131: 
+L132:   * 【14†Academics】
+L133: 
+L134:     * 【15†Lower School - Fast Facts >】
+L135: 
+L136:       * 【16†Lower Elementary】
+L137:       * 【17†Upper Elementary】
+L138: 
+L139:     * 【18†Middle School - Fast Facts >】
+L140: 
+L141:       * 【19†Middle School】
+L142: 
+L143:     * 【20†Upper School >】
+L144:       * 【21†Curriculum】
+L145:       * 【22†Workload】
+L146:       * 【23†College Counseling】
+L147:       * 【24†Graduation Requirements】
+L148: 
+L149:     * 【25†Calendar】
+L150: 
+L151:   * 【26†Community】
+L152: 
+L153:     * 【27†Arts & Theatre】
+L154:     * 【28†Clubs】
+L155:     * 【29†Teams】
+L156:     * 【30†Trips & Events】
+L157:     * 【31†Traditions】
+L158: 
+L159:   * 【32†Summer】
+L160: 
+L161:     * 【33†Elementary Summer Programs】
+L162:     * 【34†Middle School Summer Programs】
+L163:     * 【35†Summer Contact】
+

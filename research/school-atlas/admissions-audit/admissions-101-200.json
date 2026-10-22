@@ -1,0 +1,1193 @@
+{
+  "ranking_edition": "2026\u20132027",
+  "ranking_source_url": "https://highschooltrends.org/rankings",
+  "checked_on": "2026-10-20",
+  "criterion": "Ordinary resident admission to the same ranked school without test, GPA, audition, competitive review, or lottery, including when oversubscribed. Feeder progression alone is insufficient.",
+  "schools": [
+    {
+      "national_rank": 101,
+      "school": "Sumner Academy of Arts and Science",
+      "state": "KS",
+      "status": "excluded",
+      "reason": "Academic and assessment admission criteria",
+      "admissions_source_urls": [
+        "https://sumner.kckschools.org/about/sumner-academy-admission-requirements"
+      ],
+      "evidence_summary": "Official 2026\u20132027 admissions require GPA of at least 3.0, prescribed Fastbridge percentiles, and attendance/behavior review."
+    },
+    {
+      "national_rank": 102,
+      "school": "Brownsville Early College High School",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Weighted lottery for the standalone early-college school",
+      "admissions_source_urls": [
+        "https://resources.finalsite.net/images/v1728573158/bisdus/n9gezrjcrdx3tpyc6ju4/2025-2026BECHSApplication2-merged.pdf"
+      ],
+      "evidence_summary": "Official2025\u20132026 Brownsville ECHS application describes the standalone school and chooses ninth-grade applicants through a weighted lottery favoring target populations. This is distinct from other Brownsville comprehensive early-college campuses."
+    },
+    {
+      "national_rank": 103,
+      "school": "Whitefish Bay High",
+      "state": "WI",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.wfbschools.com/prospective-families/enrollinwfbschools.cfm",
+        "https://www.wfbschools.com/prospective-families/schoolboundaries.cfm"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. The district states that Whitefish Bay Middle School and High School serve all students residing in the Village of Whitefish Bay. Caveat: Official district enrollment and school-boundary text was retrieved from the search index; direct page opening returned 403."
+    },
+    {
+      "national_rank": 104,
+      "school": "Nova Classical Academy Upper School",
+      "state": "MN",
+      "status": "excluded",
+      "reason": "Enrollment lottery including upper-school grades",
+      "admissions_source_urls": [
+        "https://www.novaclassical.org/enrollment/applications/"
+      ],
+      "evidence_summary": "School admissions operate a tiered enrollment lottery and grade waitlists; current upper-grade openings do not remove the lottery policy."
+    },
+    {
+      "national_rank": 105,
+      "school": "Riverside Stem Academy",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Lottery admission",
+      "admissions_source_urls": [
+        "https://stemacademy.riversideunified.org/lottery/submit-an-application",
+        "https://www.riversideunified.org/UserFiles/Servers/Server_879122/File/About%20Us/Frequently%20Asked%20Questions/FAQs%20For%20New%20students%20Rev.%2010-11-21.docx.pdf"
+      ],
+      "evidence_summary": "The official STEM Academy application is part of its lottery process; district admissions FAQ describes the enrollment lottery."
+    },
+    {
+      "national_rank": 106,
+      "school": "Canyon Crest Academy",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Lottery if oversubscribed; no geographic entitlement",
+      "admissions_source_urls": [
+        "https://www.sduhsd.net/Parents--Students/Parent-Resources/High-School-Selection/",
+        "https://cc.sduhsd.net/announcements/"
+      ],
+      "evidence_summary": "Canyon Crest is a non-boundary academy. Although all timely eligible 2026\u20132027 applicants were offered places, district rules retain a random lottery when requests exceed space; new district residents enroll at boundary schools."
+    },
+    {
+      "national_rank": 107,
+      "school": "Young Magnet High School",
+      "state": "IL",
+      "status": "excluded",
+      "reason": "Selective enrollment examination and academic review",
+      "admissions_source_urls": [
+        "https://www.wyoung.org/apps/pages/index.jsp?type=d&uREC_ID=620962",
+        "https://www.wyoung.org/apps/pages/index.jsp?pREC_ID=1190987&type=d&uREC_ID=620962"
+      ],
+      "evidence_summary": "Current school admissions require GoCPS selective enrollment/HSAT for ninth grade; transfers are competitive and reviewed academically."
+    },
+    {
+      "national_rank": 108,
+      "school": "Trinidad Garza Early College at Mt View",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Lottery selection for early college seats",
+      "admissions_source_urls": [
+        "https://garza.dallasisd.org/early-college-hs/tea-application-benchmark-documents"
+      ],
+      "evidence_summary": "The ranked Garza campus publishes Written Lottery Procedures and admission/interview documents for its early college entry route; no ordinary attendance-zone route was evidenced."
+    },
+    {
+      "national_rank": 109,
+      "school": "Western Center Academy",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Lottery if oversubscribed",
+      "admissions_source_urls": [
+        "https://nationalblueribbonschools.ed.gov/assets/winning/asset/2024/school_application/24ca140pu_western_center_academy_finalapplication.pdf"
+      ],
+      "evidence_summary": "The official U.S. Department of Education school application describes open enrollment followed by a lottery and admission preferences when oversubscribed."
+    },
+    {
+      "national_rank": 110,
+      "school": "Haas Hall Academy",
+      "state": "AR",
+      "status": "excluded",
+      "reason": "Random admission lottery",
+      "admissions_source_urls": [
+        "https://haashall.org/admissions/"
+      ],
+      "evidence_summary": "Haas Hall official admissions require random anonymous lotteries for each grade at every campus, including Fayetteville."
+    },
+    {
+      "national_rank": 111,
+      "school": "MAST Academy",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Academic magnet entry requirements also apply to residents",
+      "admissions_source_urls": [
+        "https://www.gomakos.net/criteria-and-process-2/"
+      ],
+      "evidence_summary": "Official MAST criteria identify it as a magnet school and explicitly require Key Biscayne applicants to meet all admission requirements; residence alone does not confer admission."
+    },
+    {
+      "national_rank": 112,
+      "school": "Innovation Academy",
+      "state": "GA",
+      "status": "excluded",
+      "reason": "Random lottery; enrollment by invitation",
+      "admissions_source_urls": [
+        "https://fcsinnovationacademy.fultonschools.org/prospective-families/apply-to-ia"
+      ],
+      "evidence_summary": "The school enters completed applicants into a random lottery and allows enrollment only after invitation."
+    },
+    {
+      "national_rank": 113,
+      "school": "Girls Academic Leadership Academy Dr. Michelle King School STEM",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "SAS eligibility and lottery",
+      "admissions_source_urls": [
+        "https://gala.lausd.org/apps/pages/index.jsp?pREC_ID=2681632&type=d&uREC_ID=4443663"
+      ],
+      "evidence_summary": "For 2026\u20132027 GALA moved to the SAS single-gender category; applicants must qualify and LAUSD conducts a separate lottery, including sibling applicants."
+    },
+    {
+      "national_rank": 114,
+      "school": "Dr. Ronald E McNair High School",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Selective academic-school admission",
+      "admissions_source_urls": [
+        "https://www.jcboe.org/apps/pages/index.jsp?pREC_ID=2330726&type=d&uREC_ID=1539515",
+        "https://mhs.jcboe.org/apps/news/"
+      ],
+      "evidence_summary": "Current official district registration FAQ explicitly names McNair as having a selective admission process; school news publish2026\u20132027 PSAT admissions testing."
+    },
+    {
+      "national_rank": 115,
+      "school": "Grand Prairie Collegiate Institute",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Lottery if applications exceed seats",
+      "admissions_source_urls": [
+        "https://gpci.gpisd.org/admission-information"
+      ],
+      "evidence_summary": "The school admission page states that application numbers are randomly drawn for seats and waitlists when a class is oversubscribed; no ordinary zoned route is identified."
+    },
+    {
+      "national_rank": 116,
+      "school": "Hill Country College Prep H S",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Lottery if oversubscribed",
+      "admissions_source_urls": [
+        "https://hccphs.comalisd.org/apps/pages/Admissions"
+      ],
+      "evidence_summary": "The school enrolls incoming freshmen through an application and an open lottery when applications exceed seats, including in-district applicants."
+    },
+    {
+      "national_rank": 117,
+      "school": "West Campus High School",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Criteria-based school admission",
+      "admissions_source_urls": [
+        "https://www.scusd.edu/explore/academic-programs/high-school-honors-programs"
+      ],
+      "evidence_summary": "District identifies West Campus itself among criteria-based high-school options requiring a specialty application and specific admission criteria."
+    },
+    {
+      "national_rank": 118,
+      "school": "Washtenaw International High School",
+      "state": "MI",
+      "status": "excluded",
+      "reason": "Lottery and academic/behavior requirements",
+      "admissions_source_urls": [
+        "https://www.wihi.org/wihi-wima/admissions/"
+      ],
+      "evidence_summary": "Official admissions require application in the lottery window and good academic/behavioral standing; local residents receive preference rather than guaranteed entry."
+    },
+    {
+      "national_rank": 119,
+      "school": "Central High School",
+      "state": "PA",
+      "status": "excluded",
+      "reason": "School-specific academic and attendance criteria",
+      "admissions_source_urls": [
+        "https://centralhs.philasd.org/about-central-high-school/admission-requirements/",
+        "https://www.philasd.org/blog/2025/09/25/selectionreminders-2/"
+      ],
+      "evidence_summary": "Official school application page requires school selection and academic/attendance criteria; district confirms priority-zip applicants must still meet all Central criteria."
+    },
+    {
+      "national_rank": 120,
+      "school": "University Preparatory",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Lottery admissions",
+      "admissions_source_urls": [
+        "https://resources.finalsite.net/images/v1677622076/vvuhsdorg/pcpacgb3cwhhz3j02lsm/12thGradeApllicationEnglish.pdf"
+      ],
+      "evidence_summary": "Official University Preparatory application/registration guidelines identify lottery numbers, lottery pull and admission priorities; no residential high-school entitlement was verified."
+    },
+    {
+      "national_rank": 121,
+      "school": "Westlake Academy",
+      "state": "TX",
+      "status": "eligible",
+      "reason": "Primary-boundary residents explicitly exempt from lottery",
+      "admissions_source_urls": [
+        "https://www.westlakeacademy.org/admissions/admissions-process",
+        "https://www.westlakeacademy.org/admissions"
+      ],
+      "evidence_summary": "The same ranked Westlake Academy admits Town of Westlake primary-boundary residents after residency paperwork approval and explicitly exempts them from lottery. Secondary-boundary applicants use a random lottery; primary residence must be genuine."
+    },
+    {
+      "national_rank": 122,
+      "school": "Advanced Technologies Academy",
+      "state": "NV",
+      "status": "excluded",
+      "reason": "All students selected through lottery",
+      "admissions_source_urls": [
+        "https://atech.org/apps/pages/index.jsp?pREC_ID=1080865&type=d&uREC_ID=534014"
+      ],
+      "evidence_summary": "School FAQ states all A-TECH students are selected through application, qualification and lottery with no bypass, including geographic preference."
+    },
+    {
+      "national_rank": 123,
+      "school": "Edina Senior High",
+      "state": "MN",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.edinaschools.org/enrollment/enrollment-grades-1-12",
+        "https://www.edinaschools.org/about/school-board/district-policy-manual"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. The district's grades 1-12 enrollment page provides a resident enrollment route and separates nonresident applications into open enrollment. Caveat: Use the school-district boundary, which should be checked by address; nonresident open enrollment is outside this screen."
+    },
+    {
+      "national_rank": 124,
+      "school": "Davidson Magnet School",
+      "state": "GA",
+      "status": "excluded",
+      "reason": "Selective record review and arts audition",
+      "admissions_source_urls": [
+        "https://resources.finalsite.net/images/v1774638042/rcboeorg/iorwdb0o9atevlemrxdf/Davidson2025-2026SchoolPRofile.pdf"
+      ],
+      "evidence_summary": "Official 2025\u20132026 school profile states students are admitted using prior school record, character and audition in fine arts areas; no resident entitlement."
+    },
+    {
+      "national_rank": 125,
+      "school": "Alexander W Dreyfoos Junior School Of The Arts",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Qualifying audition then lottery",
+      "admissions_source_urls": [
+        "https://dsoa.palmbeachschools.org/school-information/new-auditioning-students"
+      ],
+      "evidence_summary": "Official arts-school page requires a minimum GPA and qualifying audition score before entry into the computer selection lottery; no ordinary resident route."
+    },
+    {
+      "national_rank": 126,
+      "school": "Academy For Allied Health Sciences",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Required admissions exam and academic selection",
+      "admissions_source_urls": [
+        "https://www.ucvts.org/admissions/full-time-academies",
+        "https://aahs.ucvts.org/site-map",
+        "https://resources.finalsite.net/images/v1726164132/ucvtsorg/i6ulve323oavqr5mg2hx/admissionsprocess2029FINAL.pdf"
+      ],
+      "evidence_summary": "AAHS is a full-time UCVTS academy linked to district admissions; official district process requires the admission exam and assigns selection scores from school records and exam performance."
+    },
+    {
+      "national_rank": 127,
+      "school": "Raisbeck Aviation High School",
+      "state": "WA",
+      "status": "excluded",
+      "reason": "Lottery for high-school seats",
+      "admissions_source_urls": [
+        "https://chinook.highlineschools.org/about/news/news-details/~board/district-news/post/you-have-choices-1696448283346",
+        "https://resources.finalsite.net/images/v1551834263/highlineschoolsorg/bartf9rwzovrf7sfaciy/RAHS-Lottery-Results-2019.pdf"
+      ],
+      "evidence_summary": "District choice-school guidance requires an application and lottery; even the seats reserved for Highline residents are selected within a lottery priority group."
+    },
+    {
+      "national_rank": 128,
+      "school": "The Willow School",
+      "state": "LA",
+      "status": "excluded",
+      "reason": "Academic admission assessment and matrix",
+      "admissions_source_urls": [
+        "https://www.willowschoolnola.org/page/eligibility",
+        "https://www.willowschoolnola.org/o/lcs/page/matrix"
+      ],
+      "evidence_summary": "The New Orleans school requires supplemental application and academic admissions assessment for grades1\u201312, with matrix/placement requirements for grade9. Residence alone does not confer admission."
+    },
+    {
+      "national_rank": 129,
+      "school": "High School of Health Sciences",
+      "state": "WI",
+      "status": "excluded",
+      "reason": "Separately ranked charter uses an application and lottery/waitlist rather than guaranteed resident enrollment.",
+      "admissions_source_urls": [
+        "https://www.kmsd.edu/o/hshs/page/enroll"
+      ],
+      "evidence_summary": "Official school enrollment page, retrieved with full public Nuxt hydration, states that applicants receive acceptance/waitlist status and that if a lottery is required students will be placed on a waiting list. The current page announces the 2027\u201328 application window; ordinary KMHS resident enrollment is a different school."
+    },
+    {
+      "national_rank": 130,
+      "school": "International Studies Charter High School",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Lottery if demand exceeds seats",
+      "admissions_source_urls": [
+        "https://www.ischs.net/ourpages/auto/2022/5/13/45993741/2025-2026%20Parent%20Student%20Handbook.pdf?rnd=1753963092877",
+        "https://enrollmystudent.org/application/form/fl/16"
+      ],
+      "evidence_summary": "Official school handbook provides enrollment/lottery policy; the linked school application explains a lottery when oversubscribed."
+    },
+    {
+      "national_rank": 131,
+      "school": "New Century Tech Demo High School",
+      "state": "AL",
+      "status": "excluded",
+      "reason": "New Century admission requires an evaluated writing sample.",
+      "admissions_source_urls": [
+        "https://www.huntsvillecityschools.org/page/magnet-programs",
+        "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4113/Hcs/76c0165d-5102-47a6-b974-4894e9b3cc44/27-28-Magnet-Cohort-Audition-Instructions.pdf?disposition=inline"
+      ],
+      "evidence_summary": "Official district Magnet Programs page says grades6\u201312 applicants undergo in-person evaluation. Its linked 2027\u201328 cohort audition instructions identify New Century Technology HS specifically and state that its applicant evaluation entails a writing sample (PDF page8). This is school admission evaluation, not an optional program at an ordinary resident school."
+    },
+    {
+      "national_rank": 132,
+      "school": "Kerr High School",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "School admission uses a competitive rubric with grades, tests, attendance, conduct, recommendations and written responses.",
+      "admissions_source_urls": [
+        "https://nationalblueribbonschools.ed.gov/assets/winning/asset/2022/school_application/22tx130pu_kerr_high_school_finalapplication.pdf",
+        "https://choice.aliefisd.net/alief-isds-choice-programs/",
+        "https://kerr.aliefisd.net/o/khs/article/1441884"
+      ],
+      "evidence_summary": "School-authored U.S.Department of Education National Blue Ribbon application,2022,page7, explicitly states resident applicants are chosen by rubric scoring of grades, attendance, discipline history, standardized test scores, teacher recommendations and student/parent written responses. Current district choice-program page continues to identify Kerr as an application choice school; school notice links the Schools of Choice application. The detailed official rubric evidence is dated2022 and is disclosed as such."
+    },
+    {
+      "national_rank": 133,
+      "school": "Classical High School",
+      "state": "RI",
+      "status": "excluded",
+      "reason": "Required entrance exam and academic application",
+      "admissions_source_urls": [
+        "https://classical.providenceschools.org/admissions"
+      ],
+      "evidence_summary": "Official incoming-grade9 process requires entrance exam, transcripts, test scores and sending-school recommendation; Providence residence permits applying, not automatic admission."
+    },
+    {
+      "national_rank": 134,
+      "school": "Monta Vista High School",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.fuhsd.org/departments/enrollment/student-transfer-options",
+        "https://www.fuhsd.org/about-us/general-information/district-boundry-maps"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. FUHSD assigns students to one of its five named comprehensive high schools according to the attendance boundary containing their primary residence. Caveat: Ordinary resident pathway qualifies. Supplemental assignment and other out-of-boundary transfer programs are separate."
+    },
+    {
+      "national_rank": 135,
+      "school": "Poolesville High School",
+      "state": "MD",
+      "status": "eligible",
+      "reason": "Resident Independent Studies Program in the same ranked school",
+      "admissions_source_urls": [
+        "https://www.montgomeryschoolsmd.org/siteassets/district/curriculum/specialprograms/high/0152.20_poolesville-magnet-brochure_web.pdf",
+        "https://www.montgomeryschoolsmd.org/schools/poolesvillehs/magnet/isp/"
+      ],
+      "evidence_summary": "District whole-school magnet brochure distinguishes tested countywide magnet admission from local Poolesville attendance-area students, who attend the same school through ISP. Selective houses are optional separate routes."
+    },
+    {
+      "national_rank": 136,
+      "school": "Magnet Innovation Center",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Competitive school admission selects top candidates using academic/test history, teacher ratings and other records.",
+      "admissions_source_urls": [
+        "https://fms.walton.k12.fl.us/o/mic/page/apply",
+        "https://forms.office.com/r/Yp9z7xAv8p",
+        "https://forms.office.com/pages/responsepage.aspx?id=OiUJugsuok2fpgZAQ5LOGGSCrrlrHLpLvjOVK4VL5MxUMElWUTAzUEFJUEZHTE9VT1FBSUNWVjVaVC4u&route=shorturl"
+      ],
+      "evidence_summary": "Official2026\u201327 school Apply page links the student application and teacher recommendation form. Public Microsoft Forms runtime payload from those exact links states limited places mean only top candidates are offered admission, prioritizing academic/test history, recommendations, leadership, attendance and discipline. Teacher form describes academic/behavioral ratings as heavily weighted on an admission rubric. This verifies competitive school admission rather than assuming recommendations alone imply selectivity."
+    },
+    {
+      "national_rank": 137,
+      "school": "Saginaw Arts and Sciences Academy",
+      "state": "MI",
+      "status": "excluded",
+      "reason": "Admission test and audition route",
+      "admissions_source_urls": [
+        "https://sites.google.com/spsd.net/sasa-auditions/about"
+      ],
+      "evidence_summary": "The official district school performing-arts admissions site directs applicants to the SASA admissions test and auditions; no ordinary zoned route was established."
+    },
+    {
+      "national_rank": 138,
+      "school": "Belmont High School",
+      "state": "MA",
+      "status": "eligible",
+      "reason": "Town-resident high-school enrollment",
+      "admissions_source_urls": [
+        "https://www.belmont.k12.ma.us/o/bhs/page/registration-transfer",
+        "https://www.belmont.k12.ma.us/page/grades-k-12-registration"
+      ],
+      "evidence_summary": "Belmont High School registration page expressly serves grades9\u201312 and requires town residency and ordinary registration documents; no selective or lottery admission is stated."
+    },
+    {
+      "national_rank": 139,
+      "school": "Pioneer Valley Chinese Immersion Charter School",
+      "state": "MA",
+      "status": "excluded",
+      "reason": "Lottery with regional resident preference",
+      "admissions_source_urls": [
+        "https://pvcics.org/family-handbook"
+      ],
+      "evidence_summary": "Official school handbook says Massachusetts residents may apply but regional residents and siblings receive preference in the admissions lottery rather than guaranteed admission."
+    },
+    {
+      "national_rank": 140,
+      "school": "Richmond Community High School",
+      "state": "VA",
+      "status": "excluded",
+      "reason": "Selective specialty-school application, essays and interview",
+      "admissions_source_urls": [
+        "https://go.boarddocs.com/vsba/richmond/Board.nsf/files/C7TKFX51B8AD/%24file/Enrollment%20Equity%20Commission%20Context%20%26%20Timeline%20for%2010-4-21%20Board%20Meeting.pdf",
+        "https://go.boarddocs.com/vsba/richmond/Board.nsf/files/CVPRGW6C3198/%24file/Selective%20Schools%20Admissions%20Process%20Recommendations%20for%20Action%20for%209-18-23%20Board%20Meeting.pdf"
+      ],
+      "evidence_summary": "Official district board materials identify Richmond Community as a selective specialty school using academic records, essays/recommendations and interviews;2023 material reports its scoring categories. Historical policy evidence, reinforced by current school description as serving gifted students; no ordinary geographic route established."
+    },
+    {
+      "national_rank": 141,
+      "school": "Langley High School",
+      "state": "VA",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://langleyhs.fcps.edu/student-services/new-student-registration"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. Langley's registration instructions direct families to confirm that the student lives within the Langley boundary before beginning enrollment. Caveat: Check the current school-year address assignment; Fairfax has adopted boundary changes."
+    },
+    {
+      "national_rank": 142,
+      "school": "Talkington School for Young Women Leaders",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Academic application and selective magnet review",
+      "admissions_source_urls": [
+        "https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3628/tsywl/3685872/2025-26_Talkington_Application.pdf",
+        "https://www.lubbockisd.org/page/magnet-specialty-programs"
+      ],
+      "evidence_summary": "Official2025\u20132026 application collects grades, assessments, behavior and attendance, permits approval/denial and requires admitted students to maintain admission criteria or return to their home campus."
+    },
+    {
+      "national_rank": 143,
+      "school": "Haas Hall Academy Jones Center",
+      "state": "AR",
+      "status": "excluded",
+      "reason": "Random admission lottery",
+      "admissions_source_urls": [
+        "https://haashall.org/admissions/"
+      ],
+      "evidence_summary": "Haas Hall official admissions require random anonymous lotteries for each grade at every campus, including Springdale/Jones Center."
+    },
+    {
+      "national_rank": 144,
+      "school": "International Studies Preparatory Academy",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "GPA/course eligibility and district lottery",
+      "admissions_source_urls": [
+        "https://internationalstudiesprep.net/admission-into-ispa/"
+      ],
+      "evidence_summary": "Official ISPA process requires minimum GPA2.5, prerequisite courses, conduct/attendance thresholds and places eligible applicants into a district lottery."
+    },
+    {
+      "national_rank": 145,
+      "school": "Lowell High School",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Required test and academic selection",
+      "admissions_source_urls": [
+        "https://www.sfusd.edu/schools/enroll/apply/applying-lowell-high-school"
+      ],
+      "evidence_summary": "Current district policy requires all Lowell applicants to complete admissions testing; grades/test thresholds and application bands determine selection, including transfers."
+    },
+    {
+      "national_rank": 146,
+      "school": "Cottonwood Classical Prep",
+      "state": "NM",
+      "status": "excluded",
+      "reason": "Lottery enrollment",
+      "admissions_source_urls": [
+        "https://cottonwoodclassical.org/admissions/"
+      ],
+      "evidence_summary": "Official school admissions state that enrollment for grades6\u201312 is determined through a lottery system."
+    },
+    {
+      "national_rank": 147,
+      "school": "Health Careers High School",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Qualified students enter magnet lottery",
+      "admissions_source_urls": [
+        "https://www.nisd.net/schools/catalogs/hs/magnet/application-process",
+        "https://www.nisd.net/news/applications-magnet-schools-closes-jan-23"
+      ],
+      "evidence_summary": "Current official district magnet process explicitly lists Health Careers High School and states all qualified students enter a lottery because enrollment is limited at each school."
+    },
+    {
+      "national_rank": 148,
+      "school": "Wake NCSU STEM Early College High School",
+      "state": "NC",
+      "status": "excluded",
+      "reason": "Application scoring and randomized selection; no ordinary resident admission route to this early college.",
+      "admissions_source_urls": [
+        "https://www.wcpss.net/enrollment-resources/~board/enrollment-resources/post/early-college-application-selection-and-prioritization",
+        "https://www.wcpss.net/enroll/early-colleges"
+      ],
+      "evidence_summary": "The district early-college page identifies Wake STEM among its early colleges and requires a separate application with essays, recommendations, academic records and assessment scores. Its linked selection policy explicitly names Wake STEM in sibling priority, which itself requires an application score of at least 70. Remaining priority groups are application scores 90-100, 80-89 and 70-79, with selection by assigned random number within each group. Residence/base-school enrollment does not provide admission to this same institution.",
+      "capacity_caveat": "Limited seats and a waiting pool; random selection remains disqualifying even if a particular year does not exhaust capacity."
+    },
+    {
+      "national_rank": 149,
+      "school": "Doral Performing Arts and Entertainment Academy",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Audition required for the separately ranked arts academy",
+      "admissions_source_urls": [
+        "https://www.doralacademyprep.org/arts"
+      ],
+      "evidence_summary": "Official Doral Performing Arts & Entertainment Academy welcome page states that admission to this school is based on an official audition. The broader Doral charter route does not establish admission to this separately ranked academy."
+    },
+    {
+      "national_rank": 150,
+      "school": "Mater Performing Arts and Entertainment Academy",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Charter lottery when school/program capacity is exceeded",
+      "admissions_source_urls": [
+        "https://www.matermiddlehigh.org/apps/pages/index.jsp?type=d&uREC_ID=245905",
+        "https://www.matermiddlehigh.org/pdf/MAIN%202023-2024%20Parent-Student%20Handbook%20_Chaoui_.pdf"
+      ],
+      "evidence_summary": "The official site identifies the separately ranked Performing Arts Academy. Its parent/student handbook requires random lottery whenever eligible applicants exceed school, classroom or program capacity; no guaranteed residential arts-academy route."
+    },
+    {
+      "national_rank": 151,
+      "school": "School of Health Professions",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Competitive academic magnet admission",
+      "admissions_source_urls": [
+        "https://healthmagnet.dallasisd.org/our-school/magnet-application-process/overview",
+        "https://healthmagnet.dallasisd.org/our-school/magnet-application-process/8th-grade-shadowship",
+        "https://www.dallasisd.org/departments/magnets-and-special-programs/application-process"
+      ],
+      "evidence_summary": "The exact ranked School of Health Professions requires magnet application and acceptance and directs applicants to district academic admission criteria; no zoned resident route."
+    },
+    {
+      "national_rank": 152,
+      "school": "Young Women's Leadership Academy",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Application-based academic and recommendation review",
+      "admissions_source_urls": [
+        "https://eastwoodhigh.yisd.net/o/ywla/page/become-a-transformer",
+        "https://aptg.co/FtvdFv"
+      ],
+      "evidence_summary": "Official2026\u20132027 application requires academic/test/behavior/attendance records, handwritten interest statement, counselor input and two teacher evaluations explicitly used to identify qualified candidates. Countywide application rather than ordinary residential registration."
+    },
+    {
+      "national_rank": 153,
+      "school": "Connecticut IB Academy",
+      "state": "CT",
+      "status": "excluded",
+      "reason": "Regional magnet lottery",
+      "admissions_source_urls": [
+        "https://gems.bloomfieldschools.org/o/globalexpomag/article/2577483",
+        "https://cdnsm5-ss10.sharpschool.com/UserFiles/Servers/Server_19402919/File/2021%20-%202023%20Access%20and%20Admissions%20Policy.pdf"
+      ],
+      "evidence_summary": "Official district current RSCO lottery notice lists Connecticut IB Academy as a grade9/10 lottery option; its school access policy identifies CIBA enrollment through open-choice lottery."
+    },
+    {
+      "national_rank": 154,
+      "school": "Alliance Academy for Innovation",
+      "state": "GA",
+      "status": "excluded",
+      "reason": "Qualified applicants enter random lottery",
+      "admissions_source_urls": [
+        "https://alliance.forsyth.k12.ga.us/our-school/registration/registration",
+        "https://resources.finalsite.net/images/v1758031865/forsythk12gaus/dxb4sal8c65ym280ansq/AllianceAcademyLotteryProceduresfor2026-27.pdf"
+      ],
+      "evidence_summary": "Official2026\u20132027 procedures require county residency and review grades/attendance/behavior; qualified applicants are selected by random lottery and pathway capacity. Out-of-district here means assigned to a different attendance-zone school, not a guaranteed academy zone."
+    },
+    {
+      "national_rank": 155,
+      "school": "Hector J Garcia Early College H S",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "School-authored federal application documents weighted admission lottery; current application/waitlist corroborates continued separate admission.",
+      "admissions_source_urls": [
+        "https://nationalblueribbonschools.ed.gov/assets/winning/asset/2023/school_application/23tx123pu_hector_j_garcia_early_college_high_school_finalapplication.pdf",
+        "https://s3.amazonaws.com/tea-apps/echs-archive/17-18/240901/240901008.pdf",
+        "https://www.laredoisd.org/o/hjgechs/",
+        "https://acrobat.adobe.com/id/urn:aaid:sc:US:aac914be-8b5c-4caa-bd34-9b011d393fa7",
+        "https://www.laredoisd.org/o/hjgechs/live-feed?page_no=4",
+        "https://sites.google.com/laredoisd.org/gechscounselorscorner/counselors-corner",
+        "https://www.texasstudentdatasystem.org/tsds/teds/2025-2026-ECHS-P-TECH-schools.pdf",
+        "https://texasccrsm.org/school-locator/",
+        "https://tea.texas.gov/student-readiness-and-high-school/college-career-and-military-prep/early-college-high-school-echs",
+        "https://texasccrsm.org/wp-content/uploads/2024/07/ECHS-BP_-June-2026-Accesible.pdf"
+      ],
+      "evidence_summary": "The school-authored 2023 National Blue Ribbon Schools application, page 7 question 18, explicitly describes a weighted lottery using middle-school counselor data and submitted applications, favoring underprepared, English-learner, disadvantaged and underrepresented students. Current official school communications and its 2026\u201327 waitlist application corroborate a continuing separate application/waitlist route. The earlier 2017\u201318 school-authored TEA application also described weighted selection. This is a continuity-qualified exclusion based on the latest explicit school-authored lottery policy recovered, not an inference from document collection alone.",
+      "evidence_limit": "Explicit lottery policy is dated 2023, corroborated by current 2026\u201327 application/waitlist continuity; a newly published 2026 lottery policy was not located. Federal application text was available in the search index; direct PDF retrieval returned HTTP 403. The current form retains a May 2024 deadline in its template. Current TEA designation was not verified and is not used as the basis for exclusion.",
+      "capacity_caveat": "Admission is through the documented weighted-lottery route; current communications confirm a waitlist.",
+      "current_designation_check": "The official 2025-26 TSDS CCRSM PEIMS list has no Hector/Garcia/campus240901008 entry. Its Laredo ISD entries identify Cantu and Perez early colleges instead. The TEA-linked current CCRSM locator likewise has no Hector/Garcia entry. The 2026 Blueprint section3.4 requires an oversubscription lottery, but current designation for this exact school was not established, so that rule is not applied solely from its name. The guessed 2026-27 TSDS PDF URL could not be fetched. Absence from these lists is not itself proof of any admission rule.",
+      "school_name_in_admission_source": "Hector J. Garcia Early College High School"
+    },
+    {
+      "national_rank": 156,
+      "school": "Marine Academy of Science and Technology",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Career academy admission examination and competitive score ranking",
+      "admissions_source_urls": [
+        "https://www.chs.mcvsd.org/o/mcvsd/page/career-academy-admissions",
+        "https://www.mast.mcvsd.org/o/mast/page/application-information-2026"
+      ],
+      "evidence_summary": "Official MCVSD process includes MAST among career academies requiring admission examination and selection by composite scores, with top qualified district applicants first. County residence does not establish ordinary enrollment."
+    },
+    {
+      "national_rank": 157,
+      "school": "Uplift Education-North Hills Prep High School",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Network-wide lottery for K\u201312 enrollment",
+      "admissions_source_urls": [
+        "https://www.upliftparent.org/site/handlers/filedownload.ashx?FileName=Uplift-Application-Guide-2021-22-English.pdf&dataid=45505&moduleinstanceid=19363",
+        "https://uplifteducation.org/explore/"
+      ],
+      "evidence_summary": "Official network application guide names North Hills as K\u201312 and requires lotteries for each school/grade when limited seats; current enrollment site still describes lottery results and placement offers."
+    },
+    {
+      "national_rank": 158,
+      "school": "Young Women's College Prep Academy",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Academic matrix score required",
+      "admissions_source_urls": [
+        "https://schoolchoice.houstonisd.org/resources",
+        "https://ywcpa.houstonisd.org/about-us/school-overview"
+      ],
+      "evidence_summary": "HISD current school-choice resources specifically name Young Women\u2019s College Preparatory Academy among schools requiring an academic matrix from grades/test scores; no ordinary residential route was established."
+    },
+    {
+      "national_rank": 159,
+      "school": "Barrington High School",
+      "state": "RI",
+      "status": "eligible",
+      "reason": "Town-resident public-school enrollment",
+      "admissions_source_urls": [
+        "https://www.barringtonschools.org/page/student-registration-forms"
+      ],
+      "evidence_summary": "District 2026\u20132027 registration requires actual Barrington residence and records/health documents; the district enrolls resident high-school students through this process."
+    },
+    {
+      "national_rank": 160,
+      "school": "Kinder High School for Performing and Visual Arts",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Arts audition selection",
+      "admissions_source_urls": [
+        "https://khspva.houstonisd.org/admissions-and-auditions/2026-2027-audition-requirements"
+      ],
+      "evidence_summary": "The official2026\u20132027 audition requirements require artistic submissions and invitation callbacks for entry; residence does not supply an ordinary enrollment route."
+    },
+    {
+      "national_rank": 161,
+      "school": "The Bromfield School",
+      "state": "MA",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.psharvard.org/77254_2",
+        "https://tbhs.psharvard.org/"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. Harvard Public Schools provides general new-student enrollment with proof of residency; the same district page identifies Bromfield as its high school. Caveat: This verifies the ordinary district resident route; optional nonresident school-choice arrangements are not used."
+    },
+    {
+      "national_rank": 162,
+      "school": "University of Illinois High Sch",
+      "state": "IL",
+      "status": "excluded",
+      "reason": "Competitive holistic application review",
+      "admissions_source_urls": [
+        "https://uni.illinois.edu/admissions/admissions-process/",
+        "https://uni.illinois.edu/admissions/uni-facts-and-myths-faq/"
+      ],
+      "evidence_summary": "The same ranked University Laboratory High School selects applicants through teacher committee review of essays, recommendations and transcripts, including limited9\u201312 transfers. It has no test requirement but still lacks ordinary residential admission."
+    },
+    {
+      "national_rank": 163,
+      "school": "University High School (Tolleson)",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Competitive academic admission to separately ranked University High",
+      "admissions_source_urls": [
+        "https://university.tuhsd.org/our-school",
+        "https://www.tuhsd.org/accnt_180232/site_180233/Documents/2024-2025-Academic-Planning-Guide.pdf"
+      ],
+      "evidence_summary": "The district guide identifies University High itself as competitively admitting students using academic performance, test scores, GPA and recommendations. Tolleson High affiliation is not admission to this separately ranked school."
+    },
+    {
+      "national_rank": 164,
+      "school": "San Marino High School",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.smusd.us/apps/pages/index.jsp?pREC_ID=705202&type=d&uREC_ID=304751",
+        "https://www.smusd.us/apps/pages/index.jsp?pREC_ID=707045&type=d&uREC_ID=304751"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. San Marino Unified's current 2026-27 new-student page provides residents-only registration and lists required proof of residency. Caveat: Some residences in the City of San Marino are outside SMUSD; verify the district address, not the mailing city."
+    },
+    {
+      "national_rank": 165,
+      "school": "Madeira High School",
+      "state": "OH",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.madeiracityschools.org/welcome/welcome-centerenrollment"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. Madeira states that families residing within its district boundaries are eligible to enroll after providing proof of residence. Caveat: The ranking's Cincinnati mailing-city label is not the school-district attendance boundary."
+    },
+    {
+      "national_rank": 166,
+      "school": "Little Chute Career Pathways Academy",
+      "state": "WI",
+      "status": "excluded",
+      "reason": "Charter contract requires an admission lottery when applications exceed available seats; district residency does not exempt applicants.",
+      "admissions_source_urls": [
+        "https://www.littlechute.k12.wi.us/schools/careerpathwaysacademy/",
+        "https://sites.google.com/littlechute.k12.wi.us/lcasdschoolboard/governing-council",
+        "https://drive.google.com/file/d/110wbgEE7f9sEAWn2Lf4G4StoSOLXBaWD/view"
+      ],
+      "evidence_summary": "The school's official navigation links the charter schools' Governing Council site, which links this document specifically as the LCCPA Charter School Contract. The contract cover and opening identify its fourth five-year term beginning July 1, 2026. Enrollment is open to district residents and Wisconsin open-enrollment applicants, but section (3), page 9, requires an application and a Governance Council lottery when applications exceed open seats. Exceptions apply to continuing/admitted students, their siblings, and teachers' children, rather than ordinary new resident applicants. Page 9 also explicitly bars the district from placing students into this academy. Page 10 distinguishes the resident alternative of Little Chute High School, a different institution.",
+      "source_quote": "then a lottery shall be conducted by the Governance Council",
+      "source_page": 9,
+      "retrieval_note": "Official school pages retrieved with a browser user agent. The school-linked 21-page contract is scanned; page 9 was OCR-extracted and visually checked against the original rendered page.",
+      "capacity_caveat": "Oversubscription lottery is required by contract even when an individual year has spare seats. The nearby ordinary high school route is not a route into the ranked charter."
+    },
+    {
+      "national_rank": 167,
+      "school": "Lexington High School",
+      "state": "MA",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.lexingtonma.org/central-registration"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. Lexington's central-registration page allows families to begin once they and the student occupy their Lexington residence and provides high-school registration. Caveat: Temporary residence solely for school attendance does not meet the stated district residency policy."
+    },
+    {
+      "national_rank": 168,
+      "school": "World Languages Institute",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Computer-generated lottery with resident priority",
+      "admissions_source_urls": [
+        "https://sites.google.com/teachers.fwisd.org/fwisd-virtual-open-house/menu/how-to-apply"
+      ],
+      "evidence_summary": "Official WLI2025\u20132026 choice-application guidance explicitly bases admission on computer-generated lottery selection; district residents have weighted priority rather than guaranteed admission."
+    },
+    {
+      "national_rank": 169,
+      "school": "Mystic Valley Regional Charter School",
+      "state": "MA",
+      "status": "excluded",
+      "reason": "Lottery enrollment",
+      "admissions_source_urls": [
+        "https://mvrcs.com/apps/pages/index.jsp?type=d&uREC_ID=249037",
+        "https://www.mvrcs.org/m/pages/index.jsp?type=d&uREC_ID=248991"
+      ],
+      "evidence_summary": "School FAQ explicitly states admission is by lottery; current admissions publish the annual enrollment lottery."
+    },
+    {
+      "national_rank": 170,
+      "school": "West Lafayette Jr./Sr. High School",
+      "state": "IN",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.wl.k12.in.us/news-info/enrollment-information",
+        "https://wl.k12.in.us/policy/administrative-guidelines/students/student-admission-enrollment"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. West Lafayette's enrollment instructions require establishing residency within WLCSC before completing new-student enrollment. Caveat: A West Lafayette mailing address can be in another district; district residency must be verified."
+    },
+    {
+      "national_rank": 171,
+      "school": "Meridian High School",
+      "state": "VA",
+      "status": "eligible",
+      "reason": "City-resident enrollment at the district high school",
+      "admissions_source_urls": [
+        "https://www.fccps.org/page/moving-to-falls-church/",
+        "https://www.fccps.org/o/mhs"
+      ],
+      "evidence_summary": "Official district registration guidance says families can register after confirming actual City of Falls Church residence. Meridian is its named high school and links the same student registration process; no selective or lottery route required."
+    },
+    {
+      "national_rank": 172,
+      "school": "Winston Churchill High School",
+      "state": "MD",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.montgomeryschoolsmd.org/info/enroll/",
+        "https://ww2.montgomeryschoolsmd.org/schoolodex/schooloverview.aspx?s=04602",
+        "https://www.montgomeryschoolsmd.org/siteassets/district/departments/planning/fy2027/CIP27_Chapter4_Churchill%20Cluster.pdf"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. MCPS assigns schools using bona fide student residence; its official school listing and Churchill cluster planning documents identify Winston Churchill's residential service area. Caveat: Check the address against the district's current or intended school-year assignment; boundary changes have been approved for 2027-28."
+    },
+    {
+      "national_rank": 173,
+      "school": "Young Women's Preparatory Academy",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Enhanced magnet academic eligibility",
+      "admissions_source_urls": [
+        "https://yourchoicemiami.org/resources/magnet-application-eligibility-guide"
+      ],
+      "evidence_summary": "Official district eligibility guide specifically names Young Women\u2019s Preparatory Academy leadership for grades9\u201312 among schools with enhanced magnet criteria; no same-school ordinary residential route."
+    },
+    {
+      "national_rank": 174,
+      "school": "Cupertino High School",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.fuhsd.org/departments/enrollment/student-transfer-options",
+        "https://www.fuhsd.org/about-us/general-information/district-boundry-maps"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. FUHSD assigns students to one of its five named comprehensive high schools according to the attendance boundary containing their primary residence. Caveat: Ordinary resident pathway qualifies. Supplemental assignment and other out-of-boundary transfer programs are separate."
+    },
+    {
+      "national_rank": 175,
+      "school": "Imagine International Academy of North Texas",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Admission lottery",
+      "admissions_source_urls": [
+        "https://www.imaginenorthtexas.org/apps/pages/index.jsp?type=d&uREC_ID=641041"
+      ],
+      "evidence_summary": "Official school lottery page sets the annual admission lottery and uses lottery waitlists for remaining seats; no ordinary geographic entitlement is stated."
+    },
+    {
+      "national_rank": 176,
+      "school": "J. Graham Brown School",
+      "state": "KY",
+      "status": "excluded",
+      "reason": "Criteria-based grades 6-12 admission requires academic thresholds, recommendations, ranked review and an interview.",
+      "admissions_source_urls": [
+        "https://www.jefferson.kyschools.us/o/brown/page/middlehigh-admissions",
+        "https://sites.google.com/jefferson.kyschools.us/brownadmissions/Brown-MS-HS-Admissions"
+      ],
+      "evidence_summary": "The official school admissions page embeds a link to its Brown admissions Google Site in Apptegy hydration data. The linked site explicitly describes 2027-28 grades 6-12 criteria-based admission. Applicants must meet a GPA/test combination: GPA 3.0 plus specified proficient/percentile results; GPA 3.2 plus another stated test threshold; or GPA 3.5 without testing. Two teacher recommendations must predominantly rate the student above average. Qualified applicants complete a self-directed-learning disposition survey and writing task, are ranked within grade and diversity category, and selected applicants receive an admissions-committee interview. Invitations are tied to anticipated openings; more students are interviewed than seats available.",
+      "capacity_caveat": "Meeting initial academic criteria does not guarantee admission; ranked selection, interview and available openings remain."
+    },
+    {
+      "national_rank": 177,
+      "school": "Raleigh Charter High School",
+      "state": "NC",
+      "status": "excluded",
+      "reason": "Public lottery admission",
+      "admissions_source_urls": [
+        "https://www.raleighcharterhs.org/admissions"
+      ],
+      "evidence_summary": "The official admissions page explicitly states application and admission are by public lottery for North Carolina residents."
+    },
+    {
+      "national_rank": 178,
+      "school": "Piedmont High School",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.piedmont.k12.ca.us/about/enrolling/apply",
+        "https://www.piedmont.k12.ca.us/about/enrolling/enrolling-info"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. Piedmont Unified provides resident enrollment after verifying residency and separately requires approved transfers for nonresidents; its school guide identifies Piedmont High as the comprehensive high school. Caveat: "
+    },
+    {
+      "national_rank": 179,
+      "school": "Chula Vista Learning Community Charter",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "High-school enrollment lottery including existing charter students",
+      "admissions_source_urls": [
+        "https://cvlcc.cvesd.org/our-schools/high-school/about-us/enrollment"
+      ],
+      "evidence_summary": "Official grades9\u201312 enrollment process requires an information meeting and interest form even for existing TK\u20138 students, then lottery if applications exceed space."
+    },
+    {
+      "national_rank": 180,
+      "school": "Henry M. Gunn High",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.pausd.org/enrollment/school-placement-transfers",
+        "https://www.pausd.org/enrollment/residency-important-information"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. PAUSD states that school assignment is determined by home address and that students generally attend their neighborhood school; Gunn is one of its named high schools. Caveat: Neighborhood placement remains subject to district capacity and overflow procedures."
+    },
+    {
+      "national_rank": 181,
+      "school": "Young Women's Leadership Academy",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Required screening, interview and writing assessment",
+      "admissions_source_urls": [
+        "https://ywla.fwisd.org/"
+      ],
+      "evidence_summary": "Official exact school homepage states applicants must attend a campus screening event including interview and writing assessment; no ordinary resident route is specified."
+    },
+    {
+      "national_rank": 182,
+      "school": "La Canada High School",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.lcusd.net/apps/pages/index.jsp?pREC_ID=1094871&type=d&uREC_ID=620668",
+        "https://www.lcusd.net/apps/pages/index.jsp?pREC_ID=1105593&type=d&uREC_ID=620668"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. LCUSD's resident-enrollment procedure begins by verifying that the student lives within the district boundaries, then completes ordinary resident registration. Caveat: Verify the school-district boundary rather than the La Canada mailing address."
+    },
+    {
+      "national_rank": 183,
+      "school": "Academy for Science and Design (ASD)",
+      "state": "NH",
+      "status": "excluded",
+      "reason": "Random admission lottery",
+      "admissions_source_urls": [
+        "https://www.asdnh.org/admissions",
+        "https://sites.google.com/asdnh.org/admissions/admissions-faqs"
+      ],
+      "evidence_summary": "Official school admissions and FAQ explicitly state open enrollment through a random anonymized lottery, rather than geographic entitlement."
+    },
+    {
+      "national_rank": 184,
+      "school": "Orlando Science Middle High Charter",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Lottery/waitlist enrollment across grades9\u201312",
+      "admissions_source_urls": [
+        "https://orlandoscience.org/enrollment/"
+      ],
+      "evidence_summary": "Official Orlando Science enrollment page states all enrollment is based on lottery/waitlist, explicitly identifies grades9\u201312 campus and annual seat availability."
+    },
+    {
+      "national_rank": 185,
+      "school": "Caddo Parish Magnet High School",
+      "state": "LA",
+      "status": "excluded",
+      "reason": "Minimum GPA and test-score thresholds",
+      "admissions_source_urls": [
+        "https://www.caddoschools.org/o/cmh/page/admissions",
+        "https://caddomagnet.net/magnet/wp-content/uploads/2024/08/2024-25-Application-to-Magnet.pdf"
+      ],
+      "evidence_summary": "Official application requires GPA2.5, prescribed English/math standardized test scores and reviewed attendance/discipline. Caddo residence alone is insufficient."
+    },
+    {
+      "national_rank": 186,
+      "school": "Beechwood High School",
+      "state": "KY",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://beechwood.kyschools.us/in-district-student-registration/",
+        "https://beechwood.kyschools.us/coming-to-beechwood/"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. Beechwood's in-district registration page instructs families to verify that their residence lies within Beechwood Independent School District before enrolling. Caveat: Nonresident tuition applications are a separate route and are not required for district residents."
+    },
+    {
+      "national_rank": 187,
+      "school": "City Honors School at Fosdick Masten Park",
+      "state": "NY",
+      "status": "excluded",
+      "reason": "Required admissions test",
+      "admissions_source_urls": [
+        "https://www.buffaloschools.org/o/dept-admissions-registration/page/city-honors-olmsted-registration-application-testing-information-copy"
+      ],
+      "evidence_summary": "Official district2027\u20132028 application/testing page names City Honors and requires an admission test, including applicants entering high school. Current district residents do not bypass selection."
+    },
+    {
+      "national_rank": 188,
+      "school": "Walt Whitman High School",
+      "state": "MD",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.montgomeryschoolsmd.org/info/enroll/",
+        "https://ww2.montgomeryschoolsmd.org/schoolodex/schooloverview.aspx?s=04427",
+        "https://www.montgomeryschoolsmd.org/siteassets/district/departments/planning/fy2027/CIP27_Chapter4_Downcounty-Cluster.pdf"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. MCPS assigns schools using bona fide residence; its official school listing and Whitman cluster planning document identify Walt Whitman's residential service area. Caveat: Check the address against the district's current or intended school-year assignment; boundaries can change."
+    },
+    {
+      "national_rank": 189,
+      "school": "New World School of the Arts",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Audition or portfolio admission",
+      "admissions_source_urls": [
+        "https://nwsa.mdc.edu/docs/viewbook.pdf",
+        "https://nwsa.mdc.edu/"
+      ],
+      "evidence_summary": "The official school viewbook describes admission based on an audition or portfolio review; the school offers both high-school and college arts programs, with no ordinary residential high-school route evidenced."
+    },
+    {
+      "national_rank": 190,
+      "school": "Dougherty Valley High School",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.srvusd.net/Departments/Educational-Services/Enrollment-Info/School-Site-Locator/index.html",
+        "https://www.srvusd.net/Departments/Facilities/Find-Your-School/index.html"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. SRVUSD provides address-based attendance-boundary assignment and identifies Dougherty Valley among its district high schools. Caveat: The district explicitly says growth can prevent attendance at the resident school; assignment is confirmed after enrollment."
+    },
+    {
+      "national_rank": 191,
+      "school": "Ms School For Math And Science",
+      "state": "MS",
+      "status": "excluded",
+      "reason": "Competitive statewide residential STEM selection",
+      "admissions_source_urls": [
+        "https://themsms.org/admissions/"
+      ],
+      "evidence_summary": "The official admissions page identifies MSMS as a residential school for academically gifted students and publishes application/interview/final selection stages; residence in Mississippi is eligibility, not automatic admission."
+    },
+    {
+      "national_rank": 192,
+      "school": "Basis Dc",
+      "state": "DC",
+      "status": "excluded",
+      "reason": "Citywide admission lottery",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/enrollment-guide/",
+        "https://enrollbasis.com/washington-dc/"
+      ],
+      "evidence_summary": "BASIS official enrollment guide explicitly states BASIS DC participates in all MySchoolDC common citywide lottery rules; its Washington DC profile advertises lottery applications."
+    },
+    {
+      "national_rank": 193,
+      "school": "Newark Charter School",
+      "state": "DE",
+      "status": "excluded",
+      "reason": "Lottery if oversubscribed including K\u201312",
+      "admissions_source_urls": [
+        "https://newarkcharterschool.org/admissions"
+      ],
+      "evidence_summary": "Official school admissions page includes the senior-high campus and K\u201312 open house, and requires an admission lottery when applications exceed openings."
+    },
+    {
+      "national_rank": 194,
+      "school": "Greenwich High School",
+      "state": "CT",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.greenwichschools.org/district-information/registration",
+        "https://ghs.greenwichschools.org/ghs-information/handbook-and-school-policies/policies-and-regulations",
+        "https://ghs.greenwichschools.org/ghs-information/residency-verification-registration"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. Greenwich directs every new resident student to complete registration and says current district students moving up to high school need no new registration. Caveat: The school includes placement testing in its registration process; the district separately documents the ordinary resident enrollment pathway."
+    },
+    {
+      "national_rank": 195,
+      "school": "McLean High School",
+      "state": "VA",
+      "status": "eligible",
+      "reason": "Zoned high-school new-student registration",
+      "admissions_source_urls": [
+        "https://mcleanhs.fcps.edu/student-services/new-student-registration"
+      ],
+      "evidence_summary": "Current official school page directs new grade9\u201312 families to verify McLean attendance boundary and complete ordinary registration; feeder record transfers are not its sole route."
+    },
+    {
+      "national_rank": 196,
+      "school": "Umoja International Academy",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "No high-school attendance boundary; computerized lottery",
+      "admissions_source_urls": [
+        "https://www.scusd.edu/enroll/school-choice/hssp",
+        "https://www.scusd.edu/enroll/permits-transfers"
+      ],
+      "evidence_summary": "Current official district policy explicitly lists Umoja grades9\u201312 among schools with no attendance-area boundary and uses a computerized third-party lottery for school/specialty-program placement. Middle-school or IB affiliation does not establish an ordinary high-school residential route."
+    },
+    {
+      "national_rank": 197,
+      "school": "Minnetonka Senior High School",
+      "state": "MN",
+      "status": "eligible",
+      "reason": "Ordinary residence-based school enrollment",
+      "admissions_source_urls": [
+        "https://www.minnetonkaschools.org/district/departments/enrollment/boundaries",
+        "https://www.minnetonkaschools.org/district/departments/enrollment"
+      ],
+      "evidence_summary": "Official source re-fetched on 2026-10-20. The district explicitly states that all Minnetonka Public School District students attend Minnetonka High School for grades 9-12. Caveat: The district spans several communities; a Minnetonka mailing address alone is insufficient. Nonresident open enrollment is separate."
+    },
+    {
+      "national_rank": 198,
+      "school": "Preuss School UCSD",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Eligibility and random public lottery",
+      "admissions_source_urls": [
+        "https://preuss.ucsd.edu/admissions/index.html",
+        "https://preuss.ucsd.edu/about-preuss/preuss-at-a-glance.html"
+      ],
+      "evidence_summary": "The school requires eligibility/application and holds a random public lottery when oversubscribed; no guaranteed geographic pathway, with admission explicitly not guaranteed."
+    },
+    {
+      "national_rank": 199,
+      "school": "Barack Obama Male Leadership Academy",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Competitive academic magnet selection",
+      "admissions_source_urls": [
+        "https://mydata.dallasisd.org/docs/SRC/2425/202425_SCHOOL_PROFILE_381.pdf",
+        "https://www.dallasisd.org/departments/magnets-and-special-programs/application-process"
+      ],
+      "evidence_summary": "Current official district profile identifies the exact ranked Barack Obama Male Leadership Academy at A.Maceo Smith as a choice school with academic requirements for admission."
+    },
+    {
+      "national_rank": 200,
+      "school": "Chagrin Falls High School",
+      "state": "OH",
+      "status": "eligible",
+      "reason": "District-resident high-school enrollment",
+      "admissions_source_urls": [
+        "https://www.chagrinschools.org/page/registration/",
+        "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2683/Cfevs/db39e061-fe39-4c2e-ab84-4c4168a9cb6e/Chagrin-Falls-Schools---Enrollment-Guide.pdf?disposition=inline",
+        "https://www.chagrinschools.org/o/cfhs/article/778701/"
+      ],
+      "evidence_summary": "Current official registration guide provides ordinary in-district enrollment with proof of actual residence; the high-school page links this same district registration process. No selective entry requirement."
+    }
+  ]
+}

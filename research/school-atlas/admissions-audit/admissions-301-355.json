@@ -1,0 +1,694 @@
+{
+  "ranking_edition": "2026-2027",
+  "checked_on": "2026-10-20",
+  "criterion": "Ordinary residential admission into the ranked institution without mandatory lottery or selective screening.",
+  "schools": [
+    {
+      "national_rank": 301,
+      "school": "Pioneer Charter School of Science 2 (PCSS-2)",
+      "state": "MA",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://pioneercss.org/apps/pages/index.jsp?type=d&uREC_ID=230018"
+      ],
+      "evidence_summary": "PCSS I and II admit through a public lottery; residency is a preference, not ordinary guaranteed entry.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 302,
+      "school": "Math and Science Academy",
+      "state": "MN",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.mnmsa.org/"
+      ],
+      "evidence_summary": "Official school admissions homepage links the 2026\u201327 lottery. Random lottery determines oversubscribed admission.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 303,
+      "school": "Interlake Senior High School",
+      "state": "WA",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.bsd405.org/about-us/schools/find-your-school",
+        "https://www.bsd405.org/enroll/enrollment-frequently-asked-questions"
+      ],
+      "evidence_summary": "Bellevue assigns students to neighborhood schools by residence and explicitly guarantees resident enrollment at the attendance-area school; Interlake is one of the listed neighborhood high schools.",
+      "caveats": "Optional IB and advanced-learning program eligibility is separate from general school attendance."
+    },
+    {
+      "national_rank": 304,
+      "school": "Western Sierra Collegiate Academy",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.rafospublicschools.org/apps/pages/index.jsp?pREC_ID=2124035&type=d&uREC_ID=2060363"
+      ],
+      "evidence_summary": "Western Sierra entry via the RAFOS application and public lottery; continuation from lottery-admitted feeders is not a residential route.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 305,
+      "school": "Compton Early College High School",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Evaluative admission review",
+      "admissions_source_urls": [
+        "https://earlycollegehs.compton.k12.ca.us/",
+        "https://docs.google.com/forms/d/e/1FAIpQLSfYGeMlD9bLIn01xHaYKG1g9OeZC1RDhCp5pK2XqnSIYl4hrg/viewform?usp=send_form"
+      ],
+      "evidence_summary": "Current2027\u201328 teacher recommendation evaluates academic habits and early-college readiness for an Admissions Review Panel; school says recommendation forms part of overall application review.",
+      "caveats": "Main application requires authentication; public school-linked recommendation establishes evaluative admission review, but full selection rubric is unavailable."
+    },
+    {
+      "national_rank": 306,
+      "school": "IDEA Quest College Preparatory",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://ideapublicschools.org/faqs/lottery/"
+      ],
+      "evidence_summary": "IDEA Texas schools use a random lottery and waitlist when oversubscribed.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 307,
+      "school": "Doral Academy Charter High School",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.doralacademyprep.org/apps/pages/index.jsp?hideMenu=1&type=d&uREC_ID=192840"
+      ],
+      "evidence_summary": "New applicants selected by random lottery; 2026 lottery date February11.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 308,
+      "school": "Clayton High",
+      "state": "MO",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.claytonschools.net/about-us/enroll"
+      ],
+      "evidence_summary": "Children domiciled with a parent or guardian within Clayton district boundaries may enroll in kindergarten through grade 12 without tuition, with residency documentation.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 309,
+      "school": "South Pasadena Senior High School",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.spusd.net/apps/pages/index.jsp?pREC_ID=2399755&type=d&uREC_ID=757034"
+      ],
+      "evidence_summary": "The high-school registration page requires proof of South Pasadena residency. Current South Pasadena Middle School eighth graders automatically enroll in ninth grade at South Pasadena High.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 310,
+      "school": "Hudson High School",
+      "state": "OH",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.hudson.k12.oh.us/registration/registrationstudent-records"
+      ],
+      "evidence_summary": "The district provides online new-student registration for 2026\u201327 and requires proof of Hudson residency for every new enrollment.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 311,
+      "school": "Woodson High School",
+      "state": "VA",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://woodsonhs.fcps.edu/student-services/new-student-registration"
+      ],
+      "evidence_summary": "Woodson instructs families whose student lives inside its attendance boundary to complete the new-student registration intake.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 312,
+      "school": "Science Park High School",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.nps.k12.nj.us/SCI/our-school/admissions/"
+      ],
+      "evidence_summary": "Requires NJSLA level4/5 in math and English; highschool entry includes entrance exam and academic records.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 313,
+      "school": "Downtown Business High School",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.downtownmagnets.org/apps/pages/index.jsp?pREC_ID=1359882&type=d&uREC_ID=1039874"
+      ],
+      "evidence_summary": "School requires CHOICES magnet application and priority-points selection rather than ordinary residential assignment.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 314,
+      "school": "Weston High",
+      "state": "MA",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.westonschools.org/resources/new-student-registration/"
+      ],
+      "evidence_summary": "Weston enrollment is contingent on residency, and new students provide documentation establishing a residence in Weston.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 315,
+      "school": "Booker T. Washington High School",
+      "state": "OK",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://btw.tulsaschools.org/students/admissions"
+      ],
+      "evidence_summary": "Requires minimum2.5 GPA and35th percentile reading and math plus selection review. Historical attendance-area preference still requires criteria.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 316,
+      "school": "Carmel High School",
+      "state": "IN",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.ccs.k12.in.us/about/enrollment"
+      ],
+      "evidence_summary": "Carmel Clay Schools provides standard resident enrollment requiring proof of residency and, for high-school entrants, previous school transcripts.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 317,
+      "school": "Green Level High",
+      "state": "NC",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.wcpss.net/enroll/base-schools",
+        "https://osageo.wcpss.net/assignment-lookup/",
+        "https://greenlevelhs.wcpss.net/our-school/contact-us"
+      ],
+      "evidence_summary": "Wake County assigns each address a base elementary, middle, and high school. Green Level is a district high school accessible through the base-school assignment and enrollment process.",
+      "caveats": "Check the current address-assignment tool for enrollment caps, split assignments, and any capacity reassignment before relying on a particular home address."
+    },
+    {
+      "national_rank": 318,
+      "school": "Northview High School",
+      "state": "GA",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://northview.fultonschools.org/our-school/about-us",
+        "https://www.fultonschools.org/our-district/schools-admin-locations/school-attendance-zones"
+      ],
+      "evidence_summary": "Northview publishes an attendance-zone map and feeder schools and describes serving students residing in northeastern Fulton County.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 319,
+      "school": "True North Classical Academy",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.tnclassical.org/admissions/information-sessions/"
+      ],
+      "evidence_summary": "High-school campus Sunset participates in charter lottery admissions.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 320,
+      "school": "Spring Lake High School",
+      "state": "MI",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.springlakeschools.org/our-district/enrollment"
+      ],
+      "evidence_summary": "The district offers ordinary resident enrollment and separately describes nonresident Schools of Choice applications limited by available seats.",
+      "caveats": "A nonresident Schools of Choice application is not required for the ordinary resident route."
+    },
+    {
+      "national_rank": 321,
+      "school": "Blue Valley Northwest High School",
+      "state": "KS",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.bluevalleyk12.org/community/newtobv",
+        "https://www.bluevalleyk12.org/community/findmyschool",
+        "https://www.bluevalleyk12.org/families/school-feeder-directory"
+      ],
+      "evidence_summary": "Blue Valley schools are open to students legally residing within district boundaries. Families identify their attendance-area school using the district address locator; Northwest appears in the district feeder-school directory.",
+      "caveats": "Any lottery for nonresident open enrollment is separate from ordinary resident assignment."
+    },
+    {
+      "national_rank": 322,
+      "school": "Eunice Sato Academy of Math & Science",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Selective academic admission",
+      "admissions_source_urls": [
+        "https://sato.lbschools.net/the-clubs/engineering-and-biomedical"
+      ],
+      "evidence_summary": "School pathway entrance criteria require minimum3.0 GPA, Algebra I in grade8 and SBAC thresholds; oversubscribed qualified applicants selected by GPA.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 323,
+      "school": "Wilkes-Barre Area Sd Stem Academy",
+      "state": "PA",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.wbasd.k12.pa.us/AdmissionProcess.aspx"
+      ],
+      "evidence_summary": "Requires Algebra I, teacher recommendation, essay, interview and GPA selection cuts.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 324,
+      "school": "New Trier Township High School Winnetka",
+      "state": "IL",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.newtrier.k12.il.us/our-district/administrative-departments/academics-and-administrative-services/enrollment"
+      ],
+      "evidence_summary": "Students in grades 9\u201312 who move into New Trier Township District 203 can enroll after establishing residency in the district service area.",
+      "caveats": "New Trier uses the Northfield campus for ninth grade and the Winnetka campus for grades 10\u201312."
+    },
+    {
+      "national_rank": 325,
+      "school": "Arizona College Prep Erie Campus",
+      "state": "AZ",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://acphs.cusd80.com/about/registration",
+        "https://www.cusd80.com/parents-students/enroll/boundary-maps",
+        "https://resources.finalsite.net/images/v1752010027/cusd80com/le7xmz2rvbhositfcsym/CUSDHSColorBoundaryMap2025-26.pdf"
+      ],
+      "evidence_summary": "Arizona College Prep High School's official enrollment page explicitly permits attendance-boundary residents to register directly without an open-enrollment application. The district says school assignment follows street address, and its currently linked High School Attendance Boundaries map shows a distinct ACP-HS residential zone.",
+      "caveats": "Verify the exact home address is in ACP-HS's small assigned zone; general Chandler residence does not qualify. The currently linked map has a 2025-26 filename and was retrieved October 20, 2026. Optional open enrollment outside the assigned zone is excluded. ACP-Erie relocated and became ACP High; the source ranking retains the older school name."
+    },
+    {
+      "national_rank": 326,
+      "school": "Renaissance High School",
+      "state": "ID",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.westada.org/o/wasd/page/enrollment-schools-of-choice"
+      ],
+      "evidence_summary": "Renaissance is a school of choice selected by lottery; late applicants join waitlist.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 327,
+      "school": "Del Norte High",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.powayusd.com/apps/pages/high-school-boundary-maps",
+        "https://delnorte.powayusd.com/apps/pages/enroll",
+        "https://delnorte.powayusd.com/apps/pages/student-transfers"
+      ],
+      "evidence_summary": "Poway publishes a Del Norte attendance-boundary map and the school provides ordinary new-student enrollment. Requests to attend outside the assigned boundary use a separate transfer process.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 328,
+      "school": "Blue Valley West High",
+      "state": "KS",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.bluevalleyk12.org/community/newtobv",
+        "https://www.bluevalleyk12.org/community/findmyschool",
+        "https://www.bluevalleyk12.org/schools/high-schools"
+      ],
+      "evidence_summary": "Blue Valley schools are open to students legally residing within district boundaries, with the address locator identifying the attendance-area school. Blue Valley West is one of the district high schools.",
+      "caveats": "Any lottery for nonresident open enrollment is separate from ordinary resident assignment."
+    },
+    {
+      "national_rank": 329,
+      "school": "Irvington High School",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://fremontunified.org/about/sped-student-support/student-support-services/enrollment-registration/",
+        "https://fremontunified.org/irvington/about/office/registrar/",
+        "https://fremontunified.org/about/welcome/",
+        "https://fremontunified.org/about/sped-student-support/student-support-services/enrollment-registration/school-wait-lists-overloads/"
+      ],
+      "evidence_summary": "Fremont requires full-time local residency and assigns an attendance-area school through its address locator. Irvington directs new enrollment through the district centralized enrollment center.",
+      "caveats": "Home-school placement is subject to capacity, with district overload and wait-list procedures."
+    },
+    {
+      "national_rank": 330,
+      "school": "Highland Park High School",
+      "state": "TX",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://hs.hpisd.org/about/enrollment",
+        "https://www.hpisd.org/about/enrollment"
+      ],
+      "evidence_summary": "Highland Park High directs families moving into the district to verify their address in its attendance-boundary locator and complete enrollment under district residency requirements.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 331,
+      "school": "Wayzata High",
+      "state": "MN",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.wayzataschools.org/enroll/school-search",
+        "https://www.wayzataschools.org/enroll"
+      ],
+      "evidence_summary": "The district school-search page states that all district students attend one high school; resident enrollment is separate from space-limited nonresident open enrollment.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 332,
+      "school": "IDEA McAllen College Preparatory",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://ideapublicschools.org/faqs/lottery/"
+      ],
+      "evidence_summary": "IDEA Texas schools use a random lottery and waitlist when oversubscribed.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 333,
+      "school": "Tomball Star Academy",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://tsa.tomballisd.net/about-tsa/echs"
+      ],
+      "evidence_summary": "More than100 applicants triggers lottery; no ordinary residential assignment route.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 334,
+      "school": "High Tech High School",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://hcstonline.org/admissions/"
+      ],
+      "evidence_summary": "Admission review scores grades, recommendation, essay, portfolio and other criteria for acceptance.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 335,
+      "school": "Harmony School of Innovation - Katy",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.harmonytx.org/directory/lottery"
+      ],
+      "evidence_summary": "Harmony campuses use blind random lottery when oversubscribed.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 336,
+      "school": "American High",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://fremontunified.org/american/about/office/registrar/",
+        "https://fremontunified.org/about/sped-student-support/student-support-services/enrollment-registration/",
+        "https://fremontunified.org/about/sped-student-support/student-support-services/enrollment-registration/school-wait-lists-overloads/"
+      ],
+      "evidence_summary": "American instructs new families to verify that their home address falls inside its attendance area before enrolling through the district enrollment center.",
+      "caveats": "Home-school placement is subject to capacity, with district overload and wait-list procedures."
+    },
+    {
+      "national_rank": 337,
+      "school": "North Houston Early College High School",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://nhechs.houstonisd.org/about-us/admission-and-school-tours"
+      ],
+      "evidence_summary": "Requires matrix score65 followed by HISD school-choice lottery.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 338,
+      "school": "North Star Charter School",
+      "state": "ID",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.northstarcharter.org/wp-content/uploads/2023/10/12-17-2014_appended-charter-approved-update_9-24-23.pdf"
+      ],
+      "evidence_summary": "Charter admissions policy requires lottery when capacity insufficient.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 339,
+      "school": "Harriton High School",
+      "state": "PA",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.lmsd.org/departments/operations/transportation/maps",
+        "https://www.lmsd.org/departments/student-services/registration/partner-school"
+      ],
+      "evidence_summary": "Lower Merion publishes high-school attendance boundaries for its two comprehensive high schools, including Harriton, and asks families near boundaries to verify assignments with the district.",
+      "caveats": "District high-school choice and capacity arrangements can affect assignments. The district reports no anticipated partner-school placement for 2026\u201327."
+    },
+    {
+      "national_rank": 340,
+      "school": "Rosie Sorrells Education and Social Services High School",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://mydata.dallasisd.org/docs/SRC/2122/202122_SCHOOL_PROFILE_37.pdf",
+        "https://essm.dallasisd.org/parents-students/magnet-applicants"
+      ],
+      "evidence_summary": "District identifies institution as choice school with academic admission requirements; current school directs applicants to magnet admissions.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 341,
+      "school": "Radnor High School",
+      "state": "PA",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.rtsd.org/students-families/registration"
+      ],
+      "evidence_summary": "Families may register once they establish Radnor Township residency. Registration is open year-round and requires residency proof for each new student.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 342,
+      "school": "University Preparatory Academy Charter",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.upasv.org/wp-content/uploads/2024/11/How-to-Enroll-at-UPA-slides.pdf"
+      ],
+      "evidence_summary": "School enrollment process includes lottery and waitlist.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 343,
+      "school": "Vernon Hills High School",
+      "state": "IL",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.d128.org/departments/student-services/residency",
+        "https://www.d128.org/about-u/district-map"
+      ],
+      "evidence_summary": "District 128 requires students enrolling in Vernon Hills or Libertyville to live within its attendance boundaries and provide residency proof; the district map determines the assigned high school.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 344,
+      "school": "Highland School of Technology",
+      "state": "NC",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.gaston.k12.nc.us/academics/magnet-schools-and-academy-programs/highland-school-of-technology"
+      ],
+      "evidence_summary": "Academic test/grade criteria followed by lottery; residential feeder areas allocate lottery seats.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 345,
+      "school": "Oakton High School",
+      "state": "VA",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://oaktonhs.fcps.edu/student-services/new-student-registration"
+      ],
+      "evidence_summary": "Oakton directs families to confirm their address in the FCPS boundary locator and complete the intake form when living within the Oakton boundary. Its ordinary feeder-school records transfer automatically.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 346,
+      "school": "Northern Valley Regional High School at Demarest",
+      "state": "NJ",
+      "status": "eligible",
+      "reason": "Ordinary residential admission",
+      "admissions_source_urls": [
+        "https://www.nvnet.org/page/registration/",
+        "https://docs.google.com/document/d/1L83eydZi4d_ykOLWgUjNynVNgeoj_-QvCUijmGGhTpI/edit"
+      ],
+      "evidence_summary": "District registration document directs new and existing resident families in Demarest, Closter and Haworth to register at Demarest. Separate nonresident tuition application is reviewed competitively; resident route is ordinary registration.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 347,
+      "school": "Douglas Anderson School of the Arts",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.duvalschools.org/o/dahs/page/auditions/"
+      ],
+      "evidence_summary": "Acceptance by audition only; requires skill standard, recommendations and2.0 GPA.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 348,
+      "school": "Monmouth County Academy of Allied Health and Science",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.aahs.mcvsd.org/o/mcvsd/page/career-academy-admissions"
+      ],
+      "evidence_summary": "AAHS admission ranks candidates by grades and admissions examination; minimum score75.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 349,
+      "school": "Lambert High School",
+      "state": "GA",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://lhs.forsyth.k12.ga.us/student-services/counseling/new-student-registration",
+        "https://www.forsyth.k12.ga.us/new-families"
+      ],
+      "evidence_summary": "Lambert directs new students to register with the district and then the school. Forsyth County provides address-based attendance-zone lookup for school assignment.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 350,
+      "school": "Achieve Early College High School",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/766929/200739-9760ecad-fe07-4fb3-a3fa-63b061a83c2c.pdf"
+      ],
+      "evidence_summary": "School/district and college agreement specifies screened students selected by lottery.",
+      "caveats": ""
+    },
+    {
+      "national_rank": 351,
+      "school": "Indian Hill High School",
+      "state": "OH",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.indianhillschools.org/EnrollYourStudent.aspx"
+      ],
+      "evidence_summary": "The Indian Hill Exempted Village School District provides ordinary new-student registration for grades 1\u201312 and directs families to the Hamilton County Auditor to verify that their residence lies in the district before completing registration.",
+      "caveats": "Eligibility is based on Indian Hill district residence, not a Cincinnati postal address. The district registration page contains inconsistent year/date labels; no future registration deadline is inferred. District admission and address verification remain necessary."
+    },
+    {
+      "national_rank": 352,
+      "school": "Hawthorne Math and Science Academy",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://resources.finalsite.net/images/v1737501253/hawthornek12caus/zggt8tb0ypskdtp5mxng/AdmissionsProcessandTimeline--2025-2026schoolyearrev12125.pdf",
+        "https://hmsa.hawthornesd.org/about-us/admissions/apply-to-hmsa"
+      ],
+      "evidence_summary": "Official admissions timeline uses lottery if needed. Current2026\u201327 school page has closed applications and waitlist, without a residential entitlement.",
+      "caveats": "Detailed lottery timeline is2025\u201326; current2026\u201327 page corroborates application/waitlist route."
+    },
+    {
+      "national_rank": 353,
+      "school": "Homestead High School",
+      "state": "WI",
+      "status": "eligible",
+      "reason": "Ordinary resident attendance route",
+      "admissions_source_urls": [
+        "https://www.mtsd.k12.wi.us/enroll-in-mtsd"
+      ],
+      "evidence_summary": "The district states that children residing in Mequon or Thiensville are entitled to attend district schools once residency documentation is provided, and that all students in grades 9\u201312 attend Homestead High School.",
+      "caveats": "Only the resident enrollment route qualifies. Nonresident open enrollment uses computerized random selection and is excluded."
+    },
+    {
+      "national_rank": 354,
+      "school": "Elizabeth High School",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Lottery or selective admission",
+      "admissions_source_urls": [
+        "https://www.epsnj.org/cms/lib/NJ01912667/Centricity/Domain/104/High%20School%20Selection%20Guide%202024.pdf",
+        "https://www.epsnj.org/departments/student-services/school-counselingguidance/high-school-selections/excellent-choices-high-school-academies/frequently-asked-questions-faqs"
+      ],
+      "evidence_summary": "District guide says Elizabeth High School selects using GPA and mathematics/English standardized test index.",
+      "caveats": "Detailed selection guide is2024; current district highschool selection FAQ retains application and program-specific requirements."
+    },
+    {
+      "national_rank": 355,
+      "school": "Elkhorn North High School",
+      "state": "NE",
+      "status": "eligible",
+      "reason": "Ordinary residential assignment",
+      "admissions_source_urls": [
+        "https://elkhornweb.org/parents/new-students/"
+      ],
+      "evidence_summary": "District expressly assigns school by residential address and lists Elkhorn North among assigned high schools; enrollment follows boundary check.",
+      "caveats": "Confirm the address lies in Elkhorn North's attendance boundary, not merely in Omaha or the wider Elkhorn district. Optional intradistrict transfers are separate."
+    }
+  ]
+}

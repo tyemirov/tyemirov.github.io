@@ -10,6 +10,7 @@ while IFS= read -r -d '' html_path; do
     echo "error: ${html_path} must load the tyemirov.net production LoopAware pixel exactly once" >&2
     exit 1
   }
-done < <(git -C "${repo_root}" ls-files --cached --others --exclude-standard --deduplicate -z -- '*.html')
+# Research snapshots preserve external source bytes and are excluded from Pages.
+done < <(git -C "${repo_root}" ls-files --cached --others --exclude-standard --deduplicate -z -- '*.html' ':(exclude)research/school-atlas/**')
 
 echo "tyemirov.net LoopAware site identifier passed"

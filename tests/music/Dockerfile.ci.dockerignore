@@ -4,6 +4,7 @@
 !package.json
 !package-lock.json
 !.gitignore
+!.gitattributes
 !Dockerfile.pages
 !Dockerfile.pages.dockerignore
 !apple-touch-icon.png
@@ -27,6 +28,8 @@
 !index.html
 !local/**
 !music/**
+!school-atlas/**
+!research/school-atlas/**
 !robots.txt
 !site.js
 !site.webmanifest

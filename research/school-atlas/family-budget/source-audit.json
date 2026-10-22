@@ -1,0 +1,23 @@
+{
+  "source_url": "https://www.bls.gov/cex/tables/calendar-year/mean-item-share-average-standard-error/cu-size-2024.xlsx",
+  "retrieved_on": "2026-10-20",
+  "year": 2024,
+  "population": "Three-person consumer units; not an exact two-adult/one-child estimate",
+  "components": {
+    "Average annual expenditures": 92205,
+    "Shelter": 17555,
+    "Natural gas": 571,
+    "Electricity": 2137,
+    "Fuel oil and other fuels": 135,
+    "Telephone services": 1758,
+    "Water and other public services": 972,
+    "Education": 2585,
+    "Cash contributions": 1992,
+    "Personal insurance and pensions": 13302
+  },
+  "covered_energy_water_utilities": 3815,
+  "home_spending_before_school": 74326,
+  "other_spending_excluding_shelter_and_covered_utilities": 52956,
+  "sha256": "6378f4aa2e2f54bfe758c7604aeb366e8cc38d0d626a583bd77ba6aee87d28f9",
+  "limits": "National mean in 2024 dollars, no inflation or household-specific adjustment. Home benchmark remains unchanged during boarding; meal/utility savings are not inferred."
+}

@@ -1,0 +1,10 @@
+{
+  "retrieved_date": "2026-10-20",
+  "edition": "2026-2027",
+  "state_api_snapshots": 51,
+  "exact_ranks_through_400": 400,
+  "gaps_through_400": [],
+  "gaps_through_500": [],
+  "duplicate_ranks": {},
+  "primary_publisher_status": "Unavailable; HTTP status preserved in source-manifest.json. Secondary rank transcription only."
+}

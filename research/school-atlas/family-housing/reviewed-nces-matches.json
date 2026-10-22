@@ -1,0 +1,211 @@
+[
+  {
+    "school_id": "public:92",
+    "nces_location": {
+      "NAME": "Lynbrook High",
+      "STREET": "1280 Johnson Ave.",
+      "CITY": "San Jose",
+      "STATE": "CA",
+      "ZIP": "95129"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "public:98",
+    "nces_location": {
+      "NAME": "Mission San Jose High",
+      "STREET": "41717 Palm Ave.",
+      "CITY": "Fremont",
+      "STATE": "CA",
+      "ZIP": "94539"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "public:171",
+    "nces_location": {
+      "NAME": "Meridian High",
+      "STREET": "121 Mustang Alley",
+      "CITY": "Falls Church",
+      "STATE": "VA",
+      "ZIP": "22043"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "public:243",
+    "nces_location": {
+      "NAME": "Campolindo High",
+      "STREET": "300 Moraga Rd.",
+      "CITY": "Moraga",
+      "STATE": "CA",
+      "ZIP": "94556"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "public:291",
+    "nces_location": {
+      "NAME": "Richard Montgomery High",
+      "STREET": "250 Richard Montgomery Dr",
+      "CITY": "Rockville",
+      "STATE": "MD",
+      "ZIP": "20852"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "public:329",
+    "nces_location": {
+      "NAME": "Irvington High",
+      "STREET": "41800 Blacow Rd.",
+      "CITY": "Fremont",
+      "STATE": "CA",
+      "ZIP": "94538"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "public:339",
+    "nces_location": {
+      "NAME": "Harriton SHS",
+      "STREET": "600 N Ithan Ave",
+      "CITY": "Rosemont",
+      "STATE": "PA",
+      "ZIP": "19010"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "public:4",
+    "nces_location": {
+      "NAME": "Davidson Academy",
+      "STREET": "1164 N. Virginia St. Jot Travis Building 048",
+      "CITY": "Reno",
+      "STATE": "NV",
+      "ZIP": "89503"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "public:32",
+    "nces_location": {
+      "NAME": "Hume - Fogg High",
+      "STREET": "700  Broadway",
+      "CITY": "Nashville",
+      "STATE": "TN",
+      "ZIP": "37203"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "public:33",
+    "nces_location": {
+      "NAME": "MANSFIELD FRONTIER STEM ACADEMY",
+      "STREET": "1120 W DEBBIE LN",
+      "CITY": "MANSFIELD",
+      "STATE": "TX",
+      "ZIP": "76063"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "public:45",
+    "nces_location": {
+      "NAME": "IRMA RANGEL YOUNG WOMEN'S LEADERSHIP SCHOOL",
+      "STREET": "1718 ROBERT B CULLUM BLVD",
+      "CITY": "DALLAS",
+      "STATE": "TX",
+      "ZIP": "75210"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "public:88",
+    "nces_location": {
+      "NAME": "Illinois Mathematics and Science",
+      "STREET": "1500 Sullivan Rd",
+      "CITY": "Aurora",
+      "STATE": "IL",
+      "ZIP": "60506"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "public:91",
+    "nces_location": {
+      "NAME": "DEBAKEY H S FOR HEALTH PROF",
+      "STREET": "2545 PRESSLER",
+      "CITY": "HOUSTON",
+      "STATE": "TX",
+      "ZIP": "77030"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "private:phillips-academy-andover-andover-ma",
+    "nces_location": {
+      "NAME": "PHILLIPS ACADEMY",
+      "STREET": "180 MAIN ST",
+      "CITY": "ANDOVER",
+      "STATE": "MA",
+      "ZIP": "01810"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "private:basis-independent-manhattan-new-york-ny",
+    "nces_location": {
+      "NAME": "BASIS INDEPENDENT MANHATTAN-UPPER SCHOOL",
+      "STREET": "556 W 22ND ST",
+      "CITY": "NEW YORK",
+      "STATE": "NY",
+      "ZIP": "10011"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "private:princeton-international-school-of-math-and-science-princeton-nj",
+    "nces_location": {
+      "NAME": "PRINCETON INTERNATIONAL SCHL OF MATH AND SCIENCE",
+      "STREET": "19 LAMBERT DR",
+      "CITY": "PRINCETON",
+      "STATE": "NJ",
+      "ZIP": "08540"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "private:ideaventions-academy-for-math-and-science-reston-va",
+    "nces_location": {
+      "NAME": "IDEAVENTIONS ACADEMY FOR MATHEMATICS AND SCIENCE",
+      "STREET": "12340 PINECREST RD # 100",
+      "CITY": "RESTON",
+      "STATE": "VA",
+      "ZIP": "20191"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "private:posnack-jewish-day-school-davie-fl",
+    "nces_location": {
+      "NAME": "DAVID POSNACK JEWISH DAY SCHOOL",
+      "STREET": "5810 S PINE ISLAND RD",
+      "CITY": "DAVIE",
+      "STATE": "FL",
+      "ZIP": "33328"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  },
+  {
+    "school_id": "private:british-international-school-of-chicago-south-loop-chicago-il-a0501514",
+    "nces_location": {
+      "NAME": "BRITISH INTERNATIONAL SCHOOL OF CHICAGO SOUTH LOOP",
+      "STREET": "161 W 9TH ST",
+      "CITY": "CHICAGO",
+      "STATE": "IL",
+      "ZIP": "60605"
+    },
+    "review_note": "Reviewed school-name abbreviation or full-name variant and matching locality/state; explicit match, not automated nearest-name assignment."
+  }
+]

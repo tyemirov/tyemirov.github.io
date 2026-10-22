@@ -1,0 +1,557 @@
+Tuition & Financial Aid (https://www.loomischaffee.org/admission/tuition-financial-aid)
+【turn996815view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.loomischaffee.org/admission/tuition-financial-aid","lineno":null}); Total lines: 554
+L0: 【0†iframe†www.googletagmanager.com】 【1†iframe†www.googletagmanager.com】 【2†Skip To Main Content】
+L1: 
+L2: Menu
+L3: 
+L4:   * 【3†About】
+L5: 
+L6:     * 【4†Mission & History】
+L7: 
+L8:       * 【5†Archives】
+L9: 
+L10:     * 【6†Key Facts】
+L11:     * 【7†Our Centers】
+L12:     * 【8†Inclusive Excellence & Belonging】
+L13: 
+L14:       * 【9†Student Organizations & Affinity Groups】
+L15:       * 【10†Programs & Events】
+L16:       * 【11†Resources】
+L17:       * 【12†The Illuminators Gathering】
+L18:       * 【13†Bias Response Process】
+L19:     * 【14†Student Journeys】
+L20:     * 【15†News & Stories】
+L21:     * 【16†Strategic Plan(opens in new window/tab)†strategicplan.loomischaffee.org】
+L22:     * 【17†School Leadership】
+L23:     * 【18†Visiting Loomis】
+L24: 
+L25:       * 【19†Campus Map】
+L26:       * 【20†Explore Windsor】
+L27: 
+L28:     * 【21†Employment】
+L29: 
+L30:       * 【22†Open Positions(opens in new window/tab)†workforcenow.adp.com】
+L31:       * 【23†Teaching Faculty】
+L32:       * 【24†Staff Positions】
+L33:       * 【25†Boarding School Teaching Residency】
+L34:       * 【26†Summer Employment】
+L35:         * 【27†Faculty Interns】
+L36: 
+L37:     * 【28†Directory】
+L38: 
+L39:       * 【29†Contact Us】
+L40: 
+L41:   * 【30†Arts】
+L42: 
+L43:     * 【31†Music】
+L44:     * 【32†Theater】
+L45:     * 【33†Dance】
+L46:     * 【34†Visual Arts】
+L47:     * 【35†Mercy Gallery】
+L48:     * 【36†Arts Facilities】
+L49:     * 【37†Arts Events】
+L50:     * 【38†Arts Livestream】
+L51: 
+L52:   * 【39†Admission】
+L53: 
+L54:     * 【40†Inquire(opens in new window/tab)†apply.loomischaffee.org】
+L55:     * 【41†Tours & Interviews】
+L56: 
+L57:       * 【42†Meet the Head Tour Guides】
+L58: 
+L59:     * 【43†Events】
+L60:     * 【44†Application Process】
+L61:       * 【45†Testing Policy】
+L62:       * 【46†Post-Graduate Applicants】
+L63:       * 【47†International Applicants】
+L64: 
+L65:     * 【48†LC Scholars Program】
+L66:     * 【49†Tuition & Financial Aid】
+L67: 
+L68:       * 【50†Financial Aid Application Process】
+L69:       * 【51†Financial Aid Distribution】
+L70:       * 【52†Financial Aid FAQs】
+L71:       * 【53†Kravis Scholars Program】
+L72: 
+L73:     * 【54†Meet the Admission Team】
+L74:     * 【55†Admission Portal(opens in new window/tab)†apply.loomischaffee.org】
+L75: 
+L76:   * 【56†Academics】
+L77: 
+L78:     * 【57†Academic Departments】
+L79:       * 【58†Computer Science, Design Thinking & Entrepreneurship】
+L80:       * 【59†English】
+L81:       * 【60†History, Philosophy & Religious Studies】
+L82:       * 【61†Mathematics】
+L83:       * 【62†Modern & Classical Languages】
+L84:       * 【63†Performing Arts】
+L85:       * 【64†Science】
+L86:       * 【65†Social Science】
+L87:       * 【66†Visual Arts】
+L88: 
+L89:     * 【67†Our Faculty】
+L90:     * 【68†Writing Initiatives】
+L91:     * 【69†AI Initiatives】
+L92:     * 【70†Katharine Brush Library】
+L93:     * 【71†Learning Support】
+L94:     * 【72†College Guidance】
+L95:       * 【73†Webinars & Videos】
+L96: 
+L97:     * 【74†Alvord Center for Global & Environmental Studies】
+L98: 
+L99:       * 【75†Certificate Program】
+L100:       * 【76†Student Travel】
+L101:       * 【77†Environmental Sustainability】
+L102: 
+L103:     * 【78†Norton Family Center for the Common Good】
+L104: 
+L105:       * 【79†Norton Fellows】
+L106: 
+L107:         * 【80†Norton Fellows Application】
+L108: 
+L109:       * 【81†Community Outreach】
+L110: 
+L111:     * 【82†Kravis Center for Excellence in Teaching】
+L112: 
+L113:       * 【56†Academic Programs】
+L114:       * 【21†Employment】
+L115:       * 【67†Our Faculty】
+L116:     * 【83†Pearse Hub for Innovation】
+L117: 
+L118:       * 【84†Innovation Trimester】
+L119:       * 【85†Financial Literacy】
+L120: 
+L121:   * 【86†Athletics】
+L122: 
+L123:     * 【87†Teams】
+L124: 
+L125:       * 【88†Fall Sports】
+L126: 
+L127:         * 【89†Cross Country】
+L128:         * 【90†Equestrian】
+L129:         * 【91†Field Hockey】
+L130:         * 【92†Football】
+L131:         * 【93†Soccer】
+L132:         * 【94†Volleyball】
+L133:         * 【95†Water Polo】
+L134: 
+L135:       * 【96†Winter Sports】
+L136:         * 【97†Basketball】
+L137:         * 【90†Equestrian】
+L138:         * 【98†Ice Hockey】
+L139:         * 【99†Skiing】
+L140:         * 【100†Squash】
+L141:         * 【101†Swimming/Diving】
+L142: 
+L143:       * 【102†Spring Sports】
+L144: 
+L145:         * 【103†Baseball】
+L146:         * 【104†Golf】
+L147:         * 【105†Lacrosse】
+L148:         * 【106†Softball】
+L149:         * 【107†Tennis】
+L150:         * 【108†Track & Field】
+L151:         * 【109†Water Polo】
+L152: 
+L153:     * 【110†Teams】
+L154: 
+L155:       * 【88†Fall Sports】
+L156:         * 【89†Cross Country】
+L157:         * 【90†Equestrian】
+L158:         * 【91†Field Hockey】
+L159:         * 【92†Football】
+L160:         * 【93†Soccer】
+L161:         * 【94†Volleyball】
+L162:         * 【95†Water Polo】
+L163: 
+L164:       * 【96†Winter Sports】
+L165: 
+L166:         * 【97†Basketball】
+L167:         * 【111†Equestrian】
+L168:         * 【98†Ice Hockey】
+L169:         * 【99†Skiing】
+L170:         * 【100†Squash】
+L171:         * 【101†Swimming/Diving】
+L172: 
+L173:       * 【102†Spring Sports】
+L174:         * 【103†Baseball】
+L175:         * 【104†Golf】
+L176:         * 【105†Lacrosse】
+L177:         * 【106†Softball】
+L178:         * 【107†Tennis】
+L179:         * 【108†Track & Field】
+L180:         * 【109†Water Polo】
+L181: 
+L182:     * 【112†Schedule & Scores】
+L183:     * 【113†Livestream】
+L184:     * 【114†Athletics News】
+L185:     * 【115†Athletics Facilities】
+L186:     * 【116†Sports Performance】
+L187:     * 【117†Coaches】
+L188:     * 【118†Athletics Leadership】
+L189: 
+L190:   * 【119†Student Life】
+L191: 
+L192:     * 【120†Living on Campus】
+L193:     * 【121†Day in the Life】
+L194:       * 【122†Day Student Experience】
+L195:       * 【123†International Student Experience】
+L196:       * 【124†Post-Graduate Student Experience】
+L197:       * 【125†LC Bucket List】
+L198: 
+L199:     * 【126†Student Activities】
+L200: 
+L201:       * 【127†Weekend Events】
+L202: 
+L203:     * 【128†Dining】
+L204:     * 【129†Health, Wellness & Safety】
+L205: 
+L206:       * 【130†Health Center】
+L207: 
+L208:         * 【131†Concussion Information】
+L209: 
+L210:       * 【132†Counseling】
+L211: 
+L212:         * 【133†Helpful Resources】
+L213: 
+L214:       * 【116†Sports Performance】
+L215:       * 【134†Campus Safety】
+L216: 
+L217:   * 【135†Info For】
+L218:     * 【136†Parents & Families】
+L219:     * 【137†Students】
+L220:     * 【138†Faculty & Staff】
+L221:     * 【139†Trustees】
+L222: 
+L223:   * 【140†Alumni】
+L224: 
+L225:     * 【141†Events】
+L226: 
+L227:       * 【142†Reunion 2027】
+L228: 
+L229:     * 【143†Chaffee 100】
+L230:     * 【144†Loomis Chaffee Magazine】
+L231:     * 【145†Stay Connected】
+L232: 
+L233:       * 【146†Join LinkedIn Group(opens in new window/tab)†www.linkedin.com】
+L234:       * 【147†Alumni News】
+L235:       * 【148†Class Notes】
+L236:       * 【149†Connect on Social】
+L237: 
+L238:     * 【150†Alumni Resources】
+L239:       * 【151†Transcript Request】
+L240:       * 【152†Update Contact Info】
+L241:       * 【153†Submit a Class Note】
+L242: 
+L243:     * 【154†Make a Gift(opens in new window/tab)】
+L244:     * 【155†Contact Us】
+L245: 
+L246:   * 【156†Summer Programs】
+L247: 
+L248:     * 【156†Summer at Loomis】
+L249:     * 【157†Enrichment Program】
+L250: 
+L251:       * 【158†Enrichment Courses】
+L252:       * 【159†Frequently Asked Questions】
+L253:       * 【160†Inquire(opens in new window/tab)†apply.loomischaffee.org】
+L254:       * 【161†Apply】
+L255: 
+L256:     * 【162†Sports Camps】
+L257:     * 【163†Contact Us】
+L258:     * 【164†Ballet Academy】
+L259:   * 【165†Giving】
+L260: 
+L261:     * 【166†Make a Gift(opens in new window/tab)†give.loomischaffee.org】
+L262:     * 【167†Ways to Give】
+L263: 
+L264:       * 【168†Matching Gifts】
+L265: 
+L266:     * 【169†Annual Fund】
+L267: 
+L268:       * 【170†Volunteering】
+L269:       * 【171†Leadership Giving Society】
+L270:       * 【172†Frequently Asked Questions】
+L271: 
+L272:     * 【173†Planned Giving(opens in new window/tab)†loomischaffee.giftplans.org】
+L273:     * 【174†Capital & Endowment Giving】
+L274: 
+L275:       * 【175†Women’s Leadership Circle】
+L276: 
+L277:     * 【176†Annual Report】
+L278:     * 【155†Meet the Office】
+L279:   * 【177†Inquire(opens in new window/tab)】
+L280: 
+L281: [Button: Close]
+L282: 
+L283: No post to display.
+L284: 
+L285:   * 【135†Info For】
+L286: 
+L287:     * 【136†Parents & Families】
+L288:     * 【137†Students】
+L289:     * 【138†Faculty & Staff】
+L290:     * 【139†Trustees】
+L291: 
+L292:   * 【140†Alumni】
+L293: 
+L294:     * 【141†Events】
+L295:     * 【143†Chaffee 100】
+L296:     * 【144†Loomis Chaffee Magazine】
+L297:     * 【145†Stay Connected】
+L298:     * 【150†Alumni Resources】
+L299:     * 【154†Make a Gift(opens in new window/tab)】
+L300:     * 【155†Contact Us】
+L301: 
+L302:   * 【156†Summer Programs】
+L303:     * 【156†Summer at Loomis】
+L304:     * 【157†Enrichment Program】
+L305:     * 【162†Sports Camps】
+L306:     * 【163†Contact Us】
+L307:     * 【164†Ballet Academy】
+L308: 
+L309:   * 【165†Giving】
+L310: 
+L311:     * 【166†Make a Gift(opens in new window/tab)†give.loomischaffee.org】
+L312:     * 【167†Ways to Give】
+L313:     * 【169†Annual Fund】
+L314:     * 【173†Planned Giving(opens in new window/tab)†loomischaffee.giftplans.org】
+L315:     * 【174†Capital & Endowment Giving】
+L316:     * 【176†Annual Report】
+L317:     * 【155†Meet the Office】
+L318: 
+L319:   * 【177†Inquire(opens in new window/tab)】
+L320: 
+L321: Menu
+L322:   * 【3†About】
+L323: ### Welcome to Loomis
+L324: 
+L325: 【178†Explore Our School】
+L326: 
+L327:     * 【4†Mission & History】
+L328:     * 【6†Key Facts】
+L329:     * 【7†Our Centers】
+L330:     * 【8†Inclusive Excellence & Belonging】
+L331:     * 【14†Student Journeys】
+L332:     * 【15†News & Stories】
+L333:     * 【16†Strategic Plan(opens in new window/tab)†strategicplan.loomischaffee.org】
+L334:     * 【17†School Leadership】
+L335:     * 【18†Visiting Loomis】
+L336:     * 【21†Employment】
+L337:     * 【28†Directory】
+L338: 
+L339:   * 【30†Arts】
+L340: ### Get Creative
+L341: 
+L342: 【179†Take a Journey of Expression】
+L343: 
+L344:     * 【31†Music】
+L345:     * 【32†Theater】
+L346:     * 【33†Dance】
+L347:     * 【34†Visual Arts】
+L348:     * 【35†Mercy Gallery】
+L349:     * 【36†Arts Facilities】
+L350:     * 【37†Arts Events】
+L351:     * 【38†Arts Livestream】
+L352: 
+L353:   * 【39†Admission】
+L354: ### Become a Pelican
+L355: 
+L356: 【180†Start Your Journey】
+L357: 
+L358:     * 【40†Inquire(opens in new window/tab)†apply.loomischaffee.org】
+L359:     * 【41†Tours & Interviews】
+L360:     * 【43†Events】
+L361:     * 【44†Application Process】
+L362:     * 【48†LC Scholars Program】
+L363:     * 【49†Tuition & Financial Aid】
+L364:     * 【54†Meet the Admission Team】
+L365:     * 【55†Admission Portal(opens in new window/tab)†apply.loomischaffee.org】
+L366: 
+L367:   * 【56†Academics】
+L368: ### Learning at Loomis
+L369: 
+L370: 【181†Explore Our Curriculum】
+L371: 
+L372:     * 【57†Academic Departments】
+L373:     * 【67†Our Faculty】
+L374:     * 【68†Writing Initiatives】
+L375:     * 【69†AI Initiatives】
+L376:     * 【70†Katharine Brush Library】
+L377:     * 【71†Learning Support】
+L378:     * 【72†College Guidance】
+L379:     * 【74†Alvord Center for Global & Environmental Studies】
+L380:     * 【78†Norton Family Center for the Common Good】
+L381:     * 【82†Kravis Center for Excellence in Teaching】
+L382:     * 【83†Pearse Hub for Innovation】
+L383: 
+L384:   * 【86†Athletics】
+L385: ### A Winning Tradition
+L386: 
+L387: 【182†Play as a Pelican】
+L388: 
+L389:     * 【87†Teams】
+L390:     * 【110†Teams】
+L391:     * 【112†Schedule & Scores】
+L392:     * 【113†Livestream】
+L393:     * 【114†Athletics News】
+L394:     * 【115†Athletics Facilities】
+L395:     * 【116†Sports Performance】
+L396:     * 【117†Coaches】
+L397:     * 【118†Athletics Leadership】
+L398: 
+L399:   * 【119†Student Life】
+L400: ### Lifelong Friendships
+L401: 
+L402: 【183†Find your Community】
+L403: 
+L404:     * 【120†Living on Campus】
+L405:     * 【121†Day in the Life】
+L406:     * 【126†Student Activities】
+L407:     * 【128†Dining】
+L408:     * 【129†Health, Wellness & Safety】
+L409: 
+L410: [Button: Search ]
+L411: ## Explore this Section
+L412: 
+L413:   * 【40†Inquire(opens in new window/tab)†apply.loomischaffee.org】
+L414:   * 【41†Tours & Interviews】
+L415: 
+L416:     * 【42†Meet the Head Tour Guides】
+L417: 
+L418:   * 【43†Events】
+L419:   * 【44†Application Process】
+L420: 
+L421:     * 【45†Testing Policy】
+L422:     * 【46†Post-Graduate Applicants】
+L423:     * 【47†International Applicants】
+L424: 
+L425:   * 【48†LC Scholars Program】
+L426:   * 【49†Tuition & Financial Aid】
+L427:     * 【50†Financial Aid Application Process】
+L428:     * 【51†Financial Aid Distribution】
+L429:     * 【52†Financial Aid FAQs】
+L430:     * 【53†Kravis Scholars Program】
+L431: 
+L432:   * 【54†Meet the Admission Team】
+L433:   * 【55†Admission Portal(opens in new window/tab)†apply.loomischaffee.org】
+L434: ## Explore this Section
+L435: 
+L436:   * 【40†Inquire(opens in new window/tab)†apply.loomischaffee.org】
+L437:   * 【41†Tours & Interviews】
+L438:   * 【43†Events】
+L439:   * 【44†Application Process】
+L440:   * 【48†LC Scholars Program】
+L441:   * 【49†Tuition & Financial Aid】
+L442:   * 【54†Meet the Admission Team】
+L443:   * 【55†Admission Portal(opens in new window/tab)†apply.loomischaffee.org】
+L444: 
+L445:   * 【184†Home】
+L446:   * 【39†Admission】
+L447:   * Tuition & Financial Aid
+L448: 
+L449: [Button: Close Search Panel ]
+L450: 
+L451: Search
+L452: 
+L453: [Input: What are you looking for today?] Clear
+L454: 
+L455: [Button: Search]
+L456: ## Popular Searches
+L457: 
+L458:   * 【113†Athletics Livestream】
+L459:   * 【185†Calendar】
+L460:   * 【186†Campus Map(opens in new window/tab)】
+L461:   * 【187†Daily Bulletin】
+L462:   * 【28†Directory】
+L463: 
+L464: # Tuition & Financial Aid
+L465: ## Affording Loomis Chaffee
+L466: 
+L467: At Loomis Chaffee we are committed to enrolling the most outstanding applicants and creating the best possible educational opportunities for them, regardless of their ability to pay.
+L468: 
+L469: Operating as a tuition-free school until the 1960s, Loomis has remained accessible for students from a wide range of socioeconomic backgrounds due to our unwavering commitment to financial aid.
+L470: For the 2026–27 year, Loomis awarded $14.2 million in financial aid to 33 percent of our student body. Financial aid is intended to make the cost of attending Loomis affordable. To that end, aid grants range from $1,000 up to the full cost of tuition, with the average grant covering 80 percent of tuition.
+L471: 
+L472: The school also hosts a financial aid lending library for textbooks and other supplies, which helps to reduce the cost of book purchases for all students on financial aid.
+L473: ## Tuition and Fees for 2026–27
+L474: 
+L475:    | Boarding  | Day
+L476: --- | --- | ---
+L477: Tuition  | $77,340  | $59,460
+L478: Technology Fee  | $1,005  | $1,005
+L479: Health Center Fee  | $665  | $320
+L480: International Student Fee  | $1,140  |
+L481: Tuition Refund Insurance (optional) — 1.7% of net tuition (Strongly recommended for new students)  | $1,314.78  | $1,010.82
+L482: 
+L483:   * 【188†Explanation of Fees】
+L484:   * 【189†Additional Expenses】
+L485:   * 【190†Payment Plans & Schedule】
+L486: 
+L487: ## 【188†Explanation of Fees】
+L488: ### Technology Fee
+L489: The Technology Fee is a usage fee that covers the cost of data access, ongoing improvements to the school information system, and the cost of all networks used by students.
+L490: Services include but are not limited to faster bandwidth; wireless connectivity around campus; computing facilities in the library and other locations; Internet and email access; web portals for students and parents that provide access to grades and comments, school calendars, directories, and news; an emergency notification system; and software including Microsoft 365 Office account and Adobe Creative Cloud.
+L491: In addition, the Information Technology Department can assist with warrantied repairs on MAC and PC computers.
+L492: ### Health Center Fee
+L493: 
+L494: The Health Center Fee covers services provided by the Health Center to students, such as those services rendered by the nurses on duty, a nurse practitioner, a medication nurse as needed, and other staff both day and night. The fee also covers basic health assessments and remedies administered by the center including first aid and emergency care. The fee does not include diagnostic testing such as flu, strep, mono, COVID, etc.
+L495: This fee does not cover insurance. All boarding students must provide proof of health insurance coverage or elect to enroll in the Student Accident and Sickness Insurance Program. More information about this program is available on the  【191†Health Center page】.
+L496: ### International Fee
+L497: 
+L498: The International Fee helps cover the range of services unique to students who live abroad. These costs include (but are not limited to) the advising, administrative, and programming work of the Office of International Student Support as well as the safekeeping of documents such as passports and I-20s. All students who require a Form I-20 from the school as well as any student who elects to receive services from the Office of International Student Support will be charged this fee.
+L499: ## 【189†Additional Expenses】
+L500: 
+L501: Books, field trips, and various athletics supplies are additional. Annual cost of books, art supplies, and other academic materials usually range from $1,200 to $1,600 depending on the courses taken by the student. Other optional costs include laundry service, music lessons, and academic tutoring.
+L502: 
+L503: Students will need to bring a computer to school; the school will provide the Microsoft 365 Office software package for all students who need it.
+L504: ## 【190†Payment Plans & Schedule】
+L505: 
+L506: At Loomis Chaffee, we recognize that you are making a significant financial commitment to your child’s education and that this may be a challenge for families. To help you manage those costs, we offer several payment options.
+L507: 
+L508: 【192†Payment Plans & Schedule】
+L509: The Loomis Chaffee School does not discriminate on the basis of race, color, religion, sex, gender, sexual orientation, national origin, ancestry, age, marital status, disability, or any other characteristic protected by law. This policy applies to, but is not limited to, educational policies, admission, financial aid, hiring and employment practices, use of school facilities, athletics, and other school-administered programs.
+L510:   * 【50†Financial Aid Application Process】
+L511:   * 【51†Financial Aid Distribution】
+L512:   * 【52†Financial Aid FAQs】
+L513:   * 【53†Kravis Scholars Program】
+L514: 
+L515: Chartered in 1874, Loomis Chaffee is an independent college preparatory boarding and day school for grades 9–12 and postgraduates.
+L516: 
+L517: * * *
+L518: 
+L519: 4 Batchelder Road, Windsor, CT  06095
+L520: 
+L521: 860.687.6000
+L522: 
+L523: 【193†Directions†www.google.com】
+L524:   * 【194†Facebook(opens in new window/tab)†www.facebook.com】
+L525:   * 【195†Instagram(opens in new window/tab)†www.instagram.com】
+L526:   * 【196†LinkedIn(opens in new window/tab)†www.linkedin.com】
+L527:   * 【197†Youtube(opens in new window/tab)†www.youtube.com】
+L528: ## Explore
+L529: 
+L530:   * 【74†Alvord Center for Global & Environmental Studies】
+L531:   * 【78†Norton Family Center for the Common Good】
+L532:   * 【82†Kravis Center for Excellence in Teaching】
+L533:   * 【83†Pearse Hub for Innovation】
+L534:   * 【8†Inclusive Excellence & Belonging】
+L535:   * 【156†Summer Programs】
+L536: ## Resources
+L537: 
+L538:   * 【135†Login】
+L539:   * 【185†Calendar】
+L540:   * 【19†Campus Map】
+L541:   * 【28†Directory】
+L542:   * 【21†Employment】
+L543:   * 【198†Bookstore】
+L544:   * 【187†Daily Bulletin】
+L545:   * 【134†Campus Safety】
+L546: 
+L547:   * 【199†Site Map】
+L548:   * 【200†Privacy Policy】
+L549:   * 【201†Freedom of Expression Policy】
+L550:   * 【29†Contact Us】
+L551: The Loomis Chaffee School does not discriminate on the basis of race, color, religion, sex, gender, sexual orientation, national origin, ancestry, age, marital status, disability, or any other characteristic protected by law. This policy applies to, but is not limited to, educational policies, admission, financial aid, hiring and employment practices, use of school facilities, athletics, and other school-administered programs.
+L552: 
+L553: Ⓒ 2026 The Loomis Chaffee School
+

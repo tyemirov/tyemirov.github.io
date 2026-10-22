@@ -1,0 +1,1380 @@
+[
+  {
+    "national_rank": 92,
+    "community_geoid": "0668000",
+    "community": "San Jose city",
+    "county_names": [
+      "Santa Clara County"
+    ],
+    "metro_code": "41940",
+    "metro_name": "San Jose-Sunnyvale-Santa Clara, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 98,
+    "community_geoid": "0626000",
+    "community": "Fremont city",
+    "county_names": [
+      "Alameda County"
+    ],
+    "metro_code": "41860",
+    "metro_name": "San Francisco-Oakland-Fremont, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 103,
+    "community_geoid": "5586700",
+    "community": "Whitefish Bay village",
+    "county_names": [
+      "Milwaukee County"
+    ],
+    "metro_code": "33340",
+    "metro_name": "Milwaukee-Waukesha, WI",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 121,
+    "community_geoid": "4877620",
+    "community": "Westlake town",
+    "county_names": [
+      "Denton County",
+      "Tarrant County"
+    ],
+    "metro_code": "19100",
+    "metro_name": "Dallas-Fort Worth-Arlington, TX",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 123,
+    "community_geoid": "2718188",
+    "community": "Edina city",
+    "county_names": [
+      "Hennepin County"
+    ],
+    "metro_code": "33460",
+    "metro_name": "Minneapolis-St. Paul-Bloomington, MN-WI",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 134,
+    "community_geoid": "0617610",
+    "community": "Cupertino city",
+    "county_names": [
+      "Santa Clara County"
+    ],
+    "metro_code": "41940",
+    "metro_name": "San Jose-Sunnyvale-Santa Clara, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 135,
+    "community_geoid": "2462850",
+    "community": "Poolesville town",
+    "county_names": [
+      "Montgomery County"
+    ],
+    "metro_code": "47900",
+    "metro_name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 138,
+    "community_geoid": "2505105",
+    "community": "Belmont CDP",
+    "county_names": [
+      "Middlesex County"
+    ],
+    "metro_code": "14460",
+    "metro_name": "Boston-Cambridge-Newton, MA-NH",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 141,
+    "community_geoid": "5148376",
+    "community": "McLean CDP",
+    "county_names": [
+      "Fairfax County"
+    ],
+    "metro_code": "47900",
+    "metro_name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 159,
+    "community_geoid": "4400105140",
+    "community": "Barrington town",
+    "county_names": [],
+    "metro_code": "39300",
+    "metro_name": "Providence-Warwick, RI-MA",
+    "status": "mapped",
+    "mapping_reason": "Exact subdivision GEOID verified in 2025 Gazetteer; parent county GEOID joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 161,
+    "community_geoid": "2502728950",
+    "community": "Harvard town",
+    "county_names": [],
+    "metro_code": "49340",
+    "metro_name": "Worcester, MA",
+    "status": "mapped",
+    "mapping_reason": "Exact subdivision GEOID verified in 2025 Gazetteer; parent county GEOID joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 164,
+    "community_geoid": "0668224",
+    "community": "San Marino city",
+    "county_names": [
+      "Los Angeles County"
+    ],
+    "metro_code": "31080",
+    "metro_name": "Los Angeles-Long Beach-Anaheim, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 165,
+    "community_geoid": "3946312",
+    "community": "Madeira city",
+    "county_names": [
+      "Hamilton County"
+    ],
+    "metro_code": "17140",
+    "metro_name": "Cincinnati, OH-KY-IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 167,
+    "community_geoid": "2535250",
+    "community": "Lexington CDP",
+    "county_names": [
+      "Middlesex County"
+    ],
+    "metro_code": "14460",
+    "metro_name": "Boston-Cambridge-Newton, MA-NH",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 170,
+    "community_geoid": "1882862",
+    "community": "West Lafayette city",
+    "county_names": [
+      "Tippecanoe County"
+    ],
+    "metro_code": "29200",
+    "metro_name": "Lafayette-West Lafayette, IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 171,
+    "community_geoid": "5127200",
+    "community": "Falls Church city",
+    "county_names": [
+      "Falls Church city"
+    ],
+    "metro_code": "47900",
+    "metro_name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 172,
+    "community_geoid": "2463300",
+    "community": "Potomac CDP",
+    "county_names": [
+      "Montgomery County"
+    ],
+    "metro_code": "47900",
+    "metro_name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 174,
+    "community_geoid": "0617610",
+    "community": "Cupertino city",
+    "county_names": [
+      "Santa Clara County"
+    ],
+    "metro_code": "41940",
+    "metro_name": "San Jose-Sunnyvale-Santa Clara, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 178,
+    "community_geoid": "0656938",
+    "community": "Piedmont city",
+    "county_names": [
+      "Alameda County"
+    ],
+    "metro_code": "41860",
+    "metro_name": "San Francisco-Oakland-Fremont, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 180,
+    "community_geoid": "0655282",
+    "community": "Palo Alto city",
+    "county_names": [
+      "Santa Clara County"
+    ],
+    "metro_code": "41940",
+    "metro_name": "San Jose-Sunnyvale-Santa Clara, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 182,
+    "community_geoid": "0639003",
+    "community": "La Cañada Flintridge city",
+    "county_names": [
+      "Los Angeles County"
+    ],
+    "metro_code": "31080",
+    "metro_name": "Los Angeles-Long Beach-Anaheim, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 186,
+    "community_geoid": "2128558",
+    "community": "Fort Mitchell city",
+    "county_names": [
+      "Kenton County"
+    ],
+    "metro_code": "17140",
+    "metro_name": "Cincinnati, OH-KY-IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 188,
+    "community_geoid": "2407125",
+    "community": "Bethesda CDP",
+    "county_names": [
+      "Montgomery County"
+    ],
+    "metro_code": "47900",
+    "metro_name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 190,
+    "community_geoid": "0668378",
+    "community": "San Ramon city",
+    "county_names": [
+      "Contra Costa County"
+    ],
+    "metro_code": "41860",
+    "metro_name": "San Francisco-Oakland-Fremont, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 194,
+    "community_geoid": "0933690",
+    "community": "Greenwich CDP",
+    "county_names": [
+      "Western Connecticut Planning Region"
+    ],
+    "metro_code": "14860",
+    "metro_name": "Bridgeport-Stamford-Danbury, CT",
+    "status": "mapped",
+    "mapping_reason": "Exact unsimplified TIGERweb CDP polygon lies within one current county-equivalent planning region, joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/30/query?where=GEOID%3D%270933690%27&outFields=GEOID%2CNAME&returnGeometry=true&outSR=4326&f=json",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 195,
+    "community_geoid": "5148376",
+    "community": "McLean CDP",
+    "county_names": [
+      "Fairfax County"
+    ],
+    "metro_code": "47900",
+    "metro_name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 197,
+    "community_geoid": "2743252",
+    "community": "Minnetonka city",
+    "county_names": [
+      "Hennepin County"
+    ],
+    "metro_code": "33460",
+    "metro_name": "Minneapolis-St. Paul-Bloomington, MN-WI",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 200,
+    "community_geoid": "3913358",
+    "community": "Chagrin Falls village",
+    "county_names": [
+      "Cuyahoga County"
+    ],
+    "metro_code": "17410",
+    "metro_name": "Cleveland, OH",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 202,
+    "community_geoid": "0628000",
+    "community": "Fullerton city",
+    "county_names": [
+      "Orange County"
+    ],
+    "metro_code": "31080",
+    "metro_name": "Los Angeles-Long Beach-Anaheim, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 205,
+    "community_geoid": "0654232",
+    "community": "Orinda city",
+    "county_names": [
+      "Contra Costa County"
+    ],
+    "metro_code": "41860",
+    "metro_name": "San Francisco-Oakland-Fremont, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 207,
+    "community_geoid": "3947600",
+    "community": "Mariemont village",
+    "county_names": [
+      "Hamilton County"
+    ],
+    "metro_code": "17140",
+    "metro_name": "Cincinnati, OH-KY-IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 208,
+    "community_geoid": "1743666",
+    "community": "Lincolnshire village",
+    "county_names": [
+      "Lake County"
+    ],
+    "metro_code": "16980",
+    "metro_name": "Chicago-Naperville-Elgin, IL-IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 211,
+    "community_geoid": "3632402",
+    "community": "Harrison village",
+    "county_names": [
+      "Westchester County"
+    ],
+    "metro_code": "35620",
+    "metro_name": "New York-Newark-Jersey City, NY-NJ",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 212,
+    "community_geoid": "0135800",
+    "community": "Homewood city",
+    "county_names": [
+      "Jefferson County"
+    ],
+    "metro_code": "13820",
+    "metro_name": "Birmingham, AL",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 215,
+    "community_geoid": "0151696",
+    "community": "Mountain Brook city",
+    "county_names": [
+      "Jefferson County"
+    ],
+    "metro_code": "13820",
+    "metro_name": "Birmingham, AL",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 216,
+    "community_geoid": "2531050",
+    "community": "Hopkinton CDP",
+    "county_names": [
+      "Middlesex County"
+    ],
+    "metro_code": "14460",
+    "metro_name": "Boston-Cambridge-Newton, MA-NH",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 220,
+    "community_geoid": "4708280",
+    "community": "Brentwood city",
+    "county_names": [
+      "Williamson County"
+    ],
+    "metro_code": "34980",
+    "metro_name": "Nashville-Davidson--Murfreesboro--Franklin, TN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 222,
+    "community_geoid": "2300515430",
+    "community": "Cumberland town",
+    "county_names": [],
+    "metro_code": "38860",
+    "metro_name": "Portland-South Portland, ME",
+    "status": "mapped",
+    "mapping_reason": "Exact subdivision GEOID verified in 2025 Gazetteer; parent county GEOID joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 223,
+    "community_geoid": "3137000",
+    "community": "Omaha city",
+    "county_names": [
+      "Douglas County"
+    ],
+    "metro_code": "36540",
+    "metro_name": "Omaha, NE-IA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 228,
+    "community_geoid": "3968056",
+    "community": "Rocky River city",
+    "county_names": [
+      "Cuyahoga County"
+    ],
+    "metro_code": "17410",
+    "metro_name": "Cleveland, OH",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 230,
+    "community_geoid": "1886372",
+    "community": "Zionsville town",
+    "county_names": [
+      "Boone County"
+    ],
+    "metro_code": "26900",
+    "metro_name": "Indianapolis-Carmel-Greenwood, IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 231,
+    "community_geoid": "1735307",
+    "community": "Hinsdale village",
+    "county_names": [
+      "Cook County",
+      "DuPage County"
+    ],
+    "metro_code": "16980",
+    "metro_name": "Chicago-Naperville-Elgin, IL-IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 235,
+    "community_geoid": "0983360",
+    "community": "Weston CDP",
+    "county_names": [
+      "Western Connecticut Planning Region"
+    ],
+    "metro_code": "14860",
+    "metro_name": "Bridgeport-Stamford-Danbury, CT",
+    "status": "mapped",
+    "mapping_reason": "Exact unsimplified TIGERweb CDP polygon lies within one current county-equivalent planning region, joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/30/query?where=GEOID%3D%270983360%27&outFields=GEOID%2CNAME&returnGeometry=true&outSR=4326&f=json",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 236,
+    "community_geoid": "5513375",
+    "community": "Cedarburg city",
+    "county_names": [
+      "Ozaukee County"
+    ],
+    "metro_code": "33340",
+    "metro_name": "Milwaukee-Waukesha, WI",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 237,
+    "community_geoid": "3972928",
+    "community": "Solon city",
+    "county_names": [
+      "Cuyahoga County"
+    ],
+    "metro_code": "17410",
+    "metro_name": "Cleveland, OH",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 238,
+    "community_geoid": "5363000",
+    "community": "Seattle city",
+    "county_names": [
+      "King County"
+    ],
+    "metro_code": "42660",
+    "metro_name": "Seattle-Tacoma-Bellevue, WA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 241,
+    "community_geoid": "5410180",
+    "community": "Bridgeport city",
+    "county_names": [
+      "Harrison County"
+    ],
+    "metro_code": "",
+    "metro_name": "",
+    "status": "unavailable",
+    "mapping_reason": "Community county has no metropolitan statistical area in July 2023 delineations (micropolitan/nonmetropolitan); metro RPP unavailable.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 243,
+    "community_geoid": "0649187",
+    "community": "Moraga town",
+    "county_names": [
+      "Contra Costa County"
+    ],
+    "metro_code": "41860",
+    "metro_name": "San Francisco-Oakland-Fremont, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 246,
+    "community_geoid": "0919018850",
+    "community": "Darien town",
+    "county_names": [],
+    "metro_code": "14860",
+    "metro_name": "Bridgeport-Stamford-Danbury, CT",
+    "status": "mapped",
+    "mapping_reason": "Exact subdivision GEOID verified in 2025 Gazetteer; parent county GEOID joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 249,
+    "community_geoid": "3957764",
+    "community": "Oakwood city",
+    "county_names": [
+      "Montgomery County"
+    ],
+    "metro_code": "19430",
+    "metro_name": "Dayton-Kettering-Beavercreek, OH",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 254,
+    "community_geoid": "4253712",
+    "community": "New Hope borough",
+    "county_names": [
+      "Bucks County"
+    ],
+    "metro_code": "37980",
+    "metro_name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 256,
+    "community_geoid": "3906278",
+    "community": "Bexley city",
+    "county_names": [
+      "Franklin County"
+    ],
+    "metro_code": "18140",
+    "metro_name": "Columbus, OH",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 259,
+    "community_geoid": "2467675",
+    "community": "Rockville city",
+    "county_names": [
+      "Montgomery County"
+    ],
+    "metro_code": "47900",
+    "metro_name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 260,
+    "community_geoid": "5345005",
+    "community": "Mercer Island city",
+    "county_names": [
+      "King County"
+    ],
+    "metro_code": "42660",
+    "metro_name": "Seattle-Tacoma-Bellevue, WA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 262,
+    "community_geoid": "2517370",
+    "community": "Dover CDP",
+    "county_names": [
+      "Norfolk County"
+    ],
+    "metro_code": "14460",
+    "metro_name": "Boston-Cambridge-Newton, MA-NH",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 263,
+    "community_geoid": "0653116",
+    "community": "Oak Park CDP",
+    "county_names": [
+      "Ventura County"
+    ],
+    "metro_code": "37100",
+    "metro_name": "Oxnard-Thousand Oaks-Ventura, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 265,
+    "community_geoid": "0670280",
+    "community": "Saratoga city",
+    "county_names": [
+      "Santa Clara County"
+    ],
+    "metro_code": "41940",
+    "metro_name": "San Jose-Sunnyvale-Santa Clara, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 270,
+    "community_geoid": "0919083500",
+    "community": "Westport town",
+    "county_names": [],
+    "metro_code": "14860",
+    "metro_name": "Bridgeport-Stamford-Danbury, CT",
+    "status": "mapped",
+    "mapping_reason": "Exact subdivision GEOID verified in 2025 Gazetteer; parent county GEOID joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 276,
+    "community_geoid": "2501700380",
+    "community": "Acton town",
+    "county_names": [],
+    "metro_code": "14460",
+    "metro_name": "Boston-Cambridge-Newton, MA-NH",
+    "status": "mapped",
+    "mapping_reason": "Exact subdivision GEOID verified in 2025 Gazetteer; parent county GEOID joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 277,
+    "community_geoid": "1741105",
+    "community": "Lake Forest city",
+    "county_names": [
+      "Lake County"
+    ],
+    "metro_code": "16980",
+    "metro_name": "Chicago-Naperville-Elgin, IL-IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 278,
+    "community_geoid": "5305210",
+    "community": "Bellevue city",
+    "county_names": [
+      "King County"
+    ],
+    "metro_code": "42660",
+    "metro_name": "Seattle-Tacoma-Bellevue, WA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 280,
+    "community_geoid": "1871828",
+    "community": "Speedway town",
+    "county_names": [
+      "Marion County"
+    ],
+    "metro_code": "26900",
+    "metro_name": "Indianapolis-Carmel-Greenwood, IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 281,
+    "community_geoid": "0662644",
+    "community": "Rolling Hills Estates city",
+    "county_names": [
+      "Los Angeles County"
+    ],
+    "metro_code": "31080",
+    "metro_name": "Los Angeles-Long Beach-Anaheim, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 283,
+    "community_geoid": "4708280",
+    "community": "Brentwood city",
+    "county_names": [
+      "Williamson County"
+    ],
+    "metro_code": "34980",
+    "metro_name": "Nashville-Davidson--Murfreesboro--Franklin, TN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 284,
+    "community_geoid": "5303736",
+    "community": "Bainbridge Island city",
+    "county_names": [
+      "Kitsap County"
+    ],
+    "metro_code": "14740",
+    "metro_name": "Bremerton-Silverdale-Port Orchard, WA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 290,
+    "community_geoid": "3426610",
+    "community": "Glen Ridge borough",
+    "county_names": [
+      "Essex County"
+    ],
+    "metro_code": "35620",
+    "metro_name": "New York-Newark-Jersey City, NY-NJ",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 291,
+    "community_geoid": "2467675",
+    "community": "Rockville city",
+    "county_names": [
+      "Montgomery County"
+    ],
+    "metro_code": "47900",
+    "metro_name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 294,
+    "community_geoid": "3401346380",
+    "community": "Millburn township",
+    "county_names": [],
+    "metro_code": "35620",
+    "metro_name": "New York-Newark-Jersey City, NY-NJ",
+    "status": "mapped",
+    "mapping_reason": "Exact subdivision GEOID verified in 2025 Gazetteer; parent county GEOID joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 295,
+    "community_geoid": "1751622",
+    "community": "Naperville city",
+    "county_names": [
+      "DuPage County",
+      "Will County"
+    ],
+    "metro_code": "16980",
+    "metro_name": "Chicago-Naperville-Elgin, IL-IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 296,
+    "community_geoid": "0605108",
+    "community": "Belmont city",
+    "county_names": [
+      "San Mateo County"
+    ],
+    "metro_code": "41860",
+    "metro_name": "San Francisco-Oakland-Fremont, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 297,
+    "community_geoid": "0950576",
+    "community": "New Canaan CDP",
+    "county_names": [
+      "Western Connecticut Planning Region"
+    ],
+    "metro_code": "14860",
+    "metro_name": "Bridgeport-Stamford-Danbury, CT",
+    "status": "mapped",
+    "mapping_reason": "Exact unsimplified TIGERweb CDP polygon lies within one current county-equivalent planning region, joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/30/query?where=GEOID%3D%270950576%27&outFields=GEOID%2CNAME&returnGeometry=true&outSR=4326&f=json",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 299,
+    "community_geoid": "2629580",
+    "community": "Forest Hills CDP",
+    "county_names": [
+      "Kent County"
+    ],
+    "metro_code": "24340",
+    "metro_name": "Grand Rapids-Wyoming-Kentwood, MI",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 300,
+    "community_geoid": "0919086370",
+    "community": "Wilton town",
+    "county_names": [],
+    "metro_code": "14860",
+    "metro_name": "Bridgeport-Stamford-Danbury, CT",
+    "status": "mapped",
+    "mapping_reason": "Exact subdivision GEOID verified in 2025 Gazetteer; parent county GEOID joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 303,
+    "community_geoid": "5305210",
+    "community": "Bellevue city",
+    "county_names": [
+      "King County"
+    ],
+    "metro_code": "42660",
+    "metro_name": "Seattle-Tacoma-Bellevue, WA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 308,
+    "community_geoid": "2914572",
+    "community": "Clayton city",
+    "county_names": [
+      "St. Louis County"
+    ],
+    "metro_code": "41180",
+    "metro_name": "St. Louis, MO-IL",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 309,
+    "community_geoid": "0673220",
+    "community": "South Pasadena city",
+    "county_names": [
+      "Los Angeles County"
+    ],
+    "metro_code": "31080",
+    "metro_name": "Los Angeles-Long Beach-Anaheim, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 310,
+    "community_geoid": "3936651",
+    "community": "Hudson city",
+    "county_names": [
+      "Summit County"
+    ],
+    "metro_code": "10420",
+    "metro_name": "Akron, OH",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 311,
+    "community_geoid": "5146760",
+    "community": "Long Branch CDP",
+    "county_names": [
+      "Fairfax County"
+    ],
+    "metro_code": "47900",
+    "metro_name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 314,
+    "community_geoid": "2501777255",
+    "community": "Weston town",
+    "county_names": [],
+    "metro_code": "14460",
+    "metro_name": "Boston-Cambridge-Newton, MA-NH",
+    "status": "mapped",
+    "mapping_reason": "Exact subdivision GEOID verified in 2025 Gazetteer; parent county GEOID joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 316,
+    "community_geoid": "1810342",
+    "community": "Carmel city",
+    "county_names": [
+      "Hamilton County"
+    ],
+    "metro_code": "26900",
+    "metro_name": "Indianapolis-Carmel-Greenwood, IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 317,
+    "community_geoid": "3710740",
+    "community": "Cary town",
+    "county_names": [
+      "Chatham County",
+      "Wake County"
+    ],
+    "metro_code": "",
+    "metro_name": "",
+    "status": "unavailable",
+    "mapping_reason": "Community spans counties assigned to different metropolitan areas; no single metro RPP assigned.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 318,
+    "community_geoid": "1342425",
+    "community": "Johns Creek city",
+    "county_names": [
+      "Fulton County"
+    ],
+    "metro_code": "12060",
+    "metro_name": "Atlanta-Sandy Springs-Roswell, GA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 320,
+    "community_geoid": "2613975840",
+    "community": "Spring Lake township",
+    "county_names": [],
+    "metro_code": "24340",
+    "metro_name": "Grand Rapids-Wyoming-Kentwood, MI",
+    "status": "mapped",
+    "mapping_reason": "Exact subdivision GEOID verified in 2025 Gazetteer; parent county GEOID joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 321,
+    "community_geoid": "2053775",
+    "community": "Overland Park city",
+    "county_names": [
+      "Johnson County"
+    ],
+    "metro_code": "28140",
+    "metro_name": "Kansas City, MO-KS",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 324,
+    "community_geoid": "1782530",
+    "community": "Winnetka village",
+    "county_names": [
+      "Cook County"
+    ],
+    "metro_code": "16980",
+    "metro_name": "Chicago-Naperville-Elgin, IL-IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 325,
+    "community_geoid": "0412000",
+    "community": "Chandler city",
+    "county_names": [
+      "Maricopa County"
+    ],
+    "metro_code": "38060",
+    "metro_name": "Phoenix-Mesa-Chandler, AZ",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 327,
+    "community_geoid": "0666000",
+    "community": "San Diego city",
+    "county_names": [
+      "San Diego County"
+    ],
+    "metro_code": "41740",
+    "metro_name": "San Diego-Chula Vista-Carlsbad, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 328,
+    "community_geoid": "2053775",
+    "community": "Overland Park city",
+    "county_names": [
+      "Johnson County"
+    ],
+    "metro_code": "28140",
+    "metro_name": "Kansas City, MO-KS",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 329,
+    "community_geoid": "0626000",
+    "community": "Fremont city",
+    "county_names": [
+      "Alameda County"
+    ],
+    "metro_code": "41860",
+    "metro_name": "San Francisco-Oakland-Fremont, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 330,
+    "community_geoid": "4874492",
+    "community": "University Park city",
+    "county_names": [
+      "Dallas County"
+    ],
+    "metro_code": "19100",
+    "metro_name": "Dallas-Fort Worth-Arlington, TX",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 331,
+    "community_geoid": "2751730",
+    "community": "Plymouth city",
+    "county_names": [
+      "Hennepin County"
+    ],
+    "metro_code": "33460",
+    "metro_name": "Minneapolis-St. Paul-Bloomington, MN-WI",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 336,
+    "community_geoid": "0626000",
+    "community": "Fremont city",
+    "county_names": [
+      "Alameda County"
+    ],
+    "metro_code": "41860",
+    "metro_name": "San Francisco-Oakland-Fremont, CA",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 339,
+    "community_geoid": "4209144976",
+    "community": "Lower Merion township",
+    "county_names": [],
+    "metro_code": "37980",
+    "metro_name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+    "status": "mapped",
+    "mapping_reason": "Exact subdivision GEOID verified in 2025 Gazetteer; parent county GEOID joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 341,
+    "community_geoid": "4204563264",
+    "community": "Radnor township",
+    "county_names": [],
+    "metro_code": "37980",
+    "metro_name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+    "status": "mapped",
+    "mapping_reason": "Exact subdivision GEOID verified in 2025 Gazetteer; parent county GEOID joined to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_cousubs_national.zip",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 343,
+    "community_geoid": "1777694",
+    "community": "Vernon Hills village",
+    "county_names": [
+      "Lake County"
+    ],
+    "metro_code": "16980",
+    "metro_name": "Chicago-Naperville-Elgin, IL-IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 345,
+    "community_geoid": "5158472",
+    "community": "Oakton CDP",
+    "county_names": [
+      "Fairfax County"
+    ],
+    "metro_code": "47900",
+    "metro_name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 346,
+    "community_geoid": "3417530",
+    "community": "Demarest borough",
+    "county_names": [
+      "Bergen County"
+    ],
+    "metro_code": "35620",
+    "metro_name": "New York-Newark-Jersey City, NY-NJ",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 349,
+    "community_geoid": "13117",
+    "community": "Forsyth County",
+    "county_names": [],
+    "metro_code": "12060",
+    "metro_name": "Atlanta-Sandy Springs-Roswell, GA",
+    "status": "mapped",
+    "mapping_reason": "County GEOID joined directly to July 2023 CBSA delineation.",
+    "community_mapping_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 351,
+    "community_geoid": "3976582",
+    "community": "The Village of Indian Hill city",
+    "county_names": [
+      "Hamilton County"
+    ],
+    "metro_code": "17140",
+    "metro_name": "Cincinnati, OH-KY-IN",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  },
+  {
+    "national_rank": 353,
+    "community_geoid": "5551150",
+    "community": "Mequon city",
+    "county_names": [
+      "Ozaukee County"
+    ],
+    "metro_code": "33340",
+    "metro_name": "Milwaukee-Waukesha, WI",
+    "status": "mapped",
+    "mapping_reason": "Exact place GEOID joined to every county listed in 2020 Census place codes; all counties map to the same July 2023 metro.",
+    "community_mapping_source_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt",
+    "county_metro_source_url": "https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2023/delineation-files/list1_2023.xlsx"
+  }
+]

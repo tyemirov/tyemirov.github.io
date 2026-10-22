@@ -15,7 +15,15 @@ test("the Pages container exports public content without Gateway metadata", { ti
     const validation = spawnSync(process.execPath, ["scripts/music/validate-artifact.mjs", directory], { encoding: "utf8", timeout: 10000 });
     assert.equal(validation.status, 0, validation.stderr);
     const files = await readdir(directory);
-    for (const reserved of ["CNAME", ".nojekyll", ".mprlab-release.json", ".git", "node_modules", "services"]) assert.equal(files.includes(reserved), false, reserved);
+    for (const reserved of ["CNAME", ".nojekyll", ".mprlab-release.json", ".git", "node_modules", "services", "research", ".openai"]) assert.equal(files.includes(reserved), false, reserved);
+    for (const atlasPage of ["index.html", "admissions-audit.html", "private-coverage.html"]) {
+      const html = await readFile(join(directory, "school-atlas", atlasPage), "utf8");
+      assert.match(html, /<mpr-header\b/);
+      assert.match(html, /<mpr-footer\b/);
+    }
+    for (const atlasAsset of ["app.js", "styles.css", "value-calculation.js", "school-data.js", "private-school-data.js", "vendor/d3.min.js", "schools.csv"]) {
+      assert.ok((await readFile(join(directory, "school-atlas", atlasAsset))).length > 0, atlasAsset);
+    }
     const site = JSON.parse(await readFile(join(directory, "data/site.json"), "utf8"));
     assert.equal(site.music.items.length, 8);
     assert.equal(site.music.items.flatMap((album) => album.tracks).length, 65);

@@ -1,0 +1,282 @@
+Affording Head-Royce School | Head-Royce School (https://www.headroyce.org/admissions/afford-hrs)
+【turn482836view0】 [wordlim: 200] Crawled: yesterday; Content type: text/html; Source: open({"ref_id":"https://www.headroyce.org/admissions/afford-hrs","lineno":null}); Total lines: 279
+L0: 【0†iframe†www.googletagmanager.com】[Input] [Input] [Button: Skip to content]
+L1: 
+L2:   * 【1†Visit】
+L3:   * 【2†Apply】
+L4:   * 【3†HRSConnect†accounts.veracross.com】
+L5:   * 【4†Calendar】
+L6:   * Menu
+L7:   * 【5†Home】
+L8:   * 【6†About】
+L9:     * 【6†Our Head of School】
+L10:     * 【7†Why Head‑Royce】
+L11:     * 【8†Mission, Vision, and Values】
+L12:     * 【9†Equity and Community】
+L13:     * 【10†Parking and Transportation】
+L14:     * 【11†Employment】
+L15:   * 【12†Admissions】
+L16:     * 【12†Visit】
+L17:     * 【13†Inquire】
+L18:     * 【2†Apply】
+L19:     * 【14†Afford HRS】
+L20:     * 【15†Meet Student Ambassadors】
+L21:   * 【16†Academics】
+L22:     * 【16†Academic Philosophy and Approach】
+L23:     * 【17†Lower School】
+L24:     * 【18†Middle School】
+L25:     * 【19†Upper School】
+L26:     * 【20†College Counseling】
+L27:     * 【21†Student Wellness and Support】
+L28:     * 【22†Signature Programs】
+L29:       * 【22†Center for Community Engagement】
+L30:       * 【23†Global Education】
+L31:       * 【24†The Collaboratory】
+L32:       * 【25†After-School Program】
+L33:   * 【26†School Life】
+L34:     * 【27†The Student Experience】
+L35:     * 【28†Arts (Visual and Performing)】
+L36:     * 【29†Athletics】
+L37:     * 【30†Sustainability】
+L38:     * 【31†Spirit Store】
+L39:   * 【32†Community】
+L40:     * 【32†Faculty and Staff Directory】
+L41:     * 【33†Family Engagement】
+L42:     * 【34†Alumni】
+L43:       * 【34†Stay Connected】
+L44:       * 【35†Lead the Way】
+L45:       * 【36†Inspire the Next Generation】
+L46:       * 【37†Honor Our Peers】
+L47:       * 【38†Give Back】
+L48:       * 【39†Share Your News】
+L49:     * 【40†Leadership】
+L50:       * 【40†Senior Leadership Team】
+L51:       * 【41†Board of Trustees】
+L52:     * 【42†Heads Up】
+L53:       * 【42†About】
+L54:       * 【43†Apply to Heads Up】
+L55:     * 【44†For Our Neighbors】
+L56:   * 【45†Giving】
+L57:     * 【45†Support the School】
+L58:     * 【46†Make a Lasting Gift】
+L59:     * 【47†Supporting Student Programs】
+L60:     * 【48†Give to Heads Up】
+L61:     * 【49†Learn How to Give】
+L62:   * Stories and Events
+L63:     * 【50†All Media】
+L64:     * 【51†News】
+L65:     * 【52†Facebook】
+L66:     * 【53†Instagram】
+L67:     * 【54†YouTube】
+L68:     * 【4†Calendar】
+L69: Search this site [Input: Search] [Input]
+L70: 
+L71: [Input] [Input] [Input] [Input] [Input] [Input][Input] [Input] [Input] [Input] [Input] [Input] [Input] [Input]
+L72: 
+L73: 【55†Image: Afford HRS】
+L74: # Affording Head-Royce School
+L75: 
+L76: Choosing a school is an investment in your child’s future.
+L77: Explore Head-Royce tuition, need-based financial assistance,
+L78: and resources to help you plan.
+L79: ## Access to a Head`‑`Royce Education
+L80: 
+L81: Socioeconomic diversity is an important part of the Head`‑`Royce community. Different perspectives and experiences deepen conversations, broaden understanding, and enrich learning for every student.
+L82: 
+L83: We offer need-based tuition assistance to make a Head`‑`Royce education accessible to families across a wide range of financial circumstances. More than a quarter of our students receive tuition assistance, with more than $8 million awarded each year.
+L84: We encourage every family to explore what's possible.
+L85: ### $8 million
+L86: 
+L87: #### total aid granted for the 2026-27 school year
+L88: 
+L89: ## Tuition for 2026-27
+L90: 
+L91: Lower School (K-5)  | $43,980
+L92: Middle School (6-8)  | $49,800
+L93: Upper School (9-12)  | $62,900
+L94: 
+L95: Tuition covers most school-related costs, with the exception of textbooks, supplies, global education travel, food, and after-school care. Families may pay tuition in one payment, two payments, or through a nine-month payment plan.
+L96: 
+L97: 【56†Image: Image of the outdoor courtyards of the campus】
+L98: ## Could Tuition Assistance Be Right for Your Family?
+L99: 
+L100: Families come to Head`‑`Royce with a wide range of financial circumstances. If the full cost of tuition would place a strain on your family, we encourage you to explore tuition assistance and consider applying. You do not need to determine on your own whether you will qualify before starting the process.
+L101: ## Tuition Assistance at Head`‑`Royce
+L102: 
+L103: Tuition assistance is need-based and awarded as a grant that does not need to be repaid. Awards are based on each family’s demonstrated financial need and the availability of funds. Applying for tuition assistance has no bearing on admission decisions; the two processes are entirely separate.
+L104: Head`‑`Royce uses 【57†Clarity†app.clarityapp.com】 to manage tuition assistance applications. The online application takes less than 30 minutes to complete, is available in English and Spanish, and is mobile-friendly. New families will create a Clarity account to begin the application; returning families can use their existing credentials.
+L105: 
+L106: Tuition assistance applications are due January 4, 2027 for new families.
+L107: 
+L108: 【2†See all deadlines】
+L109: #### What You'll Need to Apply
+L110: 
+L111:   * Most recent paystub (hourly or salaried employees)
+L112:   * Schedule K-1, Form 1120S, and/or Form 1065 (S-corporation shareholders or partnership partners)
+L113:   * Form 1040 with all schedules (Clarity pulls this directly from the IRS)
+L114: 
+L115: Each household must submit a separate application, including in cases of separated, divorced, or non-custodial parents, regardless of financial arrangements between households.
+L116: 
+L117: 【58†Image: Two students playing table tennis】
+L118: ## Start Your Tuition Assistance Application
+L119: 
+L120: 【59†Login/Sign-Up to Clarity†auth.clarityapp.com】
+L121: 
+L122: ### Clarity Application Guides
+L123: 
+L124: 【60†English Application Guide】
+L125: 
+L126: 【61†Spanish Application Guide】
+L127: 
+L128: ## Scholarships at Head`‑`Royce
+L129: ### The Malone Foundation Scholarship
+L130: 
+L131: Head`‑`Royce is one of only four schools in California and 50 in the nation selected by the Malone Family Foundation to receive a $2 million endowment supporting academically gifted students with financial need.
+L132: 
+L133: Selection was based on academic standards, faculty quality, commitment to individual attention, and dedication to financial aid.
+L134: > Being a Malone Foundation Scholar was pivotal to my educational career. From a young age, I was privileged to attend Head`‑`Royce and learn from passionate and brilliant teachers, participate in enriching educational opportunities, and be a part of a wonderfully supportive community.
+L135: 
+L136: — Jessica Xu '15, Malone Scholar
+L137: 
+L138: Additional Named Scholarships
+L139:   * Alex Zavell ‘09 Memorial Debate Scholarship Fund
+L140:   * Anna Head Scholarship
+L141:   * Anna Louise Faulkerstein-Jordan Scholarship
+L142:   * Betsy Schoen Scholarship for Middle Income Families
+L143:   * Charles Freiberg/ Andrea Alfano Scholarship Fund
+L144:   * Chee Family Scholarship
+L145:   * Class of 1986 Scholarship
+L146:   * Class of 2009 Scholarship
+L147:   * Class of 2010 Scholarship
+L148:   * Constance Reston LeMieux Scholarship
+L149:   * Damien Foundation Scholarship
+L150:   * Dunn Family Scholarship
+L151:   * Edward E. Ford Minority Scholarship
+L152:   * Elise Perrault Grant Scholarship
+L153:   * Erik Roberts '85 Memorial Scholarship
+L154:   * General Endowed Scholarship
+L155:   * Gilbert Family Scholarship
+L156:   * Holsey/Streeter Scholarship Fund
+L157:   * Hsieh Family Scholarship Fund
+L158:   * Jennifer Burnett Harris '48 Scholarship
+L159:   * Josefina Castillo Baltodano Scholarship
+L160:   * June and Robert Chambers Scholarship
+L161:   * Les and Ingrid Schuldt Scholarship Fund
+L162:   * "Madame" Hull French Scholarship
+L163:   * Malone Family Scholarship
+L164:   * Marilyn Mattke Hills Scholarship
+L165:   * Martinez/Sloan Family Scholarship Fund
+L166:   * Mary E. Wood Scholarship
+L167:   * Megan Kurpinsky Waters Memorial Scholarship
+L168:   * Missouri Theola Riley Scholarship
+L169:   * Morris Barber Scholarship
+L170:   * Nia Scholarship
+L171:   * Family Association Scholarship Endowment
+L172:   * Paul Chapman Distinguished Scholarship
+L173:   * Peter & Melinda Darbee Scholarship
+L174:   * Ray Louie Family Scholarship Fund
+L175:   * Roger J. & Madeleine Traynor Scholarship for Creativity
+L176:   * Schneider Family Scholarship
+L177:   * Stahl Family Scholarship Fund
+L178:   * Tjian Family Scholarship Fund
+L179:   * van Loben Sels Family Scholarship
+L180:   * Wade Chapman Scholarship
+L181:   * William Randolph Hearst Minority Scholarship
+L182:   * Wright-Williams Family Scholarship
+L183:   * Zach Clayton '92 Memorial Scholarship
+L184: ## Tutition FAQs
+L185: 
+L186: Will applying for tuition assistance affect my child's chances of admission?
+L187: 
+L188: No. Admissions and financial aid decisions are made independently of one another. Head-Royce admits students without regard to financial circumstances, though families should be aware that our assistance budget, while robust, is not unlimited.
+L189: 
+L190: How does Clarity determine our family's contribution?
+L191: Clarity considers income, assets, family size, age of parents, and the number of children in tuition-charging institutions. It then calculates a suggested family contribution based on discretionary income — the more discretionary income a family has, the higher their suggested contribution.
+L192: 
+L193: How does divorce or separation affect the process?
+L194: Head-Royce requires both parents to contribute to the cost of education to the extent of their ability. A completed application is required from each household. All information is kept strictly confidential.
+L195: 
+L196: If we receive assistance this year, will we receive it next year?
+L197: 
+L198: Families must reapply each year. Once assistance has been awarded, it is reasonable to expect renewal provided your financial situation has not changed substantially and your student remains in good standing.
+L199: ## Questions?
+L200: 
+L201: Email 【62†[email protected]】
+L202: 
+L203: Or call (510) 531-1300 x2178.
+L204: 
+L205: ## Related Stories
+L206: 
+L207: Next story Previous story
+L208: 
+L209: Previous story 【50†More stories】 Next story
+L210: 
+L211: 【63†Image: Visit the School】
+L212: 
+L213: ##### Visit the School
+L214: 
+L215: 【64†Image: Inquire】
+L216: 
+L217: ##### Inquire
+L218: 
+L219: 【65†Image: Student Wellness and Support】
+L220: 
+L221: ##### Student Wellness and Support
+L222: 
+L223: 【66†Image: College Counseling】
+L224: ##### College Counseling
+L225: 
+L226: Notices
+L227: 
+L228: [Input] [Input]
+L229: 
+L230: 【67†Image: Givetober is here! Donate for what you love at Head-Royce by October 31.】
+L231: 
+L232: Givetober is here! Donate for what you love at Head-Royce by October 31.
+L233: 
+L234: Last updated: October 01, 2026 at 9:11AM
+L235: 
+L236: #### Admissions
+L237: 
+L238:   * 【12†Visit】
+L239: 
+L240:   * 【13†Inquire】
+L241: 
+L242:   * 【2†Apply】
+L243: 
+L244:   * 【14†Afford HRS】
+L245: 
+L246:   * 【15†Meet Student Ambassadors】
+L247: 
+L248: #### Explore More
+L249: #### Explore More
+L250: 
+L251: Contact Us
+L252: 
+L253: 4315 Lincoln Avenue
+L254: Oakland, California 94602
+L255: phone (510) 531-1300
+L256: fax (510) 531-2649
+L257: 
+L258:   *   * Key Links
+L259: 
+L260:   * 【68†Air Quality】
+L261:   * 【69†Employee Code of Conduct】
+L262:   * 【70†Privacy Policy】
+L263:   * 【71†Vehicle Idling Policy†docs.google.com】
+L264:   * 【72†Wildfire Preparedness and Evacuation Plan】
+L265: 
+L266: Notice of Nondiscriminatory Policy as to Students
+L267: Head-Royce School admits students of any race, color, religion, and national or ethnic origin to all the rights, privileges, programs, and activities generally accorded or made available to students at the school. It does not discriminate on the basis of race, color, creed, age, gender, gender identity, religion, national or ethnic origin, or sexual orientation in the administration of its educational policies, admissions policies, tuition assistance, athletic, and/or other school-administered programs.
+L268: Head-Royce complies with the Americans with Disabilities Act in providing services to students with disabilities.
+L269:   *   *   *   *   * 【73†Sitemap】
+L270:   * 【74†Terms & Privacy】
+L271: 
+L272: Design by 【75†Interactive Schools†interactiveschools.com】,
+L273: Powered by 【76†SprX™†interactiveschools.com】
+L274: ## This website uses cookies
+L275: 
+L276: To get the best browsing experience from our website, please accept our or [Button: manage preferences.]
+L277: 
+L278: [Button: Accept All] Update Preferences Preferences saved Only Necessary Preferences saved
+

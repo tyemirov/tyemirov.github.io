@@ -1,0 +1,174 @@
+Tuition & Fees (https://www.college-prep.org/admission/tuition-and-fees)
+【turn644425view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.college-prep.org/admission/tuition-and-fees","lineno":null}); Total lines: 171
+L0: 【0†iframe†www.googletagmanager.com】
+L1: 
+L2: [Input: I'm looking for...][Input]
+L3: 
+L4:   * 【1†The Partners Program】
+L5: 
+L6:     * 【2†Partners Home】
+L7:     * 【3†Our Programs】
+L8:     * 【4†Apply to Partners】
+L9:     * 【5†Alumni】
+L10:     * 【6†Current Scholars】
+L11:     * 【7†Support Partners】
+L12:     * 【8†Work with Us】
+L13: 
+L14:   * 【9†Employment】
+L15:   * 【10†Quicklinks】
+L16: 
+L17:     * 【10†Directory】
+L18:     * 【11†Donate】
+L19:     * 【12†Prep Mail†mail.college-prep.org】
+L20:     * 【13†Calendar】
+L21:     * 【14†Canvas Login†college-prep.instructure.com】
+L22: Please ensure Javascript is enabled for purposes of 【15†website accessibility†userway.org】
+L23: 
+L24:   * 【16†Login†college-prep.myschoolapp.com】
+L25: 
+L26:   * 【17†About】
+L27: 
+L28:     * 【18†Head of School Welcome】
+L29:     * 【19†Mission & Philosophy】
+L30: 
+L31:       * 【20†Our History】
+L32:       * 【21†Strategic Framework】
+L33: 
+L34:     * 【22†Board of Trustees】
+L35:     * 【23†Prep at a Glance】
+L36:     * 【24†Equity and Belonging】
+L37: 
+L38:       * 【25†Equity & Belonging Work】
+L39:     * 【10†Faculty & Staff Directory】
+L40:     * 【26†Professional Development】
+L41:     * 【9†Employment】
+L42:     * 【27†Directions】
+L43:     * 【28†Schoolwide Safety Plan】
+L44: 
+L45:   * 【29†Admission】
+L46: 
+L47:     * 【30†Fall Admission Events】
+L48:     * 【23†Prep at a Glance】
+L49:     * 【31†How to Apply】
+L50:     * 【32†Tuition & Fees】
+L51:     * 【33†Financial Aid】
+L52: 
+L53:       * 【33†Financial Aid Overview】
+L54:       * 【34†Application and Dates】
+L55:       * 【35†Beyond Tuition】
+L56:       * 【36†FAQs】
+L57:       * 【37†Resources】
+L58:     * 【38†Student Ambassadors】
+L59:     * 【39†Faculty Spotlight】
+L60:     * 【40†Explore Our Campus】
+L61:     * 【41†Video Gallery】
+L62:     * 【27†Directions】
+L63: 
+L64:   * 【42†Academics】
+L65: 
+L66:     * 【43†Course Offerings】
+L67: 
+L68:       * 【44†Arts】
+L69: 
+L70:         * 【45†Visual Arts】
+L71:         * 【46†Dance】
+L72:         * 【47†Drama】
+L73:         * 【48†Music】
+L74: 
+L75:       * 【49†Compass】
+L76:       * 【50†English】
+L77:       * 【51†History】
+L78:       * 【52†Math & Computer Science】
+L79:       * 【53†Science】
+L80:       * 【54†World Languages】
+L81:       * 【55†Applied Learning】
+L82:     * 【56†College Counseling】
+L83:     * 【57†Library】
+L84:     * 【58†Technology & Innovation】
+L85:     * 【59†Speech & Debate】
+L86:     * 【60†Supporting Students】
+L87: 
+L88:   * 【61†Student Life】
+L89: 
+L90:     * 【62†Student Community】
+L91:     * 【63†Experiential Learning】
+L92:     * 【64†Clubs, Action, & Affinity Groups】
+L93:     * 【65†Shop College Prep Gear†sideline.bsnsports.com】
+L94: 
+L95:   * 【66†Athletics】
+L96:     * 【67†Athletic Department Philosophy】
+L97:     * 【68†Recreation, Health, and Fitness】
+L98:     * 【69†Team Pages】
+L99:     * 【70†Sports Medicine】
+L100:     * 【65†Shop College Prep Gear†sideline.bsnsports.com】
+L101: 
+L102:   * 【71†Support Prep】
+L103: 
+L104:     * 【72†Supporting Prep】
+L105:     * 【11†Give Online】
+L106:     * 【73†Ways to Give】
+L107:     * 【74†Matching Gifts】
+L108: 
+L109:   * 【75†Alumni】
+L110: 
+L111:     * 【76†Welcome】
+L112:     * 【11†Give Online】
+L113:     * 【77†Alumni Spotlight】
+L114: 
+L115:   * 【78†Parents】
+L116:     * 【79†Parents' Association】
+L117:     * 【80†LiveTalk Lecture Series】
+L118:     * 【81†Merchant Rewards & eScrip】
+L119: 
+L120: Tuition and Fees
+L121: 
+L122: A College Prep education is an investment in intellectual growth, meaningful relationships, and full participation in a vibrant school community during the formative teenage years.
+L123: We want families to have a clear understanding of the financial commitment involved—including tuition, payment options, and the support available through financial aid.
+L124: 
+L125: 2026-27 Tuition is $62,760
+L126: Tuition includes many of the experiences that define student life at College Prep, including athletics, the school shuttle, field trips, class retreats, and the annual yearbook. Books, the annual laptop fee, Intraterm activities, and certain other expenses are billed separately and typically average about $1,500 per year.
+L127: 
+L128: 【35†Explore costs and support beyond tuition】
+L129: 
+L130: Tuition Payent Options
+L131: College Prep partners with FACTS to offer three tuition payment options.
+L132: One Payment: Balance due in May.
+L133: Three Payments: Equal payments due in May, August, and November.
+L134: Eight Payments: Equal monthly payments from May through December.
+L135: A non-refundable enrollment deposit of about 10% of total tuition ($6,750 for 26-27) is required for newly enrolled students in March. For families receiving financial aid, the deposit is reduced and is typically about 10% of the remaining tuition balance after aid is applied.
+L136: Because College Prep makes annual commitments to faculty, staff, and school programs, families remain responsible for the full year’s tuition after April 30. Tuition insurance is strongly encouraged and is available during enrollment.
+L137: 
+L138: Making College Prep Accessible
+L139: 
+L140: College Prep provides need-based financial aid to families across a broad range of income levels. Our program helps bridge the difference between what a family can reasonably afford and the full cost of tuition.
+L141: Financial aid recipients also receive support for expenses beyond tuition, helping ensure that every student can participate fully in school life.
+L142: 
+L143:   * 【33†Learn More About Financial Aid】
+L144: 
+L145:   * 【35†Beyond Tuition】
+L146: 
+L147: Fees to Apply
+L148: The fees associated with applying help cover administrative costs, but they should never prevent a family from considering College Prep. Full or partial fee waivers are available for all application-related expenses. Please call 510.420.2345 or email financialaid@college-prep.org if cost is a concern.
+L149: 
+L150:   * Admission application: $100
+L151:   * Entrance exam: $150 and up
+L152:   * Financial aid application: $65
+L153: 
+L154: How Annual Giving helps Support the College Prep Experience
+L155: As with most independent schools, tuition and fees do not cover the full cost of educating each student. To bridge this gap, College Prep relies on voluntary, tax-deductible contributions to the 【71†Annual Fund】 from families, alumni, and other members of our community.
+L156: These gifts provide essential support for educational initiatives beyond what tuition alone makes possible—ensuring that all students benefit from small classes, robust co-curricular programs, and the individualized attention that defines the College Prep experience.
+L157: ## The College Preparatory School
+L158: 
+L159: 【82†6100 Broadway, Oakland, CA 94618†www.google.com】
+L160: 510.652.0111
+L161: 
+L162:   *   *   * 【10†Contact Us】
+L163:   * 【27†Directions】
+L164:   * 【83†Prep Mail†mail.thecollegepreparatoryschool.org】
+L165:   * 【11†Give Now】
+L166:   * 【84†Privacy Policy】
+L167: 
+L168: ## mens conscia recti
+L169: 
+L170: a mind aware of what is right
+

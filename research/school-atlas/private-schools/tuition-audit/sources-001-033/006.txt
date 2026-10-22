@@ -1,0 +1,293 @@
+Tuition at Chapin (https://www.chapin.edu/admissions/tuitionfinancial-aid)
+【turn107171view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.chapin.edu/admissions/tuitionfinancial-aid","lineno":null}); Total lines: 290
+L0: 【0†iframe†www.googletagmanager.com】 【1†iframe†www.googletagmanager.com】
+L1: 
+L2: Search: [Input: Search for something...] [Button: Search]
+L3: 
+L4:   * 【2†About】
+L5:   * 【3†Academics】
+L6:   * 【4†Admissions】
+L7:   * 【5†Alumnae】
+L8:   * 【6†Arts】
+L9:   * 【7†Athletics】
+L10:   * 【8†Giving】
+L11:   * 【9†Apply】
+L12: 
+L13:   * 【10†Login(opens in new window/tab)†portals.veracross.com】
+L14:   * 【11†Quicklinks】
+L15: 
+L16:     * 【12†Lunch Menu】
+L17:     * 【13†125 Years of Chapin】
+L18:     * 【14†Chapin News】
+L19:     * 【15†Alumnae Directory】
+L20:     * 【16†Make a Gift】
+L21:     * 【17†Contact Us】
+L22: 
+L23:   * 【18†Search】
+L24: [Button: Menu]
+L25: 
+L26: Search: [Input: Search for something...] [Button: Search]
+L27: 
+L28:   * 【10†Login(opens in new window/tab)†portals.veracross.com】
+L29:   * 【11†Quicklinks】
+L30: 
+L31:     * 【12†Lunch Menu】
+L32:     * 【13†125 Years of Chapin】
+L33:     * 【14†Chapin News】
+L34:     * 【15†Alumnae Directory】
+L35:     * 【16†Make a Gift】
+L36:     * 【17†Contact Us】
+L37: 
+L38:   * 【18†Search】
+L39: 
+L40: 【19†The Chapin School】
+L41: 
+L42:   * 【2†About】
+L43: ### About
+L44: 
+L45: The Chapin School is an independent day school established in 1901, educating girls and young women from Kindergarten through Class 12 under one roof and dedicated to the academic and personal growth of its students, preparing them to thrive and lead in a global society.
+L46: 【20†Learn More】
+L47:     * 【2†Who We Are】
+L48:     * 【21†What Distinguishes Chapin?】
+L49:     * 【22†Experience Chapin】
+L50:     * 【23†Head of School】
+L51:     * 【24†Chapin Community】
+L52:     * 【25†Community and Belonging】
+L53:     * 【26†Chapin Heads of School】
+L54:     * 【27†Dining Services】
+L55:     * 【28†Chapin Employment Opportunities】
+L56: 
+L57:   * 【3†Academics】
+L58: ### Academics
+L59: 
+L60: Here you will learn more about Chapin's rigorous liberal arts program which prepares students for further academic study and encourages the development of curiosity, creativity and integrity.
+L61: 【29†Learn More】
+L62: 
+L63: 
+L64:     * 【30†Lower School】
+L65:     * 【31†Middle School】
+L66:     * 【32†Upper School】
+L67:     * 【33†The Chapin Library】
+L68:     * 【34†College Guidance】
+L69:     * 【35†The Hayot Center for Innovation】
+L70: 
+L71:   * 【4†Admissions】
+L72: ### Admissions
+L73: 
+L74: Thank you for your interest in The Chapin School! We're delighted you're here and invite you to explore these pages to learn more about our admissions process. We look forward to sharing what makes Chapin such a special place.
+L75: 【36†Learn More】
+L76: 
+L77:     * 【37†Lower School Process】
+L78:     * 【38†Middle School Process】
+L79:     * 【39†Upper School Process】
+L80:     * 【40†Affording Chapin】
+L81:     * 【41†Admissions Events】
+L82:     * 【42†Directions to Chapin】
+L83:     * 【43†Frequently Asked Questions】
+L84: 
+L85:   * 【5†Alumnae】
+L86: ### Alumnae
+L87: 
+L88: Whether an alumna or a prospective student, you will no doubt enjoy reading about Chapin's alumnae and their pursuits, the events we hold, and our school's rich history.
+L89: 【44†Learn More】
+L90: 
+L91: 
+L92:     * 【5†Welcome Alumnae】
+L93:     * 【45†News】
+L94:     * 【46†Leadership & Volunteers】
+L95:     * 【47†Alumnae Profiles】
+L96:     * 【48†Chapin Archives】
+L97:     * 【49†Alumnae Authors】
+L98:     * 【50†Career Network】
+L99:     * 【51†Class Notes】
+L100:     * 【52†Make a Gift to Chapin】
+L101:     * 【15†Alumnae Directory】
+L102:     * 【53†Alumnae Portal Login】
+L103:   * 【6†Arts】
+L104: ### Arts
+L105: 
+L106: Chapin's K-12 Arts program is centered around cultivating artistic expression and building each student's capacity for innovation and creativity. The program empowers students to use their voices as artists to engage, reflect and shape the world they live in.
+L107: 【54†Learn More】
+L108: 
+L109:     * 【55†Visual Arts】
+L110:     * 【56†Dance】
+L111:     * 【57†Drama】
+L112:     * 【58†Music】
+L113:     * 【59†Arts Spaces】
+L114: 
+L115:   * 【7†Athletics】
+L116: ### Athletics
+L117: 
+L118: Chapin believes that students' physical, intellectual, and emotional lives are interconnected. This tenet serves as a steadfast guide in our approach to interscholastic athletics, fitness, and health and wellness.
+L119: 【60†Learn More】
+L120: 
+L121:     * 【61†Teams and Schedules】
+L122:     * 【62†Athletics Facilities】
+L123:     * 【63†Sports Medicine & Performance】
+L124:     * 【64†Athletics Calendar(opens in new window/tab)†www.arbiterlive.com】
+L125:     * 【65†Homecoming 2026】
+L126: 
+L127:   * 【8†Giving】
+L128: ### Giving
+L129: 
+L130: Annual Giving has been an important tradition at the School for more than a century. It is thanks to the generosity of our entire community that the Chapin experience is what it is.
+L131: 【66†Learn More】
+L132: 
+L133: 
+L134:     * 【67†Annual Giving】
+L135:     * 【68†Make a Gift†www.givecampus.com】
+L136:     * 【16†Ways to Give】
+L137:     * 【69†Planned Giving】
+L138:     * 【70†Forrester Fund】
+L139:     * 【71†Advancement Team】
+L140:     * 【13†125 Years of Chapin】
+L141: 
+L142:   * 【9†Apply】
+L143: ## In this Section
+L144: 
+L145:   * 【37†Lower School Process】
+L146:   * 【38†Middle School Process】
+L147:   * 【39†Upper School Process】
+L148:   * 【40†Affording Chapin】
+L149:   * 【41†Admissions Events】
+L150:   * 【42†Directions to Chapin】
+L151:   * 【43†Frequently Asked Questions】
+L152: 
+L153:   * 【19†Home】
+L154:   * 【4†Admissions】
+L155:   * Affording Chapin
+L156: # Affording Chapin
+L157: 
+L158: Chapin’s dedication to welcoming families from a wide range of socioeconomic backgrounds is demonstrated by our substantial commitment to providing generous financial grants to families.
+L159: 
+L160: Our long-standing financial aid program is guided by both our Mission Statement, as well as the National Association of Independent School’s (NAIS) Principles of Good Practice for Financial Aid Administration.
+L161: Providing financial grants aligns with our mission to be an equitable and inclusive school community. Every family carries the financial responsibility for a child’s education, to the full extent that they are able. All grants are based solely on a family’s financial resources, and admissions decisions are made without regard to financial need. Additionally, tuition assistance is available to students at all grade levels.
+L162: 2026-2027  |  Tuition & Fees
+L163: Tuition* (Kindergarten-Class 12)  | $71,000
+L164: Laptop Fee** (Classes 6-8)  | $2,190
+L165: Laptop Fee** (Classes 9-12)  | $2,200
+L166: Parents' Association Dues  | $100
+L167: 
+L168: 
+L169: 
+L170: *Tuition and Fees include but are not limited to: snack, lunch, supervised early arrival (Kindergarten - Class 7), field trips, school supplies and books.
+L171: **Chapin's Laptop Immersion Program (LIP) covers all hardware, software and loaner laptops (when needed). For students joining Chapin in Classes 6-8, the laptop fee is paid over three years. After the third year, ownership of the laptop will be transferred to the family. (The program requires students to replace their laptop at the end of the third year for an additional fee.) For students joining Chapin in Classes 9 or 10, the laptop fee is paid over four years or until the student's graduation year.
+L172: After the fourth year and/or graduation, ownership of the laptop will be transferred to the family.
+L173:   * 【72†Beyond Tuition】
+L174:   * 【73†Applying for Tuition Assistance】
+L175:   * 【74†Tuition Assistance FAQ】
+L176: ## 【72†Beyond Tuition】
+L177: 
+L178: At Chapin, we encourage students to fully engage in their school experience and we understand that these opportunities have costs beyond tuition. Knowing this, the financial aid committee may extend grants to mitigate certain costs that are not encompassed in tuition and fees. The examples of areas of support may include the following:
+L179: 
+L180: ADMISSIONS
+L181: Families who apply for tuition assistance will not be required to submit an application fee to apply to Chapin. Fee waivers for the tuition assistance application on Clarity will be provided upon request. Families should contact Karen Lee, Director of Admissions (Classes 6-12 & Financial Aid for Applicant Families) at kalee@chapin.edu.
+L182: 
+L183: 
+L184: 
+L185: TRANSPORTATION
+L186: The Director of Transportation coordinates free metrocard distribution for students who live a half mile or more away from Chapin. Chapin also partners with Brearley to offer a Brooklyn bus service for an annual fee. The SNT bus, which is free of charge and provided by the Board of Education, services families who reside at least ½ mile from and within a 5-mile radius of Chapin in Kindergarten through Class 6.
+L187: 
+L188: LAPTOP IMMERSION PROGRAM
+L189: As part of our 1:1 Laptop Immersion Program, all new students in Classes 6-12 are provided with a MacBook through the Technology Department. The program covers all hardware, software and loaner laptops (when needed).
+L190: 
+L191: 
+L192: 
+L193: CURRICULAR AND EXTRACURRICULAR
+L194: 
+L195: Lower and Middle School: School uniforms, educational support (as recommended by our Learning Resources Center), Clubhouse and After-school, Robotics and Chapin summer programming.
+L196: Upper School: School uniforms, athletics, books, SAT/ACT diagnostic tests, college visits, tutoring (as recommended by our Learning Resources Center), Model United Nations trip and Global Programs.
+L197: 
+L198: EVENTS
+L199: 
+L200: The Chapin Parents’ Association (PA) organizes a wide variety of annual community events such as the Annual Book Fair, Middle School Square Dance and all-school skating party. Families are billed the $100 PA dues annually.
+L201: ## 【73†Applying for Tuition Assistance】
+L202: 
+L203: Tuition assistance is available at all grade levels and based solely on need. The Chapin School is committed to its financial aid program and provided approximately $8.6 million in tuition aid for 20% of our student body in the 206-2027 school year.
+L204: Chapin uses the 【75†Clarity Application†auth.clarityapp.com】 to determine a family’s level of financial need based on the information that families share in the application which includes assets, income, expenses and debts.
+L205: 
+L206:   * Applicant Families: Submit the application and all pertinent documentation to Clarity by December 1, 2026.
+L207:   * Current Families: Submit the application and all pertinent documentation to Clarity by November 1, 2026.
+L208: 
+L209: Steps to Apply:
+L210: 1. Before beginning your application, we encourage you to refer to Clarity’s 【76†Reference Guide†www.clarityschools.com】【77†.†www.clarityschools.com】 The guide will provide you with a quick overview and tips. A Spanish translation of the guide can be found 【78†here†www.clarityschools.com】.
+L211: 2. Beginning August 31, 2026, go to the family 【75†Clarity†auth.clarityapp.com】 portal to create an account and submit your application. As you go through the application, Clarity’s 【77†Family Application Guide†www.clarityschools.com】 which will provide step by step instructions on how to answer questions.
+L212: 3. In a dual household, both custodial and non-custodial parents must complete an application. If only one parent or guardian is listed on the application, please complete the 【79†Second Parent Information Form】 and return it to Karen Lee, Director of Admissions, Classes 6-12 and Financial Aid for Applicant Families.
+L213: 4. Clarity removes the need to upload your W2 and 1040 by transferring them directly from the IRS. You will need to complete the Clarity Enhanced Tax Verification (ETV) process to release your W2 and personal tax return transcripts from the IRS. This is a one-time security measure required by the IRS to protect against identity theft and the compromise of personal information/
+L214: 5. In addition to your W2 and 1040, Chapin requires your most recent pay stub. This is the only document you will need to upload by the deadline.
+L215: Additional documentation? In rare cases, the School may request additional information to support your application. Documents you may be asked to provide include: terms of a Trust, alimony or child support agreements, details of a mortgage or personal loan, verification of educational expenses, scholarships, and grants, value of investment portfolios, explanation of indebtedness including photocopies of bank or credit card statements.
+L216: Additional information? Families can also submit any additional information that is pertinent to the application that may not be fully explained in the other required documentation. Please send a letter directly to Karen Lee, Director of Admissions, Classes 6-12 and Financial Aid for Applicant Families, at kalee@chapin.edu. If you are a current parent, please send your letter to Komal Khokhar, Senior Accountant and Financial Aid Specialist, at kkhokhar@chapin.edu.
+L217: Please note: If a student does not apply for tuition assistance when first admitted to Chapin, the family is not eligible to apply for three years. However, any student who is paying full tuition may apply for assistance should the need arise. The application must include a statement outlining the changes in circumstances that are responsible for the tuition assistance request. If the family circumstances have not changed significantly since the date of admission, no aid will be granted.
+L218: Funds are limited. If your file is not complete by the appropriate deadline, we may not be able to offer any tuition assistance.
+L219: ## 【74†Tuition Assistance FAQ】
+L220: 
+L221: How do I begin the process of applying for tuition assistance?
+L222: Beginning August 31, 2026, go to the 【75†Clarity†auth.clarityapp.com】 portal to create an account and submit your application. The application typically takes less than 30 minutes to complete. The Clarity Application is also mobile-friendly so you can complete it from anywhere. You are also able to save your progress and return at any time.
+L223: At the end of the application, there is a $60 fee to submit, and you can share your application with additional schools that accept the Clarity Application for no additional charge. Simply use the dropdown menu in the application to select those schools.  Fee waivers for the tuition assistance application on Clarity will be provided upon request. Families should contact Karen Lee, Director of Admissions (Classes 6-12 & Financial Aid for Applicant Families) at kalee@chapin.edu.
+L224: Please remember to return to your dashboard after you complete and submit your Clarity Application, as Chapin requires you to upload additional documentation including your most recent paystub.
+L225: 
+L226: Current Chapin Families: Please submit all of the required components by November 1, 2026.
+L227: Applicant Families: Please submit all of the required components by December 1, 2026.
+L228: 
+L229: If you need help completing your application or have any questions about the application, please see the contact information below.
+L230: Family Support Contact Information
+L231: All available in English and Spanish
+L232: The application itself is also fully translated into Spanish using the drop-down in the lower left corner
+L233: 
+L234: Standard (April through September)
+L235: Monday to Friday, 8 a.m. to 8 p.m. ET
+L236: 
+L237: Extended Peak (October through March)
+L238: Monday to Friday, 8 a.m. to 11 p.m. ET AND weekends, 9 a.m. to 5 p.m. ET
+L239: In-app support through the “Help” button in the lower left corner
+L240: Email: support@clarityapp.com
+L241: Phone: 206-210-3752
+L242: 
+L243: Are deadlines firm?
+L244: Yes, deadlines are firm and applications may not be considered after the specified date. It is important that you file all forms and provide all information on time. Your application is not complete and cannot be reviewed until all required documentation is received.
+L245: How do I know if my family is eligible for tuition assistance?
+L246: While there is no income cap to apply for tuition assistance, the median household income of families receiving tuition assistance for the 2026-2027 school year was $240,000. Chapin’s Tuition Assistance Committee uses the standardized calculation derived by a third-party company, Clarity, to guide our determination of the amount a family can contribute toward the costs of a Chapin education.
+L247: Some of the items considered are gross taxable and non-taxable income, assets, liabilities, family size, cost of living based on area of residence, etc. After an allowance for living expenses and required taxes, the remaining funds are considered available for education on a sliding scale.
+L248: Are decisions regarding admission and tuition assistance related?
+L249: 
+L250: Chapin’s admissions committee initially makes its decisions among all applicants without regard for financial matters. Tuition assistance decisions are only made after a student has met our admissions criteria.
+L251: 
+L252: Who will see the information we provide in our tuition assistance application?
+L253: All information received by Chapin is held in strictest confidence. Tuition assistance-related information is restricted to only the Tuition Assistance Committee.
+L254: 
+L255: Two of my children are current Chapin students, and my third child will be entering Chapin this year. Can I expect to receive financial aid for all three students?
+L256: Chapin is committed to creating a strong school community through socio-economic diversity. To help achieve that goal of diversity we limit the amount of tuition assistance awarded to any one family, Chapin will only support two students from any family except in situations with highly unusual circumstances.
+L257: 
+L258: What is Chapin’s policy regarding divorced or separated parents?
+L259: Both custodial and non-custodial parents must complete an application on Clarity and provide required documents. The Chapin School considers the assets of both parents or legal guardians before making any award and cannot be bound by the assertion that one parent has disclaimed responsibility for educational expenses.
+L260: It is the position of The Chapin School that separated or divorced parents or parents who have never married retain the obligation to contribute to the educational expenses of their children, whether or not there is a legal agreement between them to do otherwise. We request that both parents file an application to provide a realistic picture of family resources.
+L261: Non-involvement in a child’s life and, thus, exemption from financial responsibility may require satisfactory documentation by the custodial parent. In the case that yours is a single-parent household, you will have the opportunity to share this information on your application. Our policy is comparable to many other independent schools and colleges.
+L262: Our family doesn’t seem to fit any traditional pattern. How do we know who should complete the application?
+L263: It is not a given that the custodial parent always completes the application. In some cases the non-custodial parent is the primary financial provider. In another situation, where the parents are separated but not divorced, they may complete the PFS together or separately. If you have any questions in this area, please phone Komal Khokhar in The Chapin School Business Office at (212) 570-4958 (Current Families) or Karen Lee in the Admissions Office at (212) 570-4940 (Applicant Families).
+L264: Only one parent works outside the home. Must both parents be employed to receive financial aid from Chapin?
+L265: Financial responsibility for one’s children rests first and foremost with the family. Accordingly, Chapin presumes that when applying for tuition assistance, both parents are employed. Chapin recognizes that every family has its unique set of circumstances that may impact decisions that are related to employment and financial matters.
+L266: If there are circumstances that preclude a parent from working outside of the home, such as caring for young children, an income will be imputed for the stay-at-home parent when applications are being reviewed. Other considerations and/or exceptions may be, for example, prevailing medical reasons.
+L267: If you require further information, please contact: Komal Khokhar in The Chapin School Business Office at 212-570-4958 (Current Families) or Karen Lee in the Admissions Office at 212-570- 4940 (Applicant Families).
+L268: I have decided to quit my job and start my own business or possibly attend graduate school while my child is at Chapin. Will it affect my tuition assistance?
+L269: The School maintains a policy of not subsidizing with tuition assistance a parent’s voluntary reduction of income, i.e., voluntarily terminating employment or separating from employment to become self-employed. We assume that a parent who is enrolled in graduate school will continue to earn income and has arranged to fund his or her education without depending heavily on family resources.
+L270: 
+L271: Is tuition assistance automatically renewed?
+L272: Families requesting tuition assistance must apply yearly as the Financial Aid Committee re-evaluates all grants. Tuition assistance is based solely on a family's financial resources. Therefore, the Financial Aid Committee may adjust its award accordingly should a family's financial circumstances change, e.g., job loss, employment change, and income increase.
+L273: 
+L274: Is it possible to appeal our Chapin tuition assistance allocation?
+L275: Yes. If you feel that you have omitted, or not appropriately clarified, specific financial information, mentioned in your initial application, you may submit additional details in writing. Please note that while appeals will be considered, not all requests will be met. Chapin’s tuition assistance committee must abide by policies that ensure the School is equitable, unbiased, and provides need-based tuition assistance.
+L276: If I decide not to apply for tuition assistance when my child is first admitted, will I have the opportunity to apply the following year?
+L277: If a student does not apply for tuition assistance when first admitted to Chapin, the family is not eligible until the student has attended Chapin for three years. However, if your family experienced a financial hardship, or your financial circumstances have changed since your student's initial enrollment, please contact Komal Khokhar, Senior Accountant and Financial Aid Specialist, at kkhokhar@chapin.edu (kkhokhor@chapin.edu) or 212-570-4958.
+L278: 
+L279: The Chapin School
+L280:   * 100 East End Avenue
+L281:   * New York, NY 10028
+L282:   * 212-744-2335
+L283: 
+L284:   * 【80†Instagram(opens in new window/tab)†www.instagram.com】
+L285:   * 【81†Facebook(opens in new window/tab)†www.facebook.com】
+L286: 
+L287:   * 【82†Privacy Policy】
+L288:   * 【83†Site Map】
+L289:   * 【84†Employment Opportunities】
+

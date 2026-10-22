@@ -1,0 +1,684 @@
+Payment Options & Financial Forms - The Hotchkiss School | An independent boarding school for grades 9 through 12. (https://www.hotchkiss.org/parents/payment-options-financial-forms)
+【turn307753view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.hotchkiss.org/parents/payment-options-financial-forms","lineno":null}); Total lines: 681
+L0: 【0†Image†www.facebook.com】 【1†Image†trkn.us】 【2†iframe†www.googletagmanager.com】
+L1: 
+L2: 【3†Hotchkiss】
+L3: 
+L4: [Input] ×
+L5:  | [Input]  |
+L6: 
+L7:   * 【4†Academics】
+L8: 
+L9:     * 【4†The Academic Experience】
+L10: 
+L11:       * 【5†Academic Requirements】
+L12:       * 【6†Humanities Program】
+L13: 
+L14:     * 【7†Our Faculty】
+L15: 
+L16:       * 【8†Lufkin Prize】
+L17: 
+L18:     * 【9†Academic Departments】
+L19:       * 【10†Classical & Modern Languages】
+L20:       * 【11†English】
+L21:       * 【12†Human Development】
+L22:       * 【13†Humanities & Social Sciences】
+L23:       * 【14†Mathematics & Computer Science】
+L24:       * 【15†Science】
+L25: 
+L26:         * 【16†Astronomy at Hotchkiss】
+L27:         * 【17†The Class of 2017 EFX Lab】
+L28: 
+L29:       * 【18†Visual & Performing Arts】
+L30: 
+L31:     * 【19†Course Catalog(opens in new window/tab)】
+L32:     * 【20†Academic Support】
+L33:     * 【21†Edsel Ford Memorial Library】
+L34:       * 【21†About】
+L35:       * 【22†Research Tools】
+L36:       * 【23†Library History】
+L37:       * 【24†How Do I?】
+L38:       * 【25†Archives & Special Collections】
+L39:       * 【26†Endowed Funds】
+L40:       * 【27†Community Access】
+L41: 
+L42:     * 【28†Technology & Innovation】
+L43:     * 【29†College Advising】
+L44: 
+L45:       * 【29†College Advising】
+L46:       * 【30†Working with a College Advisor】
+L47:       * 【31†The College Process】
+L48:       * 【32†Standardized Tests】
+L49: 
+L50:         * 【33†SAT Subject Test Guide】
+L51: 
+L52:       * 【34†Athletic Recruitment】
+L53:       * 【35†Gap Year】
+L54:         * 【36†Planning and Preparing for a Gap Year】
+L55: 
+L56:       * 【37†College Financial Aid】
+L57: 
+L58:     * 【38†Co-curricular Activities】
+L59:     * 【39†Travel Programs】
+L60: 
+L61:       * 【40†How to Apply(opens in new window/tab)†sites.google.com】
+L62:       * 【40†Available Funding(opens in new window/tab)†sites.google.com】
+L63:       * 【41†Choosing a Summer Program】
+L64: 
+L65:   * 【42†The Arts at Hotchkiss】
+L66:     * 【43†Arts News】
+L67:     * 【44†Studio Art Program】
+L68:     * 【45†Photography, Film & Related Media】
+L69:     * 【46†Theatre】
+L70:     * 【47†Dance】
+L71:     * 【48†Music】
+L72: 
+L73:       * 【49†Inaugural Hotchkiss International Piano Competition】
+L74: 
+L75:         * 【50†Sponsor】
+L76: 
+L77:     * 【51†Tremaine Art Gallery】
+L78:     * 【52†Esther Eastman Music Center】
+L79:     * 【53†Summer Portals Piano Concert Series】
+L80: 
+L81:   * 【54†Athletics】
+L82: 
+L83:     * 【55†Athletic News】
+L84:     * 【56†Our Program】
+L85: 
+L86:       * 【57†NEPSAC Code of Ethics】
+L87:     * 【58†Scores and Upcoming Games】
+L88:     * 【59†Our Teams】
+L89: 
+L90:       * 【60†Boys Cross Country】
+L91: 
+L92:         * 【61†Boys Varsity Cross Country】
+L93:         * 【62†Boys Junior Varsity Cross Country】
+L94: 
+L95:       * 【63†Girls Cross Country】
+L96: 
+L97:         * 【64†Girls Varsity Cross Country】
+L98:         * 【65†Girls Junior Varsity Cross Country】
+L99: 
+L100:       * 【66†Football】
+L101: 
+L102:         * 【67†Varsity Football】
+L103: 
+L104:       * 【68†Field Hockey】
+L105: 
+L106:         * 【69†Varsity Field Hockey】
+L107:         * 【70†Junior Varsity Field Hockey】
+L108: 
+L109:       * 【71†Mountain Biking】
+L110:         * 【72†Varsity Mountain Biking】
+L111: 
+L112:       * 【73†Boys Soccer】
+L113: 
+L114:         * 【74†Boys Varsity Soccer】
+L115:         * 【75†Boys Junior Varsity Soccer】
+L116:         * 【76†Boys Thirds Soccer】
+L117: 
+L118:       * 【77†Girls Soccer】
+L119: 
+L120:         * 【78†Girls Varsity Soccer】
+L121:         * 【79†Girls Junior Varsity Soccer】
+L122: 
+L123:       * 【80†Volleyball】
+L124: 
+L125:         * 【81†Varsity Volleyball】
+L126:         * 【82†Junior Varsity Volleyball】
+L127:         * 【83†Thirds Volleyball】
+L128: 
+L129:       * 【84†Boys Basketball】
+L130:         * 【85†Boys Varsity Basketball】
+L131:         * 【86†Boys JV Basketball】
+L132:         * 【87†Boys Thirds Basketball】
+L133: 
+L134:       * 【88†Girls Basketball】
+L135: 
+L136:         * 【89†Girls Varsity Basketball】
+L137:         * 【90†Girls JV Basketball】
+L138:         * 【91†Girls Thirds Basketball】
+L139: 
+L140:       * 【92†Boys Hockey】
+L141: 
+L142:         * 【93†Boys Varsity Hockey】
+L143:         * 【94†Boys JV Hockey】
+L144: 
+L145:       * 【95†Girls Hockey】
+L146: 
+L147:         * 【96†Girls Varsity Hockey】
+L148:         * 【97†Girls JV Hockey】
+L149: 
+L150:       * 【98†Boys Squash】
+L151:         * 【99†Boys Varsity Squash】
+L152:         * 【100†Boys JV Squash】
+L153: 
+L154:       * 【101†Girls Squash】
+L155: 
+L156:         * 【102†Girls Varsity Squash】
+L157:         * 【103†Girls JV Squash】
+L158: 
+L159:       * 【104†Boys Swimming & Diving】
+L160: 
+L161:         * 【105†Boys Varsity Swimming and Diving】
+L162: 
+L163:       * 【106†Girls Swimming & Diving】
+L164: 
+L165:         * 【107†Girls Varsity Swimming and Diving】
+L166: 
+L167:       * 【108†Wrestling】
+L168: 
+L169:         * 【109†Varsity and JV Wrestling】
+L170: 
+L171:       * 【110†Baseball】
+L172: 
+L173:         * 【111†Varsity Baseball】
+L174: 
+L175:       * 【112†Boys Golf】
+L176:         * 【113†Boys Varsity Golf】
+L177:         * 【114†Boys Junior Varsity Golf】
+L178: 
+L179:       * 【115†Boys Lacrosse】
+L180: 
+L181:         * 【116†Boys Varsity Lacrosse】
+L182:         * 【117†Boys Junior Varsity Lacrosse】
+L183: 
+L184:       * 【118†Girls Lacrosse】
+L185: 
+L186:         * 【119†Girls Varsity Lacrosse】
+L187:         * 【120†Girls Junior Varsity Lacrosse】
+L188: 
+L189:       * 【121†Rowing】
+L190: 
+L191:         * 【122†Varsity Rowing】
+L192: 
+L193:       * 【123†Sailing】
+L194: 
+L195:         * 【124†Varsity Sailing】
+L196:         * 【125†Junior Varsity Sailing】
+L197: 
+L198:       * 【126†Boys Tennis】
+L199:         * 【127†Boys Varsity Tennis】
+L200:         * 【128†Boys Junior Varsity Tennis】
+L201:         * 【129†Boys Thirds Tennis】
+L202: 
+L203:       * 【130†Girls Golf】
+L204: 
+L205:         * 【131†Girls Varsity Golf】
+L206: 
+L207:       * 【132†Girls Tennis】
+L208: 
+L209:         * 【133†Girls Varsity Tennis】
+L210:         * 【134†Girls Junior Varsity Tennis】
+L211:         * 【135†Girls Thirds Tennis】
+L212: 
+L213:       * 【136†Boys Track and Field】
+L214: 
+L215:         * 【137†Boys Varsity Track and Field】
+L216: 
+L217:       * 【138†Girls Track and Field】
+L218: 
+L219:         * 【139†Girls Varsity Track and Field】
+L220:       * 【140†Ultimate Frisbee】
+L221: 
+L222:         * 【141†Varsity Ultimate Frisbee】
+L223:         * 【142†Junior Varsity Ultimate Frisbee】
+L224: 
+L225:     * 【143†Facilities】
+L226:     * 【144†Facility Usage Policy】
+L227:     * 【145†Sports Medicine】
+L228:     * 【146†Strength & Conditioning】
+L229:     * 【147†Awards & History】
+L230: 
+L231:       * 【148†Fall Athletic Awards】
+L232:       * 【149†Winter Athletic Awards】
+L233:       * 【150†Spring Athletic Awards】
+L234:       * 【151†Season Summaries】
+L235: 
+L236:     * 【152†Bearcats in College】
+L237:     * 【153†Hotchkiss Golf Course】
+L238:     * 【154†Livestream】
+L239:   * 【155†Admission】
+L240: 
+L241:     * 【156†Inquire(opens in new window/tab)†apply.hotchkiss.org】
+L242:     * 【157†How to Apply】
+L243:     * 【158†Schedule an Interview and Campus Visit】
+L244:     * 【159†In Your Area】
+L245:     * 【160†Standardized Tests】
+L246:     * 【161†Frequently Asked Questions】
+L247:     * 【162†Tuition and Payment Plans】
+L248:     * 【163†Financial Aid】
+L249:     * 【164†Scholarships】
+L250:     * 【165†Financial Aid FAQs】
+L251:     * 【166†Meet the Team】
+L252: 
+L253:   * 【167†Our School】
+L254: 
+L255:     * 【167†About】
+L256:       * 【168†Brief History】
+L257:       * 【169†Contact Us】
+L258:       * 【170†Office of Communications】
+L259: 
+L260:     * 【171†Meet Our Head of School】
+L261: 
+L262:       * 【172†Investiture of Dr. Anne Bruder】
+L263:       * 【173†Family Weekend: Head of School Welcome】
+L264: 
+L265:     * 【174†Mission Statement】
+L266:     * 【175†Governance】
+L267: 
+L268:       * 【176†Send a Message to the Trustees】
+L269:       * 【177†Community Chat with the Trustees】
+L270: 
+L271:     * 【178†Faculty & Staff Directory】
+L272:     * 【179†Careers at Hotchkiss】
+L273:       * 【180†Walter J. Crain Fellowship】
+L274:       * 【181†Diversity, Equity & Inclusion】
+L275: 
+L276:     * 【182†Our Campus】
+L277: 
+L278:       * 【183†Main Building】
+L279:       * 【184†Learning Environments】
+L280:       * 【185†Athletic Facilities】
+L281:       * 【186†Dormitories】
+L282:       * 【187†Fairfield Farm】
+L283:       * 【188†Notable Places】
+L284:       * 【189†Natural Environment】
+L285: 
+L286:     * 【190†Alumni Accomplishments】
+L287:     * 【191†Our Commitment to Student Safety and Well-being】
+L288:       * 【192†Community Message, November 14, 2018】
+L289:       * 【193†Community Message, August 17, 2018】
+L290:       * 【194†Community Message, February 15, 2018】
+L291:       * 【195†Community Message, October 30, 2017】
+L292:       * 【196†Annual Letter to Parents, Sept. 22, 2017】
+L293:       * 【197†Community Message, May 26, 2017】
+L294:       * 【198†Community Message, June 3, 2016】
+L295:       * 【199†Community Message, April 22, 2016】
+L296: 
+L297:     * 【181†Pluralism & Community】
+L298:     * 【200†Environmental Initiatives】
+L299:       * 【201†Energy & Infrastructure】
+L300:       * 【202†Fairfield Farm & Food】
+L301:       * 【203†Land & Water】
+L302:       * 【204†Who We Are】
+L303: 
+L304:     * 【202†Fairfield Farm】
+L305:     * 【205†Global Initiatives】
+L306: 
+L307:       * 【39†Travel Programs】
+L308:       * 【206†Ideas & Exchanges】
+L309:       * 【207†MacArthur Fellowship】
+L310: 
+L311:     * 【208†Summer Portals】
+L312:       * 【209†Baseball Analytics】
+L313:       * 【210†Climbing】
+L314:       * 【211†Fly Fishing】
+L315:       * 【212†Fun with DNA】
+L316:       * 【213†The Physics of the Electric Guitar】
+L317:       * 【214†Environmental Science】
+L318:       * 【215†Advanced Environmental Science】
+L319:       * 【216†Piano Program】
+L320:       * 【217†Rocketry】
+L321:       * 【218†Speech and Debate】
+L322:       * 【219†Structural Engineering】
+L323:       * 【220†Studio Art: Drawing from Observation】
+L324:       * 【221†Theatre Program】
+L325:       * 【222†Writers and Writing】
+L326:       * 【223†Partner-Run Programs】
+L327:       * 【224†Summer Campus Life】
+L328:       * 【225†For Enrolled Students】
+L329:       * 【226†FAQs】
+L330:       * 【227†Apply for Summer Programs】
+L331:       * 【53†Summer Concert Series】
+L332:       * 【228†Contact Summer Programs Team】
+L333:     * 【229†For the Local Community】
+L334: 
+L335:       * 【230†Rent a Facility】
+L336:       * 【231†Visitors Policy】
+L337: 
+L338:   * 【232†Community Life】
+L339: 
+L340:     * 【233†A Day at Hotchkiss】
+L341:     * 【234†Boarding School Residential Life】
+L342:     * 【235†A Network of Support】
+L343:     * 【236†Find Your Interests】
+L344:     * 【237†Blue & White】
+L345:     * 【238†Health & Wellness】
+L346: 
+L347:       * 【239†Seeking Help】
+L348:       * 【240†Student Wellbeing】
+L349: 
+L350:     * 【181†Pluralism & Community】
+L351:       * 【241†Student Experience】
+L352:       * 【242†Curriculum】
+L353:       * 【243†Office of Pluralism & Community】
+L354:       * 【244†Committee of the Board of Trustees】
+L355:       * 【245†Admissions and Multicultural Outreach】
+L356:       * 【246†Diversity of Thought】
+L357: 
+L358:     * 【247†Campus Services & Support】
+L359: 
+L360:       * 【248†Hotchkiss Campus Store†hotchkissschoolstore.com】
+L361: 
+L362:     * 【249†Campus Safety and Security】
+L363: 
+L364:   * 【250†News】
+L365:   * 【251†Calendars】
+L366:   * 【208†Summer】
+L367:   * 【252†Visit】
+L368:   * 【253†Give】
+L369:   * 【254†Parents】
+L370:   * 【255†Students】
+L371:   * 【256†Faculty & Staff】
+L372: 
+L373:   * 【257†Alumni】
+L374: 
+L375:     * 【258†About the Alumni Association】
+L376:     * 【259†School Awards and Notable Alumni】
+L377:     * 【260†Connect with Alumni, Join Alumnet!】
+L378:     * 【261†Events & Reunions】
+L379:     * 【253†Give】
+L380:     * 【262†Request a Transcript(opens in new window/tab)†hotchkissalumnet.org】
+L381:     * 【263†Submit Address Change】
+L382:     * 【264†Submit Class Notes】
+L383:     * 【265†Hotchkiss Magazine】
+L384: 
+L385: Close
+L386: ## Type to search the site
+L387: 
+L388: [Input] ×
+L389:  | [Input]  |
+L390: ## Popular Pages
+L391: 
+L392:   * 【155†Office of Admission & Financial Aid】
+L393:   * 【232†Living at Hotchkiss】
+L394:   * 【236†Student Activities】
+L395:   * 【54†Athletics】
+L396:   * 【252†Visit Us】
+L397:   * 【255†For Students】
+L398:   * 【254†For Parents】
+L399:   * 【257†For Alumni】
+L400:   * 【179†Employment】
+L401: 
+L402: 【3†Hotchkiss】
+L403: 
+L404:   * 【250†News】
+L405:   * 【251†Calendars】
+L406:   * 【208†Summer】
+L407:   * 【252†Visit】
+L408:   * 【253†Give】
+L409: 
+L410: 【266†Alumni】
+L411: 
+L412:   * 【258†About the Alumni Association】
+L413:     * 【267†Alumni Award Nomination】
+L414:     * 【268†Community Service Award Nomination】
+L415:     * 【269†Board of Governors Nomination】
+L416: 
+L417:   * 【259†School Awards and Notable Alumni】
+L418: 
+L419:     * 【270†Alumni Award】
+L420:     * 【271†Community Service Award】
+L421:     * 【272†Alum of the Month】
+L422: 
+L423:   * 【260†Connect with Alumni, Join Alumnet!】
+L424:   * 【261†Events & Reunions】
+L425: 
+L426:     * 【273†June Reunion】
+L427:     * 【274†All Alumni Events】
+L428:   * 【253†Give】
+L429:   * 【262†Request a Transcript(opens in new window/tab)†hotchkissalumnet.org】
+L430:   * 【263†Submit Address Change】
+L431:   * 【264†Submit Class Notes】
+L432:   * 【265†Hotchkiss Magazine】
+L433: 
+L434:   * 【254†Parents】
+L435:   * 【255†Students】
+L436:   * 【256†Faculty & Staff】
+L437: 
+L438: [Input] ×
+L439:  | [Input]  |
+L440: 
+L441:   * 【4†Academics】
+L442: ###### Related Links
+L443: 
+L444: 【200†Environmental Initiatives】
+L445: 【205†Global Initiatives】
+L446: 【155†Office of Admission and Financial Aid】
+L447: 【252†Visit Our Campus】
+L448: 【275†The Almanac】
+L449: 【208†Summer Portals】
+L450:     * 【4†The Academic Experience】
+L451:     * 【7†Our Faculty】
+L452:     * 【9†Academic Departments】
+L453:     * 【19†Course Catalog(opens in new window/tab)】
+L454:     * 【20†Academic Support】
+L455:     * 【21†Edsel Ford Memorial Library】
+L456:     * 【28†Technology & Innovation】
+L457:     * 【29†College Advising】
+L458:     * 【38†Co-curricular Activities】
+L459:     * 【39†Travel Programs】
+L460: 
+L461:   * 【42†The Arts at Hotchkiss】
+L462: ###### Related Links
+L463: 
+L464: 【252†Visit Our Campus】
+L465: 【182†About Our Campus】
+L466: 【229†For the Local Community】
+L467: 
+L468:     * 【43†Arts News】
+L469:     * 【44†Studio Art Program】
+L470:     * 【45†Photography, Film & Related Media】
+L471:     * 【46†Theatre】
+L472:     * 【47†Dance】
+L473:     * 【48†Music】
+L474:     * 【51†Tremaine Art Gallery】
+L475:     * 【52†Esther Eastman Music Center】
+L476:     * 【53†Summer Portals Piano Concert Series】
+L477: 
+L478:   * 【54†Athletics】
+L479: ###### Related Links
+L480: 
+L481: 【252†Directions to Campus】
+L482: 【182†About Our Campus】
+L483: 【155†Office of Admission & Financial Aid】
+L484: 
+L485:     * 【55†Athletic News】
+L486:     * 【56†Our Program】
+L487:     * 【58†Scores and Upcoming Games】
+L488:     * 【59†Our Teams】
+L489:     * 【143†Facilities】
+L490:     * 【144†Facility Usage Policy】
+L491:     * 【145†Sports Medicine】
+L492:     * 【146†Strength & Conditioning】
+L493:     * 【147†Awards & History】
+L494:     * 【152†Bearcats in College】
+L495:     * 【153†Hotchkiss Golf Course】
+L496:     * 【154†Livestream】
+L497: 
+L498:   * 【155†Admission】
+L499: ###### Related Links
+L500: 
+L501: 【252†Visit Our Campus】
+L502: 【182†About Our Campus】
+L503: 
+L504: 
+L505: 
+L506:     * 【156†Inquire(opens in new window/tab)†apply.hotchkiss.org】
+L507:     * 【157†How to Apply】
+L508:     * 【158†Schedule an Interview and Campus Visit】
+L509:     * 【159†In Your Area】
+L510:     * 【160†Standardized Tests】
+L511:     * 【161†Frequently Asked Questions】
+L512:     * 【162†Tuition and Payment Plans】
+L513:     * 【163†Financial Aid】
+L514:     * 【164†Scholarships】
+L515:     * 【165†Financial Aid FAQs】
+L516:     * 【166†Meet the Team】
+L517: 
+L518:   * 【167†Our School】
+L519: ###### Related Links
+L520: 
+L521: 【252†Visit Our Campus】
+L522: 【170†Office of Communications】
+L523: 【169†Contact Us】
+L524: 【250†News】
+L525:     * 【167†About】
+L526:     * 【171†Meet Our Head of School】
+L527:     * 【174†Mission Statement】
+L528:     * 【175†Governance】
+L529:     * 【178†Faculty & Staff Directory】
+L530:     * 【179†Careers at Hotchkiss】
+L531:     * 【182†Our Campus】
+L532:     * 【190†Alumni Accomplishments】
+L533:     * 【191†Our Commitment to Student Safety and Well-being】
+L534:     * 【181†Pluralism & Community】
+L535:     * 【200†Environmental Initiatives】
+L536:     * 【202†Fairfield Farm】
+L537:     * 【205†Global Initiatives】
+L538:     * 【208†Summer Portals】
+L539:     * 【229†For the Local Community】
+L540:   * 【232†Community Life】
+L541: ###### Related Links
+L542: 
+L543: 【252†Visit Our Campus】
+L544: 【182†About Our Campus】
+L545: 【155†Office of Admission & Financial Aid】
+L546: 【255†Student Portal】
+L547: 
+L548:     * 【233†A Day at Hotchkiss】
+L549:     * 【234†Boarding School Residential Life】
+L550:     * 【235†A Network of Support】
+L551:     * 【236†Find Your Interests】
+L552:     * 【237†Blue & White】
+L553:     * 【238†Health & Wellness】
+L554:     * 【181†Pluralism & Community】
+L555:     * 【247†Campus Services & Support】
+L556:     * 【249†Campus Safety and Security】
+L557: # Payment Options & Financial Forms
+L558: 
+L559:   * 【276†2026-27 Tuition and Fees】
+L560:   * 【277†Payment Options】
+L561:   * 【278†Tuition Refund Insurance】
+L562:   * 【279†Questions?】
+L563: ## 【276†2026-27 Tuition and Fees】
+L564: 
+L565: Tuition and Fees  | Boarding Students  | Day Students
+L566: Tuition  | $79,350  | $67,450
+L567: Technology Fee*  | $850  | $850
+L568: Health Center Fee**  | $600  | $400
+L569: Total  | $80,800  | $68,700
+L570: 
+L571: 
+L572: 
+L573: *Technology Fee: The Technology Fee helps to fund the resources and support for computing and networking functions, including laptops for all students. **Health Center Fee: The Health Center Fee funds normal costs associated with the 24-hour service provided by the Wieler Health Center.
+L574: 2026-27 Deposits Due Upon Enrollment
+L575: 
+L576:    | New Students  | Returning Students
+L577: Security Deposit*  | $750  | $0
+L578: Enrollment Deposit*  | $15,000  | $15,000
+L579: 
+L580: *Alternative deposits may be designated by the director of financial aid.
+L581: ## 【277†Payment Options】
+L582: 
+L583: All tuition and related fee billing is processed through FACTS Tuition Management (FACTS). After completion of the Hotchkiss enrollment contract, families will receive an invitation from FACTS to register and select their payment plan for the year.
+L584: 
+L585: Once you have created your login credentials, you should 【280†use this link†online.factsmgt.com】 to access your account.
+L586: Payments from U.S. bank accounts can be made by check to FACTS Tuition Management or by electronic payment from your checking or savings account.
+L587: 
+L588: International payments must be made in U.S. dollars using the FACTS platform. The Hotchkiss School and FACTS have partnered with Flywire and Convera to streamline this process.
+L589: 
+L590: Late fees are assessed at 1.5% per month on past-due balances that are 30 days past the due date.
+L591: If you have questions regarding the outlined payment options, please contact student accounts (studentaccounts@hotchkiss.org) at (860) 435-3165.
+L592: ## 【278†Tuition Refund Insurance】
+L593: The 【281†Tuition Refund Insurance Plan】 is mandatory for all students unless payment is received for the full year’s tuition and fees by June 1. This plan insures a portion of the tuition in the event of certain absence or separation from the School according to the terms of the policy. You authorize the School to collect any claim payment to which the School is entitled under the plan and to credit your child’s account, paying any excess to the School.
+L594: An absence or separation covered by the terms of this plan does not relieve you of your obligation to the School. You agree to pay the School the balance due, if any, after the application of all plan payments to your account, and we agree to refund the excess, if any, to you.
+L595: The cost of the plan is 1% of the net tuition. Your student will automatically be enrolled if you select either the 2-installment or 10-installment payment plan. If you select the pay in full option, you can elect coverage when you choose your payment plan.
+L596: ## 【279†Questions?】
+L597: 
+L598: Questions or concerns regarding any of the outlined payment plans should be directed to student accounts (studentaccounts@hotchkiss.org) at (860) 435-3165.
+L599: ## Student Injury and Sickness Insurance
+L600: 
+L601: The School requires every student to be covered by a comprehensive injury and sickness plan that meets the high cost of medical services and is accepted by local providers and practitioners.
+L602:   * All international students will be enrolled in a 12-month plan (Aug. 15, 2026-Aug. 14, 2027). The cost for this plan is $2,895.
+L603: 
+L604:   * Domestic students can be enrolled in:
+L605:     * A 10-month plan (Aug. 15, 2026-June 14, 2027). The cost for this plan is $3,995.
+L606:     * A 12-month plan (Aug.15, 2026-Aug. 14, 2027). The cost for this plan is $4,495.
+L607: 
+L608: Please review the plan details below for coverage information.
+L609: Domestic families: 【282†2026-27 brochure】; 【283†2026-27 plan summary】
+L610: International families: 【284†2026-27 brochure】; 【285†2026-27 plan summary】
+L611: 
+L612: If you have additional questions regarding either of the plans, Clifford Allen Associated, the plan administrator, can be reached at call toll-free at 1 (888) 342-2224.
+L613: 
+L614: Need a claim form? 【286†Click here】 to download.
+L615: ## Student Health Insurance: FAQs
+L616: 
+L617:   * 【287†Will insurance from outside the U.S. be accepted?】
+L618:   * 【288†Will a travel insurance policy be accepted?】
+L619:   * 【289†Can we provide a credit card to pay for medical expenses instead of insurance coverage?】
+L620:   * 【290†If our insurance plan only covers emergency care in Connecticut, will that be sufficient?】
+L621: ## 【287†Will insurance from outside the U.S. be accepted?】
+L622: 
+L623: Local healthcare providers require insurance with a United States-based location for claims submission. If your enrollment contract was completed with an international address (outside of the 50 United States), your student was automatically enrolled in the International Injury and Sickness Insurance (ISI plan) made available through the School that meets this requirement and provides comprehensive coverage from a domestic insurer.
+L624: ## 【288†Will a travel insurance policy be accepted?】
+L625: 
+L626: No, a travel policy does not provide the comprehensive injury and sickness coverage required.
+L627: 
+L628: ## 【289†Can we provide a credit card to pay for medical expenses instead of insurance coverage?】
+L629: 
+L630: No, most healthcare providers require insurance to ensure payment, and are not willing to accept a credit card as a payment method to establish care for a student.
+L631: ## 【290†If our insurance plan only covers emergency care in Connecticut, will that be sufficient?】
+L632: 
+L633: A comprehensive plan that covers local providers, including specialities such as orthopedics, surgeons, and physical therapy, is required to ensure students can receive any necessary care and follow-up while at school.
+L634: ## Parents
+L635: 
+L636:   * 【275†The Almanac】
+L637:   * 【291†Whom Should I Contact?】
+L638:   * 【292†Payment Options & Financial Forms】
+L639:   * 【293†Travel Arrangements】
+L640:   * 【247†Campus Services】
+L641:   * 【253†Giving】
+L642:   * 【294†Graduation】
+L643:   * 【295†Parent Programs & Events】
+L644:   * 【296†Parent Volunteer Form】
+L645:   * 【297†The Mischianza】
+L646:   * 【265†Hotchkiss Magazine】
+L647:   * 【298†Forms and Documents】
+L648:   * 【299†School Contacts】
+L649:   * 【300†Parents Tools and Resources】
+L650: 
+L651: 【254†Parent Portal Landing Page 】
+L652: ## Resources
+L653: 
+L654:   * 【155†Admission & Financial Aid】
+L655:   * 【208†Summer Portals】
+L656:   * 【21†Library】
+L657:   * 【179†Careers at Hotchkiss】
+L658:   * 【248†Campus Store(opens in new window/tab)†hotchkissschoolstore.com】
+L659:   * 【254†For Parents】
+L660:   * 【178†Directory】
+L661:   * 【301†Campus Safety & Security】
+L662:   * 【229†For the Local Community】
+L663:   * 【265†Hotchkiss Magazine】
+L664:   * 【302†News】
+L665: 
+L666: ## Contact Us
+L667: 
+L668: ## 【169†Contact Us】
+L669: 
+L670: 11 Interlaken Road
+L671: Lakeville, CT 06039
+L672: 
+L673: (860) 435-2591
+L674: ## Follow Hotchkiss
+L675: 
+L676: 【303†view all social channels】
+L677: 
+L678: 【304†Site Map】 【305†Privacy Policy】
+L679: 
+L680: © The Hotchkiss School
+

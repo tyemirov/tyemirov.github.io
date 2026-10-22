@@ -1,0 +1,185 @@
+Regis High School - A Catholic, Jesuit School for Boys in New York City (https://www.regis.org/)
+【turn577152view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.regis.org/","lineno":null}); Total lines: 182
+L0: 【0†Image†www.facebook.com】
+L1: 
+L2: 【1†Image: Menu】
+L3: 
+L4:   * 【2†Login†intranet.regis.org】
+L5:   * 【3†Calendar】
+L6: 
+L7:   * 【4†About】
+L8: 
+L9: ## About
+L10: 
+L11:     * 【4†About Regis】
+L12:     * 【5†Faculty and Staff】
+L13:     * 【6†Profile of the Graduate at Graduation】
+L14:     * 【7†Protecting Our Students】
+L15: 【8†Image: About Image】
+L16: 
+L17:   * 【9†Admissions】
+L18: ## Admissions
+L19: 
+L20:     * 【9†Admissions Home】
+L21:     * 【10†Application Process】
+L22:     * 【11†Admissions Events】
+L23:     * 【12†Entrance Exam】
+L24:     * 【13†FAQs】
+L25:     * 【14†Regis Summer Institute】
+L26: 【15†Image: Admissions Image】
+L27: 
+L28:   * 【16†Academics】
+L29: ## Academics
+L30: 
+L31:     * 【16†Academics at Regis】
+L32:     * 【17†Academic Enrichment】
+L33:     * 【18†Academic Support】
+L34:     * 【19†Arts and Engineering】
+L35:     * 【20†English】
+L36:     * 【21†History】
+L37:     * 【22†Language】
+L38:     * 【23†Mathematics】
+L39:     * 【24†Physical Education】
+L40:     * 【25†School and College Counseling】
+L41:     * 【26†Science】
+L42:     * 【27†Theology】
+L43: 【28†Image: Academics Image】
+L44: 
+L45:   * 【29†Student Life】
+L46: ## Student Life
+L47: 
+L48:     * 【29†Student Life at Regis】
+L49:     * 【30†Ignatian Identity and Formation】
+L50:     * 【31†Belonging, Dignity, and Justice】
+L51:     * 【32†Service】
+L52:     * 【33†Retreats】
+L53:     * 【34†Cocurriculars】
+L54:     * 【35†Global Education】
+L55:     * 【36†Student Dances】
+L56: 【37†Image: Student Life Image】
+L57: 
+L58:   * 【38†Athletics】
+L59: ## Athletics
+L60: 
+L61:     * 【38†Athletics Home】
+L62:     * 【39†Baseball】
+L63:     * 【40†Basketball】
+L64:     * 【41†Golf】
+L65:     * 【42†Soccer】
+L66:     * 【43†Tennis】
+L67:     * 【44†Track & Cross Country】
+L68:     * 【45†Ultimate】
+L69:     * 【46†Volleyball】
+L70: 【47†Image: Athletics Image】
+L71: 
+L72:   * 【48†REACH】
+L73: 
+L74: ## REACH
+L75: 
+L76:     * 【48†REACH Home】
+L77:     * 【49†How It Works】
+L78:     * 【50†Admissions】
+L79:     * 【51†Partner and Core Schools】
+L80:     * 【52†Protecting Our REACH Students】
+L81: 【53†Image: REACH Image】
+L82: 
+L83:   * 【54†Alumni】
+L84: ## Alumni
+L85: 
+L86:     * 【54†Alumni Home】
+L87:     * 【55†Affinity Groups】
+L88:     * 【56†Upcoming Events】
+L89:     * 【57†Regis Magazine】
+L90:     * 【58†Visiting Regis】
+L91:     * 【59†Transcript Requests】
+L92: 【60†Image: Alumni Image】
+L93: 
+L94:   * 【61†Giving】
+L95: 
+L96: ## Giving
+L97: 
+L98:     * 【61†Giving Home】
+L99:     * 【62†Make a Gift】
+L100:     * 【63†Planned Giving】
+L101:     * 【64†Endowment Giving】
+L102: 【65†Image: Giving Image】
+L103: 
+L104:   * 【66†More】
+L105: ## More
+L106: 
+L107:     * 【67†Contact】
+L108:     * 【3†Calendar】
+L109:     * 【68†Employment】
+L110:     * 【69†Board of Trustees】
+L111:     * 【70†Our Building】
+L112:     * 【71†Traditions, Symbols, and Visual Identity】
+L113:     * 【58†Visiting Regis】
+L114:     * 【72†Shop†shop.regis.org】
+L115:     * 【56†Upcoming Events】
+L116:     * 【73†Livestream】
+L117:     * 【74†News】
+L118:     * 【75†Auction】
+L119:     * 【76†Online Policy Info】
+L120: 【77†Image: More Image】
+L121: # Tuition-free, merit-based Jesuit education since 1914
+L122: 
+L123: 【78†Image: pause】 【79†Image: play】
+L124: 
+L125: 【80†Image: Commute Icon】
+L126: 
+L127: 218
+L128:     Number of zip codes from which students commute
+L129: 
+L130: 【81†Image: Worldwide Icon】
+L131: 
+L132: 56%
+L133:     of students are sons of immigrants
+L134: 
+L135: 【82†Image: Award Icon】
+L136: 
+L137: 73
+L138:     National Merit Scholarship finalists from 2023–2026
+L139: 
+L140: 【83†Image: Hours Served Icon】
+L141: 
+L142: 41,315
+L143:     Hours of service worked by students during the 2025-26 school year
+L144: 
+L145: 【84†Image: School Icon】
+L146: 30%
+L147:     of graduates from 2023–2026 attended top 20 universities
+L148: 
+L149: 【85†Image: Scholarship Icon】
+L150: 
+L151: 100%
+L152:     of students are on full merit scholarship
+L153: ## 【74†Recent News】
+L154: 
+L155: ### 【86†Students and Faculty Head Outdoors for Annual Trip to Bear Mountain】
+L156: 
+L157: 【86†Read More】 Oct 06, 2026
+L158: 
+L159: ### 【87†Student Achievements Recognized at 2026 Fall Convocation】
+L160: 
+L161: 【87†Read More】 Sep 24, 2026
+L162: 
+L163: ### 【88†Eighteen Regians Named National Merit Scholarship Semifinalists】
+L164: 
+L165: 【88†Read More】 Sep 21, 2026
+L166: 
+L167: ### 【89†Regis Community Celebrates Mass of the Holy Spirit】
+L168: 
+L169: 【89†Read More】 Sep 17, 2026
+L170: ## About Regis
+L171: 
+L172: Regis High School transforms Catholic young men into leaders devoted to 【71†Deo et Patriae】 and lifelong service as 【71†Men for Others】. Merit-based and committed to families with financial need, Regis provides an academically exceptional, tuition-free Jesuit education within a caring community.
+L173: 
+L174: 【4†Learn more】
+L175: 
+L176: 【90†Image: Regis High School Seal】 Regis High School
+L177: 55 East 84th Street
+L178: New York, NY 10028
+L179: 212-288-1100
+L180: 
+L181: 【67†Contact Us】 | 【7†Protecting Our Students】
+

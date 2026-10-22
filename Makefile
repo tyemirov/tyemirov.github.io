@@ -152,7 +152,17 @@ music-browser-lock-test:
 music-check:
 	@cd services/music-stream && go vet ./...
 
-ci: site-contract-test pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-runtime-test music-preview-test music-catalog-test local-prepare-test local-shutdown-test music-load-test music-browser-lock-test music-browser-test gallery-api-test gallery-contract-test gallery-check
+ci: school-atlas-check site-contract-test pages-build lifecycle-contract-test loopaware-site-id-test music-package-test music-api-test music-check music-artifact-test music-runtime-test music-preview-test music-catalog-test local-prepare-test local-shutdown-test music-load-test music-browser-lock-test music-browser-test gallery-api-test gallery-contract-test gallery-check
+
+.PHONY: school-atlas-check school-atlas-browser-test
+school-atlas-check:
+	@node research/school-atlas/check-frozen.mjs
+	@node research/school-atlas/value-model/check-calculation.mjs
+	@node research/school-atlas/value-model/check-catalog.mjs
+	@python3 research/school-atlas/family-budget/check-source.py
+
+school-atlas-browser-test:
+	@npm run test:music -- site/school-atlas.spec.mjs $(SCHOOL_ATLAS_BROWSER_ARGS)
 
 pages-build:
 	@PAGES_DIST_DIR="$(PAGES_DIST_DIR)" ./scripts/build-pages-artifact.sh

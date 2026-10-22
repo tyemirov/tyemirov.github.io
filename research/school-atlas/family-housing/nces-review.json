@@ -1,0 +1,137 @@
+[
+  {
+    "school_id": "public:31",
+    "school": "Marine Academy of Science and Technology (MAST@FIU)",
+    "candidates": [
+      {
+        "NAME": "RISE ACADEMY SCHOOL OF SCIENCE AND TECHNOLOGY",
+        "STREET": "6101 NW 31ST ST",
+        "CITY": "MARGATE",
+        "STATE": "FL",
+        "ZIP": "33063"
+      },
+      {
+        "NAME": "MEDICAL ACADEMY FOR SCIENCE AND TECHNOLOGY (M.A.S.T.) @ HOM",
+        "STREET": "1220 NW 1ST AVE",
+        "CITY": "HOMESTEAD",
+        "STATE": "FL",
+        "ZIP": "33030"
+      },
+      {
+        "NAME": "SANTA FE COLLEGE ACADEMY OF SCIENCE AND TECHNOLOGY",
+        "STREET": "3000 NW 83RD ST",
+        "CITY": "GAINSVILLE",
+        "STATE": "FL",
+        "ZIP": "32606"
+      }
+    ]
+  },
+  {
+    "school_id": "private:avenues-the-world-school-new-york-ny",
+    "school": "Avenues The World School",
+    "candidates": [
+      {
+        "NAME": "LAVELLE SCHOOL FOR THE BLIND",
+        "STREET": "3830 PAULDING AVE",
+        "CITY": "BRONX",
+        "STATE": "NY",
+        "ZIP": "10469"
+      },
+      {
+        "NAME": "THEVENET MONTESSORI SCHOOL",
+        "STREET": "21 BETHANY DR",
+        "CITY": "HIGHLAND MILLS",
+        "STATE": "NY",
+        "ZIP": "10930"
+      },
+      {
+        "NAME": "MARYEL SCHOOL OF NEW YORK",
+        "STREET": "2405 CROMPOND RD",
+        "CITY": "YORKTOWN HEIGHTS",
+        "STATE": "NY",
+        "ZIP": "10598"
+      }
+    ]
+  },
+  {
+    "school_id": "private:washington-preparatory-school-bothell-wa",
+    "school": "Washington Preparatory School",
+    "candidates": [
+      {
+        "NAME": "GONZAGA PREPARATORY SCHOOL",
+        "STREET": "1224 E EUCLID AVE",
+        "CITY": "SPOKANE",
+        "STATE": "WA",
+        "ZIP": "99207"
+      },
+      {
+        "NAME": "WILLOWS PREPARATORY SCHOOL",
+        "STREET": "12280 REDMOND WOODINVILLE RD NE",
+        "CITY": "REDMOND",
+        "STATE": "WA",
+        "ZIP": "98052"
+      },
+      {
+        "NAME": "EASTSIDE PREPARATORY SCHOOL",
+        "STREET": "10613 NE 38TH PL",
+        "CITY": "KIRKLAND",
+        "STATE": "WA",
+        "ZIP": "98033"
+      }
+    ]
+  },
+  {
+    "school_id": "private:the-awty-international-school-houston-tx",
+    "school": "The Awty International School",
+    "candidates": [
+      {
+        "NAME": "AUSTIN INTERNATIONAL SCHOOL",
+        "STREET": "4001 ADELPHI LN",
+        "CITY": "AUSTIN",
+        "STATE": "TX",
+        "ZIP": "78727"
+      },
+      {
+        "NAME": "CUNAE INTERNATIONAL SCHOOL",
+        "STREET": "5655 CREEKSIDE FOREST DR",
+        "CITY": "THE WOODLANDS",
+        "STATE": "TX",
+        "ZIP": "77389"
+      },
+      {
+        "NAME": "ESPRIT INTERNATIONAL SCHOOL",
+        "STREET": "4266 INTERFAITH WAY",
+        "CITY": "THE WOODLANDS",
+        "STATE": "TX",
+        "ZIP": "77381"
+      }
+    ]
+  },
+  {
+    "school_id": "private:st-marks-school-of-texas-dallas-tx",
+    "school": "St. Mark's School of Texas",
+    "candidates": [
+      {
+        "NAME": "THE COMPASS SCHOOL OF TEXAS",
+        "STREET": "5414 W NW HWY",
+        "CITY": "DALLAS",
+        "STATE": "TX",
+        "ZIP": "75220"
+      },
+      {
+        "NAME": "ST MARKS SCHOOL",
+        "STREET": "5005 LOVE RD",
+        "CITY": "EL PASO",
+        "STATE": "TX",
+        "ZIP": "79922"
+      },
+      {
+        "NAME": "TRINITY SCHOOL OF TEXAS",
+        "STREET": "215 N TEAGUE ST",
+        "CITY": "LONGVIEW",
+        "STATE": "TX",
+        "ZIP": "75601"
+      }
+    ]
+  }
+]

@@ -1,0 +1,84 @@
+Tuition and Financial Aid | Boston University Academy (https://www.buacademy.org/admission/tuition-and-financial-aid/)
+【turn114546view0】 [wordlim: 200] Crawled: 4 days ago; Content type: text/html; Source: open({"ref_id":"https://www.buacademy.org/admission/tuition-and-financial-aid/","lineno":null}); Total lines: 81
+L0: 【0†Image†www.facebook.com】 【1†Image†www.facebook.com】
+L1: 
+L2: 【2†Boston University Academy】
+L3: 
+L4: [Input][Input] [Input: Search site…] [Input]
+L5: 
+L6: # Tuition and Financial Aid
+L7: 
+L8: ##### 【3†Applying for Financial Aid】  【4†Payment Plans】   【5†BU Tuition Remission】     【6†Contact our Team】
+L9: 
+L10: * * *
+L11: ## Meet the BUA Financial Aid Team!
+L12: 
+L13: 
+L14: 
+L15: 【7†Image】
+L16: 
+L17: From left to right: Meg Shannon, Senior Associate Director of Admission | Holly Walker, Director of Operations and Finance | Nastaran Hakimi, Assistant Head of School for Enrollment Management and Institutional Advancement
+L18: 
+L19: * * *
+L20: ### Affording a BUA Education
+L21: 
+L22: We recognize that the decision to enroll at Boston University Academy is a significant financial commitment and that families make sacrifices to afford their children the opportunity of a BUA education. These are some of the most common ways that BUA families are able to finance their investment.
+L23: 
+L24: 【3†Need-Based Financial Aid including grants for books and incidental expenses】
+L25: 
+L26: 【4†Payment Plans (monthly, semi-annual, annual options)】
+L27: 
+L28: 【5†BU Tuition Remission】
+L29: 
+L30: * * *
+L31: ### 2026-2027 Tuition and Fees: $63,528
+L32: 
+L33: Tuition and fees do not include incidental expenses, books, or lunch.
+L34: ### Cost Benefits and Financial Aid at BUA
+L35: 
+L36: Our financial aid program is designed to help make a BUA education accessible to qualified students who otherwise could not afford the cost of attendance. Financial aid is offered in the form of need-based grants, which do not need to be repaid. Where possible, the Financial Aid Committee does its best to meet 100% of a family’s demonstrated need.
+L37: Recipients of need-based financial aid  | 27%
+L38: Average financial aid award  | $48,147
+L39: Range of financial aid awards  | $6,574-$63,238
+L40: 
+L41: *all figures are for the 2026-2027 academic year
+L42: 
+L43: * * *
+L44: ###
+L45: 
+L46: ### j
+L47: 
+L48: ### 【8†BUA Calendar】
+L49: 
+L50:   * Friday, October 16 【9†Fall Festival】
+L51:   * Friday, October 16 【10†Boys Varsity Soccer vs Commonwealth】
+L52:   * Friday, October 16 【11†Girls Varsity Soccer vs Commonwealth】
+L53: 
+L54: ### Recent News
+L55: 
+L56: 【12†Image】
+L57: 
+L58: # 【13†“On Making Kindness Visible”: Head of School Chris Kolovos Delivers Opening-of-Term Address】
+L59: 
+L60: September 4, 2026
+L61: 
+L62: 【14†Image】
+L63: 
+L64: # 【15†Down the Aisle and Across the Stage: Sending Off the Class of 2026 with a Puzzle from the Heart】
+L65: 
+L66: June 1, 2026
+L67: 
+L68: 【16†Image】
+L69: # 【17†Class of 2026 Matriculation List】
+L70: 
+L71: May 28, 2026
+L72: 
+L73: ### Contact Us
+L74: 
+L75: Boston University Academy
+L76: One University Road
+L77: Boston, MA 02215
+L78: Telephone: 617-353-9000
+L79: Fax: 617-353-8999
+L80: academy@bu.edu
+

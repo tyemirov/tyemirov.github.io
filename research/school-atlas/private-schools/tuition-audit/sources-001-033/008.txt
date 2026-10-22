@@ -1,0 +1,460 @@
+Affording Horace Mann School - Horace Mann School (https://www.horacemann.org/admissions/tuition-financial-aid)
+【turn810210view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.horacemann.org/admissions/tuition-financial-aid","lineno":null}); Total lines: 457
+L0: 【0†iframe†www.googletagmanager.com】 【1†iframe†www.googletagmanager.com】
+L1: ## Off Canvas Desktop
+L2: 
+L3:   * 【2†Our School】
+L4: 
+L5:     * 【3†Mission & Core Values】
+L6:     * 【4†Universal Declaration】
+L7:     * 【5†A Long Tradition】
+L8:     * 【6†Facts & Figures】
+L9:     * 【7†Board of Trustees】
+L10:     * 【8†Office for Identity, Culture and Institutional Equity】
+L11:     * 【9†Child Abuse Prevention & Reporting】
+L12:     * 【10†Sustainability】
+L13:       * 【11†Sustainability Committee】
+L14:       * 【12†Sustainability Policy】
+L15:       * 【13†Food & Drink】
+L16:       * 【14†Energy & Water】
+L17:       * 【15†Travel & Traffic】
+L18:       * 【16†Purchasing, Consumption & Waste】
+L19:       * 【17†Facilities Management】
+L20:       * 【18†Monitoring, Transparency, and Accountability】
+L21:       * 【19†Sustainability at Dorr】
+L22:       * 【20†Sustainability Resources】
+L23: 
+L24:     * 【21†Campuses】
+L25: 
+L26:       * 【22†Facilities】
+L27:       * 【23†Public Safety】
+L28:       * 【24†Dining Services】
+L29:     * 【25†Virtual Tour】
+L30:     * 【26†News】
+L31:     * 【27†Media Gallery】
+L32:     * 【28†Faculty & Staff Directory】
+L33:     * 【29†Employment】
+L34:     * 【30†Contact Us】
+L35: 
+L36:   * 【31†Academic Life】
+L37: 
+L38:     * 【32†Nursery Division】
+L39:     * 【33†Lower Division】
+L40:     * 【34†Middle Division】
+L41:     * 【35†Upper Division】
+L42:     * 【36†John Dorr Nature Laboratory】
+L43:     * 【37†College Counseling】
+L44:     * 【38†Summer Programs】
+L45:       * 【39†Nursery Division June Program】
+L46:       * 【40†Lower Division Camp HMLD】
+L47:       * 【41†Middle Division Summer Academy】
+L48:       * 【42†Upper Division Summer Program】
+L49:       * 【43†Middle/Upper Division Athletics Lion Camps】
+L50:       * 【44†Summer Internship Program】
+L51: 
+L52:     * 【45†Libraries】
+L53: 
+L54:       * 【46†Katz Library】
+L55:       * 【47†Lower Division Library】
+L56: 
+L57:     * 【48†Arts on Display】
+L58:     * 【49†Education Verification】
+L59:     * 【50†Professional Development】
+L60: 
+L61:       * 【51†Faculty Grants】
+L62:         * 【52†Curriculum Development Grants】
+L63:         * 【53†AI Literacy Grants】
+L64:         * 【54†Study Grants】
+L65:         * 【55†Conference Attendance Grants】
+L66: 
+L67:       * 【56†Named Faculty Chairs】
+L68:       * 【57†Royal Shakespeare Company Partnership】
+L69: 
+L70:   * 【58†Citizenship】
+L71: 
+L72:     * 【59†Center for Community Values & Action】
+L73:     * 【60†Saturday Morning Tutoring】
+L74:     * 【61†Riverdale & Kingsbridge】
+L75: 
+L76:       * 【62†VCP Alliance】
+L77: 
+L78:     * 【63†The Bronx & NYC】
+L79: 
+L80:   * 【64†Athletics】
+L81: 
+L82:     * 【65†Inside Athletics】
+L83:       * 【66†Meet the Athletics Department】
+L84:       * 【67†Athletic Facilities】
+L85:       * 【68†Coaching Dashboard】
+L86:       * 【69†Navigating MD Athletics】
+L87:       * 【70†Transportation Waiver Form】
+L88: 
+L89:     * 【71†Team Directory】
+L90:     * 【72†Athletics Calendar】
+L91:     * 【73†Athletics News】
+L92:     * 【74†Shop Athletics Store】
+L93:     * 【75†Coaching Dashboard】
+L94: 
+L95:       * 【76†Employment Requirements】
+L96: 
+L97:     * 【77†Ivy League Standings†sites.google.com】
+L98:     * 【78†Athletic Training & Sports Medicine】
+L99:       * 【79†Athletic Health Care Team】
+L100:       * 【80†About Athletic Training】
+L101:       * 【81†Visiting Team Information】
+L102:       * 【82†Strength and Conditioning】
+L103: 
+L104:     * 【83†Preseason Information】
+L105:     * 【84†HM Home】
+L106:     * 【85†Watch Livestreams†sportsengineplay.com】
+L107: 
+L108:   * 【86†Admissions】
+L109: 
+L110:     * 【87†Admissions Events】
+L111:     * 【88†Applying to Nursery & Kindergarten】
+L112:     * 【89†Applying to Grades 1-5】
+L113:     * 【90†Applying to Grades 6-11】
+L114:     * 【91†Affording Horace Mann School】
+L115:       * 【92†Ingenio Non Censio Scholars Program】
+L116:       * 【93†Applying for Financial Aid】
+L117: 
+L118:     * 【94†Contact Us】
+L119: 
+L120:   * 【95†Alumni】
+L121: 
+L122:     * 【96†Alumni Council】
+L123:     * 【97†Alumni Events】
+L124:     * 【98†Alumni News】
+L125: 
+L126:       * 【99†Alumni Class Notes】
+L127:       * 【100†Remembrances】
+L128: 
+L129:     * 【101†Distinguished Achievement Award】
+L130:     * 【44†Internship Program】
+L131:     * 【102†Volunteer Opportunities】
+L132:     * 【103†Contact the Alumni Office】
+L133:       * 【104†Get Connected on Social Media】
+L134:       * 【105†Send in Class Notes】
+L135:       * 【106†Update Contact Info】
+L136: 
+L137:     * 【107†Support Horace Mann School】
+L138: 
+L139:   * 【107†Support HM】
+L140: 
+L141:     * 【108†About the Annual Fund】
+L142: 
+L143:       * 【109†Annual Fund 2025 Results】
+L144:       * 【110†Annual Fund Videos】
+L145: 
+L146:     * 【111†Give to the Annual Fund(opens in new window/tab)†support.horacemann.org】
+L147:     * 【112†Giving Guide】
+L148: 
+L149:       * 【113†Matching Gift Search】
+L150:     * 【114†Leadership and Loyalty Giving】
+L151:     * 【115†Philanthropy FAQ】
+L152:     * 【116†Request Info】
+L153:     * 【117†My HM Journey】
+L154:     * 【118†Volunteer】
+L155: 
+L156:       * 【119†Alumni Class Agents】
+L157:       * 【120†Parent Grade Representatives】
+L158:       * 【121†Trustee Liaisons】
+L159:       * 【122†Volunteer Form】
+L160: 
+L161:   * 【123†Parents】
+L162:     * 【124†Family Handbook】
+L163:     * 【125†Parent Involvement】
+L164:     * 【126†Parents Association】
+L165:     * 【127†Give to the Annual Fund(opens in new window/tab)†support.horacemann.org】
+L166:     * 【128†Emergency Notification Systems】
+L167:     * 【129†Online Bookstore】
+L168:     * 【130†Parent Portal(opens in new window/tab)†portals.veracross.com】
+L169: 
+L170:   * 【131†Useful Links】
+L171:     * 【86†Admissions】
+L172:     * 【95†Alumni】
+L173:     * 【64†Athletics】
+L174:     * 【25†Campus Tour】
+L175:     * 【37†College Counseling】
+L176:     * 【30†Contact Us】
+L177:     * 【29†Employment】
+L178:     * 【28†Faculty/Staff Directory】
+L179:     * 【46†Katz Library】
+L180:     * 【47†LD Library】
+L181:     * 【130†Parent Portal(opens in new window/tab)†portals.veracross.com】
+L182:     * 【107†Support HM】
+L183: 
+L184:   * 【29†Employment】
+L185:   * 【26†News】
+L186:   * 【28†Faculty & Staff Directory】
+L187: ## Off Canvas Mobile
+L188: 
+L189:   * 【2†Our School】
+L190: 
+L191:     * 【3†Mission & Core Values】
+L192:     * 【4†Universal Declaration】
+L193:     * 【5†A Long Tradition】
+L194:     * 【6†Facts & Figures】
+L195:     * 【7†Board of Trustees】
+L196:     * 【8†Office for Identity, Culture and Institutional Equity】
+L197:     * 【9†Child Abuse Prevention & Reporting】
+L198:     * 【10†Sustainability】
+L199:       * 【11†Sustainability Committee】
+L200:       * 【12†Sustainability Policy】
+L201:       * 【13†Food & Drink】
+L202:       * 【14†Energy & Water】
+L203:       * 【15†Travel & Traffic】
+L204:       * 【16†Purchasing, Consumption & Waste】
+L205:       * 【17†Facilities Management】
+L206:       * 【18†Monitoring, Transparency, and Accountability】
+L207:       * 【19†Sustainability at Dorr】
+L208:       * 【20†Sustainability Resources】
+L209: 
+L210:     * 【21†Campuses】
+L211: 
+L212:       * 【22†Facilities】
+L213:       * 【23†Public Safety】
+L214:       * 【24†Dining Services】
+L215:     * 【25†Virtual Tour】
+L216:     * 【26†News】
+L217:     * 【27†Media Gallery】
+L218:     * 【28†Faculty & Staff Directory】
+L219:     * 【29†Employment】
+L220:     * 【30†Contact Us】
+L221: 
+L222:   * 【31†Academic Life】
+L223: 
+L224:     * 【32†Nursery Division】
+L225:     * 【33†Lower Division】
+L226:     * 【34†Middle Division】
+L227:     * 【35†Upper Division】
+L228:     * 【36†John Dorr Nature Laboratory】
+L229:     * 【37†College Counseling】
+L230:     * 【38†Summer Programs】
+L231:       * 【39†Nursery Division June Program】
+L232:       * 【40†Lower Division Camp HMLD】
+L233:       * 【41†Middle Division Summer Academy】
+L234:       * 【42†Upper Division Summer Program】
+L235:       * 【43†Middle/Upper Division Athletics Lion Camps】
+L236:       * 【44†Summer Internship Program】
+L237: 
+L238:     * 【45†Libraries】
+L239: 
+L240:       * 【46†Katz Library】
+L241:       * 【47†Lower Division Library】
+L242: 
+L243:     * 【48†Arts on Display】
+L244:     * 【49†Education Verification】
+L245:     * 【50†Professional Development】
+L246: 
+L247:       * 【51†Faculty Grants】
+L248:         * 【52†Curriculum Development Grants】
+L249:         * 【53†AI Literacy Grants】
+L250:         * 【54†Study Grants】
+L251:         * 【55†Conference Attendance Grants】
+L252: 
+L253:       * 【56†Named Faculty Chairs】
+L254:       * 【57†Royal Shakespeare Company Partnership】
+L255: 
+L256:   * 【58†Citizenship】
+L257: 
+L258:     * 【59†Center for Community Values & Action】
+L259:     * 【60†Saturday Morning Tutoring】
+L260:     * 【61†Riverdale & Kingsbridge】
+L261: 
+L262:       * 【62†VCP Alliance】
+L263: 
+L264:     * 【63†The Bronx & NYC】
+L265: 
+L266:   * 【64†Athletics】
+L267: 
+L268:     * 【65†Inside Athletics】
+L269:       * 【66†Meet the Athletics Department】
+L270:       * 【67†Athletic Facilities】
+L271:       * 【68†Coaching Dashboard】
+L272:       * 【69†Navigating MD Athletics】
+L273:       * 【70†Transportation Waiver Form】
+L274: 
+L275:     * 【71†Team Directory】
+L276:     * 【72†Athletics Calendar】
+L277:     * 【73†Athletics News】
+L278:     * 【74†Shop Athletics Store】
+L279:     * 【75†Coaching Dashboard】
+L280: 
+L281:       * 【76†Employment Requirements】
+L282: 
+L283:     * 【77†Ivy League Standings†sites.google.com】
+L284:     * 【78†Athletic Training & Sports Medicine】
+L285:       * 【79†Athletic Health Care Team】
+L286:       * 【80†About Athletic Training】
+L287:       * 【81†Visiting Team Information】
+L288:       * 【82†Strength and Conditioning】
+L289: 
+L290:     * 【83†Preseason Information】
+L291:     * 【84†HM Home】
+L292:     * 【85†Watch Livestreams†sportsengineplay.com】
+L293: 
+L294:   * 【86†Admissions】
+L295: 
+L296:     * 【87†Admissions Events】
+L297:     * 【88†Applying to Nursery & Kindergarten】
+L298:     * 【89†Applying to Grades 1-5】
+L299:     * 【90†Applying to Grades 6-11】
+L300:     * 【91†Affording Horace Mann School】
+L301:       * 【92†Ingenio Non Censio Scholars Program】
+L302:       * 【93†Applying for Financial Aid】
+L303: 
+L304:     * 【94†Contact Us】
+L305: 
+L306:   * 【95†Alumni】
+L307: 
+L308:     * 【96†Alumni Council】
+L309:     * 【97†Alumni Events】
+L310:     * 【98†Alumni News】
+L311: 
+L312:       * 【99†Alumni Class Notes】
+L313:       * 【100†Remembrances】
+L314: 
+L315:     * 【101†Distinguished Achievement Award】
+L316:     * 【44†Internship Program】
+L317:     * 【102†Volunteer Opportunities】
+L318:     * 【103†Contact the Alumni Office】
+L319:       * 【104†Get Connected on Social Media】
+L320:       * 【105†Send in Class Notes】
+L321:       * 【106†Update Contact Info】
+L322: 
+L323:     * 【107†Support Horace Mann School】
+L324: 
+L325:   * 【107†Support HM】
+L326: 
+L327:     * 【108†About the Annual Fund】
+L328: 
+L329:       * 【109†Annual Fund 2025 Results】
+L330:       * 【110†Annual Fund Videos】
+L331: 
+L332:     * 【111†Give to the Annual Fund(opens in new window/tab)†support.horacemann.org】
+L333:     * 【112†Giving Guide】
+L334: 
+L335:       * 【113†Matching Gift Search】
+L336:     * 【114†Leadership and Loyalty Giving】
+L337:     * 【115†Philanthropy FAQ】
+L338:     * 【116†Request Info】
+L339:     * 【117†My HM Journey】
+L340:     * 【118†Volunteer】
+L341: 
+L342:       * 【119†Alumni Class Agents】
+L343:       * 【120†Parent Grade Representatives】
+L344:       * 【121†Trustee Liaisons】
+L345:       * 【122†Volunteer Form】
+L346: 
+L347:   * 【123†Parents】
+L348:     * 【124†Family Handbook】
+L349:     * 【125†Parent Involvement】
+L350:     * 【126†Parents Association】
+L351:     * 【127†Give to the Annual Fund(opens in new window/tab)†support.horacemann.org】
+L352:     * 【128†Emergency Notification Systems】
+L353:     * 【129†Online Bookstore】
+L354:     * 【130†Parent Portal(opens in new window/tab)†portals.veracross.com】
+L355: 
+L356:   * 【29†Employment】
+L357:   * 【26†News】
+L358:   * 【28†Faculty & Staff Directory】
+L359: ## Off Canvas Search
+L360: 
+L361: Search
+L362: 
+L363: [Input: What are you searching for?] Clear
+L364: 
+L365: [Button: Search]
+L366: 
+L367: Search
+L368: 
+L369: Menu
+L370: 
+L371: ## Hero Image
+L372: 
+L373:   * 【87†Admissions Events】
+L374:   * 【88†Applying to Nursery & Kindergarten】
+L375:   * 【89†Applying to Grades 1-5】
+L376:   * 【90†Applying to Grades 6-11】
+L377:   * 【91†Affording Horace Mann School】
+L378: 
+L379:     * 【92†Ingenio Non Censio Scholars Program】
+L380:     * 【93†Applying for Financial Aid】
+L381: 
+L382:   * 【94†Contact Us】
+L383: # Affording Horace Mann School
+L384: 
+L385: > Ensuring the affordability of a Horace Mann School education is in keeping with our mission to prepare a diverse community of students to lead great and giving lives. Our tuition model supports critical aspects of life at the school.
+L386: >
+L387: > – Dr. Thomas M. Kelly, Head of School
+L388: ## Tuition
+L389: 
+L390: For the 2026-2027 academic year, tuition is $68,700 for Threes Program (full day) through Twelfth Grade and $49,350 for Threes Program (morning or afternoon half days). Tuition dollars support an exceptional student learning experience, specialized services, and community-wide programming, including:
+L391: 
+L392:   * Faculty salaries and benefits
+L393:   * Teaching materials and supplies
+L394:   * Equipment used in classes
+L395:   * Technology
+L396:   * Maintenance
+L397:   * Campus operating expenses
+L398:   * Financial aid and other forms of student support
+L399:   * Classroom trips and activities
+L400:   * Benefits for the enjoyment of all HM students at no cost, such as divisional yearbooks, Varsity letter jackets for seniors, prom tickets, etc.
+L401: ## Hear from HM Community Members About the Importance of a Diverse Community
+L402: 
+L403: [Button: <][Button: >]
+L404: 
+L405: Horace Mann School is proud to offer the Ingenio Non Censio Scholars Program, providing full tuition and comprehensive support for admitted families earning less than $150,000, beginning in the 2027–28 academic school year.
+L406: This is the next step in HM's long-standing commitment to making a world-class education accessible to every qualified student, regardless of financial circumstance. Learn more about the Ingenio Non Censio Scholars Program 【132†here】.
+L407: ## Financial Aid
+L408: Horace Mann School has a strong commitment to providing financial aid to students who could not otherwise attend. For the 2026-2027 academic year, 17.5% of students receive more than $19,500,000 in financial aid for tuition and other school-related costs, with awards ranging from $2,000 to full tuition. The amount of financial aid provided does not affect other supports the school offers. Families do need to reapply for financial aid each year.
+L409: However, when a family receives financial aid at HM, the school will endeavor to continue to provide aid at a commensurate level so long as the family financial situation does not change.
+L410: Fulfilling the mission of the school, the Horace Mann School Financial Aid program ensures students will be able to participate fully in all aspects of life at HM.
+L411: 
+L412: Below is a sample of the support provided by the Financial Aid Office to financial aid recipients. The amount of support varies depending on the family's individual financial aid grant.
+L413: ## Applying for Financial Aid
+L414: 
+L415: Horace Mann School's belief is that all families should engage fully in the life of Horace Mann School and contribute meaningfully to our community. While the school does provide full (100%) financial assistance to some families, most families are expected to make a financial contribution toward their child’s education as a demonstration that tuition is a priority.
+L416: Admission to Horace Mann School is need-blind. Applicants are evaluated without regard to a request for financial aid. For students offered admission, financial aid decisions—contingent upon the completion of a financial aid application by custodial and non-custodial parents/guardians—are communicated at the time of the admission offer.
+L417: 
+L418: Please contact our Financial Aid Office at (718) 432-4101 or financial_aid@horacemann.org for more information.
+L419: 
+L420: 【133†Learn More About Applying for Financial Aid】
+L421: ## Tuition FAQ
+L422: 
+L423:   * 【134†What other costs can be expected?】
+L424:   * 【135†Will we be asked to contribute to Horace Mann School?】
+L425:   * 【136†What about next year? Will the tuition increase? How much?】
+L426: ## 【134†What other costs can be expected?】
+L427: 
+L428: The tuition charge does not include an Enrollment Fee of $100, Parent Association Dues of $85, an Activity Fee of $125, a Facility Improvement fee of $950 for Nursery and Lower Division students and $1,150 for Middle and Upper Division Students, Middle Division Students Book Fee of $325, lunch fees, and some student technology devices. Transportation costs are additional for all students, and HM does offer optional tuition refund insurance.
+L429: When students take a trip during the school day, the costs are included. However, if students participate in special trips, for example, travels during the spring/summer break with world language classes or clubs, those costs are additional. Some athletic equipment and supplies are included; team coaches can provide specific information. Private music lessons are available at the Middle and Upper Divisions for an additional cost.
+L430: Please note that Horace Mann School also offers the Student Assistance Fund (SAF) for enrolled students, which was created to allow every Horace Mann School student an opportunity to excel within the school community and beyond.
+L431: The SAF is not restricted to students who receive Financial Aid; we recognize that tuition is a significant expense, and the cost of additional activities beyond tuition may be more than a family can manage even if they do not apply for or qualify for Financial Aid. The SAF serves as a resource to supplement other sources of funding available to students. Any cost directly related to Horace Mann School and not included in the financial aid budget may be considered by the SAF.
+L432: Only enrolled students may apply for the SAF.
+L433: ## 【135†Will we be asked to contribute to Horace Mann School?】
+L434: Yes. The tuition costs do not cover the entire expense of educating students at HM. The 【137†Annual Fund】 is the school’s yearly campaign to raise funds in support of the daily operations budget. Contributions from trustees, parents, alumni, parents of alumni, grandparents, members of the faculty and staff, and other friends of the school help to close the gap that exists between tuition and the actual cost of a Horace Mann education.
+L435: Each year we set a goal for the Annual Fund of 100% parent participation. While leadership gifts are important for the school’s economic strength, every gift does matter and every gift does make a difference. Strong financial support of the Annual Fund demonstrates the donor’s understanding and commitment to the school. Annual Fund gifts range in size from $5 to $50,000. We expect that each person will participate at a level appropriate for their circumstances.
+L436: Parents are also encouraged to donate their time to the School by participating in School and Parents' Association activities.
+L437: 
+L438: For more information about philanthropy at Horace Mann School, click 【138†here.】
+L439: ## 【136†What about next year? Will the tuition increase? How much?】
+L440: Each year, the Horace Mann School Board of Trustees meets and sets the tuition figures for the following year. They make this decision based on estimated costs and expenses.
+L441: In recent years, the annual tuition increase has been between 4% and 6%. Families who receive Financial Aid typically receive additional funding to help cover a portion of this increase. The trustees and administration work hard to minimize tuition increases while striving to maintain the overall quality and integrity of the programs we offer.
+L442: Horace Mann School
+L443: 
+L444: 231 West 246th Street, Bronx, NY 10471
+L445: 
+L446: (718) 432 4000
+L447: 
+L448:   * 【139†Site Map】
+L449:   * 【30†Contact Us & Directions】
+L450: 
+L451:   * 【140†Horace Mann School Instagram(opens in new window/tab)†www.instagram.com】
+L452:   * 【141†Horace Mann School LinkedIn(opens in new window/tab)†www.linkedin.com】
+L453:   * 【142†Flickr(opens in new window/tab)†www.flickr.com】
+L454:   * 【143†Horace Mann School YouTube(opens in new window/tab)†www.youtube.com】
+L455: Horace Mann School admits students of any race, color, religion, sex, gender identity, sexual orientation, national or ethnic origin, or disability status to all the rights, privileges, programs and activities generally accorded or made available to students at the School.
+L456: It does not discriminate on the basis of race, color, religion, sex, gender identity, sexual orientation, national or ethnic origin, or disability status in administration of its educational policies, financial aid, athletic or other school-administered programs. Horace Mann School is an equal opportunity employer. All applicants will be considered for employment without attention to race, color, religion, sex, gender identity, sexual orientation, national or ethnic origin, veteran or disability status.
+

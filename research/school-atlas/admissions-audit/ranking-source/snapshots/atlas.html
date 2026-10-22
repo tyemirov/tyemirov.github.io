@@ -1,0 +1,148 @@
+
+  <!DOCTYPE html>
+  <html lang="en" data-beasties-container>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- Title & Description -->
+      <title>School Atlas: Where the Top 500 High Schools Are (2026-27)</title>
+      <meta name="description" content="Every state as a tile, shaded by its schools in the U.S. News national top 500 (2026-27 edition), with ranked counts and graduation medians.">
+
+      <!-- Favicons — generated from HSTFavicon brand design in Logo.tsx.
+           Regenerate via `node scripts/generate-favicons.mjs`. SVG is the
+           primary asset for modern browsers; PNGs are legacy fallbacks. -->
+      <!-- Google Search's favicon: a multiple of 48px, no media query, declared
+           FIRST so browsers still pick the light/dark pair below for the tab.
+           Without it Google showed a grey globe beside our results. -->
+      <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png">
+      <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" media="(prefers-color-scheme: light)">
+      <link rel="icon" type="image/svg+xml" href="/assets/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+      <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png" media="(prefers-color-scheme: light)">
+      <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-dark.png" media="(prefers-color-scheme: dark)">
+
+      <!-- Apple Touch Icon (iOS home screen, 180×180, real square) -->
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+      <!-- PWA manifest (Android home screen, installable app metadata) -->
+      <link rel="manifest" href="/site.webmanifest">
+
+      <!-- Open Graph / Social Media -->
+      <meta property="og:type" content="website">
+      <meta property="og:title" content="School Atlas: Where the Top 500 High Schools Are (2026-27)">
+      <meta property="og:description" content="Every state as a tile, shaded by its schools in the U.S. News national top 500 (2026-27 edition), with ranked counts and graduation medians.">
+      <meta property="og:image" content="https://highschooltrends.org/assets/logo-light.png">
+      <meta property="og:url" content="https://highschooltrends.org/atlas">
+
+      <!-- Twitter Card -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="School Atlas: Where the Top 500 High Schools Are (2026-27)">
+      <meta name="twitter:description" content="Every state as a tile, shaded by its schools in the U.S. News national top 500 (2026-27 edition), with ranked counts and graduation medians.">
+      <meta name="twitter:image" content="https://highschooltrends.org/assets/logo-light.png">
+
+      <!-- Self-hosted Inter font — eliminates Google Fonts CDN round-trip
+           (~100ms TTFB saving). Variable font covers weights 100-900 in
+           one file. Two subsets: latin (48KB) for English, latin-ext (85KB)
+           for Spanish/European characters. Both served with immutable
+           cache headers from Cloudflare Pages (same-origin, no CORS).
+
+           Preload only the Latin subset — it covers the vast majority of
+           LCP text on English pages and avoids wasting bytes on users who
+           never render extended glyphs. `crossorigin` is required for
+           same-origin font preloads (font requests are always CORS). -->
+      <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+      <style>
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 100 900;
+          font-display: swap;
+          src: url('/assets/fonts/inter-latin.woff2') format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 100 900;
+          font-display: swap;
+          src: url('/assets/fonts/inter-latin-ext.woff2') format('woff2');
+          unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+      </style>
+
+      <!-- DNS-prefetch for the backend API (Railway) — saves ~50ms on
+           first API request by resolving DNS before the fetch fires. -->
+      <link rel="dns-prefetch" href="https://unified-api-production-691b.up.railway.app">
+      <link rel="preconnect" href="https://unified-api-production-691b.up.railway.app" crossorigin>
+
+      <!-- Theme Color -->
+      <meta name="theme-color" content="#0d9488" media="(prefers-color-scheme: light)">
+      <meta name="theme-color" content="#115e59" media="(prefers-color-scheme: dark)">
+
+      <!-- No hreflang. This shell is served for EVERY route, so the two tags
+           that sat here told Google that the homepage was the English version
+           of every school, city and state page. The site has no indexable
+           language versions (?lang= translates in the browser and
+           canonicalizes to the English URL), so the correct set is empty.
+           index-html-seo.test.ts keeps it that way. -->
+
+      <!-- Additional SEO — NOTE: robots/canonical intentionally NOT set here.
+           react-helmet-async does not dedupe against static index.html tags,
+           so hardcoding these produces duplicate <meta robots> / duplicate
+           canonicals on every page (Helmet appends instead of replacing).
+           Pages set their own canonical via <Helmet> (see seo-meta.ts).
+           The default robots behavior is already index+follow, so removing
+           the tag is lossless. -->
+      <meta name="googlebot" content="index, follow">
+
+      <!-- WebSite structured data + Sitelinks Search Box -->
+      <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://highschooltrends.org"},{"@type":"ListItem","position":2,"name":"School Atlas","item":"https://highschooltrends.org/atlas"}]}]}</script>
+
+      <!-- Organization structured data: publisher trust signal for AdSense / E-E-A-T.
+           Pure factual statement about the site's data sources and purpose;
+           no fabricated founder identity. -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "HighSchoolTrends.org",
+        "url": "https://highschooltrends.org",
+        "logo": "https://highschooltrends.org/assets/logo-light.png",
+        "description": "Independent analytics for 30,000+ US high schools. Multi-year performance trends sourced from US News rankings, NCES Common Core of Data, Urban Institute Education Data API, and US Census ACS. Free to use; no account required.",
+        "foundingDate": "2025",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "support@highschooltrends.org",
+          "contactType": "customer support",
+          "availableLanguage": ["English", "Spanish", "Korean", "Chinese"]
+        }
+      }
+      </script>
+      <script type="module" crossorigin src="/assets/index-Dc1MeXTe.js"></script>
+      <link rel="modulepreload" crossorigin href="/assets/chunk-D_OzrCae.js">
+      <link rel="modulepreload" crossorigin href="/assets/chunk-tKch2U_e.js">
+      <link rel="modulepreload" crossorigin href="/assets/chunk-BQ8_b1W9.js">
+      <link rel="modulepreload" crossorigin href="/assets/chunk-BdvdwktD.js">
+      <link rel="modulepreload" crossorigin href="/assets/chunk-By1WuaDx.js">
+      <style>*,:before,:after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / .5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}:before,:after{--tw-content:""}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}h1,h2,h3{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}strong{font-weight:bolder}h1,h2,h3,p{margin:0}ul{list-style:none;margin:0;padding:0}:root{--background:0 0% 100%;--foreground:222.2 84% 4.9%;--card:0 0% 100%;--card-foreground:222.2 84% 4.9%;--popover:0 0% 100%;--popover-foreground:222.2 84% 4.9%;--primary:222.2 47.4% 11.2%;--primary-foreground:210 40% 98%;--secondary:210 40% 96%;--secondary-foreground:222.2 84% 4.9%;--muted:210 40% 96%;--muted-foreground:215.4 16.3% 46.9%;--accent:210 40% 96%;--accent-foreground:222.2 84% 4.9%;--destructive:0 84.2% 60.2%;--destructive-foreground:210 40% 98%;--border:214.3 31.8% 91.4%;--input:214.3 31.8% 91.4%;--ring:222.2 84% 4.9%;--radius:.5rem;--chart-1:12 76% 61%;--chart-2:173 58% 39%;--chart-3:197 37% 24%;--chart-4:43 74% 66%;--chart-5:27 87% 67%}*{border-color:hsl(var(--border))}body{background-color:hsl(var(--background));color:hsl(var(--foreground))}</style><link rel="alternate stylesheet preload" crossorigin href="/assets/index-DJnHbcIG.css" title="styles" as="style" onload="this.title='';this.rel='stylesheet'"><noscript><link rel="stylesheet" crossorigin href="/assets/index-DJnHbcIG.css"></noscript>
+    <link rel="canonical" href="https://highschooltrends.org/atlas" /></head>
+
+    <body>
+      <div id="root">
+        <!-- Static fallback content for crawlers/bots that don't execute JavaScript.
+             React's createRoot().render() replaces this entirely when JS loads. -->
+        <div style="font-family:Inter,system-ui,sans-serif;max-width:800px;margin:0 auto;padding:40px 20px;color:#1e293b">
+          <header style="text-align:center;margin-bottom:40px">
+            <h1 id="hst-static-h1" style="font-size:2rem;font-weight:800;line-height:1.2">Where the top 500 are</h1>
+            <p id="hst-static-subtitle" style="font-size:1.1rem;color:#64748b;margin-top:12px">Every state, by its schools in the U.S. News national top 500 (2026-27 edition).</p>
+            <p style="margin-top:16px;color:#64748b"><strong>2012–2026 data</strong> · <strong>30,000+ schools</strong> · <strong>491 cities</strong> · <strong>100% free</strong></p>
+          </header>
+          <main><h2 style="font-size:1.35rem;font-weight:700;margin:28px 0 8px">States by national top-500 schools</h2><ul style="padding-left:1.25rem"><li><a href="/schools/by-state/CA" style="color:#0f766e">California</a>: 73 in the national top 500, 1,598 ranked</li><li><a href="/schools/by-state/TX" style="color:#0f766e">Texas</a>: 67 in the national top 500, 1,591 ranked</li><li><a href="/schools/by-state/FL" style="color:#0f766e">Florida</a>: 41 in the national top 500, 662 ranked</li><li><a href="/schools/by-state/NJ" style="color:#0f766e">New Jersey</a>: 30 in the national top 500, 415 ranked</li><li><a href="/schools/by-state/IL" style="color:#0f766e">Illinois</a>: 22 in the national top 500, 675 ranked</li><li><a href="/schools/by-state/MA" style="color:#0f766e">Massachusetts</a>: 20 in the national top 500, 353 ranked</li><li><a href="/schools/by-state/OH" style="color:#0f766e">Ohio</a>: 17 in the national top 500, 619 ranked</li><li><a href="/schools/by-state/AZ" style="color:#0f766e">Arizona</a>: 16 in the national top 500, 365 ranked</li><li><a href="/schools/by-state/GA" style="color:#0f766e">Georgia</a>: 13 in the national top 500, 435 ranked</li><li><a href="/schools/by-state/NC" style="color:#0f766e">North Carolina</a>: 13 in the national top 500, 604 ranked</li><li><a href="/schools/by-state/PA" style="color:#0f766e">Pennsylvania</a>: 13 in the national top 500, 675 ranked</li><li><a href="/schools/by-state/CT" style="color:#0f766e">Connecticut</a>: 12 in the national top 500, 200 ranked</li><li><a href="/schools/by-state/MD" style="color:#0f766e">Maryland</a>: 12 in the national top 500, 211 ranked</li><li><a href="/schools/by-state/MI" style="color:#0f766e">Michigan</a>: 12 in the national top 500, 678 ranked</li><li><a href="/schools/by-state/WA" style="color:#0f766e">Washington</a>: 11 in the national top 500, 318 ranked</li><li><a href="/schools/by-state/IN" style="color:#0f766e">Indiana</a>: 10 in the national top 500, 402 ranked</li><li><a href="/schools/by-state/MN" style="color:#0f766e">Minnesota</a>: 10 in the national top 500, 420 ranked</li><li><a href="/schools/by-state/TN" style="color:#0f766e">Tennessee</a>: 10 in the national top 500, 380 ranked</li><li><a href="/schools/by-state/VA" style="color:#0f766e">Virginia</a>: 10 in the national top 500, 323 ranked</li><li><a href="/schools/by-state/NY" style="color:#0f766e">New York</a>: 8 in the national top 500, 1,232 ranked</li><li><a href="/schools/by-state/WI" style="color:#0f766e">Wisconsin</a>: 8 in the national top 500, 466 ranked</li><li><a href="/schools/by-state/AR" style="color:#0f766e">Arkansas</a>: 6 in the national top 500, 278 ranked</li><li><a href="/schools/by-state/LA" style="color:#0f766e">Louisiana</a>: 6 in the national top 500, 315 ranked</li><li><a href="/schools/by-state/MO" style="color:#0f766e">Missouri</a>: 6 in the national top 500, 355 ranked</li><li><a href="/schools/by-state/OR" style="color:#0f766e">Oregon</a>: 5 in the national top 500, 239 ranked</li><li><a href="/schools/by-state/DE" style="color:#0f766e">Delaware</a>: 4 in the national top 500, 44 ranked</li><li><a href="/schools/by-state/ID" style="color:#0f766e">Idaho</a>: 4 in the national top 500, 159 ranked</li><li><a href="/schools/by-state/KY" style="color:#0f766e">Kentucky</a>: 4 in the national top 500, 228 ranked</li><li><a href="/schools/by-state/NV" style="color:#0f766e">Nevada</a>: 4 in the national top 500, 82 ranked</li><li><a href="/schools/by-state/OK" style="color:#0f766e">Oklahoma</a>: 4 in the national top 500, 388 ranked</li><li><a href="/schools/by-state/SC" style="color:#0f766e">South Carolina</a>: 4 in the national top 500, 236 ranked</li><li><a href="/schools/by-state/AL" style="color:#0f766e">Alabama</a>: 3 in the national top 500, 293 ranked</li><li><a href="/schools/by-state/DC" style="color:#0f766e">District of Columbia</a>: 3 in the national top 500, 30 ranked</li><li><a href="/schools/by-state/KS" style="color:#0f766e">Kansas</a>: 3 in the national top 500, 295 ranked</li><li><a href="/schools/by-state/NM" style="color:#0f766e">New Mexico</a>: 3 in the national top 500, 136 ranked</li><li><a href="/schools/by-state/NE" style="color:#0f766e">Nebraska</a>: 2 in the national top 500, 145 ranked</li><li><a href="/schools/by-state/NH" style="color:#0f766e">New Hampshire</a>: 2 in the national top 500, 84 ranked</li><li><a href="/schools/by-state/RI" style="color:#0f766e">Rhode Island</a>: 2 in the national top 500, 57 ranked</li><li><a href="/schools/by-state/UT" style="color:#0f766e">Utah</a>: 2 in the national top 500, 163 ranked</li><li><a href="/schools/by-state/HI" style="color:#0f766e">Hawaii</a>: 1 in the national top 500, 53 ranked</li><li><a href="/schools/by-state/IA" style="color:#0f766e">Iowa</a>: 1 in the national top 500, 323 ranked</li><li><a href="/schools/by-state/ME" style="color:#0f766e">Maine</a>: 1 in the national top 500, 112 ranked</li><li><a href="/schools/by-state/MS" style="color:#0f766e">Mississippi</a>: 1 in the national top 500, 229 ranked</li><li><a href="/schools/by-state/WV" style="color:#0f766e">West Virginia</a>: 1 in the national top 500, 111 ranked</li><li><a href="/schools/by-state/AK" style="color:#0f766e">Alaska</a>: 0 in the national top 500, 69 ranked</li><li><a href="/schools/by-state/CO" style="color:#0f766e">Colorado</a>: 0 in the national top 500, 308 ranked</li><li><a href="/schools/by-state/MT" style="color:#0f766e">Montana</a>: 0 in the national top 500, 95 ranked</li><li><a href="/schools/by-state/ND" style="color:#0f766e">North Dakota</a>: 0 in the national top 500, 85 ranked</li><li><a href="/schools/by-state/SD" style="color:#0f766e">South Dakota</a>: 0 in the national top 500, 121 ranked</li><li><a href="/schools/by-state/VT" style="color:#0f766e">Vermont</a>: 0 in the national top 500, 46 ranked</li><li><a href="/schools/by-state/WY" style="color:#0f766e">Wyoming</a>: 0 in the national top 500, 54 ranked</li></ul><p style="color:#475569;line-height:1.6;margin:8px 0">National and state ranks come from the 2026-27 U.S. News &amp; World Report Best High Schools edition. HighSchoolTrends adds each school's rank history across up to 8 editions under US News's current methodology (2019–2026) (where archived pages prove them, earlier medal-list ranks (2012–2018) are shown separately and never compared), and enrollment and demographic context from the NCES Common Core of Data.</p></main>
+          <footer style="text-align:center;color:#94a3b8;font-size:0.875rem;border-top:1px solid #e2e8f0;padding-top:20px">
+            <p>© 2026 HighSchoolTrends.org. School data from public sources. Rankings from US News &amp; World Report. School data from National Center for Education Statistics.</p>
+          </footer>
+        </div>
+      </div>
+    </body>
+  </html>
+  

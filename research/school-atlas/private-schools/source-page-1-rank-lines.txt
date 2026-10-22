@@ -1,0 +1,25 @@
+L295:   1.   2. 【50†#1 Best Private High Schools in America Phillips Academy Andover Andover, MA
+L299:   3. 【53†#2 Best Private High Schools in America Groton School Groton, MA
+L302:   4. 【56†#3 Best Private High Schools in America Phillips Exeter Academy Exeter, NH
+L306:   5.   6. 【59†#4 Best Private High Schools in America The Lawrenceville School Lawrenceville, NJ
+L311:   7. 【62†#5 Best Private High Schools in America Choate Rosemary Hall Wallingford, CT
+L316:   8. 【65†#6 Best Private High Schools in America The Chapin School New York, NY
+L321:   9. 【68†#7 Best Private High Schools in America Harvard-Westlake School Studio City, CA
+L326:   10. 【71†#8 Best Private High Schools in America Horace Mann School Bronx, NY
+L331:   11. 【74†#9 Best Private High Schools in America The Hotchkiss School Lakeville, CT
+L334:   12.   13. 【77†#10 Best Private High Schools in America Stanford Online High School Redwood City, CA
+L339:   14. 【79†#11 Best Private High Schools in America BASIS Independent Manhattan New York, NY
+L343:   15. 【82†#12 Best Private High Schools in America St. Paul's School Concord, NH
+L346:   16. 【85†#13 Best Private High Schools in America Princeton International School of Math and Science Princeton, NJ
+L351:   17. 【87†#14 Best Private High Schools in America Deerfield Academy Deerfield, MA
+L355:   18. 【90†#15 Best Private High Schools in America Riverdale Country School Bronx, NY
+L360:   19. 【93†#16 Best Private High Schools in America Noble and Greenough School Dedham, MA
+L365:   20. 【96†#17 Best Private High Schools in America Cate School Carpinteria, CA
+L370:   21. 【99†#18 Best Private High Schools in America Dwight Global
+L375:   22. 【101†#19 Best Private High Schools in America The Loomis Chaffee School Windsor, CT
+L379:   23. 【104†#20 Best Private High Schools in America The College Preparatory School Oakland, CA
+L384:   24. 【107†#21 Best Private High Schools in America Rye Country Day School Rye, NY
+L388:   25. 【110†#22 Best Private High Schools in America St. Andrew's School Middletown, DE
+L394:   27. 【113†#23 Best Private High Schools in America Crimson Global Academy, USA Orlando, FL
+L398:   28. 【115†#24 Best Private High Schools in America BASIS Independent Brooklyn Brooklyn, NY
+L403:   29. 【118†#25 Best Private High Schools in America Boston University Academy Boston, MA

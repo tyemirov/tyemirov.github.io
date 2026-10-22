@@ -1,0 +1,549 @@
+Tuition & Financial Aid - Rye Country Day School (https://www.ryecountryday.org/admissions/tuition-financial-aid)
+【turn784543view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.ryecountryday.org/admissions/tuition-financial-aid","lineno":null}); Total lines: 546
+L0: 【0†Image†www.facebook.com】 【1†iframe†www.googletagmanager.com】
+L1: 
+L2: Menu
+L3: 
+L4: Search
+L5: 
+L6: [Input: Tell us what you're looking for...] Clear
+L7: 
+L8: [Button: Search]
+L9: 
+L10:   * 【2†Quicklinks】
+L11:     * 【3†Family Portal†accounts.veracross.com】
+L12:     * 【4†Employee Directory】
+L13:     * 【5†Lunch Menus†rcds.flikisdining.com】
+L14:     * 【6†E-Notes(opens in new window/tab)†portals.veracross.com】
+L15:     * 【7†Summer Assignments†portals.veracross.com】
+L16:     * 【8†Upper School Virtual Bookstore (opens in new window/tab)†portals.veracross.com】
+L17:     * 【9†Wildcat Den】
+L18:     * 【10†Wildcat Central】
+L19:     * 【11†Make a Gift】
+L20:     * 【12†Report a Complaint】
+L21: 
+L22:   * 【13†About】
+L23:     * 【13†Welcome & Fast Facts】
+L24:     * 【14†Mission】
+L25:     * 【15†Portraits of Our Impact】
+L26:     * 【16†Head of School】
+L27:     * 【17†Head of School Search】
+L28:     * 【18†School Leadership Team】
+L29:     * 【19†Strategic Plan】
+L30:     * 【20†Campus Master Plan】
+L31:     * 【21†History】
+L32:     * 【22†News】
+L33:     * 【4†Employee Directory】
+L34:     * 【23†Careers at RCDS】
+L35: 
+L36:       * 【24†Teaching Fellows】
+L37: 
+L38:     * 【25†Calendar】
+L39:     * 【26†Contact Us】
+L40: 
+L41:   * 【27†Academics】
+L42: 
+L43:     * 【27†Overview】
+L44:     * 【28†Lower School】
+L45: 
+L46:       * 【29†Curriculum Guide】
+L47:         * 【29†Overview】
+L48:         * 【30†Pre-Kindergarten】
+L49:         * 【31†Kindergarten】
+L50:         * 【32†Grade One】
+L51:         * 【33†Grade Two】
+L52:         * 【34†Grade Three】
+L53:         * 【35†Grade Four】
+L54: 
+L55:     * 【36†Middle School】
+L56: 
+L57:       * 【37†Curriculum Guide】
+L58:         * 【37†Overview】
+L59:         * 【38†Program of Study】
+L60:         * 【39†Art】
+L61:         * 【40†Classics: Latin】
+L62:         * 【41†Computer Science】
+L63:         * 【42†Drama & Dance】
+L64:         * 【43†English & Language Arts】
+L65:         * 【44†Mathematics】
+L66:         * 【45†Modern Languages】
+L67:         * 【46†Music】
+L68:         * 【47†Physical Education & Athletics】
+L69:         * 【48†Social Studies】
+L70:         * 【49†Science】
+L71:         * 【50†STEAM】
+L72:         * 【51†Special Programs】
+L73: 
+L74:     * 【52†Upper School】
+L75: 
+L76:       * 【53†Curriculum Guide】
+L77:         * 【53†Program of Study】
+L78:         * 【54†Classics】
+L79:         * 【55†Computer Science】
+L80:         * 【56†Drama and Dance】
+L81:         * 【57†English】
+L82:         * 【58†History & Social Science】
+L83:         * 【59†Mathematics】
+L84:         * 【60†Modern Languages】
+L85:         * 【61†Music】
+L86:         * 【62†Physical Education & Athletics】
+L87:         * 【63†Science】
+L88:         * 【64†STEAM】
+L89:         * 【65†Visual Arts】
+L90: 
+L91:     * 【66†College Counseling】
+L92:     * 【67†Student Support】
+L93:     * 【68†Library】
+L94: 
+L95:       * 【69†Digital Resources】
+L96:     * 【70†Educational Technology】
+L97:     * 【71†After School】
+L98:     * 【72†Summer Programs】
+L99: 
+L100:       * 【73†Summer Session】
+L101:       * 【74†Wildcat Mini-Camps】
+L102:       * 【75†June Sports Camps】
+L103:       * 【76†June Strength & Conditioning Camps】
+L104:       * 【77†ACTION】
+L105:       * 【78†RCDS Summer Camps】
+L106:       * 【79†RCDS Youth Football Camp】
+L107:       * 【80†RCDS Girls' Volleyball Camp】
+L108:       * 【81†RCDS Boys' Lacrosse Camp】
+L109: 
+L110:   * 【82†Living Our Mission】
+L111:     * 【82†Overview of Signature Programs】
+L112:     * 【83†Diversity, Equity, Inclusion, and Belonging】
+L113: 
+L114:       * 【84†Anti-Racism at RCDS】
+L115: 
+L116:     * 【85†Public Purpose】
+L117: 
+L118:       * 【86†Community Engagement Fellowship Program】
+L119: 
+L120:     * 【87†Sustainability】
+L121:     * 【88†Global Studies】
+L122:     * 【89†The Center for Innovative Teaching & Learning】
+L123: 
+L124:       * 【90†Research & Innovation Grants】
+L125:       * 【91†Cohen Fellowship】
+L126:       * 【92†Professional Learning Cohorts】
+L127: 
+L128:     * 【93†STEAM】
+L129: 
+L130:       * 【94†Makerspace】
+L131:       * 【95†STEAM Social】
+L132:     * 【96†Health & Wellness】
+L133:     * 【70†Educational Technology】
+L134: 
+L135:   * 【97†Arts】
+L136: 
+L137:     * 【97†Overview】
+L138:     * 【98†Drama & Dance】
+L139: 
+L140:       * 【99†Cedar Street Dance Company】
+L141: 
+L142:     * 【100†Visual Arts】
+L143: 
+L144:       * 【101†Art Week 2026】
+L145: 
+L146:     * 【102†Music】
+L147: 
+L148:       * 【103†Private Lesson Program】
+L149: 
+L150:   * 【104†Athletics】
+L151:     * 【104†Overview】
+L152:     * 【105†Team Schedules】
+L153:     * 【106†Coach Directory】
+L154:     * 【10†Wildcat Central】
+L155:     * 【107†Livestream(opens in new window/tab)】
+L156:     * 【108†Athletics News】
+L157:     * 【109†Athletic Training & Fitness】
+L158:     * 【110†Sports Clinics】
+L159:     * 【111†Wildcat Squash】
+L160:     * 【112†Order Athletics & P.E. Attire】
+L161: 
+L162:   * 【113†Admissions】
+L163: 
+L164:     * 【113†Welcome to Admissions】
+L165:     * 【114†Admissions Process】
+L166:     * 【115†Tuition & Financial Aid】
+L167: 
+L168:       * 【116†Financial Aid Process】
+L169:     * 【117†Upcoming Events】
+L170:     * 【118†Open House】
+L171:     * 【119†Meet Our Admissions Ambassadors】
+L172:     * 【120†Walk with a Wildcat Tour】
+L173:     * 【121†FAQ】
+L174:     * 【122†Transportation & Directions】
+L175: 
+L176:   * 【123†Giving】
+L177: 
+L178:     * 【123†Why Give】
+L179:     * 【124†Ways to Give】
+L180:     * 【11†Make a Gift】
+L181:     * 【125†Matching Gifts】
+L182:     * 【126†Meet the Advancement Office】
+L183:     * 【127†2026-27 Annual Giving Challenge】
+L184: 
+L185:   * 【26†Contact Us】
+L186:   * 【22†News】
+L187:   * 【128†Parents】
+L188:   * 【129†Alumni】
+L189: A Pre-Kindergarten - Grade 12 coeducational independent day school in Westchester County, New York
+L190: 
+L191: A Pre-Kindergarten - Grade 12 coeducational independent day school in Westchester County, New York
+L192: 
+L193:   * 【26†Contact Us】
+L194:   * 【22†News】
+L195:   * 【128†Parents】
+L196:     * 【130†Family Portal(opens in new window/tab)†portals.veracross.com】
+L197:     * 【131†New Family Portal(opens in new window/tab)†portals.veracross.com】
+L198:     * 【132†Family Directory†portals.veracross.com】
+L199:     * 【128†Parents Association】
+L200:     * 【133†School Events Calendar†portals.veracross.com】
+L201: 
+L202:   * 【129†Alumni】
+L203: 
+L204:     * 【129†Welcome】
+L205:     * 【134†Events】
+L206:     * 【135†Wildcat Weekend & Reunion】
+L207:     * 【136†Volunteer Opportunities】
+L208:     * 【137†Alumni Internships】
+L209:     * 【138†Alumni News】
+L210:     * 【11†Make a Gift】
+L211:   * 【2†Quicklinks】
+L212: 
+L213:     * 【3†Family Portal†accounts.veracross.com】
+L214:     * 【4†Employee Directory】
+L215:     * 【5†Lunch Menus†rcds.flikisdining.com】
+L216:     * 【6†E-Notes(opens in new window/tab)†portals.veracross.com】
+L217:     * 【7†Summer Assignments†portals.veracross.com】
+L218:     * 【8†Upper School Virtual Bookstore (opens in new window/tab)†portals.veracross.com】
+L219:     * 【9†Wildcat Den】
+L220:     * 【10†Wildcat Central】
+L221:     * 【11†Make a Gift】
+L222:     * 【12†Report a Complaint】
+L223: 
+L224: Search
+L225: 
+L226: Menu
+L227: 
+L228: 【139†Rye Country Day School】
+L229: 
+L230:   * 【13†About】
+L231: ## Related Links
+L232: 
+L233: 【140†State of the School】
+L234: 【141†Applying to RCDS】
+L235: 【142†Virtual Campus Tour†circlescapes.biz】
+L236: 
+L237: 
+L238:     * 【13†Welcome & Fast Facts】
+L239:     * 【14†Mission】
+L240:     * 【15†Portraits of Our Impact】
+L241:     * 【16†Head of School】
+L242:     * 【17†Head of School Search】
+L243:     * 【18†School Leadership Team】
+L244:     * 【19†Strategic Plan】
+L245:     * 【20†Campus Master Plan】
+L246:     * 【21†History】
+L247:     * 【22†News】
+L248:     * 【4†Employee Directory】
+L249:     * 【23†Careers at RCDS】
+L250:     * 【25†Calendar】
+L251:     * 【26†Contact Us】
+L252: 
+L253:   * 【27†Academics】
+L254: ## Related Links
+L255: 
+L256: 【143†Signature Programs】
+L257: 【144†Arts】
+L258: 【145†Athletics】
+L259: 
+L260: 
+L261:     * 【27†Overview】
+L262:     * 【28†Lower School】
+L263:     * 【36†Middle School】
+L264:     * 【52†Upper School】
+L265:     * 【66†College Counseling】
+L266:     * 【67†Student Support】
+L267:     * 【68†Library】
+L268:     * 【70†Educational Technology】
+L269:     * 【71†After School】
+L270:     * 【72†Summer Programs】
+L271: 
+L272:   * 【82†Living Our Mission】
+L273: ## Related Links
+L274: 
+L275: 【146†Community Engagement Fellowship Program】
+L276: 【147†Research & Innovation Grants】
+L277: 【148†Cohen Fellowship】
+L278: 【149†Professional Learning Cohort】
+L279: 
+L280:     * 【82†Overview of Signature Programs】
+L281:     * 【83†Diversity, Equity, Inclusion, and Belonging】
+L282:     * 【85†Public Purpose】
+L283:     * 【87†Sustainability】
+L284:     * 【88†Global Studies】
+L285:     * 【89†The Center for Innovative Teaching & Learning】
+L286:     * 【93†STEAM】
+L287:     * 【96†Health & Wellness】
+L288:     * 【70†Educational Technology】
+L289: 
+L290:   * 【97†Arts】
+L291: ## Related Links
+L292: 
+L293: 【150†Academics】
+L294: 【145†Athletics】
+L295: 【143†Signature Programs】
+L296: 
+L297:     * 【97†Overview】
+L298:     * 【98†Drama & Dance】
+L299:     * 【100†Visual Arts】
+L300:     * 【102†Music】
+L301: 
+L302:   * 【104†Athletics】
+L303: ## Related Links
+L304: 
+L305: 【151†Livestream】
+L306: 【152†Championships】
+L307: 【153†Alumni Athletes】
+L308: 
+L309:     * 【104†Overview】
+L310:     * 【105†Team Schedules】
+L311:     * 【106†Coach Directory】
+L312:     * 【10†Wildcat Central】
+L313:     * 【107†Livestream(opens in new window/tab)】
+L314:     * 【108†Athletics News】
+L315:     * 【109†Athletic Training & Fitness】
+L316:     * 【110†Sports Clinics】
+L317:     * 【111†Wildcat Squash】
+L318:     * 【112†Order Athletics & P.E. Attire】
+L319: 
+L320:   * 【113†Admissions】
+L321: ## Related Links
+L322: 
+L323: 【154†Financial Aid Process】
+L324: 【155†Meet Our Admissions Ambassadors】
+L325: 【156†Virtual Campus Tour】
+L326: 
+L327:     * 【113†Welcome to Admissions】
+L328:     * 【114†Admissions Process】
+L329:     * 【115†Tuition & Financial Aid】
+L330:     * 【117†Upcoming Events】
+L331:     * 【118†Open House】
+L332:     * 【119†Meet Our Admissions Ambassadors】
+L333:     * 【120†Walk with a Wildcat Tour】
+L334:     * 【121†FAQ】
+L335:     * 【122†Transportation & Directions】
+L336: 
+L337:   * 【123†Giving】
+L338: ## Related Links
+L339: 
+L340: 【157†Mission】
+L341: 【158†Portraits of Our Impact】
+L342: 【159†Strategic Plan】
+L343: 
+L344:     * 【123†Why Give】
+L345:     * 【124†Ways to Give】
+L346:     * 【11†Make a Gift】
+L347:     * 【125†Matching Gifts】
+L348:     * 【126†Meet the Advancement Office】
+L349:     * 【127†2026-27 Annual Giving Challenge】
+L350: ## In This Section
+L351: 
+L352: Toggle
+L353: 
+L354:   * 【113†Welcome to Admissions】
+L355:   * 【114†Admissions Process】
+L356:   * 【115†Tuition & Financial Aid】
+L357: 
+L358:     * 【116†Financial Aid Process】
+L359: 
+L360:   * 【117†Upcoming Events】
+L361:   * 【118†Open House】
+L362:   * 【119†Meet Our Admissions Ambassadors】
+L363:   * 【120†Walk with a Wildcat Tour】
+L364:   * 【121†FAQ】
+L365:   * 【122†Transportation & Directions】
+L366: 
+L367: Search
+L368: 
+L369: Search
+L370: 
+L371: [Input: Tell us what you're looking for...] Clear
+L372: 
+L373: [Button: Search]
+L374: ## Useful Links
+L375: 
+L376:   * 【130†Family Portal†portals.veracross.com】
+L377:   * 【4†Employee Directory】
+L378:   * 【105†Team Schedules】
+L379:   * 【160†Careers at RCDS】
+L380:   * 【113†Admissions】
+L381:   * 【72†Summer Programs】
+L382:   * 【22†News & Publications】
+L383:   * 【123†Giving】
+L384: 
+L385: # Tuition & Financial Aid
+L386: 
+L387: ## Tuition for 2026-27
+L388: 
+L389: Pre-Kindergarten - Grade 4: $53,210
+L390: Grades 5-8: $55,540
+L391: Grades 9-12: $59,070
+L392: 
+L393: Lunch is included with tuition.
+L394: ## Estimated Fees for 2026-27
+L395: 
+L396: Over the course of the year, additional expenses do arise. In an effort to help families plan, here is an estimate of significant fees that may arise over the course of the school year. Please note: families who receive financial aid for tuition also receive aid at the same percentage as the student's financial aid grant.
+L397: 
+L398:   * 【161†Books & Instructional Materials】
+L399:   * 【162†Trips & Activities】
+L400:   * 【163†Required Equipment and Apparel】
+L401:   * 【164†Laptop】
+L402: ## 【161†Books & Instructional Materials】
+L403: 
+L404: Pre-Kindergarten - Grade 4: $450
+L405: Grade 5: $720
+L406: Grades 6-8: $775
+L407: Grades 9-12: as incurred
+L408: 
+L409: ## 【162†Trips & Activities】
+L410: 
+L411: Pre-Kindergarten - Grade 4: included with tuition
+L412: Grades 5-12: as incurred
+L413: 
+L414: ## 【163†Required Equipment and Apparel】
+L415: 
+L416: Physical Education and athletic equipment as needed
+L417: 
+L418: ## 【164†Laptop】
+L419: 
+L420: Students in Grades 9-12 are required to have a laptop. (Note: RCDS provides a laptop for students who receive financial aid.)
+L421: ## Affording an RCDS Education
+L422: 
+L423: Rye Country Day School's extensive financial aid program is core to who we are. The school grants approximately $8.1 million in need-based financial aid to approximately 15% of students.
+L424: RCDS offers financial aid to qualifying families with students entering Kindergarten through Grade 12. Please note, we do not offer financial aid for Pre-Kindergarten. Our financial aid program is need-based, which means the School does not offer academic, athletic, or merit-based scholarships of any kind. Financial aid is granted to families of qualified admissions candidates who demonstrate financial need.
+L425: The amount of financial aid each family receives is determined based on a third-party assessment of how much each family can reasonably be expected to contribute towards their children's education. Grants range from a partial to full (100% tuition and fees covered) depending on each family's need.
+L426: ## 【154†Learn More about the FINANCIAL AID PROCESS & View FAQ】
+L427: 
+L428: ## 【165†ACCESS FINANCIAL AID APPLICATION ON CLARITY WEBSITE†app.clarityapp.com】
+L429: ## Financial Aid Program Benefits and Supports
+L430: 
+L431: Below is a sample, but not an exhaustive list, of benefits and supports for families that receive financial aid. All items are billed at the same percentage as the family’s financial aid grant unless otherwise indicated. In order to preserve confidentiality, billing is sent from the Student Billing Manager through the RCDS Business Office.
+L432: ### All Students Who Receive Financial Aid
+L433: 
+L434:   * Academic books required for classes
+L435:   * Required summer reading books
+L436:   * The cost of curricular trips
+L437:   * Academic tutoring assistance
+L438:   * Additional support services
+L439:   * Voice and music lessons
+L440:   * RCDS mini camp or sports camp in June
+L441:   * RCDS sports clinic
+L442:   * Credit for book purchases at the Book Fair
+L443:   * Spirit wear credit to use online or in the Wildcat Den
+L444:   * School yearbook photography package
+L445:   * 【166†Lower School】
+L446:   * 【167†Middle School】
+L447:   * 【168†Upper School】
+L448:   * 【169†Parents/Guardians】
+L449: ## 【166†Lower School】
+L450: 
+L451:   * Extended Day program
+L452:   * After-School Clubs
+L453: 
+L454: ## 【167†Middle School】
+L455: 
+L456:   * Physical Education clothing set
+L457:   * Physical Education dance clothing and items
+L458:   * After school clubs
+L459:   * Classes in the RCDS Summer Session
+L460: ## 【168†Upper School】
+L461: 
+L462:   * Loaner laptop computer for students in Grades 9-12
+L463:   * Spring athletic training trips
+L464:   * Global Studies trip or Modern Languages Exchange trip
+L465:   * Concert Choir International Trip
+L466:   * Physical Education clothing set
+L467:   * Physical Education dance clothing and items
+L468:   * Athletic team items
+L469:   * Standardized testing preparation courses
+L470:   * Graphing calculator
+L471:   * AP Exam fee
+L472:   * Student Yearbook
+L473:   * Senior portrait sitting fee
+L474:   * Prom tickets
+L475:   * Classes in the RCDS Summer Session
+L476: ## 【169†Parents/Guardians】
+L477: 
+L478:   * Fall Parents Association Luncheon tickets
+L479:   * Waived Parents Association dues
+L480:   * MS/US play and musical tickets
+L481:   * Spring Benefit tickets
+L482:   * Additional Parents Association Events
+L483: ### Why is the financial aid program so important to RCDS?
+L484:   1. We believe that a socio-economically diverse student-body is a hallmark of a Rye Country Day School education that directly benefits all students.
+L485: 
+L486:   2. We believe that a child's access to enroll at Rye Country Day School should not be determined on the basis of a family's ability to pay tuition.
+L487:   3. Our promise to support and care for every student and family in our school extends to issues around financial aid, which includes but is not limited to tuition grants. We ensure that students who receive financial aid are able to participate fully in the life of the school.
+L488: RCDS is fortunate to have the support of alumni, parents, and benefactors who believe in the critical importance of a robust financial aid program. As a result, the school has built an endowment of approximately $99 million. In addition, the School takes in roughly $5-6 million each year in annual fund contributions. Tuition derived income covers a majority of the School's operating expenses.
+L489: The funding derived through annual giving and from interest earned on the endowment closes the gap between the tuition-derived income and the full cost of operating the school.
+L490: 【170†Image】
+L491: ### 15% of the RCDS student body receives need-based financial aid.
+L492: 
+L493: 【171†Image】
+L494: 
+L495: ### Financial aid grants total $8.1 million.
+L496: 
+L497: 【172†Image】
+L498: 
+L499: ### Financial aid grants support full participation in the school, not just tuition.
+L500: 
+L501: Already started your application? Click here to access your account.
+L502: 
+L503: 【173†ACCESS APPLICATION PORTAL†portals.veracross.com】
+L504: 
+L505: Sign up for the monthly newsletter to receive application reminders, upcoming event dates, and school news.
+L506: 
+L507: 【174†Subscribe†eepurl.com】
+L508: ## Explore the RCDS Viewbook - Your Ultimate Guide to Life as a Wildcat!
+L509: 
+L510: 【175†EXPLORE THE RCDS VIEWBOOK NOW】
+L511: ## How to Apply for Financial Aid
+L512: 
+L513: Please indicate on your application for admission that you are interested in applying for financial aid. Email feewaiver@ryecountryday.org to receive a code to waive the admissions application fee.
+L514: 
+L515: 
+L516: 
+L517: To apply for financial aid, we ask that parents/guardians 【165†complete a financial aid application through Clarity†app.clarityapp.com】, an external organization that assists with determining families' financial need.
+L518: Please note: The financial aid process and the admissions process are separate. You will receive notification at the same time of both the admissions decision and your family's financial aid grant.
+L519: 
+L520: 
+L521: 
+L522: 【154†Learn More About the Financial Aid Process & View FAQ】
+L523: 
+L524: Back to Top
+L525: 
+L526: Rye Country Day School
+L527: 
+L528: 3 Cedar Street, Rye, NY 10580
+L529: 
+L530: Phone: (914) 967-1417
+L531: ## Connect With Us
+L532: 
+L533: 【176†Contact Us】 / 【177†Directions】
+L534: 
+L535:   * 【178†Facebook(opens in new window/tab)†www.facebook.com】
+L536:   * 【179†Instagram(opens in new window/tab)†www.instagram.com】
+L537:   * 【180†LinkedIn(opens in new window/tab)†www.linkedin.com】
+L538: ## Helpful Links
+L539: 
+L540:   * 【23†Careers】
+L541:   * 【11†Give to RCDS】
+L542:   * 【4†Employee Directory】
+L543:   * 【181†Privacy Policy】
+L544: NOTICE OF NONDISCRIMINATORY POLICY: Rye Country Day School seeks diversity in all aspects of school life. The School admits students of any race, color, religion, disability, gender identity, sexual orientation, national and ethnic origin to all the rights, privileges, programs, and activities generally accorded or made available to students at the school.
+L545: It does not discriminate on the basis of race, color, religion, disability, gender identity, sexual orientation, national and ethnic origin in administration of its educational policies, admissions policies, scholarship and loan programs, and athletic and other school-administered programs.
+

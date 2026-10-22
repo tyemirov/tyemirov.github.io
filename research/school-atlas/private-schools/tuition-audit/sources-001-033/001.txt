@@ -1,0 +1,81 @@
+Tuition and Financial Aid (https://www.andover.edu/admission/tuition-and-financial-aid)
+【turn231028view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.andover.edu/admission/tuition-and-financial-aid","lineno":null}); Total lines: 78
+L0: 【0†iframe†www.googletagmanager.com】
+L1: 
+L2: [Input: What are you looking for?] [Input]
+L3: 
+L4: #### Trending Searches
+L5: 
+L6: 【1†Summer Session】 【2†2025-2026 Academic Calendar†d2e3a5v56wj8r4.cloudfront.net】 Course of Study 【3†Head of School】 【4†Tuition & Financial Aid】
+L7: 
+L8: 【5†Image†dnp66slh8w5c0.cloudfront.net】
+L9: # Tuition and Financial Aid
+L10: 
+L11: Phillips Academy was founded on the idea that an Andover education should be—must be—open and accessible to “youth of requisite qualifications from every quarter.” True to our constitution, we’re one of the few independent schools in the country to admit students regardless of financial need; the official term for this is “need-blind admission.”
+L12: We’re also one of the few independent schools to meet 100 percent of each student’s demonstrated financial need—and we meet that need with grants (essentially scholarships), not loans.
+L13: 
+L14: We admit students because of their achievement, talent, character, and promise—and then we make sure they’re fully supported.
+L15: The need-blind admission initiative is the single most distinctive feature that Phillips Academy is recognized for around the world. Learn about the progressive policy and how it came to be a decade ago.
+L16: #### Financial Aid Requirements
+L17: 
+L18: Families apply for financial aid at the same time students submit applications for admission. Make sure you understand the application requirements and necessary documents.
+L19: 
+L20: 【6†Learn More】
+L21: 
+L22: 【7†iframe†w.soundcloud.com】
+L23: 
+L24: Assistant Head of School for Admission and Financial Aid Jim Ventre ’79 discuss 10 years of need-blind admission and what types of students Andover is hoping to attract.
+L25: 
+L26: 100%
+L27: 
+L28: of demonstrated financial need met
+L29: 
+L30: 47%
+L31: 
+L32: of students receive financial aid
+L33: Average annual grant for returning students is
+L34: 
+L35: $45,000
+L36: #### 2026-2027 Tuition
+L37: 
+L38: Boarding
+L39: $79,800
+L40: 
+L41: Day
+L42: $63,840
+L43: ##### Fees for the Application and Standardized Test
+L44: 
+L45: An application fee of $60 ($125 for international students) is required with the Preliminary Application (Form 1).
+L46: Students applying must submit standardized test scores and should submit test results according to the grade to which they are applying. Registration for these tests is handled through the respective testing agencies. Please note: Late registration charges, which are substantial, are not covered by the fee waiver. It is important to refer to the student guides for the SSAT or ISEE to determine the test dates, times, and sites in your area and to encourage the student to meet the stated deadlines.
+L47: All financial aid scholarships are awarded through the generosity of alumni, parents, and friends of the Academy and are guaranteed through endowed scholarship funds.
+L48: ## Keep Exploring
+L49: 
+L50: 【6†Financial Aid Requirements】 【8†Image: Parents in Chapel†dnp66slh8w5c0.cloudfront.net】
+L51: 
+L52: Parents & Guardians
+L53: 
+L54: 【9†Living at Andover】 【10†Learning at Andover】
+L55: ## Take Action...
+L56: 
+L57: 【11†Visit】 【12†Apply】 【13†Give†www.givecampus.com】
+L58: 
+L59: Founded in 1778, Phillips Academy is an independent, coeducational secondary school with an expansive worldview and a legacy of academic excellence.
+L60: 
+L61: 180 Main Street, Andover
+L62: 
+L63: Massachusetts 01810
+L64: 
+L65: (978) 749-4000
+L66: 
+L67: 【14†Employment】
+L68: 
+L69: 【15†Tang Institute†tanginstitute.andover.edu】
+L70: 
+L71: 【16†Addison Gallery†addison.andover.edu】
+L72: 
+L73: 【17†Contact Us】
+L74: 
+L75: 【18†Privacy Policy】
+L76: 
+L77: 【19†Terms of Use】
+

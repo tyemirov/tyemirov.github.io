@@ -1,0 +1,59 @@
+{
+  "source_year": 2024,
+  "population": "U.S. consumer units with exactly three people",
+  "currency": "USD, nominal 2024 dollars",
+  "status": "published national estimate; not a household-specific budget",
+  "source_total_annual_expenditures_usd": 92205,
+  "excluded_for_school_comparison": {
+    "education_usd": 2585,
+    "personal_insurance_and_pensions_usd": 13302,
+    "cash_contributions_usd": 1992
+  },
+  "home_spending_excluding_school_costs_transfers_and_personal_insurance_pensions_usd": 74326,
+  "shelter_usd": 17555,
+  "utilities_fuels_and_public_services_usd": 5573,
+  "hud_allowance_utility_proxy_usd": 3815,
+  "hud_allowance_utility_components_usd": {
+    "natural_gas": 571,
+    "electricity": 2137,
+    "fuel_oil_and_other_fuels": 135,
+    "water_and_other_public_services": 972
+  },
+  "telephone_services_retained_usd": 1758,
+  "day_school_non_shelter_household_spend_usd": 52956,
+  "boarding_school_travel_annual_usd": null,
+  "boarding_school_travel_note": "Cannot be estimated from a national spending table without the family's origin and travel frequency. Collect an editable household estimate; null means unknown, not zero.",
+  "calculation": {
+    "home_spend": "92205 - 2585 - 13302 - 1992 = 74326",
+    "day_school_non_shelter_spend": "74326 - 17555 - 3815 = 52956",
+    "hud_allowance_utility_proxy": "571 + 2137 + 135 + 972 = 3815"
+  },
+  "caveats": [
+    "The three-person group is not limited to two adults and one child.",
+    "Shelter is a published national average across owners and renters, not a three-bedroom rental quote.",
+    "The BLS utilities category includes phone charges; HUD utility allowances do not cover telephone service, so the $1,758 phone component remains in the day-school residual.",
+    "The residual retains health and vehicle insurance and out-of-pocket healthcare, while the broader personal insurance and pensions category is excluded per model contract.",
+    "Boarding-school travel is excluded pending a household-specific input."
+  ],
+  "sources": [
+    {
+      "title": "BLS Consumer Expenditure Survey 2024 Size of Consumer Unit table",
+      "url": "https://www.bls.gov/cex/tables/calendar-year/mean-item-share-average-standard-error/cu-size-2024.xlsx",
+      "notes": "Primary BLS workbook for the three-person annual expenditure values."
+    },
+    {
+      "title": "Federal Reserve Bank of St. Louis FRED, BLS-sourced 2024 three-person expenditure table",
+      "url": "https://fred.stlouisfed.org/release/tables?eid=1215839&rid=479",
+      "notes": "Accessible table rendering used to inspect item-level values; table identifies Consumer Expenditure Surveys as source."
+    },
+    {
+      "title": "BLS Consumer Expenditure Survey glossary: utilities and shelter definitions",
+      "url": "https://www.bls.gov/cex/csxgloss.htm"
+    },
+    {
+      "title": "HUD Utility Allowances and Resources",
+      "url": "https://www.hud.gov/helping-americans/public-housing-energy-branch-util",
+      "notes": "Lists electricity, natural gas, propane, fuel oil, water/sewer, and garbage; states allowances are not provided for telephone service."
+    }
+  ]
+}

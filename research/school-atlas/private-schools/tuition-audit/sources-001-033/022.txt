@@ -1,0 +1,312 @@
+Tuition & Financial Aid - St. Andrew's School - Delaware (https://www.standrews-de.org/admission/tuition-financial-aid)
+【turn489358view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.standrews-de.org/admission/tuition-financial-aid","lineno":null}); Total lines: 309
+L0: 【0†iframe†www.googletagmanager.com】 【1†iframe†www.googletagmanager.com】 【2†Skip To Main Content】
+L1: 
+L2: ## mobile-menu
+L3: 
+L4: ## mobile-top-container
+L5: 
+L6: ## menu-trigger-container
+L7: 
+L8: Close Menu
+L9: 
+L10: ## mobile-search
+L11: 
+L12: Search
+L13: 
+L14: [Input: Search...] Clear
+L15: 
+L16: [Button: Search]
+L17: 
+L18: ## cta-nav
+L19: 
+L20:   * 【3†Inquire】
+L21:   * 【4†Apply】
+L22:   * 【5†Give】
+L23: ## mobile-main-nav
+L24: 
+L25:   * 【6†About Us】
+L26: 
+L27:     * 【6†About Us】
+L28:     * 【7†Inclusion & Belonging】
+L29:     * 【8†Board of Trustees】
+L30:     * 【9†Faculty & Staff Directory】
+L31:     * 【10†Career Opportunities】
+L32:     * 【11†Meet Our Graduates】
+L33:     * 【12†School Store(opens in new window/tab)†store.standrews-de.org】
+L34:     * 【13†News & Events】
+L35: 
+L36:   * 【14†Admission】
+L37:     * 【14†Admission】
+L38:     * 【3†Inquire】
+L39:     * 【4†How to Apply】
+L40:     * 【15†Tours & Interviews】
+L41:     * 【16†10th & 11th Grade Admission】
+L42:     * 【17†Tuition & Financial Aid】
+L43:     * 【18†For International Applicants】
+L44:     * 【19†Fairs & Events】
+L45: 
+L46:   * 【20†Academics】
+L47: 
+L48:     * 【20†Academics】
+L49:     * 【21†Academic Course Catalog】
+L50:       * 【22†English Course Offerings】
+L51:       * 【23†Science Course Offerings】
+L52:       * 【24†Mathematics Course Offerings】
+L53:       * 【25†History Course Offerings】
+L54:       * 【26†Classical & Modern Language Course Offerings】
+L55:       * 【27†Arts Course Offerings】
+L56:       * 【28†Religion & Philosophy Course Offerings】
+L57: 
+L58:     * 【29†Academic Support】
+L59:     * 【30†Library & Tech】
+L60:     * 【31†College Counseling】
+L61: 
+L62:       * 【32†Standardized Testing】
+L63: 
+L64:   * 【33†Boarding Life】
+L65:     * 【33†Boarding Life】
+L66:     * 【34†Dorms, Advisors, and "Bigs"】
+L67:     * 【35†Dining】
+L68:     * 【36†Chapel】
+L69:     * 【37†Community Service】
+L70:     * 【38†Health & Wellness】
+L71:     * 【39†Social Life & Weekends】
+L72: 
+L73:   * 【40†Arts & Athletics】
+L74: 
+L75:     * 【40†Arts & Athletics】
+L76:     * 【41†Athletics】
+L77:     * 【42†Music】
+L78:     * 【43†Photo, Film, & Studio Arts】
+L79:     * 【44†Theatre & Dance】
+L80: 
+L81:   * 【45†Support SAS】
+L82:     * 【45†Support SAS】
+L83:     * 【5†Make a Gift】
+L84:     * 【46†Ways to Give】
+L85:     * 【47†1929 Leadership Society】
+L86:     * 【48†Planned Giving(opens in new window/tab)†standrews.planmylegacy.org】
+L87:     * 【49†Have I Given?】
+L88:     * 【50†Alumni & Fundraising Team】
+L89: ## mobile-header-portals-nav
+L90: 
+L91:   * 【51†Parents】
+L92:   * 【52†Alumni】
+L93:   * 【13†News】
+L94:   * 【53†Events】
+L95: 
+L96: ## header-container
+L97: 
+L98: ## logo-container
+L99: 
+L100: ## logo-image
+L101: 
+L102: ## logo-title
+L103: 
+L104: 【54†St. Andrew's School】
+L105: 
+L106: ## right-container
+L107: 
+L108: ## right-top-container
+L109: 
+L110: ## cta-nav
+L111: 
+L112:   * 【3†Inquire】
+L113:   * 【4†Apply】
+L114:   * 【5†Give】
+L115: 
+L116: ## header-portals-nav
+L117: 
+L118:   * 【51†Parents】
+L119:   * 【52†Alumni】
+L120:   * 【13†News】
+L121:   * 【53†Events】
+L122: 
+L123: ## site-search
+L124: 
+L125: Search
+L126: 
+L127: [Input: Search...] Clear
+L128: 
+L129: [Button: Search]
+L130: 
+L131: ## menu-trigger-container
+L132: 
+L133: Open Menu
+L134: 
+L135: ## right-bottom-container
+L136: ## nav-main
+L137: 
+L138:   * 【6†About Us】
+L139: 
+L140:     * 【6†About Us】
+L141:     * 【7†Inclusion & Belonging】
+L142:     * 【8†Board of Trustees】
+L143:     * 【9†Faculty & Staff Directory】
+L144:     * 【10†Career Opportunities】
+L145:     * 【11†Meet Our Graduates】
+L146:     * 【12†School Store(opens in new window/tab)†store.standrews-de.org】
+L147:     * 【13†News & Events】
+L148: 
+L149:   * 【14†Admission】
+L150:     * 【14†Admission】
+L151:     * 【3†Inquire】
+L152:     * 【4†How to Apply】
+L153:     * 【15†Tours & Interviews】
+L154:     * 【16†10th & 11th Grade Admission】
+L155:     * 【17†Tuition & Financial Aid】
+L156:     * 【18†For International Applicants】
+L157:     * 【19†Fairs & Events】
+L158: 
+L159:   * 【20†Academics】
+L160: 
+L161:     * 【20†Academics】
+L162:     * 【21†Academic Course Catalog】
+L163:       * 【22†English Course Offerings】
+L164:       * 【23†Science Course Offerings】
+L165:       * 【24†Mathematics Course Offerings】
+L166:       * 【25†History Course Offerings】
+L167:       * 【26†Classical & Modern Language Course Offerings】
+L168:       * 【27†Arts Course Offerings】
+L169:       * 【28†Religion & Philosophy Course Offerings】
+L170: 
+L171:     * 【29†Academic Support】
+L172:     * 【30†Library & Tech】
+L173:     * 【31†College Counseling】
+L174: 
+L175:       * 【32†Standardized Testing】
+L176: 
+L177:   * 【33†Boarding Life】
+L178:     * 【33†Boarding Life】
+L179:     * 【34†Dorms, Advisors, and "Bigs"】
+L180:     * 【35†Dining】
+L181:     * 【36†Chapel】
+L182:     * 【37†Community Service】
+L183:     * 【38†Health & Wellness】
+L184:     * 【39†Social Life & Weekends】
+L185: 
+L186:   * 【40†Arts & Athletics】
+L187: 
+L188:     * 【40†Arts & Athletics】
+L189:     * 【41†Athletics】
+L190:     * 【42†Music】
+L191:     * 【43†Photo, Film, & Studio Arts】
+L192:     * 【44†Theatre & Dance】
+L193: 
+L194:   * 【45†Support SAS】
+L195:     * 【45†Support SAS】
+L196:     * 【5†Make a Gift】
+L197:     * 【46†Ways to Give】
+L198:     * 【47†1929 Leadership Society】
+L199:     * 【48†Planned Giving(opens in new window/tab)†standrews.planmylegacy.org】
+L200:     * 【49†Have I Given?】
+L201:     * 【50†Alumni & Fundraising Team】
+L202: ## Horizontal Nav
+L203: 
+L204:   * 【14†Admission】
+L205:   * 【3†Inquire】
+L206:   * 【4†How to Apply】
+L207:   * 【15†Tours & Interviews】
+L208:   * 【16†10th & 11th Grade Admission】
+L209:   * 【17†Tuition & Financial Aid】
+L210:   * 【18†For International Applicants】
+L211:   * 【19†Fairs & Events】
+L212: 
+L213: ## In This Section
+L214: 
+L215:   * 【14†Admission】
+L216:   * 【3†Inquire】
+L217:   * 【4†How to Apply】
+L218:   * 【15†Tours & Interviews】
+L219:   * 【16†10th & 11th Grade Admission】
+L220:   * 【17†Tuition & Financial Aid】
+L221:   * 【18†For International Applicants】
+L222:   * 【19†Fairs & Events】
+L223: ## Breadcrumb
+L224: 
+L225:   * 【54†Home】 /
+L226:   * 【14†Admission】 /
+L227:   * Tuition & Financial Aid
+L228: # Tuition & Financial Aid
+L229: 
+L230: St. Andrew’s is affordable to all students who are qualified for admission, regardless of how much they can pay.
+L231: In 1929, our founder envisioned a different kind of boarding school—a school with the highest aspirations and standards, open to the hardest-working, most promising students, regardless of their family's ability to pay. We meet 100% of a family's demonstrated financial need for all admitted students.
+L232: Our financial aid program and commitment to socioeconomic diversity is the core of who we are: socioeconomic diversity drives our mission, our community, and our culture of inclusion, joy, and authentic human connection. We believe in something bigger than ourselves.
+L233: Contact us with your financial aid questions any time at finaid@standrews-de.org ( finaid@standrews-de.org).
+L234: #### NEW: All families with a combined household income under $150,000 may attend St. Andrew's free of cost.* 【55†Learn more about this initiative.】
+L235: 
+L236: ^{*Your verified financial aid application must reflect an asset profile consistent with your $150,000 income and the student must be offered admission in order to qualify.}
+L237: 
+L238: ### Tuition for 2026-2027: $78,500
+L239: ### How to Apply for Financial Aid
+L240: Prospective families must submit their application for financial aid through 【56†Clarity†auth.clarityapp.com】, an online tool that collects information and estimates the amount your family can afford. Once completed, Clarity will send your application to St. Andrew's where the financial aid team will review it and determine your grant if you qualify for need-based financial aid. Financial aid grants will be included with your offer of admission or with your re-enrollment contract each year.
+L241: If you decide to apply for aid, please carefully review our 【57†financial aid FAQs, policies, and guidelines】.
+L242: Clarity opens each year in August for the following year's enrollment. To begin your financial aid application, please follow these steps:
+L243: 
+L244:   1. Visit the 【56†Clarity Portal†auth.clarityapp.com】.
+L245: If you are a first-time user, you will need to create an account. If you applied for financial aid in the previous school year, login as a returning family using your prior credentials.
+L246: 
+L247: 
+L248:   2. Begin your application.
+L249: You can log out at any time and return later to complete the form.
+L250:   3. Complete and submit your application to "St. Andrew's School (DE)."
+L251: Ensure that you add St. Andrew's School (DE) as a recipient when submitting. Please note that there are several schools with St. Andrew's in the name, and we will only receive applications sent to St. Andrew's School (DE). Our Clarity code is 8579.
+L252: 
+L253: 
+L254:   4. Authorize release of tax information and provide supporting documentation, if requested:
+L255:   * US taxpayers will be prompted to complete the Clarity Enhanced Tax Verification (ETV) process to release your W2 and personal tax return transcripts from the IRS. This is a one-time security measure required by the IRS to protect against identity theft and the compromise of personal information.
+L256:   * Depending on the nature of your income and assets, you may be prompted to provide additional documentation, such as business tax returns, account statements, etc. These documents will be requested and uploaded through the Clarity Portal.
+L257: 
+L258:   * If you do not reside in the USA or file a US tax return, or if you are a single parent with no contact with the child’s biological second parent, we will contact you for further information and documentation.
+L259:   * Your family's financial aid award is contingent on the submission and verification of all materials above. The financial aid committee will contact you if more information is required.
+L260: ### Questions?
+L261: 
+L262: If you have any questions about the Clarity application, you can email support@clarityapp.com or visit the helpful 【58†Learn†help.clarityapp.com】 section of the Clarity website for detailed self-help information.
+L263: 
+L264: If you have general questions about financial aid, or would like to discuss your situation with a member of the St. Andrew's financial aid committee, email us at finaid@standrews-de.org.
+L265: ### Application Fee Waiver Request
+L266: 
+L267: Fee waivers are available for families who have completed an inquiry form and whose income is less than $150,000. If you meet this criteria and would like to request an application fee waiver, 【59†please complete this form】.
+L268: ### Timeline
+L269: 
+L270: Financial aid decisions and award letters are mailed with student enrollment contracts. If your child’s financial aid application is not complete by January 15, and we have not heard from you regarding a request for an extension, both funding and your child’s space at St. Andrew’s may be at risk.
+L271: ##### For new students:
+L272:   * January 15: Financial Aid applications and supporting documents are due.
+L273:   * March 10: Admission and financial aid decision letters are sent.
+L274:   * April 10: Enrollment contract and deposit is due. (This must be completed in order to reserve your student's space and accept your aid package.)
+L275:   * May 15: Tax returns for the prior year are due. If your returns reflect a significant difference from the information shared in your financial aid application, your award may be subject to change.
+L276: ##### For returning students:
+L277:   * December 1: Financial Aid applications and supporting documents are due.
+L278:   * Mid-February: Re-enrollment contracts and financial aid decisions are sent.
+L279:   * First Week of March: To confirm re-enrollment at St. Andrew's, parents must return the signed enrollment contract and deposit.
+L280:   * May 15: Tax returns for the prior year are due. If your returns reflect a significant difference from the information shared in your financial aid application, your award may be subject to change.
+L281: As always, please e-mail (finaid@standrews-de.org) or call the Admission Office (302-285-4231) with any questions.
+L282: ## footer-container
+L283: 
+L284: ## footer-location
+L285: 
+L286: St. Andrew's School
+L287: 
+L288: Grades 9-12
+L289: 
+L290: 302-378-9511
+L291: 
+L292: 【60†350 Noxontown Road Middletown DE 19709†www.google.com】
+L293: 
+L294: ## footer-quicklinks-nav
+L295: 
+L296:   * 【9†Contact Us】
+L297:   * 【12†School Store(opens in new window/tab)†store.standrews-de.org】
+L298: ## nav-social
+L299: 
+L300:   * 【61†Facebook(opens in new window/tab)†www.facebook.com】
+L301:   * 【62†Instagram(opens in new window/tab)†www.instagram.com】
+L302:   * 【63†LinkedIn(opens in new window/tab)†www.linkedin.com】
+L303:   * 【64†YouTube(opens in new window/tab)†www.youtube.com】
+L304: 
+L305: ## footer-utility-links
+L306: 
+L307:   * 【65†Privacy Policy】
+L308:   * 【66†Site Map】
+

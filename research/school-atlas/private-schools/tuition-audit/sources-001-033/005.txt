@@ -1,0 +1,425 @@
+Tuition and Financial Aid at Choate Rosemary Hall (https://www.choate.edu/admission/tuition-and-financial-aid)
+【turn237318view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.choate.edu/admission/tuition-and-financial-aid","lineno":null}); Total lines: 422
+L0: 【0†iframe†www.googletagmanager.com】 【1†Skip To Main Content】
+L1: 
+L2: Close menu
+L3: 
+L4: Search
+L5: 
+L6: [Input: Discover your path at Choate...] Clear
+L7: 
+L8: [Button: Search]
+L9: ## Weglot (DO NOT TOUCH)
+L10: 
+L11:   * 【2†Login】
+L12:   * 【3†Summer】
+L13:   * 【4†Giving】
+L14:   * 【5†Alumni】
+L15: 
+L16:   * 【6†About】
+L17: 
+L18:     * 【7†Mission and Core Documents】
+L19: 
+L20:       * 【8†Statement of Expectations】
+L21:       * 【9†Statement of Character】
+L22:       * 【10†Central Qualities of a Choate Education】
+L23:       * 【11†Institutional Statement on Diversity, Equity and Inclusion】
+L24:       * 【12†Institutional Statement on Sustainability】
+L25: 
+L26:     * 【13†School Leadership】
+L27:     * 【14†History】
+L28:     * 【15†Strategic Plan】
+L29:     * 【12†Sustainability】
+L30:       * 【16†Sustainability in the Curriculum】
+L31:       * 【17†Sustainability in Student Life】
+L32:       * 【18†Sustainability in School Operations】
+L33:       * 【19†Kohler Environmental Center】
+L34: 
+L35:     * 【20†Equity and Inclusion】
+L36:     * 【21†Technology】
+L37:     * 【22†Visitors】
+L38:     * 【23†Choate in Wallingford】
+L39:     * 【24†Employment】
+L40:     * 【25†Directory】
+L41: 
+L42:   * 【26†Admission】
+L43: 
+L44:     * 【27†Admission Process】
+L45:     * 【28†Tuition and Financial Aid】
+L46: 
+L47:       * 【29†Scholar Programs】
+L48:       * 【30†Tuition & Financial Aid FAQ】
+L49:     * 【31†Campus Tour】
+L50:     * 【32†Frequently Asked Questions】
+L51:     * 【33†Meet the Admission Team】
+L52:     * 【34†Admission Calendar】
+L53: 
+L54:   * 【35†Academics】
+L55: 
+L56:     * 【36†Curriculum】
+L57: 
+L58:       * 【37†Arts】
+L59:       * 【38†English】
+L60:       * 【39†History, Philosophy, Religion, and Social Sciences】
+L61:       * 【40†Languages】
+L62:       * 【41†Mathematics and Computer Science】
+L63:       * 【42†Multidisciplinary】
+L64:       * 【43†Science】
+L65: 
+L66:     * 【44†Teaching Faculty】
+L67:     * 【45†Signature Programs】
+L68:       * 【46†Advanced Robotics Concentration】
+L69:       * 【47†Arabic & Middle Eastern Studies】
+L70:       * 【48†Arts Concentration】
+L71:       * 【49†Capstone Program】
+L72:       * 【50†Environmental Immersion Program】
+L73:       * 【51†Global Engagement Program】
+L74:       * 【52†John F. Kennedy '35 Program in Government and Public Service】
+L75:       * 【53†Science Research Program】
+L76: 
+L77:     * 【54†Academic Facilities】
+L78: 
+L79:       * 【19†Kohler Environmental Center】
+L80:       * 【55†Lanphier Center】
+L81:     * 【56†The Library and School Archives】
+L82:     * 【57†College Counseling】
+L83: 
+L84:       * 【58†Meet the Counselors】
+L85: 
+L86:     * 【59†Teaching and Learning Center】
+L87: 
+L88:   * 【60†Arts】
+L89: 
+L90:     * 【61†Dance】
+L91:     * 【62†Music】
+L92:     * 【63†Theater】
+L93:     * 【64†Visual Arts】
+L94:     * 【65†Arts Facilities】
+L95:     * 【66†Paul Mellon Arts Center】
+L96: 
+L97:       * 【67†Arts Events】
+L98:       * 【68†The Arts Center】
+L99: 
+L100:   * 【69†Athletics】
+L101:     * 【70†Teams and Programs】
+L102:     * 【71†Schedules, Scores, & Stream】
+L103:     * 【72†Athletics Facilities】
+L104:     * 【73†Athletics Directory】
+L105:     * 【74†Athletics News】
+L106:     * 【75†Athletics Parking Info】
+L107: 
+L108:   * 【76†Student Life】
+L109: 
+L110:     * 【77†Campus Life】
+L111:     * 【78†Student Activities】
+L112:     * 【79†Guidance and Support】
+L113:     * 【80†School Publications】
+L114:     * 【81†News】
+L115: 
+L116:   * 【82†Inquire(opens in new window/tab)†admission.choate.edu】
+L117:   * 【31†Visit】
+L118:   * 【27†Apply】
+L119: ## Header Wrapper
+L120: ## Weglot (DO NOT TOUCH)
+L121: 
+L122:   * 【2†Login】
+L123:   * 【3†Summer】
+L124: 
+L125:     * 【3†Overview】
+L126:     * 【83†Start Here(opens in new window/tab)】
+L127:     * 【84†How to Apply or Register】
+L128:     * 【85†Campus Life】
+L129:     * 【86†Frequently Asked Questions】
+L130:     * 【87†Middle School and High School Academic and Signature Programs】
+L131:     * 【88†Young Artist Program】
+L132:     * 【89†Program Fees】
+L133:     * 【90†Meet the Office】
+L134:     * 【91†Make a Payment】
+L135: 
+L136:   * 【4†Giving】
+L137:     * 【4†Overview】
+L138:     * 【92†Make a Gift(opens in new window/tab)】
+L139:     * 【93†Ways to Give】
+L140:     * 【94†Annual Giving】
+L141:     * 【95†Planned Giving(opens in new window/tab)】
+L142:     * 【96†Endowment and Special Projects】
+L143: 
+L144:   * 【5†Alumni】
+L145: 
+L146: Open Menu
+L147: 
+L148:   * 【6†About】
+L149:     * 【7†Mission and Core Documents】
+L150:     * 【13†School Leadership】
+L151:     * 【14†History】
+L152:     * 【15†Strategic Plan】
+L153:     * 【12†Sustainability】
+L154:     * 【20†Equity and Inclusion】
+L155:     * 【21†Technology】
+L156:     * 【22†Visitors】
+L157:     * 【23†Choate in Wallingford】
+L158:     * 【24†Employment】
+L159:     * 【25†Directory】
+L160: 
+L161:   * 【26†Admission】
+L162: 
+L163:     * 【27†Admission Process】
+L164:     * 【28†Tuition and Financial Aid】
+L165:     * 【31†Campus Tour】
+L166:     * 【32†Frequently Asked Questions】
+L167:     * 【33†Meet the Admission Team】
+L168:     * 【34†Admission Calendar】
+L169:   * 【35†Academics】
+L170: 
+L171:     * 【36†Curriculum】
+L172:     * 【44†Teaching Faculty】
+L173:     * 【45†Signature Programs】
+L174:     * 【54†Academic Facilities】
+L175:     * 【56†The Library and School Archives】
+L176:     * 【57†College Counseling】
+L177:     * 【59†Teaching and Learning Center】
+L178: 
+L179:   * 【60†Arts】
+L180: 
+L181:     * 【61†Dance】
+L182:     * 【62†Music】
+L183:     * 【63†Theater】
+L184:     * 【64†Visual Arts】
+L185:     * 【65†Arts Facilities】
+L186:     * 【66†Paul Mellon Arts Center】
+L187: 
+L188:   * 【69†Athletics】
+L189:     * 【70†Teams and Programs】
+L190:     * 【71†Schedules, Scores, & Stream】
+L191:     * 【72†Athletics Facilities】
+L192:     * 【73†Athletics Directory】
+L193:     * 【74†Athletics News】
+L194:     * 【75†Athletics Parking Info】
+L195: 
+L196:   * 【76†Student Life】
+L197: 
+L198:     * 【77†Campus Life】
+L199:     * 【78†Student Activities】
+L200:     * 【79†Guidance and Support】
+L201:     * 【80†School Publications】
+L202:     * 【81†News】
+L203: 
+L204: Open search
+L205: 
+L206: Search
+L207: 
+L208: [Input: Discover your path at Choate...] Clear
+L209: 
+L210: [Button: Search]
+L211: 
+L212: Close search
+L213:   * 【97†Home】 >
+L214:   * 【26†Admission】 >
+L215:   * Tuition and Financial Aid
+L216: ## In This Section
+L217: 
+L218:   * 【27†Admission Process】
+L219:   * 【28†Tuition and Financial Aid】
+L220: 
+L221:     * 【29†Scholar Programs】
+L222:     * 【30†Tuition & Financial Aid FAQ】
+L223: 
+L224:   * 【31†Campus Tour】
+L225:   * 【32†Frequently Asked Questions】
+L226:   * 【33†Meet the Admission Team】
+L227:   * 【34†Admission Calendar】
+L228: 
+L229:   * 【82†Inquire(opens in new window/tab)†admission.choate.edu】
+L230:   * 【31†Visit】
+L231:   * 【27†Apply】
+L232: 
+L233: # Tuition and Financial Aid
+L234: 
+L235: #### CSS Embed
+L236: ## Hero
+L237: 
+L238: Like every part of your journey to Choate, tuition and the financial aid process are treated with intention, care, and inclusion. If it feels like a great fit, let’s make a plan.
+L239: 
+L240: # Our Approach
+L241: 
+L242: ##### We want the world to be here.
+L243: 
+L244: Our families come from everywhere–different countries, regions, cultures, backgrounds, and life experiences–and that's exactly what makes Choate, Choate.
+L245: ##### We will ensure the tuition and financial aid process is clear and affirming.
+L246: 
+L247: We will be present for every step, all the way through. From your first question to your final decision, we're your partner– here to explain, clarify, and support at each part of the process.
+L248: ##### We encourage you to apply for financial aid.
+L249: 
+L250: Financial assistance is simply part of how our families join the Choate community. We hope you won’t hesitate to apply, and we are here to help get you started.
+L251: 
+L252: We want you to see the full Choate, and we want to get to know your full self, independent of financial circumstances
+L253: 
+L254: ## Tuition and Fees
+L255: ### 2026-27 Academic Year
+L256: 
+L257: ‌  | Boarding  | Day
+L258: --- | --- | ---
+L259: Tuition  | $73,530  | $56,610
+L260: Technology Fee  | $1,000  | $1,000
+L261: Total Tuition and Fees  | $74,530  | $57,610
+L262: 
+L263: 
+L264: 
+L265: 
+L266: 
+L267: 
+L268: 
+L269: 【98†Additional Costs】 【99†Payment Plans】
+L270: 
+L271: Please note that all payment options require the 10% non-refundable deposit payable to Choate Rosemary Hall on the date specified on your enrollment contract.
+L272: ## Additional Costs
+L273: 
+L274: Students may be eligible for assistance with the following additional costs:
+L275:   * ‌ Books and Academic Supplies - Families should budget $1,000 for books, supplies, and incidental charges annually.
+L276: 
+L277:   * ‌ Health Insurance - Choate requires all students to carry health insurance.
+L278: 
+L279:   * ‌ Cell Phone - Choate requires that all students possess a cellular phone with a U.S. data plan.
+L280: 
+L281:   * ‌ Travel to and from Campus - Families should budget for transportation costs, including during major school breaks when School is closed.
+L282:   * ‌ Music Lessons - Choate offers music lessons whose cost varies with the frequency and duration of participation.
+L283: ## Payment Plans
+L284: 
+L285: ##### One Payment
+L286: 
+L287: This plan is for families who would like to make one payment for all yearly tuition and fees on or before June 1. Families utilizing this option will receive a 1% discount on net tuition and fees less the non-refundable deposit.
+L288: 
+L289: Please contact studentbilling@choate.edu or (203) 697-2536 if choosing this option.
+L290: ##### Two Payments
+L291: 
+L292: This plan requires families to pay 50% of net tuition and fees by July 15 and the remaining balance of net tuition and fees by November 15.
+L293: ##### Nine-Month Payment Plan
+L294: 
+L295:   * Enrollment begins in April. The nine-month payment plan allows you to spread your payments over nine months and runs from July to March.
+L296:   * An automatic deduction occurs on the 1^{st} or 15^{th} of each month.
+L297:   * Enrollment by June 15 is required.
+L298:   * The payment plan is not a loan, so there are no credit checks or interest charges.
+L299:   * Your payments are auto-debited from your bank account monthly.
+L300: ## 2026-2027 Financial Aid Grants by Income
+L301: 
+L302: Family Income  | Average Family Contribution
+L303: --- | ---
+L304: Less than $75,000  | $570
+L305: $75,001 - $150,000  | $3,500
+L306: $150,001 - $250,000  | $13,260
+L307: $250,001 - $400,000  | $24,230
+L308: More than $400,000  | $45,320
+L309: ## Beyond the Classroom Fund
+L310: 
+L311: Every Choate student – whether or not they receive financial aid – can apply to the Beyond the Classroom Fund. Its purpose: to make sure every student can fully participate in the Choate experience.
+L312: 
+L313: We understand school doesn't stop at tuition. Trips, gear, materials, and the everyday costs of academics, athletics, and extracurriculars all add up – and this fund exists to ease that burden, so cost never gets in the way of opportunity.
+L314: The Fund can also offer support in moments that call for it most. At the dean of students' discretion, a student facing unexpected or emergency circumstances is encouraged to apply for this support.
+L315: ## Apply for Financial Aid
+L316: 
+L317: 🗓️The deadline to apply for Financial Aid is January 15.
+L318: 
+L319:   * 【100†Step 1: Complete the Financial Aid Application】
+L320:   * 【101†Step 2: Submit Supporting Documents】
+L321: ## 【100†Step 1: Complete the Financial Aid Application】
+L322: 
+L323: Choate uses the 【102†Clarity Application】 to determine a fair and equitable grant for every family.
+L324: Choate meets 100% of a family’s demonstrated financial need. In determining a financial aid award, the Financial Aid Committee takes into account not only tuition charges and related fees, but normally anticipated costs such as books, supplies, laundry, and travel. The committee also considers extenuating circumstances that may affect the family’s contribution.
+L325: Students with exceptionally high levels of demonstrated need receive additional financial assistance with the cost of books, travel, supplies, and other needs.
+L326: ## 【101†Step 2: Submit Supporting Documents】
+L327: 
+L328: Families filing U.S. tax returns:
+L329: 
+L330:   * If self-employed, submit proper business tax return information.
+L331:   * Families who have Schedule E income from a partnership and/or S-Corporation are asked to submit 1065 and/or 1120-S paperwork along with corresponding K-1 information.
+L332: 
+L333: Families who do not file U.S. tax returns:
+L334: In completing your 【102†Clarity Application】, please be prepared to upload the previous year’s official income/asset verification forms and additional documents, including:
+L335: 
+L336:   * Income tax returns
+L337:   * Wage statements
+L338:   * Official documentation from an employer.
+L339: 
+L340: 【103†Tuition and Financial Aid FAQ】
+L341: 
+L342:   * 【27†Admission Process】
+L343:   * 【28†Tuition and Financial Aid】
+L344: 
+L345:     * 【29†Scholar Programs】
+L346:     * 【30†Tuition & Financial Aid FAQ】
+L347:   * 【31†Campus Tour】
+L348:   * 【32†Frequently Asked Questions】
+L349:   * 【33†Meet the Admission Team】
+L350:   * 【34†Admission Calendar】
+L351: 
+L352: > Financial aid from Choate meant our daughter could stop wondering if she belonged here, and start wondering what she'd become. The Choate team made us feel at ease throughout the entire process. —Adam P‘26
+L353: ## Steps to Apply for Financial Aid
+L354: 
+L355: 🗓️The deadline to apply for Financial Aid is January 15.
+L356: 
+L357: 【104†Step 1: Complete the Online Financial Aid Application】  【105†Submit Supporting Documents】
+L358: 
+L359: Please note that all payment options require the 10% non-refundable deposit payable to Choate Rosemary Hall on the date specified on your enrollment contract.
+L360: ## Complete the Online Financial Aid Application
+L361: 
+L362: Choate uses the 【102†Clarity Application】 to determine a fair and equitable grant for every family.
+L363: Choate meets 100% of a family’s demonstrated financial need. In determining a financial aid award, the Financial Aid Committee takes into account not only tuition charges and related fees, but normally anticipated costs such as books, supplies, laundry, and travel. The committee also considers extenuating circumstances that may affect the family’s contribution.
+L364: Students with exceptionally high levels of demonstrated need receive additional financial assistance with the cost of books, travel, supplies, and other needs.
+L365: ## Submit Supporting Documents
+L366: 
+L367: Families filing U.S. tax returns:
+L368: 
+L369:   * If self-employed, submit proper business tax return information.
+L370:   * Families who have Schedule E income from a partnership and/or S-Corporation are asked to submit 1065 and/or 1120-S paperwork along with corresponding K-1 information.
+L371: 
+L372: Families who do not file U.S. tax returns:
+L373: In completing your 【102†Clarity Application】, please be prepared to upload the previous year’s official income/asset verification forms and additional documents, including:
+L374: 
+L375:   * Income tax returns
+L376:   * Wage statements
+L377:   * Official documentation from an employer.
+L378: ## Code Embed (test dialog)
+L379: 
+L380: WE CAN'T WAIT TO
+L381: MEET YOU
+L382: 
+L383:   * 【82†Inquire(opens in new window/tab)†admission.choate.edu】
+L384:   * 【31†Visit】
+L385:   * 【27†Apply】
+L386: 
+L387: ## Contact Us
+L388: 
+L389: Choate Rosemary Hall
+L390: 
+L391: 333 Christian Street
+L392: 
+L393: Wallingford
+L394: 
+L395: CT
+L396: 
+L397: 06492
+L398: 
+L399: (203) 697-2000
+L400: 
+L401: 【106†Find Directions†www.google.com】
+L402: ## Quicklinks
+L403: 
+L404:   * 【2†Login】
+L405:   * 【107†Calendar of Events】
+L406:   * 【108†Campus Map(opens in new window/tab)】
+L407:   * 【24†Employment】
+L408:   * 【109†Choate Store(opens in new window/tab)】
+L409:   * 【27†Application & Interview Process】
+L410:   * 【25†Directory】
+L411: 
+L412: 
+L413: 
+L414:   * 【110†Instagram(opens in new window/tab)†www.instagram.com】
+L415:   * 【111†YouTube(opens in new window/tab)†www.youtube.com】
+L416:   * 【112†Facebook(opens in new window/tab)†www.facebook.com】
+L417: 
+L418:   * 【113†Privacy Policy】
+L419:   * 【114†Site Map】
+L420:   * 【115†Web Feedback】
+L421: Choate prohibits in all its programs discrimination against or harassment of any member or group based upon age, gender, race, color, religion, disability, sexual orientation, gender identity or expression, national origin, genetic predisposition, ancestry or other categories protected by Connecticut or federal law. It does not discriminate on these bases in the administration of its admission process, educational policies, scholarship and loan programs, athletics, or other school-administered programs.
+

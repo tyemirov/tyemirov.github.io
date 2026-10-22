@@ -1,0 +1,146 @@
+St. Paul's School (https://www.sps.edu/)
+【turn330309view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.sps.edu/","lineno":null}); Total lines: 143
+L0: 【0†iframe†www.googletagmanager.com】
+L1: 
+L2: 【1†St. Paul's School】
+L3: 
+L4: [Input: Search]
+L5: 
+L6: [Input]
+L7: 
+L8: 【2†back to search close button】
+L9: 
+L10: ## Main navigation
+L11: 
+L12: In This Section
+L13: 
+L14:   * 【3†Admissions】
+L15:   * 【4†SPS 360】
+L16:   * 【5†Academics】
+L17:   * 【6†Community】
+L18:   * 【7†Arts】
+L19:   * 【8†Athletics】
+L20:   * 【9†About】
+L21:   * 【1†Home】
+L22:   * 【10†Advanced Studies Program】
+L23:   * 【11†Alumni】
+L24:   * 【12†Giving】
+L25:   * 【13†Parents】
+L26: ## Information for
+L27: 
+L28:   * 【11†Alumni】
+L29:   * 【13†Parents】
+L30:   * 【14†Visitors】
+L31: 
+L32:   * 【12†Giving】
+L33:   * 【15†News】
+L34:   * 【16†Events】
+L35:   * 【10†ASP Summer】
+L36:   * 【17†MySPS Parent Login†sps.myschoolapp.com】
+L37: 
+L38: 【18†back to menu close button】
+L39: 
+L40: Pause video
+L41: 
+L42: # A World of Possibility
+L43: 
+L44: Explore and grow together,
+L45: in a community built to inspire.
+L46: 
+L47: # Home Page
+L48: 
+L49: A World-Class Education
+L50: ## St. Paul's School will transform how you think and what you think is possible.
+L51: 
+L52: In our all-boarding community, where we start, spend, and end our days together, there are so many opportunities to pursue your passions and discover new ones alongside energetic, kind, and collaborative peers and adults from around the world. So much more is possible here, from the moment you step onto campus.
+L53: 
+L54: 【3†Begin Your Journey Today】
+L55: 
+L56: Academics
+L57: 
+L58: Community
+L59: 
+L60: Service
+L61: 
+L62: 【19†Image: Luca Bocresion in the classroom】
+L63: Academics
+L64: 
+L65: Luca ’26
+L66: 
+L67: For Luca, Greek and Latin are more than just classes. They are also lenses for understanding the world and his place in it, at and beyond SPS.
+L68: 
+L69: 【20†Read Luca’s story】
+L70: 
+L71: 【21†Image: Claire in a XC meet during Family Weekend】
+L72: 
+L73: Community
+L74: 
+L75: Clara ’26
+L76: 
+L77: An athlete, a musician and a student leader, Clara doesn’t just find community in every aspect of her St. Paul’s experience — she helps create it.
+L78: 
+L79: 【22†See Clara’s Day】
+L80: 
+L81: 【23†Image: Ryan '26 and William '26 in the Knitting Nook】
+L82: 
+L83: Service
+L84: Ryan '26 and William ’26
+L85: 
+L86: Having taken up knitting as a way to relax, Ryan and William discovered a sense of joy and connection they wanted to share with seniors back home in Washington.
+L87: 
+L88: 【24†Learn about Ryan and William’s work】
+L89: 
+L90: ADMISSIONS
+L91: Founded in 1856, St. Paul’s School is a 100% boarding high school where 538 students and 112 teachers live and learn together as they pursue excellence in character and scholarship. Our diverse student body comes from 37 states and 30 countries, and nearly 40% receive financial aid. U.S. students in families with annual household incomes up to $150,000 generally qualify for full tuition support.
+L92: 
+L93: 【25†FIND OUT MORE ABOUT ADMISSIONS】
+L94: 
+L95: 【26†Image: Field Day 2025】
+L96: 
+L97: Say Yes to SPS!
+L98: 
+L99: Inquire
+L100: 【27†Tell us a little about yourself】 so we can get you the right information.
+L101: 
+L102: Visit
+L103: 
+L104: Join us for a tour. Can’t make it? Try our 【28†virtual tour†app.cloudpano.com】 instead.
+L105: 
+L106: Apply
+L107: 
+L108: Ready to take the next step? 【29†Here’s how to apply】.
+L109: ##
+L110: 
+L111: Academics
+L112: 
+L113: In our classrooms, you’ll weave together ideas across disciplines and find opportunities for advanced study. Develop your own perspective on the world with a breadth and depth of study that’s unique to you.
+L114: 
+L115: 【5†Go to Academics】
+L116: ##
+L117: 
+L118: Community
+L119: 
+L120: Being fully residential means students and adults share life in every setting, creating a bustling campus that feels like home. Among a village of advisers, teachers, coaches, and friends, students are known and supported as they challenge and stretch their abilities.
+L121: 
+L122: 【6†Go to Community】
+L123: ## Related News
+L124: 
+L125: October 15, 2026
+L126: 
+L127: 【30†Finding His Rhythm】
+L128: 
+L129: Tejas Karthik ’28 brought a lifelong love of tabla to Millville — then found a community where music, friendship, and a willingness to try something new opens unexpected doors.
+L130: 
+L131: October 14, 2026
+L132: 
+L133: 【31†Engagement in Action】
+L134: 
+L135: Whether helping neighbors in Concord or supporting one another on the grounds, SPS students are finding opportunities to put compassion, connection, and service to the greater good into practice.
+L136: 
+L137: October 9, 2026
+L138: 【32†Signed, and Staying】
+L139: 
+L140: Sixth Former James Buchan has a future with the Ontario Hockey League’s Peterborough Petes — but he wants to graduate from St. Paul’s School first
+L141: 
+L142: 【15†More news】
+

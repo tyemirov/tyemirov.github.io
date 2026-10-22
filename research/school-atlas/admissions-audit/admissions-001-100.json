@@ -1,0 +1,1151 @@
+{
+  "ranking_edition": "2026\u20132027",
+  "ranking_source_url": "https://highschooltrends.org/rankings",
+  "checked_on": "2026-10-20",
+  "criterion": "Ordinary resident admission to the same ranked school without test, GPA, audition, competitive review, or lottery, including when oversubscribed. Feeder progression alone is insufficient.",
+  "schools": [
+    {
+      "national_rank": 1,
+      "school": "Central Magnet School",
+      "state": "TN",
+      "status": "excluded",
+      "reason": "Academic-performance-based admission",
+      "admissions_source_urls": [
+        "https://central.rcschools.net/o/central/article/3084416",
+        "https://nationalblueribbonschools.ed.gov/assets/winning/asset/2020/school_application/20tn104pu_central_magnet_school_finalapplication.pdf"
+      ],
+      "evidence_summary": "Current August2026 school/district ranking announcement states Central serves grades6-12 and admits Rutherford County pupils based on academic performance. School-authored2020 federal application specifies3.0GPA and80th-percentile TCAP criteria; detailed thresholds are historical corroboration, not asserted as updated2026 thresholds.",
+      "rank_primary_source_url": "https://central.rcschools.net/o/central/article/3084416"
+    },
+    {
+      "national_rank": 2,
+      "school": "Signature School",
+      "state": "IN",
+      "status": "excluded",
+      "reason": "Lottery if applications exceed capacity",
+      "admissions_source_urls": [
+        "https://signature.edu/sites/default/files/content/documents/2024-05/FINAL%20lottery%20procedures%202023-2024.pdf"
+      ],
+      "evidence_summary": "School enrollment procedures specify a public random lottery when timely applications exceed available grade-level seats."
+    },
+    {
+      "national_rank": 3,
+      "school": "Julia R. Masterman Secondary School",
+      "state": "PA",
+      "status": "excluded",
+      "reason": "Academic admission criteria",
+      "admissions_source_urls": [
+        "https://webapps1.philasd.org/downloads/tdm/Admission_Criteria_for_Special_Admission_High_Schools.pdf"
+      ],
+      "evidence_summary": "District criteria identify Masterman by name and require qualifying grades and standardized scores; internal feeder priority is conditional, not an ordinary residential pathway."
+    },
+    {
+      "national_rank": 4,
+      "school": "The Davidson Academy of Nevada",
+      "state": "NV",
+      "status": "excluded",
+      "reason": "Profound-gifted testing eligibility",
+      "admissions_source_urls": [
+        "https://www.davidsonacademy.unr.edu/admissions/"
+      ],
+      "evidence_summary": "Reno public Davidson Academy requires documented qualifying tests and academic assessment; school identifies served students as profoundly gifted (99.9th-percentile IQ/achievement). This is not the unrelated private Tennessee Davidson Academy.",
+      "school_name_in_admission_source": "Davidson Academy"
+    },
+    {
+      "national_rank": 5,
+      "school": "School Without Walls High School",
+      "state": "DC",
+      "status": "excluded",
+      "reason": "Competitive academic and interview selection",
+      "admissions_source_urls": [
+        "https://www.myschooldc.org/sites/default/files/dc/sites/myschooldc/page/attachments/SY25-26_26-27_SWW_Admissions_Process_Rubric_FINAL%20%281%29.pdf"
+      ],
+      "evidence_summary": "School Without Walls applicants are scored on interview/writing, GPA, and recommendations and ranked by total points."
+    },
+    {
+      "national_rank": 6,
+      "school": "Thomas Jefferson High School for Science and Technology",
+      "state": "VA",
+      "status": "excluded",
+      "reason": "Academic admission criteria",
+      "admissions_source_urls": [
+        "https://www.fcps.edu/registration/thomas-jefferson-admissions/eligibility-requirements"
+      ],
+      "evidence_summary": "TJHSST eligibility requires a 3.5 core GPA and prescribed advanced courses. Residency establishes eligibility to apply, not ordinary admission."
+    },
+    {
+      "national_rank": 7,
+      "school": "Gwinnett School of Mathematics, Science and Technology",
+      "state": "GA",
+      "status": "excluded",
+      "reason": "Lottery selection",
+      "admissions_source_urls": [
+        "https://gsmst.gcpsk12.org/general-information/admissions"
+      ],
+      "evidence_summary": "The ranked school's admissions page publishes lottery results and wait list; district confirms random-lottery entry remains required after charter conversion."
+    },
+    {
+      "national_rank": 8,
+      "school": "The School for the Talented and Gifted (TAG)",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Academic magnet eligibility and assessment",
+      "admissions_source_urls": [
+        "https://www.dallasisd.org/departments/magnets-and-special-programs/application-process"
+      ],
+      "evidence_summary": "Dallas ISD magnet admission requires minimum grades, test thresholds, and school assessment. TAG and Townview Science and Engineering are explicitly named exceptions with stricter grade criteria; Rangel is identified in district magnet eligibility requirements."
+    },
+    {
+      "national_rank": 9,
+      "school": "Nikola Tesla Stem High School",
+      "state": "WA",
+      "status": "excluded",
+      "reason": "Lottery selection",
+      "admissions_source_urls": [
+        "https://www.lwsd.org/programs/choice-schools/choice-schools-faq"
+      ],
+      "evidence_summary": "District FAQ specifically names Tesla STEM and explains computer-generated random allocation and waitlist; ordinary attendance-area school is a different institution.",
+      "school_name_in_admission_source": "Nikola Tesla STEM High School"
+    },
+    {
+      "national_rank": 10,
+      "school": "Science Academy Stem Magnet",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Assessment and magnet lottery",
+      "admissions_source_urls": [
+        "https://scienceacademy.lausd.org/apps/pages/index.jsp?pREC_ID=2567961&type=d&uREC_ID=4366641"
+      ],
+      "evidence_summary": "School application process requires mandatory assessment and then eligibility to continue in magnet lottery.",
+      "school_name_in_admission_source": "Science Academy STEM Magnet"
+    },
+    {
+      "national_rank": 11,
+      "school": "Whitney High School",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Academic entrance assessment",
+      "admissions_source_urls": [
+        "https://www.abcusd.us/apps/pages/index.jsp?pREC_ID=1417443&type=d&uREC_ID=2104836"
+      ],
+      "evidence_summary": "District Whitney admissions requires eligibility verification and testing for resident applicants; automatic access to testing for district pupils is not automatic admission."
+    },
+    {
+      "national_rank": 12,
+      "school": "International Academy",
+      "state": "MI",
+      "status": "excluded",
+      "reason": "Lottery and admission assessment",
+      "admissions_source_urls": [
+        "https://www.iatoday.org/ia-okma/prospective-students-okma"
+      ],
+      "evidence_summary": "Bloomfield Hills/Okma International Academy prospective-student policy states lottery and mandatory admission assessment. Other IA campuses do not establish a resident route into this ranked campus."
+    },
+    {
+      "national_rank": 13,
+      "school": "Pine View School",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Gifted-magnet eligibility",
+      "admissions_source_urls": [
+        "https://www.sarasotacountyschools.net/page/in-state-out-of-state-transfers/"
+      ],
+      "evidence_summary": "District specifically names Pine View and requires gifted identification plus additional district gifted-magnet criteria, including for resident/transferring pupils."
+    },
+    {
+      "national_rank": 14,
+      "school": "Aiken Scholars Academy",
+      "state": "SC",
+      "status": "excluded",
+      "reason": "Selective advanced-course application",
+      "admissions_source_urls": [
+        "https://www.acpsd.net/o/asa/article/2486178"
+      ],
+      "evidence_summary": "Official 2026-27 application announcement requires resident eighth graders to complete English 1 Honors and Geometry Honors, and advanced middle-school coursework; residence alone does not admit."
+    },
+    {
+      "national_rank": 15,
+      "school": "BASIS Oro Valley",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/arizona/"
+      ],
+      "evidence_summary": "Arizona network policy names BASIS Oro Valley and requires lottery when oversubscribed."
+    },
+    {
+      "national_rank": 16,
+      "school": "BASIS Goodyear",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/arizona/"
+      ],
+      "evidence_summary": "Arizona network policy names BASIS Goodyear and requires lottery when oversubscribed."
+    },
+    {
+      "national_rank": 17,
+      "school": "Oxford Academy",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Entrance examination; no new high-school entry",
+      "admissions_source_urls": [
+        "https://oxford.auhsd.us/Oxford/Department/14223-Admissions/9315-Admissions-Information.html"
+      ],
+      "evidence_summary": "Current2027-28 school admissions page accepts incoming seventh graders only, explicitly accepts no incoming grades8-12, and sets entrance examination after initial academic screening. The continuing high-school cohort entered through selective admission."
+    },
+    {
+      "national_rank": 18,
+      "school": "Hcs Scholars Academy High",
+      "state": "SC",
+      "status": "excluded",
+      "reason": "Competitive academic selection",
+      "admissions_source_urls": [
+        "https://scholars.horrycountyschools.net/welcome-to-admission-at-hcs-scholars-academy"
+      ],
+      "evidence_summary": "School requires Geometry and English I and reviews test results, grades, and discipline; approximately 60 of 200 applicants receive essay invitations before approximately 50 are selected.",
+      "school_name_in_admission_source": "HCS Scholars Academy High"
+    },
+    {
+      "national_rank": 19,
+      "school": "Downingtown STEM Academy",
+      "state": "PA",
+      "status": "excluded",
+      "reason": "Academic and scored-application selection",
+      "admissions_source_urls": [
+        "https://st.dasd.org/stresources/stem-school-profile"
+      ],
+      "evidence_summary": "School's admissions criteria require core-course C averages and scored essays/recommendation; approximately 250 of 600 applicants are admitted. Residence establishes application eligibility only."
+    },
+    {
+      "national_rank": 20,
+      "school": "Haas Hall Bentonville",
+      "state": "AR",
+      "status": "excluded",
+      "reason": "Admissions lottery",
+      "admissions_source_urls": [
+        "https://haashall.org/admissions/application/"
+      ],
+      "evidence_summary": "Haas Hall Academy's network-wide 2026-27 admission application applies across campuses, including Bentonville and the Lane/Rogers campus, and expressly identifies the admissions lottery."
+    },
+    {
+      "national_rank": 21,
+      "school": "International Academy of Macomb",
+      "state": "MI",
+      "status": "excluded",
+      "reason": "Required entrance examination",
+      "admissions_source_urls": [
+        "https://www.iamacomb.org/admissions/important-dates/"
+      ],
+      "evidence_summary": "The school's Class of 2031 admissions calendar explicitly requires an entrance test on February 6, 2027."
+    },
+    {
+      "national_rank": 22,
+      "school": "Metro Academic and Classical High School",
+      "state": "MO",
+      "status": "excluded",
+      "reason": "Academic entrance criteria",
+      "admissions_source_urls": [
+        "https://www.slps.org/families1/magnet/magnet-high-schools-criteria-and-contacts"
+      ],
+      "evidence_summary": "District names Metro Academic and Classical and requires standardized test percentiles, grades, recommendations, and admission evaluation."
+    },
+    {
+      "national_rank": 23,
+      "school": "Academic Magnet High School",
+      "state": "SC",
+      "status": "excluded",
+      "reason": "Criteria-based magnet selection",
+      "admissions_source_urls": [
+        "https://schoolchoice.ccsdschools.com/englishfaq"
+      ],
+      "evidence_summary": "District explicitly names Academic Magnet among schools whose admission requires meeting school criteria. School admissions page directs all inquiries to countywide School Choice."
+    },
+    {
+      "national_rank": 24,
+      "school": "Dr. Richard A. Vladovic Harbor Teacher Preparation Academy",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Required assessment and oversubscription lottery",
+      "admissions_source_urls": [
+        "https://harborteacherprep.lausd.org/apps/pages/index.jsp?pREC_ID=2527257&type=d&uREC_ID=4297705"
+      ],
+      "evidence_summary": "School requires passing a dual-enrollment assessment; qualified applicants enter random lottery if spaces are exceeded. District residence only supplies a lottery priority."
+    },
+    {
+      "national_rank": 25,
+      "school": "Carnegie Vanguard High School",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Gifted-and-talented eligibility",
+      "admissions_source_urls": [
+        "https://carnegie.houstonisd.org/our-school/admissions/new-page"
+      ],
+      "evidence_summary": "School's Vanguard admissions page requires G/T identification and documents eligible identification matrices and choice application; no ordinary attendance-zone admission established."
+    },
+    {
+      "national_rank": 26,
+      "school": "The Early College at Guilford",
+      "state": "NC",
+      "status": "excluded",
+      "reason": "Academic test-score eligibility",
+      "admissions_source_urls": [
+        "https://www.gcsnc.com/choose-and-enroll/choice-programs/admissions-criteria-and-various-program-information"
+      ],
+      "evidence_summary": "District explicitly names Early College at Guilford with standardized test score above 90th percentile and prerequisite coursework."
+    },
+    {
+      "national_rank": 27,
+      "school": "Merrol Hyde Magnet School",
+      "state": "TN",
+      "status": "excluded",
+      "reason": "Academic exam and lottery selection",
+      "admissions_source_urls": [
+        "https://mhm.sumnerschools.org/academics/enrollment-information"
+      ],
+      "evidence_summary": "School requires academic examination criteria for consideration; 2027 enrollment information also lists a lottery date."
+    },
+    {
+      "national_rank": 28,
+      "school": "High Technology High School",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Admissions examination",
+      "admissions_source_urls": [
+        "https://www.hths.mcvsd.org/o/mcvsd/page/career-academy-admissions"
+      ],
+      "evidence_summary": "District Career Academy admissions explicitly names High Technology and requires admission examination as well as residency/application."
+    },
+    {
+      "national_rank": 29,
+      "school": "BASIS Prescott",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/arizona/"
+      ],
+      "evidence_summary": "Arizona network policy names BASIS Prescott and requires lottery when oversubscribed."
+    },
+    {
+      "national_rank": 30,
+      "school": "Northside College Preparatory High School",
+      "state": "IL",
+      "status": "excluded",
+      "reason": "Selective enrollment testing",
+      "admissions_source_urls": [
+        "https://www.cps.edu/gocps/high-school/explore/selective-enrollment-programs/"
+      ],
+      "evidence_summary": "CPS explicitly lists Northside College Preparatory High School as selective enrollment; applicants must test and compete for limited seats."
+    },
+    {
+      "national_rank": 31,
+      "school": "Marine Academy of Science and Technology (MAST@FIU)",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Academic magnet eligibility",
+      "admissions_source_urls": [
+        "https://yourchoicemiami.org/program-search/school-details?school=7031"
+      ],
+      "evidence_summary": "District magnet directory specifically identifies MAST@FIU Biscayne Bay campus, 14301 Bay Vista Boulevard, with 2.5 GPA in each core subject and course prerequisites. Not confused with the separate MAST Academy."
+    },
+    {
+      "national_rank": 32,
+      "school": "Hume Fogg Magnet High School",
+      "state": "TN",
+      "status": "excluded",
+      "reason": "Academic magnet eligibility",
+      "admissions_source_urls": [
+        "https://www.mnps.org/students-families/register-for-school/school-options/academic-magnet-requirements"
+      ],
+      "evidence_summary": "District explicitly names Hume-Fogg and requires academic grade average and qualifying subject test results. Resident eligibility is application eligibility, not ordinary admission."
+    },
+    {
+      "national_rank": 33,
+      "school": "Mansfield Frontier High School",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Academic prerequisites and interview",
+      "admissions_source_urls": [
+        "https://frontier.mansfieldisd.org/about-us/apply"
+      ],
+      "evidence_summary": "School requires Algebra I/EOC, combined core average of 85%, and interview for incoming freshmen."
+    },
+    {
+      "national_rank": 34,
+      "school": "Open High School",
+      "state": "VA",
+      "status": "excluded",
+      "reason": "Selective admissions school",
+      "admissions_source_urls": [
+        "https://rvaschools.net/enroll"
+      ],
+      "evidence_summary": "District enrollment page explicitly lists Open High School among selective-admissions schools, separately from comprehensive zoned high schools."
+    },
+    {
+      "national_rank": 35,
+      "school": "Neocity Academy",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Magnet lottery selection",
+      "admissions_source_urls": [
+        "https://www.osceolaschools.net/411062_2"
+      ],
+      "evidence_summary": "District 2027-28 choice information explicitly includes NeoCity among magnets and publishes the school-choice lottery; school's application additionally requires Algebra I.",
+      "school_name_in_admission_source": "NeoCity Academy"
+    },
+    {
+      "national_rank": 36,
+      "school": "School Of Science And Engineering",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Academic magnet eligibility and assessment",
+      "admissions_source_urls": [
+        "https://www.dallasisd.org/departments/magnets-and-special-programs/application-process"
+      ],
+      "evidence_summary": "Dallas ISD magnet admission requires minimum grades, test thresholds, and school assessment. TAG and Townview Science and Engineering are explicitly named exceptions with stricter grade criteria; Rangel is identified in district magnet eligibility requirements.",
+      "school_name_in_admission_source": "School of Science and Engineering"
+    },
+    {
+      "national_rank": 37,
+      "school": "Dr. T.J. Owens Gilroy Early College Academy",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Competitive application, testing, and interview",
+      "admissions_source_urls": [
+        "https://geca.gilroyunified.org/admissions"
+      ],
+      "evidence_summary": "School admissions calendar requires recommendations and PreACT8/9, invites selected applicants for panel interviews, and issues admission decisions."
+    },
+    {
+      "national_rank": 38,
+      "school": "BASIS Chandler",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/arizona/"
+      ],
+      "evidence_summary": "Arizona network policy names BASIS Chandler and requires lottery when oversubscribed."
+    },
+    {
+      "national_rank": 39,
+      "school": "Archimedean Upper Conservatory",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Lottery admission",
+      "admissions_source_urls": [
+        "https://www.archimedean.org/archimedean-upper-conservatory/"
+      ],
+      "evidence_summary": "School directly states students are admitted by lottery. Its application notes feeder articulation, but even articulated feeder students face lottery when they exceed capacity, not a general resident route.",
+      "school_name_in_admission_source": "Archimedean Upper Conservatory Charter School"
+    },
+    {
+      "national_rank": 40,
+      "school": "Edison Academy Magnet School",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Academic examination and interview",
+      "admissions_source_urls": [
+        "https://eams.mcmsnj.net/admissions/how-to-apply"
+      ],
+      "evidence_summary": "Edison Academy school admissions requires mandatory exam; qualification for interview is based on application and exam score."
+    },
+    {
+      "national_rank": 41,
+      "school": "International School",
+      "state": "WA",
+      "status": "excluded",
+      "reason": "Lottery admission",
+      "admissions_source_urls": [
+        "https://international.bsd405.org/academics/curriculum/faqs"
+      ],
+      "evidence_summary": "International School FAQ states admission is via lottery on a space-available basis for Bellevue residents; district confirms perpetual waitlists for higher-grade entry."
+    },
+    {
+      "national_rank": 42,
+      "school": "BASIS Mesa",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/arizona/"
+      ],
+      "evidence_summary": "Arizona network policy names BASIS Mesa and requires lottery when oversubscribed."
+    },
+    {
+      "national_rank": 43,
+      "school": "Liberal Arts and Science Academy (LASA)",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Scored application and admission test",
+      "admissions_source_urls": [
+        "https://lasa.austinschools.org/apply-to-lasa"
+      ],
+      "evidence_summary": "School application page lists application rubric, acceptance procedures, and CogAT admissions testing; Austin residency is eligibility to apply."
+    },
+    {
+      "national_rank": 44,
+      "school": "Boston Latin School",
+      "state": "MA",
+      "status": "excluded",
+      "reason": "GPA and admissions test eligibility",
+      "admissions_source_urls": [
+        "https://www.bostonpublicschools.org/academics/exam-schools/admissions-faqs"
+      ],
+      "evidence_summary": "District exam-school pages explicitly include Boston Latin School and require B-or-higher GPA plus MAP admissions test."
+    },
+    {
+      "national_rank": 45,
+      "school": "Irma Lerma Rangel Young Women's Leadership School",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Academic magnet eligibility and assessment",
+      "admissions_source_urls": [
+        "https://www.dallasisd.org/departments/magnets-and-special-programs/application-process",
+        "https://resources.finalsite.net/images/v1730397517/dallasisdorg/bbkzkd4mp2hji4ttikmd/2024-2025MagnetRequirements10212024.pdf"
+      ],
+      "evidence_summary": "Dallas ISD magnet admission requires minimum grades, test thresholds, and school assessment. TAG and Townview Science and Engineering are explicitly named exceptions with stricter grade criteria; Rangel is identified in district magnet eligibility requirements."
+    },
+    {
+      "national_rank": 46,
+      "school": "Eastern Technical High School",
+      "state": "MD",
+      "status": "excluded",
+      "reason": "Magnet application and assessment",
+      "admissions_source_urls": [
+        "https://easterntechhs.bcps.org/prospective_students"
+      ],
+      "evidence_summary": "School lists nine magnet programs and directs all applicants through BCPS Magnet Office; school site links assessment guidelines. School handbook states all Eastern Tech students attend under Special Permission Transfer Rule5140, rather than a neighborhood entitlement."
+    },
+    {
+      "national_rank": 47,
+      "school": "West Shore Junior/Senior High School",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "School-choice lottery",
+      "admissions_source_urls": [
+        "https://eghs.brevardschools.org/o/bhs/live-feed"
+      ],
+      "evidence_summary": "District-published 2027-28 school-choice timeline explicitly names West Shore and Edgewood Jr/Sr as choice schools and assigns February8 lottery and seat-offer/waitlist notification."
+    },
+    {
+      "national_rank": 48,
+      "school": "STEM Early College at N.C. A&T",
+      "state": "NC",
+      "status": "excluded",
+      "reason": "Academic test-score eligibility",
+      "admissions_source_urls": [
+        "https://www.gcsnc.com/choose-and-enroll/choice-programs/admissions-criteria-and-various-program-information"
+      ],
+      "evidence_summary": "District explicitly names STEM Early College at NC A&T with standardized test score above 80th percentile and prerequisite coursework."
+    },
+    {
+      "national_rank": 49,
+      "school": "Judge Barefoot Sanders Law Magnet",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Academic and competitive assessment",
+      "admissions_source_urls": [
+        "https://lawmagnet.dallasisd.org/how-to-apply/application-process"
+      ],
+      "evidence_summary": "Judge Barefoot Sanders Law Magnet specifies district eligibility plus four equally scored school assessments: faculty interview, reasoning test, impromptu essay, and creativity test."
+    },
+    {
+      "national_rank": 50,
+      "school": "University High School (Tucson)",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "GPA and cognitive-test selection",
+      "admissions_source_urls": [
+        "https://uhs.tusd1.org/_theme/files/Docs/25-26/UHS-admissions-print-25-26-grade-08-en.pdf",
+        "https://uhs.tusd1.org/_theme/files/Docs/Announcements/2018-08UHS_Admissions_FAQ.pdf"
+      ],
+      "evidence_summary": "Official2025\u201326 freshman application corroborates academic entry criteria; admissions FAQ describes qualifying CogAT and core-course GPA thresholds."
+    },
+    {
+      "national_rank": 51,
+      "school": "BASIS Scottsdale",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/arizona/"
+      ],
+      "evidence_summary": "Arizona network policy names BASIS Scottsdale and requires lottery when oversubscribed."
+    },
+    {
+      "national_rank": 52,
+      "school": "BASIS Flagstaff",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/arizona/"
+      ],
+      "evidence_summary": "Arizona network policy names BASIS Flagstaff and requires lottery when oversubscribed."
+    },
+    {
+      "national_rank": 53,
+      "school": "Benjamin Franklin High School",
+      "state": "LA",
+      "status": "excluded",
+      "reason": "Academic eligibility despite no lottery",
+      "admissions_source_urls": [
+        "https://www.bfhsla.org/admissions/"
+      ],
+      "evidence_summary": "School explicitly guarantees seats to Orleans Parish residents meeting academic criteria and deadlines and says there is no lottery. Academic criteria still require GPA and no failing credited courses; therefore fails the no-GPA criterion."
+    },
+    {
+      "national_rank": 54,
+      "school": "Payton College Preparatory High School",
+      "state": "IL",
+      "status": "excluded",
+      "reason": "Selective enrollment testing",
+      "admissions_source_urls": [
+        "https://www.cps.edu/gocps/high-school/explore/selective-enrollment-programs/"
+      ],
+      "evidence_summary": "CPS explicitly lists Payton College Preparatory High School as selective enrollment; applicants must test and compete for limited seats."
+    },
+    {
+      "national_rank": 55,
+      "school": "Jose Marti Mast 6-12 Academy",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Academic magnet criteria",
+      "admissions_source_urls": [
+        "https://yourchoicemiami.org/program-search/school-details?school=7291"
+      ],
+      "evidence_summary": "District school-specific directory requires 2.5 GPA per core subject for Jose Marti high-school MAST, plus Algebra I and Physical Science. Middle-school route also requires GPA2.0 and is not unconditional resident entry.",
+      "school_name_in_admission_source": "Jose Marti MAST 6-12 Academy"
+    },
+    {
+      "national_rank": 56,
+      "school": "Charter School of Wilmington",
+      "state": "DE",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4151/Wilmington_Charter/5096dd45-64fa-4bbf-82c6-7b4f433bddcb/Final_Admissions_Policy__2024.pdf?disposition=inline"
+      ],
+      "evidence_summary": "School board admissions policy requires lottery within preference tiers and among unpreferred applicants when demand exceeds seats; Red Clay resident preference is not unconditional enrollment."
+    },
+    {
+      "national_rank": 57,
+      "school": "BASIS San Antonio- Shavano Campus",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/wp-content/uploads/2025/12/2627-BTX-Enrollment-Policies_ADA.pdf"
+      ],
+      "evidence_summary": "BASIS Texas2026-27 enrollment policy explicitly names San Antonio Shavano and establishes open-enrollment lottery, including feeder-articulation priorities. No ordinary residential entitlement.",
+      "school_name_in_admission_source": "BASIS San Antonio - Shavano Campus"
+    },
+    {
+      "national_rank": 58,
+      "school": "BASIS Tucson North",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/arizona/"
+      ],
+      "evidence_summary": "Arizona network policy names BASIS Tucson North and requires lottery when oversubscribed."
+    },
+    {
+      "national_rank": 59,
+      "school": "Union County Magnet High School",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Admissions examination",
+      "admissions_source_urls": [
+        "https://www.ucvts.org/admissions/full-time-academies"
+      ],
+      "evidence_summary": "District full-time academy process requires an entrance exam and specifically includes Union County Magnet High School."
+    },
+    {
+      "national_rank": 60,
+      "school": "City High Middle School",
+      "state": "MI",
+      "status": "excluded",
+      "reason": "Academic test-in eligibility and theme-school lottery",
+      "admissions_source_urls": [
+        "https://grps.org/departments/css/enrollment/theme-app/"
+      ],
+      "evidence_summary": "District theme application explicitly names City High/Middle among test-in schools and requires nationally normed scores for grades7-9; school placement uses theme-school selection rather than an attendance zone."
+    },
+    {
+      "national_rank": 61,
+      "school": "BASIS Ahwatukee",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/arizona/"
+      ],
+      "evidence_summary": "Arizona network policy names BASIS Ahwatukee and requires lottery when oversubscribed."
+    },
+    {
+      "national_rank": 62,
+      "school": "BASIS Peoria",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/arizona/"
+      ],
+      "evidence_summary": "Arizona network policy names BASIS Peoria and requires lottery when oversubscribed."
+    },
+    {
+      "national_rank": 63,
+      "school": "Stanton College Preparatory School",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Academic prerequisite for high-school entry",
+      "admissions_source_urls": [
+        "https://dcps.duvalschools.org/o/schs/page/student-handbook",
+        "https://nationalblueribbonschools.ed.gov/awardwinners/winning/asset/2018/school_application/18fl122pu_stanton_college_preparatory_school_finalapplication.pdf",
+        "https://dcps.duvalschools.org/o/dcps/page/magnet-school-program",
+        "https://www.duvalschools.org/o/jefes/page/magnet-information/"
+      ],
+      "evidence_summary": "Current school handbook requires Algebra I credit and passing its EOC for freshman entry. School-authored federal application additionally distinguishes AP/Honors magnet lottery from competitive IB selection. No ordinary residential high-school route without academic prerequisites.",
+      "evidence_limit": "Current handbook supports academic exclusion; historical2018 application provides additional lottery/IB context only."
+    },
+    {
+      "national_rank": 64,
+      "school": "University High School (Fresno)",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Lottery if oversubscribed",
+      "admissions_source_urls": [
+        "https://uhsfresno.com/apply-closed"
+      ],
+      "evidence_summary": "Fresno University High explicitly requires public random lottery when applications exceed available seats and additionally requires two years of prior musical experience."
+    },
+    {
+      "national_rank": 65,
+      "school": "Dupont Manual High School",
+      "state": "KY",
+      "status": "excluded",
+      "reason": "Competitive holistic magnet admission",
+      "admissions_source_urls": [
+        "https://sites.google.com/jefferson.kyschools.us/dupontmanualadmissions/home"
+      ],
+      "evidence_summary": "School's current2026-27 application instructions require JCPS and school applications, with multiple evaluators reviewing tests, grades, attendance, involvement, essays, and recommendations; YPAS additionally auditions.",
+      "school_name_in_admission_source": "duPont Manual High School"
+    },
+    {
+      "national_rank": 66,
+      "school": "Haynes Academy School for Advanced Studies",
+      "state": "LA",
+      "status": "excluded",
+      "reason": "Academic GPA and entrance-test criteria",
+      "admissions_source_urls": [
+        "https://www.jpschools.org/families/asa-school-choice-program/advanced-study-academies"
+      ],
+      "evidence_summary": "District Advanced Study Academies page explicitly names Haynes and Patrick F. Taylor; grades6-12 require prior two-year core GPA2.5 and all students require85th percentile on ASA admission test.",
+      "rank_primary_source_url": "https://haynes.jpschools.org/"
+    },
+    {
+      "national_rank": 67,
+      "school": "Coeur d'Alene Charter Academy School",
+      "state": "ID",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://www.cdacharter.org/admission"
+      ],
+      "evidence_summary": "Current school policy explicitly prioritizes attendance-area residents but still puts remaining applicants into lottery when applications exceed grade openings. Residency is preference, not guaranteed entry; no grade-based preference."
+    },
+    {
+      "national_rank": 68,
+      "school": "Albuquerque Institute Of Math & Science",
+      "state": "NM",
+      "status": "excluded",
+      "reason": "Lottery admission",
+      "admissions_source_urls": [
+        "https://www.aims-unm.org/o/aims/page/application"
+      ],
+      "evidence_summary": "School's 2027-28 enrollment page is explicitly a lottery application, with lottery dates and email notification process.",
+      "school_name_in_admission_source": "Albuquerque Institute of Math and Science"
+    },
+    {
+      "national_rank": 69,
+      "school": "California Academy of Mathematics and Science",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Academic GPA, course, and test-score criteria",
+      "admissions_source_urls": [
+        "https://cams.lbschools.net/our-school/consortium-admissions-24",
+        "https://nationalblueribbonschools.ed.gov/awardwinners/winning/asset/2024/school_application/24ca113pu_california_academy_of_mathematics_and_science_finalapplication.pdf"
+      ],
+      "evidence_summary": "Current Class2031 school admissions requires Algebra I in8th grade, cumulative and current3.0GPA, and Met/Exceeded7th-grade SBAC scores. Consortium residence permits applying only; school-authored2024 federal application describes STEM Academic Index and admissions-committee review."
+    },
+    {
+      "national_rank": 70,
+      "school": "Columbus High School",
+      "state": "GA",
+      "status": "excluded",
+      "reason": "Academic magnet criteria and admission testing",
+      "admissions_source_urls": [
+        "https://apps.muscogee.k12.ga.us/Magnet/Programs/7"
+      ],
+      "evidence_summary": "District's Columbus High Liberal Arts Magnet page requires80-or-higher grades, recommendations, and admission testing; transfers require3.5GPA. District enrollment page excludes Columbus from ordinary open-seat transfers."
+    },
+    {
+      "national_rank": 71,
+      "school": "Haas Hall Academy at the Lane",
+      "state": "AR",
+      "status": "excluded",
+      "reason": "Admissions lottery",
+      "admissions_source_urls": [
+        "https://haashall.org/admissions/application/"
+      ],
+      "evidence_summary": "Haas Hall Academy's network-wide 2026-27 admission application applies across campuses, including Bentonville and the Lane/Rogers campus, and expressly identifies the admissions lottery."
+    },
+    {
+      "national_rank": 72,
+      "school": "Biotechnology High School",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Admissions examination",
+      "admissions_source_urls": [
+        "https://www.hths.mcvsd.org/o/mcvsd/page/career-academy-admissions"
+      ],
+      "evidence_summary": "District Career Academy admissions explicitly names Biotechnology High School and requires admission examination as well as residency/application."
+    },
+    {
+      "national_rank": 73,
+      "school": "Brooklyn Latin School",
+      "state": "NY",
+      "status": "excluded",
+      "reason": "Competitive entrance examination",
+      "admissions_source_urls": [
+        "https://www.schools.nyc.gov/learning/testing/specialized-high-school-admissions-test"
+      ],
+      "evidence_summary": "NYC explicitly lists Brooklyn Latin among specialized high schools whose admission is determined by SHSAT; all resident applicants must take examination."
+    },
+    {
+      "national_rank": 74,
+      "school": "BASIS Phoenix",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Lottery when oversubscribed",
+      "admissions_source_urls": [
+        "https://enrollbasis.com/arizona/"
+      ],
+      "evidence_summary": "Arizona network policy names BASIS Phoenix and requires lottery when oversubscribed."
+    },
+    {
+      "national_rank": 75,
+      "school": "Woodbridge Academy Magnet School",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Academic examination and interview",
+      "admissions_source_urls": [
+        "https://sites.google.com/mcmsnj.net/wamsadmissions/admissions-process"
+      ],
+      "evidence_summary": "Woodbridge Academy school admissions requires grades, Algebra I, mandatory entrance assessment, and qualifying interview."
+    },
+    {
+      "national_rank": 76,
+      "school": "Walnut Hills High School",
+      "state": "OH",
+      "status": "excluded",
+      "reason": "Qualifying entrance examination",
+      "admissions_source_urls": [
+        "https://www.cps-k12.org/our-programs/k-12-testing/walnut-hills-high-school-entrance-exam"
+      ],
+      "evidence_summary": "Cincinnati district specifically requires Walnut Hills applicants to earn qualifying scores on CPS-administered entrance assessment, including resident pupils."
+    },
+    {
+      "national_rank": 77,
+      "school": "International School of Beaverton",
+      "state": "OR",
+      "status": "excluded",
+      "reason": "Lottery selection",
+      "admissions_source_urls": [
+        "https://isb.beaverton.k12.or.us/about-us/apply-to-isb"
+      ],
+      "evidence_summary": "School's2027-28 application calendar lists district-resident eligibility and December9 lottery; school confirms new pupils at every grade enter via district lottery."
+    },
+    {
+      "national_rank": 78,
+      "school": "Bergen County Academies",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Selective admissions test",
+      "admissions_source_urls": [
+        "https://bca-admissions.bergen.org/pdfs/BCA_GuideToApply.pdf"
+      ],
+      "evidence_summary": "District BCA guide requires admissions test, supporting academic records, and school selection; applies to Bergen County Academies."
+    },
+    {
+      "national_rank": 79,
+      "school": "Gilbert Classical Academy High School",
+      "state": "AZ",
+      "status": "excluded",
+      "reason": "Academic prerequisite for direct high-school entry",
+      "admissions_source_urls": [
+        "https://gilbertclassicalacademy.gilbertschools.net/enroll",
+        "https://gilbertclassicalacademy.gilbertschools.net/open-enrollment-capacity"
+      ],
+      "evidence_summary": "Current school policy requires incoming ninth graders to have completed Algebra I in eighth grade; grades10-11 transcripts are reviewed for timely GCA graduation eligibility. Seventh-grade admission has no academic standard and is first-come/capacity-based, but is junior-high entry rather than direct entry to the ranked high school. District capacity page separately identifies junior-high and high-school enrollments.",
+      "adjudication_note": "Primary agent directed direct high-school entrant criterion: nonselective middle-school feeder entry does not waive direct high-school academic prerequisite. This is a course prerequisite, not a claimed GPA or exam cutoff."
+    },
+    {
+      "national_rank": 80,
+      "school": "Lane Technical High School",
+      "state": "IL",
+      "status": "excluded",
+      "reason": "Selective enrollment testing",
+      "admissions_source_urls": [
+        "https://www.cps.edu/gocps/high-school/explore/selective-enrollment-programs/"
+      ],
+      "evidence_summary": "CPS explicitly lists Lane Technical High School as selective enrollment; applicants must test and compete for limited seats."
+    },
+    {
+      "national_rank": 81,
+      "school": "Suncoast Community High School",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Magnet lottery and course eligibility",
+      "admissions_source_urls": [
+        "https://suh.palmbeachschools.org/school-information/admissions"
+      ],
+      "evidence_summary": "Suncoast admissions page requires mathematics coursework by strand and announces February2027 lottery outcomes and seat offers; no ordinary neighborhood route identified."
+    },
+    {
+      "national_rank": 82,
+      "school": "Pacific Collegiate Charter",
+      "state": "CA",
+      "status": "excluded",
+      "reason": "Annual random lottery",
+      "admissions_source_urls": [
+        "https://pacificcollegiate.com/apply/how-to-apply"
+      ],
+      "evidence_summary": "School explicitly admits grades7-12 via random public lottery with weighted preferences; publishes February2027 lottery date and waiting-list process."
+    },
+    {
+      "national_rank": 83,
+      "school": "Academy For Information Technology",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Admissions examination",
+      "admissions_source_urls": [
+        "https://www.ucvts.org/admissions/full-time-academies"
+      ],
+      "evidence_summary": "District full-time academy process requires an entrance exam and specifically includes Academy for Information Technology.",
+      "school_name_in_admission_source": "Academy for Information Technology"
+    },
+    {
+      "national_rank": 84,
+      "school": "Bergen County Technical High School - Teterboro",
+      "state": "NJ",
+      "status": "excluded",
+      "reason": "Selective admissions application and test",
+      "admissions_source_urls": [
+        "https://www.bergen.org/Page/5081"
+      ],
+      "evidence_summary": "Bergen admissions user manual explicitly includes Bergen County Technical High School Teterboro in the shared selective admissions application; district testing materials name both campuses."
+    },
+    {
+      "national_rank": 85,
+      "school": "Martin Luther King Jr. Magnet School",
+      "state": "TN",
+      "status": "excluded",
+      "reason": "Academic magnet eligibility",
+      "admissions_source_urls": [
+        "https://www.mnps.org/students-families/register-for-school/school-options/academic-magnet-requirements"
+      ],
+      "evidence_summary": "District explicitly names Martin Luther King Jr. School and requires academic grade average and qualifying subject test results. Feeder summer pathway remains conditional on grades/tests."
+    },
+    {
+      "national_rank": 86,
+      "school": "I Preparatory Academy",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Academic magnet eligibility",
+      "admissions_source_urls": [
+        "https://yourchoicemiami.org/program-search/school-details?school=7581"
+      ],
+      "evidence_summary": "District directory identifies the ranked iPREP Academy at1500Biscayne Boulevard and requires high-school core-subject2.5GPA, Algebra I, and Physical Science. Its middle-school route also has2.5GPA requirement. Not confused with iPrep Academy North.",
+      "school_name_in_admission_source": "iPreparatory Academy"
+    },
+    {
+      "national_rank": 87,
+      "school": "Terra Environmental Research Institute",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Academic magnet eligibility",
+      "admissions_source_urls": [
+        "https://yourchoicemiami.org/program-search/school-details?school=7029"
+      ],
+      "evidence_summary": "District TERRA school directory lists all three strands with2.5GPA in each core subject and Algebra I/Physical Science prerequisites."
+    },
+    {
+      "national_rank": 88,
+      "school": "Illinois Mathematics and Science Academy",
+      "state": "IL",
+      "status": "excluded",
+      "reason": "Competitive holistic admission",
+      "admissions_source_urls": [
+        "https://www.imsa.edu/admissions/eligibility/"
+      ],
+      "evidence_summary": "School explicitly states all prospective pupils complete a competitive application evaluating academic achievement, STEM interest, grades, scores, and leadership; no fixed minimum score does not make admission nonselective."
+    },
+    {
+      "national_rank": 89,
+      "school": "Onslow Early College",
+      "state": "NC",
+      "status": "excluded",
+      "reason": "Qualifying placement tests and interview",
+      "admissions_source_urls": [
+        "https://oec.onslow.k12.nc.us/our-school/about-us/how-to-attend-onslow-early-college-high-school"
+      ],
+      "evidence_summary": "School requires Math I and qualifying community-college placement scores before sending remaining admission application; live school-staff interview also required."
+    },
+    {
+      "national_rank": 90,
+      "school": "Collegiate School Of Medicine and Bioscience",
+      "state": "MO",
+      "status": "excluded",
+      "reason": "Academic grades, test scores, essay, and interview",
+      "admissions_source_urls": [
+        "https://www.slps.org/families1/magnet/magnet-high-schools-criteria-and-contacts"
+      ],
+      "evidence_summary": "2026-27 district criteria explicitly name Collegiate School of Medicine and Bioscience and require mostly Bs in core subjects, standardized scores at50th percentile in all subareas, entrance essay, and interview.",
+      "school_name_in_admission_source": "Collegiate School of Medicine and Bioscience"
+    },
+    {
+      "national_rank": 91,
+      "school": "DeBakey High School for Health Professions",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Academic matrix and lottery",
+      "admissions_source_urls": [
+        "https://debakey.houstonisd.org/admissions/admission-process"
+      ],
+      "evidence_summary": "DeBakey requires minimum admissions matrix score80 and choice application; admissions sections cover lottery/waitlist. Houston resident eligibility alone does not admit."
+    },
+    {
+      "national_rank": 92,
+      "school": "Lynbrook High School",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary attendance-area resident enrollment",
+      "admissions_source_urls": [
+        "https://www.fuhsd.org/departments/enrollment/student-transfer-options",
+        "https://www.fuhsd.org/about-us/general-information/district-boundry-maps"
+      ],
+      "evidence_summary": "FUHSD policy assigns students to the high school serving their primary residence; district boundary page explicitly lists Lynbrook as a comprehensive district high school and supplies its attendance area. The optional Lynbrook Supplemental School Assignment Program is a separate transfer route, not required for residents in Lynbrook's own attendance area.",
+      "capacity_caveat": "Eligibility establishes a resident attendance route; verify exact address, enrollment timing, and any district reassignment/capacity conditions before relying on a particular campus."
+    },
+    {
+      "national_rank": 93,
+      "school": "Millennium 6-12 Collegiate Academy",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Academic and college-placement eligibility",
+      "admissions_source_urls": [
+        "https://web01.browardschools.com/sbbcpolicies/docs/Policy%205004.l.pdf"
+      ],
+      "evidence_summary": "District school-choice policy explicitly requires Millennium grades9-12 applicants to meet dual-enrollment requirements,3.0 high-school GPA and minimum college placement scores; grade8 feeder preference remains conditional."
+    },
+    {
+      "national_rank": 94,
+      "school": "Edgewood Jr/Sr High School",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "School-choice lottery",
+      "admissions_source_urls": [
+        "https://eghs.brevardschools.org/o/bhs/live-feed"
+      ],
+      "evidence_summary": "District-published 2027-28 school-choice timeline explicitly names Edgewood and West Shore Jr/Sr as choice schools and assigns February8 lottery and seat-offer/waitlist notification. Official boundary description separately states no attendance areas and lottery at capacity."
+    },
+    {
+      "national_rank": 95,
+      "school": "Patrick F. Taylor Science and Technology Academy",
+      "state": "LA",
+      "status": "excluded",
+      "reason": "Academic GPA and entrance-test criteria",
+      "admissions_source_urls": [
+        "https://www.jpschools.org/families/asa-school-choice-program/advanced-study-academies"
+      ],
+      "evidence_summary": "District Advanced Study Academies page explicitly names Patrick F. Taylor and Haynes; grades6-12 require prior two-year core GPA2.5 and all students require85th percentile on ASA admission test.",
+      "rank_primary_source_url": "https://haynes.jpschools.org/"
+    },
+    {
+      "national_rank": 96,
+      "school": "Design and Architecture Senior High School",
+      "state": "FL",
+      "status": "excluded",
+      "reason": "Audition/interview and academic eligibility",
+      "admissions_source_urls": [
+        "https://yourchoicemiami.org/program-search/school-details?school=7081"
+      ],
+      "evidence_summary": "District DASH directory requires audition/interview and core-subject GPA for every listed design strand."
+    },
+    {
+      "national_rank": 97,
+      "school": "Richards School for Young Women Leaders",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Qualified-applicant random lottery",
+      "admissions_source_urls": [
+        "https://www.annrichardsschool.org/admissions/"
+      ],
+      "evidence_summary": "School explicitly requires passing grades, qualifying STAAR performance, recommendations, attendance, and student letter before random lottery; Austin resident status only permits applying."
+    },
+    {
+      "national_rank": 98,
+      "school": "Mission San Jose High School",
+      "state": "CA",
+      "status": "eligible",
+      "reason": "Ordinary attendance-area resident enrollment",
+      "admissions_source_urls": [
+        "https://fremontunified.org/msjhs/about/office/welcome-to-the-registrars-page/enrollment/",
+        "https://fremontunified.org/about/sped-student-support/student-support-services/enrollment-registration/school-wait-lists-overloads/"
+      ],
+      "evidence_summary": "School registrar page requires confirming residence in Mission San Jose High's own attendance area and then district enrollment approval, immunization verification, and scheduling. It states FUSD does not offer placement testing. School will not reserve a space before permanent residence is established. District overload/lottery page concerns elementary schools and kindergarten, not a high-school admission lottery.",
+      "capacity_caveat": "Establish permanent residence and verify exact address before enrollment; school explicitly does not pre-enroll or hold out-of-state/out-of-country spaces. District published overcrowding/waitlist and kindergarten-lottery descriptions apply elementary levels.",
+      "retrieval_note": "Web reader returned403. Same official pages were read directly2026-10-20 through Python urllib with ordinary browser User-Agent; no login was used."
+    },
+    {
+      "national_rank": 99,
+      "school": "Jones College Prep High School",
+      "state": "IL",
+      "status": "excluded",
+      "reason": "Selective enrollment testing",
+      "admissions_source_urls": [
+        "https://www.cps.edu/gocps/high-school/explore/selective-enrollment-programs/"
+      ],
+      "evidence_summary": "CPS explicitly lists Jones College Prep High School as selective enrollment; applicants must test and compete for limited seats."
+    },
+    {
+      "national_rank": 100,
+      "school": "Young Women's Leadership Academy",
+      "state": "TX",
+      "status": "excluded",
+      "reason": "Lottery-based admissions",
+      "admissions_source_urls": [
+        "https://www.saisd.net/o/ywla/page/admissions-and-enrollment/"
+      ],
+      "evidence_summary": "School explicitly says all applicants now use lottery admissions, including priority lottery for YWLA Primary pupils; late applications enter waitlist."
+    }
+  ],
+  "summary": {
+    "reviewed_count": 100,
+    "eligible_count": 2,
+    "excluded_count": 98,
+    "unresolved_count": 0,
+    "eligible_national_ranks": [
+      92,
+      98
+    ],
+    "school_entry_scope": "Direct ordinary residential high-school entry; a separate earlier-grade feeder continuation does not establish this pathway."
+  }
+}

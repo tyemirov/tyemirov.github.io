@@ -1,0 +1,183 @@
+Tuition & Fees | Stanford Online High School (https://ohs.stanford.edu/admissions/tuition)
+【turn481648view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://ohs.stanford.edu/admissions/tuition","lineno":null}); Redirected to URL: https://onlinehighschool.stanford.edu/admissions/tuition; Total lines: 180
+L0: 【0†iframe†www.googletagmanager.com】
+L1: 
+L2: 【1†Menu Close】
+L3: 
+L4: [Input: Search...]
+L5: 
+L6:   * 【2†Gateway Login†familygateway.ohs.stanford.edu】
+L7:   * 【3†For Alumni】
+L8:   * 【4†Support Us】
+L9:   * 【5†Questions?】
+L10:   * 【6†Contact Us】
+L11: 
+L12: [Input: Search...]
+L13: 
+L14: [Input] [Input]
+L15: 
+L16: [Input]
+L17: 
+L18:   * 【7†About】
+L19: 
+L20:     * 【7†About Us】
+L21:     * 【8†School Design & Pedagogy】
+L22:     * 【9†Alumni Outcomes】
+L23: 
+L24:       * 【10†College Acceptances】
+L25:     * 【11†Thriving Online】
+L26:     * 【12†Our People】
+L27:     * 【13†Student Ambassadors】
+L28:     * 【14†School History】
+L29:     * 【15†Brochures & Flyers】
+L30: 
+L31:   * 【16†Admissions】
+L32: 
+L33:     * 【16†Admissions Overview】
+L34:     * 【17†How to Apply】
+L35:     * 【18†Tuition】
+L36:     * 【19†Financial Aid】
+L37: 
+L38:       * 【20†Financial Aid Instruction】
+L39: 
+L40:     * 【21†Admissions Events】
+L41:     * 【22†Enrollment Options】
+L42:     * 【23†Acceptance Criteria】
+L43:     * 【24†International Students】
+L44: 
+L45:   * 【25†Academics】
+L46: 
+L47:     * 【25†Academics Overview】
+L48:       * 【26†Philosophy Core】
+L49:       * 【27†English】
+L50:       * 【28†History & Humanities】
+L51:       * 【29†Languages】
+L52:       * 【30†Mathematics】
+L53:       * 【31†Computer Science】
+L54:       * 【32†Science】
+L55: 
+L56:     * 【33†High School】
+L57: 
+L58:       * 【34†Graduation Requirements】
+L59: 
+L60:     * 【35†Middle School】
+L61:     * 【36†College-Style Schedule】
+L62:     * 【37†Course Catalog】
+L63:     * 【38†Transferring Credits】
+L64: 
+L65:   * 【39†Student Life】
+L66:     * 【39†Student Life Overview】
+L67:     * 【40†Online Community】
+L68:     * 【41†Clubs & Groups】
+L69:     * 【42†Student Government】
+L70:     * 【43†In-Person Events】
+L71:     * 【44†Student Publications】
+L72: 
+L73:   * 【45†Student Support】
+L74: 
+L75:     * 【45†Student Support Overview】
+L76:     * 【46†Academic Advising】
+L77:     * 【47†College Counseling】
+L78:     * 【48†Counseling & Wellness】
+L79:     * 【49†Writing & Tutoring Center】
+L80: 
+L81:   * 【50†Articles】
+L82: 
+L83:     * 【51†Featured Courses】
+L84:     * 【50†News & Perspectives】
+L85:   * 【2†Gateway Login†familygateway.ohs.stanford.edu】
+L86:   * 【3†For Alumni】
+L87:   * 【4†Support Us】
+L88:   * 【5†Questions?】
+L89:   * 【6†Contact Us】
+L90: ## Tuition for 2026-27 (Grades 7–12)
+L91: 
+L92: Stanford OHS has three different tuitions, each corresponding to one of our three enrollment levels.
+L93: 
+L94: ENROLLMENT STATUS  | ACADEMIC YEAR TUITION
+L95: Full-Time (4 or more courses)  | $31,900
+L96: Part-Time (2–3 courses)  | $19,140
+L97: Single Course   | $6,380
+L98: 
+L99: Tuition does not cover books, course materials, or extracurricular expenses for event attendance, yearbooks, etc.
+L100: Note: Single course enrollment is defined as one year-long course. Two semester-long courses taken in different semesters would be viewed as one course for the purposes of tuition. Single course tuition is also applicable if the student takes only one semester-long course.
+L101: ## Additional Expenses
+L102: ### Books and Materials
+L103: 
+L104: The total cost of books and materials will depend on the number of and the particular course(s) the student is taking. The costs of books and materials vary widely by course. For example, the materials for a science course for which the student needs to purchase both a book and a lab kit will be more expensive than the digital books needed for some English courses. For an individual student, total books and materials may cost between $30 and $1,300.
+L105: Students who are awarded financial aid for academic year tuition will also receive financial assistance towards books and materials.
+L106: ### Electronic Devices
+L107: 
+L108: Students must attend Stanford OHS courses from a computer, not from a phone or a tablet. Any mid-range computer released in the last two years should be sufficient for successfully participating in live classes. For some math and science courses, students may need a graphing calculator and/or a graphics tablet.
+L109: ### Internet
+L110: 
+L111: A positive learning experience at Stanford OHS requires a stable broadband Internet connection that can support video conferencing. Our instructors use Adobe Connect, a feature-rich platform, to provide an engaging learning experience for students. Students will be simultaneously on camera, watching presentations/videos, and messaging the class, all of which require a high internet bandwidth for each student.
+L112: # Optional In-Person Events
+L113: While the expenses above are required for full engagement in classes, Stanford OHS also offers a variety of opportunities to engage as a community. Most of these are free or low-cost, including clubs, online assemblies and workshops, and local meetups. Other large in-person events are optional to attend, but do require event tickets and travel. Many students and families typically attend one major event per year at their discretion.
+L114: Prices below reflect ticket prices and do not include travel expenses for students and their accompanying family members.
+L115: Financial aid recipients can receive discounts on event tickets.
+L116: #### Optional: Homecoming
+L117: 
+L118: Location: U.S. East Coast
+L119: Time: Typically in November
+L120: Tickets (approximate): $250 per person
+L121: 
+L122: #### Optional: Pixel Festival
+L123: 
+L124: Location: Stanford University
+L125: Time: Typically in January or February
+L126: Tickets (approximate): $200 per person
+L127: 
+L128: #### Optional: Pixel Gathering & Graduation Weekend
+L129: 
+L130: Location: Stanford University
+L131: Time: Typically in June
+L132: Tickets (approximate): $300 - $800 per person
+L133: #### Optional: Residential Summer@Stanford
+L134: 
+L135: Location: Stanford University
+L136: Time: Typically in August
+L137: Program Cost (approximate):
+L138: $6,000 - $7,000 (high school)
+L139: $3,000 - $4,000 (middle school)
+L140: #### Optional: Spring Break or Summer Student Travel
+L141: 
+L142: Location: Various U.S. and international destinations
+L143: Time: Spring Break or June/July
+L144: Program Cost (approximate): Starting at $3,000
+L145: 
+L146: Stanford Online High School
+L147: Academy Hall  Floor 2 8853
+L148: 415 Broadway
+L149: Redwood City, CA 94063
+L150: 
+L151: 【6†Contact Stanford OHS】
+L152: 
+L153: 【52†Image: OHS Pixel Icon】
+L154:   * About
+L155:     * 【8†School Design & Pedagogy】
+L156:     * 【7†About Us】
+L157:     * 【53†School Profile】
+L158:   * Resources
+L159:     * 【5†Common Questions】
+L160:     * 【37†Course Catalog】
+L161:     * 【54†OHS Applicant Privacy Policy】
+L162:   * Explore
+L163:     * 【55†News】
+L164:     * 【56†Explore Stanford Pre-Collegiate Studies†spcs.stanford.edu】
+L165:     * 【57†For Educators】
+L166:   * 【4†Make a gift】
+L167: 
+L168: 【58†Image: Footer logo】
+L169:   * 【59†Stanford Home†www.stanford.edu】
+L170:   * 【60†Maps & Directions†visit.stanford.edu】
+L171:   * 【61†Search Stanford†www.stanford.edu】
+L172:   * 【62†Emergency Info†emergency.stanford.edu】
+L173:   *   * 【63†Terms of Use†www.stanford.edu】
+L174:   * 【64†Privacy†www.stanford.edu】
+L175:   * 【65†Copyright†uit.stanford.edu】
+L176:   * 【66†Trademarks†adminguide.stanford.edu】
+L177:   * 【67†Non-discrimination†exploredegrees.stanford.edu】
+L178:   * 【68†Accessibility†www.stanford.edu】
+L179:   * © Stanford University. Stanford, California 94305.
+

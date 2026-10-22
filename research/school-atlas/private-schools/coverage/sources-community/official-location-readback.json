@@ -1,0 +1,21 @@
+{
+  "checked_on": "2026-10-20",
+  "evidence": [
+    {
+      "url": "https://www.hw.com/life-at-hw/",
+      "fact": "Upper School Campus: 3700 Coldwater Canyon, Studio City CA 91604."
+    },
+    {
+      "url": "https://www.bishops.com/",
+      "fact": "School address: 7607 La Jolla Boulevard, La Jolla CA 92037."
+    },
+    {
+      "url": "https://www.boston.gov/neighborhood/west-roxbury",
+      "fact": "West Roxbury is a neighborhood of Boston."
+    },
+    {
+      "url": "https://mccmeetings.blob.core.usgovcloudapi.net/madcova-pubu/MEET-Packet-32aba4a68805400d8ecbddcb51da5506.pdf",
+      "fact": "Madison County planning packet identifies Woodberry Forest campus athletic construction on Madison County Tax Map 66-8."
+    }
+  ]
+}

@@ -2,11 +2,11 @@
 import { test, expect } from '../music/test-fixtures.mjs';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { installGoogleSignIn } from '../music/google-sign-in.mjs';
 
 async function prepare(context, credential = 'fixture-owner') {
   await context.addCookies([{ name:'gallery-fixture', value:'checkout', domain:'localhost', path:'/', secure:true }]);
-  await context.route('https://cdn.jsdelivr.net/npm/js-yaml@5.4.1/dist/browser/js-yaml.umd.min.js', async route => route.fulfill({contentType:'application/javascript',body:await readFile('node_modules/js-yaml/dist/browser/js-yaml.umd.min.js')}));
-  await context.route('https://accounts.google.com/gsi/client', route => route.fulfill({contentType:'application/javascript',body:`globalThis.google={accounts:{id:{initialize(options){this.options=options},renderButton(host,options){const button=document.createElement('button');button.setAttribute('aria-label','Sign in with Google');button.textContent=options.type==='icon'?'G':'Sign in with Google';if(options.type==='icon'){button.style.cssText='width:30px;height:30px;padding:0;display:grid;place-items:center'}button.onclick=()=>{options.click_listener();this.options.callback({credential:${JSON.stringify(credential)},state:options.state})};host.replaceChildren(button)},disableAutoSelect(){},cancel(){}}}};`}));
+  await installGoogleSignIn(context, credential);
 }
 async function login(page, context, credential) {
   await prepare(context,credential); await page.goto('/gallery/studio/');

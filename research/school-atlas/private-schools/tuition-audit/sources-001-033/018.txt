@@ -1,0 +1,237 @@
+Tuition and Financial Aid | Dwight Global (https://www.dwight.edu/dwight-global-online-school/admissions/tuition-financial-aid)
+【turn585899view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.dwight.edu/dwight-global-online-school/admissions/tuition-financial-aid","lineno":null}); Total lines: 234
+L0: 【0†iframe†www.googletagmanager.com】 【1†Skip To Main Content】
+L1: 
+L2: ## Custom Class: menu-container
+L3: 
+L4: ## Custom Class: mobile-menu-container
+L5: 
+L6: 【2†Dwight Global Online School】
+L7: ## Custom Class: menu-location-container
+L8: 
+L9: Schools
+L10: 
+L11:   * 【3†Global Network】
+L12:   * 【4†New York】
+L13:   * 【5†London(opens in new window/tab)†www.dwightlondon.org】
+L14:   * 【6†Seoul(opens in new window/tab)†www.dwight.or.kr】
+L15:   * 【7†Shanghai(opens in new window/tab)†www.qibaodwight.org】
+L16:   * 【8†Dubai(opens in new window/tab)†www.dwight.ae】
+L17:   * 【9†Hanoi(opens in new window/tab)†www.dwighthanoi.org】
+L18:   * 【10†Cairo(opens in new window/tab)†dwightcairo.org】
+L19:   * 【11†Jersey City†www.franklinjc.org】
+L20: ## Custom Class: search-container
+L21: 
+L22: Search
+L23: 
+L24: [Input: Have a look...] Clear
+L25: 
+L26: [Button: Search]
+L27: 
+L28:   * 【12†Visit(opens in new window/tab)】
+L29:   * 【13†Apply(opens in new window/tab)】
+L30:   * 【14†Learn More(opens in new window/tab)】
+L31: 
+L32:   * 【15†About Us】
+L33: 
+L34:     * 【15†Welcome】
+L35:     * 【16†Our Mission and Philosophy】
+L36:     * 【17†The Dwight Global Difference】
+L37:     * 【18†Community, Diversity, and Belonging】
+L38:     * 【19†Our Stories and Latest News】
+L39:     * 【20†Calendar】
+L40:     * 【21†Online Learning Blog】
+L41: 
+L42:   * 【22†Academics】
+L43:     * 【22†Our Approach】
+L44:     * 【23†Middle School】
+L45:     * 【24†Upper School】
+L46:     * 【25†Advanced Placement Program】
+L47:     * 【26†International Baccalaureate Diploma Program】
+L48:     * 【27†College Counseling】
+L49:     * 【28†Pastoral Care and Support】
+L50:     * 【29†Quest Program for Learning Support】
+L51:     * 【30†Summer Courses】
+L52: 
+L53:   * 【14†Admissions】
+L54:     * 【14†Schedule an Admissions Consultation】
+L55:     * 【12†Attend a Virtual Open House】
+L56:     * 【31†Tuition & Financial Aid】
+L57:     * 【32†Frequently Asked Questions】
+L58:     * 【13†Apply Now】
+L59:     * 【33†Our Partnerships】
+L60:     * 【34†Tennis Players】
+L61:     * 【35†Fencers】
+L62:     * 【36†Dancers】
+L63: 
+L64:   * 【37†Our Community】
+L65: 
+L66:     * 【37†Leadership at Dwight Global】
+L67:     * 【38†Our Faculty】
+L68:     * 【39†Parent Community】
+L69: 
+L70:   * 【40†Student Life】
+L71:     * 【40†Explore Student Life】
+L72:     * 【41†Trips & In-Person Events】
+L73:     * 【42†The Arts at Dwight Global】
+L74:     * 【43†Spark Program】
+L75: 
+L76:   * 【44†Inquire】
+L77:   * 【20†Calendar】
+L78:   * 【45†Careers】
+L79:   * 【46†School Store(opens in new window/tab)†sideline.bsnsports.com】
+L80:   * 【47†MyDwightGlobal(opens in new window/tab)†dwightglobal.myschoolapp.com】
+L81:   * 【48†Canvas(opens in new window/tab)†dwight.instructure.com】
+L82:   * 【49†Community Portal】
+L83: ## Custom Class: header-container
+L84: ## Custom Class: header-location-container
+L85: 
+L86: [Button: Translate ]
+L87: 
+L88:   * 【50†Schools】
+L89:     * 【3†Global Network】
+L90:     * 【4†New York】
+L91:     * 【5†London(opens in new window/tab)†www.dwightlondon.org】
+L92:     * 【6†Seoul(opens in new window/tab)†www.dwight.or.kr】
+L93:     * 【7†Shanghai(opens in new window/tab)†www.qibaodwight.org】
+L94:     * 【8†Dubai(opens in new window/tab)†www.dwight.ae】
+L95:     * 【9†Hanoi(opens in new window/tab)†www.dwighthanoi.org】
+L96:     * 【10†Cairo(opens in new window/tab)†dwightcairo.org】
+L97:     * 【11†Jersey City†www.franklinjc.org】
+L98: 
+L99: 【2†Dwight Global Online School】
+L100: ## Custom Class: header-utility-container
+L101: 
+L102:   * 【12†Visit(opens in new window/tab)】
+L103:   * 【13†Apply(opens in new window/tab)】
+L104:   * 【14†Learn More(opens in new window/tab)】
+L105: 
+L106: Search/Menu
+L107: ## In This Section
+L108: 
+L109:   * 【14†Schedule an Admissions Consultation】
+L110:   * 【12†Attend a Virtual Open House】
+L111:   * 【31†Tuition & Financial Aid】
+L112:   * 【32†Frequently Asked Questions】
+L113:   * 【13†Apply Now】
+L114:   * 【33†Our Partnerships】
+L115:   * 【34†Tennis Players】
+L116:   * 【35†Fencers】
+L117:   * 【36†Dancers】
+L118: 
+L119: 【51†iframe†www.googletagmanager.com】
+L120: 
+L121: Dwight Global Tuition and Financial Aid
+L122: Dwight Global has a long-standing commitment to its financial aid program, which allows students to have an independent school education regardless of the family’s financial circumstances.
+L123: As a central part of our commitment to 【52†Community, Diversity, and Belonging】, Dwight values enrolling a highly qualified student body with diverse talents, interests, and backgrounds. Recipients of financial aid must reapply to confirm need-based eligibility every two years and all financial aid information is kept confidential. We seek to support as many families as possible and our award decisions are based on demonstrated need.
+L124: Dwight Global endeavors to support as many current and newly enrolled students as possible; however, our financial aid budget is limited and Dwight Global receives more applications than our funding can support.
+L125: 
+L126: Domestic and International families from a wide range of incomes and financial situations can qualify for financial aid. Grant amounts range based on family incomes, the number of children in tuition-charging schools, and family assets and other resources and factors.
+L127: ## an investment in your child's future
+L128: 
+L129: Dwight Global Online School offers an exceptional, independent school experience in a highly personalized and virtual setting.  For the academic year 2026-27, tuition for Grades 6-12 is USD $43,600.*
+L130: 
+L131: *Please note that tuition does not include fees for textbooks and occasional lab materials. A late enrollment fee will be charged for students joining after the end of Trimester 1.
+L132: 
+L133: 【53†Apply Now】
+L134: 
+L135: * * *
+L136: ## Financial Aid Checklist
+L137: 
+L138:   * Check the financial aid box on the Ravenna admissions application.
+L139:   * Dwight Global works with a financial aid platform called Clarity to determine a family’s contribution amount. To start your financial aid application on Clarity, follow the button below and submit all required and requested documentation, as well as the USD$65 processing fee.
+L140:   * You will be notified about financial aid grants at the same time as the admission decision.
+L141: If you have questions for Dwight regarding the application process, please see the FAQs below or email the Financial Aid Office (financialaid@dwight.global).
+L142: 
+L143: 【54†Review the application guide†www.clarityschools.com】
+L144: 
+L145: 【55†Apply for financial aid†app.clarityapp.com】
+L146: ## AFFORDABILITY
+L147: 
+L148:   * We use the 【56†Clarity†app.clarityapp.com】 financial aid system to help us evaluate award decisions fairly. There are no specific benchmarks for income levels to qualify for financial aid. Providing additional narrative details in the application will assist our Financial Aid Committee to understand any extenuating circumstances that are unique to your family.
+L149:   * If you anticipate needing financial assistance now or in the future, please indicate this during the admissions process. Families who initially enrolled at Dwight Global without a financial aid package are eligible to apply for aid only if they have experienced a significant change in circumstances. Funds are not available for families with pre-existing needs that were not disclosed at the time of initial admission.
+L150:   * We will communicate decisions about financial aid together with the admissions decision.
+L151: ## Financial Aid Facts
+L152: 
+L153:   * 【57†Who qualifies for financial aid?】
+L154:   * 【58†In addition to financial aid, are merit or other scholarships available?】
+L155:   * 【59†How much financial aid will my child/family receive?】
+L156:   * 【60†Is financial aid available for expenses beyond tuition?】
+L157:   * 【61†Can international applicants apply for financial aid?】
+L158: ## 【57†Who qualifies for financial aid?】
+L159: Financial aid decisions are based on demonstrated need. All financial aid applications are reviewed confidentially, comprehensively and individually. We use the 【56†Clarity†app.clarityapp.com】 financial aid system to help us fairly evaluate award decisions. There are no specific benchmarks for income levels to qualify for financial aid.
+L160: Providing additional narrative details in the application will assist the Financial Aid Committee to understand any extenuating circumstances that are unique to your family.
+L161: ## 【58†In addition to financial aid, are merit or other scholarships available?】
+L162: 
+L163: No, Dwight Global does not offer merit or other scholarships. Need-based financial aid is available.
+L164: 
+L165: ## 【59†How much financial aid will my child/family receive?】
+L166: 
+L167: Dwight Global endeavors to support as many current and newly enrolled students as possible. However, our financial aid budget is limited and we always receive more applications than our funding can support. Financial aid awards range in size.
+L168: ## 【60†Is financial aid available for expenses beyond tuition?】
+L169: 
+L170: No, financial aid only supports tuition expenses.
+L171: 
+L172: ## 【61†Can international applicants apply for financial aid?】
+L173: 
+L174: Dwight Global offers financial assistance to domestic and international families.
+L175: 
+L176: 
+L177: 
+L178: Have questions about Financial Aid?
+L179: 
+L180: Contact us (financialaid@dwight.global)
+L181: ## Financial Aid Team
+L182: 
+L183: 【62†Kate Zolotkovsky†dwightnewyork-1-us-east1-01.preview.finalsitecdn.com】
+L184: 
+L185: Co-Director of Financial Aid
+L186: 
+L187: 【63†Robyn Levinson†dwightnewyork-1-us-east1-01.preview.finalsitecdn.com】
+L188: 
+L189: Co-Director of Financial Aid
+L190: 
+L191: ## Custom Class: footer-container
+L192: 
+L193: [Button: Back To Top ]
+L194: 
+L195: 【2†Dwight Global Online School】
+L196: 
+L197: ## Dwight Global Address
+L198: 
+L199: Dwight Global
+L200: 
+L201: 2054 Vista Parkway Suite 400 West Palm Beach, FL 33411
+L202: ## Mailing Address
+L203: 
+L204: Dwight Online School
+L205: 
+L206: 291 Central Park West New York, NY 10024
+L207: 
+L208: 212-724-2420
+L209: 
+L210: ## Popular Links
+L211: 
+L212:   * 【45†Careers at Dwight Global】
+L213:   * 【44†Contact Us】
+L214:   * 【64†DWIGHT GLOBAL Transcript Request】
+L215: ## Connect With Us
+L216: 
+L217:   * 【65†Facebook(opens in new window/tab)†www.facebook.com】
+L218:   * 【66†Instagram(opens in new window/tab)†www.instagram.com】
+L219:   * 【67†YouTube(opens in new window/tab)†www.youtube.com】
+L220:   * 【68†LinkedIn(opens in new window/tab)†www.linkedin.com】
+L221: 
+L222:   * 【69†Cognia(opens in new window/tab)†home.cognia.org】
+L223: 
+L224:   * 【70†The International Baccalaureate(opens in new window/tab)†ibo.org】
+L225: 
+L226:   * 【71†2026 Niche(opens in new window/tab)†www.niche.com】
+L227:   * 【72†Newsweek(opens in new window/tab)†www.newsweek.com】
+L228: 
+L229:   * 【73†AFEC (opens in new window/tab)†istudy.sport】
+L230: 
+L231:   * 【74†USTA(opens in new window/tab)†www.usta.com】
+L232: 
+L233:   * 【75†World Schools(opens in new window/tab)†world-schools.com】
+

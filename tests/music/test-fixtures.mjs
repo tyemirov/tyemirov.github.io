@@ -1,11 +1,13 @@
 // @ts-check
 import { test as base, expect } from "@playwright/test";
-import { installSharedUIAssets } from "./shared-ui-assets.mjs";
+import { installBrowserAssets } from "./browser-assets.mjs";
+import { installGoogleSignIn } from "./google-sign-in.mjs";
 
 // Silence the test audio output while preserving real loading, decoding, and time progression.
 export const test = base.extend({
-  sharedUIAssets: [async ({ context }, use) => {
-    await installSharedUIAssets(context);
+  browserAssets: [async ({ context }, use) => {
+    await installBrowserAssets(context);
+    await installGoogleSignIn(context);
     await use();
   }, { auto: true }],
   silentAudio: [async ({ context }, use) => {

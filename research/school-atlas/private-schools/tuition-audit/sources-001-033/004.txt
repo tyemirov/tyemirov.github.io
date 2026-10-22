@@ -1,0 +1,237 @@
+Tuition, Costs, & Affordability - The Lawrenceville School (https://www.lawrenceville.org/admission/tuition-aid)
+【turn340270view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.lawrenceville.org/admission/tuition-aid","lineno":null}); Total lines: 234
+L0: 【0†iframe†www.googletagmanager.com】 【1†iframe†www.googletagmanager.com】 【0†iframe†www.googletagmanager.com】
+L1: 
+L2: Search
+L3: 
+L4: [Input: Search] Clear
+L5: 
+L6: [Button: Search]
+L7: 
+L8:   * 【2†Academics】
+L9: 
+L10:     * 【3†Departments】
+L11: 
+L12:       * 【4†English】
+L13:       * 【5†History】
+L14:       * 【6†Interdisciplinary Studies】
+L15:       * 【7†Language】
+L16:       * 【8†Mathematics】
+L17:       * 【9†Performing Arts(opens in new window/tab)†performingarts.lawrenceville.org】
+L18:       * 【10†Religion and Philosophy】
+L19:       * 【11†Science】
+L20:       * 【12†Visual Arts】
+L21:     * 【13†Course Catalog(opens in new window/tab)†lawrencevilleorg.finalsite.com】
+L22:     * 【14†Beyond the Classroom】
+L23: 
+L24:       * 【15†Travel Programs】
+L25:       * 【16†Outdoor Classroom】
+L26:       * 【17†Big Red Farm】
+L27:       * 【18†Sustainability】
+L28:       * 【19†Lawrenceville Research Institutes】
+L29: 
+L30:     * 【20†College Counseling】
+L31:     * 【21†Bunn Library】
+L32:     * 【22†Hutchins Center for Civics】
+L33: 
+L34:   * 【23†Student Life】
+L35: 
+L36:     * 【24†Campus】
+L37:       * 【25†Tsai Field House】
+L38:       * 【26†Gruss Center for Art and Design】
+L39:       * 【27†Hutchins Galleries】
+L40: 
+L41:     * 【28†Dining】
+L42:     * 【29†Health and Wellness】
+L43:     * 【30†Public Safety】
+L44:     * 【31†Diversity and Belonging】
+L45: 
+L46:   * 【32†Co-Curriculars】
+L47: 
+L48:     * 【33†Athletics(opens in new window/tab)†athletics.lawrenceville.org】
+L49:     * 【9†Performing Arts(opens in new window/tab)†performingarts.lawrenceville.org】
+L50:     * 【34†Community Service】
+L51: 
+L52:   * 【35†Admission】
+L53: 
+L54:     * 【36†Application Process】
+L55:     * 【37†Tuition and Aid】
+L56: ## Information For...
+L57: 
+L58:   * 【38†Students(opens in new window/tab)†accounts.veracross.com】
+L59:   * 【39†Parents】
+L60:   * 【40†Alumni】
+L61:   * 【38†Faculty & Staff(opens in new window/tab)†accounts.veracross.com】
+L62: 
+L63: Open Search
+L64: 
+L65: Search
+L66: 
+L67: [Input: Search] Clear
+L68: 
+L69: [Button: Search]
+L70: 
+L71: EXIT
+L72: 
+L73:   * 【41†About Us】
+L74:   * 【42†Leadership】
+L75:   * 【43†Directory】
+L76:   * 【44†Visiting Campus】
+L77:   * 【45†News and Media】
+L78:   * 【46†Employment】
+L79:   * 【47†Summer Programs】
+L80:   * 【48†Giving(opens in new window/tab)†giving.lawrenceville.org】
+L81: 
+L82: Open Search
+L83: 
+L84: Search
+L85: [Input: Search] Clear
+L86: 
+L87: [Button: Search]
+L88: 
+L89: Close Search
+L90: 
+L91: MENU
+L92: 
+L93: 
+L94: 
+L95:   * 【36†Application Process】
+L96:   * 【37†Tuition and Aid】
+L97: # Tuition and Aid
+L98: 
+L99: The Lawrenceville School is an investment in your child's future — a strong academic foundation, a supportive community, and an experience that helps them embrace whatever comes next.
+L100: Learning is enriched when it happens among students with different backgrounds, experiences, and perspectives. One way we uphold this value is to provide financial aid grants to meet the demonstrated need of our families. More than 30% of our current families receive need-based grants. We meet 100% of a family's demonstrated need. If your family may need financial assistance during your student's time at Lawrenceville, we encourage you to apply for aid.
+L101: #### 【49†Don’t Let the Sticker Price Stop You: See How Aid Works】
+L102: 
+L103: ####
+L104: 
+L105: ## Comprehensive Tuition for School Year 2026-27
+L106: 
+L107: Our tuition is comprehensive and inclusive of most fees.
+L108: 
+L109:   * 【50†Tuition and Fees】
+L110:   * 【51†Average Aid Award】
+L111:   * 【52†Payment Options】
+L112: ## 【50†Tuition and Fees】
+L113: 
+L114: Tuition and Fees
+L115: ---
+L116: Boarding  | $82,710
+L117: Day  | $68,060
+L118: 
+L119: 
+L120: 
+L121: Families of Fifth Form students will incur a fee of $525 dollars (proportional to the family's financial aid package) for events and activities associated with the Fifth Form year.
+L122: In addition to Tuition and Fees, other expenses associated with attending Lawrenceville include a laptop and cell phone, and books and supplies. International students are required to purchase health insurance through Lawrenceville, which is $2,895 for a 12-month plan or $2,595 for a 10-month plan.
+L123: ## 【51†Average Aid Award】
+L124: #### Aid Awarded to Lawrenceville Students for the 2026-2027 School Year
+L125: 
+L126: The table below is based on grants offered to students during the 2026-27 school year and is meant to be used as a reference only. Each family's financial situation is reviewed individually and grants are awarded accordingly.
+L127:  Family Income  | Average Aid Award  | Average Cost to Family
+L128: --- | --- | ---
+L129: < $125k  | $72,697  | $5,574
+L130: $125k - $200k  | $69,960  | $8,154
+L131: $200k - $275k  | $61,359  | $14,392
+L132: $275k - $350k  | $52,351  | $25,671
+L133: $350k - $425k  | $39,577  | $38,250
+L134: > $425k  | $41,054  | $37,347
+L135: ## 【52†Payment Options】
+L136: #### PAYMENT OPTIONS
+L137: 
+L138: 
+L139: 
+L140: Option 1
+L141: 
+L142: Pay the tuition in one installment on or before June 1.
+L143: 
+L144: 
+L145: 
+L146: Option 2
+L147: 
+L148: Pay in two installments. The first payment is due June 1 and covers 60% of the comprehensive tuition and 100% of the tuition refund insurance premium. The balance is November 1. All registrants in the Two Payment Plan automatically are enrolled in and required to pay fees associated with the tuition refund insurance premium.
+L149: 
+L150: 
+L151: 
+L152: Option 3
+L153: Pay monthly. Monthly payments begin June 1 and run through February 1. All registrants in the Monthly Payment Plan automatically are enrolled in and required to pay fees associated with the monthly payment plan and tuition refund insurance premium.
+L154: 
+L155: 
+L156: 
+L157: 
+L158: 
+L159: PAYMENT OPTION
+L160: RESOURCES
+L161: 
+L162: 【53†2026-27 Tuition Payment Schedule】
+L163: 
+L164: 【54†2026-27 Tuition Refund Plan Brochure】
+L165: ## How to Apply for Financial Aid
+L166: 
+L167: Lawrenceville offers financial aid to domestic applicants through need-based grants. The deadline to apply for Financial Aid is January 15 (December 15 for returning families).
+L168: 
+L169: 
+L170: ## Information Session
+L171: 
+L172: Investing in a Lawrenceville education is a partnership. Hear about students' experience at Lawrenceville while receiving need-based aid in this conversation with our admission team.
+L173: 
+L174: 
+L175: 
+L176: 【55†Watch Now†www.youtube.com】
+L177: ###### Complete Application
+L178: 
+L179: Financial Aid application is concurrent with application for admission. Please see our 【56†Application Process】 page to get started.
+L180: 
+L181: 【57†Complete the aid application through Clarity.†auth.clarityapp.com】 Please note, our policy is that it is the parents' shared responsibility to pay education expenses. As such, we require an application and supporting documentation from both parents.
+L182: 
+L183: ######
+L184: ###### Upload Required Financial Documentation
+L185: 
+L186: A family's eligibility for aid is determined through careful analysis of 【57†information provided on the financial aid application, Clarity†auth.clarityapp.com】, and through submission of a family's current, complete, federal tax return. This analysis identifies the dollar amount of a family's discretionary income that is available for tuition and fees.
+L187: Many factors are considered in determining who receives need-based aid and the size of the grant. While family income is the most influential consideration, we also take into account the full context of a family's financial situation, including home location, family size, number of children in tuition-charging schools, savings, and other elements. Barring any significant life event, families can expect to receive a similar amount year-to-year.
+L188: ### What Does Need-Based Aid Include?
+L189: 
+L190: Committed to meeting the full, demonstrated need of all students, Lawrenceville provides need-based grants to support qualifying students. Unlike loans, these grants do not need to be repaid; they are Lawrenceville's investment in your student and in our broader community.
+L191: 
+L192: Our aid packages can include up to the full cost of attendance, including:
+L193:   * One Harkness Travel Experience
+L194:   * Private Music Lessons
+L195:   * Athletic Training Trips
+L196:   * Standardized Test Prep for SAT and ACT
+L197:   * House and Team Merchandise
+L198: 
+L199: Some students also receive additional support, including:
+L200: 
+L201:   * Travel to and from Campus
+L202:   * Required Academic Materials
+L203:   * Laptop and Cell Phone
+L204:   * Health Insurance
+L205: Once enrolled, we encourage students to take advantage of the opportunities supported by need-based aid through a newsletter detailing available resources and gatherings with other students receiving aid.
+L206: 
+L207: The Lawrenceville School does not discriminate on the basis of race, color, national or ethnic origin, religion, gender, gender expression, sexual orientation, genetic information, or physical or mental disabilities in the administration of its admission and financial aid programs.
+L208: The Lawrenceville School is a co-educational college preparatory school for boarding and day students in grades 9 - 12.
+L209: 
+L210:   * 【58†Directory】
+L211:   * 【59†Employment】
+L212:   * 【45†News and Media】
+L213:   * 【60†Big Red Store(opens in new window/tab)†sideline.bsnsports.com】
+L214:   * 【61†Site Map】
+L215:   * 【62†Privacy Policy】
+L216:   * 【48†Make a Gift(opens in new window/tab)†giving.lawrenceville.org】
+L217: 
+L218: 【63†The Lawrenceville School】
+L219: 
+L220: 2500 Main Street
+L221: 
+L222: Lawrenceville
+L223: 
+L224: NJ
+L225: 
+L226: 08648
+L227: The Lawrenceville School is a co-educational college preparatory school for boarding and day students in grades 9 - 12.
+L228: 
+L229:   * 【64†Facebook(opens in new window/tab)†www.facebook.com】
+L230:   * 【65†Flickr(opens in new window/tab)†www.flickr.com】
+L231:   * 【66†LinkedIn(opens in new window/tab)†www.linkedin.com】
+L232:   * 【67†Instagram(opens in new window/tab)†www.instagram.com】
+L233:   * 【68†YouTube(opens in new window/tab)†www.youtube.com】
+

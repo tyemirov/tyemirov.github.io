@@ -1,0 +1,37 @@
+Internal Error ()
+【turn878836view0】 [wordlim: 200] Source: open({"ref_id":"https://www.prismsus.org/admissions/tuition","lineno":null}); Total lines: 1
+L0: Failed to fetch https://www.prismsus.org/admissions/tuition: (404) Not Found
+
+--------------------------------------------------------------------------------
+ (https://d2e3a5v56wj8r4.cloudfront.net/files/ADM/HOS_Letter2026.pdf)
+【turn878836view1】 [wordlim: 200] Crawled: today; Content type: application/pdf; Number of pages: 1; Source: open({"ref_id":"https://d2e3a5v56wj8r4.cloudfront.net/files/ADM/HOS_Letter2026.pdf","lineno":null}); Total lines: 29
+L0@P0: March 10, 2026
+L1@P0: 
+L2@P0: Dear Parents and Guardians,
+L3@P0: Congratulations on your child’s acceptance and welcome to the Phillips Academy community! You
+L4@P0: have every reason to be incredibly proud—your child stood out among thousands of exceptional
+L5@P0: students representing youth from every quarter.
+L6@P0: The Andover experience is distinctive in ways that you have already discovered. I hope that this
+L7@P0: discovery is just the beginning of a long and rewarding journey. As head of school, I continue to be
+L8@P0: inspired by the ideals that drew me to Andover. These same principles place Andover among the best
+L9@P0: in secondary education, anywhere in the world.
+L10@P0: First, excellence stands at the heart of Andover—outstanding faculty and a curriculum that is broad,
+L11@P0: deep, and always evolving. Second, our values—non sibi (not for self), knowledge and goodness—
+L12@P0: challenge us to make a difference in the world. Finally, our talented and diverse students, including
+L13@P0: every child in this newly admitted class, excite me most about being part of this community.
+L14@P0: Preserving access to an Andover education is among our highest priorities. In addition to setting tuition
+L15@P0: for the 2026–2027 academic year, the Board of Trustees recently approved a generous financial aid
+L16@P0: budget that preserves need-blind admission. Tuition for boarding students ($79,800) and day students
+L17@P0: ($63,840) also includes all mandatory fees.
+L18@P0: Tuition covers only part of the full cost to educate an Andover student. In fact, that cost will exceed
+L19@P0: $100,000 next year. Gifts from alumni and families, as well as income from the endowment, make up
+L20@P0: the difference and help keep tuition and financial aid at the most competitive levels.
+L21@P0: We look forward to seeing you during our Spring Visit program and offer the choice of one of the
+L22@P0: following days: Thursday, March 26; Monday, March 30; Thursday, April 2; or Monday, April 6. Please
+L23@P0: visit your student portal to register.
+L24@P0: On behalf of the trustees and campus community, welcome to The Big Blue! I hope you will decide
+L25@P0: that Andover is the right school for your child and for your family.
+L26@P0: Sincerely,
+L27@P0: Raynard S. Kington, MD, PhD, P’24,’27
+L28@P0: Head of School
+

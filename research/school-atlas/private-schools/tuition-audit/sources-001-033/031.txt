@@ -1,0 +1,355 @@
+Need-Based Private High School Financial Aid - Commonwealth School (https://www.commschool.org/admissions-aid/financial-aid)
+【turn823963view0】 [wordlim: 200] Crawled: yesterday; Content type: text/html; Source: open({"ref_id":"https://www.commschool.org/admissions-aid/financial-aid","lineno":null}); Total lines: 352
+L0: 【0†iframe†www.googletagmanager.com】 【1†iframe†www.googletagmanager.com】
+L1: 
+L2: close
+L3: 
+L4: Back
+L5: 
+L6:   * 【2†About Us】
+L7: 
+L8:     * 【3†Mission】
+L9:     * 【4†Quick Facts About Commonwealth School】
+L10:     * 【5†Head of School】
+L11:     * 【6†Faculty & Staff Directory】
+L12:     * 【7†Board of Trustees】
+L13:     * 【8†Student Engagement】
+L14:     * 【9†Equity and Inclusion】
+L15:     * 【10†History】
+L16:     * 【11†Location】
+L17: 
+L18:   * 【12†Admissions & Aid】
+L19:     * 【13†Apply】
+L20:     * 【14†Tuition and Financial Aid】
+L21:     * 【15†Request Information】
+L22:     * 【16†Admissions Events and Outreach】
+L23:     * 【17†Virtual Tour】
+L24:     * 【18†Visit Us】
+L25:     * 【19†Experience Commonwealth】
+L26:     * 【20†Meet the Admissions Committee】
+L27:     * 【21†Contact Admissions】
+L28: 
+L29:   * 【22†Academics】
+L30:     * 【23†Meet Our Faculty and Staff】
+L31:     * 【24†Curriculum】
+L32:     * 【25†Ninth Grade】
+L33:     * 【26†Graduation Requirements】
+L34:     * 【27†Academic Calendar】
+L35:     * 【28†Advising】
+L36:     * 【29†College Counseling】
+L37:     * 【30†Projects and Capstones】
+L38:     * 【31†Library】
+L39:     * 【32†Dive In Commonwealth】
+L40: 
+L41:   * 【33†Arts】
+L42: 
+L43:     * 【34†Visual Arts】
+L44:     * 【35†Performing Arts】
+L45: 
+L46:   * 【36†Athletics】
+L47:     * 【36†Athletic Teams】
+L48:     * 【37†Athletics Calendar】
+L49:     * 【38†Athletics Overview and Requirements】
+L50:     * 【39†Athletic Training and Concussion Awareness】
+L51: 
+L52:   * 【40†Student Life】
+L53: 
+L54:     * 【41†Meet Our Students】
+L55:     * 【42†Student Activities】
+L56:     * 【43†Community Service】
+L57:     * 【44†Student Support and Wellness】
+L58:     * 【45†Study and Travel Abroad】
+L59:     * 【46†Jobs Program】
+L60:     * 【47†Hancock】
+L61:     * 【48†Assembly】
+L62:     * 【49†Dining】
+L63:     * 【50†COMMUN(opens in new window/tab)†www.commonwealthmun.com】
+L64: 
+L65:   * 【51†Give】
+L66:     * 【52†Give Now(opens in new window/tab)†www.givecampus.com】
+L67:     * 【53†Ways to Give】
+L68:     * 【54†Impact Areas】
+L69:     * 【55†Planned Giving†legacy.commschool.org】
+L70:     * 【56†Community Giving Report】
+L71:     * 【57†The Power of a Vision Campaign】
+L72: 
+L73: Search
+L74: 
+L75: [Input] Clear
+L76: 
+L77: [Button: Search]
+L78: 
+L79:   * 【58†News】
+L80: 
+L81:     * 【58†News and Insights from Commonwealth School】
+L82:     * 【59†Media Relations】
+L83:     * 【60†Alumni/ae Magazine】
+L84: 
+L85:   * 【61†Calendar】
+L86:   * 【6†Directory】
+L87:   * 【62†Current Families】
+L88:     * 【63†Parent Portal†portals.veracross.com】
+L89:     * 【64†Parent Events and Programs】
+L90: 
+L91:   * 【65†Alumni/ae】
+L92: 
+L93:     * 【66†Reunions and Alumni/ae Events】
+L94:     * 【67†Class Notes】
+L95:     * 【68†Commonwealth Connect(opens in new window/tab)†commonwealth.alumnifire.com】
+L96:     * 【69†Update Your Information】
+L97:     * 【70†Alumni/ae Association】
+L98:     * 【71†Meet Our Alumni/ae】
+L99:     * 【60†CM (Commonwealth Magazine)】
+L100: 
+L101:   * 【13†Apply Now】
+L102: 
+L103:   * 【15†Inquire】
+L104:   * 【18†Visit】
+L105:   * 【13†Apply】
+L106: Co-ed independent day school in Boston's Back Bay for academically adventurous students in grades 9–12
+L107: 
+L108: 【13†Apply Now】
+L109: 
+L110:   * 【58†News】
+L111: 
+L112:     * 【58†News and Insights from Commonwealth School】
+L113:     * 【59†Media Relations】
+L114:     * 【60†Alumni/ae Magazine】
+L115: 
+L116:   * 【61†Calendar】
+L117:   * 【6†Directory】
+L118:   * 【62†Current Families】
+L119: 
+L120:     * 【63†Parent Portal†portals.veracross.com】
+L121:     * 【64†Parent Events and Programs】
+L122: 
+L123:   * 【65†Alumni/ae】
+L124:     * 【66†Reunions and Alumni/ae Events】
+L125:     * 【67†Class Notes】
+L126:     * 【68†Commonwealth Connect(opens in new window/tab)†commonwealth.alumnifire.com】
+L127:     * 【69†Update Your Information】
+L128:     * 【70†Alumni/ae Association】
+L129:     * 【71†Meet Our Alumni/ae】
+L130:     * 【60†CM (Commonwealth Magazine)】
+L131: 
+L132:   * 【13†Apply Now】
+L133: ## Search
+L134: 
+L135: Search
+L136: 
+L137: [Input: I Am Searching For...] Clear
+L138: 
+L139: [Button: Search]
+L140: 
+L141: menu
+L142: 
+L143:   * 【2†About Us】
+L144: 
+L145:     * 【3†Mission】
+L146:     * 【4†Quick Facts About Commonwealth School】
+L147:     * 【5†Head of School】
+L148:     * 【6†Faculty & Staff Directory】
+L149:     * 【7†Board of Trustees】
+L150:     * 【8†Student Engagement】
+L151:     * 【9†Equity and Inclusion】
+L152:     * 【10†History】
+L153:     * 【11†Location】
+L154: 
+L155:   * 【12†Admissions & Aid】
+L156:     * 【13†Apply】
+L157:     * 【14†Tuition and Financial Aid】
+L158:     * 【15†Request Information】
+L159:     * 【16†Admissions Events and Outreach】
+L160:     * 【17†Virtual Tour】
+L161:     * 【18†Visit Us】
+L162:     * 【19†Experience Commonwealth】
+L163:     * 【20†Meet the Admissions Committee】
+L164:     * 【21†Contact Admissions】
+L165: 
+L166:   * 【22†Academics】
+L167:     * 【23†Meet Our Faculty and Staff】
+L168:     * 【24†Curriculum】
+L169:     * 【25†Ninth Grade】
+L170:     * 【26†Graduation Requirements】
+L171:     * 【27†Academic Calendar】
+L172:     * 【28†Advising】
+L173:     * 【29†College Counseling】
+L174:     * 【30†Projects and Capstones】
+L175:     * 【31†Library】
+L176:     * 【32†Dive In Commonwealth】
+L177: 
+L178:   * 【33†Arts】
+L179: 
+L180:     * 【34†Visual Arts】
+L181:     * 【35†Performing Arts】
+L182: 
+L183:   * 【36†Athletics】
+L184:     * 【36†Athletic Teams】
+L185:     * 【37†Athletics Calendar】
+L186:     * 【38†Athletics Overview and Requirements】
+L187:     * 【39†Athletic Training and Concussion Awareness】
+L188: 
+L189:   * 【40†Student Life】
+L190: 
+L191:     * 【41†Meet Our Students】
+L192:     * 【42†Student Activities】
+L193:     * 【43†Community Service】
+L194:     * 【44†Student Support and Wellness】
+L195:     * 【45†Study and Travel Abroad】
+L196:     * 【46†Jobs Program】
+L197:     * 【47†Hancock】
+L198:     * 【48†Assembly】
+L199:     * 【49†Dining】
+L200:     * 【50†COMMUN(opens in new window/tab)†www.commonwealthmun.com】
+L201: 
+L202:   * 【51†Give】
+L203:     * 【52†Give Now(opens in new window/tab)†www.givecampus.com】
+L204:     * 【53†Ways to Give】
+L205:     * 【54†Impact Areas】
+L206:     * 【55†Planned Giving†legacy.commschool.org】
+L207:     * 【56†Community Giving Report】
+L208:     * 【57†The Power of a Vision Campaign】
+L209: 
+L210:   * 【13†Apply】
+L211:   * 【14†Tuition and Financial Aid】
+L212: 
+L213:     * 【72†How to Apply for Financial Aid Step by Step】
+L214:     * 【73†Financial Aid FAQs】
+L215:     * 【74†Managing Other Costs】
+L216:   * 【15†Request Information】
+L217:   * 【16†Admissions Events and Outreach】
+L218:   * 【17†Virtual Tour】
+L219:   * 【18†Visit Us】
+L220:   * 【19†Experience Commonwealth】
+L221:   * 【20†Meet the Admissions Committee】
+L222:   * 【21†Contact Admissions】
+L223: 
+L224:   * 【75†Home】 >
+L225:   * 【12†Admissions & Aid】 >
+L226:   * Tuition and Financial Aid
+L227: ## In This Section
+L228: 
+L229:   * 【13†Apply】
+L230:   * 【14†Tuition and Financial Aid】
+L231: 
+L232:     * 【72†How to Apply for Financial Aid Step by Step】
+L233:     * 【73†Financial Aid FAQs】
+L234:     * 【74†Managing Other Costs】
+L235: 
+L236:   * 【15†Request Information】
+L237:   * 【16†Admissions Events and Outreach】
+L238:   * 【17†Virtual Tour】
+L239:   * 【18†Visit Us】
+L240:   * 【19†Experience Commonwealth】
+L241:   * 【20†Meet the Admissions Committee】
+L242:   * 【21†Contact Admissions】
+L243: # Tuition and Financial Aid
+L244: 
+L245: Since our founding, Commonwealth School has been dedicated to increasing access and welcoming as many qualified students as possible through extensive need-based financial aid. Making tuition more affordable and within budget for our families continues to be an institutional priority. This empowers us to attract strong applicants from a wide range of backgrounds and to compose a well-rounded and talented student body.
+L246: 
+L247: 
+L248: 
+L249: $2.1M
+L250: 
+L251: financial aid granted for 2026–2027
+L252: 
+L253: 
+L254: 
+L255: 32%
+L256: incoming students with financial aid
+L257: 
+L258: 
+L259: 
+L260: $46,884
+L261: 
+L262: average financial aid grant for 2026–2027
+L263: 
+L264: 
+L265: 
+L266: $62,780
+L267: 
+L268: tuition and fees for 2026–2027
+L269: 
+L270: $20,000–$435,000
+L271: 
+L272: household incomes of families with financial aid grants for 2026–2027
+L273: My family has been eternally changed because of Commonwealth School and its generous financial aid program. Without it, my son would’ve attended a different school that was not equipped to meet his academic, emotional, or social needs the way Commonwealth has. However, because of Commonwealth's financial aid program, and over the course of his time at this phenomenal school, my son has transformed into a confident, independent thinker and hard-working young adult. I am forever grateful.
+L274: Parent '25
+L275: ## Financial Aid Grants and More
+L276: 
+L277: We remain committed to partnering with families to meet the cost of a Commonwealth education. Commonwealth’s financial aid includes textbooks, biannual all-school trips, and participation in clubs and sports. We also offer supplemental grants for transportation and technology; additional scholarships for summer programs and school-sponsored international trips; discounted standardized testing, test preparation, and tutoring; and flexible payment plans.
+L278: Applying for financial aid at Commonwealth takes less than thirty minutes.
+L279: ## Flexible Payment Plans
+L280: 
+L281: All Commonwealth families have three payment plan options; they select one annually that works best for their budget:
+L282: 
+L283:   * Ten Monthly Payments (from May through February)
+L284:   * Two Payments (by June 1 and October 1)
+L285:   * One Payment (by June 1)
+L286: 
+L287: Families of returning students should consult the 【76†Parent Portal】 (login required) for information that is specific to them.
+L288: 
+L289: 【77†Start the Financial AiD Process】
+L290: 
+L291: 
+L292: 
+L293: ## Financial Aid Timeline for New Families
+L294: ### October 1
+L295: 
+L296: Commonwealth’s financial aid application opens for 2027–2028
+L297: 
+L298: ### February 1
+L299: 
+L300: Deadline to complete and submit your financial aid application through Clarity
+L301: 
+L302: ### February 15
+L303: 
+L304: Deadline to upload all 2026 W-2s and 1099s to Clarity
+L305: 
+L306: ### March 10
+L307: 
+L308: Commonwealth informs families of financial aid decisions along with admission decisions
+L309: ## Access and Affordability
+L310: 
+L311: All students can avail themselves of all opportunities at Commonwealth through additional grants for technology, transportation, and international travel, as well as sliding-scale costs for tutoring, standardized tests, and more.
+L312:   * Technology grants are made available to eligible families and can be applied to purchasing a MacBook Pro laptop, printer, and software through Commonwealth and at a reduced cost. There is no cost to the families of students with a financial aid percentage of 90 or higher. For the 2026–2027 school year, on average, families paid $185 for this package.
+L313:   * Transportation stipends offset some or all of the cost of commuting to Commonwealth via the MBTA.
+L314:   * Chatfield Cultural Scholarships help cover student travel and exchanges, as well as travel-related independent projects.
+L315:   * Discounted professional tutoring, standardized tests, and test preparation are also available to students with financial aid grants.
+L316: 【77†Start the Financial AiD Process】
+L317: ## Financial Aid FAQs
+L318: 
+L319: Questions about the financial aid process? Be sure to review our 【78†FAQs】. We are always happy to answer your individualized questions as well; please do not hesitate to reach out (chealy@commschool.org)!
+L320: 
+L321: 【78†Get Answers to Your Questions】
+L322: ## Managing Other Costs
+L323: 
+L324: Commonwealth is dedicated to ensuring that every opportunity is available to every student. 【79†Here】 you'll find more information about the range of costs associated with our program and what families with financial aid grants might expect to pay.
+L325: 
+L326: 【79†Explore the Opportunities】
+L327: ## Questions?
+L328: 
+L329: Our team is here to help and happy to guide you through the financial aid process. Please do not hesitate to reach out to us to get answers to your questions.
+L330: 
+L331: 
+L332: 
+L333: 【80†Connect with Us】
+L334: 
+L335: 
+L336: 
+L337: 151 Commonwealth Avenue | Boston, MA 02116
+L338: 
+L339: 617-266-7525
+L340: 
+L341:   * 【81†Contact Us】
+L342:   * 【82†Careers】
+L343:   * 【83†Privacy Policy】
+L344:   * 【84†School Store(opens in new window/tab)†www.amerasport.com】
+L345:   * 【85†Give】
+L346: ## Connect
+L347: 
+L348:   * 【86†Instagram(opens in new window/tab)†www.instagram.com】
+L349:   * 【87†Facebook(opens in new window/tab)†www.facebook.com】
+L350:   * 【88†YouTube(opens in new window/tab)†youtube.com】
+L351:   * 【89†LinkedIn(opens in new window/tab)†www.linkedin.com】
+
