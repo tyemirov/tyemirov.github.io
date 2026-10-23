@@ -23,7 +23,7 @@ It preserves all 300 school IDs, ranks, model values, and source retrieval times
 Evidence paths use the canonical research root.
 A source file digest changes when its embedded evidence paths change.
 The command generates both audit pages with the site assets.
-The companion article URL remains a required input before merge.
+Both generators read the companion article URL from `data/site.json`.
 
 To use a separate output directory, set `SCHOOL_ATLAS_OUTPUT_ROOT`.
 The output directory must be within this checkout for the Node ES module checks.

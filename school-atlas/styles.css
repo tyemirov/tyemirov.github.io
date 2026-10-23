@@ -106,3 +106,5 @@
 
 /* The site components retain their own typography and document flow. */
 body{min-height:100vh;display:flex;flex-direction:column}body>main{width:100%;flex:1}mpr-footer{display:block;margin-top:12px}mpr-header{display:block}.atlas-navigation{width:100%;max-width:1040px;margin:0 auto;padding:3px 20px;gap:18px;align-self:auto}.atlas-navigation a{font-size:11px}#budget-status{margin:8px 0 0;min-height:1.5em}#budget-status[data-state=validation],#budget-status[data-state=failure]{color:#9b341f}
+
+mpr-header{--mpr-color-surface-primary:var(--surface);--mpr-color-text-primary:var(--ink-strong);--mpr-color-border:var(--line)}

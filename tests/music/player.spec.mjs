@@ -328,7 +328,10 @@ test("the narrow player supports keyboard seeking and automatic track advance", 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/music/soliloquies-vol-i/");
-  await page.locator(".track-play").first().focus();
+  const play = page.locator(".track-play").first();
+  await expect(play).toBeEnabled();
+  await play.focus();
+  await expect(play).toBeFocused();
   await page.keyboard.press("Enter");
   const player = page.locator("#music-player"), audio = player.locator("audio");
   await expect.poll(() => audio.evaluate((element) => element.currentTime)).toBeGreaterThan(0.5);

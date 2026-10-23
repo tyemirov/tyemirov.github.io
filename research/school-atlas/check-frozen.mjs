@@ -1,3 +1,4 @@
+// @ts-check
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -34,8 +35,12 @@ for (const [filename, expected] of Object.entries(frozen)) {
   const actual = (await import(pathToFileURL(path.join(output, filename)))).default;
   assert.deepEqual(actual, relocate(expected), `${filename}: frozen source payload`);
 }
+const catalog = JSON.parse(fs.readFileSync(path.join(root, 'data/site.json'), 'utf8'));
+const companionUrl = catalog.projects.find(project => project.slug === 'school-atlas').sourceUrl;
 for (const page of ['admissions-audit.html', 'private-coverage.html']) {
   const html = fs.readFileSync(path.join(output, page), 'utf8');
-  for (const required of ['<head><script defer src="https://loopaware.mprlab.com/pixel.js?', '<mpr-header', '<mpr-footer', 'footer-entry.js', '/assets/js/navigation.js', 'rel="canonical"', '/favicon.png', '/favicon.ico', 'companion article']) assert.ok(html.includes(required), `${page}: ${required}`);
+  for (const required of ['<head><script defer src="https://loopaware.mprlab.com/pixel.js?', '<mpr-header', '<mpr-footer', 'footer-entry.js', '/assets/js/navigation.js', 'rel="canonical"', '/favicon.png', '/favicon.ico']) assert.ok(html.includes(required), `${page}: ${required}`);
+  const companionLinks = [...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>Read companion article<\/a>/g)];
+  assert.ok(companionLinks.some(link => link[1] === companionUrl), `${page}: visible catalog companion link`);
 }
 console.log('Frozen source checks passed: seven semantic payloads, 300 schools, both branded audit pages.');

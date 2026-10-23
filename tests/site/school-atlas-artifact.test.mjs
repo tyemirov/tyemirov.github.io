@@ -9,6 +9,7 @@ import { createServer } from 'node:http';
 
 test('the Pages artifact serves School Atlas and its evidence pages under the application prefix', async () => {
   const output = mkdtempSync(join(tmpdir(), 'school-atlas-artifact-'));
+  const companion = 'https://vadymtyemirov1.substack.com/p/what-the-school-ranking-leaves-out';
   const server = createServer((request, response) => {
     const path = new URL(request.url, 'http://localhost').pathname;
     try { response.end(readFileSync(join(output, path.endsWith('/') ? `${path}index.html` : path))); }
@@ -26,12 +27,27 @@ test('the Pages artifact serves School Atlas and its evidence pages under the ap
       assert.match(html, /<mpr-header\b/);
       assert.match(html, /<mpr-footer\b/);
       assert.ok(html.includes(`https://tyemirov.net${path}`), path);
+      assert.match(html, new RegExp(`<a[^>]+href="${companion}"[^>]*>Read companion article</a>`), `${path}: companion link`);
     }
     for (const asset of ['app.js', 'styles.css', 'value-calculation.js', 'school-data.js', 'private-school-data.js', 'public-options-data.js', 'vendor/d3.min.js', 'schools.csv', 'admissions-audit.csv', 'private-coverage.json']) {
       const response = await fetch(`${origin}/school-atlas/${asset}`);
       assert.equal(response.status, 200, asset);
       assert.ok((await response.text()).length > 0, asset);
     }
+    const catalog = await (await fetch(`${origin}/data/site.json`)).json();
+    const project = catalog.projects.find(project => project.slug === 'school-atlas');
+    assert.equal(project.href, '/school-atlas/');
+    assert.equal(project.sourceUrl, companion);
+    assert.equal(project.kicker, 'Modeling');
+    const routes = await (await fetch(`${origin}/data/routes.json`)).json();
+    assert.deepEqual(routes.find(route => route.path === '/school-atlas/'), {
+      path: '/school-atlas/', file: 'school-atlas/index.html', parent: { label: 'Articles', path: '/articles/' },
+    });
+    const sitemap = await (await fetch(`${origin}/sitemap.xml`)).text();
+    assert.equal(sitemap.match(/<loc>https:\/\/tyemirov\.net\/school-atlas\/<\/loc>/g)?.length, 1);
+    const collection = await (await fetch(`${origin}/articles/`)).text();
+    assert.ok(collection.includes('href="/school-atlas/"'));
+    assert.ok(collection.includes(`href="${companion}"`));
     assert.equal(existsSync(join(output, 'research')), false);
     assert.equal(existsSync(join(output, '.openai')), false);
   } finally {

@@ -107,6 +107,10 @@ with (OUTPUT / "admissions-audit.csv").open("w", newline="") as f:
     writer.writeheader()
     writer.writerows({**row, "admissions_source_urls": " | ".join(row["admissions_source_urls"])} for row in audit_rows)
 esc = html.escape
+catalog = json.loads((ROOT / "data/site.json").read_text())
+projects = [project for project in catalog["projects"] if project["slug"] == "school-atlas"]
+assert len(projects) == 1, "Find one School Atlas project in data/site.json"
+companion_url = projects[0]["sourceUrl"]
 table_rows = []
 for row in audit_rows:
     links = " · ".join(f'<a href="{esc(url, quote=True)}" target="_blank" rel="noopener noreferrer">Source {i}</a>'
@@ -118,7 +122,7 @@ for row in audit_rows:
 page = f"""<!doctype html><html lang="en"><head><script defer src="https://loopaware.mprlab.com/pixel.js?site_id=9b4c572e-44f4-40b3-8d25-a88d0dc6e16b&api_origin=https%3A%2F%2Floopaware-api.mprlab.com"></script><link rel="icon" type="image/png" href="/favicon.png"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.css"><script defer src="https://cdn.jsdelivr.net/gh/MarcoPoloResearchLab/mpr-ui@latest/mpr-ui.js"></script><link rel="stylesheet" href="/assets/css/footer.css"><link rel="canonical" href="https://tyemirov.net/school-atlas/admissions-audit.html"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>School Atlas · Admissions audit</title><link rel="stylesheet" href="styles.css">
 <style>.audit-main{{max-width:1200px;margin:auto;padding:32px 24px}}.audit-table{{width:100%;border-collapse:collapse;font-size:14px}}.audit-table td,.audit-table th{{padding:14px 10px;border-bottom:1px solid #dce3df;text-align:left;vertical-align:top}}.audit-table td:last-child{{min-width:280px}}.audit-scroll{{overflow-x:auto}}.audit-intro{{max-width:850px;line-height:1.65;margin:28px 0}}.audit-table p{{margin:8px 0;color:#5c6865}}</style></head>
-<body><mpr-header brand-label="School Atlas" brand-href="/school-atlas/" settings="false"></mpr-header><nav aria-label="Site"><a href="/">Home</a> · <a href="/school-atlas/">School Atlas</a></nav><!-- Add the companion article link here when its public URL is available. --><main class="audit-main"><a href="./">← School Atlas</a><div class="audit-intro"><p class="eyebrow">RANK-BY-RANK EVIDENCE · OCTOBER 20, 2026</p>
+<body><mpr-header brand-label="School Atlas" brand-href="/school-atlas/" settings="false"></mpr-header><nav aria-label="Site"><a href="/">Home</a> · <a href="/school-atlas/">School Atlas</a> · <a href="{esc(companion_url, quote=True)}" target="_blank" rel="noopener noreferrer">Read companion article</a></nav><main class="audit-main"><a href="./">← School Atlas</a><div class="audit-intro"><p class="eyebrow">RANK-BY-RANK EVIDENCE · OCTOBER 20, 2026</p>
 <h1>How the first 100 qualify</h1><p>Every national rank from #1 through #{cutoff} was reviewed: <strong>100 included, {cutoff-100} excluded, zero unresolved before the cutoff</strong>. Included-school positions #1–#100 are separate from national ranks.</p>
 <p>{esc(metadata["criterion"])} A nonselective middle-school feeder alone does not qualify a school with selective entry at high-school level. Ordinary capacity overflow and address verification are recorded in each school's notes.</p>
 <p><strong>Ranking source limitation:</strong> {esc(metadata["ranking_provenance"])} This is School Atlas's admission-filtered list, not a separate ranking issued by U.S. News. Missing livability or cost data never determines eligibility.</p>

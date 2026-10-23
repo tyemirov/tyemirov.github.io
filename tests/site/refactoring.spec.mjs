@@ -2,30 +2,31 @@
 import { test, expect } from '../music/test-fixtures.mjs';
 
 test('article topics survive history, reload, and keyboard activation', async ({ page }) => {
+  const site = await (await page.request.get('/data/site.json')).json();
+  const modelingCount = site.projects.filter(project => project.kicker === 'Modeling').length;
   await page.goto('/articles/');
   await page.locator('#article-list').getByRole('button', { name: 'Modeling', exact: true }).first().click();
   await expect(page).toHaveURL(/\?topic=Modeling$/);
   const cards = page.locator('#article-list .project-card');
-  await expect(cards).toHaveCount(3);
+  await expect(cards).toHaveCount(modelingCount);
   await expect(page.getByRole('heading', { name: 'Articles', exact: true })).toHaveCount(1);
   await expect(cards.locator('button')).toHaveCount(0);
   const navigation = page.locator('#article-filters');
   const selected = navigation.getByRole('button', { name: 'Modeling', exact: true });
   await expect(selected).toBeFocused();
   await page.reload();
-  await expect(cards).toHaveCount(3);
+  await expect(cards).toHaveCount(modelingCount);
   await navigation.getByRole('button', { name: 'Decisioning', exact: true }).click();
   await expect(cards).toHaveCount(1);
   await page.goBack();
   await expect(selected).toBeFocused();
-  await expect(cards).toHaveCount(3);
+  await expect(cards).toHaveCount(modelingCount);
   await page.goForward();
   await expect(navigation.getByRole('button', { name: 'Decisioning', exact: true })).toBeFocused();
   await expect(cards).toHaveCount(1);
   await navigation.getByRole('button', { name: 'All', exact: true }).focus();
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/\/articles\/$/);
-  const site = await (await page.request.get('/data/site.json')).json();
   await expect(cards).toHaveCount(site.articles.items.length + site.projects.length);
   await expect(navigation.getByRole('button', { name: 'All', exact: true })).toBeFocused();
 });
@@ -52,7 +53,7 @@ test('models have consistent titles and usable responsive layouts', async ({page
       expect(await page.evaluate(()=>document.documentElement.scrollWidth), JSON.stringify({path:project.href, overflow})).toBeLessThanOrEqual(width);
     }
     await page.goto('/articles/?topic=Modeling');
-    await expect(page.locator('.project-card')).toHaveCount(3);
+    await expect(page.locator('.project-card')).toHaveCount(site.projects.filter(project => project.kicker === 'Modeling').length);
     const cards=await page.locator('#article-list .project-card').evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().right));
     const grid=await page.locator('#article-list').boundingBox();
     expect(Math.max(...cards)).toBeGreaterThan(grid.x+grid.width-3);

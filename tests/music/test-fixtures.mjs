@@ -8,6 +8,7 @@ export const test = base.extend({
   browserAssets: [async ({ context }, use) => {
     await installBrowserAssets(context);
     await installGoogleSignIn(context);
+    await context.route(url => url.origin === "https://loopaware.mprlab.com", route => route.abort());
     await use();
   }, { auto: true }],
   silentAudio: [async ({ context }, use) => {

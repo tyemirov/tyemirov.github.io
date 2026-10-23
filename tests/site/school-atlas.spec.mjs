@@ -178,3 +178,44 @@ for (const [filename, title] of [['admissions-audit.html', 'Public admission aud
     await expect(page.locator('#school-list tr')).toHaveCount(100);
   });
 }
+
+for (const width of [390, 1280]) {
+  test(`School Atlas is discoverable with companion links and shared navigation at ${width}px`, async ({ page }) => {
+    const companion = 'https://vadymtyemirov1.substack.com/p/what-the-school-ranking-leaves-out';
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/');
+    const card = page.locator('.project-list article').filter({ has: page.getByRole('link', { name: 'School Atlas', exact: true }) });
+    await expect(card.getByRole('link', { name: 'Read companion article', exact: true })).toHaveAttribute('href', companion);
+    await card.getByRole('link', { name: 'Explore interactive tool', exact: true }).click();
+    await expect(page).toHaveURL(/\/school-atlas\/$/);
+    await expect(page.locator('#school-list tr')).toHaveCount(100);
+    await expect(page.getByRole('heading', { level: 1, name: 'Compare schools', exact: true })).toBeFocused();
+    await expect(page.getByRole('navigation', { name: 'Page hierarchy', exact: true })).toHaveCount(1);
+    const companionLink = page.getByRole('link', { name: 'Read companion article', exact: true });
+    await expect(companionLink).toHaveAttribute('href', companion);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+    await page.getByRole('navigation', { name: 'Page hierarchy', exact: true }).getByRole('link', { name: 'Articles', exact: true }).click();
+    await page.getByRole('navigation', { name: 'Filter articles', exact: true }).getByRole('button', { name: 'Modeling', exact: true }).click();
+    const collectionCard = page.locator('#article-list article').filter({ has: page.getByRole('link', { name: 'School Atlas', exact: true }) });
+    await expect(collectionCard).toBeVisible();
+    await expect(collectionCard.getByRole('link', { name: 'Read companion article', exact: true })).toHaveAttribute('href', companion);
+    await collectionCard.getByRole('link', { name: 'Explore interactive tool', exact: true }).click();
+    await expect(page.locator('#school-list tr')).toHaveCount(100);
+    await page.reload();
+    await expect(page.locator('#school-list tr')).toHaveCount(100);
+    const contrast = await companionLink.evaluate(link => {
+      const luminance = color => color.match(/[\d.]+/g).slice(0, 3).map(Number).map(channel => channel / 255)
+        .map(channel => channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4)
+        .reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
+      const foreground = luminance(getComputedStyle(link).color);
+      const background = luminance(getComputedStyle(link.closest('.mpr-header')).backgroundColor);
+      return (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05);
+    });
+    expect(contrast).toBeGreaterThanOrEqual(4.5);
+    for (const filename of ['admissions-audit.html', 'private-coverage.html']) {
+      await page.goto(`/school-atlas/${filename}`);
+      await expect(page.getByRole('link', { name: 'Read companion article', exact: true })).toBeVisible();
+      await expect(page.getByRole('link', { name: 'Read companion article', exact: true })).toHaveAttribute('href', companion);
+    }
+  });
+}

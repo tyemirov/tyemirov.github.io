@@ -61,7 +61,7 @@ test('Modeling shows exactly the intended personal models', () => {
     .filter(project => project.status === 'live' && project.kicker === 'Modeling')
     .map(project => project.slug)
     .sort();
-  assert.deepEqual(modeling, ['civilization', 'freedom', 'timeseries']);
+  assert.deepEqual(modeling, ['civilization', 'freedom', 'school-atlas', 'timeseries']);
   for (const project of source.projects.filter(project => project.status === 'live')) {
     assert.ok(existsSync(join(root, project.href, 'index.html')), `model page exists: ${project.href}`);
   }
@@ -90,7 +90,7 @@ test('the route manifest carries explicit parents without current-page links', (
     const routes = JSON.parse(readFileSync(join(dir, 'data/routes.json'), 'utf8'));
     const byPath = new Map(routes.map(route => [route.path, route]));
     assert.equal(byPath.has('/models/'), false);
-    for (const slug of ['civilization', 'decisioning', 'freedom', 'timeseries']) {
+    for (const slug of ['civilization', 'decisioning', 'freedom', 'school-atlas', 'timeseries']) {
       assert.deepEqual(byPath.get(`/${slug}/`).parent, { label: 'Articles', path: '/articles/' });
     }
     assert.deepEqual(byPath.get('/articles/the-wittgenstein-mirror/').parent, { label: 'Articles', path: '/articles/' });

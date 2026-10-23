@@ -66,6 +66,14 @@ async function main() {
       version: uiVersion,
     });
   }
+  for (const [url, file, pattern] of [
+    ['https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'libraries/bootstrap.min.css'],
+    ['https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', 'libraries/bootstrap.bundle.min.js'],
+    ['https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js', 'libraries/d3.min.js', 'https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js'],
+  ]) {
+    const asset = await capture(url, file);
+    assets.push(pattern ? { ...asset, pattern } : asset);
+  }
   const fontUrls = new Set();
   for (const input of ['styles.css', 'civilization/style.css', 'gallery/index.html']) {
     const source = await readFile(path.join(root, input), 'utf8');
@@ -93,6 +101,8 @@ async function main() {
     ...['ibmplexmono', 'instrumentserif', 'spacegrotesk', 'inter', 'ebgaramond'].map((family) =>
       capture(`https://raw.githubusercontent.com/google/fonts/main/ofl/${family}/OFL.txt`, `licenses/${family}-OFL.txt`)),
     capture(`https://raw.githubusercontent.com/MarcoPoloResearchLab/mpr-ui/v${uiVersion}/LICENSE`, 'licenses/mpr-ui-LICENSE'),
+    capture('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/LICENSE', 'licenses/bootstrap-LICENSE'),
+    capture('https://cdn.jsdelivr.net/npm/d3@7.9.0/LICENSE', 'licenses/d3-LICENSE'),
   ]);
   for (const [file, bytes] of files) {
     const destination = path.join(output, file);
