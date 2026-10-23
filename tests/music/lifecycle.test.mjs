@@ -1,5 +1,5 @@
 // @ts-check
-import { test } from "node:test";
+import { after, before, describe, test } from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { mkdtemp, mkdir, readFile, writeFile, copyFile, rm, realpath } from "node:fs/promises";
@@ -25,13 +25,21 @@ async function initialize(root, origin, canonicalOrigin) {
   success(run("git", ["config", `url.file://${origin}.insteadOf`, canonicalOrigin], root));
 }
 
-test("the selected application plans through Gateway and its public lifecycle commands enforce source rules", { timeout: 360000 }, async () => {
-  await readFile(".mprlab/deploy/resources.yml", "utf8");
-  const directory = await realpath(await mkdtemp(join(tmpdir(), "music-lifecycle-")));
-  const application = join(directory, "application with spaces"), operatorRoot = join(directory, "operator");
-  try {
-    const gateway = await realpath(success(run("sh", ["-c", 'command -v "$1"', "gateway", gatewayCommand], directory)).trim());
-    const gatewayEnvironment = { MPRLAB_GATEWAY_OPERATOR_ROOT: operatorRoot, MPRLAB_GATEWAY_EXECUTABLE: gateway };
+describe("the selected application Gateway contract", { concurrency: false }, () => {
+  let directory, application, gateway, gatewayEnvironment;
+  const gallerySigningFixture = "gallery-lifecycle-fixture-signing-key-not-for-production";
+
+  after(async () => {
+    if (directory) await rm(directory, { recursive: true, force: true });
+  }, { timeout: 180000 });
+
+  before(async () => {
+    await readFile(".mprlab/deploy/resources.yml", "utf8");
+    directory = await realpath(await mkdtemp(join(tmpdir(), "music-lifecycle-")));
+    application = join(directory, "application with spaces");
+    const operatorRoot = join(directory, "operator");
+    gateway = await realpath(success(run("sh", ["-c", 'command -v "$1"', "gateway", gatewayCommand], directory)).trim());
+    gatewayEnvironment = { MPRLAB_GATEWAY_OPERATOR_ROOT: operatorRoot, MPRLAB_GATEWAY_EXECUTABLE: gateway };
     await mkdir(application); await mkdir(join(operatorRoot, "inventory"), { recursive: true });
     await writeFile(join(operatorRoot, "inventory/hosts.yml"), `all:
   children:
@@ -60,34 +68,41 @@ test("the selected application plans through Gateway and its public lifecycle co
       catch (error) { if (error.code !== "ENOENT") throw error; }
     }
     await initialize(application, join(directory, "application-origin.git"), "git@github.com:tyemirov/tyemirov.github.io.git");
-    const gallerySigningFixture = "gallery-lifecycle-fixture-signing-key-not-for-production";
     await writeFile(join(application, ".mprlab/deploy/.env"), `GALLERY_TAUTH_SIGNING_KEY=${gallerySigningFixture}\nGALLERY_GOOGLE_WEB_CLIENT_ID=fixture.apps.googleusercontent.com\n`);
+  }, { timeout: 360000 });
+
+  test("all public lifecycle commands reject non-default source and a missing runtime", { timeout: 360000 }, () => {
     success(run("git", ["switch", "-qc", "feature/source-rejection"], application));
-    for (const phase of ["release", "publish", "deploy"]) {
-      const rejected = run("make", ["--no-print-directory", phase, `MPRLAB_GATEWAY_EXECUTABLE=${gateway}`], application, gatewayEnvironment);
-      assert.notEqual(rejected.status, 0);
-      assert.ok((rejected.stderr + rejected.stdout).includes(`repository lifecycle source must be on ${sourceBranch}`), rejected.stderr + rejected.stdout);
-      const missing = join(directory, "missing-gateway");
-      const unavailable = run("make", ["--no-print-directory", phase, `MPRLAB_GATEWAY_EXECUTABLE=${missing}`], application, gatewayEnvironment);
-      assert.notEqual(unavailable.status, 0);
-      assert.ok((unavailable.stderr + unavailable.stdout).includes(`Gateway runtime is unavailable: ${missing}`));
+    try {
+      for (const phase of ["release", "publish", "deploy"]) {
+        const rejected = run("make", ["--no-print-directory", phase, `MPRLAB_GATEWAY_EXECUTABLE=${gateway}`], application, gatewayEnvironment);
+        assert.notEqual(rejected.status, 0);
+        assert.ok((rejected.stderr + rejected.stdout).includes(`repository lifecycle source must be on ${sourceBranch}`), rejected.stderr + rejected.stdout);
+        const missing = join(directory, "missing-gateway");
+        const unavailable = run("make", ["--no-print-directory", phase, `MPRLAB_GATEWAY_EXECUTABLE=${missing}`], application, gatewayEnvironment);
+        assert.notEqual(unavailable.status, 0);
+        assert.ok((unavailable.stderr + unavailable.stdout).includes(`Gateway runtime is unavailable: ${missing}`));
+      }
+    } finally {
+      success(run("git", ["switch", "-q", sourceBranch], application));
     }
-    success(run("git", ["switch", "-q", sourceBranch], application));
-    const logs = join(applicationSource, "output/playwright/lifecycle"); await mkdir(logs, { recursive: true });
-    async function plan(target) {
-      const result = run(gateway, [target, "--app-root", application], application, gatewayEnvironment);
-      await writeFile(join(logs, `${target}.log`), result.stderr + result.stdout);
-      return success(result);
-    }
-    const proof = await plan("app-plan-deploy");
-    assert.ok(!proof.includes(gallerySigningFixture), "lifecycle output must exclude the gallery signing key");
-    assert.match(proof, /MPRLAB_APP_LIFECYCLE_END entrypoint=plan operation=deploy status=0/);
-    assert.match(proof, /computercat-host/);
-    for (const resource of ["gallery", "gallery-http", "api-route", "gallery-public", "gallery-auth"]) assert.ok(proof.includes(`item=${resource})`), `Gateway must validate ${resource}.`);
-    for (const phase of ["release", "publish"]) {
-      const output = await plan(`app-plan-${phase}`);
+  });
+
+  for (const phase of ["deploy", "release", "publish"]) {
+    test(`the selected declaration plans ${phase} through the public Gateway command`, { timeout: 180000 }, async () => {
+      const result = run(gateway, [`app-plan-${phase}`, "--app-root", application], application, gatewayEnvironment);
+      const logs = join(applicationSource, "output/playwright/lifecycle");
+      await mkdir(logs, { recursive: true });
+      await writeFile(join(logs, `app-plan-${phase}.log`), result.stderr + result.stdout);
+      const output = success(result);
       assert.match(output, new RegExp(`MPRLAB_APP_LIFECYCLE_END entrypoint=plan operation=${phase} status=0`));
-    }
-    process.stdout.write("Gateway plans accepted the selected declaration; all three public lifecycle commands rejected non-default source.\n");
-  } finally { await rm(directory, { recursive: true, force: true }); }
+      if (phase === "deploy") {
+        assert.ok(!output.includes(gallerySigningFixture), "lifecycle output must exclude the gallery signing key");
+        assert.match(output, /computercat-host/);
+        for (const resource of ["gallery", "gallery-http", "api-route", "gallery-public", "gallery-auth"]) {
+          assert.ok(output.includes(`item=${resource})`), `Gateway must validate ${resource}.`);
+        }
+      }
+    });
+  }
 });
