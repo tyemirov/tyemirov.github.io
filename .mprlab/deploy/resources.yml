@@ -1,6 +1,13 @@
 ---
 mprlab_resources:
   owner: tyemirov-site
+  environment_file: .mprlab/deploy/.env
+  inputs:
+    GALLERY_GOOGLE_WEB_CLIENT_ID: ${GALLERY_GOOGLE_WEB_CLIENT_ID}
+    GALLERY_TAUTH_SIGNING_KEY: ${GALLERY_TAUTH_SIGNING_KEY}
+    DEPLOY_SUDO_PASSWORD_TUTOSH: ${DEPLOY_SUDO_PASSWORD_TUTOSH}
+    MPRLAB_TAUTH_MANAGEMENT_URL: ${MPRLAB_TAUTH_MANAGEMENT_URL}
+    MPRLAB_TAUTH_PROVISIONING_CREDENTIALS: ${MPRLAB_TAUTH_PROVISIONING_CREDENTIALS}
   ci:
     enabled: true
     command:
@@ -38,6 +45,9 @@ mprlab_resources:
         increment: 0s
         multiplier: 2
         attempt_limit: 120
+  hosts:
+    tutosh:
+      ansible_become_password: DEPLOY_SUDO_PASSWORD_TUTOSH
   release:
     scheme: semver
   resources:
