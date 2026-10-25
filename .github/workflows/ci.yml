@@ -71,10 +71,10 @@ jobs:
 
       - name: Run make ci in the CI container
         env:
-          MPRLAB_GATEWAY_CI_DIGEST: sha256:52a04dd387a69bc476b68d8077461c050c91f63a124e4c46f7f483263732a073
+          MPRLAB_GATEWAY_CI_DIGEST: sha256:1219f2d7d389074b67a562e4ed8f719922c11ef7773e4006aa81b96ed0f8665f
         run: |
           make music-ci-archive MUSIC_CI_TARGET=ci \
-            MPRLAB_GATEWAY_CI_ARCHIVE="$HOME/.cache/tyemirov-site-ci/mprlab-gateway-v5.0.10-linux-amd64.tar.gz"
+            MPRLAB_GATEWAY_CI_ARCHIVE="$HOME/.cache/tyemirov-site-ci/mprlab-gateway-v7.0.3-linux-amd64.tar.gz"
 
       - name: Restore CI result ownership
         if: ${{ always() }}
