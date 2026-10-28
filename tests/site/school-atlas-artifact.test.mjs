@@ -24,6 +24,24 @@ test('the Pages artifact serves School Atlas and its evidence pages under the ap
       assert.equal(response.status, 200, path);
       const html = await response.text();
       assert.match(html, /<head>\s*<script defer src="https:\/\/loopaware/);
+      assert.match(html, /<meta name="description" content="[^"]+">/, `${path}: search description`);
+      if (path === '/school-atlas/') {
+        const metadata = new Map([...html.matchAll(/<meta (?:property|name)="([^"]+)" content="([^"]*)">/g)].map(match => [match[1], match[2]]));
+        assert.equal(metadata.get('og:description'), metadata.get('description'));
+        assert.equal(metadata.get('twitter:card'), 'summary_large_image');
+        assert.equal(metadata.get('twitter:title'), metadata.get('og:title'));
+        assert.equal(metadata.get('twitter:description'), metadata.get('description'));
+        assert.equal(metadata.get('og:image'), 'https://tyemirov.net/school-atlas/social-preview.jpg');
+        assert.equal(metadata.get('twitter:image'), metadata.get('og:image'));
+        assert.equal(metadata.get('og:image:width'), '1205');
+        assert.equal(metadata.get('og:image:height'), '667');
+        assert.equal(metadata.get('og:image:type'), 'image/jpeg');
+        assert.ok(metadata.get('og:image:alt'));
+        assert.equal(metadata.get('twitter:image:alt'), metadata.get('og:image:alt'));
+        const preview = await fetch(`${origin}${new URL(metadata.get('og:image')).pathname}`);
+        assert.equal(preview.status, 200);
+        assert.deepEqual(Buffer.from(await preview.arrayBuffer()), readFileSync('school-atlas/social-preview.jpg'));
+      }
       assert.match(html, /<mpr-header\b/);
       assert.match(html, /<mpr-footer\b/);
       assert.ok(html.includes(`https://tyemirov.net${path}`), path);
