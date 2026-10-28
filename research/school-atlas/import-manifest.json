@@ -1301,7 +1301,7 @@
       "source_path": "research/admissions-audit/build-cohort.py",
       "path": "research/school-atlas/admissions-audit/build-cohort.py",
       "sha256": "454c5e7a0b0640b0ae2ec79c05724684d5816d84eacbbe4e956bab1e71c1cf72",
-      "migrated_sha256": "968faf97f9b076e081c8621200c60a2629c51f136efd43b44ed17e1085c1e2da"
+      "migrated_sha256": "903a4b31a63f9cc3345552bc081a7b467c44a045a1fb16921632556984fa4542"
     },
     {
       "source_path": "research/admissions-audit/cohort-changes.json",
@@ -4303,7 +4303,7 @@
       "source_path": "research/private-schools/coverage/build-coverage.cjs",
       "path": "research/school-atlas/private-schools/coverage/build-coverage.mjs",
       "sha256": "54906fe32388ac5a1cacc4c1fa78ed8a9f5ffeaedda04415cf58e2186ff9d9ac",
-      "migrated_sha256": "62aaee8958440e4fe60547f5c5ac13bf9a3cc855863fb44c69b365a41e82e9e3"
+      "migrated_sha256": "69279e9876a1ba0e866b6b9b57d6c609e8527f886c84ef653023848394e9765e"
     },
     {
       "source_path": "research/private-schools/coverage/community-overrides.json",
