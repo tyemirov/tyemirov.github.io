@@ -34,11 +34,12 @@ for (const width of [390, 1280]) {
   }
 }
 
-test("footer theme control changes the homepage colors", async ({ page }) => {
+test("header theme control changes the homepage colors", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator("#site-footer")).toHaveAttribute("theme-control", JSON.stringify({kind:"cycle",choices:["light","dark"]}));
+  await expect(page.locator("mpr-header mpr-theme-toggle")).toHaveAttribute("theme-control", JSON.stringify({kind:"cycle",choices:["light","dark"]}));
+  await expect(page.locator("#site-footer").getByRole("button", { name: /theme/i })).toHaveCount(0);
   const before = await page.locator("body").evaluate(element => getComputedStyle(element).backgroundColor);
-  await page.locator("#site-footer").getByRole("button", { name: /theme/i }).click();
+  await page.locator("mpr-header").getByRole("button", { name: /theme/i }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await expect.poll(() => page.locator("body").evaluate(element => getComputedStyle(element).backgroundColor)).not.toBe(before);
   await page.locator("#site-footer").screenshot({ path: `output/playwright/shared-footer-${test.info().project.name}.png` });
