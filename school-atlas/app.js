@@ -410,13 +410,13 @@ let persistenceMessage = 'Research defaults';
     const horizontalTicks = horizontalScale.ticks(narrow ? 3 : 6);
     const verticalTicks = verticalScale.ticks(narrow ? 5 : 6).filter(tick => Number.isInteger(tick) && tick > 0);
     const grid = chart.append("g").attr("aria-hidden","true");
-    horizontalTicks.forEach(tick => grid.append("line").attr("x1",horizontalScale(tick)).attr("x2",horizontalScale(tick)).attr("y1",plotTop).attr("y2",plotBottom).attr("stroke","#b8c9c4").attr("stroke-opacity",.24));
-    verticalTicks.forEach(tick => grid.append("line").attr("x1",plotLeft).attr("x2",plotRight).attr("y1",verticalScale(tick)).attr("y2",verticalScale(tick)).attr("stroke","#b8c9c4").attr("stroke-opacity",.24));
+    horizontalTicks.forEach(tick => grid.append("line").attr("x1",horizontalScale(tick)).attr("x2",horizontalScale(tick)).attr("y1",plotTop).attr("y2",plotBottom).attr("stroke","var(--chart-grid)").attr("stroke-opacity",.24));
+    verticalTicks.forEach(tick => grid.append("line").attr("x1",plotLeft).attr("x2",plotRight).attr("y1",verticalScale(tick)).attr("y2",verticalScale(tick)).attr("stroke","var(--chart-grid)").attr("stroke-opacity",.24));
     chart.append("defs").append("marker")
       .attr("id","axis-arrow").attr("viewBox","0 0 12 12")
       .attr("refX",10).attr("refY",6).attr("markerWidth",12).attr("markerHeight",12)
       .attr("markerUnits","userSpaceOnUse").attr("orient","auto-start-reverse")
-      .append("path").attr("d","M1,1 L11,6 L1,11 Z").attr("fill","#163a3c");
+      .append("path").attr("d","M1,1 L11,6 L1,11 Z").attr("fill","var(--chart-axis)");
     chart.append("g").attr("class","horizontal-axis").attr("transform",`translate(0,${referenceVertical})`).call(d3.axisBottom(horizontalScale).tickValues(horizontalTicks).tickFormat(boardingView()?d3.format("$,.0f"):d3.format("~g")).tickSizeInner(7).tickSizeOuter(0).tickPadding(7));
     chart.append("g").attr("class","vertical-axis").attr("transform",`translate(${referenceHorizontal},0)`).call(d3.axisLeft(verticalScale).tickValues(verticalTicks).tickFormat(rank => `#${rank}`).tickSizeInner(7).tickSizeOuter(0).tickPadding(5));
     chart.select(".horizontal-axis .domain").attr("marker-end","url(#axis-arrow)");
@@ -443,7 +443,7 @@ let persistenceMessage = 'Research defaults';
       .on("keydown",(event,position) => {
         if (event.key === "Enter" || event.key === " ") {event.preventDefault();selectSchool(position.school);tooltip.hidden=true;}
       });
-    chart.append("g").attr("class","value-ranges").attr("aria-hidden","true").selectAll("line").data(positions.filter(p=>boardingView()?p.school.cost_has_range:p.school.value_has_range)).join("line").attr("x1",p=>horizontalScale(boardingView()?p.school.estimated_total_annual_cost_low_usd:p.school.value_lower_bound)).attr("x2",p=>horizontalScale(boardingView()?p.school.estimated_total_annual_cost_high_usd:p.school.value_upper_bound)).attr("y1",p=>p.vertical).attr("y2",p=>p.vertical).attr("stroke","#376a67").attr("stroke-width",2).attr("opacity",.65);
+    chart.append("g").attr("class","value-ranges").attr("aria-hidden","true").selectAll("line").data(positions.filter(p=>boardingView()?p.school.cost_has_range:p.school.value_has_range)).join("line").attr("x1",p=>horizontalScale(boardingView()?p.school.estimated_total_annual_cost_low_usd:p.school.value_lower_bound)).attr("x2",p=>horizontalScale(boardingView()?p.school.estimated_total_annual_cost_high_usd:p.school.value_upper_bound)).attr("y1",p=>p.vertical).attr("y2",p=>p.vertical).attr("stroke","var(--chart-range)").attr("stroke-width",2).attr("opacity",.65);
     chart.select(".school-points").raise();
     chart.selectAll(".axis-link,.axis-title").raise();
     updateSelectionMarks();
