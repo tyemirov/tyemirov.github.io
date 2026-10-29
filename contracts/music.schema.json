@@ -428,6 +428,82 @@
       "required": [
         "status"
       ]
+    },
+    "playbackObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trackId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "outcome": {
+          "enum": [
+            "playing",
+            "error",
+            "cancelled"
+          ]
+        },
+        "action": {
+          "enum": [
+            "start",
+            "resume"
+          ]
+        },
+        "browser": {
+          "enum": [
+            "chromium",
+            "firefox",
+            "webkit",
+            "other"
+          ]
+        },
+        "elapsedMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 300000
+        },
+        "grantMs": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 300000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "readyMs": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 300000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "timeZone": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_+./-]{1,64}$"
+        }
+      },
+      "required": [
+        "trackId",
+        "outcome",
+        "action",
+        "browser",
+        "elapsedMs",
+        "grantMs",
+        "readyMs",
+        "timeZone"
+      ]
     }
   }
 }
