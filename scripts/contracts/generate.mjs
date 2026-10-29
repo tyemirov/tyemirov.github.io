@@ -52,10 +52,10 @@ function goType(schema, owner, field) {
 }
 const goModels = Object.entries(galleryTypes).map(([name, type]) => `type ${type} struct {\n${Object.entries(schemas.gallery.$defs[name].properties).map(([field, value]) => `${fieldNames[field] || field[0].toUpperCase() + field.slice(1)} ${goType(value, name, field)} \`json:"${field}"\``).join('\n')}\n}`).join('\n\n');
 outputs.set('services/gallery/models_generated.go', execFileSync('gofmt', { input: '// Code generated from contracts/gallery.schema.json. DO NOT EDIT.\npackage gallery\n\n' + goModels + '\n', encoding: 'utf8' }));
-const musicTypes={grantInput:'grantInput',expiration:'grantExpiration',grant:'grantResponse'};
-const musicFields={grantId:'GrantID',trackId:'TrackID',mediaUrl:'MediaURL',durationMs:'DurationMS',serverTime:'ServerTime',expiresAt:'ExpiresAt'};
-const musicModels=Object.entries(musicTypes).map(([name,type])=>`type ${type} struct {\n${Object.entries(schemas.music.$defs[name].properties).map(([field,value])=>`${musicFields[field]} ${value.format==='date-time'?'time.Time':value.type==='integer'?'int64':'string'} \`json:"${field}"\``).join('\n')}\n}`).join('\n\n');
-outputs.set('services/music-stream/internal/stream/models_generated.go',execFileSync('gofmt',{input:'// Code generated from contracts/music.schema.json. DO NOT EDIT.\npackage stream\nimport "time"\n'+musicModels+'\nvar schemaNames=map[string]string{"grantInput":"grantInput","grantExpiration":"expiration"}\n',encoding:'utf8'}));
+const musicTypes={grantInput:'grantInput',expiration:'grantExpiration',grant:'grantResponse',playbackObservation:'playbackObservation'};
+const musicFields={grantId:'GrantID',trackId:'TrackID',mediaUrl:'MediaURL',durationMs:'DurationMS',serverTime:'ServerTime',expiresAt:'ExpiresAt',outcome:'Outcome',action:'Action',browser:'Browser',timeZone:'TimeZone',elapsedMs:'ElapsedMS',grantMs:'GrantMS',readyMs:'ReadyMS'};
+const musicModels=Object.entries(musicTypes).map(([name,type])=>`type ${type} struct {\n${Object.entries(schemas.music.$defs[name].properties).map(([field,value])=>`${musicFields[field]} ${value.anyOf?'*int64':value.format==='date-time'?'time.Time':value.type==='integer'?'int64':'string'} \`json:"${field}"\``).join('\n')}\n}`).join('\n\n');
+outputs.set('services/music-stream/internal/stream/models_generated.go',execFileSync('gofmt',{input:'// Code generated from contracts/music.schema.json. DO NOT EDIT.\npackage stream\nimport "time"\n'+musicModels+'\nvar schemaNames=map[string]string{"grantInput":"grantInput","grantExpiration":"expiration","playbackObservation":"playbackObservation"}\n',encoding:'utf8'}));
 outputs.set('services/music-stream/internal/stream/contract.schemas.json',JSON.stringify(schemas.music)+'\n');
 outputs.set('services/gallery/contract.schemas.json', JSON.stringify(schemas.gallery) + '\n');
 outputs.set('services/gallery/schema_names_generated.go', execFileSync('gofmt', { input: '// Code generated from contracts/gallery.schema.json. DO NOT EDIT.\npackage gallery\n\nvar schemaNames = map[string]string{\n' + Object.entries(galleryTypes).map(([schema, type]) => `${JSON.stringify(type)}: ${JSON.stringify(schema)},`).join('\n') + '\n}\n', encoding: 'utf8' }));
@@ -91,7 +91,7 @@ for (const name of ['gallery', 'music']) {
     draftPath: 'readDraft', publicationsPath: 'createPublication', publicationArchivePath: 'readPublicationArchive', ordersPath: 'listOrders', orderPath: 'readOrder',
     capturesPath: 'createCapture', paymentEventsPath: 'receivePaymentEvent', downloadLinksPath: 'createDownloadLink', downloadPath: 'readDownload',
     accessReissuesPath: 'createAccessReissue', accessReissuePath: 'readAccessReissue',
-  } : { grantRoute: 'createGrant', readinessPath: 'readReadiness', healthPath: 'readHealth', schemaPath: 'readOpenAPI' };
+  } : { grantRoute: 'createGrant', observationRoute: 'createPlaybackObservation', readinessPath: 'readReadiness', healthPath: 'readHealth', schemaPath: 'readOpenAPI' };
   const go = `// Code generated from contracts/${name}.openapi.yaml. DO NOT EDIT.\npackage ${name === 'gallery' ? 'gallery' : 'stream'}\n\nconst (\n${Object.entries(constants).map(([key, id]) => `${key} = ${JSON.stringify(routes[name][id].path)}`).join('\n')}\n)\n`;
   outputs.set(name === 'gallery' ? 'services/gallery/routes_generated.go' : 'services/music-stream/internal/stream/routes_generated.go', execFileSync('gofmt', { input: go, encoding: 'utf8' }));
 }
