@@ -2,8 +2,9 @@
 package stream
 
 const (
-	grantRoute    = "/music/playback-grants"
-	readinessPath = "/music/readyz"
-	healthPath    = "/music/healthz"
-	schemaPath    = "/music/openapi.json"
+	grantRoute       = "/music/playback-grants"
+	observationRoute = "/music/playback-observations"
+	readinessPath    = "/music/readyz"
+	healthPath       = "/music/healthz"
+	schemaPath       = "/music/openapi.json"
 )
