@@ -271,6 +271,10 @@ export const routes = Object.freeze({
     "optionsAudio": {
       "method": "OPTIONS",
       "path": "/music/audio/{grantId}/{assetId}.m4a"
+    },
+    "createPlaybackObservation": {
+      "method": "POST",
+      "path": "/music/playback-observations"
     }
   }
 });
