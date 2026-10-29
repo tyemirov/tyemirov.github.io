@@ -1,0 +1,86 @@
+:root {
+  color-scheme: light;
+  --site-surface: #f9f9f2;
+  --site-text: #3a4a23;
+  --site-border: #dce0cd;
+  --site-hover: #e9ecdf;
+  --site-muted: #63714e;
+  --site-accent: #8c4a2d;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --site-surface: #0f172a;
+  --site-text: #f1f5f9;
+  --site-border: #334155;
+  --site-hover: #263449;
+  --site-muted: #a7b5c9;
+  --site-accent: #fb923c;
+}
+mpr-header {
+  display: block;
+  --mpr-header-bg: var(--site-surface);
+  --mpr-color-surface-primary: var(--site-surface);
+  --mpr-color-text-primary: var(--site-text);
+  --mpr-color-border: var(--site-border);
+}
+mpr-header, mpr-header * { box-sizing: border-box; }
+mpr-header .mpr-header {
+  padding: 0;
+  color: var(--site-text);
+  background: var(--site-surface);
+  border-bottom: 1px solid var(--site-border);
+  box-shadow: none;
+}
+mpr-header .mpr-header__inner {
+  width: 100%;
+  max-width: 1300px;
+  margin-inline: auto;
+  padding: 10px 24px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+mpr-header .mpr-header__actions {
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+mpr-header .mpr-header__nav {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+mpr-header .site-theme-toggle {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--site-text);
+}
+mpr-header .site-theme-toggle button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--site-border);
+  border-radius: 6px;
+  background: var(--site-surface);
+  color: var(--site-text);
+  font: 500 14px/1.2 system-ui, sans-serif;
+  cursor: pointer;
+  transition: none;
+}
+mpr-header .site-theme-toggle button:hover { background: var(--site-hover); }
+mpr-header .site-theme-toggle button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+#site-theme-status { max-width: 24ch; font: 13px/1.4 system-ui, sans-serif; }
+#site-theme-status[hidden] { display: none; }
+.music-player {
+  --bg: var(--site-surface);
+  --bg-subtle: var(--site-hover);
+  --ink: var(--site-text);
+  --muted: var(--site-muted);
+  --line: var(--site-border);
+  --copper: var(--site-accent);
+}
+@media (max-width: 600px) {
+  mpr-header .mpr-header__inner { padding: 8px 16px; gap: 8px; }
+  mpr-header .site-theme-toggle button { padding-inline: 8px; }
+}
