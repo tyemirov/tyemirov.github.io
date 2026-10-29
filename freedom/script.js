@@ -275,7 +275,19 @@ function renderTable(sortedResults){
   });
 }
 
+function chartPalette() {
+  const style = getComputedStyle(document.documentElement);
+  return {
+    text: style.getPropertyValue("--text").trim(),
+    grid: style.getPropertyValue("--chart-grid").trim(),
+    line: style.getPropertyValue("--chart-line").trim(),
+    accent: style.getPropertyValue("--active").trim(),
+    surface: style.getPropertyValue("--surface").trim(),
+  };
+}
+
 function renderRadar(sortedResults){
+  const palette = chartPalette();
   if (sortedResults.length === 0) {
     Plotly.purge("radarChart");
     return;
@@ -311,17 +323,20 @@ function renderRadar(sortedResults){
   const layout = {
     paper_bgcolor:"rgba(0,0,0,0)", plot_bgcolor:"rgba(0,0,0,0)",
     margin:{ l:40, r:40, t:30, b:30 },
-    legend:{ font:{ color:"#000", size:12, weight: 700 } },
+    font: { color: palette.text },
+    hoverlabel: { bgcolor: palette.surface, font: { color: palette.text } },
+    legend:{ font:{ color:palette.text, size:12, weight: 700 } },
           polar:{
             bgcolor:"rgba(0,0,0,0)",
-            radialaxis:{ visible:true, range:[0,1], angle:90, tickangle:90, tickfont:{ color:"#000", size:10, weight: 700 }, gridcolor:"rgba(0,0,0,0.15)" },
-            angularaxis:{ tickfont:{ color:"#000", size:12, weight: 800 }, gridcolor:"rgba(0,0,0,0.15)", rotation:90, direction:"clockwise" }
-          },    title:{ text:"Domain Freedom (higher is freer)", font:{ color:"#000", size:15, family:"Avenir Next, sans-serif", weight: 900 } }
+            radialaxis:{ visible:true, range:[0,1], angle:90, tickangle:90, tickfont:{ color:palette.text, size:10, weight: 700 }, gridcolor:palette.grid },
+            angularaxis:{ tickfont:{ color:palette.text, size:12, weight: 800 }, gridcolor:palette.grid, rotation:90, direction:"clockwise" }
+          },    title:{ text:"Domain Freedom (higher is freer)", font:{ color:palette.text, size:15, family:"Avenir Next, sans-serif", weight: 900 } }
   };
   Plotly.newPlot("radarChart", plotData, layout, { displayModeBar:false, responsive:true });
 }
 
 function renderScatter(sortedResults){
+  const palette = chartPalette();
   if (sortedResults.length === 0) {
     Plotly.purge("scatterChart");
     return;
@@ -365,15 +380,17 @@ function renderScatter(sortedResults){
     text: sortedResults.map(function(r){ return r.jurisdictionName; }),
     textposition:"top center",
     hovertemplate: "Jurisdiction: %{text}<br>Fiscal control: %{x:.3f}<br>Permission control: %{y:.3f}<extra></extra>",
-    marker:{ size:10, color: "#0f6d4d", line: { color: "#000", width: 1 } }
+    marker:{ size:10, color: palette.accent, line: { color: palette.text, width: 1 } }
   }];
 
   const layout = {
     paper_bgcolor:"rgba(0,0,0,0)", plot_bgcolor:"rgba(0,0,0,0)",
     margin:{ l:55, r:30, t:30, b:50 },
-    xaxis:{ title:{ text:"Fiscal control (higher = more tax burden)", font:{ color:"#000", size:13, weight: 700 } }, tickfont:{ color:"#000", size: 11 }, gridcolor:"rgba(0,0,0,0.15)", zerolinecolor: "rgba(0,0,0,0.3)", range:xRange },
-    yaxis:{ title:{ text:"Permission control (higher = more friction)", font:{ color:"#000", size:13, weight: 700 } }, tickfont:{ color:"#000", size: 11 }, gridcolor:"rgba(0,0,0,0.15)", zerolinecolor: "rgba(0,0,0,0.3)", range:yRange },
-    title:{ text:"Control Map (lower-left is freer)", font:{ color:"#000", size:15, family:"Avenir Next, sans-serif", weight: 900 } },
+    font: { color: palette.text },
+    hoverlabel: { bgcolor: palette.surface, font: { color: palette.text } },
+    xaxis:{ title:{ text:"Fiscal control (higher = more tax burden)", font:{ color:palette.text, size:13, weight: 700 } }, tickfont:{ color:palette.text, size: 11 }, gridcolor:palette.grid, zerolinecolor: palette.line, range:xRange },
+    yaxis:{ title:{ text:"Permission control (higher = more friction)", font:{ color:palette.text, size:13, weight: 700 } }, tickfont:{ color:palette.text, size: 11 }, gridcolor:palette.grid, zerolinecolor: palette.line, range:yRange },
+    title:{ text:"Control Map (lower-left is freer)", font:{ color:palette.text, size:15, family:"Avenir Next, sans-serif", weight: 900 } },
     showlegend:false
   };
 
@@ -499,6 +516,43 @@ await loadDefaultDataset();
 wireEvents();
 setSliderLabels();
 recomputeAndRender();
+const themeObserver = new MutationObserver(() => {
+  const palette = chartPalette();
+  const common = {
+    "font.color": palette.text,
+    "title.font.color": palette.text,
+    "hoverlabel.bgcolor": palette.surface,
+    "hoverlabel.font.color": palette.text,
+  };
+  const radar = document.getElementById("radarChart");
+  if (radar?.classList.contains("js-plotly-plot")) {
+    Plotly.relayout(radar, {
+      ...common,
+      "legend.font.color": palette.text,
+      "polar.radialaxis.tickfont.color": palette.text,
+      "polar.angularaxis.tickfont.color": palette.text,
+      "polar.radialaxis.gridcolor": palette.grid,
+      "polar.angularaxis.gridcolor": palette.grid,
+    });
+  }
+  const scatter = document.getElementById("scatterChart");
+  if (scatter?.classList.contains("js-plotly-plot")) {
+    Plotly.relayout(scatter, {
+      ...common,
+      "xaxis.title.font.color": palette.text,
+      "yaxis.title.font.color": palette.text,
+      "xaxis.tickfont.color": palette.text,
+      "yaxis.tickfont.color": palette.text,
+      "xaxis.gridcolor": palette.grid,
+      "yaxis.gridcolor": palette.grid,
+      "xaxis.zerolinecolor": palette.line,
+      "yaxis.zerolinecolor": palette.line,
+    });
+    Plotly.restyle(scatter, { "marker.color": palette.accent, "marker.line.color": palette.text, "textfont.color": palette.text });
+  }
+});
+themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+onPageLeave(() => themeObserver.disconnect());
 }
 
 initializePage(mountPage);

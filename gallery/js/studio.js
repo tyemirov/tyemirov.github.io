@@ -85,7 +85,7 @@ document.addEventListener('mpr-ui:auth:authenticated',event=>{
 }, navigationEvents);
 document.addEventListener('mpr-ui:auth:unauthenticated',clear, navigationEvents);
 document.addEventListener('mpr-ui:auth:error',()=>{if(!active)status.textContent='Sign-in is unavailable. Try the shared sign-in control again.';}, navigationEvents);
-void initializeSiteFooter({themeAttribute:'data-theme'});
+void initializeSiteFooter();
 window.addEventListener('beforeunload',event=>{if(dirty || pendingEdits){event.preventDefault();event.returnValue='';}}, navigationEvents);
 window.addEventListener('pagehide',()=>session.abort(), navigationEvents);
 onPageLeave(clear);

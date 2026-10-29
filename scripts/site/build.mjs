@@ -8,6 +8,7 @@ import { renderMarkdown } from '../../assets/js/markdown.js';
 import { PLATFORMS, isListedAlbum } from '../../music/catalog.js';
 import { musicIcon } from '../../music/icons.js';
 import { albumPlayMarkup } from '../../music/album-play.js';
+import { THEME_CONFIG, THEME_CONTROL, DEFAULT_THEME } from '../../assets/js/theme-config.js';
 
 const root = resolve(import.meta.dirname, '../..');
 const output = process.argv[2];
@@ -37,7 +38,18 @@ function parentFor(path) {
   }
   return null;
 }
-function withNavigation(path, html) {
+function withTheme(html) {
+  const theme = escape(JSON.stringify(THEME_CONFIG));
+  const control = `<mpr-theme-toggle slot="aux" class="site-theme-toggle" theme-config="${theme}" theme-control="${escape(JSON.stringify(THEME_CONTROL))}" aria-label="Toggle theme" label="Theme"></mpr-theme-toggle><span slot="aux" id="site-theme-status" role="alert" hidden></span>`;
+  const bootstrap = `<script id="site-theme-bootstrap">{const config=${JSON.stringify(THEME_CONFIG)};const mode=localStorage.getItem(config.storageKey)??${JSON.stringify(DEFAULT_THEME)};if(!config.modes.includes(mode))throw new Error('site.theme_invalid_preference');document.documentElement.setAttribute(config.attribute,mode);document.documentElement.setAttribute('data-mpr-theme',mode);}</script>`;
+  return html.replace(/(<script\b[^>]*src="https:\/\/loopaware\.mprlab\.com\/pixel\.js[^>]*><\/script>)/, `$1\n${bootstrap}`)
+    .replace(/<meta name="color-scheme"[^>]*>/g, '')
+    .replace(/<mpr-header\b([^>]*)>([\s\S]*?)<\/mpr-header>/, (_, attributes, content) => `<mpr-header${attributes} theme-config="${theme}">${content}${control}</mpr-header>`)
+    .replace(/<mpr-footer\b([^>]*)>/g, (_, attributes) => `<mpr-footer${attributes} theme-config="${escape(JSON.stringify({ ...THEME_CONFIG, enabled: false }))}">`)
+    .replace('</head>', '<link rel="stylesheet" href="/assets/css/theme.css">\n<script type="module" src="/assets/js/theme.js"></script>\n</head>');
+}
+function withNavigation(path, source) {
+  const html = withTheme(source);
   const parent = parentFor(path);
   const navigation = `<nav slot="brand" class="site-navigation" aria-label="Page hierarchy"><a href="/" aria-label="Home" title="Home">^</a>${parent ? `<a href="${parent.path}">${parent.label}</a>` : ''}</nav>`;
   return html.replace(/<mpr-header\b[^>]*>[\s\S]*?<\/mpr-header>/, header => {
@@ -87,6 +99,9 @@ ${imageTags}
 <mpr-footer sticky="false" id="site-footer" class="site-footer"></mpr-footer></body></html>\n`;
 }
 for (const path of ['/', '/gallery/order/', '/gallery/studio/']) await page(path, await readFile(join(root, path, 'index.html'), 'utf8'));
+for (const path of ['school-atlas/admissions-audit.html', 'school-atlas/private-coverage.html']) {
+  await file(path, withTheme(await readFile(join(root, path), 'utf8')));
+}
 const albumCards = site.music.items.filter(isListedAlbum).sort((a, b) => a.order - b.order).map(album => {
   const href = `/music/${album.slug}/`;
   return `<article class="album-card">

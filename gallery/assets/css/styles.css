@@ -1,17 +1,51 @@
 :root {
-  --color-bg: #0b0c0e;
-  --color-panel: #15171b;
-  --color-panel-soft: rgba(246, 247, 251, 0.04);
-  --color-text: #f6f7fb;
-  --color-text-muted: rgba(246, 247, 251, 0.64);
-  --color-text-soft: rgba(246, 247, 251, 0.52);
-  --color-accent: #f0c34e;
-  --color-accent-soft: rgba(240, 195, 78, 0.16);
-  --color-border: rgba(246, 247, 251, 0.08);
-  --color-focus: rgba(240, 195, 78, 0.6);
-  --color-success: #45d39c;
+  --color-bg: #f7f5ef;
+  --color-panel: #fffdf8;
+  --color-bg-rgb: 247, 245, 239;
+  --color-text-rgb: 36, 42, 39;
+  --color-panel-soft: rgba(var(--color-text-rgb), 0.04);
+  --color-text: #242a27;
+  --color-text-muted: #58605b;
+  --color-text-soft: #626b65;
+  --color-accent: #785619;
+  --color-accent-hover: #634411;
+  --color-accent-rgb: 120, 86, 25;
+  --color-accent-soft: rgba(var(--color-accent-rgb), 0.12);
+  --color-border: rgba(var(--color-text-rgb), 0.18);
+  --color-focus: #785619;
+  --color-success: #23774f;
+  --color-success-rgb: 35, 119, 79;
+  --color-on-accent: #fffdf8;
+  --color-error: #9e341f;
+  --color-status-bg: #dcded7;
+  --color-status-text: #303a33;
+  --bg: var(--color-bg);
+  --ink: var(--color-text);
+  --muted: var(--color-text-muted);
+  --line: var(--color-border);
   --layout-max-width: 1200px;
   --transition-duration: 200ms;
+}
+
+html[data-theme="dark"] {
+  --color-bg: #0b0c0e;
+  --color-panel: #15171b;
+  --color-bg-rgb: 11, 12, 14;
+  --color-text-rgb: 246, 247, 251;
+  --color-text: #f6f7fb;
+  --color-text-muted: #b8bac0;
+  --color-text-soft: #a4a7b0;
+  --color-accent: #f0c34e;
+  --color-accent-hover: #ffd56a;
+  --color-accent-rgb: 240, 195, 78;
+  --color-border: rgba(var(--color-text-rgb), 0.16);
+  --color-focus: #f0c34e;
+  --color-success: #45d39c;
+  --color-success-rgb: 69, 211, 156;
+  --color-on-accent: #111;
+  --color-error: #ffb9a3;
+  --color-status-bg: #4d515c;
+  --color-status-text: #f6f7fb;
 }
 
 * {
@@ -33,8 +67,7 @@ body {
 }
 
 body, a, button {
-  transition: color var(--transition-duration) ease, background-color var(--transition-duration) ease,
-    border-color var(--transition-duration) ease, transform var(--transition-duration) ease;
+  transition: border-color var(--transition-duration) ease, transform var(--transition-duration) ease;
 }
 
 img {
@@ -65,7 +98,7 @@ button,
   border-radius: 999px;
   padding: 0.55rem 1.6rem;
   background: var(--color-accent);
-  color: #111;
+  color: var(--color-on-accent);
   cursor: pointer;
   letter-spacing: 0.02em;
   font-weight: 600;
@@ -73,7 +106,7 @@ button,
 
 button:hover,
 .button:hover {
-  background: #ffd56a;
+  background: var(--color-accent-hover);
 }
 
 button.secondary,
@@ -99,7 +132,7 @@ button.secondary:hover,
   top: -3rem;
   left: 1rem;
   background: var(--color-accent);
-  color: #111;
+  color: var(--color-on-accent);
   padding: 0.5rem 1rem;
   border-radius: 999px;
   z-index: 100;
@@ -118,9 +151,9 @@ button.secondary:hover,
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(11, 12, 14, 0.92);
+  background: rgba(var(--color-bg-rgb), 0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(246, 247, 251, 0.05);
+  border-bottom: 1px solid rgba(var(--color-text-rgb), 0.05);
 }
 
 .gallery-header__inner {
@@ -178,7 +211,7 @@ button.secondary:hover,
   font-size: 0.8rem;
   font-weight: 600;
   background: var(--color-accent);
-  color: #111;
+  color: var(--color-on-accent);
   border-radius: 999px;
   padding: 0.15rem 0.5rem;
 }
@@ -190,9 +223,9 @@ button.secondary:hover,
 .hero {
   padding: 6rem 0 4rem;
   background:
-    radial-gradient(circle at 20% 18%, rgba(240, 195, 78, 0.14), transparent 52%),
-    radial-gradient(circle at 68% 12%, rgba(240, 195, 78, 0.08), transparent 60%),
-    #0b0c0e;
+    radial-gradient(circle at 20% 18%, rgba(var(--color-accent-rgb), 0.14), transparent 52%),
+    radial-gradient(circle at 68% 12%, rgba(var(--color-accent-rgb), 0.08), transparent 60%),
+    var(--color-bg);
   text-align: center;
 }
 
@@ -314,7 +347,7 @@ button.secondary:hover,
   background: var(--color-panel);
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(246, 247, 251, 0.06);
+  border: 1px solid rgba(var(--color-text-rgb), 0.06);
   transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
 }
 
@@ -350,23 +383,23 @@ button.secondary:hover,
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: rgba(246, 247, 251, 0.16);
-  color: var(--color-text);
+  background: var(--color-status-bg);
+  color: var(--color-status-text);
 }
 
 .status-badge--now {
   background: var(--color-success);
-  color: #0b0c0e;
+  color: var(--color-on-accent);
 }
 
 .status-badge--upcoming {
   background: var(--color-accent);
-  color: #0b0c0e;
+  color: var(--color-on-accent);
 }
 
 .status-badge--closed {
-  background: rgba(246, 247, 251, 0.28);
-  color: #0b0c0e;
+  background: var(--color-status-bg);
+  color: var(--color-status-text);
 }
 
 .exhibit-card__body {
@@ -440,7 +473,7 @@ button.secondary:hover,
 .artwork-card {
   background: var(--color-panel);
   border-radius: 16px;
-  border: 1px solid rgba(246, 247, 251, 0.08);
+  border: 1px solid rgba(var(--color-text-rgb), 0.08);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -487,7 +520,7 @@ button.secondary:hover,
 .museum-label {
   font-family: 'EB Garamond', 'Times New Roman', serif;
   font-style: italic;
-  color: rgba(246, 247, 251, 0.86);
+  color: var(--color-text);
   margin: 0;
   letter-spacing: 0.02em;
 }
@@ -500,12 +533,12 @@ button.secondary:hover,
 }
 
 .specs {
-  border-top: 1px solid rgba(246, 247, 251, 0.08);
+  border-top: 1px solid rgba(var(--color-text-rgb), 0.08);
   padding-top: 1rem;
 }
 
 .specs details {
-  background: rgba(246, 247, 251, 0.04);
+  background: rgba(var(--color-text-rgb), 0.04);
   border-radius: 12px;
   padding: 1rem 1.25rem;
 }
@@ -564,7 +597,7 @@ button.secondary:hover,
   border: 1px solid var(--color-border);
   border-radius: 16px;
   overflow: hidden;
-  background: rgba(246, 247, 251, 0.02);
+  background: rgba(var(--color-text-rgb), 0.02);
 }
 
 .cart-table {
@@ -573,7 +606,7 @@ button.secondary:hover,
 }
 
 .cart-table thead {
-  background: rgba(246, 247, 251, 0.04);
+  background: rgba(var(--color-text-rgb), 0.04);
 }
 
 .cart-table th,
@@ -592,7 +625,7 @@ button.secondary:hover,
 
 .cart-table td {
   font-size: 0.95rem;
-  border-top: 1px solid rgba(246, 247, 251, 0.05);
+  border-top: 1px solid rgba(var(--color-text-rgb), 0.05);
 }
 
 .cart-line__title {
@@ -618,13 +651,13 @@ button.secondary:hover,
 
 .cart-figure img {
   border-radius: 10px;
-  border: 1px solid rgba(246, 247, 251, 0.08);
+  border: 1px solid rgba(var(--color-text-rgb), 0.08);
 }
 
 .cart-qty {
   width: 4.5rem;
-  background: rgba(246, 247, 251, 0.04);
-  border: 1px solid rgba(246, 247, 251, 0.1);
+  background: rgba(var(--color-text-rgb), 0.04);
+  border: 1px solid rgba(var(--color-text-rgb), 0.1);
   border-radius: 999px;
   color: var(--color-text);
   text-align: center;
@@ -654,15 +687,15 @@ button.secondary:hover,
 .alert {
   padding: 1.5rem 2rem;
   border-radius: 16px;
-  border: 1px solid rgba(240, 195, 78, 0.2);
-  background: rgba(240, 195, 78, 0.08);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
+  background: rgba(var(--color-accent-rgb), 0.08);
   color: var(--color-text);
   line-height: 1.6;
 }
 
 .alert--info {
-  border-color: rgba(69, 211, 156, 0.2);
-  background: rgba(69, 211, 156, 0.08);
+  border-color: rgba(var(--color-success-rgb), 0.2);
+  background: rgba(var(--color-success-rgb), 0.08);
 }
 
 .toast-region {
@@ -695,7 +728,7 @@ button.secondary:hover,
   border: none;
   border-radius: 18px;
   padding: 0;
-  background: rgba(11, 12, 14, 0.95);
+  background: rgba(var(--color-bg-rgb), 0.95);
   color: var(--color-text);
   max-width: min(90vw, 980px);
 }
@@ -712,8 +745,8 @@ button.secondary:hover,
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  border: 1px solid rgba(246, 247, 251, 0.2);
-  background: rgba(11, 12, 14, 0.85);
+  border: 1px solid rgba(var(--color-text-rgb), 0.2);
+  background: rgba(var(--color-bg-rgb), 0.85);
   color: var(--color-text);
   cursor: pointer;
 }
@@ -740,8 +773,8 @@ button.secondary:hover,
 
 .gallery-footer {
   padding: 3rem 0 2.5rem;
-  background: rgba(11, 12, 14, 0.8);
-  border-top: 1px solid rgba(246, 247, 251, 0.05);
+  background: rgba(var(--color-bg-rgb), 0.8);
+  border-top: 1px solid rgba(var(--color-text-rgb), 0.05);
 }
 
 .gallery-footer__inner {

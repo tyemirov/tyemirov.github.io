@@ -40,7 +40,7 @@ async function loadSite(signal) {
 export async function hydrateMusicPage(kind) {
   try {
     const data = await loadSite();
-    void initializeSiteFooter({ contact: data.contact, themeAttribute: "data-theme" });
+    void initializeSiteFooter({ contact: data.contact });
     const albums = kind === "index"
       ? data.music.items.filter(isListedAlbum)
       : data.music.items.filter(album => album.slug === window.location.pathname.split("/").filter(Boolean).pop() && album.status === "live");
@@ -119,7 +119,7 @@ function renderAll(data) {
     void navigate(url);
   };
   renderContent(data);
-  void initializeSiteFooter({ contact: data.contact, themeAttribute: "data-theme" });
+  void initializeSiteFooter({ contact: data.contact });
 }
 
 function renderContent(data) {

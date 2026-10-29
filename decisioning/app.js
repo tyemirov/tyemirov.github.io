@@ -572,8 +572,8 @@ const navigationEvents = pageEvents();
             .attr("y", 0)
             .attr("width", currentInnerWidth)
             .attr("height", currentInnerHeight)
-            .attr("fill", "white")
-            .attr("stroke", "rgba(0,0,0,0.12)");
+            .attr("fill", "var(--surface)")
+            .attr("stroke", "var(--chart-grid)");
 
           // Midlines
           verticalMidline
@@ -581,7 +581,7 @@ const navigationEvents = pageEvents();
             .attr("x2", xScale(thresholdMidpoint))
             .attr("y1", 0)
             .attr("y2", currentInnerHeight)
-            .attr("stroke", "rgba(0,0,0,0.25)")
+            .attr("stroke", "var(--chart-line)")
             .attr("stroke-width", 1);
 
           horizontalMidline
@@ -589,7 +589,7 @@ const navigationEvents = pageEvents();
             .attr("x2", currentInnerWidth)
             .attr("y1", yScale(thresholdMidpoint))
             .attr("y2", yScale(thresholdMidpoint))
-            .attr("stroke", "rgba(0,0,0,0.25)")
+            .attr("stroke", "var(--chart-line)")
             .attr("stroke-width", 1);
 
           // Axes
@@ -607,20 +607,20 @@ const navigationEvents = pageEvents();
             .attr("y", currentInnerHeight + 40)
             .attr("text-anchor", "middle")
             .attr("font-size", 12)
-            .attr("fill", "rgba(0,0,0,0.75)")
+            .attr("fill", "var(--text)")
             .text(xAxisLabelText);
 
           yAxisLabel
             .attr("transform", `translate(${-40},${currentInnerHeight / 2}) rotate(-90)`)
             .attr("text-anchor", "middle")
             .attr("font-size", 12)
-            .attr("fill", "rgba(0,0,0,0.75)")
+            .attr("fill", "var(--text)")
             .text(yAxisLabelText);
 
           // Quadrant labels (light)
           quadrantTextGroup.selectAll("*").remove();
 
-          const quadrantTextStyle = { "font-size": "12px", fill: "rgba(0,0,0,0.55)" };
+          const quadrantTextStyle = { "font-size": "12px", fill: "var(--chart-muted)" };
 
 	          quadrantTextGroup.append("text")
 	            .attr("x", xScale(7.5))
@@ -665,12 +665,12 @@ const navigationEvents = pageEvents();
             .attr("cx", pointX)
             .attr("cy", pointY)
             .attr("r", 7)
-            .attr("fill", "#111");
+            .attr("fill", "var(--text)");
 
           pointLabel
             .attr("y", pointY - 10)
             .attr("font-size", 12)
-            .attr("fill", "rgba(0,0,0,0.75)")
+            .attr("fill", "var(--text)")
             .attr("pointer-events", "none")
             .text(clippedLabelText);
 
@@ -797,8 +797,18 @@ const navigationEvents = pageEvents();
         }
 
         try {
+          const themeRefreshers = [];
+          const themeColor = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+          function themeMaterial(material) {
+            const updateColor = () => material.color.set(themeColor("--text"));
+            updateColor();
+            themeRefreshers.push(updateColor);
+            return material;
+          }
           const scene = new THREE.Scene();
-          scene.background = new THREE.Color(0xffffff);
+          const updateSceneBackground = () => { scene.background = new THREE.Color(themeColor("--surface")); };
+          updateSceneBackground();
+          themeRefreshers.push(updateSceneBackground);
 
           const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 2000);
           camera.position.set(14, 12, 14);
@@ -988,20 +998,20 @@ const navigationEvents = pageEvents();
             0, 0, cubeSize,   0, cubeSize, cubeSize
           ]);
           geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
-          const material = new THREE.LineBasicMaterial({ color: 0x111111, transparent: true, opacity: 0.25 });
+          const material = themeMaterial(new THREE.LineBasicMaterial({ transparent: true, opacity: 0.5 }));
           return new THREE.LineSegments(geometry, material);
         }
 
         const cubeBounds = createCubeBoundsLineSegments();
         scene.add(cubeBounds);
 
-        function createAxisArrow(axisDirectionVector, axisColorValue) {
+        function createAxisArrow(axisDirectionVector) {
           const arrowOrigin = new THREE.Vector3(0, 0, 0);
           const axisArrow = new THREE.ArrowHelper(
             axisDirectionVector.clone().normalize(),
             arrowOrigin,
             cubeSize,
-            axisColorValue,
+            new THREE.Color(themeColor("--text")),
             0.4,
             0.2
           );
@@ -1009,6 +1019,9 @@ const navigationEvents = pageEvents();
           axisArrow.cone.material.opacity = 0.6;
           axisArrow.line.material.transparent = true;
           axisArrow.line.material.opacity = 0.6;
+          const updateColor = () => axisArrow.setColor(new THREE.Color(themeColor("--text")));
+          updateColor();
+          themeRefreshers.push(updateColor);
           return axisArrow;
         }
 
@@ -1028,25 +1041,26 @@ const navigationEvents = pageEvents();
           labelCanvas.width = measuredTextWidth + horizontalPaddingPx * 2;
           labelCanvas.height = fontSizePx + verticalPaddingPx * 2;
 
-          // Reset drawing settings after changing canvas dimensions.
-          labelContext.font = `700 ${fontSizePx}px system-ui, -apple-system, Segoe UI, Roboto, sans-serif`;
-          labelContext.textBaseline = "middle";
-          labelContext.textAlign = "left";
-
-          labelContext.fillStyle = "rgba(255,255,255,0.92)";
-          labelContext.fillRect(0, 0, labelCanvas.width, labelCanvas.height);
-
-          labelContext.strokeStyle = "rgba(0,0,0,0.16)";
-          labelContext.lineWidth = 2;
-          labelContext.strokeRect(1, 1, labelCanvas.width - 2, labelCanvas.height - 2);
-
-          labelContext.fillStyle = "rgba(0,0,0,0.88)";
-          labelContext.fillText(labelText, horizontalPaddingPx, labelCanvas.height / 2 + 1);
+          function paintLabel() {
+            labelContext.font = `700 ${fontSizePx}px system-ui, -apple-system, Segoe UI, Roboto, sans-serif`;
+            labelContext.textBaseline = "middle";
+            labelContext.textAlign = "left";
+            labelContext.clearRect(0, 0, labelCanvas.width, labelCanvas.height);
+            labelContext.fillStyle = themeColor("--chart-label-bg");
+            labelContext.fillRect(0, 0, labelCanvas.width, labelCanvas.height);
+            labelContext.strokeStyle = themeColor("--border-color");
+            labelContext.lineWidth = 2;
+            labelContext.strokeRect(1, 1, labelCanvas.width - 2, labelCanvas.height - 2);
+            labelContext.fillStyle = themeColor("--chart-label-text");
+            labelContext.fillText(labelText, horizontalPaddingPx, labelCanvas.height / 2 + 1);
+          }
+          paintLabel();
 
           const labelTexture = new THREE.CanvasTexture(labelCanvas);
           labelTexture.minFilter = THREE.LinearFilter;
           labelTexture.magFilter = THREE.LinearFilter;
           labelTexture.generateMipmaps = false;
+          themeRefreshers.push(() => { paintLabel(); labelTexture.needsUpdate = true; });
 
           const labelMaterial = new THREE.SpriteMaterial({
             map: labelTexture,
@@ -1078,18 +1092,23 @@ const navigationEvents = pageEvents();
 	          tickCanvas.width = measuredTextWidth + horizontalPaddingPx * 2;
 	          tickCanvas.height = fontSizePx + verticalPaddingPx * 2;
 
-	          tickContext.font = `700 ${fontSizePx}px system-ui, -apple-system, Segoe UI, Roboto, sans-serif`;
-	          tickContext.textBaseline = "middle";
-	          tickContext.textAlign = "left";
-	          tickContext.fillStyle = "rgba(255,255,255,0.78)";
-	          tickContext.fillRect(0, 0, tickCanvas.width, tickCanvas.height);
-	          tickContext.fillStyle = "rgba(0,0,0,0.82)";
-	          tickContext.fillText(labelText, horizontalPaddingPx, tickCanvas.height / 2 + 1);
+          function paintTick() {
+            tickContext.font = `700 ${fontSizePx}px system-ui, -apple-system, Segoe UI, Roboto, sans-serif`;
+            tickContext.textBaseline = "middle";
+            tickContext.textAlign = "left";
+            tickContext.clearRect(0, 0, tickCanvas.width, tickCanvas.height);
+            tickContext.fillStyle = themeColor("--chart-label-bg");
+            tickContext.fillRect(0, 0, tickCanvas.width, tickCanvas.height);
+            tickContext.fillStyle = themeColor("--chart-label-text");
+            tickContext.fillText(labelText, horizontalPaddingPx, tickCanvas.height / 2 + 1);
+          }
+          paintTick();
 
 	          const tickTexture = new THREE.CanvasTexture(tickCanvas);
 	          tickTexture.minFilter = THREE.LinearFilter;
 	          tickTexture.magFilter = THREE.LinearFilter;
 	          tickTexture.generateMipmaps = false;
+          themeRefreshers.push(() => { paintTick(); tickTexture.needsUpdate = true; });
 
 	          const tickMaterial = new THREE.SpriteMaterial({
 	            map: tickTexture,
@@ -1111,11 +1130,10 @@ const navigationEvents = pageEvents();
 	          const tickValues = [0, 2, 4, 6, 8, 10];
 	          const tickLength = 0.22;
 	          const tickLabelOffset = 0.36;
-	          const tickMaterial = new THREE.LineBasicMaterial({
-	            color: 0x111111,
+	          const tickMaterial = themeMaterial(new THREE.LineBasicMaterial({
 	            transparent: true,
-	            opacity: 0.42
-	          });
+	            opacity: 0.6
+	          }));
 
 	          for (const tickValue of tickValues) {
 	            let tickStart;
@@ -1150,9 +1168,9 @@ const navigationEvents = pageEvents();
 	          return tickGroup;
 	        }
 
-	        const expectedValueAxisArrow = createAxisArrow(new THREE.Vector3(1, 0, 0), 0x111111);
-	        const uncertaintyAxisArrow = createAxisArrow(new THREE.Vector3(0, 1, 0), 0x111111);
-	        const reversibilityAxisArrow = createAxisArrow(new THREE.Vector3(0, 0, 1), 0x111111);
+	        const expectedValueAxisArrow = createAxisArrow(new THREE.Vector3(1, 0, 0));
+	        const uncertaintyAxisArrow = createAxisArrow(new THREE.Vector3(0, 1, 0));
+	        const reversibilityAxisArrow = createAxisArrow(new THREE.Vector3(0, 0, 1));
 
 	        scene.add(expectedValueAxisArrow);
 	        scene.add(uncertaintyAxisArrow);
@@ -1182,7 +1200,7 @@ const navigationEvents = pageEvents();
 
 	        // Point
 	        const pointGeometry = new THREE.SphereGeometry(0.22, 28, 20);
-	        const pointMaterial = new THREE.MeshStandardMaterial({ color: 0x111111 });
+	        const pointMaterial = themeMaterial(new THREE.MeshStandardMaterial());
 	        const pointMesh = new THREE.Mesh(pointGeometry, pointMaterial);
 	        pointMesh.renderOrder = 10;
 	        scene.add(pointMesh);
@@ -1288,14 +1306,19 @@ const navigationEvents = pageEvents();
         onPageLeave(() => resizeObserver.disconnect());
         resizeRendererToHost();
 
+        const themeObserver = new MutationObserver(() => {
+          for (const refresh of themeRefreshers) refresh();
+        });
+        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
         let animationFrame;
         onPageLeave(() => {
+          themeObserver.disconnect();
           cancelAnimationFrame(animationFrame);
           orbitControls.dispose();
           scene.traverse(object => {
             object.geometry?.dispose();
             const materials = Array.isArray(object.material) ? object.material : [object.material];
-            materials.forEach(material => material?.dispose());
+            materials.forEach(material => { material?.map?.dispose(); material?.dispose(); });
           });
           renderer.dispose();
         });

@@ -3,10 +3,10 @@
 const FOOTER_LABEL = "Website software by MPR Lab";
 
 /**
- * @param {{contact?: {label: string, href: string}, themeAttribute?: string}} [options]
+ * @param {{contact?: {label: string, href: string}}} [options]
  * @returns {Promise<void>}
  */
-export async function initializeSiteFooter({ contact, themeAttribute } = {}) {
+export async function initializeSiteFooter({ contact } = {}) {
   const footer = document.querySelector("#site-footer");
   if (!footer) throw new Error("site.footer_host_missing");
   await customElements.whenDefined("mpr-footer");
@@ -22,10 +22,4 @@ export async function initializeSiteFooter({ contact, themeAttribute } = {}) {
   footer.setAttribute("prefix-class", "site-footer__prefix");
   footer.setAttribute("inner-class", "site-footer__inner");
   footer.setAttribute("wrapper-class", "site-footer__layout");
-  if (themeAttribute) {
-    footer.setAttribute("theme-control", JSON.stringify({kind: "cycle", choices: ["light", "dark"]}));
-    footer.setAttribute("theme-config", JSON.stringify({
-      storageKey: "tyemirov:theme", attribute: themeAttribute, ariaLabel: "Toggle theme", modes: ["light", "dark"], initialMode: "light",
-    }));
-  }
 }

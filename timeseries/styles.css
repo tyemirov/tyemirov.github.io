@@ -11,7 +11,27 @@
   --bad: #ef4444;
   --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --radius: 12px;
+
+  --surface-soft: #1a2436;
+  --control: #0c1320;
+  --ink: var(--text);
+  --bg: var(--background);
 }
+html[data-theme="light"] {
+  --background: #f5f6fc;
+  --panel: #ffffff;
+  --panel-border: #cbd1e4;
+  --text: #17203a;
+  --muted: #53607c;
+  --accent: #4f46c8;
+  --accent-soft: rgba(79, 70, 200, 0.1);
+  --good: #047857;
+  --warn: #965409;
+  --bad: #c12f3c;
+  --surface-soft: #edf0fa;
+  --control: #ffffff;
+}
+
 
 * {
   box-sizing: border-box;
@@ -173,7 +193,7 @@ h1 {
   text-align: left;
   padding: 20px;
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface-soft);
   border: 1px solid var(--panel-border);
   color: inherit;
   cursor: pointer;
@@ -184,7 +204,7 @@ h1 {
 }
 
 .choice-button:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-soft);
   border-color: var(--muted);
 }
 
@@ -213,7 +233,7 @@ h1 {
 .tag-button {
   padding: 8px 16px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface-soft);
   border: 1px solid var(--panel-border);
   color: inherit;
   font-size: 14px;
@@ -235,7 +255,7 @@ h1 {
 
 .criterion-card {
   padding: 24px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--surface-soft);
   border: 1px solid var(--panel-border);
   border-radius: var(--radius);
 }
@@ -287,7 +307,7 @@ input[type="range"] {
 
 textarea {
   width: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--control);
   border: 1px solid var(--panel-border);
   border-radius: 8px;
   color: inherit;
@@ -333,7 +353,7 @@ textarea {
 
 .result-state {
   padding: 24px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface-soft);
   border-radius: var(--radius);
   margin-bottom: 24px;
 }
@@ -356,7 +376,7 @@ textarea {
 
 .insight-item {
   padding: 20px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--surface-soft);
   border: 1px solid var(--panel-border);
   border-radius: var(--radius);
 }
