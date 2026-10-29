@@ -259,6 +259,7 @@ func (service *Service) ServeHTTP(output http.ResponseWriter, request *http.Requ
 	}
 	if service.origins[origin] {
 		writer.Header().Set("Access-Control-Allow-Origin", origin)
+		writer.Header().Set("Timing-Allow-Origin", origin)
 		writer.Header().Set("Access-Control-Allow-Credentials", "true")
 		writer.Header().Set("Access-Control-Expose-Headers", "Retry-After, Content-Range, Accept-Ranges, X-Request-ID, Location, ETag")
 		writer.Header().Set("Vary", "Origin")
@@ -289,6 +290,18 @@ func (service *Service) ServeHTTP(output http.ResponseWriter, request *http.Requ
 			return
 		}
 		sendJSON(writer, 200, map[string]string{"status": "ok"})
+		return
+	}
+	if route == observationRoute {
+		if request.Method != http.MethodPost {
+			methodError(writer, "POST, OPTIONS")
+			return
+		}
+		if !service.origins[origin] {
+			sendError(writer, 403, "origin_denied")
+			return
+		}
+		service.createPlaybackObservation(writer, request)
 		return
 	}
 	if route == grantRoute {
@@ -322,7 +335,7 @@ func routeTemplate(route string) string {
 	if strings.HasPrefix(route, grantRoute+"/") {
 		return grantRoute + "/{grantId}"
 	}
-	if route == grantRoute || route == healthPath || route == readinessPath {
+	if route == observationRoute || route == grantRoute || route == healthPath || route == readinessPath {
 		return route
 	}
 	return "unknown"
@@ -340,7 +353,7 @@ func (service *Service) preflight(writer http.ResponseWriter, request *http.Requ
 	}
 	method := request.Header.Get("Access-Control-Request-Method")
 	allowed := ""
-	if request.URL.Path == grantRoute {
+	if request.URL.Path == grantRoute || request.URL.Path == observationRoute {
 		allowed = "POST, OPTIONS"
 	} else if strings.HasPrefix(request.URL.Path, grantRoute+"/") {
 		parts := strings.Split(strings.TrimPrefix(request.URL.Path, grantRoute+"/"), "/")
@@ -374,6 +387,7 @@ func (service *Service) preflight(writer http.ResponseWriter, request *http.Requ
 			return
 		}
 	}
+	writer.Header().Set("Access-Control-Max-Age", "600")
 	writer.Header().Set("Access-Control-Allow-Methods", allowed)
 	writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Range")
 	writer.Header().Set("Vary", "Origin, Access-Control-Request-Method, Access-Control-Request-Headers")
