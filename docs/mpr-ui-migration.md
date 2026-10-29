@@ -16,7 +16,7 @@ The public pages load the CSS and JavaScript bundle with literal `@latest` URLs.
 
 ## Current Contract
 
-All 14 page entry points use one footer initializer.
+All public pages use one footer initializer.
 The initializer obtains project links from `MPRUI.getFooterSiteCatalog()`.
 It converts the catalog URLs to the current menu `href` field.
 The homepage and music pages retain the contact link from `data/site.json`.
@@ -25,10 +25,15 @@ The supporting pages retain their static footer placement and article links.
 The shared stylesheet hides the separate attribution prefix.
 The menu button retains that attribution.
 Consistent box sizing keeps footer padding within the page width.
-A footer has a theme control only when its initializer receives the `themeAttribute` option.
-The control uses an ordered light and dark cycle with the `tyemirov:theme` storage key.
-Other pages retain no picker.
-The shared component owns the theme state and color changes.
+Each page has one theme control at the right side of its header.
+The control uses the header `aux` slot.
+Each footer has an explicit `enabled: false` theme configuration before component initialization.
+The shared component owns the theme state.
+The `tyemirov:theme` storage key retains the light or dark choice.
+The page applies the saved choice before it loads stylesheets.
+Page visits, browser history, and other browser tabs retain the same choice.
+Each section supplies light and dark colors for its content, controls, and charts.
+Artwork images retain their original colors.
 
 The content catalog, gallery application, music player, and media service retain their existing contracts.
 The tracking pixel remains the first script in every affected page head.
@@ -79,10 +84,13 @@ Central I009 retains these activation steps:
 
 F001 retains its existing music production acceptance gates.
 
-## I006 Theme Control
+## Theme Control Validation
 
-The current footer uses the explicit `theme-control` contract.
+The header control uses the explicit `theme-control` contract.
 The browser helper selects one published shared-library version from `@latest`.
 It serves assets from that version and records their hashes.
 Central browser acceptance verified pointer selection, keyboard selection, and reload for each mode.
-Repository CI verifies the real pages, including pages without a theme control.
+Repository CI verifies the header control on each public page at phone and desktop widths.
+The artifact test examines every HTML file, including the School Atlas evidence pages and the error page.
+Browser tests verify page visits, browser history, keyboard use, and updates between browser tabs.
+Chromium also verifies the 3D background and canvas labels.
