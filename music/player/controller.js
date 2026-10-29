@@ -9,8 +9,9 @@ const LOST_ACCESS = new Set(["session_required", "grant_expired", "not_found"]);
 
 /** One controller owns the document's audio element, selected track, and queue. */
 export class PlayerController extends EventTarget {
-  constructor(audio, api, album) {
+  constructor(audio, api, album, timing) {
     super();
+    this.timing = timing;
     this.audio = audio;
     this.api = api;
     this.album = album;
@@ -35,7 +36,7 @@ export class PlayerController extends EventTarget {
     this.events = new AbortController();
     this.engine = createPlaybackEngine(audio, (error) => { void this.recover(error); });
     const on = (name, listener) => audio.addEventListener(name, listener, { signal: this.events.signal });
-    on("playing", () => { if (!audio.paused && this.phase !== "error" && this.phase !== "authorizing") this.setPhase("playing", "Playing."); });
+    on("playing", () => { if (!audio.paused && this.phase !== "error" && this.phase !== "authorizing") { this.timing.finish("playing"); this.setPhase("playing", "Playing."); } });
     on("pause", () => { if (["playing", "buffering"].includes(this.phase) && !audio.ended) this.setPhase("paused", "Paused."); });
     on("waiting", () => { if (this.phase === "playing") this.setPhase("buffering", "Loading audio."); });
     on("timeupdate", () => {
@@ -53,6 +54,7 @@ export class PlayerController extends EventTarget {
 
   changed() { this.dispatchEvent(new Event("change")); }
   setPhase(phase, message) {
+    if (phase === "playing") this.timing.finish("playing");
     if (phase === "playing" && this.phase !== "playing") this.stableSince = performance.now();
     this.phase = phase;
     this.message = message;
@@ -78,6 +80,7 @@ export class PlayerController extends EventTarget {
   }
 
   fail(error) {
+    this.timing.finish("error");
     this.savedPosition = this.audio.readyState >= 1 ? this.audio.currentTime : this.resumePosition;
     if (error?.retryAfter) this.blockedUntil = Math.max(this.blockedUntil, performance.now() + error.retryAfter * 1000);
     this.setPhase("error", error?.code === "track_unavailable" ? "This track is unavailable." : "Playback is unavailable. Try again.");
@@ -102,10 +105,12 @@ export class PlayerController extends EventTarget {
     if (track === this.track && this.phase === "paused") { await this.resume(); return; }
     this.replacements = 0;
     this.recoveryOwner = null;
+    this.timing.begin(track.id, "start");
     await this.start(track, 0);
   }
 
   async start(track, position) {
+    this.timing.authorize(track.id);
     const sequence = ++this.sequence;
     this.operation?.abort();
     this.operation = new AbortController();
@@ -122,17 +127,19 @@ export class PlayerController extends EventTarget {
     try {
       const grant = await this.api.create(track, signal);
       if (sequence !== this.sequence) return;
+      this.timing.mark("grantMs");
       this.grant = grant;
       this.setPhase("loading", "Loading audio.");
       await this.engine.load(grant.mediaUrl, position);
       if (sequence !== this.sequence) return;
+      this.timing.mark("readyMs");
       if (previous) void this.api.revoke(previous).catch((error) => console.warn("Previous playback grant cleanup failed.", error.code));
       await this.audio.play();
       if (sequence !== this.sequence) return;
       this.setPhase(this.audio.paused ? "paused" : "playing", this.audio.paused ? "Paused." : "Playing.");
     } catch (error) {
       if (sequence !== this.sequence || signal.aborted || this.phase === "error") return;
-      if (error.name === "NotAllowedError") this.setPhase("paused", "Press Play to start.");
+      if (error.name === "NotAllowedError") { this.timing.finish("error"); this.setPhase("paused", "Press Play to start."); }
       else await this.recover(error);
     }
   }
@@ -141,7 +148,11 @@ export class PlayerController extends EventTarget {
 
   async resume() {
     if (!this.track || !this.grant) return;
-    const sequence = this.sequence;
+    this.timing.begin(this.track.id, "resume");
+    this.renewing = false;
+    const sequence = ++this.sequence;
+    this.operation?.abort();
+    this.operation = new AbortController();
     const signal = this.operation.signal;
     this.setPhase("authorizing", "Preparing playback.");
     try {
@@ -153,17 +164,19 @@ export class PlayerController extends EventTarget {
         if (sequence !== this.sequence) return;
         this.grant = renewed;
       }
+      this.timing.mark("grantMs");
       if (this.sourceInvalid) {
         const position = this.resumePosition;
         await this.engine.load(this.grant.mediaUrl, position);
         if (sequence !== this.sequence) return;
         this.sourceInvalid = false;
+        this.timing.mark("readyMs");
       }
       await this.audio.play();
       if (sequence === this.sequence) this.setPhase(this.audio.paused ? "paused" : "playing", this.audio.paused ? "Paused." : "Playing.");
     } catch (error) {
       if (sequence !== this.sequence || signal.aborted) return;
-      if (error.name === "NotAllowedError") this.setPhase("paused", "Press Play to start.");
+      if (error.name === "NotAllowedError") { this.timing.finish("error"); this.setPhase("paused", "Press Play to start."); }
       else await this.recover(error);
     }
   }
@@ -218,6 +231,7 @@ export class PlayerController extends EventTarget {
     if (this.track && !this.retryDelay()) {
       this.replacements = 0;
       this.recoveryOwner = null;
+      this.timing.begin(this.track.id, "start");
       void this.start(this.track, this.savedPosition);
     }
   }
@@ -227,6 +241,7 @@ export class PlayerController extends EventTarget {
   next() { const index = this.queue.indexOf(this.track); if (index + 1 < this.queue.length) void this.select(this.queue[index + 1].id); }
 
   dispose() {
+    this.timing.finish("cancelled");
     this.sequence++;
     this.operation?.abort();
     this.events.abort();
