@@ -46,9 +46,6 @@ function formatPercent(numberValue) {
   return (numberValue * 100).toFixed(1) + "%";
 }
 
-function getCssVar(variableName) {
-  return getComputedStyle(document.documentElement).getPropertyValue(variableName).trim();
-}
 
 function tooltipShow(htmlValue, xPosition, yPosition) {
   const tooltip = document.getElementById("tooltip");
@@ -1608,8 +1605,8 @@ function renderConstraintsBarChart(modelResult) {
     .attr("transform", `translate(0,${plotHeight})`)
     .call(d3.axisBottom(xScale));
 
-  const barFill = "rgba(255,255,255,0.20)";
-  const barFillBind = "rgba(255,255,255,0.35)";
+  const barFill = "var(--chart-bar)";
+  const barFillBind = "var(--chart-bar-binding)";
 
   chartGroup
     .selectAll("rect.bar")
@@ -1628,13 +1625,13 @@ function renderConstraintsBarChart(modelResult) {
         (d.key === "Pipeline" && modelResult.bindingConstraint === "Expert pipeline");
       return isBinding ? barFillBind : barFill;
     })
-    .attr("stroke", "rgba(255,255,255,0.14)")
+    .attr("stroke", "var(--chart-line)")
     .on("mousemove", (event, d) => {
       const htmlValue =
         `<div class="mono"><b>${d.key}</b></div>` +
         `<div class="mono">Population required: ${formatInteger(d.value)}</div>` +
         `<div class="text-muted">Binding: ${modelResult.bindingConstraint}</div>` +
-        (isFeasible ? "" : `<div style="color:#ff9d9d">Configuration infeasible</div>`);
+        (isFeasible ? "" : `<div style="color:var(--failure-text)">Configuration infeasible</div>`);
       tooltipShow(htmlValue, event.clientX, event.clientY);
     })
     .on("mouseleave", () => tooltipHide());
@@ -1645,7 +1642,7 @@ function renderConstraintsBarChart(modelResult) {
     .attr("x2", plotWidth)
     .attr("y1", yScale(finalValue))
     .attr("y2", yScale(finalValue))
-    .attr("stroke", "rgba(255,255,255,0.55)")
+    .attr("stroke", "var(--chart-line)")
     .attr("stroke-width", 2)
     .attr("stroke-dasharray", "6,4");
 
@@ -1654,7 +1651,7 @@ function renderConstraintsBarChart(modelResult) {
     .attr("x", plotWidth)
     .attr("y", yScale(finalValue) - 8)
     .attr("text-anchor", "end")
-    .attr("fill", "rgba(255,255,255,0.78)")
+    .attr("fill", "var(--chart-text)")
     .attr("class", "mono")
     .style("font-size", "12px")
     .text("Final = " + (isFeasible ? formatInteger(finalValue) : "Infeasible"));
@@ -1687,10 +1684,10 @@ function renderStackedWorkforceChart(modelResult) {
     trainingStaff: "Training",
   };
   const segmentColors = {
-    opsPlusMaint: getCssVar("--seg-ops"),
-    capitalRenewalStaff: getCssVar("--seg-cap"),
-    expertPool: getCssVar("--seg-exp"),
-    trainingStaff: getCssVar("--seg-trn"),
+    opsPlusMaint: "var(--seg-ops)",
+    capitalRenewalStaff: "var(--seg-cap)",
+    expertPool: "var(--seg-exp)",
+    trainingStaff: "var(--seg-trn)",
   };
 
   const yScale = d3
@@ -1741,7 +1738,7 @@ function renderStackedWorkforceChart(modelResult) {
     .attr("width", (d) => Math.max(0, xScale(d.segmentValue[1]) - xScale(d.segmentValue[0])))
     .attr("height", yScale.bandwidth())
     .attr("rx", 4)
-    .attr("stroke", "rgba(255,255,255,0.10)")
+    .attr("stroke", "var(--chart-grid)")
     .on("mousemove", (event, d) => {
       const value = d.item[d.key] || 0;
       const htmlValue =
@@ -1760,7 +1757,7 @@ function renderStackedWorkforceChart(modelResult) {
     .append("text")
     .attr("class", "mono")
     .style("font-size", "11px")
-    .attr("fill", "rgba(255,255,255,0.68)")
+    .attr("fill", "var(--chart-muted)")
     .attr("x", (d) => xScale(d.coreTotal) + 6)
     .attr("y", (d) => yScale(d.name) + yScale.bandwidth() / 2 + 4)
     .text((d) => formatInteger(d.coreTotal));
@@ -1774,14 +1771,14 @@ function renderDependencyGraph(modelResult) {
   const width = svgNode.getBoundingClientRect().width;
   const height = svgNode.getBoundingClientRect().height;
 
-  const nodeActiveColor = getCssVar("--node-active");
-  const nodeDisabledColor = getCssVar("--node-disabled");
-  const nodeInfeasibleColor = getCssVar("--node-infeasible");
-  const nodeHighlightColor = getCssVar("--node-highlight");
+  const nodeActiveColor = "var(--node-active)";
+  const nodeDisabledColor = "var(--node-disabled)";
+  const nodeInfeasibleColor = "var(--node-infeasible)";
+  const nodeHighlightColor = "var(--node-highlight)";
 
-  const linkColor = getCssVar("--link");
-  const linkDisabledColor = getCssVar("--link-disabled");
-  const linkBadColor = getCssVar("--link-bad");
+  const linkColor = "var(--link)";
+  const linkDisabledColor = "var(--link-disabled)";
+  const linkBadColor = "var(--link-bad)";
 
   const nodes = state.domains.map((domain) => {
     const computed = modelResult.domainResults.find((item) => item.key === domain.key) || null;
@@ -1843,7 +1840,7 @@ function renderDependencyGraph(modelResult) {
     .attr("orient", "auto")
     .append("path")
     .attr("d", "M0,-5L10,0L0,5")
-    .attr("fill", "rgba(255,255,255,0.45)");
+    .attr("fill", "var(--chart-line)");
 
   defs
     .append("marker")
@@ -1856,7 +1853,7 @@ function renderDependencyGraph(modelResult) {
     .attr("orient", "auto")
     .append("path")
     .attr("d", "M0,-5L10,0L0,5")
-    .attr("fill", "rgba(255,90,90,0.60)");
+    .attr("fill", "var(--failure-text)");
 
   const zoomBehavior = d3
     .zoom()
@@ -1938,7 +1935,7 @@ function renderDependencyGraph(modelResult) {
     })
     .attr("stroke", (d) => {
       const isTop = d.id === modelResult.topCoreDriverKey || d.id === modelResult.pipelineDriverKey;
-      return isTop ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.18)";
+      return isTop ? "var(--chart-line)" : "var(--chart-grid)";
     })
     .attr("stroke-width", (d) => {
       const base = d.enabled && Number.isFinite(d.pipelinePop) && d.pipelinePop > 0 ? strokeScale(Math.max(1, d.pipelinePop)) : 1.2;
@@ -1973,7 +1970,7 @@ function renderDependencyGraph(modelResult) {
     .append("text")
     .attr("text-anchor", "middle")
     .attr("dy", 4)
-    .attr("fill", "rgba(255,255,255,0.82)")
+    .attr("fill", "var(--chart-text)")
     .style("font-size", "11px")
     .style("pointer-events", "none")
     .text((d) => d.id);
