@@ -18,6 +18,7 @@ trap cleanup EXIT
 GALLERY_TAUTH_SIGNING_KEY=gallery-ci-fixture-signing-key-not-for-production
 GALLERY_GOOGLE_WEB_CLIENT_ID=fixture.apps.googleusercontent.com
 DEPLOY_SUDO_PASSWORD_TUTOSH=ci-fixture-sudo-not-for-production
+DEPLOY_SUDO_PASSWORD_COMPUTERCAT=ci-fixture-compute-sudo-not-for-production
 MPRLAB_TAUTH_MANAGEMENT_URL=http://127.0.0.1:9
 MPRLAB_TAUTH_PROVISIONING_CREDENTIALS='{"tyemirov-site":{"gallery-auth":"tauthp_fixture"}}'
 ENVIRONMENT

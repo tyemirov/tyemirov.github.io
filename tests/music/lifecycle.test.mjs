@@ -117,7 +117,7 @@ describe("the selected application Gateway contract", { concurrency: false }, ()
       catch (error) { if (error.code !== "ENOENT") throw error; }
     }
     await initialize(application, join(directory, "application-origin.git"), "git@github.com:tyemirov/tyemirov.github.io.git");
-    await writeFile(join(application, ".mprlab/deploy/.env"), `GALLERY_TAUTH_SIGNING_KEY=${gallerySigningFixture}\nGALLERY_GOOGLE_WEB_CLIENT_ID=fixture.apps.googleusercontent.com\nDEPLOY_SUDO_PASSWORD_TUTOSH=lifecycle-fixture-sudo-not-for-production\nMPRLAB_TAUTH_MANAGEMENT_URL=http://127.0.0.1:9\nMPRLAB_TAUTH_PROVISIONING_CREDENTIALS='{"tyemirov-site":{"gallery-auth":"tauthp_fixture"}}'\n`);
+    await writeFile(join(application, ".mprlab/deploy/.env"), `GALLERY_TAUTH_SIGNING_KEY=${gallerySigningFixture}\nGALLERY_GOOGLE_WEB_CLIENT_ID=fixture.apps.googleusercontent.com\nDEPLOY_SUDO_PASSWORD_TUTOSH=lifecycle-fixture-sudo-not-for-production\nDEPLOY_SUDO_PASSWORD_COMPUTERCAT=lifecycle-fixture-compute-sudo-not-for-production\nMPRLAB_TAUTH_MANAGEMENT_URL=http://127.0.0.1:9\nMPRLAB_TAUTH_PROVISIONING_CREDENTIALS='{"tyemirov-site":{"gallery-auth":"tauthp_fixture"}}'\n`);
   }, { timeout: 360000 });
 
   test("all public lifecycle commands reject non-default source and a missing runtime", { timeout: 360000 }, () => {
