@@ -171,7 +171,7 @@ describe("the selected application Gateway contract", { concurrency: false }, ()
       assert.match(output, new RegExp(`MPRLAB_APP_LIFECYCLE_END entrypoint=plan operation=${phase} status=${phase === "release" ? 0 : 2}`));
       if (phase === "deploy") {
         assert.ok(!output.includes(gallerySigningFixture), "lifecycle output must exclude the gallery signing key");
-        for (const resource of ["gallery", "gallery-http", "api-route", "gallery-public", "gallery-auth"]) {
+        for (const resource of ["api-route", "gallery", "gateway-private-inputs", "music", "website"]) {
           assert.ok(output.includes(`item=${resource})`), `Gateway must validate ${resource}.`);
         }
       }

@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := ci
 PAGES_DIST_DIR ?= $(CURDIR)/.pages-dist
-MPRLAB_GATEWAY_CI_VERSION := v7.0.3
+MPRLAB_GATEWAY_CI_VERSION := v8.0.1
 MUSIC_CI_TARGET ?= ci
 ANSIBLE_PLAYBOOK ?= $(abspath ../mprlab-gateway/.venv/bin/ansible-playbook)
 ANSIBLE_INVENTORY_BIN ?= $(abspath ../mprlab-gateway/.venv/bin/ansible-inventory)
