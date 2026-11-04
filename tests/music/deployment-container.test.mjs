@@ -11,10 +11,13 @@ const success = (result) => { assert.equal(result.status, 0, result.stderr + res
 
 test("the declared music image serves every recording without a volume after container replacement", { timeout: 360000 }, async () => {
   const manifest = load(await readFile(".mprlab/deploy/resources.yml", "utf8")).mprlab_resources;
-  const project = manifest.resources.music;
-  const service = project.services.stream;
+  const project = manifest.targets.docker_compose.projects.find(({ id }) => id === "music");
+  const service = project.services.find(({ id }) => id === "stream");
   assert.equal(service.mounts, undefined, "The production service must use the audio in its image.");
-  const build = project.images[service.image].build;
+  const publication = manifest.publications.ghcr.images.find(({ id }) => id === service.image.publication);
+  const build = manifest.artifacts.container_images.find(({ id }) => id === publication.artifact).build;
+  const readiness = service.endpoints.find(({ id }) => id === service.readiness.endpoint);
+  assert.ok(Array.isArray(service.command), "Container commands must remain ordered lists.");
   const image = `music-deployment:b010-${process.pid}`;
   const name = `music-deployment-b010-${process.pid}`;
   const site = publishCatalog(validateSourceCatalog(JSON.parse(await readFile("data/site.json", "utf8"))));
@@ -24,7 +27,7 @@ test("the declared music image serves every recording without a volume after con
   try {
     success(run(["build", "-q", "--platform", [...build.platforms].sort()[0], "-t", image, "-f", build.dockerfile, build.context]));
     for (let attempt = 0; attempt < 2; attempt++) {
-      success(run(["run", "-d", "--name", name, "--read-only", "-p", `127.0.0.1::${service.readiness.port}`, image, ...Object.keys(service.command).sort((left, right) => Number(left) - Number(right)).map(position => service.command[position])]));
+      success(run(["run", "-d", "--name", name, "--read-only", "-p", `127.0.0.1::${readiness.endpoint.port}`, image, ...service.command]));
       const deadline = performance.now() + 10000;
       while (true) {
         const logs = run(["logs", name]);
@@ -34,10 +37,10 @@ test("the declared music image serves every recording without a volume after con
         assert.ok(performance.now() < deadline, output);
         await new Promise(resolve => setTimeout(resolve, 100));
       }
-      const port = success(run(["port", name, `${service.readiness.port}/tcp`])).split(":").at(-1);
+      const port = success(run(["port", name, `${readiness.endpoint.port}/tcp`])).split(":").at(-1);
       const origin = `http://127.0.0.1:${port}`;
-      const response = await fetch(origin + service.readiness.path, { signal: AbortSignal.timeout(5000) });
-      assert.equal(response.status, service.readiness.expected_status);
+      const response = await fetch(origin + readiness.health.path, { signal: AbortSignal.timeout(5000) });
+      assert.equal(response.status, readiness.health.expected_status);
       for (const track of tracks) {
         const response = await fetch(origin + "/music/playback-grants", { method: "POST", headers: { Origin: "https://tyemirov.net", "Content-Type": "application/json" }, body: JSON.stringify({ trackId: track.id }) });
         assert.equal(response.status, 201, `Create grant for ${track.id}`);
