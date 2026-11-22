@@ -6,7 +6,7 @@ require (
 	github.com/golang-jwt/jwt/v5 v5.3.1
 	github.com/google/uuid v1.6.0
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
-	github.com/tyemirov/pinguin v1.0.4
+	github.com/tyemirov/pingwin v1.1.14
 	github.com/tyemirov/tauth v1.2.7
 	golang.org/x/image v0.46.0
 	google.golang.org/grpc v1.83.0

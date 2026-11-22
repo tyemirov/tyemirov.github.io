@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tyemirov/pinguin/pkg/grpcapi"
+	"github.com/tyemirov/pingwin/pkg/grpcapi"
 	gallery "github.com/tyemirov/tyemirov.github.io/services/gallery"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"

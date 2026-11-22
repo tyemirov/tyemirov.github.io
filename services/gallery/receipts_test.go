@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tyemirov/pinguin/pkg/grpcapi"
+	"github.com/tyemirov/pingwin/pkg/grpcapi"
 	gallery "github.com/tyemirov/tyemirov.github.io/services/gallery"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
@@ -39,7 +39,9 @@ func newReceiptSink(t *testing.T) (*receiptSink, *gallery.ReceiptConfig) {
 	}
 	sink := &receiptSink{state: grpcapi.Status_QUEUED, changed: make(chan struct{}, 100)}
 	server := grpc.NewServer()
-	grpcapi.RegisterNotificationServiceServer(server, sink)
+	serviceDescriptor := grpcapi.NotificationService_ServiceDesc
+	serviceDescriptor.ServiceName = "pingwin.NotificationService"
+	server.RegisterService(&serviceDescriptor, sink)
 	go func() {
 		if err := server.Serve(listener); err != nil {
 			t.Error(err)
