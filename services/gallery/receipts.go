@@ -9,8 +9,8 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	pinguinclient "github.com/tyemirov/pinguin/pkg/client"
-	"github.com/tyemirov/pinguin/pkg/grpcapi"
+	pinguinclient "github.com/tyemirov/pingwin/pkg/client"
+	"github.com/tyemirov/pingwin/pkg/grpcapi"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/metadata"
